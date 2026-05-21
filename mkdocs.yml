@@ -1,0 +1,175 @@
+site_name: Angelus-H's Athenaeum
+site_url: https://angelus-h.github.io/compendium/
+site_author: Angelus-H
+site_description: Iter meum, opus vestra - A curated collection of engineering knowledge and technical insights
+
+# Repository
+repo_name: angelus-h/compendium
+repo_url: https://github.com/angelus-h/compendium
+
+theme:
+  name: material
+
+  # Logo and favicon
+  logo: assets/angel.jpg
+  favicon: assets/angel.jpg
+
+  # Elegant color palette (dark/light mode)
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Dark mode (SPRE-NOTES inspired)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: deep orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  # Features (professional documentation site)
+  features:
+    - navigation.instant       # Fast navigation without page reload
+    - navigation.tracking      # URL updates as you scroll
+    - navigation.tabs          # Top-level tabs
+    - navigation.tabs.sticky   # Tabs stay visible when scrolling
+    - navigation.sections      # Group navigation items
+    - navigation.expand        # Expand all sections by default
+    - navigation.top           # Back to top button
+    - navigation.footer        # Next/previous page footer
+    - search.suggest           # Search suggestions as you type
+    - search.highlight         # Highlight search results
+    - search.share            # Share search results link
+    - content.code.copy       # Copy code block button
+    - content.code.annotate   # Code annotations support
+    - content.tabs.link       # Link tabbed content
+    - toc.follow              # TOC follows scroll position
+    - toc.integrate           # Integrate TOC with navigation
+
+  # Logo and favicon (optional - can be added later)
+  # logo: assets/logo.png
+  # favicon: assets/favicon.ico
+
+  # Elegant serif font combination (classic, book-like)
+  font:
+    text: Crimson Text
+    code: Roboto Mono
+
+  # Icon (Material Design)
+  icon:
+    repo: fontawesome/brands/github
+
+# Navigation structure
+nav:
+  - Home: index.md
+
+  - Technologies:
+      - Python for SRE:
+          - Interview Preparation: learning/python/sre-interview-prep.md
+          - Quick Reference: learning/python/quick-reference.md
+      - Bash for SRE:
+          - Interview Preparation: learning/bash/sre-interview-prep.md
+
+  - About: about.md
+
+# Markdown extensions (comprehensive support)
+markdown_extensions:
+  # Code highlighting and syntax
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+
+  # Tabbed content
+  - pymdownx.tabbed:
+      alternate_style: true
+
+  # Admonitions (note, warning, tip, danger boxes)
+  - admonition
+  - pymdownx.details
+
+  # Icons and emojis
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+  # Lists and task lists
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+  # Text formatting
+  - pymdownx.mark        # ==highlight==
+  - pymdownx.caret       # ^^underline^^
+  - pymdownx.tilde       # ~~strikethrough~~
+  - pymdownx.keys        # ++ctrl+alt+del++
+
+  # Tables
+  - tables
+
+  # Footnotes
+  - footnotes
+
+  # Metadata
+  - meta
+
+  # Abbreviations
+  - abbr
+  - attr_list
+  - md_in_html
+
+  # Table of contents
+  - toc:
+      permalink: false
+      toc_depth: 3
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+  - tags:
+      tags_file: tags.md
+
+# Extra configuration
+extra:
+  # Social links
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/angelus-h
+      name: Angelus-H on GitHub
+
+  # Generator notice (MkDocs attribution)
+  generator: true
+
+  # Analytics (optional - can be added later)
+  # analytics:
+  #   provider: google
+  #   property: G-XXXXXXXXXX
+
+# Footer copyright
+copyright: >
+  Copyright &copy; 2025 Angelus-H's Athenaeum<br>
+  <small>Engineering insights and learning resources for the infrastructure community</small>
+
+# Custom CSS
+extra_css:
+  - stylesheets/extra.css
+
+# Custom JavaScript (optional)
+# extra_javascript:
+#   - javascripts/extra.js

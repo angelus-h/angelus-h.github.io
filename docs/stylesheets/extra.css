@@ -1,0 +1,235 @@
+/* Version: 2.0 - Force cache refresh */
+
+/* Logo size and circular shape (like GitHub avatar) */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  /* Elegant silver decoration */
+  border: 4px solid rgba(192, 192, 192, 0.9);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4),
+              0 0 0 2px rgba(192, 192, 192, 0.4) inset,
+              0 0 16px rgba(192, 192, 192, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Hover effect - silver glow */
+.md-header__button.md-logo img:hover,
+.md-header__button.md-logo svg:hover {
+  border-color: rgba(220, 220, 220, 1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(192, 192, 192, 0.6),
+              0 0 0 2px rgba(220, 220, 220, 0.6) inset;
+  transform: scale(1.08);
+}
+
+/* Logo container padding */
+.md-header__button.md-logo {
+  padding: 0.2rem;
+}
+
+/* Site name (Angelus-H's Athenaeum) - larger font */
+.md-header__title {
+  font-size: 2.2rem !important;
+  font-weight: 300 !important;
+}
+
+.md-header__ellipsis {
+  font-size: 2.2rem !important;
+  font-weight: 300 !important;
+}
+
+.md-header__topic {
+  font-size: 2.2rem !important;
+  font-weight: 300 !important;
+}
+
+/* Navigation sidebar - larger font */
+.md-nav__link {
+  font-size: 1.1rem !important;
+}
+
+.md-nav__item {
+  font-size: 1.1rem !important;
+}
+
+/* Link colors: content gray default, red on hover */
+/* Primary links */
+a {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+a:hover {
+  color: #c41e3a !important;
+}
+
+/* Dark mode links */
+[data-md-color-scheme="slate"] a {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+[data-md-color-scheme="slate"] a:hover {
+  color: #c41e3a !important;
+}
+
+/* Sidebar navigation links - same gray as main content */
+.md-nav__link,
+.md-nav--primary .md-nav__link,
+.md-nav--secondary .md-nav__link {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.md-nav__link--active,
+.md-nav--primary .md-nav__link--active {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.md-nav__link:hover,
+.md-nav--primary .md-nav__link:hover {
+  color: #c41e3a !important;
+}
+
+/* Dark mode - lighter gray for sidebar */
+[data-md-color-scheme="slate"] .md-nav__link,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__link,
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__link {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__link--active {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__link:hover {
+  color: #c41e3a !important;
+}
+
+/* Sidebar section titles (Python for SRE, Bash for SRE) */
+.md-nav__title,
+.md-nav--primary .md-nav__title {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__title,
+[data-md-color-scheme="slate"] .md-nav--primary .md-nav__title {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* Nested navigation items (Technologies, Python for SRE, etc.) */
+.md-nav__item--nested > .md-nav__link,
+.md-nav__item > .md-nav__link {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.md-nav__item--nested > .md-nav__link:hover,
+.md-nav__item > .md-nav__link:hover {
+  color: #c41e3a !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__item--nested > .md-nav__link,
+[data-md-color-scheme="slate"] .md-nav__item > .md-nav__link {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* FORCE all sidebar text to gray - maximum specificity */
+.md-sidebar .md-nav__link,
+.md-sidebar .md-nav__item .md-nav__link,
+.md-sidebar .md-nav__item--nested > .md-nav__link,
+.md-sidebar .md-nav--primary .md-nav__link,
+.md-sidebar .md-nav--secondary .md-nav__link,
+.md-sidebar__scrollwrap .md-nav__link {
+  color: rgba(0, 0, 0, 0.87) !important;
+  font-weight: normal !important;
+}
+
+.md-sidebar .md-nav__link:hover {
+  color: #c41e3a !important;
+}
+
+[data-md-color-scheme="slate"] .md-sidebar .md-nav__link,
+[data-md-color-scheme="slate"] .md-sidebar .md-nav__item .md-nav__link,
+[data-md-color-scheme="slate"] .md-sidebar .md-nav__item--nested > .md-nav__link {
+  color: rgba(255, 255, 255, 0.87) !important;
+}
+
+/* Header tabs - white/light gray, larger font */
+.md-tabs__link {
+  color: #f5f5f5 !important;
+  font-size: 1.1rem !important;
+}
+
+.md-tabs__link--active {
+  color: #ffffff !important;
+}
+
+.md-tabs__link:hover {
+  color: #c41e3a !important;
+}
+
+/* GitHub repo link - white */
+.md-source {
+  color: #ffffff !important;
+}
+
+.md-source:hover {
+  color: #c41e3a !important;
+}
+
+.md-source__repository {
+  color: #ffffff !important;
+}
+
+.md-source:hover .md-source__repository {
+  color: #c41e3a !important;
+}
+
+/* Search highlights */
+.md-search-result__article--document:hover {
+  background-color: rgba(196, 30, 58, 0.1) !important;
+}
+
+/* Code copy button */
+.md-clipboard {
+  color: rgba(0, 0, 0, 0.54) !important;
+}
+
+.md-clipboard:hover {
+  color: #c41e3a !important;
+}
+
+[data-md-color-scheme="slate"] .md-clipboard {
+  color: rgba(255, 255, 255, 0.54) !important;
+}
+
+/* Back to top button */
+.md-top {
+  background-color: rgba(0, 0, 0, 0.54) !important;
+}
+
+.md-top:hover {
+  background-color: #c41e3a !important;
+}
+
+[data-md-color-scheme="slate"] .md-top {
+  background-color: rgba(255, 255, 255, 0.54) !important;
+}
+
+/* Admonition boxes - change blue info/note to neutral gray */
+.md-typeset .admonition.note,
+.md-typeset .admonition.info {
+  border-color: #666 !important;
+}
+
+.md-typeset .admonition.note > .admonition-title,
+.md-typeset .admonition.info > .admonition-title {
+  background-color: rgba(102, 102, 102, 0.1) !important;
+}
+
+.md-typeset .admonition.note > .admonition-title::before,
+.md-typeset .admonition.info > .admonition-title::before {
+  background-color: #666 !important;
+}

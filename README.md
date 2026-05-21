@@ -1,6 +1,6 @@
 # Angelus-H's Athenaeum
 
-**Iter meum, opus vestra** - My Journey Your Resource
+**Iter meum vobis subsidium sit!** - My Journey Your Aid
 
 A professional documentation site built with MkDocs Material, featuring engineering insights and learning resources for SRE professionals.
 

@@ -1,4 +1,4 @@
-# Discipuli sodales! Vos saluto! Iter meum, opus vestra.
+# Discipuli sodales, vos saluto! Iter meum vobis subsidium sit!
 
 !!! note "Personal Project - Built for Myself"
     **I created this for myself** - to organize my learning, document my knowledge, and advance my career. 

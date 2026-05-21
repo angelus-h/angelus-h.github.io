@@ -1,11 +1,11 @@
 site_name: Angelus-H's Athenaeum
-site_url: https://angelus-h.github.io/compendium/
+site_url: https://angelus-h.github.io/
 site_author: Angelus-H
-site_description: Iter meum, opus vestra - A curated collection of engineering knowledge and technical insights
+site_description: Iter meum vobis subsidium sit - A curated collection of engineering knowledge and technical insights
 
 # Repository
-repo_name: angelus-h/compendium
-repo_url: https://github.com/angelus-h/compendium
+repo_name: angelus-h/angelus-h.github.io
+repo_url: https://github.com/angelus-h/angelus-h.github.io
 
 theme:
   name: material

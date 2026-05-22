@@ -4,7 +4,7 @@
 
 A professional documentation site built with MkDocs Material, featuring engineering insights and learning resources for SRE professionals.
 
-🌐 **Live Site:** https://angelus-h.github.io/compendium/
+🌐 **Live Site:** https://angelus-h.github.io/
 
 ---
 

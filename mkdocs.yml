@@ -71,11 +71,29 @@ nav:
   - Home: index.md
 
   - Technologies:
-      - Python for SRE:
-          - Interview Preparation: learning/python/sre-interview-prep.md
-          - Quick Reference: learning/python/quick-reference.md
-      - Bash for SRE:
-          - Interview Preparation: learning/bash/sre-interview-prep.md
+      - Programming:
+          - Python:
+              - SRE Interview Preparation: learning/python/sre-interview-prep.md
+              - UV Package Manager: learning/python/uv-package-manager-en.md
+              - Development Tools: learning/python/dev-tools.md
+          - Bash:
+              - Interview Preparation: learning/bash/sre-interview-prep.md
+          - Sed:
+              - Quick Reference: learning/bash/sed-quick-reference.md
+          - Awk:
+              - Quick Reference: learning/bash/awk-quick-reference.md
+      - AI & Automation:
+          - LLM Architecture:
+              - Technical Deep Dive: learning/ai/technical-deep-dive.md
+          - Cursor IDE:
+              - Usage Guide: learning/ai/cursor-ide-guide.md
+          - Productivity:
+              - Cost Optimization: learning/ai/productivity-optimization.md
+      - DevOps Tools:
+          - Terraform:
+              - Practice Guide: learning/devops/terraform-guide.md
+          - Kustomize:
+              - Guide & Reference: learning/devops/kustomize-guide.md
 
   - About: about.md
 

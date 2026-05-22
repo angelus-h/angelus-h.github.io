@@ -1,4 +1,38 @@
-/* Version: 2.0 - Force cache refresh */
+/* Version: 2.2 - Category colors */
+
+/* ===================================================================
+   NAVIGATION CATEGORY COLORS
+   =================================================================== */
+
+/* Programming - Blue */
+.md-nav__link[title="Programming"] {
+  color: #1976d2 !important;
+  font-weight: 600 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link[title="Programming"] {
+  color: #64b5f6 !important;
+}
+
+/* AI & Automation - Purple */
+.md-nav__link[title="AI & Automation"] {
+  color: #7b1fa2 !important;
+  font-weight: 600 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link[title="AI & Automation"] {
+  color: #ba68c8 !important;
+}
+
+/* DevOps Tools - Green */
+.md-nav__link[title="DevOps Tools"] {
+  color: #388e3c !important;
+  font-weight: 600 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link[title="DevOps Tools"] {
+  color: #81c784 !important;
+}
 
 /* Logo size and circular shape (like GitHub avatar) */
 .md-header__button.md-logo img,

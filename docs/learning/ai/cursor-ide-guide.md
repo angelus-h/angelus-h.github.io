@@ -670,8 +670,8 @@ Create `~/.cursor/mcp_servers.json`:
         "main.py"
       ],
       "env": {
-        "JIRA_URL": "https://issues.redhat.com",
-        "JIRA_EMAIL": "mgreczi@redhat.com",
+        "JIRA_URL": "https://your-company.atlassian.net",
+        "JIRA_EMAIL": "your.email@company.com",
         "JIRA_TOKEN": "${JIRA_API_TOKEN}"
       }
     },
@@ -1009,7 +1009,6 @@ AI: I found several issues:
 ## Related Documentation
 
 **Internal:**
-- [Claude Code Installation Guide](Claude_Code_Installation_Guide.md)
 - [Effective Jira Workflow with MCP](Effective_Jira_Workflow_with_MCP_Servers.md)
 - [Using Claude Effectively](Using_Claude_Effectively.md)
 

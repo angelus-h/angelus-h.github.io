@@ -41,7 +41,7 @@ theme:
     - navigation.tabs          # Top-level tabs
     - navigation.tabs.sticky   # Tabs stay visible when scrolling
     - navigation.sections      # Group navigation items
-    - navigation.expand        # Expand all sections by default
+    # - navigation.expand      # Expand all sections by default (DISABLED - sections collapsed on load)
     - navigation.top           # Back to top button
     - navigation.footer        # Next/previous page footer
     - search.suggest           # Search suggestions as you type
@@ -89,11 +89,114 @@ nav:
               - Usage Guide: learning/ai/cursor-ide-guide.md
           - Productivity:
               - Cost Optimization: learning/ai/productivity-optimization.md
+          - AI Best Practices:
+              - Effective & Responsible Use: learning/ai/AI_Effective_Responsible_Use_Guide.md
+          - Using Claude:
+              - Effectively: learning/ai/Using_Claude_Effectively.md
       - DevOps Tools:
           - Terraform:
               - Practice Guide: learning/devops/terraform-guide.md
           - Kustomize:
               - Guide & Reference: learning/devops/kustomize-guide.md
+          - HashiCorp Vault:
+              - Quick Reference: learning/devops/HashiCorp_Vault_Learning_Plan.md
+      - Monitoring & Observability:
+          - Prometheus:
+              - Quick Reference: learning/monitoring/Prometheus_Learning_Plan_EN.md
+          - PromQL:
+              - Quick Reference: learning/monitoring/PromQL_Learning_Plan_EN.md
+          - Grafana & Loki:
+              - Workshop Quick Reference: learning/monitoring/Grafana_Loki_Workshop_Quick_Reference_EN.md
+          - OpenTelemetry:
+              - Collector Guide: learning/monitoring/OpenTelemetry_Collector_Guide_EN.md
+      - Cloud Platforms:
+          - AWS:
+              - Quick Reference: learning/cloud/AWS_Learning_Plan.md
+          - GCP:
+              - Quick Reference: learning/cloud/GCP_Learning_Plan.md
+          - IBM Cloud:
+              - Quick Reference: learning/cloud/IBM_Cloud_Learning_Plan.md
+          - Kubernetes:
+              - Lab (K3s): learning/cloud/Kubernetes_Lab_K3s.md
+      - Databases:
+          - PostgreSQL:
+              - Quick Reference: learning/databases/PostgreSQL_Learning_Plan.md
+          - MongoDB:
+              - Quick Reference: learning/databases/MongoDB_Learning_Plan.md
+          - Redis:
+              - Quick Reference: learning/databases/Redis_Learning_Plan.md
+          - GraphQL:
+              - Quick Reference: learning/databases/GraphQL_Learning_Plan_EN.md
+      - Streaming & Messaging:
+          - Apache Kafka:
+              - Quick Reference: learning/streaming/Apache_Kafka_Quick_Reference.md
+          - RabbitMQ:
+              - Overview: learning/streaming/RabbitMQ_Overview.md
+
+  - Practices:
+      - Overview: practices/index.md
+      # Operations: Incident Management, Change Management, On-Call
+      # Development Workflows: Git, Code Review
+      # Career Development: Interview Prep, Resume, Networking
+
+  - Resources:
+      - Overview: resources/index.md
+      - Technical Writing:
+          - Quick Reference: learning/technical-writing/Technical_Writing_Quick_Reference.md
+          - LaTeX:
+              - Quick Reference: learning/technical-writing/LaTeX_Learning_Plan.md
+          - Mermaid Diagrams:
+              - Quick Reference: learning/technical-writing/Mermaid_Diagrams_Learning_Plan.md
+          - Pandoc:
+              - Guide & Reference: learning/technical-writing/Pandoc_Guide_and_Reference.md
+          - Markdown:
+              - Reference: learning/technical-writing/Markdown_Reference.md
+          - Marp:
+              - Presentations Guide: learning/technical-writing/Marp_Markdown_Presentations_Guide.md
+          - MkDocs:
+              - Static Site Guide: learning/technical-writing/MkDocs_GitLab_Pages_Guide.md
+      - Command-Line Tools:
+          - Vim:
+              - Quick Reference: learning/command-line/Vim_Quick_Reference.md
+          - Bash Readline:
+              - Quick Reference: learning/command-line/Bash_Readline_Quick_Reference.md
+          - tmux:
+              - Quick Reference: learning/command-line/tmux_Quick_Reference.md
+          - screen:
+              - Quick Reference: learning/command-line/screen_Quick_Reference.md
+          - OpenSSL:
+              - Quick Reference: learning/command-line/OpenSSL_Quick_Reference.md
+          - GPG:
+              - Quick Reference: learning/command-line/GPG_Quick_Reference.md
+      # Quick References: Cheat Sheets
+      # Templates & Snippets: Reusable code
+      # Troubleshooting Guides: Common solutions
+      # Command Collections: Useful commands
+
+  - Atelier:
+      - Overview: atelier/index.md
+      - Photography:
+          - RawTherapee Migration Guide: atelier/photography/RawTherapee_Migration_Guide.md
+          - SilverFast Professional Guide: atelier/photography/SilverFast_Professional_Guide.md
+          - Fujica GL690/GM670 Complete Manual: atelier/photography/Fujica_GL690_GM670_Complete_Manual.md
+          - Fujica GL690/GM670 Lens Reference: atelier/photography/Fujica_GL690_GM670_Lens_Reference.md
+          - Historical Photography Processes: atelier/photography/Historical_Photography_Processes_Lexicon.md
+          - Depth of Field Field Guide: atelier/photography/Depth_of_Field_Field_Guide.md
+          - Photography Filter Reference: atelier/photography/Photography_Filter_Reference.md
+          - Film Stock Reference Guide: atelier/photography/Film_Stock_Reference_Guide.md
+      # Printmaking & Crafts: Alternative Processes
+      # Fine Art: Composition, Color Theory
+      # Tools & Materials: Cameras, Chemicals, Studio
+
+  - Self-Discovery:
+      - Overview: self-discovery/index.md
+      # Reflections & Journal
+      # Personal Growth
+      # Values & Principles
+      # Life Lessons
+      # Reading & Inspirations
+      # Goals & Aspirations
+      # Mindfulness & Practice
 
   - About: about.md
 

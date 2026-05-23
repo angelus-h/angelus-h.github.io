@@ -290,7 +290,7 @@ name = "my-awesome-project"
 version = "0.1.0"
 description = "A brief description"
 authors = [
-    { name = "Miklos Greczi", email = "mgreczi@redhat.com" }
+    { name = "Miklos Greczi", email = "developer@company.com" }
 ]
 readme = "README.md"
 requires-python = ">=3.10"
@@ -960,7 +960,7 @@ uv run ruff check .
 # pyproject.toml
 [[tool.uv.index]]
 name = "redhat-internal"
-url = "https://pypi.corp.redhat.com/simple"
+url = "https://pypi.internal.company.com/simple"
 default = false
 
 [[tool.uv.index]]
@@ -971,7 +971,7 @@ default = true
 
 **Environment variables:**
 ```bash
-export UV_INDEX_URL="https://pypi.corp.redhat.com/simple"
+export UV_INDEX_URL="https://pypi.internal.company.com/simple"
 export UV_EXTRA_INDEX_URL="https://pypi.org/simple"
 ```
 
@@ -1227,8 +1227,8 @@ uv run mypy src/
 cd ~/repos/jira-mcp-server
 
 # Environment variables
-export JIRA_URL="https://issues.redhat.com"
-export JIRA_EMAIL="mgreczi@redhat.com"
+export JIRA_URL="https://jira.company.com"
+export JIRA_EMAIL="developer@company.com"
 export JIRA_TOKEN="$JIRA_API_TOKEN"
 export PYTHONUNBUFFERED=1
 
@@ -1244,7 +1244,7 @@ cat ~/.config/Claude/claude_desktop_config.json
 **Optimized Dockerfile with uv:**
 ```dockerfile
 # Lumino MCP Server Dockerfile example
-FROM registry.access.redhat.com/ubi9/python-312:latest AS builder
+FROM registry.company.com/ubi9/python-312:latest AS builder
 
 USER root
 
@@ -1263,7 +1263,7 @@ RUN uv sync --frozen --no-dev
 COPY src/ ./src/
 
 # Runtime stage
-FROM registry.access.redhat.com/ubi9/python-312:latest
+FROM registry.company.com/ubi9/python-312:latest
 
 WORKDIR /app
 

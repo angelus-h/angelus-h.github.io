@@ -15,9 +15,38 @@
 
 Comprehensive, hands-on learning resources designed for practical skill development:
 
+**Programming:**
 - **[Python for SRE](learning/python/sre-interview-prep.md)** - Interview preparation and operational scripting
+- **[Python Development Tools](learning/python/dev-tools.md)** - Black, Ruff, mypy, pytest, pre-commit
 
-Additional technology guides coming soon: HashiCorp Vault, Claude AI, Windows Administration, and more.
+**Operating Systems:**
+- **Windows Administration** - PowerShell scripting, system administration
+- **Linux Administration** - System management, security, automation
+
+**DevOps & Cloud:**
+- **HashiCorp Vault** - Secrets management
+- **Kubernetes & Observability** - Prometheus, Grafana, OpenTelemetry
+- **Cloud Platforms** - AWS, GCP, IBM Cloud
+
+**AI & Automation:**
+- **Claude AI** - Effective usage and best practices
+- **Cursor IDE** - AI-assisted development
+
+### Resources
+
+Documentation, writing, and essential command-line reference materials:
+
+**Technical Writing:**
+- **[Technical Writing Quick Reference](learning/technical-writing/Technical_Writing_Quick_Reference.md)** - Best practices, style guides, templates
+- **Documentation Tools** - Markdown, LaTeX, Mermaid, Pandoc, MkDocs
+
+**Command-Line Tools:**
+- **[Vim Quick Reference](learning/command-line/Vim_Quick_Reference.md)** - Text editor mastery, navigation, editing modes
+- **[Bash Readline Quick Reference](learning/command-line/Bash_Readline_Quick_Reference.md)** - Command-line navigation and shortcuts
+- **[tmux Quick Reference](learning/command-line/tmux_Quick_Reference.md)** - Terminal multiplexer, session persistence
+- **[screen Quick Reference](learning/command-line/screen_Quick_Reference.md)** - GNU screen, legacy terminal multiplexer
+- **[OpenSSL Quick Reference](learning/command-line/OpenSSL_Quick_Reference.md)** - SSL/TLS certificates, encryption, debugging
+- **[GPG Quick Reference](learning/command-line/GPG_Quick_Reference.md)** - Email/file encryption, digital signatures
 
 ---
 
@@ -56,19 +85,26 @@ This knowledge base is built on several core principles:
 
 ### For Professional Development
 
-- **Interview prep:** Python for SRE operational scripting
+- **Interview prep:** Python for SRE, Bash scripting, system administration
+- **Command-line mastery:** Browse Resources → Command-Line Tools (Vim, Bash Readline, OpenSSL, GPG)
+- **Documentation skills:** Resources → Technical Writing (best practices, templates)
 - **Career growth:** Build expertise through hands-on practice
-- **Continuous learning:** Progressive skill development
+- **Continuous learning:** Progressive skill development with quick references
 
 ---
 
 ## Recent Updates
 
-!!! success "Latest Additions"
-    - **2025-05-20:** Python SRE Interview Preparation (complete guide)
-    - **2025-05-20:** Python Quick Reference (cheat sheet)
-    - **2025-03-17:** HashiCorp Vault Learning Plans
-    - **2025-03-17:** Claude Effective Usage Guides
+!!! success "Latest Additions - May 2026"
+    - **2026-05-23:** Terminal Multiplexers added to Resources (tmux, screen)
+    - **2026-05-23:** Command-Line Tools Quick References (Vim, Bash Readline, OpenSSL, GPG)
+    - **2026-05-23:** Technical Writing Quick Reference (moved to Resources section)
+    - **2026-05-23:** Windows Administration (PowerShell, system administration)
+    - **2026-05-23:** Navigation reorganized - "Learning Plans" renamed to "Quick References"
+    - **2026-05-20:** Python SRE Interview Preparation (complete guide)
+    - **2026-05-20:** Python Development Tools (Black, Ruff, mypy, pytest)
+    - **2026-03-17:** HashiCorp Vault Quick References
+    - **2026-03-17:** Claude Effective Usage Guides
 
 ---
 
@@ -79,9 +115,11 @@ An infrastructure engineer with expertise in:
 - **Site Reliability Engineering** - Production operations, incident management
 - **Kubernetes & Platform Engineering** - Container orchestration, CI/CD pipelines
 - **Observability & Automation** - Metrics, logs, traces, and AI-assisted workflows
-- **Automation Development** - Python and Bash scripting for operational tasks
+- **Multi-Platform Administration** - Linux (RHEL, Fedora) and Windows Server
+- **Automation Development** - Python, PowerShell, and Bash scripting for operational tasks
+- **Security & Cryptography** - SSL/TLS, GPG, certificate management
 
-This knowledge base represents years of learning, experimentation, and production experience, distilled into practical, actionable guides.
+This knowledge base represents years of learning, experimentation, and production experience, distilled into practical, actionable quick references and guides.
 
 ---
 
@@ -108,6 +146,6 @@ Individual code snippets and scripts may have specific licenses noted in their d
 
 <div style="text-align: center; margin-top: 3em; padding: 2em; background: rgba(100, 100, 100, 0.1); border-radius: 8px;">
     <h3>Ready to Start Learning?</h3>
-    <p>Explore the <strong>Technologies</strong> section to begin your journey with hands-on Python guides.</p>
+    <p>Explore the <strong>Technologies</strong> section for hands-on guides, or browse <strong>Resources</strong> for quick references and documentation best practices.</p>
     <p><em>Knowledge grows when shared. Happy learning!</em></p>
 </div>

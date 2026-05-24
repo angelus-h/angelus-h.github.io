@@ -1,5 +1,39 @@
 /* SPRE-NOTES style - adapted for Angelus-H's Athenaeum */
 
+/* Remove ALL blue and green colors from links */
+a,
+a:link,
+a:visited {
+    color: #333333 !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #000000 !important;
+    text-decoration: underline !important;
+}
+
+/* Content links (in article text) */
+.md-content a,
+.md-typeset a {
+    color: #333333 !important;
+}
+
+.md-content a:hover,
+.md-typeset a:hover {
+    color: #000000 !important;
+}
+
+/* Header links - WHITE on dark background */
+.md-header a {
+    color: #ffffff !important;
+}
+
+.md-header a:hover {
+    color: #e0e0e0 !important;
+    text-decoration: none !important;
+}
+
 /* Logo size and circular shape (GitHub avatar style) */
 .md-header__button.md-logo img,
 .md-header__button.md-logo svg {
@@ -46,29 +80,100 @@
     font-weight: 300 !important;
 }
 
-/* Navigation sidebar - bold and black main section titles */
-.md-nav__item--section > .md-nav__link,
-.md-nav__title {
-    font-weight: 900;
-    color: #000000 !important;
-}
-
-/* Dark mode support */
-[data-md-color-scheme="slate"] .md-nav__item--section > .md-nav__link,
-[data-md-color-scheme="slate"] .md-nav__title {
+/* Horizontal navigation tabs - same size as sidebar navigation, WHITE on black background */
+.md-tabs__link {
+    font-size: 0.85rem !important;
     color: #ffffff !important;
 }
 
-/* Nested section headers also bold and dark */
-.md-nav--secondary .md-nav__title,
-.md-nav__item--nested > .md-nav__link {
-    font-weight: 900;
-    color: #000000 !important;
+.md-tabs__link:hover {
+    color: #e0e0e0 !important;
 }
 
-[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__title,
-[data-md-color-scheme="slate"] .md-nav__item--nested > .md-nav__link {
+.md-tabs__link--active {
     color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Navigation sidebar styling */
+
+/* All clickable navigation links - GRAY and NORMAL weight, smaller, with indentation */
+.md-nav__link {
+    font-weight: normal !important;
+    color: #666666 !important;
+    font-size: 0.75rem !important;
+}
+
+/* Document links under categories - smaller and indented */
+.md-nav__item:not(.md-nav__item--section) .md-nav__link {
+    padding-left: 1.5rem !important;
+    font-size: 0.7rem !important;
+}
+
+/* Override default link color (remove blue) */
+.md-nav__link:link,
+.md-nav__link:visited {
+    color: #666666 !important;
+}
+
+/* Hover state - darker gray */
+.md-nav__link:hover {
+    color: #333333 !important;
+}
+
+/* Active/current page - black for visibility */
+.md-nav__link--active {
+    color: #000000 !important;
+    font-weight: 500 !important;
+}
+
+/* Main category titles (level 1-2: Technologies, Programming, AI & Automation, etc.) - Simple and clean */
+.md-nav__item--section > .md-nav__link {
+    font-weight: 900 !important;
+    color: #000000 !important;
+    font-size: 0.7rem !important;
+}
+
+/* Dark mode support for category titles */
+[data-md-color-scheme="slate"] .md-nav__item--section > .md-nav__link {
+    color: #ffffff !important;
+}
+
+/* Subcategory titles (level 3+) - hidden since we flattened the structure */
+[data-md-level="3"] > .md-nav__title,
+[data-md-level="4"] > .md-nav__title {
+    display: none !important;
+}
+
+/* Dark mode support - Navigation */
+[data-md-color-scheme="slate"] [data-md-level="1"] > .md-nav__title,
+[data-md-color-scheme="slate"] [data-md-level="2"] > .md-nav__title {
+    color: #ffffff !important;
+    border-bottom-color: #444444 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link {
+    color: #b0b0b0 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+    color: #e0e0e0 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+    color: #ffffff !important;
+}
+
+/* Dark mode support - Content area links (articles, practices, etc.) */
+[data-md-color-scheme="slate"] .md-content a,
+[data-md-color-scheme="slate"] .md-typeset a {
+    color: #BDBDBD !important;  /* Silver/light grey - professional, high contrast */
+}
+
+[data-md-color-scheme="slate"] .md-content a:hover,
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+    color: #E0E0E0 !important;  /* Lighter silver on hover */
+    text-decoration: underline !important;
 }
 
 /* ASCII Art and Box Drawing Characters - Fixed Width Display */

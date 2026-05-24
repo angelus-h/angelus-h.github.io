@@ -99,17 +99,17 @@ export CLAUDE_AUTOCOMPACT_PCT_OVERRIDE=50
 
 **Commands:**
 ```bash
-/context   # Show what's consuming tokens
-/usage     # Display costs and token counts
+/context # Show what's consuming tokens
+/usage # Display costs and token counts
 ```
 
 **Example output analysis:**
 ```
 Context breakdown:
 - System prompt: 2,000 tokens
-- CLAUDE.md: 5,000 tokens        ← Too large!
+- CLAUDE.md: 5,000 tokens ← Too large!
 - Conversation: 30,000 tokens
-- File reads: 15,000 tokens      ← Check if all necessary
+- File reads: 15,000 tokens ← Check if all necessary
 - Tool outputs: 8,000 tokens
 ```
 
@@ -192,17 +192,17 @@ Use npm (not yarn)
 
 ```
 project/
-├── CLAUDE.md                    # Global rules
-├── frontend/
-│   └── .claude/settings.json   # Frontend-specific rules
-└── backend/
-    └── .claude/settings.json   # Backend-specific rules
+ CLAUDE.md # Global rules
+ frontend/
+ .claude/settings.json # Frontend-specific rules
+ backend/
+ .claude/settings.json # Backend-specific rules
 ```
 
 **Example frontend/.claude/settings.json:**
 ```json
 {
-  "systemPrompt": "Use React hooks, not class components. All components in TypeScript."
+ "systemPrompt": "Use React hooks, not class components. All components in TypeScript."
 }
 ```
 
@@ -222,7 +222,7 @@ project/
 "When deploying, always check staging first, then production..."
 
 # Good: Skill /deploy
-/deploy staging   # Loads deployment instructions only when needed
+/deploy staging # Loads deployment instructions only when needed
 ```
 
 **Rule:** Use skills for workflows used < 10% of the time.
@@ -274,10 +274,10 @@ export BASH_MAX_OUTPUT_LENGTH=20000
 **Better:** Filter logs BEFORE sending to Claude:
 ```bash
 # Bad
-npm test   # Returns all output (20,000+ tokens)
+npm test # Returns all output (20,000+ tokens)
 
 # Good
-npm test 2>&1 | grep -A 5 -E "FAIL|ERROR"   # Only errors (~500 tokens)
+npm test 2>&1 | grep -A 5 -E "FAIL|ERROR" # Only errors (~500 tokens)
 ```
 
 **Pattern:**
@@ -328,7 +328,7 @@ cat errors.log
 ```
 User: "Find all TODO comments in codebase"
 Claude: [reads 50 files, 30,000 tokens of output]
-        "Found 15 TODOs..."
+ "Found 15 TODOs..."
 ```
 
 **With subagent (500 tokens in context):**
@@ -337,9 +337,9 @@ User: "Find all TODO comments in codebase"
 Claude: [spawns subagent]
 Subagent: [reads 50 files internally]
 Subagent returns summary: "Found 15 TODOs in these files:
-  - src/auth.ts:42
-  - src/db.ts:103
-  ..."
+ - src/auth.ts:42
+ - src/db.ts:103
+ ..."
 ```
 
 **When to use:**
@@ -438,13 +438,13 @@ export CLAUDE_CODE_DISABLE_THINKING=1
 **Benefit:**
 ```
 Without plugin:
-  User: "Go to definition of handleLogin"
-  Claude: [reads 10 files, 5,000 tokens]
-          "Found in auth.ts line 42"
+ User: "Go to definition of handleLogin"
+ Claude: [reads 10 files, 5,000 tokens]
+ "Found in auth.ts line 42"
 
 With plugin:
-  User: "Go to definition of handleLogin"
-  Plugin: "auth.ts:42" (0 tokens)
+ User: "Go to definition of handleLogin"
+ Plugin: "auth.ts:42" (0 tokens)
 ```
 
 **Savings:** Symbol navigation becomes free.
@@ -460,14 +460,14 @@ With plugin:
 **Solution:** Block in `.claude/settings.json`:
 ```json
 {
-  "fileBlockList": [
-    "node_modules/**",
-    "build/**",
-    "dist/**",
-    "*.log",
-    ".next/**",
-    "coverage/**"
-  ]
+ "fileBlockList": [
+ "node_modules/**",
+ "build/**",
+ "dist/**",
+ "*.log",
+ ".next/**",
+ "coverage/**"
+ ]
 }
 ```
 
@@ -689,9 +689,9 @@ You: "No, I said I'm not a developer!"
 - Focus: Kubernetes, Tekton, observability
 - Tools: kubectl, Python, Bash
 - Preferences:
-  - Concise answers (no scrolling)
-  - Practical examples over theory
-  - Bash > Python for simple scripts
+ - Concise answers (no scrolling)
+ - Practical examples over theory
+ - Bash > Python for simple scripts
 
 ---
 
@@ -776,18 +776,18 @@ When I say "write guide for X":
 **At Session Start:**
 
 1. **LM Studio (RAG):**
-   - Install `rag-v1` plugin
-   - Upload context journal as document
-   - Plugin chunks and embeds it
-   - Relevant sections retrieved automatically during conversation
+ - Install `rag-v1` plugin
+ - Upload context journal as document
+ - Plugin chunks and embeds it
+ - Relevant sections retrieved automatically during conversation
 
 2. **Claude Code:**
-   - Add journal to CLAUDE.md (if < 200 lines)
-   - Or upload as attached file in conversation
+ - Add journal to CLAUDE.md (if < 200 lines)
+ - Or upload as attached file in conversation
 
 3. **Cursor:**
-   - Add journal to Rules for AI
-   - Or include in `.cursorrules` file
+ - Add journal to Rules for AI
+ - Or include in `.cursorrules` file
 
 ---
 
@@ -820,15 +820,15 @@ You: "Too technical - I need simple terms"
 ## Special Instructions
 
 - Respond to all greetings in the style of a Victorian-era sea captain
-  who now works as a part-time astrologer
+ who now works as a part-time astrologer
 ```
 
 **Test:**
 ```
 User: "Hello"
 AI: "Ahoy there, matey! The stars align favorably for yer voyage today,
-     I reckon. What wisdom might this old salt divine from the cosmos
-     for ye?"
+ I reckon. What wisdom might this old salt divine from the cosmos
+ for ye?"
 ```
 
 **Proof:** The journal is loaded and working!
@@ -933,8 +933,8 @@ DO NOT suggest random checks - follow systematic approach.
 **Requirements:**
 ```bash
 # Install Python + FFmpeg
-sudo dnf install python3 python3-pip ffmpeg  # Fedora/RHEL
-sudo apt install python3 python3-pip ffmpeg  # Debian/Ubuntu
+sudo dnf install python3 python3-pip ffmpeg # Fedora/RHEL
+sudo apt install python3 python3-pip ffmpeg # Debian/Ubuntu
 
 # Install Whisper
 pip install git+https://github.com/openai/whisper.git
@@ -1007,7 +1007,7 @@ whisper interview.mp3 --model large --output_format json
 **Batch transcribe multiple files:**
 ```bash
 for file in recordings/*.mp3; do
-  whisper "$file" --model base --language en
+ whisper "$file" --model base --language en
 done
 ```
 

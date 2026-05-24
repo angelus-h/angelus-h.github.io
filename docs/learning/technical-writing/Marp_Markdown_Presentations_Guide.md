@@ -30,58 +30,58 @@ Code (Markdown) → Presentation (PDF/HTML/PPTX)
 
 ## Why Use Marp?
 
-###  Advantages
+### Advantages
 
 1. **Git-friendly version control**
-   ```bash
-   git diff DEMO-SLIDES.md
-   # See exactly what changed
-   ```
+ ```bash
+ git diff DEMO-SLIDES.md
+ # See exactly what changed
+ ```
 
 2. **Fast editing**
-   - Markdown: every developer knows it
-   - No clicking, just typing
-   - Focus on content, not formatting
+ - Markdown: every developer knows it
+ - No clicking, just typing
+ - Focus on content, not formatting
 
 3. **Automation**
-   ```bash
-   # In CI/CD pipeline
-   marp slides.md --pdf
-   # Auto-generated PDF with every commit
-   ```
+ ```bash
+ # In CI/CD pipeline
+ marp slides.md --pdf
+ # Auto-generated PDF with every commit
+ ```
 
 4. **Multiple output formats**
-   - PDF (for presentations)
-   - HTML (interactive, browser-based)
-   - PPTX (PowerPoint compatible)
+ - PDF (for presentations)
+ - HTML (interactive, browser-based)
+ - PPTX (PowerPoint compatible)
 
 5. **Customizability**
-   - Full control with CSS
-   - Custom themes (e.g., Company branding)
-   - Built-in code syntax highlighting
+ - Full control with CSS
+ - Custom themes (e.g., Company branding)
+ - Built-in code syntax highlighting
 
 6. **Portable**
-   - Plain text files
-   - No vendor lock-in
-   - Editable anywhere (vim, VS Code, etc.)
+ - Plain text files
+ - No vendor lock-in
+ - Editable anywhere (vim, VS Code, etc.)
 
-###  Disadvantages
+### Disadvantages
 
 1. **Learning curve**
-   - Markdown knowledge required (but it's basic)
-   - CSS knowledge for customization
+ - Markdown knowledge required (but it's basic)
+ - CSS knowledge for customization
 
 2. **Limited visual editing**
-   - No drag-and-drop
-   - Complex animations are difficult
+ - No drag-and-drop
+ - Complex animations are difficult
 
 3. **Image sizing**
-   - Manual configuration needed
-   - No WYSIWYG
+ - Manual configuration needed
+ - No WYSIWYG
 
 4. **Collaboration**
-   - Harder with non-technical people
-   - No real-time collaboration (like Google Slides)
+ - Harder with non-technical people
+ - No real-time collaboration (like Google Slides)
 
 ---
 
@@ -291,8 +291,8 @@ Normal text with **important** parts.
 
 - Item 1
 - Item 2
-  - Sub-item 2.1
-  - Sub-item 2.2
+ - Sub-item 2.1
+ - Sub-item 2.2
 - Item 3
 
 # Numbered List
@@ -309,8 +309,8 @@ Normal text with **important** parts.
 
 ```python
 def hello_marp():
-    print("Hello from Marp!")
-    return True
+ print("Hello from Marp!")
+ return True
 
 result = hello_marp()
 ```
@@ -360,7 +360,7 @@ marp slides.md --pdf
 Alignment:
 | Left | Center | Right |
 |:-----|:------:|------:|
-| L    | C      | R     |
+| L | C | R |
 ```
 
 ---
@@ -433,22 +433,22 @@ theme: default
 @import 'default';
 
 section {
-  background-color: #f0f0f0;
-  font-family: 'Arial', sans-serif;
+ background-color: #f0f0f0;
+ font-family: 'Arial', sans-serif;
 }
 
 h1 {
-  color: #0066cc;
-  border-bottom: 3px solid #0066cc;
+ color: #0066cc;
+ border-bottom: 3px solid #0066cc;
 }
 
 a {
-  color: #cc0000;
+ color: #cc0000;
 }
 
 code {
-  background-color: #e0e0e0;
-  color: #333;
+ background-color: #e0e0e0;
+ color: #333;
 }
 ```
 
@@ -475,13 +475,13 @@ theme: custom
 ---
 marp: true
 style: |
-  section {
-    background: linear-gradient(to bottom, #667eea 0%, #764ba2 100%);
-    color: white;
-  }
-  h1 {
-    color: #ffcc00;
-  }
+ section {
+ background: linear-gradient(to bottom, #667eea 0%, #764ba2 100%);
+ color: white;
+ }
+ h1 {
+ color: #ffcc00;
+ }
 ---
 
 # Gradient Background Slide
@@ -607,17 +607,17 @@ marp slides.md --html
 marp: true
 theme: gaia
 style: |
-  section {
-    background-color: #FFFFFF;
-    color: #3C3F42;
-  }
-  h1 {
-    color: #EE0000;
-    border-bottom: 4px solid #EE0000;
-  }
-  strong {
-    color: #EE0000;
-  }
+ section {
+ background-color: #FFFFFF;
+ color: #3C3F42;
+ }
+ h1 {
+ color: #EE0000;
+ border-bottom: 4px solid #EE0000;
+ }
+ strong {
+ color: #EE0000;
+ }
 ---
 
 # Company Presentation
@@ -641,45 +641,45 @@ style: |
 marp: true
 theme: gaia
 style: |
-  @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700&family=Red+Hat+Text:wght@400;500&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700&family=Red+Hat+Text:wght@400;500&display=swap');
 
-  section {
-    font-family: 'Company Text', Arial, sans-serif;
-    background-color: #FFFFFF;
-    color: #3C3F42;
-  }
+ section {
+ font-family: 'Company Text', Arial, sans-serif;
+ background-color: #FFFFFF;
+ color: #3C3F42;
+ }
 
-  h1, h2, h3 {
-    font-family: 'Company Display', Arial, sans-serif;
-    color: #EE0000;
-  }
+ h1, h2, h3 {
+ font-family: 'Company Display', Arial, sans-serif;
+ color: #EE0000;
+ }
 
-  h1 {
-    border-bottom: 4px solid #EE0000;
-    padding-bottom: 20px;
-  }
+ h1 {
+ border-bottom: 4px solid #EE0000;
+ padding-bottom: 20px;
+ }
 
-  strong {
-    color: #EE0000;
-    font-weight: 700;
-  }
+ strong {
+ color: #EE0000;
+ font-weight: 700;
+ }
 
-  pre {
-    background-color: #3C3F42;
-    color: #FFFFFF;
-    border-left: 5px solid #EE0000;
-  }
+ pre {
+ background-color: #3C3F42;
+ color: #FFFFFF;
+ border-left: 5px solid #EE0000;
+ }
 
-  section.lead {
-    background: linear-gradient(135deg, #000000 0%, #3C3F42 100%);
-    color: #FFFFFF;
-    text-align: center;
-  }
+ section.lead {
+ background: linear-gradient(135deg, #000000 0%, #3C3F42 100%);
+ color: #FFFFFF;
+ text-align: center;
+ }
 
-  section.lead h1 {
-    color: #FFFFFF;
-    border-bottom: 4px solid #EE0000;
-  }
+ section.lead h1 {
+ color: #FFFFFF;
+ border-bottom: 4px solid #EE0000;
+ }
 ---
 
 <!-- _class: lead -->
@@ -728,8 +728,8 @@ paginate: true
 
 ```bash
 $ kubectl get pods -n production
-NAME                     READY   STATUS             RESTARTS
-app-xyz-7d9f8-abcde     0/1     CrashLoopBackOff   15
+NAME READY STATUS RESTARTS
+app-xyz-7d9f8-abcde 0/1 CrashLoopBackOff 15
 ```
 
 **Symptoms:**
@@ -744,10 +744,10 @@ app-xyz-7d9f8-abcde     0/1     CrashLoopBackOff   15
 ```yaml
 # deployment.yaml (WRONG)
 resources:
-  limits:
-    memory: "128Mi"  # Too low!
-  requests:
-    memory: "64Mi"
+ limits:
+ memory: "128Mi" # Too low!
+ requests:
+ memory: "64Mi"
 ```
 
 **Analysis:**
@@ -762,10 +762,10 @@ resources:
 ```yaml
 # deployment.yaml (FIXED)
 resources:
-  limits:
-    memory: "512Mi"  # Increased
-  requests:
-    memory: "256Mi"  # Proper baseline
+ limits:
+ memory: "512Mi" # Increased
+ requests:
+ memory: "256Mi" # Proper baseline
 ```
 
 ```bash
@@ -773,20 +773,20 @@ kubectl apply -f deployment.yaml
 kubectl rollout status deployment/app-xyz
 ```
 
-**Result:**  Pods healthy, service restored
+**Result:** Pods healthy, service restored
 
 ---
 
 ## Lessons Learned
 
 1. **Always set resource limits**
-   - Based on actual metrics, not guesses
+ - Based on actual metrics, not guesses
 
 2. **Monitor memory trends**
-   - Use Prometheus/Grafana dashboards
+ - Use Prometheus/Grafana dashboards
 
 3. **Document baselines**
-   - Save for future reference
+ - Save for future reference
 
 ---
 
@@ -809,7 +809,7 @@ theme: gaia
 
 **Infrastructure Team**
 
-Miklos Greczi
+Documentation Team
 2026-03-22
 
 ---
@@ -846,16 +846,16 @@ Miklos Greczi
 ## Q2 2026 Roadmap
 
 1. **Multi-region failover** (April)
-   - Active-active configuration
-   - <5 min RTO
+ - Active-active configuration
+ - <5 min RTO
 
 2. **Observability enhancement** (May)
-   - Unified logging platform
-   - Advanced alerting
+ - Unified logging platform
+ - Advanced alerting
 
 3. **Security hardening** (June)
-   - Zero-trust network
-   - Automated compliance checks
+ - Zero-trust network
+ - Automated compliance checks
 
 ---
 
@@ -905,17 +905,17 @@ Miklos Greczi
 # Architecture
 
 ```
-┌─────────────┐
-│   Frontend  │
-└──────┬──────┘
-       │
-┌──────▼──────┐
-│   Backend   │
-└──────┬──────┘
-       │
-┌──────▼──────┐
-│  Database   │
-└─────────────┘
+
+ Frontend 
+
+ 
+
+ Backend 
+
+ 
+
+ Database 
+
 ```
 ```
 
@@ -990,7 +990,7 @@ git commit -m "Initial presentation"
 
 # Modifications
 vim slides.md
-git diff slides.md  # See what changed
+git diff slides.md # See what changed
 git commit -am "Add safety rules section"
 
 # Branch workflow
@@ -1011,31 +1011,31 @@ git merge feature/add-demo-2
 name: Build Presentation
 
 on:
-  push:
-    branches: [main]
+ push:
+ branches: [main]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
+ build:
+ runs-on: ubuntu-latest
+ steps:
+ - uses: actions/checkout@v3
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
+ - name: Setup Node.js
+ uses: actions/setup-node@v3
+ with:
+ node-version: '18'
 
-      - name: Install Marp CLI
-        run: npm install -g @marp-team/marp-cli
+ - name: Install Marp CLI
+ run: npm install -g @marp-team/marp-cli
 
-      - name: Build PDF
-        run: marp slides.md --pdf
+ - name: Build PDF
+ run: marp slides.md --pdf
 
-      - name: Upload PDF
-        uses: actions/upload-artifact@v3
-        with:
-          name: presentation
-          path: slides.pdf
+ - name: Upload PDF
+ uses: actions/upload-artifact@v3
+ with:
+ name: presentation
+ path: slides.pdf
 ```
 
 **Result:** Fresh PDF automatically after every commit
@@ -1045,7 +1045,7 @@ jobs:
 ```bash
 # Pull Request workflow
 git checkout -b review/q1-update
-vim slides.md  # Modifications
+vim slides.md # Modifications
 
 git commit -am "Update Q1 metrics"
 git push origin review/q1-update
@@ -1063,14 +1063,14 @@ git push origin review/q1-update
 
 | Feature | Marp | PowerPoint |
 |---------|------|------------|
-| Version control |  Excellent (Git) |  Poor |
-| Collaboration | ⚠ Merge conflicts |  Good (OneDrive) |
-| Automation |  Excellent |  Difficult |
-| Visual editor |  None |  Yes |
-| Learning curve | ⚠ Medium |  Low |
-| Cost |  Free | ⚠ License needed |
-| Portability |  Plain text |  Binary |
-| Technical audience |  Ideal | ⚠ OK |
+| Version control | Excellent (Git) | Poor |
+| Collaboration | Merge conflicts | Good (OneDrive) |
+| Automation | Excellent | Difficult |
+| Visual editor | None | Yes |
+| Learning curve | Medium | Low |
+| Cost | Free | License needed |
+| Portability | Plain text | Binary |
+| Technical audience | Ideal | OK |
 
 **Use Marp if:**
 - Technical presentation
@@ -1088,22 +1088,22 @@ git push origin review/q1-update
 
 | Feature | Marp | Google Slides |
 |---------|------|---------------|
-| Real-time collaboration |  |  |
-| Offline work |  | ⚠ |
-| Version control |  | ⚠ |
-| Customizability |  | ⚠ |
-| Cost |  Free |  Free |
-| Accessibility | ⚠ CLI needed |  Browser |
+| Real-time collaboration | | |
+| Offline work | | |
+| Version control | | |
+| Customizability | | |
+| Cost | Free | Free |
+| Accessibility | CLI needed | Browser |
 
 ### Marp vs reveal.js
 
 | Feature | Marp | reveal.js |
 |---------|------|-----------|
-| Simplicity |  Easy | ⚠ More complex |
-| Interactivity | ⚠ Limited |  Excellent |
-| PDF export |  Native | ⚠ Tricky |
-| Markdown |  Native |  With plugin |
-| Setup |  npm install | ⚠ Project setup |
+| Simplicity | Easy | More complex |
+| Interactivity | Limited | Excellent |
+| PDF export | Native | Tricky |
+| Markdown | Native | With plugin |
+| Setup | npm install | Project setup |
 
 ---
 
@@ -1159,12 +1159,12 @@ sed 's/{{TITLE}}/My Presentation/' templates/title-slide.md >> slides.md
 <!-- In CSS: -->
 ---
 style: |
-  img {
-    max-width: 80%;
-    max-height: 60vh;
-    display: block;
-    margin: auto;
-  }
+ img {
+ max-width: 80%;
+ max-height: 60vh;
+ display: block;
+ margin: auto;
+ }
 ---
 
 # Image
@@ -1249,8 +1249,8 @@ git clone https://github.com/RedHatOfficial/RedHatFont.git
 
 # In CSS:
 @font-face {
-  font-family: 'Company Display';
-  src: url('fonts/RedHatDisplay-Bold.woff2');
+ font-family: 'Company Display';
+ src: url('fonts/RedHatDisplay-Bold.woff2');
 }
 ```
 
@@ -1275,10 +1275,10 @@ marp slides.md --html
 ```markdown
 ---
 style: |
-  pre {
-    overflow-x: auto;
-    font-size: 18px;  /* Smaller font */
-  }
+ pre {
+ overflow-x: auto;
+ font-size: 18px; /* Smaller font */
+ }
 ---
 ```
 

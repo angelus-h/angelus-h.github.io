@@ -1,8 +1,8 @@
 # Grafana Loki Workshop - Quick Reference Guide
 
-**Version:** 1.0  
-**Date:** 2026-04-15  
-**Source:** https://github.com/grafana/loki-workshop  
+**Version:** 1.0 
+**Date:** 2026-04-15 
+**Source:** https://github.com/grafana/loki-workshop 
 **Documentation:** https://grafana.github.io/loki-workshop/
 
 ---
@@ -28,21 +28,21 @@
 The workshop covers three main areas:
 
 1. **Navigating and exploring logs in Grafana**
-   - Using the Logs Drilldown app
-   - Filtering, searching, and drilling down
-   - Instant metrics from logs
+ - Using the Logs Drilldown app
+ - Filtering, searching, and drilling down
+ - Instant metrics from logs
 
 2. **Writing and running Loki queries**
-   - LogQL syntax
-   - Label and line filters
-   - Query-time JSON parsing
-   - Correlation between metrics, logs, and traces
+ - LogQL syntax
+ - Label and line filters
+ - Query-time JSON parsing
+ - Correlation between metrics, logs, and traces
 
 3. **Visualizing Loki query results on dashboards**
-   - Metric extraction from logs
-   - Unwrapped range aggregations
-   - Building dashboard panels
-   - Line format transformations
+ - Metric extraction from logs
+ - Unwrapped range aggregations
+ - Building dashboard panels
+ - Line format transformations
 
 ### Lab Structure
 
@@ -258,7 +258,7 @@ web_http_requests{service="web_app_3"}
 2. **Second panel:** Switch to LokiCorrelation data source
 3. **Time sync:** Chain button (next to time picker) - orange when active
 4. **Zoom on Prometheus chart:** Click + drag to select time period
-   → Loki panel automatically follows time range
+ → Loki panel automatically follows time range
 
 **Error searching:**
 ```logql
@@ -293,12 +293,12 @@ web_http_requests{service="web_app_3"}
 **Example: Googlebot request rate by status code**
 ```logql
 sum by(status) (
-  count_over_time(
-    {filename="/var/log/nginx/json_access.log"} 
-    |= `Googlebot` 
-    | json 
-    [5m]
-  )
+ count_over_time(
+ {filename="/var/log/nginx/json_access.log"} 
+ |= `Googlebot` 
+ | json 
+ [5m]
+ )
 )
 ```
 
@@ -321,11 +321,11 @@ sum by(status) (
 **Example: Average bytes sent to Googlebot**
 ```logql
 avg_over_time(
-  {filename="/var/log/nginx/json_access.log"} 
-  |= "Googlebot" 
-  | json 
-  | unwrap bytes_sent 
-  [5m]
+ {filename="/var/log/nginx/json_access.log"} 
+ |= "Googlebot" 
+ | json 
+ | unwrap bytes_sent 
+ [5m]
 ) by (host)
 ```
 
@@ -338,11 +338,11 @@ avg_over_time(
 **Example: Maximum bytes sent**
 ```logql
 max_over_time(
-  {filename="/var/log/nginx/json_access.log"} 
-  |= "Googlebot" 
-  | json 
-  | unwrap bytes_sent 
-  [5m]
+ {filename="/var/log/nginx/json_access.log"} 
+ |= "Googlebot" 
+ | json 
+ | unwrap bytes_sent 
+ [5m]
 ) by (host)
 ```
 
@@ -367,21 +367,21 @@ max_over_time(
 ```logql
 # Query A: All requests
 sum by (request_method) (
-  count_over_time(
-    {filename="/var/log/nginx/json_access.log"} 
-    | json 
-    [5m]
-  )
+ count_over_time(
+ {filename="/var/log/nginx/json_access.log"} 
+ | json 
+ [5m]
+ )
 )
 
 # Query B: Googlebot requests by status
 sum by(status) (
-  count_over_time(
-    {filename="/var/log/nginx/json_access.log"} 
-    |= `Googlebot` 
-    | json 
-    [5m]
-  )
+ count_over_time(
+ {filename="/var/log/nginx/json_access.log"} 
+ |= `Googlebot` 
+ | json 
+ [5m]
+ )
 )
 ```
 
@@ -418,24 +418,24 @@ Add Visualization button → LokiNGINX datasource
 **Query 1: 95th percentile**
 ```logql
 quantile_over_time(0.95,
-  {filename="/var/log/nginx/json_access.log"} 
-  | json 
-  | upstream_cache_status="MISS" 
-  | unwrap request_time 
-  | __error__=""  
-  [5m]
+ {filename="/var/log/nginx/json_access.log"} 
+ | json 
+ | upstream_cache_status="MISS" 
+ | unwrap request_time 
+ | __error__="" 
+ [5m]
 ) by (host)
 ```
 
 **Query 2: Max request time**
 ```logql
 max_over_time(
-  {filename="/var/log/nginx/json_access.log"} 
-  | json 
-  | upstream_cache_status="MISS" 
-  | unwrap request_time 
-  | __error__=""  
-  [1m]
+ {filename="/var/log/nginx/json_access.log"} 
+ | json 
+ | upstream_cache_status="MISS" 
+ | unwrap request_time 
+ | __error__="" 
+ [1m]
 ) by (host)
 ```
 
@@ -495,12 +495,12 @@ Add → New visualization → LokiNGINX datasource
 **Query: Count by country**
 ```logql
 sum by (geoip_country_code) (
-  count_over_time(
-    {filename="/var/log/nginx/json_access.log"} 
-    | json 
-    | __error__="" 
-    [1m]
-  )
+ count_over_time(
+ {filename="/var/log/nginx/json_access.log"} 
+ | json 
+ | __error__="" 
+ [1m]
+ )
 )
 ```
 
@@ -525,12 +525,12 @@ Panel type: Geomap
 ```
 Layer 1 (bottom): ArcGIS MapServer
 Layer 2 (top): Markers
-  - Location Mode: Lookup
-  - Lookup field: Field
-  - Gazetteer: Countries
-  - Styles Size: Total (Min: 10, Max: 40)
-  - Color: Fixed Color → Red
-  - Fill opacity: 0.8
+ - Location Mode: Lookup
+ - Lookup field: Field
+ - Gazetteer: Countries
+ - Styles Size: Total (Min: 10, Max: 40)
+ - Color: Fixed Color → Red
+ - Fill opacity: 0.8
 ```
 
 **Panel title:**
@@ -550,7 +550,7 @@ Panel type: Logs
 ```logql
 {filename="/var/log/nginx/json_access.log"} 
 | json 
-| line_format " request for {{.request_uri}} with HTTP status: {{.status}} ✌"
+| line_format " request for {{.request_uri}} with HTTP status: {{.status}} "
 ```
 
 **Explanation:**
@@ -604,10 +604,10 @@ Panel context menu (⋮) → Explore
 
 **Label matching:**
 ```logql
-{label="exact_value"}              # Exact match
-{label=~"regex_pattern"}           # Regex match
-{label!="not_this_value"}          # Not equal
-{label!~"not_this_regex"}          # Regex not match
+{label="exact_value"} # Exact match
+{label=~"regex_pattern"} # Regex match
+{label!="not_this_value"} # Not equal
+{label!~"not_this_regex"} # Regex not match
 ```
 
 **Multiple labels (AND):**
@@ -618,41 +618,41 @@ Panel context menu (⋮) → Explore
 ### Line Filters
 
 ```logql
-|= "string"                        # Contains string
-|~ "regex"                         # Regex match
-!= "string"                        # Does NOT contain
-!~ "regex"                         # Regex NOT match
+|= "string" # Contains string
+|~ "regex" # Regex match
+!= "string" # Does NOT contain
+!~ "regex" # Regex NOT match
 ```
 
 **Examples:**
 ```logql
-{service="web"} |= "error"                    # Contains "error"
-{service="web"} |~ "(?i)error|warn"          # Regex: error OR warn (case-insensitive)
-{service="web"} != "debug"                   # Does NOT contain "debug"
+{service="web"} |= "error" # Contains "error"
+{service="web"} |~ "(?i)error|warn" # Regex: error OR warn (case-insensitive)
+{service="web"} != "debug" # Does NOT contain "debug"
 ```
 
 ### Parsers
 
 ```logql
-| json                             # Parse JSON
-| logfmt                           # Parse logfmt (key=value)
-| pattern `<pattern>`              # Custom pattern
-| regexp `(?P<name>regex)`         # Named capture groups
+| json # Parse JSON
+| logfmt # Parse logfmt (key=value)
+| pattern `<pattern>` # Custom pattern
+| regexp `(?P<name>regex)` # Named capture groups
 ```
 
 **JSON parser example:**
 ```logql
 {service="web"} 
 | json 
-| status_code="404"                # Use parsed field as filter
+| status_code="404" # Use parsed field as filter
 ```
 
 ### Label Filters (Parsed)
 
 ```logql
 | json 
-| label_name="value"               # Parsed label filter
-| label_name=~"regex"              # Parsed label regex
+| label_name="value" # Parsed label filter
+| label_name=~"regex" # Parsed label regex
 ```
 
 ### Line Format
@@ -688,37 +688,37 @@ Panel context menu (⋮) → Explore
 #### Count-based (log lines)
 
 ```logql
-count_over_time({service="web"}[5m])          # Count log lines
-rate({service="web"}[5m])                      # Logs per second
-bytes_over_time({service="web"}[5m])          # Total bytes
+count_over_time({service="web"}[5m]) # Count log lines
+rate({service="web"}[5m]) # Logs per second
+bytes_over_time({service="web"}[5m]) # Total bytes
 ```
 
 #### Unwrap-based (values in logs)
 
 ```logql
-| unwrap field_name                            # Extract numeric field
+| unwrap field_name # Extract numeric field
 
-avg_over_time(... | unwrap latency [5m])     # Average value
-sum_over_time(... | unwrap bytes [5m])       # Sum of values
-max_over_time(... | unwrap duration [5m])    # Maximum value
-min_over_time(... | unwrap size [5m])        # Minimum value
-quantile_over_time(0.95, ... | unwrap latency [5m])  # 95th percentile
+avg_over_time(... | unwrap latency [5m]) # Average value
+sum_over_time(... | unwrap bytes [5m]) # Sum of values
+max_over_time(... | unwrap duration [5m]) # Maximum value
+min_over_time(... | unwrap size [5m]) # Minimum value
+quantile_over_time(0.95, ... | unwrap latency [5m]) # 95th percentile
 ```
 
 ### Aggregation Operators
 
 ```logql
-sum by (label) (...)                          # Sum grouped by label
-avg by (label) (...)                          # Average grouped by label
-max by (label) (...)                          # Maximum grouped by label
-min by (label) (...)                          # Minimum grouped by label
-count by (label) (...)                        # Count grouped by label
+sum by (label) (...) # Sum grouped by label
+avg by (label) (...) # Average grouped by label
+max by (label) (...) # Maximum grouped by label
+min by (label) (...) # Minimum grouped by label
+count by (label) (...) # Count grouped by label
 ```
 
 **Without labels (all streams combined):**
 ```logql
-sum(...)                                      # Total sum
-avg(...)                                      # Total average
+sum(...) # Total sum
+avg(...) # Total average
 ```
 
 ### Binary Operations
@@ -762,23 +762,23 @@ sum(rate({service="web"}[5m]))
 **Count by status code:**
 ```logql
 sum by (status_code) (
-  count_over_time(
-    {service="nginx"} 
-    | json 
-    [5m]
-  )
+ count_over_time(
+ {service="nginx"} 
+ | json 
+ [5m]
+ )
 )
 ```
 
 **Rate of 5xx errors:**
 ```logql
 sum(
-  rate(
-    {service="nginx"} 
-    | json 
-    | status_code=~"5.." 
-    [5m]
-  )
+ rate(
+ {service="nginx"} 
+ | json 
+ | status_code=~"5.." 
+ [5m]
+ )
 )
 ```
 
@@ -787,27 +787,27 @@ sum(
 **Top 10 requested paths:**
 ```logql
 topk(10, 
-  sum by (path) (
-    count_over_time(
-      {service="nginx"} 
-      | json 
-      [1h]
-    )
-  )
+ sum by (path) (
+ count_over_time(
+ {service="nginx"} 
+ | json 
+ [1h]
+ )
+ )
 )
 ```
 
 **Bottom 5 slowest endpoints:**
 ```logql
 bottomk(5, 
-  avg by (endpoint) (
-    avg_over_time(
-      {service="app"} 
-      | json 
-      | unwrap duration 
-      [15m]
-    )
-  )
+ avg by (endpoint) (
+ avg_over_time(
+ {service="app"} 
+ | json 
+ | unwrap duration 
+ [15m]
+ )
+ )
 )
 ```
 
@@ -842,7 +842,7 @@ http_requests_total{service="web_app"}
 ```logql
 {service="web"} 
 | json 
-| trace_id=~".+"                    # Logs with trace ID
+| trace_id=~".+" # Logs with trace ID
 ```
 → Click trace_id field → View traces button
 
@@ -851,9 +851,9 @@ http_requests_total{service="web_app"}
 **High error rate:**
 ```logql
 sum(
-  rate(
-    {service="web", level="error"}[5m]
-  )
+ rate(
+ {service="web", level="error"}[5m]
+ )
 ) 
 > 10
 ```
@@ -861,10 +861,10 @@ sum(
 **P95 latency too high:**
 ```logql
 quantile_over_time(0.95, 
-  {service="web"} 
-  | json 
-  | unwrap latency 
-  [5m]
+ {service="web"} 
+ | json 
+ | unwrap latency 
+ [5m]
 ) 
 > 5000
 ```
@@ -938,24 +938,24 @@ TEMPO_PASSWORD=your-password
 version: '3'
 
 services:
-  grafana:
-    image: docker.io/grafana/grafana:latest
-    ports:
-      - "3007:3000"
-    environment:
-      GF_PLUGINS_PREINSTALL: grafana-lokiexplore-app
-      GF_AUTH_ANONYMOUS_ENABLED: true
-      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
-      GF_USERS_DEFAULT_THEME: light
-      GF_LOG_FILTERS: migrator:warn
-      LOKI_URL: ${LOKI_URL}
-      LOKI_USERNAME: ${LOKI_USERNAME}
-      LOKI_PASSWORD: ${LOKI_PASSWORD}
-      TEMPO_URL: ${TEMPO_URL}
-      TEMPO_USERNAME: ${TEMPO_USERNAME}
-      TEMPO_PASSWORD: ${TEMPO_PASSWORD}
-    volumes:
-      - ./grafana/provisioning:/etc/grafana/provisioning:z
+ grafana:
+ image: docker.io/grafana/grafana:latest
+ ports:
+ - "3007:3000"
+ environment:
+ GF_PLUGINS_PREINSTALL: grafana-lokiexplore-app
+ GF_AUTH_ANONYMOUS_ENABLED: true
+ GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+ GF_USERS_DEFAULT_THEME: light
+ GF_LOG_FILTERS: migrator:warn
+ LOKI_URL: ${LOKI_URL}
+ LOKI_USERNAME: ${LOKI_USERNAME}
+ LOKI_PASSWORD: ${LOKI_PASSWORD}
+ TEMPO_URL: ${TEMPO_URL}
+ TEMPO_USERNAME: ${TEMPO_USERNAME}
+ TEMPO_PASSWORD: ${TEMPO_PASSWORD}
+ volumes:
+ - ./grafana/provisioning:/etc/grafana/provisioning:z
 ```
 
 **Start:**
@@ -1062,10 +1062,10 @@ npm start
 
 ```logql
 # Wrong: unwrap string field
-| unwrap status_code    # If status_code is string "404"
+| unwrap status_code # If status_code is string "404"
 
 # Correct: unwrap numeric field
-| unwrap bytes_sent     # Numeric field
+| unwrap bytes_sent # Numeric field
 ```
 
 ### 4. Dashboard panel shows "N/A"
@@ -1091,10 +1091,10 @@ npm start
 ## Next Steps
 
 ### Reinforcing Basics
-1.  Practice Logs Drilldown app (search, filter, labels)
-2.  Write basic LogQL queries (stream selector, line filter, parser)
-3.  Metric extraction from logs (count_over_time, unwrap)
-4.  Build dashboard panels
+1. Practice Logs Drilldown app (search, filter, labels)
+2. Write basic LogQL queries (stream selector, line filter, parser)
+3. Metric extraction from logs (count_over_time, unwrap)
+4. Build dashboard panels
 
 ### Advanced Topics
 - **Loki Recording Rules:** Pre-calculated metrics
@@ -1122,11 +1122,11 @@ npm start
 This quick reference covers the complete Grafana Loki Workshop material with practical examples and commands.
 
 **During the workshop, you learned:**
--  Use Logs Drilldown app for fast log exploration
--  Write LogQL queries (stream selectors, filters, parsers)
--  Calculate metrics from logs (count, unwrap, aggregations)
--  Build dashboards with Loki queries
--  Use correlation between Prometheus and Tempo
+- Use Logs Drilldown app for fast log exploration
+- Write LogQL queries (stream selectors, filters, parsers)
+- Calculate metrics from logs (count, unwrap, aggregations)
+- Build dashboards with Loki queries
+- Use correlation between Prometheus and Tempo
 
 **Next step:**
 - Practice queries on your own Loki instance

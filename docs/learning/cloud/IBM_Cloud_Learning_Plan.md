@@ -1,6 +1,6 @@
 # IBM Cloud Quick Reference
 
-##  Goals
+## Goals
 
 1. **Understanding IBM Cloud platform** and hybrid cloud approach
 2. **Using key services** (Compute, Storage, Kubernetes, Watson AI)
@@ -10,19 +10,19 @@
 
 ---
 
-##  Prerequisites
+## Prerequisites
 
--  IBM Cloud account: https://cloud.ibm.com/registration
--  IBM Cloud CLI installed
--  Basic Linux/bash knowledge
--  Credit card (for trial credit, won't charge on Lite plan)
--  Understanding of Kubernetes basics (helpful for OpenShift)
+- IBM Cloud account: https://cloud.ibm.com/registration
+- IBM Cloud CLI installed
+- Basic Linux/bash knowledge
+- Credit card (for trial credit, won't charge on Lite plan)
+- Understanding of Kubernetes basics (helpful for OpenShift)
 
 ---
 
-## 🗓 4-WEEK LEARNING PLAN
+## 4-WEEK LEARNING PLAN
 
-### 📌 Week 1: FUNDAMENTALS + COMPUTE + NETWORKING
+### Week 1: FUNDAMENTALS + COMPUTE + NETWORKING
 
 #### Day 1-2: IBM Cloud Console + IAM + CLI
 
@@ -43,60 +43,60 @@
 **Hands-on:**
 
 1. **Install IBM Cloud CLI:**
-   ```bash
-   # Linux
-   curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
+ ```bash
+ # Linux
+ curl -fsSL https://clis.cloud.ibm.com/install/linux | sh
 
-   # Verify
-   ibmcloud --version
+ # Verify
+ ibmcloud --version
 
-   # Login
-   ibmcloud login
-   ibmcloud login --sso  # For federated ID
+ # Login
+ ibmcloud login
+ ibmcloud login --sso # For federated ID
 
-   # Target region
-   ibmcloud target -r us-south
-   ```
+ # Target region
+ ibmcloud target -r us-south
+ ```
 
 2. **Install plugins:**
-   ```bash
-   # Kubernetes service plugin
-   ibmcloud plugin install container-service
+ ```bash
+ # Kubernetes service plugin
+ ibmcloud plugin install container-service
 
-   # Container registry plugin
-   ibmcloud plugin install container-registry
+ # Container registry plugin
+ ibmcloud plugin install container-registry
 
-   # List plugins
-   ibmcloud plugin list
-   ```
+ # List plugins
+ ibmcloud plugin list
+ ```
 
 3. **Create Resource Group:**
-   ```bash
-   # List resource groups
-   ibmcloud resource groups
+ ```bash
+ # List resource groups
+ ibmcloud resource groups
 
-   # Create new resource group
-   ibmcloud resource group-create my-learning-rg
+ # Create new resource group
+ ibmcloud resource group-create my-learning-rg
 
-   # Target resource group
-   ibmcloud target -g my-learning-rg
-   ```
+ # Target resource group
+ ibmcloud target -g my-learning-rg
+ ```
 
 4. **Create Service ID (for automation):**
-   ```bash
-   # Create Service ID
-   ibmcloud iam service-id-create my-service-id \
-     --description "Service ID for automation"
+ ```bash
+ # Create Service ID
+ ibmcloud iam service-id-create my-service-id \
+ --description "Service ID for automation"
 
-   # Create API key for Service ID
-   ibmcloud iam service-api-key-create my-api-key my-service-id \
-     --description "API key for CI/CD"
+ # Create API key for Service ID
+ ibmcloud iam service-api-key-create my-api-key my-service-id \
+ --description "API key for CI/CD"
 
-   # Assign policy
-   ibmcloud iam service-policy-create my-service-id \
-     --roles Editor \
-     --resource-group-name my-learning-rg
-   ```
+ # Assign policy
+ ibmcloud iam service-policy-create my-service-id \
+ --roles Editor \
+ --resource-group-name my-learning-rg
+ ```
 
 **Key concepts:**
 - **Resource Group**: Logical container for resources (billing, access)
@@ -132,96 +132,96 @@
 **Hands-on Project: Web Server on VPC**
 
 1. **Create VPC and subnet:**
-   ```bash
-   # Install VPC plugin
-   ibmcloud plugin install vpc-infrastructure
+ ```bash
+ # Install VPC plugin
+ ibmcloud plugin install vpc-infrastructure
 
-   # Create VPC
-   ibmcloud is vpc-create my-vpc
+ # Create VPC
+ ibmcloud is vpc-create my-vpc
 
-   # Get VPC ID
-   VPC_ID=$(ibmcloud is vpcs --output json | jq -r '.[] | select(.name=="my-vpc") | .id')
+ # Get VPC ID
+ VPC_ID=$(ibmcloud is vpcs --output json | jq -r '.[] | select(.name=="my-vpc") | .id')
 
-   # Create subnet
-   ibmcloud is subnet-create my-subnet $VPC_ID \
-     --zone us-south-1 \
-     --ipv4-cidr-block 10.240.0.0/24
-   ```
+ # Create subnet
+ ibmcloud is subnet-create my-subnet $VPC_ID \
+ --zone us-south-1 \
+ --ipv4-cidr-block 10.240.0.0/24
+ ```
 
 2. **Create security group:**
-   ```bash
-   # Create security group
-   ibmcloud is security-group-create my-sg $VPC_ID
+ ```bash
+ # Create security group
+ ibmcloud is security-group-create my-sg $VPC_ID
 
-   # Get security group ID
-   SG_ID=$(ibmcloud is security-groups --output json | jq -r '.[] | select(.name=="my-sg") | .id')
+ # Get security group ID
+ SG_ID=$(ibmcloud is security-groups --output json | jq -r '.[] | select(.name=="my-sg") | .id')
 
-   # Allow SSH
-   ibmcloud is security-group-rule-add $SG_ID inbound tcp \
-     --port-min 22 --port-max 22
+ # Allow SSH
+ ibmcloud is security-group-rule-add $SG_ID inbound tcp \
+ --port-min 22 --port-max 22
 
-   # Allow HTTP
-   ibmcloud is security-group-rule-add $SG_ID inbound tcp \
-     --port-min 80 --port-max 80
-   ```
+ # Allow HTTP
+ ibmcloud is security-group-rule-add $SG_ID inbound tcp \
+ --port-min 80 --port-max 80
+ ```
 
 3. **Create SSH key:**
-   ```bash
-   # Generate key
-   ssh-keygen -t rsa -b 4096 -f ~/.ssh/ibm_cloud_key
+ ```bash
+ # Generate key
+ ssh-keygen -t rsa -b 4096 -f ~/.ssh/ibm_cloud_key
 
-   # Add to IBM Cloud
-   ibmcloud is key-create my-key @~/.ssh/ibm_cloud_key.pub
-   ```
+ # Add to IBM Cloud
+ ibmcloud is key-create my-key @~/.ssh/ibm_cloud_key.pub
+ ```
 
 4. **Launch Virtual Server:**
-   ```bash
-   # Get subnet ID
-   SUBNET_ID=$(ibmcloud is subnets --output json | jq -r '.[] | select(.name=="my-subnet") | .id')
+ ```bash
+ # Get subnet ID
+ SUBNET_ID=$(ibmcloud is subnets --output json | jq -r '.[] | select(.name=="my-subnet") | .id')
 
-   # Get key ID
-   KEY_ID=$(ibmcloud is keys --output json | jq -r '.[] | select(.name=="my-key") | .id')
+ # Get key ID
+ KEY_ID=$(ibmcloud is keys --output json | jq -r '.[] | select(.name=="my-key") | .id')
 
-   # Create instance
-   ibmcloud is instance-create web-server \
-     $VPC_ID us-south-1 cx2-2x4 $SUBNET_ID \
-     --image ibm-ubuntu-22-04-minimal-amd64-1 \
-     --keys $KEY_ID \
-     --security-groups $SG_ID \
-     --user-data @startup.sh
-   ```
+ # Create instance
+ ibmcloud is instance-create web-server \
+ $VPC_ID us-south-1 cx2-2x4 $SUBNET_ID \
+ --image ibm-ubuntu-22-04-minimal-amd64-1 \
+ --keys $KEY_ID \
+ --security-groups $SG_ID \
+ --user-data @startup.sh
+ ```
 
 5. **Startup script (startup.sh):**
-   ```bash
-   #!/bin/bash
-   apt-get update
-   apt-get install -y nginx
-   echo "<h1>Hello from IBM Cloud VPC!</h1>" > /var/www/html/index.html
-   systemctl start nginx
-   systemctl enable nginx
-   ```
+ ```bash
+ #!/bin/bash
+ apt-get update
+ apt-get install -y nginx
+ echo "<h1>Hello from IBM Cloud VPC!</h1>" > /var/www/html/index.html
+ systemctl start nginx
+ systemctl enable nginx
+ ```
 
 6. **Create floating IP:**
-   ```bash
-   # Get instance ID
-   INSTANCE_ID=$(ibmcloud is instances --output json | jq -r '.[] | select(.name=="web-server") | .id')
+ ```bash
+ # Get instance ID
+ INSTANCE_ID=$(ibmcloud is instances --output json | jq -r '.[] | select(.name=="web-server") | .id')
 
-   # Reserve floating IP
-   ibmcloud is floating-ip-reserve my-floating-ip \
-     --nic primary --in $INSTANCE_ID
-   ```
+ # Reserve floating IP
+ ibmcloud is floating-ip-reserve my-floating-ip \
+ --nic primary --in $INSTANCE_ID
+ ```
 
 7. **SSH and test:**
-   ```bash
-   # Get floating IP
-   FLOATING_IP=$(ibmcloud is floating-ips --output json | jq -r '.[] | select(.name=="my-floating-ip") | .address')
+ ```bash
+ # Get floating IP
+ FLOATING_IP=$(ibmcloud is floating-ips --output json | jq -r '.[] | select(.name=="my-floating-ip") | .address')
 
-   # SSH
-   ssh -i ~/.ssh/ibm_cloud_key root@$FLOATING_IP
+ # SSH
+ ssh -i ~/.ssh/ibm_cloud_key root@$FLOATING_IP
 
-   # Test web server
-   curl http://$FLOATING_IP
-   ```
+ # Test web server
+ curl http://$FLOATING_IP
+ ```
 
 **Key concepts:**
 - **VPC**: Isolated virtual network
@@ -261,25 +261,25 @@ SUBNET_ID=$(ibmcloud is subnets --output json | jq -r '.[] | select(.name=="my-s
 
 # Create load balancer
 ibmcloud is load-balancer-create my-lb public \
-  --subnet $SUBNET_ID
+ --subnet $SUBNET_ID
 
 # Get LB ID
 LB_ID=$(ibmcloud is load-balancers --output json | jq -r '.[] | select(.name=="my-lb") | .id')
 
 # Create backend pool
 ibmcloud is load-balancer-pool-create my-pool $LB_ID \
-  round_robin http 15 2 5 http
+ round_robin http 15 2 5 http
 
 # Get pool ID
 POOL_ID=$(ibmcloud is load-balancer-pools $LB_ID --output json | jq -r '.[] | select(.name=="my-pool") | .id')
 
 # Add instance to pool
 ibmcloud is load-balancer-pool-member-create $LB_ID $POOL_ID \
-  80 $INSTANCE_ID
+ 80 $INSTANCE_ID
 
 # Create listener
 ibmcloud is load-balancer-listener-create $LB_ID \
-  80 http --default-pool $POOL_ID
+ 80 http --default-pool $POOL_ID
 ```
 
 **Key concepts:**
@@ -291,7 +291,7 @@ ibmcloud is load-balancer-listener-create $LB_ID \
 
 ---
 
-### 📌 Week 2: STORAGE + DATABASE + CONTAINERS
+### Week 2: STORAGE + DATABASE + CONTAINERS
 
 #### Day 1-2: Cloud Object Storage (COS)
 
@@ -311,41 +311,41 @@ ibmcloud is load-balancer-listener-create $LB_ID \
 **Hands-on: Static Website on COS**
 
 1. **Create COS instance:**
-   ```bash
-   # Create service instance
-   ibmcloud resource service-instance-create my-cos \
-     cloud-object-storage standard global
-   ```
+ ```bash
+ # Create service instance
+ ibmcloud resource service-instance-create my-cos \
+ cloud-object-storage standard global
+ ```
 
 2. **Create bucket:**
-   ```bash
-   # Install COS plugin
-   ibmcloud plugin install cloud-object-storage
+ ```bash
+ # Install COS plugin
+ ibmcloud plugin install cloud-object-storage
 
-   # Create bucket
-   ibmcloud cos bucket-create --bucket my-static-website \
-     --ibm-service-instance-id $(ibmcloud resource service-instance my-cos --output json | jq -r '.[0].guid')
-   ```
+ # Create bucket
+ ibmcloud cos bucket-create --bucket my-static-website \
+ --ibm-service-instance-id $(ibmcloud resource service-instance my-cos --output json | jq -r '.[0].guid')
+ ```
 
 3. **Upload files:**
-   ```bash
-   echo "<h1>Hello from IBM Cloud Object Storage!</h1>" > index.html
+ ```bash
+ echo "<h1>Hello from IBM Cloud Object Storage!</h1>" > index.html
 
-   # Upload
-   ibmcloud cos object-put --bucket my-static-website \
-     --key index.html --body index.html
-   ```
+ # Upload
+ ibmcloud cos object-put --bucket my-static-website \
+ --key index.html --body index.html
+ ```
 
 4. **Make bucket public:**
-   ```bash
-   # Set bucket policy (via UI or API)
-   # Enable public access and static website hosting
-   ```
+ ```bash
+ # Set bucket policy (via UI or API)
+ # Enable public access and static website hosting
+ ```
 
 5. **Configure static website:**
-   - Navigate to bucket in IBM Cloud Console
-   - Configuration → Static website hosting
-   - Set index.html as index document
+ - Navigate to bucket in IBM Cloud Console
+ - Configuration → Static website hosting
+ - Set index.html as index document
 
 **Key concepts:**
 - **COS**: S3-compatible object storage
@@ -379,52 +379,52 @@ ibmcloud is load-balancer-listener-create $LB_ID \
 **Hands-on: PostgreSQL Database**
 
 1. **Create database instance:**
-   ```bash
-   # Create Databases for PostgreSQL
-   ibmcloud resource service-instance-create my-postgres \
-     databases-for-postgresql standard us-south \
-     -p '{"members_memory_allocation_mb": "1024",
-          "members_disk_allocation_mb": "5120"}'
-   ```
+ ```bash
+ # Create Databases for PostgreSQL
+ ibmcloud resource service-instance-create my-postgres \
+ databases-for-postgresql standard us-south \
+ -p '{"members_memory_allocation_mb": "1024",
+ "members_disk_allocation_mb": "5120"}'
+ ```
 
 2. **Get connection info:**
-   ```bash
-   # Get credentials
-   ibmcloud resource service-key-create my-postgres-key \
-     --instance-name my-postgres
+ ```bash
+ # Get credentials
+ ibmcloud resource service-key-create my-postgres-key \
+ --instance-name my-postgres
 
-   # View credentials
-   ibmcloud resource service-key my-postgres-key --output json
-   ```
+ # View credentials
+ ibmcloud resource service-key my-postgres-key --output json
+ ```
 
 3. **Connect:**
-   ```bash
-   # Using connection string from credentials
-   psql "postgres://ibm_cloud_user:PASSWORD@HOST:PORT/ibmclouddb?sslmode=verify-full"
-   ```
+ ```bash
+ # Using connection string from credentials
+ psql "postgres://ibm_cloud_user:PASSWORD@HOST:PORT/ibmclouddb?sslmode=verify-full"
+ ```
 
 4. **Database operations:**
-   ```sql
-   CREATE TABLE users (
-     id SERIAL PRIMARY KEY,
-     name VARCHAR(100),
-     email VARCHAR(100),
-     created_at TIMESTAMP DEFAULT NOW()
-   );
+ ```sql
+ CREATE TABLE users (
+ id SERIAL PRIMARY KEY,
+ name VARCHAR(100),
+ email VARCHAR(100),
+ created_at TIMESTAMP DEFAULT NOW()
+ );
 
-   INSERT INTO users (name, email) VALUES
-     ('Alice', 'alice@example.com'),
-     ('Bob', 'bob@example.com');
+ INSERT INTO users (name, email) VALUES
+ ('Alice', 'alice@example.com'),
+ ('Bob', 'bob@example.com');
 
-   SELECT * FROM users;
-   ```
+ SELECT * FROM users;
+ ```
 
 5. **Configure backup:**
-   ```bash
-   # Backups are automatic (daily)
-   # View backup schedule in console
-   ibmcloud resource service-instance my-postgres
-   ```
+ ```bash
+ # Backups are automatic (daily)
+ # View backup schedule in console
+ ibmcloud resource service-instance my-postgres
+ ```
 
 **Key concepts:**
 - **Databases for PostgreSQL**: Managed PostgreSQL
@@ -453,102 +453,102 @@ ibmcloud is load-balancer-listener-create $LB_ID \
 **Hands-on: Deploy Application on OpenShift**
 
 1. **Create OpenShift cluster:**
-   ```bash
-   # List available versions
-   ibmcloud ks versions --show-version OpenShift
+ ```bash
+ # List available versions
+ ibmcloud ks versions --show-version OpenShift
 
-   # Create cluster (can take 20-30 minutes)
-   ibmcloud oc cluster create vpc-gen2 \
-     --name my-openshift \
-     --version 4.14_openshift \
-     --zone us-south-1 \
-     --flavor bx2.4x16 \
-     --workers 2 \
-     --vpc-id $VPC_ID \
-     --subnet-id $SUBNET_ID
-   ```
+ # Create cluster (can take 20-30 minutes)
+ ibmcloud oc cluster create vpc-gen2 \
+ --name my-openshift \
+ --version 4.14_openshift \
+ --zone us-south-1 \
+ --flavor bx2.4x16 \
+ --workers 2 \
+ --vpc-id $VPC_ID \
+ --subnet-id $SUBNET_ID
+ ```
 
 2. **Get cluster config:**
-   ```bash
-   # Download cluster config
-   ibmcloud oc cluster config --cluster my-openshift --admin
+ ```bash
+ # Download cluster config
+ ibmcloud oc cluster config --cluster my-openshift --admin
 
-   # Verify
-   oc get nodes
-   oc get projects
-   ```
+ # Verify
+ oc get nodes
+ oc get projects
+ ```
 
 3. **Create project:**
-   ```bash
-   oc new-project my-app
-   ```
+ ```bash
+ oc new-project my-app
+ ```
 
 4. **Deploy from Git (Source-to-Image):**
-   ```bash
-   # Deploy Node.js app from GitHub
-   oc new-app https://github.com/sclorg/nodejs-ex.git \
-     --name=nodejs-app
+ ```bash
+ # Deploy Node.js app from GitHub
+ oc new-app https://github.com/sclorg/nodejs-ex.git \
+ --name=nodejs-app
 
-   # Expose service
-   oc expose svc/nodejs-app
+ # Expose service
+ oc expose svc/nodejs-app
 
-   # Get route
-   oc get route nodejs-app
-   ```
+ # Get route
+ oc get route nodejs-app
+ ```
 
 5. **Deploy using YAML:**
-   ```yaml
-   # deployment.yaml
-   apiVersion: apps/v1
-   kind: Deployment
-   metadata:
-     name: nginx
-   spec:
-     replicas: 3
-     selector:
-       matchLabels:
-         app: nginx
-     template:
-       metadata:
-         labels:
-           app: nginx
-       spec:
-         containers:
-         - name: nginx
-           image: nginx:latest
-           ports:
-           - containerPort: 80
-   ---
-   apiVersion: v1
-   kind: Service
-   metadata:
-     name: nginx
-   spec:
-     selector:
-       app: nginx
-     ports:
-     - protocol: TCP
-       port: 80
-       targetPort: 80
-   ---
-   apiVersion: route.openshift.io/v1
-   kind: Route
-   metadata:
-     name: nginx
-   spec:
-     to:
-       kind: Service
-       name: nginx
-     port:
-       targetPort: 80
-   ```
+ ```yaml
+ # deployment.yaml
+ apiVersion: apps/v1
+ kind: Deployment
+ metadata:
+ name: nginx
+ spec:
+ replicas: 3
+ selector:
+ matchLabels:
+ app: nginx
+ template:
+ metadata:
+ labels:
+ app: nginx
+ spec:
+ containers:
+ - name: nginx
+ image: nginx:latest
+ ports:
+ - containerPort: 80
+ ---
+ apiVersion: v1
+ kind: Service
+ metadata:
+ name: nginx
+ spec:
+ selector:
+ app: nginx
+ ports:
+ - protocol: TCP
+ port: 80
+ targetPort: 80
+ ---
+ apiVersion: route.openshift.io/v1
+ kind: Route
+ metadata:
+ name: nginx
+ spec:
+ to:
+ kind: Service
+ name: nginx
+ port:
+ targetPort: 80
+ ```
 
 6. **Apply and access:**
-   ```bash
-   oc apply -f deployment.yaml
-   oc get route nginx
-   curl http://<ROUTE_URL>
-   ```
+ ```bash
+ oc apply -f deployment.yaml
+ oc get route nginx
+ curl http://<ROUTE_URL>
+ ```
 
 **Key concepts:**
 - **OpenShift**: Enterprise Kubernetes distribution by Company
@@ -567,7 +567,7 @@ ibmcloud is load-balancer-listener-create $LB_ID \
 
 ---
 
-### 📌 Week 3: AI/ML + MONITORING + SECURITY
+### Week 3: AI/ML + MONITORING + SECURITY
 
 #### Day 1-2: Watson Services (AI/ML)
 
@@ -585,45 +585,45 @@ ibmcloud is load-balancer-listener-create $LB_ID \
 **Hands-on: Build Chatbot with Watson Assistant**
 
 1. **Create Watson Assistant:**
-   ```bash
-   ibmcloud resource service-instance-create my-assistant \
-     conversation lite us-south
-   ```
+ ```bash
+ ibmcloud resource service-instance-create my-assistant \
+ conversation lite us-south
+ ```
 
 2. **Access Watson Assistant UI:**
-   - Navigate to IBM Cloud Console → Watson Assistant
-   - Create skill (Dialog skill)
-   - Add intents, entities, dialog flows
+ - Navigate to IBM Cloud Console → Watson Assistant
+ - Create skill (Dialog skill)
+ - Add intents, entities, dialog flows
 
 3. **Example API usage (Python):**
-   ```python
-   from ibm_watson import AssistantV2
-   from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
+ ```python
+ from ibm_watson import AssistantV2
+ from ibm_cloud_sdk_core.authenticators import IAMAuthenticator
 
-   authenticator = IAMAuthenticator('YOUR_API_KEY')
-   assistant = AssistantV2(
-       version='2021-11-27',
-       authenticator=authenticator
-   )
-   assistant.set_service_url('YOUR_SERVICE_URL')
+ authenticator = IAMAuthenticator('YOUR_API_KEY')
+ assistant = AssistantV2(
+ version='2021-11-27',
+ authenticator=authenticator
+ )
+ assistant.set_service_url('YOUR_SERVICE_URL')
 
-   # Create session
-   session = assistant.create_session(
-       assistant_id='YOUR_ASSISTANT_ID'
-   ).get_result()
+ # Create session
+ session = assistant.create_session(
+ assistant_id='YOUR_ASSISTANT_ID'
+ ).get_result()
 
-   # Send message
-   response = assistant.message(
-       assistant_id='YOUR_ASSISTANT_ID',
-       session_id=session['session_id'],
-       input={
-           'message_type': 'text',
-           'text': 'Hello'
-       }
-   ).get_result()
+ # Send message
+ response = assistant.message(
+ assistant_id='YOUR_ASSISTANT_ID',
+ session_id=session['session_id'],
+ input={
+ 'message_type': 'text',
+ 'text': 'Hello'
+ }
+ ).get_result()
 
-   print(response['output']['generic'][0]['text'])
-   ```
+ print(response['output']['generic'][0]['text'])
+ ```
 
 **Watson NLU Example:**
 ```python
@@ -631,14 +631,14 @@ from ibm_watson import NaturalLanguageUnderstandingV1
 from ibm_watson.natural_language_understanding_v1 import Features, EntitiesOptions, KeywordsOptions
 
 nlu = NaturalLanguageUnderstandingV1(
-    version='2022-04-07',
-    authenticator=IAMAuthenticator('YOUR_API_KEY')
+ version='2022-04-07',
+ authenticator=IAMAuthenticator('YOUR_API_KEY')
 )
 nlu.set_service_url('YOUR_SERVICE_URL')
 
 response = nlu.analyze(
-    text='IBM is an American multinational technology company.',
-    features=Features(entities=EntitiesOptions(), keywords=KeywordsOptions())
+ text='IBM is an American multinational technology company.',
+ features=Features(entities=EntitiesOptions(), keywords=KeywordsOptions())
 ).get_result()
 
 print(response)
@@ -670,38 +670,38 @@ print(response)
 **Hands-on: Monitoring Setup**
 
 1. **Create monitoring instance:**
-   ```bash
-   ibmcloud resource service-instance-create my-monitoring \
-     sysdig-monitor graduated-tier us-south
-   ```
+ ```bash
+ ibmcloud resource service-instance-create my-monitoring \
+ sysdig-monitor graduated-tier us-south
+ ```
 
 2. **Install monitoring agent on VSI:**
-   ```bash
-   # Get access key from IBM Cloud Console
-   curl -sL https://ibm.biz/install-sysdig-agent | \
-     sudo bash -s -- --access_key YOUR_ACCESS_KEY \
-     --collector ingest.us-south.monitoring.cloud.ibm.com
-   ```
+ ```bash
+ # Get access key from IBM Cloud Console
+ curl -sL https://ibm.biz/install-sysdig-agent | \
+ sudo bash -s -- --access_key YOUR_ACCESS_KEY \
+ --collector ingest.us-south.monitoring.cloud.ibm.com
+ ```
 
 3. **View metrics:**
-   - Navigate to IBM Cloud Console → Monitoring
-   - Open Sysdig dashboard
-   - View system metrics (CPU, memory, disk, network)
+ - Navigate to IBM Cloud Console → Monitoring
+ - Open Sysdig dashboard
+ - View system metrics (CPU, memory, disk, network)
 
 4. **Create alert:**
-   - Sysdig UI → Alerts
-   - Condition: CPU > 80% for 5 minutes
-   - Notification: Email/Slack
+ - Sysdig UI → Alerts
+ - Condition: CPU > 80% for 5 minutes
+ - Notification: Email/Slack
 
 **Log Analysis:**
 ```bash
 # Create Log Analysis instance
 ibmcloud resource service-instance-create my-logging \
-  logdna standard us-south
+ logdna standard us-south
 
 # Install logging agent
 curl -sL https://ibm.biz/install-logdna-agent | \
-  sudo bash -s -- -k YOUR_INGESTION_KEY
+ sudo bash -s -- -k YOUR_INGESTION_KEY
 ```
 
 **Key concepts:**
@@ -730,37 +730,37 @@ curl -sL https://ibm.biz/install-logdna-agent | \
 **Hands-on: Secrets Management**
 
 1. **Create Secrets Manager:**
-   ```bash
-   ibmcloud resource service-instance-create my-secrets \
-     secrets-manager trial us-south
-   ```
+ ```bash
+ ibmcloud resource service-instance-create my-secrets \
+ secrets-manager trial us-south
+ ```
 
 2. **Store secret:**
-   ```bash
-   # Using IBM Cloud Console or API
-   # Create arbitrary secret (API key, password, etc.)
-   ```
+ ```bash
+ # Using IBM Cloud Console or API
+ # Create arbitrary secret (API key, password, etc.)
+ ```
 
 3. **Create Key Protect instance:**
-   ```bash
-   ibmcloud resource service-instance-create my-kp \
-     kms tiered-pricing us-south
-   ```
+ ```bash
+ ibmcloud resource service-instance-create my-kp \
+ kms tiered-pricing us-south
+ ```
 
 4. **Create root key:**
-   ```bash
-   # Install Key Protect plugin
-   ibmcloud plugin install key-protect
+ ```bash
+ # Install Key Protect plugin
+ ibmcloud plugin install key-protect
 
-   # Create root key
-   ibmcloud kp key create my-root-key \
-     --instance-id $(ibmcloud resource service-instance my-kp --output json | jq -r '.[0].guid')
-   ```
+ # Create root key
+ ibmcloud kp key create my-root-key \
+ --instance-id $(ibmcloud resource service-instance my-kp --output json | jq -r '.[0].guid')
+ ```
 
 5. **Encrypt COS bucket:**
-   - Navigate to COS bucket
-   - Encryption → Key Protect
-   - Select root key
+ - Navigate to COS bucket
+ - Encryption → Key Protect
+ - Select root key
 
 **Key concepts:**
 - **Secrets Manager**: Store and manage secrets
@@ -771,7 +771,7 @@ curl -sL https://ibm.biz/install-logdna-agent | \
 
 ---
 
-### 📌 Week 4: SERVERLESS + CI/CD + HYBRID CLOUD
+### Week 4: SERVERLESS + CI/CD + HYBRID CLOUD
 
 #### Day 1-2: Code Engine (Serverless Containers)
 
@@ -790,49 +790,49 @@ curl -sL https://ibm.biz/install-logdna-agent | \
 **Hands-on: Deploy API on Code Engine**
 
 1. **Create project:**
-   ```bash
-   # Install Code Engine plugin
-   ibmcloud plugin install code-engine
+ ```bash
+ # Install Code Engine plugin
+ ibmcloud plugin install code-engine
 
-   # Create project
-   ibmcloud ce project create --name my-project
-   ibmcloud ce project select --name my-project
-   ```
+ # Create project
+ ibmcloud ce project create --name my-project
+ ibmcloud ce project select --name my-project
+ ```
 
 2. **Deploy from container image:**
-   ```bash
-   ibmcloud ce application create \
-     --name my-api \
-     --image icr.io/codeengine/hello \
-     --min-scale 0 \
-     --max-scale 10
-   ```
+ ```bash
+ ibmcloud ce application create \
+ --name my-api \
+ --image icr.io/codeengine/hello \
+ --min-scale 0 \
+ --max-scale 10
+ ```
 
 3. **Deploy from source code:**
-   ```bash
-   # From GitHub
-   ibmcloud ce application create \
-     --name nodejs-app \
-     --build-source https://github.com/IBM/code-engine-node-app \
-     --strategy buildpacks
-   ```
+ ```bash
+ # From GitHub
+ ibmcloud ce application create \
+ --name nodejs-app \
+ --build-source https://github.com/IBM/code-engine-node-app \
+ --strategy buildpacks
+ ```
 
 4. **Get URL:**
-   ```bash
-   ibmcloud ce application get --name my-api
-   curl https://<APP_URL>
-   ```
+ ```bash
+ ibmcloud ce application get --name my-api
+ curl https://<APP_URL>
+ ```
 
 5. **Create job (batch):**
-   ```bash
-   ibmcloud ce job create \
-     --name batch-job \
-     --image icr.io/codeengine/cron \
-     --array-indices 1-5
+ ```bash
+ ibmcloud ce job create \
+ --name batch-job \
+ --image icr.io/codeengine/cron \
+ --array-indices 1-5
 
-   # Run job
-   ibmcloud ce jobrun submit --job batch-job
-   ```
+ # Run job
+ ibmcloud ce jobrun submit --job batch-job
+ ```
 
 **Key concepts:**
 - **Code Engine**: Serverless containers and code
@@ -860,46 +860,46 @@ curl -sL https://ibm.biz/install-logdna-agent | \
 **Hands-on: CI/CD Pipeline**
 
 1. **Create toolchain:**
-   - Navigate to IBM Cloud Console → DevOps
-   - Create toolchain from template (Kubernetes/OpenShift)
-   - Connect GitHub repository
+ - Navigate to IBM Cloud Console → DevOps
+ - Create toolchain from template (Kubernetes/OpenShift)
+ - Connect GitHub repository
 
 2. **Pipeline configuration (.bluemix/pipeline.yml):**
-   ```yaml
-   stages:
-   - name: BUILD
-     inputs:
-     - type: git
-       branch: main
-     jobs:
-     - name: Build Docker Image
-       type: builder
-       build_type: cr
-       target:
-         region_id: ${REGISTRY_REGION_ID}
-         api_key: ${API_KEY}
-       namespace: ${REGISTRY_NAMESPACE}
-       image_name: ${APP_NAME}
-       script: |
-         docker build -t ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${APP_NAME}:${BUILD_NUMBER} .
-         docker push ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${APP_NAME}:${BUILD_NUMBER}
+ ```yaml
+ stages:
+ - name: BUILD
+ inputs:
+ - type: git
+ branch: main
+ jobs:
+ - name: Build Docker Image
+ type: builder
+ build_type: cr
+ target:
+ region_id: ${REGISTRY_REGION_ID}
+ api_key: ${API_KEY}
+ namespace: ${REGISTRY_NAMESPACE}
+ image_name: ${APP_NAME}
+ script: |
+ docker build -t ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${APP_NAME}:${BUILD_NUMBER} .
+ docker push ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${APP_NAME}:${BUILD_NUMBER}
 
-   - name: DEPLOY
-     inputs:
-     - type: job
-       stage: BUILD
-       job: Build Docker Image
-     jobs:
-     - name: Deploy to OpenShift
-       type: deployer
-       target:
-         region_id: ${PROD_REGION_ID}
-         api_key: ${API_KEY}
-         kubernetes_cluster: ${PROD_CLUSTER_NAME}
-       script: |
-         oc apply -f deployment.yaml
-         oc set image deployment/${APP_NAME} ${APP_NAME}=${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${APP_NAME}:${BUILD_NUMBER}
-   ```
+ - name: DEPLOY
+ inputs:
+ - type: job
+ stage: BUILD
+ job: Build Docker Image
+ jobs:
+ - name: Deploy to OpenShift
+ type: deployer
+ target:
+ region_id: ${PROD_REGION_ID}
+ api_key: ${API_KEY}
+ kubernetes_cluster: ${PROD_CLUSTER_NAME}
+ script: |
+ oc apply -f deployment.yaml
+ oc set image deployment/${APP_NAME} ${APP_NAME}=${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${APP_NAME}:${BUILD_NUMBER}
+ ```
 
 **Key concepts:**
 - **Toolchain**: Integrated DevOps tools
@@ -925,16 +925,16 @@ curl -sL https://ibm.biz/install-logdna-agent | \
 **Satellite Concepts:**
 
 ```
-                    IBM Cloud (Control Plane)
-                             |
-        +--------------------|--------------------+
-        |                    |                    |
-    Satellite           Satellite            Satellite
-    Location 1          Location 2           Location 3
-    (On-prem DC)        (Edge)               (Other Cloud)
-        |                    |                    |
-    OpenShift           OpenShift            OpenShift
-    + IBM Services      + IBM Services       + IBM Services
+ IBM Cloud (Control Plane)
+ |
+ +--------------------|--------------------+
+ | | |
+ Satellite Satellite Satellite
+ Location 1 Location 2 Location 3
+ (On-prem DC) (Edge) (Other Cloud)
+ | | |
+ OpenShift OpenShift OpenShift
+ + IBM Services + IBM Services + IBM Services
 ```
 
 **Key concepts:**
@@ -945,24 +945,24 @@ curl -sL https://ibm.biz/install-logdna-agent | \
 
 ---
 
-##  IBM Cloud Services Priority (For Enterprise)
+## IBM Cloud Services Priority (For Enterprise)
 
 | Priority | Service | Why important |
 |----------|---------|---------------|
-| **🔴 HIGH** | **Company OpenShift** | Container platform |
-| **🔴 HIGH** | **VPC** | Networking |
-| **🔴 HIGH** | **Cloud Object Storage** | Object storage |
-| **🔴 HIGH** | **IAM** | Access management |
-| **🟡 MEDIUM** | **Databases for PostgreSQL** | Managed databases |
-| **🟡 MEDIUM** | **Code Engine** | Serverless |
-| **🟡 MEDIUM** | **Secrets Manager** | Secrets management |
-| **🟡 MEDIUM** | **Monitoring & Logging** | Observability |
-| **🟢 LOW** | **Watson Services** | AI/ML (if needed) |
-| **🟢 LOW** | **Satellite** | Hybrid cloud (if needed) |
+| ** HIGH** | **Company OpenShift** | Container platform |
+| ** HIGH** | **VPC** | Networking |
+| ** HIGH** | **Cloud Object Storage** | Object storage |
+| ** HIGH** | **IAM** | Access management |
+| ** MEDIUM** | **Databases for PostgreSQL** | Managed databases |
+| ** MEDIUM** | **Code Engine** | Serverless |
+| ** MEDIUM** | **Secrets Manager** | Secrets management |
+| ** MEDIUM** | **Monitoring & Logging** | Observability |
+| ** LOW** | **Watson Services** | AI/ML (if needed) |
+| ** LOW** | **Satellite** | Hybrid cloud (if needed) |
 
 ---
 
-##  Learning Resources
+## Learning Resources
 
 **Official IBM Cloud:**
 - IBM Cloud Docs: https://cloud.ibm.com/docs
@@ -982,7 +982,7 @@ curl -sL https://ibm.biz/install-logdna-agent | \
 
 ---
 
-## ⚠ COST MANAGEMENT
+## COST MANAGEMENT
 
 ### Free Tier (Lite Plan):
 
@@ -998,31 +998,31 @@ curl -sL https://ibm.biz/install-logdna-agent | \
 ### Cost Protection:
 
 1. **Set spending notifications:**
-   - Navigate to Manage → Billing and usage → Spending notifications
-   - Set threshold (e.g., $50)
+ - Navigate to Manage → Billing and usage → Spending notifications
+ - Set threshold (e.g., $50)
 
 2. **Monitor usage:**
-   - Billing and usage → Usage
-   - View by service and resource group
+ - Billing and usage → Usage
+ - View by service and resource group
 
 3. **Clean up resources:**
-   ```bash
-   # Delete OpenShift cluster
-   ibmcloud oc cluster rm --cluster my-openshift -f
+ ```bash
+ # Delete OpenShift cluster
+ ibmcloud oc cluster rm --cluster my-openshift -f
 
-   # Delete VPC instances
-   ibmcloud is instance-delete web-server -f
+ # Delete VPC instances
+ ibmcloud is instance-delete web-server -f
 
-   # Delete COS bucket
-   ibmcloud cos bucket-delete --bucket my-bucket
+ # Delete COS bucket
+ ibmcloud cos bucket-delete --bucket my-bucket
 
-   # Delete database
-   ibmcloud resource service-instance-delete my-postgres -f
-   ```
+ # Delete database
+ ibmcloud resource service-instance-delete my-postgres -f
+ ```
 
 ---
 
-##  Weekly Checklist
+## Weekly Checklist
 
 ### Week 1:
 - [ ] IBM Cloud account created

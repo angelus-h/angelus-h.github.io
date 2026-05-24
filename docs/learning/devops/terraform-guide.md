@@ -2,52 +2,52 @@
 
 This directory contains all Terraform practice projects - from local machine to cloud providers.
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 terraform-practice/
-├── README.md                        # This file
-├── TERRAFORM_CHEATSHEET.md          # Complete reference
-├── QUICK_REFERENCE.md               # Quick overview
-│
-├── 01-local-files/                  #  BEGINNER - Local files
-│   ├── main.tf
-│   └── README.md
-│
-├── 02-podman/                       #  BEGINNER - Podman containers
-│   ├── main.tf
-│   ├── variables.tf
-│   ├── terraform.tfvars.example
-│   └── README.md
-│
-├── 03-null-provider/                #  INTERMEDIATE - Run scripts
-│   ├── main.tf
-│   └── README.md
-│
-├── 10-kvm-local/                    #  LOCAL VM - KVM/QEMU
-│   ├── main.tf
-│   ├── variables.tf
-│   └── README.md
-│
-├── 20-aws-ec2/                      #  CLOUD - AWS EC2
-│   ├── main.tf
-│   ├── variables.tf
-│   └── README.md
-│
-└── 30-gcp-vm/                       #  CLOUD - Google Cloud VM
-    ├── main.tf
-    ├── variables.tf
-    └── README.md
+ README.md # This file
+ TERRAFORM_CHEATSHEET.md # Complete reference
+ QUICK_REFERENCE.md # Quick overview
+
+ 01-local-files/ # BEGINNER - Local files
+ main.tf
+ README.md
+
+ 02-podman/ # BEGINNER - Podman containers
+ main.tf
+ variables.tf
+ terraform.tfvars.example
+ README.md
+
+ 03-null-provider/ # INTERMEDIATE - Run scripts
+ main.tf
+ README.md
+
+ 10-kvm-local/ # LOCAL VM - KVM/QEMU
+ main.tf
+ variables.tf
+ README.md
+
+ 20-aws-ec2/ # CLOUD - AWS EC2
+ main.tf
+ variables.tf
+ README.md
+
+ 30-gcp-vm/ # CLOUD - Google Cloud VM
+ main.tf
+ variables.tf
+ README.md
 ```
 
-##  Learning Path
+## Learning Path
 
 ### Week 1 - BASICS (LOCAL, SAFE)
 
 #### Day 1-2: Local Files
 ```bash
 cd 01-local-files
-cat README.md  # Read it
+cat README.md # Read it
 terraform init
 terraform plan
 terraform apply
@@ -91,11 +91,11 @@ terraform destroy
 # 2. AWS CLI configuration
 
 cd 20-aws-ec2
-cat README.md  # IMPORTANT: read about costs!
-export TF_VAR_project_id="terraform-practice"  # Or terraform.tfvars
+cat README.md # IMPORTANT: read about costs!
+export TF_VAR_project_id="terraform-practice" # Or terraform.tfvars
 
 terraform init
-terraform plan  # Check the preview!
+terraform plan # Check the preview!
 terraform apply
 
 # Test
@@ -139,7 +139,7 @@ terraform destroy
 
 ---
 
-##  Quick Start - START NOW!
+## Quick Start - START NOW!
 
 ### If you're completely new:
 ```bash
@@ -168,43 +168,43 @@ cd ~/terraform-practice/30-gcp-vm
 
 ---
 
-## 💰 Cost Comparison
+## Cost Comparison
 
 | Project | Cost | Free Tier | Time Limit | Recommended |
 |---------|------|-----------|------------|-------------|
-| **01-local-files** | $0 |  | ∞ | For beginners |
-| **02-podman** | $0 |  | ∞ | For beginners |
-| **10-kvm-local** | $0 |  | ∞ | **Best for practice!** |
-| **20-aws-ec2** | $0* |  | 12 months | For cloud learning |
-| **30-gcp-vm** | $0* |  | Always Free! | **Free forever!** |
+| **01-local-files** | $0 | | ∞ | For beginners |
+| **02-podman** | $0 | | ∞ | For beginners |
+| **10-kvm-local** | $0 | | ∞ | **Best for practice!** |
+| **20-aws-ec2** | $0* | | 12 months | For cloud learning |
+| **30-gcp-vm** | $0* | | Always Free! | **Free forever!** |
 
 *Staying within Free Tier limits
 
 ---
 
-## ⚠ IMPORTANT WARNINGS
+## IMPORTANT WARNINGS
 
 ### AWS
--  Free Tier: 750 hours/month (12 months)
-- ⚠ **ALWAYS destroy after practice!**
-- ⚠ Set up Billing Alert at $1!
-- ⚠ Only use t2.micro instances!
+- Free Tier: 750 hours/month (12 months)
+- **ALWAYS destroy after practice!**
+- Set up Billing Alert at $1!
+- Only use t2.micro instances!
 
 ### Google Cloud
--  Always Free: 1 e2-micro (forever!)
--  $300 credit for 90 days
-- ⚠ Only in us-central1, us-west1, us-east1 regions!
-- ⚠ Set up Budget Alert!
+- Always Free: 1 e2-micro (forever!)
+- $300 credit for 90 days
+- Only in us-central1, us-west1, us-east1 regions!
+- Set up Budget Alert!
 
 ### KVM (Local)
--  Completely free
--  No time limit
--  **Best for practice!**
-- ⚠ Uses laptop resources
+- Completely free
+- No time limit
+- **Best for practice!**
+- Uses laptop resources
 
 ---
 
-##  Documentation
+## Documentation
 
 ### Terraform general:
 - `TERRAFORM_CHEATSHEET.md` - Complete reference (all keywords)
@@ -219,16 +219,16 @@ cd ~/terraform-practice/30-gcp-vm
 
 ---
 
-##  Learning Tips
+## Learning Tips
 
 ### 1. Start small
 ```bash
 # DON'T:
-terraform apply  # Immediately
+terraform apply # Immediately
 
 # DO:
-terraform plan   # Check it first!
-terraform apply  # Then apply
+terraform plan # Check it first!
+terraform apply # Then apply
 ```
 
 ### 2. Read the plan output
@@ -244,20 +244,20 @@ terraform plan
 ```hcl
 # DON'T:
 resource "..." "..." {
-  port = 8080
+ port = 8080
 }
 
 # DO:
 variable "port" { default = 8080 }
 resource "..." "..." {
-  port = var.port
+ port = var.port
 }
 ```
 
 ### 4. Output important information
 ```hcl
 output "vm_ip" {
-  value = resource.type.name.ip
+ value = resource.type.name.ip
 }
 ```
 
@@ -271,7 +271,7 @@ terraform destroy
 
 ---
 
-##  Troubleshooting
+## Troubleshooting
 
 ### "command not found: terraform"
 ```bash
@@ -288,8 +288,8 @@ sudo dnf install terraform
 ### "Error: Unsupported argument"
 ```bash
 # Syntax error
-terraform validate  # Check
-terraform fmt       # Format
+terraform validate # Check
+terraform fmt # Format
 ```
 
 ### KVM/Libvirt issues
@@ -323,7 +323,7 @@ gcloud services enable compute.googleapis.com
 
 ---
 
-##  Next Steps After Practice
+## Next Steps After Practice
 
 1. **Create modules** - Reusable components
 2. **Remote state** - S3/GCS backend
@@ -334,7 +334,7 @@ gcloud services enable compute.googleapis.com
 
 ---
 
-## 📞 Help
+## Help
 
 If you get stuck:
 
@@ -342,13 +342,13 @@ If you get stuck:
 2. **CHEATSHEET.md** - Terraform reference
 3. **Official docs**: https://developer.hashicorp.com/terraform/docs
 4. **Provider docs**:
-   - AWS: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
-   - GCP: https://registry.terraform.io/providers/hashicorp/google/latest/docs
-   - Libvirt: https://registry.terraform.io/providers/dmacvicar/libvirt/latest/docs
+ - AWS: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+ - GCP: https://registry.terraform.io/providers/hashicorp/google/latest/docs
+ - Libvirt: https://registry.terraform.io/providers/dmacvicar/libvirt/latest/docs
 
 ---
 
-##  Checklist - Before Starting
+## Checklist - Before Starting
 
 - [ ] Terraform installed (`terraform version`)
 - [ ] Git initialized (optional, but recommended)

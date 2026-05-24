@@ -27,10 +27,10 @@ Unlike tmux's three-level hierarchy (session → window → pane), screen has a 
 
 ```
 screen Session
-  ├─ Window 0: bash
-  ├─ Window 1: vim
-  ├─ Window 2: logs
-  └─ Window 3: monitoring
+ Window 0: bash
+ Window 1: vim
+ Window 2: logs
+ Window 3: monitoring
 ```
 
 **Terminology:**
@@ -102,35 +102,35 @@ screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}' | xargs -I {} screen
 ### Create and Navigate Windows
 
 ```
-Ctrl+a c       - Create new window
-Ctrl+a A       - Rename current window
-Ctrl+a k       - Kill current window (prompts for confirmation)
-Ctrl+a \       - Kill all windows and terminate screen
+Ctrl+a c - Create new window
+Ctrl+a A - Rename current window
+Ctrl+a k - Kill current window (prompts for confirmation)
+Ctrl+a \ - Kill all windows and terminate screen
 
-Ctrl+a n       - Next window
-Ctrl+a p       - Previous window
-Ctrl+a 0-9     - Switch to window 0-9
-Ctrl+a '       - Prompt for window number or name
-Ctrl+a "       - List all windows (interactive)
+Ctrl+a n - Next window
+Ctrl+a p - Previous window
+Ctrl+a 0-9 - Switch to window 0-9
+Ctrl+a ' - Prompt for window number or name
+Ctrl+a " - List all windows (interactive)
 
-Ctrl+a Ctrl+a  - Toggle between current and previous window
-Ctrl+a w       - Show window list in status line
+Ctrl+a Ctrl+a - Toggle between current and previous window
+Ctrl+a w - Show window list in status line
 ```
 
 **Example:**
 ```bash
 # Create workflow
-Ctrl+a c       → Window 1 (created)
-Ctrl+a A       → Rename to "editor"
+Ctrl+a c → Window 1 (created)
+Ctrl+a A → Rename to "editor"
 vim project.py
-Ctrl+a c       → Window 2 (created)
-Ctrl+a A       → Rename to "logs"
+Ctrl+a c → Window 2 (created)
+Ctrl+a A → Rename to "logs"
 tail -f /var/log/app.log
 
 # Navigate
-Ctrl+a 0       → Switch to window 0
-Ctrl+a n       → Next window
-Ctrl+a Ctrl+a  → Toggle to previous window
+Ctrl+a 0 → Switch to window 0
+Ctrl+a n → Next window
+Ctrl+a Ctrl+a → Toggle to previous window
 ```
 
 ---
@@ -142,33 +142,33 @@ Screen supports splitting the terminal into regions (similar to tmux panes, but 
 ### Split and Navigate
 
 ```
-Ctrl+a S       - Split horizontally (create region below)
-Ctrl+a |       - Split vertically (create region to right) [may need -v flag]
-Ctrl+a Tab     - Move to next region
-Ctrl+a Q       - Close all regions except current
-Ctrl+a X       - Close current region
+Ctrl+a S - Split horizontally (create region below)
+Ctrl+a | - Split vertically (create region to right) [may need -v flag]
+Ctrl+a Tab - Move to next region
+Ctrl+a Q - Close all regions except current
+Ctrl+a X - Close current region
 
 # After splitting, new region is empty
 # Switch to it and select a window:
-Ctrl+a Tab     - Move to new region
-Ctrl+a c       - Create window in region
+Ctrl+a Tab - Move to new region
+Ctrl+a c - Create window in region
 # or
-Ctrl+a 0-9     - Display existing window in region
+Ctrl+a 0-9 - Display existing window in region
 ```
 
 **Example:**
 ```bash
 # Create editor + terminal layout
-Ctrl+a S       → Split horizontally
-Ctrl+a Tab     → Move to bottom region
-Ctrl+a c       → Create new window in region
+Ctrl+a S → Split horizontally
+Ctrl+a Tab → Move to bottom region
+Ctrl+a c → Create new window in region
 
 # Result (two horizontal regions):
-# ┌─────────────────┐
-# │   Window 0      │
-# ├─────────────────┤
-# │   Window 1      │
-# └─────────────────┘
+# 
+# Window 0 
+# 
+# Window 1 
+# 
 ```
 
 **Note:** Screen's split functionality is less feature-rich than tmux. Splits are not persistent across detach/reattach.
@@ -180,30 +180,30 @@ Ctrl+a c       → Create new window in region
 ### Enter Copy Mode
 
 ```
-Ctrl+a [       - Enter copy mode (scrollback)
+Ctrl+a [ - Enter copy mode (scrollback)
 # or
 Ctrl+a Esc
 
 # In copy mode:
-Space          - Start selection
-Space again    - End selection (copies to screen's buffer)
-Ctrl+a ]       - Paste from screen's buffer
+Space - Start selection
+Space again - End selection (copies to screen's buffer)
+Ctrl+a ] - Paste from screen's buffer
 
-Esc            - Exit copy mode
+Esc - Exit copy mode
 ```
 
 ### Copy Mode Navigation
 
 ```
-h, j, k, l     - Move cursor (vi-style)
-0, $           - Start/end of line
-w, b           - Move by word
+h, j, k, l - Move cursor (vi-style)
+0, $ - Start/end of line
+w, b - Move by word
 Ctrl+u, Ctrl+d - Half page up/down
 Ctrl+b, Ctrl+f - Full page up/down
-g, G           - Top/bottom of buffer
-/              - Search forward
-?              - Search backward
-n              - Next search result
+g, G - Top/bottom of buffer
+/ - Search forward
+? - Search backward
+n - Next search result
 ```
 
 ### Increase Scrollback Buffer
@@ -239,7 +239,7 @@ hardstatus string "%{.kW}%-w%{.bW}%t [%n]%{-}%+w %=%{..G} %H %{..Y} %Y-%m-%d %c"
 
 # Visual bell instead of audible
 vbell on
-vbell_msg "   Wuff  ----  Wuff!!  "
+vbell_msg " Wuff ---- Wuff!! "
 
 # Alternative caption (shows window list)
 caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
@@ -316,7 +316,7 @@ Ctrl+a M
 Ctrl+a _
 
 # Add to ~/.screenrc:
-# defmonitor on          # Monitor all windows by default
+# defmonitor on # Monitor all windows by default
 # activity "Window %n: activity!"
 ```
 
@@ -364,8 +364,8 @@ ssh server01
 screen -S work
 
 # Do work in multiple windows...
-Ctrl+a c  # new window for logs
-Ctrl+a c  # new window for monitoring
+Ctrl+a c # new window for logs
+Ctrl+a c # new window for monitoring
 
 # Network dies or you close laptop
 # Session continues running on server!
@@ -613,48 +613,48 @@ bind-key d detach-client
 
 ### Session Management
 ```
-screen -S name         - Create named session
-screen -r name         - Reattach to session
-screen -ls             - List sessions
-screen -dr name        - Force reattach (detach others)
-Ctrl+a d               - Detach from session
+screen -S name - Create named session
+screen -r name - Reattach to session
+screen -ls - List sessions
+screen -dr name - Force reattach (detach others)
+Ctrl+a d - Detach from session
 ```
 
 ### Windows
 ```
-Ctrl+a c               - Create window
-Ctrl+a A               - Rename window
-Ctrl+a n/p             - Next/previous window
-Ctrl+a 0-9             - Switch to window 0-9
-Ctrl+a "               - List windows
-Ctrl+a k               - Kill window
-Ctrl+a w               - Window list in status
+Ctrl+a c - Create window
+Ctrl+a A - Rename window
+Ctrl+a n/p - Next/previous window
+Ctrl+a 0-9 - Switch to window 0-9
+Ctrl+a " - List windows
+Ctrl+a k - Kill window
+Ctrl+a w - Window list in status
 ```
 
 ### Regions (Splits)
 ```
-Ctrl+a S               - Horizontal split
-Ctrl+a |               - Vertical split
-Ctrl+a Tab             - Next region
-Ctrl+a Q               - Close all except current
-Ctrl+a X               - Close current region
+Ctrl+a S - Horizontal split
+Ctrl+a | - Vertical split
+Ctrl+a Tab - Next region
+Ctrl+a Q - Close all except current
+Ctrl+a X - Close current region
 ```
 
 ### Copy Mode
 ```
-Ctrl+a [               - Enter copy mode
-Space                  - Start/end selection
-Ctrl+a ]               - Paste
-Esc                    - Exit copy mode
+Ctrl+a [ - Enter copy mode
+Space - Start/end selection
+Ctrl+a ] - Paste
+Esc - Exit copy mode
 ```
 
 ### Misc
 ```
-Ctrl+a ?               - Help (show key bindings)
-Ctrl+a :               - Command mode
-Ctrl+a H               - Start/stop logging
-Ctrl+a M               - Monitor window activity
-Ctrl+a x               - Lock screen
+Ctrl+a ? - Help (show key bindings)
+Ctrl+a : - Command mode
+Ctrl+a H - Start/stop logging
+Ctrl+a M - Monitor window activity
+Ctrl+a x - Lock screen
 ```
 
 ---
@@ -679,6 +679,6 @@ Ctrl+a x               - Lock screen
 
 ---
 
-**Updated:** 2026-05-23  
-**Author:** Miklos Greczi  
+**Updated:** 2026-05-23 
+**Author:** Documentation Team 
 **Use Case:** Terminal multiplexing, Legacy systems, Serial console, SRE

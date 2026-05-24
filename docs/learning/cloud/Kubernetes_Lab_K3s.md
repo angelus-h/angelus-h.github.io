@@ -3,60 +3,60 @@
 **Created:** 2026-03-07
 **Goal:** Simple, lightweight Kubernetes cluster on 3 VMs (1 master + 2 workers)
 
-##  Architecture
+## Architecture
 
 ```
-k3s-master   192.168.122.10   2 CPU, 2GB RAM, 50GB disk
-k3s-worker1  192.168.122.11   2 CPU, 4GB RAM, 50GB disk
-k3s-worker2  192.168.122.12   2 CPU, 4GB RAM, 50GB disk
+k3s-master 192.168.122.10 2 CPU, 2GB RAM, 50GB disk
+k3s-worker1 192.168.122.11 2 CPU, 4GB RAM, 50GB disk
+k3s-worker2 192.168.122.12 2 CPU, 4GB RAM, 50GB disk
 ```
 
 **Why K3s?**
--  Simple installation (few commands)
--  Low resource requirements
--  Full Kubernetes API
--  Built-in CNI, storage, ingress (Traefik)
--  Production-ready (Rancher)
+- Simple installation (few commands)
+- Low resource requirements
+- Full Kubernetes API
+- Built-in CNI, storage, ingress (Traefik)
+- Production-ready (Rancher)
 
 ---
 
-##  1. Create VMs
+## 1. Create VMs
 
 ### KVM/libvirt
 
 ```bash
 # Master
 virt-install \
-  --name k3s-master \
-  --ram 2048 \
-  --vcpus 2 \
-  --disk path=/var/lib/libvirt/images/k3s-master.qcow2,size=50 \
-  --network network=default \
-  --os-variant rocky9 \
-  --location /path/to/rocky9.iso \
-  --extra-args "console=ttyS0"
+ --name k3s-master \
+ --ram 2048 \
+ --vcpus 2 \
+ --disk path=/var/lib/libvirt/images/k3s-master.qcow2,size=50 \
+ --network network=default \
+ --os-variant rocky9 \
+ --location /path/to/rocky9.iso \
+ --extra-args "console=ttyS0"
 
 # Worker 1
 virt-install \
-  --name k3s-worker1 \
-  --ram 4096 \
-  --vcpus 2 \
-  --disk path=/var/lib/libvirt/images/k3s-worker1.qcow2,size=50 \
-  --network network=default \
-  --os-variant rocky9 \
-  --location /path/to/rocky9.iso \
-  --extra-args "console=ttyS0"
+ --name k3s-worker1 \
+ --ram 4096 \
+ --vcpus 2 \
+ --disk path=/var/lib/libvirt/images/k3s-worker1.qcow2,size=50 \
+ --network network=default \
+ --os-variant rocky9 \
+ --location /path/to/rocky9.iso \
+ --extra-args "console=ttyS0"
 
 # Worker 2
 virt-install \
-  --name k3s-worker2 \
-  --ram 4096 \
-  --vcpus 2 \
-  --disk path=/var/lib/libvirt/images/k3s-worker2.qcow2,size=50 \
-  --network network=default \
-  --os-variant rocky9 \
-  --location /path/to/rocky9.iso \
-  --extra-args "console=ttyS0"
+ --name k3s-worker2 \
+ --ram 4096 \
+ --vcpus 2 \
+ --disk path=/var/lib/libvirt/images/k3s-worker2.qcow2,size=50 \
+ --network network=default \
+ --os-variant rocky9 \
+ --location /path/to/rocky9.iso \
+ --extra-args "console=ttyS0"
 ```
 
 ### OpenShift Virtualization
@@ -65,7 +65,7 @@ Create 3 VMs via web UI using Rocky Linux 9 / RHEL 9 image.
 
 ---
 
-##  2. Base Configuration (All 3 VMs)
+## 2. Base Configuration (All 3 VMs)
 
 ```bash
 # Set hostname
@@ -104,7 +104,7 @@ dnf install -y curl wget vim git
 
 ---
 
-##  3. Install K3s Master
+## 3. Install K3s Master
 
 **ON MASTER NODE ONLY:**
 
@@ -135,7 +135,7 @@ Copy it! Example: `K10abcd1234567890::server:1234567890abcdef`
 
 ---
 
-## 💼 4. Join Worker Nodes
+## 4. Join Worker Nodes
 
 **ON WORKER1 AND WORKER2 NODES:**
 
@@ -157,17 +157,17 @@ systemctl status k3s-agent
 
 ---
 
-##  5. Verification (On Master Node)
+## 5. Verification (On Master Node)
 
 ```bash
 # Nodes
 kubectl get nodes
 
 # Expected:
-# NAME          STATUS   ROLES                  AGE   VERSION
-# k3s-master    Ready    control-plane,master   5m    v1.28.x+k3s1
-# k3s-worker1   Ready    <none>                 2m    v1.28.x+k3s1
-# k3s-worker2   Ready    <none>                 2m    v1.28.x+k3s1
+# NAME STATUS ROLES AGE VERSION
+# k3s-master Ready control-plane,master 5m v1.28.x+k3s1
+# k3s-worker1 Ready <none> 2m v1.28.x+k3s1
+# k3s-worker2 Ready <none> 2m v1.28.x+k3s1
 
 # System pods
 kubectl get pods -A
@@ -178,7 +178,7 @@ kubectl get storageclass
 
 ---
 
-## 🧪 6. First App Deploy - Nginx
+## 6. First App Deploy - Nginx
 
 ```bash
 # Deployment
@@ -202,7 +202,7 @@ curl http://192.168.122.11:<nodeport>
 
 ---
 
-##  7. Persistent Storage Test
+## 7. Persistent Storage Test
 
 ```bash
 # Create PVC
@@ -224,7 +224,7 @@ kubectl exec test-pod -- cat /data/test.txt
 
 ---
 
-##  8. Ingress Example (Traefik)
+## 8. Ingress Example (Traefik)
 
 ```bash
 # Application with ingress
@@ -236,7 +236,7 @@ curl http://web.local
 
 ---
 
-## 🎛 9. Dashboard (Optional)
+## 9. Dashboard (Optional)
 
 ```bash
 # Install
@@ -257,13 +257,13 @@ kubectl proxy --address='0.0.0.0' --accept-hosts='.*'
 
 ---
 
-##  Useful Commands
+## Useful Commands
 
 See: `docs/useful-commands.md`
 
 ---
 
-## 🗑 Delete Cluster
+## Delete Cluster
 
 ```bash
 # On master node
@@ -275,7 +275,7 @@ See: `docs/useful-commands.md`
 
 ---
 
-##  Next Steps
+## Next Steps
 
 - [ ] MetalLB - LoadBalancer services on bare metal
 - [ ] Cert-Manager - SSL certificates
@@ -285,24 +285,24 @@ See: `docs/useful-commands.md`
 
 ---
 
-##  Project Structure
+## Project Structure
 
 ```
 k8s-lab/
-├── README.md              # This file
-├── scripts/
-│   ├── prepare-node.sh    # VM preparation
-│   ├── setup-master.sh    # Master installation
-│   ├── setup-worker.sh    # Worker join
-│   └── test-nginx.sh      # Test deployment
-├── manifests/
-│   ├── test-pvc.yaml
-│   ├── test-pod-with-storage.yaml
-│   ├── web-app-with-ingress.yaml
-│   └── dashboard-admin.yaml
-└── docs/
-    ├── useful-commands.md
-    └── troubleshooting.md
+ README.md # This file
+ scripts/
+ prepare-node.sh # VM preparation
+ setup-master.sh # Master installation
+ setup-worker.sh # Worker join
+ test-nginx.sh # Test deployment
+ manifests/
+ test-pvc.yaml
+ test-pod-with-storage.yaml
+ web-app-with-ingress.yaml
+ dashboard-admin.yaml
+ docs/
+ useful-commands.md
+ troubleshooting.md
 ```
 
 ---

@@ -72,15 +72,15 @@
 ### Core Components
 
 ```
-┌────────────┐       ┌──────────────────────────────────┐       ┌──────────────┐
-│ Publisher  │──────>│      RabbitMQ Broker             │──────>│   Consumer   │
-└────────────┘       │                                  │       └──────────────┘
-                     │  ┌──────────┐   ┌───────────┐   │
-                     │  │ Exchange │──>│   Queue   │   │
-                     │  └──────────┘   └───────────┘   │
-                     │                                  │
-                     │  Routing Keys, Bindings          │
-                     └──────────────────────────────────┘
+ 
+ Publisher > RabbitMQ Broker > Consumer 
+ 
+ 
+ Exchange > Queue 
+ 
+ 
+ Routing Keys, Bindings 
+ 
 ```
 
 **Components:**
@@ -115,10 +115,10 @@
 
 **Example:**
 ```
-/prod          - Production environment
-/staging       - Staging environment
-/dev           - Development environment
-/team-alpha    - Team Alpha's queues
+/prod - Production environment
+/staging - Staging environment
+/dev - Development environment
+/team-alpha - Team Alpha's queues
 ```
 
 **CLI:**
@@ -149,11 +149,11 @@ Exchanges route messages to queues based on **routing keys** and **bindings**.
 
 ```
 Exchange: logs.direct
-Binding:  Queue "error_logs"  -> routing key "error"
-Binding:  Queue "info_logs"   -> routing key "info"
+Binding: Queue "error_logs" -> routing key "error"
+Binding: Queue "info_logs" -> routing key "info"
 
 Publish with key "error" -> routed to "error_logs"
-Publish with key "info"  -> routed to "info_logs"
+Publish with key "info" -> routed to "info_logs"
 ```
 
 **Python Example:**
@@ -189,9 +189,9 @@ channel.basic_publish(exchange='logs.direct', routing_key='error', body='Critica
 
 ```
 Exchange: notifications.fanout
-Binding:  Queue "email_queue"
-Binding:  Queue "sms_queue"
-Binding:  Queue "push_queue"
+Binding: Queue "email_queue"
+Binding: Queue "sms_queue"
+Binding: Queue "push_queue"
 
 Publish message -> routed to ALL three queues
 ```
@@ -225,13 +225,13 @@ channel.basic_publish(exchange='notifications.fanout', routing_key='', body='New
 
 ```
 Exchange: events.topic
-Binding:  Queue "all_orders"     -> pattern "order.*"
-Binding:  Queue "us_orders"      -> pattern "order.us.#"
-Binding:  Queue "critical_only"  -> pattern "*.*.critical"
+Binding: Queue "all_orders" -> pattern "order.*"
+Binding: Queue "us_orders" -> pattern "order.us.#"
+Binding: Queue "critical_only" -> pattern "*.*.critical"
 
-Publish "order.us.created"       -> routed to "all_orders", "us_orders"
-Publish "order.eu.critical"      -> routed to "all_orders", "critical_only"
-Publish "payment.us.critical"    -> routed to "critical_only"
+Publish "order.us.created" -> routed to "all_orders", "us_orders"
+Publish "order.eu.critical" -> routed to "all_orders", "critical_only"
+Publish "payment.us.critical" -> routed to "critical_only"
 ```
 
 **Python Example:**
@@ -264,23 +264,23 @@ channel.exchange_declare(exchange='tasks.headers', exchange_type='headers')
 
 # Bind queue with header matching
 channel.queue_bind(
-    exchange='tasks.headers',
-    queue='high_priority',
-    arguments={
-        'x-match': 'all',  # all headers must match
-        'priority': 'high',
-        'region': 'us-east'
-    }
+ exchange='tasks.headers',
+ queue='high_priority',
+ arguments={
+ 'x-match': 'all', # all headers must match
+ 'priority': 'high',
+ 'region': 'us-east'
+ }
 )
 
 # Publish with headers
 channel.basic_publish(
-    exchange='tasks.headers',
-    routing_key='',
-    body='Urgent task',
-    properties=pika.BasicProperties(
-        headers={'priority': 'high', 'region': 'us-east'}
-    )
+ exchange='tasks.headers',
+ routing_key='',
+ body='Urgent task',
+ properties=pika.BasicProperties(
+ headers={'priority': 'high', 'region': 'us-east'}
+ )
 )
 ```
 
@@ -330,12 +330,12 @@ channel.queue_declare(queue='tasks', durable=True)
 
 ```python
 channel.basic_publish(
-    exchange='',
-    routing_key='tasks',
-    body='Task data',
-    properties=pika.BasicProperties(
-        delivery_mode=2,  # Persistent
-    )
+ exchange='',
+ routing_key='tasks',
+ body='Task data',
+ properties=pika.BasicProperties(
+ delivery_mode=2, # Persistent
+ )
 )
 ```
 
@@ -345,8 +345,8 @@ channel.basic_publish(
 
 ```python
 channel.queue_declare(
-    queue='short_lived',
-    arguments={'x-message-ttl': 60000}  # 60 seconds
+ queue='short_lived',
+ arguments={'x-message-ttl': 60000} # 60 seconds
 )
 ```
 
@@ -354,12 +354,12 @@ channel.queue_declare(
 
 ```python
 channel.basic_publish(
-    exchange='',
-    routing_key='tasks',
-    body='Task data',
-    properties=pika.BasicProperties(
-        expiration='60000'  # 60 seconds
-    )
+ exchange='',
+ routing_key='tasks',
+ body='Task data',
+ properties=pika.BasicProperties(
+ expiration='60000' # 60 seconds
+ )
 )
 ```
 
@@ -369,11 +369,11 @@ channel.basic_publish(
 
 ```python
 channel.queue_declare(
-    queue='bounded_queue',
-    arguments={
-        'x-max-length': 10000,
-        'x-overflow': 'drop-head'  # Drop oldest messages
-    }
+ queue='bounded_queue',
+ arguments={
+ 'x-max-length': 10000,
+ 'x-overflow': 'drop-head' # Drop oldest messages
+ }
 )
 ```
 
@@ -389,16 +389,16 @@ channel.queue_declare(
 ```python
 # Declare priority queue
 channel.queue_declare(
-    queue='priority_tasks',
-    arguments={'x-max-priority': 10}
+ queue='priority_tasks',
+ arguments={'x-max-priority': 10}
 )
 
 # Publish with priority
 channel.basic_publish(
-    exchange='',
-    routing_key='priority_tasks',
-    body='Urgent task',
-    properties=pika.BasicProperties(priority=9)
+ exchange='',
+ routing_key='priority_tasks',
+ body='Urgent task',
+ properties=pika.BasicProperties(priority=9)
 )
 ```
 
@@ -408,11 +408,11 @@ channel.basic_publish(
 
 ```python
 channel.queue_declare(
-    queue='main_queue',
-    arguments={
-        'x-dead-letter-exchange': 'dlx.exchange',
-        'x-dead-letter-routing-key': 'failed'
-    }
+ queue='main_queue',
+ arguments={
+ 'x-dead-letter-exchange': 'dlx.exchange',
+ 'x-dead-letter-routing-key': 'failed'
+ }
 )
 ```
 
@@ -440,20 +440,20 @@ channel.queue_declare(
 # Producer
 channel.queue_declare(queue='tasks', durable=True)
 channel.basic_publish(
-    exchange='',
-    routing_key='tasks',
-    body='Process order #123',
-    properties=pika.BasicProperties(delivery_mode=2)
+ exchange='',
+ routing_key='tasks',
+ body='Process order #123',
+ properties=pika.BasicProperties(delivery_mode=2)
 )
 
 # Consumer (multiple instances)
 def callback(ch, method, properties, body):
-    print(f"Processing: {body}")
-    # Simulate work
-    time.sleep(5)
-    ch.basic_ack(delivery_tag=method.delivery_tag)
+ print(f"Processing: {body}")
+ # Simulate work
+ time.sleep(5)
+ ch.basic_ack(delivery_tag=method.delivery_tag)
 
-channel.basic_qos(prefetch_count=1)  # Fair dispatch
+channel.basic_qos(prefetch_count=1) # Fair dispatch
 channel.basic_consume(queue='tasks', on_message_callback=callback)
 channel.start_consuming()
 ```
@@ -532,13 +532,13 @@ callback_queue = result.method.queue
 correlation_id = str(uuid.uuid4())
 
 channel.basic_publish(
-    exchange='',
-    routing_key='rpc_queue',
-    properties=pika.BasicProperties(
-        reply_to=callback_queue,
-        correlation_id=correlation_id,
-    ),
-    body='Calculate 42'
+ exchange='',
+ routing_key='rpc_queue',
+ properties=pika.BasicProperties(
+ reply_to=callback_queue,
+ correlation_id=correlation_id,
+ ),
+ body='Calculate 42'
 )
 
 # Wait for reply with matching correlation_id
@@ -548,15 +548,15 @@ channel.basic_publish(
 
 ```python
 def on_request(ch, method, props, body):
-    response = f"Result: {body}"
+ response = f"Result: {body}"
 
-    ch.basic_publish(
-        exchange='',
-        routing_key=props.reply_to,
-        properties=pika.BasicProperties(correlation_id=props.correlation_id),
-        body=response
-    )
-    ch.basic_ack(delivery_tag=method.delivery_tag)
+ ch.basic_publish(
+ exchange='',
+ routing_key=props.reply_to,
+ properties=pika.BasicProperties(correlation_id=props.correlation_id),
+ body=response
+ )
+ ch.basic_ack(delivery_tag=method.delivery_tag)
 ```
 
 ---
@@ -573,10 +573,10 @@ def on_request(ch, method, props, body):
 channel.confirm_delivery()
 
 try:
-    channel.basic_publish(exchange='', routing_key='tasks', body='Task data')
-    print("Message confirmed by broker")
+ channel.basic_publish(exchange='', routing_key='tasks', body='Task data')
+ print("Message confirmed by broker")
 except pika.exceptions.UnroutableError:
-    print("Message could not be routed")
+ print("Message could not be routed")
 ```
 
 ### Consumer Acknowledgements
@@ -585,11 +585,11 @@ except pika.exceptions.UnroutableError:
 
 ```python
 def callback(ch, method, properties, body):
-    try:
-        process_message(body)
-        ch.basic_ack(delivery_tag=method.delivery_tag)
-    except Exception as e:
-        ch.basic_nack(delivery_tag=method.delivery_tag, requeue=True)
+ try:
+ process_message(body)
+ ch.basic_ack(delivery_tag=method.delivery_tag)
+ except Exception as e:
+ ch.basic_nack(delivery_tag=method.delivery_tag, requeue=True)
 
 channel.basic_consume(queue='tasks', on_message_callback=callback, auto_ack=False)
 ```
@@ -605,7 +605,7 @@ channel.basic_consume(queue='tasks', on_message_callback=callback, auto_ack=True
 **Purpose:** Control how many unacknowledged messages a consumer can have.
 
 ```python
-channel.basic_qos(prefetch_count=1)  # Process one message at a time
+channel.basic_qos(prefetch_count=1) # Process one message at a time
 ```
 
 **Use Case:** Fair dispatch in work queues.
@@ -616,9 +616,9 @@ channel.basic_qos(prefetch_count=1)  # Process one message at a time
 
 ```python
 def callback(ch, method, properties, body):
-    if stop_signal:
-        ch.basic_cancel(consumer_tag)
-        ch.stop_consuming()
+ if stop_signal:
+ ch.basic_cancel(consumer_tag)
+ ch.stop_consuming()
 ```
 
 ---
@@ -632,10 +632,10 @@ def callback(ch, method, properties, body):
 **Architecture:**
 
 ```
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  Node 1     │────│  Node 2     │────│  Node 3     │
-│  rabbit@n1  │     │  rabbit@n2  │     │  rabbit@n3  │
-└─────────────┘     └─────────────┘     └─────────────┘
+ 
+ Node 1 Node 2 Node 3 
+ rabbit@n1 rabbit@n2 rabbit@n3 
+ 
 ```
 
 **Features:**
@@ -669,9 +669,9 @@ rabbitmqctl cluster_status
 
 ```python
 channel.queue_declare(
-    queue='ha_queue',
-    durable=True,
-    arguments={'x-queue-type': 'quorum'}
+ queue='ha_queue',
+ durable=True,
+ arguments={'x-queue-type': 'quorum'}
 )
 ```
 
@@ -699,16 +699,16 @@ rabbitmqctl set_policy ha-all "^ha\." '{"ha-mode":"all"}'
 
 ```
 frontend rabbitmq_amqp
-    bind *:5672
-    mode tcp
-    default_backend rabbitmq_nodes
+ bind *:5672
+ mode tcp
+ default_backend rabbitmq_nodes
 
 backend rabbitmq_nodes
-    mode tcp
-    balance roundrobin
-    server rabbit1 rabbit1:5672 check
-    server rabbit2 rabbit2:5672 check
-    server rabbit3 rabbit3:5672 check
+ mode tcp
+ balance roundrobin
+ server rabbit1 rabbit1:5672 check
+ server rabbit2 rabbit2:5672 check
+ server rabbit3 rabbit3:5672 check
 ```
 
 ---
@@ -733,11 +733,11 @@ rabbitmq-plugins enable rabbitmq_federation_management
 
 # Define upstream
 rabbitmqctl set_parameter federation-upstream upstream1 \
-  '{"uri":"amqp://remote-host","ack-mode":"on-confirm"}'
+ '{"uri":"amqp://remote-host","ack-mode":"on-confirm"}'
 
 # Apply policy
 rabbitmqctl set_policy federate-exchanges "^federated\." \
-  '{"federation-upstream-set":"all"}'
+ '{"federation-upstream-set":"all"}'
 ```
 
 ### Shovel
@@ -758,8 +758,8 @@ rabbitmq-plugins enable rabbitmq_shovel_management
 
 # Create shovel
 rabbitmqctl set_parameter shovel my-shovel \
-  '{"src-uri":"amqp://source","src-queue":"source_queue",
-    "dest-uri":"amqp://dest","dest-queue":"dest_queue"}'
+ '{"src-uri":"amqp://source","src-queue":"source_queue",
+ "dest-uri":"amqp://dest","dest-queue":"dest_queue"}'
 ```
 
 ---
@@ -800,9 +800,9 @@ rabbitmqctl set_permissions -p /production myuser "^prod-.*" "^prod-.*" "^prod-.
 listeners.ssl.default = 5671
 
 ssl_options.cacertfile = /path/to/ca_certificate.pem
-ssl_options.certfile   = /path/to/server_certificate.pem
-ssl_options.keyfile    = /path/to/server_key.pem
-ssl_options.verify     = verify_peer
+ssl_options.certfile = /path/to/server_certificate.pem
+ssl_options.keyfile = /path/to/server_key.pem
+ssl_options.verify = verify_peer
 ssl_options.fail_if_no_peer_cert = true
 ```
 
@@ -815,9 +815,9 @@ ssl_context = ssl.create_default_context(cafile="/path/to/ca_cert.pem")
 ssl_context.load_cert_chain("/path/to/client_cert.pem", "/path/to/client_key.pem")
 
 parameters = pika.ConnectionParameters(
-    host='rabbitmq.example.com',
-    port=5671,
-    ssl_options=pika.SSLOptions(ssl_context)
+ host='rabbitmq.example.com',
+ port=5671,
+ ssl_options=pika.SSLOptions(ssl_context)
 )
 connection = pika.BlockingConnection(parameters)
 ```
@@ -903,9 +903,9 @@ rabbitmq-plugins enable rabbitmq_prometheus
 
 ```yaml
 scrape_configs:
-  - job_name: 'rabbitmq'
-    static_configs:
-      - targets: ['rabbitmq:15692']
+ - job_name: 'rabbitmq'
+ static_configs:
+ - targets: ['rabbitmq:15692']
 ```
 
 ### Health Checks
@@ -944,7 +944,7 @@ connection.close()
 
 ```go
 import (
-    amqp "github.com/rabbitmq/amqp091-go"
+ amqp "github.com/rabbitmq/amqp091-go"
 )
 
 conn, _ := amqp.Dial("amqp://guest:guest@localhost:5672/")
@@ -952,8 +952,8 @@ ch, _ := conn.Channel()
 
 q, _ := ch.QueueDeclare("hello", false, false, false, false, nil)
 ch.Publish("", q.Name, false, false, amqp.Publishing{
-    ContentType: "text/plain",
-    Body:        []byte("Hello World"),
+ ContentType: "text/plain",
+ Body: []byte("Hello World"),
 })
 ```
 
@@ -962,15 +962,15 @@ ch.Publish("", q.Name, false, false, amqp.Publishing{
 ```java
 @Configuration
 public class RabbitConfig {
-    @Bean
-    public Queue queue() {
-        return new Queue("hello");
-    }
+ @Bean
+ public Queue queue() {
+ return new Queue("hello");
+ }
 
-    @Bean
-    public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
-        return new RabbitTemplate(connectionFactory);
-    }
+ @Bean
+ public RabbitTemplate rabbitTemplate(ConnectionFactory connectionFactory) {
+ return new RabbitTemplate(connectionFactory);
+ }
 }
 
 // Publish
@@ -998,12 +998,12 @@ channel.sendToQueue('hello', Buffer.from('Hello World'));
 ```bash
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install rabbitmq bitnami/rabbitmq \
-  --set auth.username=admin \
-  --set auth.password=secretpassword \
-  --set replicaCount=3 \
-  --set clustering.enabled=true \
-  --set persistence.enabled=true \
-  --set persistence.size=8Gi
+ --set auth.username=admin \
+ --set auth.password=secretpassword \
+ --set replicaCount=3 \
+ --set clustering.enabled=true \
+ --set persistence.enabled=true \
+ --set persistence.size=8Gi
 ```
 
 ### StatefulSet Example
@@ -1012,61 +1012,61 @@ helm install rabbitmq bitnami/rabbitmq \
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: rabbitmq
+ name: rabbitmq
 spec:
-  serviceName: rabbitmq
-  replicas: 3
-  selector:
-    matchLabels:
-      app: rabbitmq
-  template:
-    metadata:
-      labels:
-        app: rabbitmq
-    spec:
-      containers:
-      - name: rabbitmq
-        image: rabbitmq:3.13-management
-        ports:
-          - containerPort: 5672
-            name: amqp
-          - containerPort: 15672
-            name: management
-        env:
-          - name: RABBITMQ_ERLANG_COOKIE
-            value: "secret-cookie"
-          - name: RABBITMQ_DEFAULT_USER
-            value: "admin"
-          - name: RABBITMQ_DEFAULT_PASS
-            valueFrom:
-              secretKeyRef:
-                name: rabbitmq-secret
-                key: password
-        volumeMounts:
-          - name: data
-            mountPath: /var/lib/rabbitmq
-  volumeClaimTemplates:
-  - metadata:
-      name: data
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      resources:
-        requests:
-          storage: 8Gi
+ serviceName: rabbitmq
+ replicas: 3
+ selector:
+ matchLabels:
+ app: rabbitmq
+ template:
+ metadata:
+ labels:
+ app: rabbitmq
+ spec:
+ containers:
+ - name: rabbitmq
+ image: rabbitmq:3.13-management
+ ports:
+ - containerPort: 5672
+ name: amqp
+ - containerPort: 15672
+ name: management
+ env:
+ - name: RABBITMQ_ERLANG_COOKIE
+ value: "secret-cookie"
+ - name: RABBITMQ_DEFAULT_USER
+ value: "admin"
+ - name: RABBITMQ_DEFAULT_PASS
+ valueFrom:
+ secretKeyRef:
+ name: rabbitmq-secret
+ key: password
+ volumeMounts:
+ - name: data
+ mountPath: /var/lib/rabbitmq
+ volumeClaimTemplates:
+ - metadata:
+ name: data
+ spec:
+ accessModes: [ "ReadWriteOnce" ]
+ resources:
+ requests:
+ storage: 8Gi
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: rabbitmq
+ name: rabbitmq
 spec:
-  selector:
-    app: rabbitmq
-  ports:
-    - name: amqp
-      port: 5672
-    - name: management
-      port: 15672
-  clusterIP: None  # Headless service for StatefulSet
+ selector:
+ app: rabbitmq
+ ports:
+ - name: amqp
+ port: 5672
+ - name: management
+ port: 15672
+ clusterIP: None # Headless service for StatefulSet
 ```
 
 ### RabbitMQ Cluster Operator
@@ -1083,25 +1083,25 @@ kubectl apply -f https://github.com/rabbitmq/cluster-operator/releases/latest/do
 apiVersion: rabbitmq.com/v1beta1
 kind: RabbitmqCluster
 metadata:
-  name: rabbitmq-cluster
+ name: rabbitmq-cluster
 spec:
-  replicas: 3
-  image: rabbitmq:3.13-management
-  persistence:
-    storageClassName: standard
-    storage: 10Gi
-  resources:
-    requests:
-      cpu: 500m
-      memory: 1Gi
-    limits:
-      cpu: 1
-      memory: 2Gi
-  rabbitmq:
-    additionalConfig: |
-      cluster_formation.peer_discovery_backend = rabbit_peer_discovery_k8s
-      cluster_formation.k8s.host = kubernetes.default.svc.cluster.local
-      cluster_formation.k8s.address_type = hostname
+ replicas: 3
+ image: rabbitmq:3.13-management
+ persistence:
+ storageClassName: standard
+ storage: 10Gi
+ resources:
+ requests:
+ cpu: 500m
+ memory: 1Gi
+ limits:
+ cpu: 1
+ memory: 2Gi
+ rabbitmq:
+ additionalConfig: |
+ cluster_formation.peer_discovery_backend = rabbit_peer_discovery_k8s
+ cluster_formation.k8s.host = kubernetes.default.svc.cluster.local
+ cluster_formation.k8s.address_type = hostname
 ```
 
 ---
@@ -1115,7 +1115,7 @@ spec:
 ```python
 # Publish in batches
 for i in range(1000):
-    channel.basic_publish(exchange='', routing_key='queue', body=f'Message {i}')
+ channel.basic_publish(exchange='', routing_key='queue', body=f'Message {i}')
 # Commit batch
 channel.tx_commit()
 ```
@@ -1127,10 +1127,10 @@ import pika
 from pika.adapters.asyncio_connection import AsyncioConnection
 
 async def publish():
-    connection = await AsyncioConnection.create(parameters)
-    channel = await connection.channel()
-    for i in range(10000):
-        await channel.basic_publish(exchange='', routing_key='queue', body=f'Msg {i}')
+ connection = await AsyncioConnection.create(parameters)
+ channel = await connection.channel()
+ for i in range(10000):
+ await channel.basic_publish(exchange='', routing_key='queue', body=f'Msg {i}')
 ```
 
 ### Consumer Performance
@@ -1138,7 +1138,7 @@ async def publish():
 **Prefetch Count:**
 
 ```python
-channel.basic_qos(prefetch_count=10)  # Process up to 10 messages concurrently
+channel.basic_qos(prefetch_count=10) # Process up to 10 messages concurrently
 ```
 
 **Multiple Consumers:**
@@ -1153,8 +1153,8 @@ channel.basic_qos(prefetch_count=10)  # Process up to 10 messages concurrently
 
 ```python
 channel.queue_declare(
-    queue='large_queue',
-    arguments={'x-queue-mode': 'lazy'}
+ queue='large_queue',
+ arguments={'x-queue-mode': 'lazy'}
 )
 ```
 
@@ -1186,10 +1186,10 @@ disk_free_limit.absolute = 50GB
 ```python
 channel.queue_declare(queue='tasks', durable=True)
 channel.basic_publish(
-    exchange='',
-    routing_key='tasks',
-    body='Task data',
-    properties=pika.BasicProperties(delivery_mode=2)
+ exchange='',
+ routing_key='tasks',
+ body='Task data',
+ properties=pika.BasicProperties(delivery_mode=2)
 )
 ```
 
@@ -1223,11 +1223,11 @@ channel.basic_qos(prefetch_count=1)
 
 ```python
 channel.queue_declare(
-    queue='main_queue',
-    arguments={
-        'x-dead-letter-exchange': 'dlx',
-        'x-dead-letter-routing-key': 'failed'
-    }
+ queue='main_queue',
+ arguments={
+ 'x-dead-letter-exchange': 'dlx',
+ 'x-dead-letter-routing-key': 'failed'
+ }
 )
 ```
 
@@ -1245,8 +1245,8 @@ channel.queue_declare(
 
 ```python
 channel.queue_declare(
-    queue='critical_queue',
-    arguments={'x-queue-type': 'quorum'}
+ queue='critical_queue',
+ arguments={'x-queue-type': 'quorum'}
 )
 ```
 
@@ -1256,8 +1256,8 @@ channel.queue_declare(
 
 ```python
 channel.queue_declare(
-    queue='temp_queue',
-    arguments={'x-message-ttl': 300000}  # 5 minutes
+ queue='temp_queue',
+ arguments={'x-message-ttl': 300000} # 5 minutes
 )
 ```
 
@@ -1300,7 +1300,7 @@ rabbitmqctl list_queues name messages consumers
 
 2. **Verify consumer prefetch:**
 ```python
-channel.basic_qos(prefetch_count=1)  # Ensure set
+channel.basic_qos(prefetch_count=1) # Ensure set
 ```
 
 3. **Check for unacknowledged messages:**
@@ -1311,8 +1311,8 @@ rabbitmqctl list_queues name messages_unacknowledged
 4. **Restart consumers with manual ACK:**
 ```python
 def callback(ch, method, properties, body):
-    process(body)
-    ch.basic_ack(delivery_tag=method.delivery_tag)
+ process(body)
+ ch.basic_ack(delivery_tag=method.delivery_tag)
 ```
 
 ### Issue 2: High Memory Usage
@@ -1330,7 +1330,7 @@ channel.queue_declare(queue='large', arguments={'x-queue-mode': 'lazy'})
 
 2. **Reduce prefetch count:**
 ```python
-channel.basic_qos(prefetch_count=10)  # Lower value
+channel.basic_qos(prefetch_count=10) # Lower value
 ```
 
 3. **Purge old messages:**
@@ -1459,14 +1459,14 @@ channel.queue_bind(exchange='konflux.events', queue='audit', routing_key='#')
 
 # Publish pipeline event
 channel.basic_publish(
-    exchange='konflux.events',
-    routing_key='pipeline.build.failed',
-    body=json.dumps({
-        'pipeline': 'my-app-build',
-        'status': 'failed',
-        'timestamp': '2026-03-19T10:00:00Z'
-    }),
-    properties=pika.BasicProperties(delivery_mode=2)
+ exchange='konflux.events',
+ routing_key='pipeline.build.failed',
+ body=json.dumps({
+ 'pipeline': 'my-app-build',
+ 'status': 'failed',
+ 'timestamp': '2026-03-19T10:00:00Z'
+ }),
+ properties=pika.BasicProperties(delivery_mode=2)
 )
 ```
 
@@ -1474,9 +1474,9 @@ channel.basic_publish(
 
 ```python
 def on_failed_pipeline(ch, method, properties, body):
-    event = json.loads(body)
-    send_slack_notification(f"Pipeline {event['pipeline']} failed!")
-    ch.basic_ack(delivery_tag=method.delivery_tag)
+ event = json.loads(body)
+ send_slack_notification(f"Pipeline {event['pipeline']} failed!")
+ ch.basic_ack(delivery_tag=method.delivery_tag)
 
 channel.basic_qos(prefetch_count=5)
 channel.basic_consume(queue='notifications', on_message_callback=on_failed_pipeline)
@@ -1497,5 +1497,5 @@ channel.start_consuming()
 ---
 
 **Last Updated:** 2026-03-19
-**Author:** Miklos Greczi (Company Infrastructure Team)
+**Author:** Documentation Team (Company Infrastructure Team)
 **License:** CC BY-SA 4.0

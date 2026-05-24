@@ -1,6 +1,6 @@
 # Learning Plan: HashiCorp Vault Secrets Management
 
-##  Learning Objectives
+## Learning Objectives
 
 Understanding HashiCorp Vault operation and learning to securely manage secrets in modern infrastructure - with focus on Company/Platform environments.
 
@@ -18,18 +18,18 @@ Understanding HashiCorp Vault operation and learning to securely manage secrets 
 
 **Bad practices (NEVER do this):**
 ```bash
-#  In Git repository
+# In Git repository
 export DB_PASSWORD="mypassword123"
 
-#  In Kubernetes ConfigMap as plaintext
+# In Kubernetes ConfigMap as plaintext
 apiVersion: v1
 kind: ConfigMap
 data:
-  database-password: "mypassword123"
+ database-password: "mypassword123"
 
-#  Hardcoded in Terraform file
+# Hardcoded in Terraform file
 resource "aws_db_instance" "prod" {
-  password = "mypassword123"  # In GIT!
+ password = "mypassword123" # In GIT!
 }
 ```
 
@@ -44,21 +44,21 @@ resource "aws_db_instance" "prod" {
 **Vault = Centralized Secrets Management**
 
 ```
-┌─────────────────────────────────────────┐
-│         HashiCorp Vault                 │
-│  ┌────────────────────────────────┐    │
-│  │  Encrypted Storage Backend     │    │
-│  │  (etcd, Consul, Filesystem)    │    │
-│  └────────────────────────────────┘    │
-│                                         │
-│  Authentication:                        │
-│  - Token                                │
-│  - Kubernetes ServiceAccount            │
-│  - AppRole (CI/CD)                      │
-│  - LDAP/OIDC (users)                    │
-└─────────────────────────────────────────┘
-         ↓          ↓          ↓
-    App Pods    Terraform   GitLab CI
+
+ HashiCorp Vault 
+ 
+ Encrypted Storage Backend 
+ (etcd, Consul, Filesystem) 
+ 
+ 
+ Authentication: 
+ - Token 
+ - Kubernetes ServiceAccount 
+ - AppRole (CI/CD) 
+ - LDAP/OIDC (users) 
+
+ ↓ ↓ ↓
+ App Pods Terraform GitLab CI
 ```
 
 ### Vault Core Concepts
@@ -77,15 +77,15 @@ resource "aws_db_instance" "prod" {
 **Paths:**
 ```
 secret/data/prod/database/password
-  ↑     ↑    ↑      ↑         ↑
-  |     |    |      |         +-- Key
-  |     |    |      +------------ Secret name
-  |     |    +------------------- Environment
-  |     +------------------------ "data" (due to KV v2)
-  +------------------------------- Secret engine name
+ ↑ ↑ ↑ ↑ ↑
+ | | | | +-- Key
+ | | | +------------ Secret name
+ | | +------------------- Environment
+ | +------------------------ "data" (due to KV v2)
+ +------------------------------- Secret engine name
 ```
 
-### 📖 Practice 1: Vault Installation Check
+### Practice 1: Vault Installation Check
 
 **Task:** Check if Vault is installed and what version.
 
@@ -135,17 +135,17 @@ vault status
 
 **Output interpretation:**
 ```
-Key             Value
----             -----
-Seal Type       shamir
-Initialized     true
-Sealed          false      ← IMPORTANT: false = working
-Total Shares    1
-Threshold       1
-Cluster Name    vault-cluster-abc123
+Key Value
+--- -----
+Seal Type shamir
+Initialized true
+Sealed false ← IMPORTANT: false = working
+Total Shares 1
+Threshold 1
+Cluster Name vault-cluster-abc123
 ```
 
-### 📖 Practice 2: First Secret Management
+### Practice 2: First Secret Management
 
 **1. Writing secret:**
 ```bash
@@ -154,10 +154,10 @@ vault kv put secret/myapp/config username='admin' password='supersecret'
 
 # Multiple values at once
 vault kv put secret/prod/database \
-  host='db.example.com' \
-  port=5432 \
-  username='dbuser' \
-  password='dbpass123'
+ host='db.example.com' \
+ port=5432 \
+ username='dbuser' \
+ password='dbpass123'
 ```
 
 **2. Reading secret:**
@@ -193,7 +193,7 @@ vault kv destroy -versions=1 secret/myapp/config
 vault kv metadata delete secret/myapp/config
 ```
 
-### 📖 Practice 3: Secret Versioning (KV v2)
+### Practice 3: Secret Versioning (KV v2)
 
 **KV v2 = automatic versioning!**
 
@@ -250,7 +250,7 @@ vault token renew
 vault token revoke <token>
 ```
 
-### 📖 Practice 4: AppRole Auth (For CI/CD)
+### Practice 4: AppRole Auth (For CI/CD)
 
 **Scenario:** GitLab CI pipeline needs access to Vault secrets.
 
@@ -264,7 +264,7 @@ vault auth enable approle
 # policy.hcl file
 cat > myapp-policy.hcl <<EOF
 path "secret/data/prod/myapp/*" {
-  capabilities = ["read", "list"]
+ capabilities = ["read", "list"]
 }
 EOF
 
@@ -276,9 +276,9 @@ vault policy write myapp-policy myapp-policy.hcl
 ```bash
 # Create role
 vault write auth/approle/role/gitlab-ci \
-    token_policies="myapp-policy" \
-    token_ttl=1h \
-    token_max_ttl=4h
+ token_policies="myapp-policy" \
+ token_ttl=1h \
+ token_max_ttl=4h
 
 # Get Role ID (not secret)
 vault read auth/approle/role/gitlab-ci/role-id
@@ -291,8 +291,8 @@ vault write -f auth/approle/role/gitlab-ci/secret-id
 ```bash
 # Role ID + Secret ID → Token
 vault write auth/approle/login \
-    role_id="<role-id>" \
-    secret_id="<secret-id>"
+ role_id="<role-id>" \
+ secret_id="<secret-id>"
 
 # Use returned token
 export VAULT_TOKEN="<client_token>"
@@ -302,30 +302,30 @@ vault kv get secret/prod/myapp/config
 **GitLab CI example (.gitlab-ci.yml):**
 ```yaml
 variables:
-  VAULT_ADDR: "https://vault.example.com"
+ VAULT_ADDR: "https://vault.example.com"
 
 deploy:
-  stage: deploy
-  script:
-    # Login to Vault
-    - export VAULT_TOKEN=$(vault write -field=token auth/approle/login
-        role_id=${APPROLE_ROLE_ID}
-        secret_id=${APPROLE_SECRET_ID})
+ stage: deploy
+ script:
+ # Login to Vault
+ - export VAULT_TOKEN=$(vault write -field=token auth/approle/login
+ role_id=${APPROLE_ROLE_ID}
+ secret_id=${APPROLE_SECRET_ID})
 
-    # Get secrets
-    - export DB_PASSWORD=$(vault kv get -field=password secret/prod/database)
+ # Get secrets
+ - export DB_PASSWORD=$(vault kv get -field=password secret/prod/database)
 
-    # Deploy app with secret
-    - ./deploy.sh
-  only:
-    - main
+ # Deploy app with secret
+ - ./deploy.sh
+ only:
+ - main
 ```
 
 **Store in GitLab CI Variables:**
 - `APPROLE_ROLE_ID` (not secret, can be public)
 - `APPROLE_SECRET_ID` (PROTECTED + MASKED!)
 
-### 📖 Practice 5: Kubernetes Auth
+### Practice 5: Kubernetes Auth
 
 **Scenario:** Kubernetes Pods automatic Vault access based on ServiceAccount.
 
@@ -335,16 +335,16 @@ vault auth enable kubernetes
 
 # Configure K8s API endpoint
 vault write auth/kubernetes/config \
-    kubernetes_host="https://kubernetes.default.svc:443"
+ kubernetes_host="https://kubernetes.default.svc:443"
 ```
 
 **2. Create role (service account → policy mapping):**
 ```bash
 vault write auth/kubernetes/role/myapp \
-    bound_service_account_names=myapp-sa \
-    bound_service_account_namespaces=production \
-    policies=myapp-policy \
-    ttl=1h
+ bound_service_account_names=myapp-sa \
+ bound_service_account_namespaces=production \
+ policies=myapp-policy \
+ ttl=1h
 ```
 
 **3. Kubernetes Pod usage:**
@@ -354,8 +354,8 @@ vault write auth/kubernetes/role/myapp \
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: myapp-sa
-  namespace: production
+ name: myapp-sa
+ namespace: production
 ```
 
 **Pod YAML (init container Vault login):**
@@ -363,46 +363,46 @@ metadata:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: myapp
-  namespace: production
+ name: myapp
+ namespace: production
 spec:
-  serviceAccountName: myapp-sa
+ serviceAccountName: myapp-sa
 
-  initContainers:
-  - name: vault-agent
-    image: vault:1.15.4
-    command:
-    - sh
-    - -c
-    - |
-      # Login with ServiceAccount JWT
-      VAULT_TOKEN=$(vault write -field=token auth/kubernetes/login \
-        role=myapp \
-        jwt=@/var/run/secrets/kubernetes.io/serviceaccount/token)
+ initContainers:
+ - name: vault-agent
+ image: vault:1.15.4
+ command:
+ - sh
+ - -c
+ - |
+ # Login with ServiceAccount JWT
+ VAULT_TOKEN=$(vault write -field=token auth/kubernetes/login \
+ role=myapp \
+ jwt=@/var/run/secrets/kubernetes.io/serviceaccount/token)
 
-      # Get secret
-      vault kv get -field=password secret/prod/database > /vault/secrets/db-password
+ # Get secret
+ vault kv get -field=password secret/prod/database > /vault/secrets/db-password
 
-    volumeMounts:
-    - name: vault-secrets
-      mountPath: /vault/secrets
+ volumeMounts:
+ - name: vault-secrets
+ mountPath: /vault/secrets
 
-  containers:
-  - name: myapp
-    image: myapp:latest
-    env:
-    - name: DB_PASSWORD
-      valueFrom:
-        secretKeyRef:
-          name: myapp-vault-secret
-          key: db-password
-    volumeMounts:
-    - name: vault-secrets
-      mountPath: /vault/secrets
+ containers:
+ - name: myapp
+ image: myapp:latest
+ env:
+ - name: DB_PASSWORD
+ valueFrom:
+ secretKeyRef:
+ name: myapp-vault-secret
+ key: db-password
+ volumeMounts:
+ - name: vault-secrets
+ mountPath: /vault/secrets
 
-  volumes:
-  - name: vault-secrets
-    emptyDir: {}
+ volumes:
+ - name: vault-secrets
+ emptyDir: {}
 ```
 
 **Simpler: Vault Agent Injector (Sidecar):**
@@ -410,17 +410,17 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: myapp
-  annotations:
-    vault.hashicorp.com/agent-inject: "true"
-    vault.hashicorp.com/role: "myapp"
-    vault.hashicorp.com/agent-inject-secret-database: "secret/data/prod/database"
+ name: myapp
+ annotations:
+ vault.hashicorp.com/agent-inject: "true"
+ vault.hashicorp.com/role: "myapp"
+ vault.hashicorp.com/agent-inject-secret-database: "secret/data/prod/database"
 spec:
-  serviceAccountName: myapp-sa
-  containers:
-  - name: myapp
-    image: myapp:latest
-    # Secret auto-mounted at /vault/secrets/database
+ serviceAccountName: myapp-sa
+ containers:
+ - name: myapp
+ image: myapp:latest
+ # Secret auto-mounted at /vault/secrets/database
 ```
 
 ---
@@ -439,22 +439,22 @@ spec:
 ```hcl
 # Read-only access to production database secrets
 path "secret/data/prod/database/*" {
-  capabilities = ["read", "list"]
+ capabilities = ["read", "list"]
 }
 
 # Full access to dev environment
 path "secret/data/dev/*" {
-  capabilities = ["create", "read", "update", "delete", "list"]
+ capabilities = ["create", "read", "update", "delete", "list"]
 }
 
 # Deny access to super-secret
 path "secret/data/prod/super-secret" {
-  capabilities = ["deny"]
+ capabilities = ["deny"]
 }
 
 # AppRole-specific: can only read its own secrets
 path "secret/data/apps/{{identity.entity.aliases.AUTH_METHOD_ACCESSOR.metadata.role_name}}/*" {
-  capabilities = ["read"]
+ capabilities = ["read"]
 }
 ```
 
@@ -470,7 +470,7 @@ path "secret/data/apps/{{identity.entity.aliases.AUTH_METHOD_ACCESSOR.metadata.r
 | `sudo` | Admin operations | Vault config changes |
 | `deny` | Explicit denial | Override permissions |
 
-### 📖 Practice 6: Multi-Environment Policy
+### Practice 6: Multi-Environment Policy
 
 **Scenario:** 3 environments (dev, staging, prod) with different permissions.
 
@@ -478,15 +478,15 @@ path "secret/data/apps/{{identity.entity.aliases.AUTH_METHOD_ACCESSOR.metadata.r
 ```hcl
 # dev-team-policy.hcl
 path "secret/data/dev/*" {
-  capabilities = ["create", "read", "update", "delete", "list"]
+ capabilities = ["create", "read", "update", "delete", "list"]
 }
 
 path "secret/data/staging/*" {
-  capabilities = ["read", "list"]
+ capabilities = ["read", "list"]
 }
 
 path "secret/data/prod/*" {
-  capabilities = ["deny"]
+ capabilities = ["deny"]
 }
 ```
 
@@ -494,20 +494,20 @@ path "secret/data/prod/*" {
 ```hcl
 # sre-team-policy.hcl
 path "secret/data/prod/*" {
-  capabilities = ["create", "read", "update", "delete", "list"]
+ capabilities = ["create", "read", "update", "delete", "list"]
 }
 
 path "secret/data/staging/*" {
-  capabilities = ["create", "read", "update", "delete", "list"]
+ capabilities = ["create", "read", "update", "delete", "list"]
 }
 
 path "secret/data/dev/*" {
-  capabilities = ["read", "list"]
+ capabilities = ["read", "list"]
 }
 
 # PKI certificate management
 path "pki/issue/prod-certs" {
-  capabilities = ["create", "update"]
+ capabilities = ["create", "update"]
 }
 ```
 
@@ -515,16 +515,16 @@ path "pki/issue/prod-certs" {
 ```hcl
 # cicd-policy.hcl
 path "secret/data/*/database" {
-  capabilities = ["read"]
+ capabilities = ["read"]
 }
 
 path "secret/data/*/api-tokens" {
-  capabilities = ["read"]
+ capabilities = ["read"]
 }
 
 # Cannot delete anything
 path "secret/*" {
-  capabilities = ["read", "list"]
+ capabilities = ["read", "list"]
 }
 ```
 
@@ -540,7 +540,7 @@ vault token create -policy=dev-team -ttl=8h
 
 # Test: try to access prod secrets with dev token
 export VAULT_TOKEN="<dev-team-token>"
-vault kv get secret/prod/database  # Expected: permission denied
+vault kv get secret/prod/database # Expected: permission denied
 ```
 
 ---
@@ -558,33 +558,33 @@ vault kv get secret/prod/database  # Expected: permission denied
 **provider.tf:**
 ```hcl
 terraform {
-  required_providers {
-    vault = {
-      source  = "hashicorp/vault"
-      version = "~> 3.20"
-    }
-  }
+ required_providers {
+ vault = {
+ source = "hashicorp/vault"
+ version = "~> 3.20"
+ }
+ }
 }
 
 provider "vault" {
-  address = "https://vault.example.com"
+ address = "https://vault.example.com"
 
-  # Auth method 1: Token from environment
-  # export VAULT_TOKEN="s.xxxxx"
+ # Auth method 1: Token from environment
+ # export VAULT_TOKEN="s.xxxxx"
 
-  # Auth method 2: AppRole
-  auth_login {
-    path = "auth/approle/login"
+ # Auth method 2: AppRole
+ auth_login {
+ path = "auth/approle/login"
 
-    parameters = {
-      role_id   = var.approle_role_id
-      secret_id = var.approle_secret_id
-    }
-  }
+ parameters = {
+ role_id = var.approle_role_id
+ secret_id = var.approle_secret_id
+ }
+ }
 }
 ```
 
-### 📖 Practice 7: Reading Secrets from Terraform
+### Practice 7: Reading Secrets from Terraform
 
 **Scenario:** Read database password from Vault and use it to create RDS instance.
 
@@ -592,32 +592,32 @@ provider "vault" {
 ```hcl
 # Read secret from Vault
 data "vault_kv_secret_v2" "database" {
-  mount = "secret"
-  name  = "prod/database"
+ mount = "secret"
+ name = "prod/database"
 }
 
 # Use secret in AWS RDS
 resource "aws_db_instance" "prod" {
-  identifier        = "prod-db"
-  engine            = "postgres"
-  instance_class    = "db.t3.micro"
-  allocated_storage = 20
+ identifier = "prod-db"
+ engine = "postgres"
+ instance_class = "db.t3.micro"
+ allocated_storage = 20
 
-  #  Secret from Vault (not in git!)
-  username = data.vault_kv_secret_v2.database.data["username"]
-  password = data.vault_kv_secret_v2.database.data["password"]
+ # Secret from Vault (not in git!)
+ username = data.vault_kv_secret_v2.database.data["username"]
+ password = data.vault_kv_secret_v2.database.data["password"]
 
-  # Other configs...
+ # Other configs...
 }
 
 # Output (be careful with sensitive data!)
 output "db_endpoint" {
-  value = aws_db_instance.prod.endpoint
+ value = aws_db_instance.prod.endpoint
 }
 
 # DON'T output passwords!
 # output "db_password" {
-#   value = data.vault_kv_secret_v2.database.data["password"]
+# value = data.vault_kv_secret_v2.database.data["password"]
 # }
 ```
 
@@ -625,15 +625,15 @@ output "db_endpoint" {
 ```hcl
 # backend.tf - State file in Vault!
 terraform {
-  backend "http" {
-    address        = "https://vault.example.com/v1/secret/data/terraform/state"
-    lock_address   = "https://vault.example.com/v1/secret/data/terraform/state/lock"
-    unlock_address = "https://vault.example.com/v1/secret/data/terraform/state/lock"
-  }
+ backend "http" {
+ address = "https://vault.example.com/v1/secret/data/terraform/state"
+ lock_address = "https://vault.example.com/v1/secret/data/terraform/state/lock"
+ unlock_address = "https://vault.example.com/v1/secret/data/terraform/state/lock"
+ }
 }
 ```
 
-### 📖 Practice 8: Dynamic AWS Credentials
+### Practice 8: Dynamic AWS Credentials
 
 **Scenario:** Short-lived AWS credentials from Vault for Terraform (no static IAM key).
 
@@ -644,23 +644,23 @@ vault secrets enable aws
 
 # Configure AWS root credentials (Vault uses these to generate dynamic creds)
 vault write aws/config/root \
-    access_key=AKIAIOSFODNN7EXAMPLE \
-    secret_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
-    region=us-east-1
+ access_key=AKIAIOSFODNN7EXAMPLE \
+ secret_key=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY \
+ region=us-east-1
 
 # Create role for Terraform
 vault write aws/roles/terraform \
-    credential_type=iam_user \
-    policy_document=-<<EOF
+ credential_type=iam_user \
+ policy_document=-<<EOF
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": "ec2:*",
-      "Resource": "*"
-    }
-  ]
+ "Version": "2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "ec2:*",
+ "Resource": "*"
+ }
+ ]
 }
 EOF
 ```
@@ -669,14 +669,14 @@ EOF
 ```hcl
 # Get dynamic AWS credentials from Vault
 data "vault_aws_access_credentials" "creds" {
-  backend = "aws"
-  role    = "terraform"
+ backend = "aws"
+ role = "terraform"
 }
 
 provider "aws" {
-  region     = "us-east-1"
-  access_key = data.vault_aws_access_credentials.creds.access_key
-  secret_key = data.vault_aws_access_credentials.creds.secret_key
+ region = "us-east-1"
+ access_key = data.vault_aws_access_credentials.creds.access_key
+ secret_key = data.vault_aws_access_credentials.creds.secret_key
 }
 
 # After terraform run, these credentials are automatically revoked!
@@ -698,17 +698,17 @@ provider "aws" {
 
 | Feature | KV v1 | KV v2 |
 |---------|-------|-------|
-| Versioning |  No |  Yes |
-| Soft delete |  |  |
-| Metadata |  |  |
+| Versioning | No | Yes |
+| Soft delete | | |
+| Metadata | | |
 | Path prefix | `secret/mykey` | `secret/data/mykey` |
-| CAS (Check-and-Set) |  |  |
+| CAS (Check-and-Set) | | |
 
 **When to use which?**
 - **KV v1:** Legacy systems, simple use cases
 - **KV v2:** Production (version history, audit trail)
 
-### 📖 Practice 9: Database Dynamic Credentials
+### Practice 9: Database Dynamic Credentials
 
 **Scenario:** PostgreSQL dynamic user/password generation (60 min TTL).
 
@@ -719,30 +719,30 @@ vault secrets enable database
 
 # Configure PostgreSQL connection
 vault write database/config/my-postgres \
-    plugin_name=postgresql-database-plugin \
-    allowed_roles="readonly,readwrite" \
-    connection_url="postgresql://{{username}}:{{password}}@postgres.example.com:5432/mydb?sslmode=require" \
-    username="vault-admin" \
-    password="vault-admin-password"
+ plugin_name=postgresql-database-plugin \
+ allowed_roles="readonly,readwrite" \
+ connection_url="postgresql://{{username}}:{{password}}@postgres.example.com:5432/mydb?sslmode=require" \
+ username="vault-admin" \
+ password="vault-admin-password"
 ```
 
 **2. Create role (SQL permissions):**
 ```bash
 # Read-only role
 vault write database/roles/readonly \
-    db_name=my-postgres \
-    creation_statements="CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}'; \
-        GRANT SELECT ON ALL TABLES IN SCHEMA public TO \"{{name}}\";" \
-    default_ttl="1h" \
-    max_ttl="24h"
+ db_name=my-postgres \
+ creation_statements="CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}'; \
+ GRANT SELECT ON ALL TABLES IN SCHEMA public TO \"{{name}}\";" \
+ default_ttl="1h" \
+ max_ttl="24h"
 
 # Read-write role
 vault write database/roles/readwrite \
-    db_name=my-postgres \
-    creation_statements="CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}'; \
-        GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO \"{{name}}\";" \
-    default_ttl="1h" \
-    max_ttl="24h"
+ db_name=my-postgres \
+ creation_statements="CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}'; \
+ GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO \"{{name}}\";" \
+ default_ttl="1h" \
+ max_ttl="24h"
 ```
 
 **3. Get dynamic credentials:**
@@ -751,13 +751,13 @@ vault write database/roles/readwrite \
 vault read database/creds/readonly
 
 # Output:
-# Key                Value
-# ---                -----
-# lease_id           database/creds/readonly/abc123
-# lease_duration     1h
-# lease_renewable    true
-# password           A1a-xyzABCDEF123456
-# username           v-token-readonly-xyzabc123-1234567890
+# Key Value
+# --- -----
+# lease_id database/creds/readonly/abc123
+# lease_duration 1h
+# lease_renewable true
+# password A1a-xyzABCDEF123456
+# username v-token-readonly-xyzabc123-1234567890
 ```
 
 **4. Application usage:**
@@ -775,10 +775,10 @@ password = db_creds['data']['password']
 
 # Connect to database
 conn = psycopg2.connect(
-    host="postgres.example.com",
-    database="mydb",
-    user=username,
-    password=password
+ host="postgres.example.com",
+ database="mydb",
+ user=username,
+ password=password
 )
 
 # Use connection...
@@ -786,12 +786,12 @@ conn = psycopg2.connect(
 ```
 
 **Benefits:**
--  No static password
--  Automatic rotation (new user every 1h)
--  Audit log (who, when requested credentials)
--  Automatic cleanup (user deleted after TTL)
+- No static password
+- Automatic rotation (new user every 1h)
+- Audit log (who, when requested credentials)
+- Automatic cleanup (user deleted after TTL)
 
-### 📖 Practice 10: PKI (TLS Certificate Generation)
+### Practice 10: PKI (TLS Certificate Generation)
 
 **Scenario:** Generate TLS certificates for internal microservices with Vault PKI.
 
@@ -805,13 +805,13 @@ vault secrets tune -max-lease-ttl=87600h pki
 
 # Generate root CA
 vault write pki/root/generate/internal \
-    common_name="My Company Internal CA" \
-    ttl=87600h
+ common_name="My Company Internal CA" \
+ ttl=87600h
 
 # Configure CA and CRL URLs
 vault write pki/config/urls \
-    issuing_certificates="https://vault.example.com/v1/pki/ca" \
-    crl_distribution_points="https://vault.example.com/v1/pki/crl"
+ issuing_certificates="https://vault.example.com/v1/pki/ca" \
+ crl_distribution_points="https://vault.example.com/v1/pki/crl"
 ```
 
 **2. Intermediate CA (best practice):**
@@ -822,13 +822,13 @@ vault secrets tune -max-lease-ttl=43800h pki_int
 
 # Generate CSR
 vault write -format=json pki_int/intermediate/generate/internal \
-    common_name="My Company Intermediate CA" \
-    | jq -r '.data.csr' > pki_intermediate.csr
+ common_name="My Company Intermediate CA" \
+ | jq -r '.data.csr' > pki_intermediate.csr
 
 # Sign with root CA
 vault write -format=json pki/root/sign-intermediate csr=@pki_intermediate.csr \
-    format=pem_bundle ttl=43800h \
-    | jq -r '.data.certificate' > intermediate.cert.pem
+ format=pem_bundle ttl=43800h \
+ | jq -r '.data.certificate' > intermediate.cert.pem
 
 # Set signed certificate
 vault write pki_int/intermediate/set-signed certificate=@intermediate.cert.pem
@@ -838,17 +838,17 @@ vault write pki_int/intermediate/set-signed certificate=@intermediate.cert.pem
 ```bash
 # Role for *.example.com
 vault write pki_int/roles/example-dot-com \
-    allowed_domains=example.com \
-    allow_subdomains=true \
-    max_ttl=720h
+ allowed_domains=example.com \
+ allow_subdomains=true \
+ max_ttl=720h
 ```
 
 **4. Generate certificate:**
 ```bash
 # Generate certificate for api.example.com
 vault write pki_int/issue/example-dot-com \
-    common_name=api.example.com \
-    ttl=24h
+ common_name=api.example.com \
+ ttl=24h
 
 # Output contains:
 # - certificate (PEM)
@@ -862,32 +862,32 @@ vault write pki_int/issue/example-dot-com \
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
-  name: vault-issuer
+ name: vault-issuer
 spec:
-  vault:
-    path: pki_int/sign/example-dot-com
-    server: https://vault.example.com
-    auth:
-      kubernetes:
-        role: cert-manager
-        mountPath: /v1/auth/kubernetes
-        secretRef:
-          name: cert-manager-vault-token
-          key: token
+ vault:
+ path: pki_int/sign/example-dot-com
+ server: https://vault.example.com
+ auth:
+ kubernetes:
+ role: cert-manager
+ mountPath: /v1/auth/kubernetes
+ secretRef:
+ name: cert-manager-vault-token
+ key: token
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: myapp-tls
+ name: myapp-tls
 spec:
-  secretName: myapp-tls-secret
-  issuerRef:
-    name: vault-issuer
-  commonName: myapp.example.com
-  dnsNames:
-  - myapp.example.com
-  duration: 720h
-  renewBefore: 360h
+ secretName: myapp-tls-secret
+ issuerRef:
+ name: vault-issuer
+ commonName: myapp.example.com
+ dnsNames:
+ - myapp.example.com
+ duration: 720h
+ renewBefore: 360h
 ```
 
 ---
@@ -903,19 +903,19 @@ spec:
 ### HA Architecture
 
 ```
-                     Load Balancer
-                    (HAProxy/nginx)
-                          │
-        ┌─────────────────┼─────────────────┐
-        │                 │                 │
-    Vault Node 1     Vault Node 2     Vault Node 3
-    (Active)         (Standby)        (Standby)
-        │                 │                 │
-        └─────────────────┼─────────────────┘
-                          │
-                    Consul Cluster
-                    (Storage Backend)
-                  or etcd/Raft/etc.
+ Load Balancer
+ (HAProxy/nginx)
+ 
+ 
+ 
+ Vault Node 1 Vault Node 2 Vault Node 3
+ (Active) (Standby) (Standby)
+ 
+ 
+ 
+ Consul Cluster
+ (Storage Backend)
+ or etcd/Raft/etc.
 ```
 
 **Key Components:**
@@ -924,31 +924,31 @@ spec:
 - **Storage Backend:** Shared encrypted storage (Consul, etcd, Raft)
 - **Load Balancer:** Health checks + automatic failover
 
-### 📖 Practice 11: Vault HA Config (Raft Storage)
+### Practice 11: Vault HA Config (Raft Storage)
 
 **vault.hcl (on every node):**
 ```hcl
 storage "raft" {
-  path    = "/opt/vault/data"
-  node_id = "node1"  # node2, node3 on other nodes
+ path = "/opt/vault/data"
+ node_id = "node1" # node2, node3 on other nodes
 
-  retry_join {
-    leader_api_addr = "https://vault-node1.example.com:8200"
-  }
+ retry_join {
+ leader_api_addr = "https://vault-node1.example.com:8200"
+ }
 
-  retry_join {
-    leader_api_addr = "https://vault-node2.example.com:8200"
-  }
+ retry_join {
+ leader_api_addr = "https://vault-node2.example.com:8200"
+ }
 
-  retry_join {
-    leader_api_addr = "https://vault-node3.example.com:8200"
-  }
+ retry_join {
+ leader_api_addr = "https://vault-node3.example.com:8200"
+ }
 }
 
 listener "tcp" {
-  address       = "0.0.0.0:8200"
-  tls_cert_file = "/opt/vault/tls/vault.crt"
-  tls_key_file  = "/opt/vault/tls/vault.key"
+ address = "0.0.0.0:8200"
+ tls_cert_file = "/opt/vault/tls/vault.crt"
+ tls_key_file = "/opt/vault/tls/vault.key"
 }
 
 api_addr = "https://vault-node1.example.com:8200"
@@ -958,8 +958,8 @@ ui = true
 
 # Auto-unseal with AWS KMS (optional)
 seal "awskms" {
-  region     = "us-east-1"
-  kms_key_id = "arn:aws:kms:us-east-1:123456789012:key/abcd1234-..."
+ region = "us-east-1"
+ kms_key_id = "arn:aws:kms:us-east-1:123456789012:key/abcd1234-..."
 }
 ```
 
@@ -993,7 +993,7 @@ vault operator raft snapshot restore backup.snap
 ```bash
 # Export all secrets from a path
 vault kv list -format=json secret/ | jq -r '.[]' | while read path; do
-  vault kv get -format=json "secret/${path}" > "backup/${path}.json"
+ vault kv get -format=json "secret/${path}" > "backup/${path}.json"
 done
 ```
 
@@ -1003,8 +1003,8 @@ done
 ```hcl
 # vault.hcl
 telemetry {
-  prometheus_retention_time = "30s"
-  disable_hostname = true
+ prometheus_retention_time = "30s"
+ disable_hostname = true
 }
 ```
 
@@ -1028,18 +1028,18 @@ vault_expire_num_leases
 # Prometheus alert rules
 groups:
 - name: vault
-  rules:
-  - alert: VaultSealed
-    expr: vault_core_unsealed == 0
-    for: 5m
-    annotations:
-      summary: "Vault is sealed on {{ $labels.instance }}"
+ rules:
+ - alert: VaultSealed
+ expr: vault_core_unsealed == 0
+ for: 5m
+ annotations:
+ summary: "Vault is sealed on {{ $labels.instance }}"
 
-  - alert: VaultHighLatency
-    expr: vault_core_handle_request{quantile="0.99"} > 1000
-    for: 10m
-    annotations:
-      summary: "Vault p99 latency > 1s"
+ - alert: VaultHighLatency
+ expr: vault_core_handle_request{quantile="0.99"} > 1000
+ for: 10m
+ annotations:
+ summary: "Vault p99 latency > 1s"
 ```
 
 ---
@@ -1076,7 +1076,7 @@ groups:
 - Use dev mode in production
 - Forget to rotate secrets
 
-### 📖 Practice 12: Audit Logging Setup
+### Practice 12: Audit Logging Setup
 
 **1. Enable audit log:**
 ```bash
@@ -1093,26 +1093,26 @@ vault audit enable socket address="logstash.example.com:9090" socket_type="tcp"
 **2. Audit log content:**
 ```json
 {
-  "time": "2024-03-17T10:15:30.123Z",
-  "type": "response",
-  "auth": {
-    "client_token": "hmac-sha256:abcd1234...",
-    "accessor": "hmac-sha256:xyz789...",
-    "display_name": "approle",
-    "policies": ["default", "myapp-policy"],
-    "token_type": "service"
-  },
-  "request": {
-    "id": "uuid-request-id",
-    "operation": "read",
-    "path": "secret/data/prod/database",
-    "remote_address": "10.0.1.50"
-  },
-  "response": {
-    "data": {
-      "password": "hmac-sha256:hashed-value"  //  HMAC'd, not plaintext!
-    }
-  }
+ "time": "2024-03-17T10:15:30.123Z",
+ "type": "response",
+ "auth": {
+ "client_token": "hmac-sha256:abcd1234...",
+ "accessor": "hmac-sha256:xyz789...",
+ "display_name": "approle",
+ "policies": ["default", "myapp-policy"],
+ "token_type": "service"
+ },
+ "request": {
+ "id": "uuid-request-id",
+ "operation": "read",
+ "path": "secret/data/prod/database",
+ "remote_address": "10.0.1.50"
+ },
+ "response": {
+ "data": {
+ "password": "hmac-sha256:hashed-value" // HMAC'd, not plaintext!
+ }
+ }
 }
 ```
 
@@ -1134,7 +1134,7 @@ jq 'select(.auth.policies | contains(["root", "admin"]))' /var/log/vault/audit.l
 ```bash
 # Database credentials: rotate every 30 days
 vault write database/config/my-postgres \
-    password_policy="30-day-rotation"
+ password_policy="30-day-rotation"
 
 # Manual rotation trigger
 vault write -f database/rotate-root/my-postgres
@@ -1172,7 +1172,7 @@ Code: 503. Errors: * Vault is sealed
 # Solution: Unseal
 vault operator unseal <key-1>
 vault operator unseal <key-2>
-vault operator unseal <key-3>  # If threshold=3
+vault operator unseal <key-3> # If threshold=3
 
 # Prevention: Auto-unseal with Cloud KMS
 ```
@@ -1206,7 +1206,7 @@ vault token renew
 vault login -method=approle role_id=XXX secret_id=YYY
 ```
 
-### 📖 Practice 13: Vault Health Check Script
+### Practice 13: Vault Health Check Script
 
 **health-check.sh:**
 ```bash
@@ -1223,31 +1223,31 @@ echo "=== Vault Health Check ==="
 
 # 1. Vault reachable?
 if ! curl -sf ${VAULT_ADDR}/v1/sys/health > /dev/null; then
-  echo -e "${RED} Vault unreachable${NC}"
-  exit 1
+ echo -e "${RED} Vault unreachable${NC}"
+ exit 1
 fi
 echo -e "${GREEN} Vault reachable${NC}"
 
 # 2. Unsealed?
 SEALED=$(vault status -format=json | jq -r '.sealed')
 if [ "$SEALED" = "true" ]; then
-  echo -e "${RED} Vault is SEALED${NC}"
-  exit 1
+ echo -e "${RED} Vault is SEALED${NC}"
+ exit 1
 fi
 echo -e "${GREEN} Vault unsealed${NC}"
 
 # 3. Token valid?
 if ! vault token lookup > /dev/null 2>&1; then
-  echo -e "${RED} Token invalid or expired${NC}"
-  exit 1
+ echo -e "${RED} Token invalid or expired${NC}"
+ exit 1
 fi
 echo -e "${GREEN} Token valid${NC}"
 
 # 4. Can read test secret?
 if ! vault kv get secret/health-check > /dev/null 2>&1; then
-  echo -e "${RED}⚠  Cannot read test secret${NC}"
+ echo -e "${RED} Cannot read test secret${NC}"
 else
-  echo -e "${GREEN} Secret read OK${NC}"
+ echo -e "${GREEN} Secret read OK${NC}"
 fi
 
 # 5. Storage backend healthy?
@@ -1256,9 +1256,9 @@ echo " Storage backend: $STORAGE"
 
 # 6. Cluster info
 vault status -format=json | jq '{
-  version: .version,
-  cluster_name: .cluster_name,
-  ha_enabled: .ha_enabled
+ version: .version,
+ cluster_name: .cluster_name,
+ ha_enabled: .ha_enabled
 }'
 
 echo -e "\n${GREEN}=== All checks passed ===${NC}"
@@ -1275,7 +1275,7 @@ chmod +x health-check.sh
 
 ---
 
-## 🔟 Module: Real-World Use Cases (Platform/Company)
+## Module: Real-World Use Cases (Platform/Company)
 
 ### Use Case 1: RHDH ServiceAccount Token Management
 
@@ -1285,32 +1285,32 @@ chmod +x health-check.sh
 ```bash
 # Store token in Vault (App SRE managed)
 vault kv put stonesoup/staging/ui/backstage-sa-token \
-  token="<k8s-token-from-secret>"
+ token="<k8s-token-from-secret>"
 ```
 
 **Terraform integration (Emily MR !589 style):**
 ```hcl
 # Kubernetes ServiceAccount token resource
 resource "kubernetes_token_request_v1" "backstage_sa" {
-  metadata {
-    name      = "backstage-konflux-test"
-    namespace = "konflux-ui"
-  }
+ metadata {
+ name = "backstage-konflux-test"
+ namespace = "konflux-ui"
+ }
 
-  spec {
-    # Ephemeral token (auto-rotates)
-    expiration_seconds = 3600  # 1 hour
-  }
+ spec {
+ # Ephemeral token (auto-rotates)
+ expiration_seconds = 3600 # 1 hour
+ }
 }
 
 # Upload token to Vault
 resource "vault_kv_secret_v2" "backstage_token" {
-  mount = "stonesoup"
-  name  = "staging/ui/backstage-sa-token"
+ mount = "stonesoup"
+ name = "staging/ui/backstage-sa-token"
 
-  data_json = jsonencode({
-    token = kubernetes_token_request_v1.backstage_sa.token
-  })
+ data_json = jsonencode({
+ token = kubernetes_token_request_v1.backstage_sa.token
+ })
 }
 ```
 
@@ -1320,25 +1320,25 @@ resource "vault_kv_secret_v2" "backstage_token" {
 import { VaultClient } from '@backstage/plugin-vault';
 
 const vaultClient = new VaultClient({
-  baseUrl: 'https://vault.devshift.net',
-  token: process.env.VAULT_TOKEN,
+ baseUrl: 'https://vault.devshift.net',
+ token: process.env.VAULT_TOKEN,
 });
 
 // Get K8s token from Vault
 const backstageToken = await vaultClient.readSecret(
-  'stonesoup/staging/ui/backstage-sa-token'
+ 'stonesoup/staging/ui/backstage-sa-token'
 );
 
 // Use for Kubernetes API calls
 const k8sConfig = new KubeConfig();
 k8sConfig.loadFromOptions({
-  clusters: [{
-    server: 'https://api.stone-stg-rh01.ov6h.p1.openshiftapps.com:6443',
-    skipTLSVerify: false,
-  }],
-  users: [{
-    token: backstageToken.data.token,
-  }],
+ clusters: [{
+ server: 'https://api.stone-stg-rh01.ov6h.p1.openshiftapps.com:6443',
+ skipTLSVerify: false,
+ }],
+ users: [{
+ token: backstageToken.data.token,
+ }],
 });
 ```
 
@@ -1349,51 +1349,51 @@ k8sConfig.loadFromOptions({
 **.gitlab-ci.yml:**
 ```yaml
 variables:
-  VAULT_ADDR: "https://vault.devshift.net"
+ VAULT_ADDR: "https://vault.devshift.net"
 
 before_script:
-  # Login to Vault with AppRole
-  - export VAULT_TOKEN=$(vault write -field=token auth/approle/login
-      role_id=${CI_APPROLE_ROLE_ID}
-      secret_id=${CI_APPROLE_SECRET_ID})
+ # Login to Vault with AppRole
+ - export VAULT_TOKEN=$(vault write -field=token auth/approle/login
+ role_id=${CI_APPROLE_ROLE_ID}
+ secret_id=${CI_APPROLE_SECRET_ID})
 
 build:
-  stage: build
-  script:
-    # Get Quay.io credentials from Vault
-    - export QUAY_USER=$(vault kv get -field=username secret/konflux/quay)
-    - export QUAY_PASSWORD=$(vault kv get -field=password secret/konflux/quay)
+ stage: build
+ script:
+ # Get Quay.io credentials from Vault
+ - export QUAY_USER=$(vault kv get -field=username secret/konflux/quay)
+ - export QUAY_PASSWORD=$(vault kv get -field=password secret/konflux/quay)
 
-    # Docker build & push
-    - docker login -u $QUAY_USER -p $QUAY_PASSWORD quay.io
-    - docker build -t quay.io/konflux/myapp:${CI_COMMIT_SHA} .
-    - docker push quay.io/konflux/myapp:${CI_COMMIT_SHA}
+ # Docker build & push
+ - docker login -u $QUAY_USER -p $QUAY_PASSWORD quay.io
+ - docker build -t quay.io/konflux/myapp:${CI_COMMIT_SHA} .
+ - docker push quay.io/konflux/myapp:${CI_COMMIT_SHA}
 
 deploy_staging:
-  stage: deploy
-  script:
-    # Get K8s token from Vault
-    - export K8S_TOKEN=$(vault kv get -field=token secret/konflux/staging/k8s)
+ stage: deploy
+ script:
+ # Get K8s token from Vault
+ - export K8S_TOKEN=$(vault kv get -field=token secret/konflux/staging/k8s)
 
-    # Deploy to staging cluster
-    - kubectl --token=$K8S_TOKEN apply -f manifests/
-  only:
-    - main
+ # Deploy to staging cluster
+ - kubectl --token=$K8S_TOKEN apply -f manifests/
+ only:
+ - main
 ```
 
 **Vault secret structure:**
 ```
 secret/
-├── konflux/
-│   ├── quay
-│   │   ├── username: "konflux+robot"
-│   │   └── password: "XXX"
-│   ├── staging/
-│   │   └── k8s
-│   │       └── token: "YYY"
-│   └── prod/
-│       └── k8s
-│           └── token: "ZZZ"
+ konflux/
+ quay
+ username: "konflux+robot"
+ password: "XXX"
+ staging/
+ k8s
+ token: "YYY"
+ prod/
+ k8s
+ token: "ZZZ"
 ```
 
 ### Use Case 3: Kubernetes Pod Auto-Secret Injection
@@ -1405,21 +1405,21 @@ secret/
 # Enable K8s auth
 vault auth enable kubernetes
 vault write auth/kubernetes/config \
-  kubernetes_host="https://kubernetes.default.svc:443"
+ kubernetes_host="https://kubernetes.default.svc:443"
 
 # Create policy for LUMINO
 vault policy write lumino-policy - <<EOF
 path "secret/data/lumino/*" {
-  capabilities = ["read"]
+ capabilities = ["read"]
 }
 EOF
 
 # Create K8s role
 vault write auth/kubernetes/role/lumino \
-  bound_service_account_names=lumino-sa \
-  bound_service_account_namespaces=monitoring \
-  policies=lumino-policy \
-  ttl=1h
+ bound_service_account_names=lumino-sa \
+ bound_service_account_namespaces=monitoring \
+ policies=lumino-policy \
+ ttl=1h
 ```
 
 **Kubernetes deployment:**
@@ -1427,57 +1427,57 @@ vault write auth/kubernetes/role/lumino \
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: lumino-sa
-  namespace: monitoring
+ name: lumino-sa
+ namespace: monitoring
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lumino-mcp-server
-  namespace: monitoring
+ name: lumino-mcp-server
+ namespace: monitoring
 spec:
-  template:
-    metadata:
-      annotations:
-        vault.hashicorp.com/agent-inject: "true"
-        vault.hashicorp.com/role: "lumino"
-        vault.hashicorp.com/agent-inject-secret-prometheus: "secret/data/lumino/prometheus"
-        vault.hashicorp.com/agent-inject-template-prometheus: |
-          {{- with secret "secret/data/lumino/prometheus" -}}
-          export PROMETHEUS_URL="{{ .Data.data.url }}"
-          export PROMETHEUS_TOKEN="{{ .Data.data.token }}"
-          {{- end }}
-    spec:
-      serviceAccountName: lumino-sa
-      containers:
-      - name: lumino
-        image: quay.io/geored/lumino-mcp-server:latest
-        command:
-        - /bin/sh
-        - -c
-        - |
-          source /vault/secrets/prometheus
-          uv run python main.py
+ template:
+ metadata:
+ annotations:
+ vault.hashicorp.com/agent-inject: "true"
+ vault.hashicorp.com/role: "lumino"
+ vault.hashicorp.com/agent-inject-secret-prometheus: "secret/data/lumino/prometheus"
+ vault.hashicorp.com/agent-inject-template-prometheus: |
+ {{- with secret "secret/data/lumino/prometheus" -}}
+ export PROMETHEUS_URL="{{ .Data.data.url }}"
+ export PROMETHEUS_TOKEN="{{ .Data.data.token }}"
+ {{- end }}
+ spec:
+ serviceAccountName: lumino-sa
+ containers:
+ - name: lumino
+ image: quay.io/geored/lumino-mcp-server:latest
+ command:
+ - /bin/sh
+ - -c
+ - |
+ source /vault/secrets/prometheus
+ uv run python main.py
 ```
 
 **Auto-rotation:** Token expires → Vault Agent auto-renews → Pod gets fresh secret (zero downtime!)
 
 ---
 
-##  Summary
+## Summary
 
 ### What you learned:
 
-1.  **Vault basics** - Sealed/Unsealed, Secret Engines, Paths
-2.  **CLI usage** - Dev mode, secrets CRUD, versioning
-3.  **Authentication** - Token, AppRole, Kubernetes SA
-4.  **Policies** - HCL syntax, capabilities, multi-env
-5.  **Terraform integration** - Provider, dynamic credentials
-6.  **Secret Engines** - KV, Database, PKI, Transit
-7.  **Production HA** - Cluster, auto-unseal, backups
-8.  **Security** - Best practices, audit logging, rotation
-9.  **Troubleshooting** - Common issues, health checks
-10.  **Real-world** - Platform/Company use cases
+1. **Vault basics** - Sealed/Unsealed, Secret Engines, Paths
+2. **CLI usage** - Dev mode, secrets CRUD, versioning
+3. **Authentication** - Token, AppRole, Kubernetes SA
+4. **Policies** - HCL syntax, capabilities, multi-env
+5. **Terraform integration** - Provider, dynamic credentials
+6. **Secret Engines** - KV, Database, PKI, Transit
+7. **Production HA** - Cluster, auto-unseal, backups
+8. **Security** - Best practices, audit logging, rotation
+9. **Troubleshooting** - Common issues, health checks
+10. **Real-world** - Platform/Company use cases
 
 ### Next Steps
 

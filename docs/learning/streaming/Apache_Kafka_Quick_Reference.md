@@ -820,7 +820,7 @@ build_event = {
  'timestamp': time.time()
 }
 
-producer.send('konflux-build-events', build_event)
+producer.send('platform-build-events', build_event)
 producer.flush()
 ```
 
@@ -831,12 +831,12 @@ from prometheus_client import Counter, Histogram, start_http_server
 import json
 
 # Prometheus metrics
-builds_total = Counter('konflux_builds_total', 'Total builds', ['component', 'status'])
-build_duration = Histogram('konflux_build_duration_seconds', 'Build duration', ['component'])
+builds_total = Counter('platform_builds_total', 'Total builds', ['component', 'status'])
+build_duration = Histogram('platform_build_duration_seconds', 'Build duration', ['component'])
 
 # Kafka consumer
 consumer = KafkaConsumer(
- 'konflux-build-events',
+ 'platform-build-events',
  bootstrap_servers='kafka:9092',
  value_deserializer=lambda m: json.loads(m.decode('utf-8')),
  group_id='analytics-service'
@@ -872,7 +872,7 @@ spec:
  spec:
  containers:
  - name: analytics
- image: quay.io/konflux/build-analytics:latest
+ image: quay.io/platform/build-analytics:latest
  env:
  - name: KAFKA_BOOTSTRAP_SERVERS
  value: kafka-cluster-kafka-bootstrap:9092

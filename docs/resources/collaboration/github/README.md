@@ -88,7 +88,7 @@
 2. **Configure SSH keys:**
  ```bash
  # Generate SSH key
- ssh-keygen -t ed25519 -C "your.email@redhat.com"
+ ssh-keygen -t ed25519 -C "your.email@company.com"
 
  # Add to ssh-agent
  eval "$(ssh-agent -s)"
@@ -102,19 +102,19 @@
 3. **Configure Git:**
  ```bash
  git config --global user.name "Your Name"
- git config --global user.email "your.email@redhat.com"
+ git config --global user.email "your.email@company.com"
  ```
 
 4. **Fork a Platform repo:**
  ```bash
- # Browser: https://github.com/konflux-ci/architecture → Fork
+ # Browser: https://github.com/platform-ci/architecture → Fork
 
  # Clone your fork
  git clone git@github.com:YOUR_USERNAME/architecture.git
  cd architecture
 
  # Add upstream remote
- git remote add upstream https://github.com/konflux-ci/architecture.git
+ git remote add upstream https://github.com/platform-ci/architecture.git
  ```
 
 ---
@@ -168,12 +168,12 @@
 - **GitHub CLI:** https://cli.github.com/
 
 ### Platform Repos:
-- **Architecture:** https://github.com/konflux-ci/architecture
-- **Docs:** https://github.com/konflux-ci/docs
-- **Build Service:** https://github.com/konflux-ci/build-service
+- **Architecture:** https://github.com/platform-ci/architecture
+- **Docs:** https://github.com/platform-ci/docs
+- **Build Service:** https://github.com/platform-ci/build-service
 
 ### Community:
-- **Platform Slack:** #konflux-users
+- **Platform Slack:** #platform-users
 - **GitHub Community:** https://github.community/
 
 ---

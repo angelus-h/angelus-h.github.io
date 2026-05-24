@@ -78,7 +78,7 @@ export SLACK_APP_TOKEN="xapp-your-app-token"
 python3 bot.py
 
 # In Slack, type "hello" in any channel
-# Bot responds: "Hi @mgreczi! "
+# Bot responds: "Hi @demo_user! "
 ```
 
 **Key concepts:**
@@ -163,7 +163,7 @@ def handle_rerun(ack, body, client):
 @app.action("view_logs_button")
 def handle_view_logs(ack, body, client):
  ack()
- logs_url = "https://console.redhat.com/logs"
+ logs_url = "https://console.company.com/logs"
  client.chat_postMessage(
  channel=body["channel"]["id"],
  text=f" View logs: {logs_url}"
@@ -249,7 +249,7 @@ def handle_incident_submission(ack, body, client, view):
 
  # Create incident (call your incident management API)
  client.chat_postMessage(
- channel="#konflux-incidents",
+ channel="#platform-incidents",
  text=f" New incident created: *{title}* (Severity: {severity})"
  )
 ```
@@ -342,10 +342,10 @@ def send_pipeline_complete(channel, thread_ts, status):
  )
 
 # Usage
-thread_ts = send_pipeline_start("#konflux-builds", "build-service-123")
-send_pipeline_update("#konflux-builds", thread_ts, " Building image...")
-send_pipeline_update("#konflux-builds", thread_ts, " Running tests...")
-send_pipeline_complete("#konflux-builds", thread_ts, "success")
+thread_ts = send_pipeline_start("#platform-builds", "build-service-123")
+send_pipeline_update("#platform-builds", thread_ts, " Building image...")
+send_pipeline_update("#platform-builds", thread_ts, " Running tests...")
+send_pipeline_complete("#platform-builds", thread_ts, "success")
 ```
 
 ---
@@ -493,7 +493,7 @@ def handle_pipeline(ack, command, client):
  "type": "button",
  "text": {"type": "plain_text", "text": " View Logs"},
  "action_id": "view_logs",
- "url": "https://console.redhat.com/logs/image-build"
+ "url": "https://console.company.com/logs/image-build"
  }
  ]
  }
@@ -610,7 +610,7 @@ app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 # In-memory storage (use Redis/DB in production)
 pipeline_threads = {}
 
-def send_pipeline_notification(pipeline_run, status, channel="#konflux-builds"):
+def send_pipeline_notification(pipeline_run, status, channel="#platform-builds"):
  """Send or update pipeline notification"""
 
  pipeline_name = pipeline_run['metadata']['name']

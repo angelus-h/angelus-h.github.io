@@ -154,7 +154,7 @@ How many users are affected?
 ### **Example 1: Login Issues**
 
 #### **BAD Triage**
-**Ticket:** KFLUXINFRA-1234 - "Users can't login"
+**Ticket:** INFRA-1234 - "Users can't login"
 
 **Bad response:**
 > "Assigned to Platform Team. Medium priority."
@@ -168,7 +168,7 @@ How many users are affected?
 ---
 
 #### **GOOD Triage**
-**Ticket:** KFLUXINFRA-1234 - "Users can't login"
+**Ticket:** INFRA-1234 - "Users can't login"
 
 **Good response:**
 ```
@@ -204,7 +204,7 @@ IF error rate reaches >10%, will escalate to P1 incident.
 ### **Example 2: Build Failures**
 
 #### **BAD Triage**
-**Ticket:** KFLUXINFRA-5678 - "My build failed"
+**Ticket:** INFRA-5678 - "My build failed"
 
 **Bad response:**
 > "Please provide more information."
@@ -218,7 +218,7 @@ IF error rate reaches >10%, will escalate to P1 incident.
 ---
 
 #### **GOOD Triage**
-**Ticket:** KFLUXINFRA-5678 - "My build failed"
+**Ticket:** INFRA-5678 - "My build failed"
 
 **Good response:**
 ```
@@ -250,7 +250,7 @@ Meanwhile, I checked:
 ### **Example 3: Feature Request**
 
 #### **BAD Triage**
-**Ticket:** KFLUXINFRA-9999 - "Can we add support for ARM builds?"
+**Ticket:** INFRA-9999 - "Can we add support for ARM builds?"
 
 **Bad response:**
 > "Assigned to Engineering. Low priority."
@@ -264,7 +264,7 @@ Meanwhile, I checked:
 ---
 
 #### **GOOD Triage**
-**Ticket:** KFLUXINFRA-9999 - "Can we add support for ARM builds?"
+**Ticket:** INFRA-9999 - "Can we add support for ARM builds?"
 
 **Good response:**
 ```
@@ -302,7 +302,7 @@ Labeled: `enhancement`, `arm-support`, `needs-discussion`
 ### **Example 4: Duplicate Ticket**
 
 #### **BAD Triage**
-**Ticket:** KFLUXINFRA-7777 - "Tekton UI slow"
+**Ticket:** INFRA-7777 - "Tekton UI slow"
 
 **Bad response:**
 > "Duplicate. Closed."
@@ -315,22 +315,22 @@ Labeled: `enhancement`, `arm-support`, `needs-discussion`
 ---
 
 #### **GOOD Triage**
-**Ticket:** KFLUXINFRA-7777 - "Tekton UI slow"
+**Ticket:** INFRA-7777 - "Tekton UI slow"
 
 **Good response:**
 ```
-Thanks for reporting! This appears to be related to ongoing issue KFLUXINFRA-6666.
+Thanks for reporting! This appears to be related to ongoing issue INFRA-6666.
 
-**Current status of KFLUXINFRA-6666:**
+**Current status of INFRA-6666:**
 - Root cause identified: Database connection pool exhaustion
 - Fix in progress (ETA: 2 days)
 - Workaround: Refresh page if load time > 10s
 
-**Your report helps:** If you notice specific patterns (e.g., which pages are slowest), please add details to KFLUXINFRA-6666.
+**Your report helps:** If you notice specific patterns (e.g., which pages are slowest), please add details to INFRA-6666.
 
-Closing this as duplicate of KFLUXINFRA-6666. Please follow that ticket for updates.
+Closing this as duplicate of INFRA-6666. Please follow that ticket for updates.
 
-Link: https://jira.company.com/browse/KFLUXINFRA-6666
+Link: https://jira.company.com/browse/INFRA-6666
 ```
 
 **Why it's good:**
@@ -401,7 +401,7 @@ Grafana check: [current status]
 IF CONFIRMED OUTAGE:
 → Declaring Severity 1 incident
 → Creating incident Slack channel: #incident-2026-03-11-pipeline-outage
-→ WebRCA: [link]
+→ Incident Tracking Tool: [link]
 → Updates every 15 minutes
 
 You can follow real-time updates in the incident channel.
@@ -502,7 +502,7 @@ This is a potential security issue. I'm escalating immediately to our security t
 2. Please DO NOT share details publicly (Slack, other tickets)
 3. We will investigate and patch ASAP
 
-For security issues, please use: security@redhat.com
+For security issues, please use: security@company.com
 
 Escalating now. Thank you for helping keep Platform secure.
 
@@ -667,7 +667,7 @@ Escalating this issue due to [reason].
 **Escalation:**
 - Notified: [team/person]
 - Incident channel: [link]
-- WebRCA: [link]
+- Incident Tracking Tool: [link]
 
 **Next update:** [timeframe]
 ```

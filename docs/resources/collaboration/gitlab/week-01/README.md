@@ -19,7 +19,7 @@ Master GitLab basics and advanced Merge Request features.
 **Hands-on:**
 ```bash
 # Explore app-interface structure
-https://gitlab.cee.redhat.com/service/app-interface
+https://gitlab.company.com/service/app-interface
 
 Group: service
 Project: app-interface
@@ -68,7 +68,7 @@ git push origin feature/test-mr
 - Context and justification
 
 #### Tickets
-- JIRA links (Closes: KFLUXINFRA-XXXX)
+- JIRA links (Closes: INFRA-XXXX)
 
 #### Validation
 - How did you test?
@@ -151,7 +151,7 @@ In app-interface:
 
 ```bash
 # 1. Browse the project
-https://gitlab.cee.redhat.com/service/app-interface
+https://gitlab.company.com/service/app-interface
 
 # 2. Check settings
 Settings → General → Visibility (Internal)
@@ -194,7 +194,7 @@ git push origin test/my-first-gitlab-mr
 
 ```bash
 # Find a merged MR in app-interface
-https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests?scope=all&state=merged
+https://gitlab.company.com/service/app-interface/-/merge_requests?scope=all&state=merged
 
 # Pick one, review:
 1. Read description

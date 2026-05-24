@@ -1281,4 +1281,4 @@ git init
 
 ---
 
-**File location:** `/home/mgreczi/learning-plans/programming/python/Python_Dev_Tools_Learning_Plan.md`
+**File location:** `/home/user/learning-plans/programming/python/Python_Dev_Tools_Learning_Plan.md`

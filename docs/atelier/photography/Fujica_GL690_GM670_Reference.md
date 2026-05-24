@@ -1,10 +1,10 @@
 # Fujica GL690 / GM670 Professional Reference
 
-**Camera Type:** Medium Format Rangefinder  
-**Film Format:** 120 / 220 Roll Film  
-**Frame Size:** 6x9 cm (2¼" x 3¼")  
-**Manufacturer:** Fuji Photo Film Co., Ltd.  
-**Production Period:** 1970s  
+**Camera Type:** Medium Format Rangefinder 
+**Film Format:** 120 / 220 Roll Film 
+**Frame Size:** 6x9 cm (2¼" x 3¼") 
+**Manufacturer:** Fuji Photo Film Co., Ltd. 
+**Production Period:** 1970s 
 
 ---
 
@@ -74,8 +74,8 @@ The Fujica GL690 and GM670 represent Fuji's professional medium format rangefind
 
 1. **Open Back:** Release back latch on camera base
 2. **Insert Spool:** 
-   - Place empty take-up spool in right chamber
-   - Insert fresh film in left chamber
+ - Place empty take-up spool in right chamber
+ - Insert fresh film in left chamber
 3. **Thread Film:** Pull leader across pressure plate to take-up spool
 4. **Engage Film:** Insert leader into take-up spool slot
 5. **Wind On:** Turn advance knob until "START" appears in red window
@@ -98,8 +98,8 @@ The Fujica GL690 and GM670 represent Fuji's professional medium format rangefind
 2. **Compose:** Look through rangefinder viewfinder
 3. **Focus:** Align rangefinder patch (double image becomes single)
 4. **Set Exposure:**
-   - Aperture: Rotate aperture ring
-   - Shutter Speed: Rotate shutter speed ring
+ - Aperture: Rotate aperture ring
+ - Shutter Speed: Rotate shutter speed ring
 5. **Cock Shutter:** Advance film (automatically cocks shutter)
 6. **Release:** Gently press shutter button
 
@@ -271,6 +271,6 @@ The Fujica GL690 and GM670 represent an excellent balance of image quality, port
 
 ---
 
-**License:** This reference guide is provided for educational purposes.  
-**Source:** Based on official Fujica documentation and practical field experience.  
+**License:** This reference guide is provided for educational purposes. 
+**Source:** Based on official Fujica documentation and practical field experience. 
 **Last Updated:** 2026-05-23

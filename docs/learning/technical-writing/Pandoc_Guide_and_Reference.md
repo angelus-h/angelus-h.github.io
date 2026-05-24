@@ -137,9 +137,9 @@ pandoc document.md -o document.pdf
 
 # With custom fonts and margins
 pandoc document.md -o document.pdf \
-  --pdf-engine=xelatex \
-  -V geometry:margin=1in \
-  -V mainfont="DejaVu Sans"
+ --pdf-engine=xelatex \
+ -V geometry:margin=1in \
+ -V mainfont="DejaVu Sans"
 
 # Include table of contents
 pandoc document.md -o document.pdf --toc --toc-depth=3
@@ -260,9 +260,9 @@ Content starts here...
 
 ```bash
 pandoc document.md -o output.pdf \
-  --metadata title="My Report" \
-  --metadata author="Jane Smith" \
-  --metadata date="2026-03-20"
+ --metadata title="My Report" \
+ --metadata author="Jane Smith" \
+ --metadata date="2026-03-20"
 ```
 
 ---
@@ -300,10 +300,10 @@ Create a `references.bib` file:
 
 ```bibtex
 @book{knuth1984,
-  author = "Donald E. Knuth",
-  title = "The TeXbook",
-  publisher = "Addison-Wesley",
-  year = 1984
+ author = "Donald E. Knuth",
+ title = "The TeXbook",
+ publisher = "Addison-Wesley",
+ year = 1984
 }
 ```
 
@@ -336,9 +336,9 @@ pandoc document.md -o output.pdf --template=template.tex
 ```bash
 # Set LaTeX variables
 pandoc document.md -o output.pdf \
-  -V geometry:margin=1in \
-  -V fontsize=12pt \
-  -V documentclass=report
+ -V geometry:margin=1in \
+ -V fontsize=12pt \
+ -V documentclass=report
 ```
 
 ### 6. Filters
@@ -357,8 +357,8 @@ Example Lua filter (`custom-filter.lua`):
 
 ```lua
 function Strong(elem)
-  -- Make bold text also red
-  return pandoc.Span(elem.content, {style="color: red; font-weight: bold;"})
+ -- Make bold text also red
+ return pandoc.Span(elem.content, {style="color: red; font-weight: bold;"})
 end
 ```
 
@@ -413,21 +413,21 @@ See [@fig:diagram] for details.
 
 | Format | Input | Output | Extension |
 |--------|-------|--------|-----------|
-| Markdown | ✓ | ✓ | `.md`, `.markdown` |
-| HTML | ✓ | ✓ | `.html` |
-| LaTeX | ✓ | ✓ | `.tex` |
-| PDF | ✗ | ✓ | `.pdf` |
-| DOCX | ✓ | ✓ | `.docx` |
-| ODT | ✓ | ✓ | `.odt` |
-| EPUB | ✓ | ✓ | `.epub` |
-| reStructuredText | ✓ | ✓ | `.rst` |
-| AsciiDoc | ✓ | ✓ | `.asciidoc` |
-| Org-mode | ✓ | ✓ | `.org` |
-| MediaWiki | ✓ | ✓ | `.wiki` |
-| Textile | ✓ | ✓ | `.textile` |
-| RTF | ✗ | ✓ | `.rtf` |
-| PowerPoint | ✗ | ✓ | `.pptx` |
-| Reveal.js | ✗ | ✓ | `.html` |
+| Markdown | | | `.md`, `.markdown` |
+| HTML | | | `.html` |
+| LaTeX | | | `.tex` |
+| PDF | | | `.pdf` |
+| DOCX | | | `.docx` |
+| ODT | | | `.odt` |
+| EPUB | | | `.epub` |
+| reStructuredText | | | `.rst` |
+| AsciiDoc | | | `.asciidoc` |
+| Org-mode | | | `.org` |
+| MediaWiki | | | `.wiki` |
+| Textile | | | `.textile` |
+| RTF | | | `.rtf` |
+| PowerPoint | | | `.pptx` |
+| Reveal.js | | | `.html` |
 
 ### PDF Engines
 
@@ -449,59 +449,59 @@ See [@fig:diagram] for details.
 
 ```bash
 pandoc README.md \
-  -o documentation.pdf \
-  --from markdown \
-  --template=eisvogel \
-  --listings \
-  --toc \
-  --toc-depth=2 \
-  --number-sections \
-  -V titlepage=true \
-  -V titlepage-color=06386e \
-  -V titlepage-text-color=FFFFFF \
-  -V logo=company-logo.png
+ -o documentation.pdf \
+ --from markdown \
+ --template=eisvogel \
+ --listings \
+ --toc \
+ --toc-depth=2 \
+ --number-sections \
+ -V titlepage=true \
+ -V titlepage-color=06386e \
+ -V titlepage-text-color=FFFFFF \
+ -V logo=company-logo.png
 ```
 
 ### Example 2: Academic Paper with Citations
 
 ```bash
 pandoc paper.md \
-  -o paper.pdf \
-  --bibliography=references.bib \
-  --citeproc \
-  --csl=chicago-author-date.csl \
-  --number-sections \
-  --toc \
-  -V geometry:margin=1in \
-  -V fontsize=12pt \
-  -V documentclass=article
+ -o paper.pdf \
+ --bibliography=references.bib \
+ --citeproc \
+ --csl=chicago-author-date.csl \
+ --number-sections \
+ --toc \
+ -V geometry:margin=1in \
+ -V fontsize=12pt \
+ -V documentclass=article
 ```
 
 ### Example 3: HTML Blog Post
 
 ```bash
 pandoc blog-post.md \
-  -o blog-post.html \
-  --standalone \
-  --self-contained \
-  --css=blog-style.css \
-  --template=blog-template.html \
-  --highlight-style=pygments \
-  --metadata title="My Blog Post" \
-  --metadata author="Jane Doe" \
-  --metadata date="2026-03-20"
+ -o blog-post.html \
+ --standalone \
+ --self-contained \
+ --css=blog-style.css \
+ --template=blog-template.html \
+ --highlight-style=pygments \
+ --metadata title="My Blog Post" \
+ --metadata author="Jane Doe" \
+ --metadata date="2026-03-20"
 ```
 
 ### Example 4: Presentation Slides
 
 ```bash
 pandoc slides.md \
-  -o slides.html \
-  -t revealjs \
-  --standalone \
-  -V theme=solarized \
-  -V transition=slide \
-  --slide-level=2
+ -o slides.html \
+ -t revealjs \
+ --standalone \
+ -V theme=solarized \
+ -V transition=slide \
+ --slide-level=2
 ```
 
 Markdown structure:
@@ -530,41 +530,41 @@ More content
 
 ```bash
 pandoc book.md \
-  -o book.epub \
-  --toc \
-  --toc-depth=2 \
-  --epub-cover-image=cover.jpg \
-  --epub-metadata=metadata.xml \
-  --css=ebook.css
+ -o book.epub \
+ --toc \
+ --toc-depth=2 \
+ --epub-cover-image=cover.jpg \
+ --epub-metadata=metadata.xml \
+ --css=ebook.css
 ```
 
 ### Example 6: Multi-Chapter Book
 
 ```bash
 pandoc \
-  metadata.yaml \
-  chapters/intro.md \
-  chapters/chapter1.md \
-  chapters/chapter2.md \
-  chapters/conclusion.md \
-  -o book.pdf \
-  --toc \
-  --toc-depth=2 \
-  --number-sections \
-  --top-level-division=chapter \
-  -V documentclass=book \
-  -V geometry:margin=1in
+ metadata.yaml \
+ chapters/intro.md \
+ chapters/chapter1.md \
+ chapters/chapter2.md \
+ chapters/conclusion.md \
+ -o book.pdf \
+ --toc \
+ --toc-depth=2 \
+ --number-sections \
+ --top-level-division=chapter \
+ -V documentclass=book \
+ -V geometry:margin=1in
 ```
 
 ### Example 7: GitHub-Flavored Markdown to HTML
 
 ```bash
 pandoc document.md \
-  -f gfm \
-  -t html \
-  -o output.html \
-  --standalone \
-  --highlight-style=github
+ -f gfm \
+ -t html \
+ -o output.html \
+ --standalone \
+ --highlight-style=github
 ```
 
 ---
@@ -584,8 +584,8 @@ toc-depth: 3
 number-sections: true
 highlight-style: tango
 metadata:
-  fontsize: 12pt
-  geometry: margin=1in
+ fontsize: 12pt
+ geometry: margin=1in
 ```
 
 Use it:
@@ -632,7 +632,7 @@ Or `inotifywait`:
 
 ```bash
 while inotifywait -e modify document.md; do
-  pandoc document.md -o output.pdf
+ pandoc document.md -o output.pdf
 done
 ```
 
@@ -641,7 +641,7 @@ done
 ```bash
 # Convert all Markdown files to PDF
 for file in *.md; do
-  pandoc "$file" -o "${file%.md}.pdf"
+ pandoc "$file" -o "${file%.md}.pdf"
 done
 ```
 
@@ -755,7 +755,7 @@ pandoc document.md -o output.docx --reference-doc=custom-reference.docx
 ````markdown
 ```python
 def hello():
-    print("Hello, World!")
+ print("Hello, World!")
 ```
 ````
 
@@ -767,7 +767,7 @@ def hello():
 ---
 tables: true
 header-includes: |
-  \usepackage{longtable}
+ \usepackage{longtable}
 ---
 ```
 
@@ -776,7 +776,7 @@ Or in Markdown:
 ```markdown
 | Short | Column |
 |-------|--------|
-| A     | B      |
+| A | B |
 ```
 
 ### Problem: Bibliography Not Rendering
@@ -785,9 +785,9 @@ Or in Markdown:
 
 ```bash
 pandoc document.md -o output.pdf \
-  --bibliography=refs.bib \
-  --citeproc \
-  --csl=chicago.csl
+ --bibliography=refs.bib \
+ --citeproc \
+ --csl=chicago.csl
 ```
 
 ---
@@ -827,9 +827,9 @@ pandoc document.md -o output.pdf \
 
 ```bash
 # Basic conversions
-pandoc input.md -o output.pdf              # Markdown → PDF
-pandoc input.md -o output.docx             # Markdown → Word
-pandoc input.md -o output.html -s          # Markdown → HTML (standalone)
+pandoc input.md -o output.pdf # Markdown → PDF
+pandoc input.md -o output.docx # Markdown → Word
+pandoc input.md -o output.html -s # Markdown → HTML (standalone)
 
 # With table of contents
 pandoc input.md -o output.pdf --toc --toc-depth=3

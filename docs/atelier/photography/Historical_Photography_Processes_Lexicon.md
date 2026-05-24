@@ -1,6 +1,6 @@
 # Historical Photography Processes - Quick Reference Lexicon
 
-**Compiled:** 2026-05-23  
+**Compiled:** 2026-05-23 
 **Purpose:** Quick reference for identifying and understanding historical photographic processes from 1839 to present
 
 ---
@@ -8,136 +8,136 @@
 ## Direct Positive Processes (No Negative)
 
 ### Daguerreotype (1839-1860s)
-**What:** First commercial photographic process  
-**Material:** Silver-plated copper plate, mercury vapor development  
-**Appearance:** Mirror-like surface, image appears/disappears with viewing angle  
-**Identification:** Cased, extremely fine detail, unique (one-of-a-kind)  
-**Handling:** NEVER touch surface - any contact damages the image  
-**Storage:** Keep original seal intact, climate-controlled environment  
+**What:** First commercial photographic process 
+**Material:** Silver-plated copper plate, mercury vapor development 
+**Appearance:** Mirror-like surface, image appears/disappears with viewing angle 
+**Identification:** Cased, extremely fine detail, unique (one-of-a-kind) 
+**Handling:** NEVER touch surface - any contact damages the image 
+**Storage:** Keep original seal intact, climate-controlled environment 
 
 ### Ambrotype (1854-1880s)
-**What:** Underexposed glass negative + black backing  
-**Material:** Collodion on glass  
-**Appearance:** Positive image when backed, negative when held to light  
-**Identification:** Lighter/grainier than daguerreotype, often cased  
-**Common Use:** Cheaper alternative to daguerreotype  
-**Hazard:** Glass fragile, emulsion can peel  
+**What:** Underexposed glass negative + black backing 
+**Material:** Collodion on glass 
+**Appearance:** Positive image when backed, negative when held to light 
+**Identification:** Lighter/grainier than daguerreotype, often cased 
+**Common Use:** Cheaper alternative to daguerreotype 
+**Hazard:** Glass fragile, emulsion can peel 
 
 ### Tintype / Ferrotype (1856-1930s)
-**What:** Collodion emulsion on thin iron plate  
-**Material:** Japanned iron base  
-**Appearance:** Dark, slightly flexible, magnetic  
-**Identification:** Test with magnet, laterally reversed  
-**Durability:** Most stable of cased images if kept dry  
-**Hazard:** Rust if exposed to moisture  
+**What:** Collodion emulsion on thin iron plate 
+**Material:** Japanned iron base 
+**Appearance:** Dark, slightly flexible, magnetic 
+**Identification:** Test with magnet, laterally reversed 
+**Durability:** Most stable of cased images if kept dry 
+**Hazard:** Rust if exposed to moisture 
 
 ---
 
 ## Negative Processes
 
 ### Calotype / Talbotype (1841-1860s)
-**What:** First practical negative-positive process  
-**Material:** Paper negative  
-**Appearance:** Waxed paper, visible paper texture in prints  
-**Advantage:** Multiple prints from one negative  
-**Disadvantage:** Paper grain limits sharpness  
+**What:** First practical negative-positive process 
+**Material:** Paper negative 
+**Appearance:** Waxed paper, visible paper texture in prints 
+**Advantage:** Multiple prints from one negative 
+**Disadvantage:** Paper grain limits sharpness 
 
 ### Wet Collodion Plate (1851-1880s)
-**What:** Glass plate coated with collodion, exposed while wet  
-**Material:** Glass base, collodion emulsion  
-**Appearance:** Yellowish-brown color, excellent detail  
-**Workflow:** Prepare - Sensitize - Expose - Develop (all within minutes)  
-**Challenge:** Required portable darkroom for field photography  
+**What:** Glass plate coated with collodion, exposed while wet 
+**Material:** Glass base, collodion emulsion 
+**Appearance:** Yellowish-brown color, excellent detail 
+**Workflow:** Prepare - Sensitize - Expose - Develop (all within minutes) 
+**Challenge:** Required portable darkroom for field photography 
 
 ### Gelatin Dry Plate (1871-1990s)
-**What:** Factory-made glass negatives  
-**Material:** Glass + gelatin silver halide  
-**Appearance:** Gray/neutral color, emulsion on one side  
-**Advantage:** Could be stored before use (revolutionary!)  
-**Standard:** Dominant from 1880s until roll film  
-**Storage:** Vertical like books, individual envelopes, never stack flat  
+**What:** Factory-made glass negatives 
+**Material:** Glass + gelatin silver halide 
+**Appearance:** Gray/neutral color, emulsion on one side 
+**Advantage:** Could be stored before use (revolutionary!) 
+**Standard:** Dominant from 1880s until roll film 
+**Storage:** Vertical like books, individual envelopes, never stack flat 
 
 ### Nitrate Film (1889-1951)
-**What:** First flexible film  
-**Material:** Cellulose nitrate base  
-**DANGER:** Highly flammable, self-ignites at 40°C (104°F)  
-**Identification:** "Nitrate" printed on edge, camphor-like smell  
-**Degradation:** Becomes sticky, releases toxic nitrogen dioxide gas  
-**Action:** Duplicate to safety film ASAP, destroy original safely  
+**What:** First flexible film 
+**Material:** Cellulose nitrate base 
+**DANGER:** Highly flammable, self-ignites at 40°C (104°F) 
+**Identification:** "Nitrate" printed on edge, camphor-like smell 
+**Degradation:** Becomes sticky, releases toxic nitrogen dioxide gas 
+**Action:** Duplicate to safety film ASAP, destroy original safely 
 
 ### Acetate Film (1923-1990s)
-**What:** "Safety film" replacement for nitrate  
-**Material:** Cellulose acetate base  
-**Problem:** "Vinegar syndrome" - releases acetic acid as it degrades  
-**Identification:** Vinegar smell, warping, shrinkage, brittleness  
-**Storage:** Cool, dry, isolated from good film  
+**What:** "Safety film" replacement for nitrate 
+**Material:** Cellulose acetate base 
+**Problem:** "Vinegar syndrome" - releases acetic acid as it degrades 
+**Identification:** Vinegar smell, warping, shrinkage, brittleness 
+**Storage:** Cool, dry, isolated from good film 
 
 ### Polyester Film (1960s-present)
-**What:** Modern stable film base  
-**Material:** Polyester (PET)  
-**Stability:** Extremely stable, archival when properly processed  
-**Standard:** Current film manufacturing  
+**What:** Modern stable film base 
+**Material:** Polyester (PET) 
+**Stability:** Extremely stable, archival when properly processed 
+**Standard:** Current film manufacturing 
 
 ---
 
 ## Positive Print Processes
 
 ### Salt Print (1840-1860s)
-**What:** Earliest paper print process  
-**Material:** Salted paper + silver nitrate  
-**Appearance:** Matte surface, reddish-brown tones  
-**Character:** Image sits in paper fibers (not on surface)  
-**Fading:** Prone to fading without gold toning  
+**What:** Earliest paper print process 
+**Material:** Salted paper + silver nitrate 
+**Appearance:** Matte surface, reddish-brown tones 
+**Character:** Image sits in paper fibers (not on surface) 
+**Fading:** Prone to fading without gold toning 
 
 ### Albumen Print (1850-1900)
-**What:** Most common 19th-century print process  
-**Material:** Egg white (albumen) coating + silver  
-**Appearance:** Glossy surface, yellowed highlights  
-**Identification:** Rich brown tones if gold-toned, typical on thick card mounts  
-**Degradation:** Inevitable yellowing (albumen ages to brown), cracking  
-**Fact:** Peak production consumed millions of eggs annually  
+**What:** Most common 19th-century print process 
+**Material:** Egg white (albumen) coating + silver 
+**Appearance:** Glossy surface, yellowed highlights 
+**Identification:** Rich brown tones if gold-toned, typical on thick card mounts 
+**Degradation:** Inevitable yellowing (albumen ages to brown), cracking 
+**Fact:** Peak production consumed millions of eggs annually 
 
 ### Platinum / Palladium Print (1880s-1930s)
-**What:** Noble metal print process  
-**Material:** Platinum or palladium metal (not silver)  
-**Appearance:** Subtle tonal gradation, embedded in paper fibers  
-**Stability:** Extremely stable, museum-quality longevity  
-**Color:** Cool gray (platinum) or warm gray (palladium)  
-**Cost:** Expensive even when invented, luxury today  
+**What:** Noble metal print process 
+**Material:** Platinum or palladium metal (not silver) 
+**Appearance:** Subtle tonal gradation, embedded in paper fibers 
+**Stability:** Extremely stable, museum-quality longevity 
+**Color:** Cool gray (platinum) or warm gray (palladium) 
+**Cost:** Expensive even when invented, luxury today 
 
 ### Carbon Print (1864-1930s)
-**What:** Pigmented gelatin image  
-**Material:** Pigment + dichromated gelatin  
-**Appearance:** Rich, velvety blacks  
-**Stability:** Permanent (pigment doesn't fade like silver)  
-**Colors:** Any pigment color possible  
-**Use:** Fine art reproduction, photomechanical printing  
+**What:** Pigmented gelatin image 
+**Material:** Pigment + dichromated gelatin 
+**Appearance:** Rich, velvety blacks 
+**Stability:** Permanent (pigment doesn't fade like silver) 
+**Colors:** Any pigment color possible 
+**Use:** Fine art reproduction, photomechanical printing 
 
 ### Cyanotype (1842-present)
-**What:** Iron-based blueprint process  
-**Material:** Ferric ammonium citrate + potassium ferricyanide  
-**Appearance:** Unmistakable blue (Prussian blue)  
-**Identification:** Cyan color on paper  
-**Use:** Architectural plans (blueprints), artistic prints  
-**Quirk:** Fades in light but regenerates in darkness  
+**What:** Iron-based blueprint process 
+**Material:** Ferric ammonium citrate + potassium ferricyanide 
+**Appearance:** Unmistakable blue (Prussian blue) 
+**Identification:** Cyan color on paper 
+**Use:** Architectural plans (blueprints), artistic prints 
+**Quirk:** Fades in light but regenerates in darkness 
 
 ### Gelatin Silver Print (1880s-present)
-**What:** Standard modern B&W photograph  
-**Material:** Gelatin + silver halide on paper  
-**Appearance:** Neutral black, matte to glossy finish  
+**What:** Standard modern B&W photograph 
+**Material:** Gelatin + silver halide on paper 
+**Appearance:** Neutral black, matte to glossy finish 
 **Types:** 
 - **Developing-Out Paper (DOP)** - Modern prints
-- **Printing-Out Paper (POP)** - Self-printing in sunlight (rare after 1920)  
-**Stability:** Excellent if properly processed and stored  
-**Degradation:** Silver mirroring (humidity + pollutants), fading (poor washing)  
+- **Printing-Out Paper (POP)** - Self-printing in sunlight (rare after 1920) 
+**Stability:** Excellent if properly processed and stored 
+**Degradation:** Silver mirroring (humidity + pollutants), fading (poor washing) 
 
 ### Chromogenic Color Print (1942-present)
-**What:** Modern color photograph  
-**Material:** Dye couplers + silver halides  
-**Appearance:** Full color  
-**Processes:** C-print (negative), R-print (reversal/slide)  
-**Stability:** Fades over time, especially in light  
-**Note:** Not a "historical" process but included for completeness  
+**What:** Modern color photograph 
+**Material:** Dye couplers + silver halides 
+**Appearance:** Full color 
+**Processes:** C-print (negative), R-print (reversal/slide) 
+**Stability:** Fades over time, especially in light 
+**Note:** Not a "historical" process but included for completeness 
 
 ---
 
@@ -155,11 +155,11 @@
 
 ### Plate Sizes
 
-**Whole Plate:** 21.5 × 16.5 cm (8.5 × 6.5 inches)  
-**Half Plate:** 16.5 × 10.8 cm  
-**Quarter Plate:** 10.8 × 8.3 cm  
-**Sixth Plate:** 8.3 × 7 cm  
-**Ninth Plate:** 5.7 × 5.1 cm  
+**Whole Plate:** 21.5 × 16.5 cm (8.5 × 6.5 inches) 
+**Half Plate:** 16.5 × 10.8 cm 
+**Quarter Plate:** 10.8 × 8.3 cm 
+**Sixth Plate:** 8.3 × 7 cm 
+**Ninth Plate:** 5.7 × 5.1 cm 
 
 ---
 
@@ -230,37 +230,37 @@
 
 ### By Appearance
 
-**Mirror-like surface, in case:**  
+**Mirror-like surface, in case:** 
 - Daguerreotype (1839-1860s)
 
-**Glass, black backing, in case:**  
+**Glass, black backing, in case:** 
 - Ambrotype (1854-1880s)
 
-**Metal, magnetic, not in case:**  
+**Metal, magnetic, not in case:** 
 - Tintype (1856-1930s)
 
-**Glossy, yellowed highlights, on thick card:**  
+**Glossy, yellowed highlights, on thick card:** 
 - Albumen print (1850-1900)
 
-**Unmistakable blue color:**  
+**Unmistakable blue color:** 
 - Cyanotype (1842-present)
 
-**Velvety blacks, embedded in paper:**  
+**Velvety blacks, embedded in paper:** 
 - Platinum print (1880s-1930s)
 
-**Neutral black/gray, modern look:**  
+**Neutral black/gray, modern look:** 
 - Gelatin silver print (1880s-present)
 
-**Glass negative, yellowish:**  
+**Glass negative, yellowish:** 
 - Wet collodion (1851-1880s)
 
-**Glass negative, gray:**  
+**Glass negative, gray:** 
 - Dry plate (1871-1990s)
 
-**Flexible film, camphor smell:**  
+**Flexible film, camphor smell:** 
 - Nitrate film (1889-1951) - DANGER!
 
-**Flexible film, vinegar smell:**  
+**Flexible film, vinegar smell:** 
 - Acetate film (1923-1990s) - degrading
 
 ---
@@ -340,7 +340,7 @@
 - Photographic conservation literature
 - Historical process documentation
 
-**Compiled:** 2026-05-23  
+**Compiled:** 2026-05-23 
 **Purpose:** Quick reference for photo identification and basic conservation
 
 ---

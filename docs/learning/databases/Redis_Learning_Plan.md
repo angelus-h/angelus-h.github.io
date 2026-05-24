@@ -1,25 +1,25 @@
 # Redis Learning Plan - Practical Guide
 
 **Created:** 2026-03-09
-**Author:** Miklos Greczi
+**Author:** Documentation Team
 **Goal:** Learn Redis fundamentals with practical examples
 **Duration:** 8-12 hours (self-paced)
 
 ---
 
-##  Learning Structure
+## Learning Structure
 
 ```
-1. Basics (2 hours)          → Redis installation, basic commands
+1. Basics (2 hours) → Redis installation, basic commands
 2. Data Structures (3 hours) → Practical examples for each type
 3. Real-world examples (3 hours) → Cache, session, rate limiting
 4. Kubernetes integration (2 hours) → Redis in K8s
-5. Project (2+ hours)        → Your own mini-application
+5. Project (2+ hours) → Your own mini-application
 ```
 
 ---
 
-##  1. Basics - Redis Setup and First Steps
+## 1. Basics - Redis Setup and First Steps
 
 ### 1.1 Installation (10 minutes)
 
@@ -27,8 +27,8 @@
 ```bash
 # Start Redis in Docker
 docker run -d --name redis-learning \
-  -p 6379:6379 \
-  redis:7-alpine
+ -p 6379:6379 \
+ redis:7-alpine
 
 # Verification
 docker ps | grep redis-learning
@@ -76,11 +76,11 @@ KEYS *
 
 # Key expiration (TTL - Time To Live)
 SET session:user123 "active"
-EXPIRE session:user123 3600  # Expires in 1 hour
-TTL session:user123  # Returns remaining seconds
+EXPIRE session:user123 3600 # Expires in 1 hour
+TTL session:user123 # Returns remaining seconds
 
 # Set key with expiration immediately
-SETEX cache:user123 300 "cached_data"  # 5 minutes
+SETEX cache:user123 300 "cached_data" # 5 minutes
 ```
 
 **Task 1:** Try the commands and observe the TTL countdown!
@@ -103,19 +103,19 @@ import time
 
 # Connect to Redis
 r = redis.Redis(
-    host='localhost',
-    port=6379,
-    db=0,
-    decode_responses=True  # Returns values as strings
+ host='localhost',
+ port=6379,
+ db=0,
+ decode_responses=True # Returns values as strings
 )
 
 # Test connection
 try:
-    r.ping()
-    print("✓ Redis connection OK!")
+ r.ping()
+ print(" Redis connection OK!")
 except redis.ConnectionError:
-    print("✗ Redis not available!")
-    exit(1)
+ print(" Redis not available!")
+ exit(1)
 
 # Basic operations
 r.set('greeting', 'Hello Redis!')
@@ -137,10 +137,10 @@ r.set('page_views', 0)
 r.incr('page_views')
 r.incr('page_views')
 r.incrby('page_views', 5)
-print(f"Page views: {r.get('page_views')}")  # 7
+print(f"Page views: {r.get('page_views')}") # 7
 
 # Cleanup
-r.flushdb()  # WARNING: Deletes everything in the database!
+r.flushdb() # WARNING: Deletes everything in the database!
 ```
 
 **Run:**
@@ -150,7 +150,7 @@ python3 redis_basics.py
 
 ---
 
-## 🗂 2. Data Structures with Practical Examples
+## 2. Data Structures with Practical Examples
 
 ### 2.1 Strings (already covered)
 
@@ -180,16 +180,16 @@ print(f"Queue size: {r.llen('task_queue')}")
 
 # Process items from front of queue (consumer)
 while r.llen('task_queue') > 0:
-    task = r.lpop('task_queue')
-    print(f"Processing: {task}")
+ task = r.lpop('task_queue')
+ print(f"Processing: {task}")
 
 # --- Recent activities (Recent Activity) ---
 
 def add_activity(user_id, activity):
-    key = f'user:{user_id}:activities'
-    r.lpush(key, activity)  # Insert at beginning (newest first)
-    r.ltrim(key, 0, 9)  # Keep only last 10 items
-    r.expire(key, 86400)  # Expire after 24 hours
+ key = f'user:{user_id}:activities'
+ r.lpush(key, activity) # Insert at beginning (newest first)
+ r.ltrim(key, 0, 9) # Keep only last 10 items
+ r.expire(key, 86400) # Expire after 24 hours
 
 # Simulation
 add_activity(123, 'Login')
@@ -200,7 +200,7 @@ add_activity(123, 'Photo uploaded')
 recent = r.lrange('user:123:activities', 0, 4)
 print(f"\nUser 123 recent activities:")
 for activity in recent:
-    print(f"  - {activity}")
+ print(f" - {activity}")
 ```
 
 **Task 2:** Modify the code to store 20 activities and display only the last 3!
@@ -225,10 +225,10 @@ user_id = 42
 
 # Set hash (object fields)
 r.hset(f'user:{user_id}', mapping={
-    'name': 'Miklos Greczi',
-    'email': 'developer@company.com',
-    'role': 'SRE',
-    'last_login': '2026-03-09 10:30:00'
+ 'name': 'Documentation Team',
+ 'email': 'developer@company.com',
+ 'role': 'SRE',
+ 'last_login': '2026-03-09 10:30:00'
 })
 
 # Get one field
@@ -281,14 +281,14 @@ r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 # --- Track online users ---
 
 def user_online(user_id):
-    r.sadd('online_users', user_id)
-    r.expire('online_users', 300)  # Deleted after 5 minutes of inactivity
+ r.sadd('online_users', user_id)
+ r.expire('online_users', 300) # Deleted after 5 minutes of inactivity
 
 def user_offline(user_id):
-    r.srem('online_users', user_id)
+ r.srem('online_users', user_id)
 
 def is_user_online(user_id):
-    return r.sismember('online_users', user_id)
+ return r.sismember('online_users', user_id)
 
 # Simulation
 user_online('user123')
@@ -338,7 +338,7 @@ r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 # --- Player leaderboard ---
 
 def update_score(player, score):
-    r.zadd('leaderboard', {player: score})
+ r.zadd('leaderboard', {player: score})
 
 # Add scores
 update_score('Alice', 1500)
@@ -349,20 +349,20 @@ update_score('Eve', 1900)
 
 # Top 3 players (highest score)
 top_3 = r.zrevrange('leaderboard', 0, 2, withscores=True)
-print("🏆 Top 3 players:")
+print(" Top 3 players:")
 for rank, (player, score) in enumerate(top_3, 1):
-    print(f"  {rank}. {player}: {int(score)} points")
+ print(f" {rank}. {player}: {int(score)} points")
 
 # A player's rank (0-indexed)
 bob_rank = r.zrevrank('leaderboard', 'Bob')
-print(f"\nBob's rank: {bob_rank + 1}")  # +1 to start from 1
+print(f"\nBob's rank: {bob_rank + 1}") # +1 to start from 1
 
 # A player's score
 bob_score = r.zscore('leaderboard', 'Bob')
 print(f"Bob's points: {int(bob_score)}")
 
 # Increment score
-r.zincrby('leaderboard', 300, 'Alice')  # Alice gets 300 points
+r.zincrby('leaderboard', 300, 'Alice') # Alice gets 300 points
 print(f"\nAlice's new score: {int(r.zscore('leaderboard', 'Alice'))}")
 
 # --- Time-based events (timestamp score) ---
@@ -370,10 +370,10 @@ print(f"\nAlice's new score: {int(r.zscore('leaderboard', 'Alice'))}")
 # Add events (score = unix timestamp)
 current_time = time.time()
 r.zadd('events', {
-    'user_login': current_time - 3600,  # 1 hour ago
-    'file_upload': current_time - 1800,  # 30 minutes ago
-    'api_call': current_time - 300,     # 5 minutes ago
-    'error_occurred': current_time - 60  # 1 minute ago
+ 'user_login': current_time - 3600, # 1 hour ago
+ 'file_upload': current_time - 1800, # 30 minutes ago
+ 'api_call': current_time - 300, # 5 minutes ago
+ 'error_occurred': current_time - 60 # 1 minute ago
 })
 
 # Events in last 1 hour
@@ -381,7 +381,7 @@ one_hour_ago = current_time - 3600
 recent_events = r.zrangebyscore('events', one_hour_ago, current_time, withscores=True)
 print("\nEvents in last 1 hour:")
 for event, timestamp in recent_events:
-    print(f"  {event}: {int(current_time - timestamp)} seconds ago")
+ print(f" {event}: {int(current_time - timestamp)} seconds ago")
 
 # Delete old events (older than 1 day)
 one_day_ago = current_time - 86400
@@ -392,7 +392,7 @@ r.zremrangebyscore('events', '-inf', one_day_ago)
 
 ---
 
-##  3. Real-World Examples
+## 3. Real-World Examples
 
 ### 3.1 Cache Implementation (45 minutes)
 
@@ -410,41 +410,41 @@ r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
 # Simulate slow database
 def slow_database_query(user_id):
-    """Simulates a slow DB query (500ms)"""
-    time.sleep(0.5)
-    return {
-        'id': user_id,
-        'name': f'User {user_id}',
-        'email': f'user{user_id}@example.com',
-        'role': 'developer'
-    }
+ """Simulates a slow DB query (500ms)"""
+ time.sleep(0.5)
+ return {
+ 'id': user_id,
+ 'name': f'User {user_id}',
+ 'email': f'user{user_id}@example.com',
+ 'role': 'developer'
+ }
 
 # Cached query
 def get_user_cached(user_id, cache_ttl=300):
-    """
-    Get user from cache, or from DB if not cached.
+ """
+ Get user from cache, or from DB if not cached.
 
-    Args:
-        user_id: User identifier
-        cache_ttl: Cache expiration time in seconds (default: 5 minutes)
-    """
-    cache_key = f'user:{user_id}'
+ Args:
+ user_id: User identifier
+ cache_ttl: Cache expiration time in seconds (default: 5 minutes)
+ """
+ cache_key = f'user:{user_id}'
 
-    # 1. Try to read from cache
-    cached_data = r.get(cache_key)
+ # 1. Try to read from cache
+ cached_data = r.get(cache_key)
 
-    if cached_data:
-        print(f"✓ Cache HIT user:{user_id}")
-        return json.loads(cached_data)
+ if cached_data:
+ print(f" Cache HIT user:{user_id}")
+ return json.loads(cached_data)
 
-    # 2. If not cached, query database
-    print(f"✗ Cache MISS user:{user_id} - DB query...")
-    user_data = slow_database_query(user_id)
+ # 2. If not cached, query database
+ print(f" Cache MISS user:{user_id} - DB query...")
+ user_data = slow_database_query(user_id)
 
-    # 3. Store in cache
-    r.setex(cache_key, cache_ttl, json.dumps(user_data))
+ # 3. Store in cache
+ r.setex(cache_key, cache_ttl, json.dumps(user_data))
 
-    return user_data
+ return user_data
 
 # Test
 print("=== Cache Demo ===\n")
@@ -465,9 +465,9 @@ print(f"User: {user}\n")
 
 # --- Cache invalidation (deletion) ---
 def invalidate_user_cache(user_id):
-    """Delete cache when user is modified"""
-    r.delete(f'user:{user_id}')
-    print(f"Cache deleted: user:{user_id}")
+ """Delete cache when user is modified"""
+ r.delete(f'user:{user_id}')
+ print(f"Cache deleted: user:{user_id}")
 
 invalidate_user_cache(42)
 
@@ -476,33 +476,33 @@ get_user_cached(42)
 
 # --- Cache function result with decorator ---
 def cache_result(ttl=300):
-    """Decorator to cache function results"""
-    def decorator(func):
-        def wrapper(*args, **kwargs):
-            # Generate cache key from arguments
-            key_data = f"{func.__name__}:{args}:{kwargs}"
-            cache_key = f"cache:{hashlib.md5(key_data.encode()).hexdigest()}"
+ """Decorator to cache function results"""
+ def decorator(func):
+ def wrapper(*args, **kwargs):
+ # Generate cache key from arguments
+ key_data = f"{func.__name__}:{args}:{kwargs}"
+ cache_key = f"cache:{hashlib.md5(key_data.encode()).hexdigest()}"
 
-            # Cache lookup
-            cached = r.get(cache_key)
-            if cached:
-                return json.loads(cached)
+ # Cache lookup
+ cached = r.get(cache_key)
+ if cached:
+ return json.loads(cached)
 
-            # Calculate result
-            result = func(*args, **kwargs)
+ # Calculate result
+ result = func(*args, **kwargs)
 
-            # Cache it
-            r.setex(cache_key, ttl, json.dumps(result))
-            return result
+ # Cache it
+ r.setex(cache_key, ttl, json.dumps(result))
+ return result
 
-        return wrapper
-    return decorator
+ return wrapper
+ return decorator
 
 @cache_result(ttl=60)
 def expensive_calculation(n):
-    """Simulates complex calculation"""
-    time.sleep(1)
-    return n ** 2
+ """Simulates complex calculation"""
+ time.sleep(1)
+ return n ** 2
 
 print("\n=== Decorator Demo ===\n")
 start = time.time()
@@ -510,7 +510,7 @@ result = expensive_calculation(10)
 print(f"Result: {result}, Time: {time.time() - start:.3f}s")
 
 start = time.time()
-result = expensive_calculation(10)  # From cache
+result = expensive_calculation(10) # From cache
 print(f"Result: {result}, Time: {time.time() - start:.3f}s")
 ```
 
@@ -545,50 +545,50 @@ Session(app)
 
 @app.route('/login', methods=['POST'])
 def login():
-    """User login"""
-    username = request.json.get('username')
-    session['username'] = username
-    session['logged_in'] = True
-    return jsonify({'message': f'Logged in: {username}'})
+ """User login"""
+ username = request.json.get('username')
+ session['username'] = username
+ session['logged_in'] = True
+ return jsonify({'message': f'Logged in: {username}'})
 
 @app.route('/profile')
 def profile():
-    """Profile page - with session check"""
-    if not session.get('logged_in'):
-        return jsonify({'error': 'Not logged in'}), 401
+ """Profile page - with session check"""
+ if not session.get('logged_in'):
+ return jsonify({'error': 'Not logged in'}), 401
 
-    return jsonify({
-        'username': session.get('username'),
-        'message': 'This is your profile'
-    })
+ return jsonify({
+ 'username': session.get('username'),
+ 'message': 'This is your profile'
+ })
 
 @app.route('/logout', methods=['POST'])
 def logout():
-    """Logout"""
-    session.clear()
-    return jsonify({'message': 'Logged out'})
+ """Logout"""
+ session.clear()
+ return jsonify({'message': 'Logged out'})
 
 @app.route('/set/<key>/<value>')
 def set_session(key, value):
-    """Store arbitrary data in session"""
-    session[key] = value
-    return jsonify({'message': f'Session value set: {key}={value}'})
+ """Store arbitrary data in session"""
+ session[key] = value
+ return jsonify({'message': f'Session value set: {key}={value}'})
 
 @app.route('/get/<key>')
 def get_session(key):
-    """Get session data"""
-    value = session.get(key, 'No such key')
-    return jsonify({key: value})
+ """Get session data"""
+ value = session.get(key, 'No such key')
+ return jsonify({key: value})
 
 if __name__ == '__main__':
-    print("\n=== Flask Session Demo ===")
-    print("Try with curl or Postman:")
-    print("  curl -X POST http://localhost:5000/login -H 'Content-Type: application/json' -d '{\"username\":\"miklos\"}' -c cookies.txt")
-    print("  curl http://localhost:5000/profile -b cookies.txt")
-    print("  curl http://localhost:5000/set/theme/dark -b cookies.txt")
-    print("  curl http://localhost:5000/get/theme -b cookies.txt")
-    print()
-    app.run(debug=True)
+ print("\n=== Flask Session Demo ===")
+ print("Try with curl or Postman:")
+ print(" curl -X POST http://localhost:5000/login -H 'Content-Type: application/json' -d '{\"username\":\"miklos\"}' -c cookies.txt")
+ print(" curl http://localhost:5000/profile -b cookies.txt")
+ print(" curl http://localhost:5000/set/theme/dark -b cookies.txt")
+ print(" curl http://localhost:5000/get/theme -b cookies.txt")
+ print()
+ app.run(debug=True)
 ```
 
 **Run and test:**
@@ -598,9 +598,9 @@ python3 redis_session_example.py
 
 # In another terminal:
 curl -X POST http://localhost:5000/login \
-  -H 'Content-Type: application/json' \
-  -d '{"username":"miklos"}' \
-  -c cookies.txt
+ -H 'Content-Type: application/json' \
+ -d '{"username":"miklos"}' \
+ -c cookies.txt
 
 curl http://localhost:5000/profile -b cookies.txt
 
@@ -623,86 +623,86 @@ from functools import wraps
 r = redis.Redis(host='localhost', port=6379, decode_responses=True)
 
 class RateLimitExceeded(Exception):
-    pass
+ pass
 
 def rate_limit(max_requests=10, window_seconds=60):
-    """
-    Rate limiter decorator.
+ """
+ Rate limiter decorator.
 
-    Args:
-        max_requests: Maximum number of requests
-        window_seconds: Time window in seconds
-    """
-    def decorator(func):
-        @wraps(func)
-        def wrapper(user_id, *args, **kwargs):
-            key = f'rate_limit:{func.__name__}:{user_id}'
+ Args:
+ max_requests: Maximum number of requests
+ window_seconds: Time window in seconds
+ """
+ def decorator(func):
+ @wraps(func)
+ def wrapper(user_id, *args, **kwargs):
+ key = f'rate_limit:{func.__name__}:{user_id}'
 
-            # Current request count
-            current = r.get(key)
+ # Current request count
+ current = r.get(key)
 
-            if current is None:
-                # First request in this time window
-                r.setex(key, window_seconds, 1)
-            elif int(current) >= max_requests:
-                # Limit exceeded
-                ttl = r.ttl(key)
-                raise RateLimitExceeded(
-                    f'Rate limit exceeded! Try again in {ttl} seconds.'
-                )
-            else:
-                # Increment request counter
-                r.incr(key)
+ if current is None:
+ # First request in this time window
+ r.setex(key, window_seconds, 1)
+ elif int(current) >= max_requests:
+ # Limit exceeded
+ ttl = r.ttl(key)
+ raise RateLimitExceeded(
+ f'Rate limit exceeded! Try again in {ttl} seconds.'
+ )
+ else:
+ # Increment request counter
+ r.incr(key)
 
-            # Call original function
-            return func(user_id, *args, **kwargs)
+ # Call original function
+ return func(user_id, *args, **kwargs)
 
-        return wrapper
-    return decorator
+ return wrapper
+ return decorator
 
 # Sliding window rate limiter (more accurate)
 def sliding_window_rate_limit(max_requests=10, window_seconds=60):
-    """
-    Sliding window rate limiter with sorted set.
-    More accurate than fixed window.
-    """
-    def decorator(func):
-        @wraps(func)
-        def wrapper(user_id, *args, **kwargs):
-            key = f'rate_limit_sw:{func.__name__}:{user_id}'
-            now = time.time()
-            window_start = now - window_seconds
+ """
+ Sliding window rate limiter with sorted set.
+ More accurate than fixed window.
+ """
+ def decorator(func):
+ @wraps(func)
+ def wrapper(user_id, *args, **kwargs):
+ key = f'rate_limit_sw:{func.__name__}:{user_id}'
+ now = time.time()
+ window_start = now - window_seconds
 
-            # Delete old entries
-            r.zremrangebyscore(key, 0, window_start)
+ # Delete old entries
+ r.zremrangebyscore(key, 0, window_start)
 
-            # Current request count
-            current_requests = r.zcard(key)
+ # Current request count
+ current_requests = r.zcard(key)
 
-            if current_requests >= max_requests:
-                raise RateLimitExceeded(
-                    f'Rate limit exceeded! Max {max_requests} requests/{window_seconds}s'
-                )
+ if current_requests >= max_requests:
+ raise RateLimitExceeded(
+ f'Rate limit exceeded! Max {max_requests} requests/{window_seconds}s'
+ )
 
-            # Add new request
-            r.zadd(key, {f'{now}': now})
-            r.expire(key, window_seconds)
+ # Add new request
+ r.zadd(key, {f'{now}': now})
+ r.expire(key, window_seconds)
 
-            return func(user_id, *args, **kwargs)
+ return func(user_id, *args, **kwargs)
 
-        return wrapper
-    return decorator
+ return wrapper
+ return decorator
 
 # Example API functions
 @rate_limit(max_requests=5, window_seconds=10)
 def api_search(user_id, query):
-    """API search - max 5 requests / 10 seconds"""
-    return f'Search results: {query}'
+ """API search - max 5 requests / 10 seconds"""
+ return f'Search results: {query}'
 
 @sliding_window_rate_limit(max_requests=3, window_seconds=5)
 def api_upload(user_id, filename):
-    """File upload - max 3 requests / 5 seconds"""
-    return f'File uploaded: {filename}'
+ """File upload - max 3 requests / 5 seconds"""
+ return f'File uploaded: {filename}'
 
 # Test
 print("=== Rate Limiter Demo ===\n")
@@ -712,37 +712,37 @@ user_id = 'user123'
 # Fixed window test
 print("Fixed Window Rate Limiter:")
 for i in range(7):
-    try:
-        result = api_search(user_id, f'query_{i}')
-        print(f"  ✓ Request #{i+1}: {result}")
-    except RateLimitExceeded as e:
-        print(f"  ✗ Request #{i+1}: {e}")
+ try:
+ result = api_search(user_id, f'query_{i}')
+ print(f" Request #{i+1}: {result}")
+ except RateLimitExceeded as e:
+ print(f" Request #{i+1}: {e}")
 
 print("\nSliding Window Rate Limiter:")
 for i in range(5):
-    try:
-        result = api_upload(user_id, f'file_{i}.txt')
-        print(f"  ✓ Request #{i+1}: {result}")
-        time.sleep(0.5)
-    except RateLimitExceeded as e:
-        print(f"  ✗ Request #{i+1}: {e}")
+ try:
+ result = api_upload(user_id, f'file_{i}.txt')
+ print(f" Request #{i+1}: {result}")
+ time.sleep(0.5)
+ except RateLimitExceeded as e:
+ print(f" Request #{i+1}: {e}")
 
 # Retry after waiting
 print("\nWaiting 6 seconds...")
 time.sleep(6)
 
 try:
-    result = api_upload(user_id, 'new_file.txt')
-    print(f"  ✓ Retry: {result}")
+ result = api_upload(user_id, 'new_file.txt')
+ print(f" Retry: {result}")
 except RateLimitExceeded as e:
-    print(f"  ✗ Retry: {e}")
+ print(f" Retry: {e}")
 ```
 
 **Task 7:** Create a function that returns how many requests a user has remaining in the current time window!
 
 ---
 
-## ☸ 4. Kubernetes Integration
+## 4. Kubernetes Integration
 
 ### 4.1 Redis Deployment in K8s (30 minutes)
 
@@ -755,62 +755,62 @@ Create a `k8s-redis.yaml` file:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: redis-config
+ name: redis-config
 data:
-  redis.conf: |
-    maxmemory 256mb
-    maxmemory-policy allkeys-lru
-    save ""
+ redis.conf: |
+ maxmemory 256mb
+ maxmemory-policy allkeys-lru
+ save ""
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis
+ name: redis
 spec:
-  type: ClusterIP
-  ports:
-    - port: 6379
-      targetPort: 6379
-  selector:
-    app: redis
+ type: ClusterIP
+ ports:
+ - port: 6379
+ targetPort: 6379
+ selector:
+ app: redis
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis
+ name: redis
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: redis
-  template:
-    metadata:
-      labels:
-        app: redis
-    spec:
-      containers:
-        - name: redis
-          image: redis:7-alpine
-          ports:
-            - containerPort: 6379
-          resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 500m
-              memory: 512Mi
-          volumeMounts:
-            - name: config
-              mountPath: /usr/local/etc/redis/redis.conf
-              subPath: redis.conf
-          command:
-            - redis-server
-            - /usr/local/etc/redis/redis.conf
-      volumes:
-        - name: config
-          configMap:
-            name: redis-config
+ replicas: 1
+ selector:
+ matchLabels:
+ app: redis
+ template:
+ metadata:
+ labels:
+ app: redis
+ spec:
+ containers:
+ - name: redis
+ image: redis:7-alpine
+ ports:
+ - containerPort: 6379
+ resources:
+ requests:
+ cpu: 100m
+ memory: 128Mi
+ limits:
+ cpu: 500m
+ memory: 512Mi
+ volumeMounts:
+ - name: config
+ mountPath: /usr/local/etc/redis/redis.conf
+ subPath: redis.conf
+ command:
+ - redis-server
+ - /usr/local/etc/redis/redis.conf
+ volumes:
+ - name: config
+ configMap:
+ name: redis-config
 ```
 
 **Deployment:**
@@ -849,25 +849,25 @@ r = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, decode_responses=True)
 
 @app.route('/')
 def index():
-    return jsonify({'message': 'Redis Demo App'})
+ return jsonify({'message': 'Redis Demo App'})
 
 @app.route('/counter')
 def counter():
-    """Page view counter"""
-    count = r.incr('page_views')
-    return jsonify({'page_views': count})
+ """Page view counter"""
+ count = r.incr('page_views')
+ return jsonify({'page_views': count})
 
 @app.route('/health')
 def health():
-    """Health check endpoint"""
-    try:
-        r.ping()
-        return jsonify({'status': 'healthy', 'redis': 'connected'})
-    except:
-        return jsonify({'status': 'unhealthy', 'redis': 'disconnected'}), 500
+ """Health check endpoint"""
+ try:
+ r.ping()
+ return jsonify({'status': 'healthy', 'redis': 'connected'})
+ except:
+ return jsonify({'status': 'unhealthy', 'redis': 'disconnected'}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+ app.run(host='0.0.0.0', port=8080)
 ```
 
 **Dockerfile:**
@@ -891,45 +891,45 @@ Create a `k8s-app.yaml` file:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redis-demo-app
+ name: redis-demo-app
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: redis-demo-app
-  template:
-    metadata:
-      labels:
-        app: redis-demo-app
-    spec:
-      containers:
-        - name: app
-          image: your-registry/redis-demo-app:latest
-          ports:
-            - containerPort: 8080
-          env:
-            - name: REDIS_HOST
-              value: "redis"
-            - name: REDIS_PORT
-              value: "6379"
-          livenessProbe:
-            httpGet:
-              path: /health
-              port: 8080
-            initialDelaySeconds: 5
-            periodSeconds: 10
+ replicas: 2
+ selector:
+ matchLabels:
+ app: redis-demo-app
+ template:
+ metadata:
+ labels:
+ app: redis-demo-app
+ spec:
+ containers:
+ - name: app
+ image: your-registry/redis-demo-app:latest
+ ports:
+ - containerPort: 8080
+ env:
+ - name: REDIS_HOST
+ value: "redis"
+ - name: REDIS_PORT
+ value: "6379"
+ livenessProbe:
+ httpGet:
+ path: /health
+ port: 8080
+ initialDelaySeconds: 5
+ periodSeconds: 10
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis-demo-app
+ name: redis-demo-app
 spec:
-  type: ClusterIP
-  ports:
-    - port: 80
-      targetPort: 8080
-  selector:
-    app: redis-demo-app
+ type: ClusterIP
+ ports:
+ - port: 80
+ targetPort: 8080
+ selector:
+ app: redis-demo-app
 ```
 
 **Build and deploy:**
@@ -952,7 +952,7 @@ curl http://localhost:8080/health
 
 ---
 
-##  5. Final Project - Mini Application
+## 5. Final Project - Mini Application
 
 ### Project: Real-time Leaderboard API
 
@@ -981,38 +981,38 @@ CACHE_TTL = 30
 
 @app.route('/score', methods=['POST'])
 def submit_score():
-    """
-    Submit score.
-    Body: {"player_id": "player123", "score": 1500}
-    """
-    # TODO: Implement!
-    # - Check rate limiting
-    # - Add score to sorted set
-    # - Invalidate cache
-    pass
+ """
+ Submit score.
+ Body: {"player_id": "player123", "score": 1500}
+ """
+ # TODO: Implement!
+ # - Check rate limiting
+ # - Add score to sorted set
+ # - Invalidate cache
+ pass
 
 @app.route('/leaderboard', methods=['GET'])
 def get_leaderboard():
-    """
-    Get top 10 list (cached).
-    """
-    # TODO: Implement!
-    # - Check cache
-    # - If no cache, query Redis
-    # - Cache the result
-    pass
+ """
+ Get top 10 list (cached).
+ """
+ # TODO: Implement!
+ # - Check cache
+ # - If no cache, query Redis
+ # - Cache the result
+ pass
 
 @app.route('/player/<player_id>', methods=['GET'])
 def get_player_stats(player_id):
-    """
-    Player statistics.
-    Returns: score, rank, percentile
-    """
-    # TODO: Implement!
-    pass
+ """
+ Player statistics.
+ Returns: score, rank, percentile
+ """
+ # TODO: Implement!
+ pass
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+ app.run(debug=True, port=5000)
 ```
 
 **Task 8 (Big task):** Complete the above application using all your learned Redis knowledge!
@@ -1025,7 +1025,7 @@ if __name__ == '__main__':
 
 ---
 
-##  Further Learning
+## Further Learning
 
 ### Advanced Topics
 
@@ -1057,7 +1057,7 @@ if __name__ == '__main__':
 
 ---
 
-##  Checklist
+## Checklist
 
 **Basics:**
 - [ ] Redis installation and connection

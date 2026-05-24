@@ -3,11 +3,11 @@
 **Author:** Claude (Anthropic)
 **Version:** 1.0
 **Last Updated:** 2026-03-18
-**Language:** English 🇬🇧
+**Language:** English 
 
 ---
 
-##  Table of Contents
+## Table of Contents
 
 1. [What is Markdown?](#what-is-markdown)
 2. [Basic Syntax](#basic-syntax)
@@ -33,20 +33,20 @@
 
 ### Advantages
 
--  Simple and easy to learn
--  Human-readable even in plain text
--  Platform-independent
--  Widely supported (GitHub, GitLab, Slack, Discord, etc.)
--  Fast and efficient for documentation
+- Simple and easy to learn
+- Human-readable even in plain text
+- Platform-independent
+- Widely supported (GitHub, GitLab, Slack, Discord, etc.)
+- Fast and efficient for documentation
 
 ### Use Cases
 
--  README files
--  Documentation
-- 📧 Emails (on some platforms)
-- 💬 Chat messages (Slack, Discord)
-- 📓 Notes and wikis
-- 📖 Blog posts
+- README files
+- Documentation
+- Emails (on some platforms)
+- Chat messages (Slack, Discord)
+- Notes and wikis
+- Blog posts
 
 ---
 
@@ -99,9 +99,9 @@ H2 Header
 
 ### Best Practices
 
--  Use only one H1 per document (title)
--  Don't skip levels (H1 → H2 → H3, not H1 → H3)
--  Add blank lines before and after headers
+- Use only one H1 per document (title)
+- Don't skip levels (H1 → H2 → H3, not H1 → H3)
+- Add blank lines before and after headers
 
 ---
 
@@ -112,8 +112,8 @@ H2 Header
 ```markdown
 - Item 1
 - Item 2
-  - Sub-item 2.1
-  - Sub-item 2.2
+ - Sub-item 2.1
+ - Sub-item 2.2
 - Item 3
 
 * Also works with asterisks
@@ -124,8 +124,8 @@ H2 Header
 
 - Item 1
 - Item 2
-  - Sub-item 2.1
-  - Sub-item 2.2
+ - Sub-item 2.1
+ - Sub-item 2.2
 - Item 3
 
 ### Ordered Lists
@@ -134,8 +134,8 @@ H2 Header
 1. First item
 2. Second item
 3. Third item
-   1. Sub-item 3.1
-   2. Sub-item 3.2
+ 1. Sub-item 3.1
+ 2. Sub-item 3.2
 ```
 
 **Result:**
@@ -143,8 +143,8 @@ H2 Header
 1. First item
 2. Second item
 3. Third item
-   1. Sub-item 3.1
-   2. Sub-item 3.2
+ 1. Sub-item 3.1
+ 2. Sub-item 3.2
 
 ### Task Lists (GitHub)
 
@@ -220,7 +220,7 @@ This is an `inline code` example.
 ````markdown
 ```python
 def hello_world():
-    print("Hello, World!")
+ print("Hello, World!")
 ```
 ````
 
@@ -228,7 +228,7 @@ def hello_world():
 
 ```python
 def hello_world():
-    print("Hello, World!")
+ print("Hello, World!")
 ```
 
 ### Supported Languages (Syntax Highlighting)
@@ -248,7 +248,7 @@ console.log("JavaScript code");
 
 ```json
 {
-  "name": "value"
+ "name": "value"
 }
 ```
 
@@ -272,7 +272,7 @@ RUN apk add --no-cache python3
 ```diff
 - Removed line
 + Added line
-  Unchanged line
+ Unchanged line
 ```
 ````
 
@@ -285,41 +285,41 @@ RUN apk add --no-cache python3
 ```markdown
 | Header 1 | Header 2 | Header 3 |
 |----------|----------|----------|
-| Row 1    | Data     | Data     |
-| Row 2    | Data     | Data     |
+| Row 1 | Data | Data |
+| Row 2 | Data | Data |
 ```
 
 **Result:**
 
 | Header 1 | Header 2 | Header 3 |
 |----------|----------|----------|
-| Row 1    | Data     | Data     |
-| Row 2    | Data     | Data     |
+| Row 1 | Data | Data |
+| Row 2 | Data | Data |
 
 ### Alignment
 
 ```markdown
-| Left     | Center   | Right    |
+| Left | Center | Right |
 |:---------|:--------:|---------:|
-| Left     | Center   | Right    |
-| Text     | Text     | Text     |
+| Left | Center | Right |
+| Text | Text | Text |
 ```
 
 **Result:**
 
-| Left     | Center   | Right    |
+| Left | Center | Right |
 |:---------|:--------:|---------:|
-| Left     | Center   | Right    |
-| Text     | Text     | Text     |
+| Left | Center | Right |
+| Text | Text | Text |
 
 ### Complex Table
 
 ```markdown
 | Feature | Description | Status |
 |---------|-------------|--------|
-| **Feature A** | Important feature |  Done |
-| *Feature B* | In development | 🚧 WIP |
-| ~~Feature C~~ | Removed |  Removed |
+| **Feature A** | Important feature | Done |
+| *Feature B* | In development | WIP |
+| ~~Feature C~~ | Removed | Removed |
 ```
 
 ---
@@ -395,7 +395,7 @@ ___
 :smile: :heart: :+1: :rocket: :fire:
 ```
 
-**Result:** 😊 ❤   🔥
+**Result:** 
 
 **Full emoji list:** https://github.com/ikatyang/emoji-cheat-sheet
 
@@ -521,15 +521,15 @@ One-sentence description.
 
 ### Line Length
 
--  Wrap around 80-100 characters (readability)
--  One blank line = new paragraph
--  Two spaces at line end = line break
+- Wrap around 80-100 characters (readability)
+- One blank line = new paragraph
+- Two spaces at line end = line break
 
 ### Consistency
 
--  Choose one style (e.g., `-` or `*` for lists)
--  Use the same method for headers
--  Maintain indentation (2 or 4 spaces)
+- Choose one style (e.g., `-` or `*` for lists)
+- Use the same method for headers
+- Maintain indentation (2 or 4 spaces)
 
 ### README.md Template
 
@@ -541,33 +541,33 @@ One-sentence description.
 
 One-sentence project description.
 
-## ✨ Features
+## Features
 
 - Feature 1
 - Feature 2
 - Feature 3
 
-##  Installation
+## Installation
 
 \`\`\`bash
 npm install package-name
 \`\`\`
 
-##  Usage
+## Usage
 
 \`\`\`javascript
 const package = require('package-name');
 \`\`\`
 
-## 📖 Documentation
+## Documentation
 
 Full documentation: [link](url)
 
-## 🤝 Contributing
+## Contributing
 
 Pull requests are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-##  License
+## License
 
 [MIT](LICENSE)
 ```
@@ -576,7 +576,7 @@ Pull requests are welcome! See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Common Mistakes
 
-###  Missing Blank Lines
+### Missing Blank Lines
 
 **Wrong:**
 ```markdown
@@ -591,7 +591,7 @@ This text is too close to the header.
 This text is properly separated.
 ```
 
-###  Wrong Indentation in Lists
+### Wrong Indentation in Lists
 
 **Wrong:**
 ```markdown
@@ -602,10 +602,10 @@ This text is properly separated.
 **Right:**
 ```markdown
 - Item 1
-  - Correct indentation (2 spaces)
+ - Correct indentation (2 spaces)
 ```
 
-###  Missing Space After # in Headers
+### Missing Space After # in Headers
 
 **Wrong:**
 ```markdown
@@ -617,7 +617,7 @@ This text is properly separated.
 # Header (with space)
 ```
 
-###  URL Parentheses
+### URL Parentheses
 
 **Wrong:**
 ```markdown

@@ -1,6 +1,6 @@
 # Learning Plan: Using Claude Effectively
 
-##  Learning Objectives
+## Learning Objectives
 
 Understanding how Claude works and learning to maximize its capabilities for software development and problem-solving tasks.
 
@@ -27,7 +27,7 @@ Understanding how Claude works and learning to maximize its capabilities for sof
 - Everything I write and you respond "consumes" from this
 - Automatic compression happens during long conversations
 
-### 📖 Practice:
+### Practice:
 Ask me:
 - "How many tokens is this response?"
 - "What is a context window in practice?"
@@ -71,7 +71,7 @@ Ask me:
 - logger usage"
 ```
 
-### 📖 Practice:
+### Practice:
 Try reformulating a previous question of yours according to "good prompt" guidelines.
 
 ---
@@ -109,7 +109,7 @@ Try reformulating a previous question of yours according to "good prompt" guidel
 4. `Bash pytest` - Run tests
 5. Feedback to you
 
-### 📖 Practice:
+### Practice:
 Observe a workflow - what tools do I use, in what order?
 
 ---
@@ -142,7 +142,7 @@ Observe a workflow - what tools do I use, in what order?
 "Update memory: KFLUXINFRA-2992 issue closed, Emily's MR merged."
 ```
 
-### 📖 Practice:
+### Practice:
 - Check: `cat /home/mgreczi/.claude/projects/-home-mgreczi-ai-konflux-lumino/memory/MEMORY.md`
 - Ask me: "Summarize what you know about me from your memory"
 
@@ -198,7 +198,7 @@ for KFLUXINFRA-XXXX issue"
 
 I automatically follow the documented structure!
 
-### 📖 Practice:
+### Practice:
 Plan a 4-step project (e.g., write new script, document it, test it, deploy).
 
 ---
@@ -230,7 +230,7 @@ Plan a 4-step project (e.g., write new script, document it, test it, deploy).
 
 ## 7⃣ Module: Best Practices - Pro Tips
 
-###  Effective session structure:
+### Effective session structure:
 
 **At session start:**
 1. Brief context: "Continue with KFLUXINFRA-2992"
@@ -244,7 +244,7 @@ Plan a 4-step project (e.g., write new script, document it, test it, deploy).
 5. Summary: "Summarize what we accomplished today"
 6. Memory update: "Update memory with new status"
 
-###  Speed-up tips:
+### Speed-up tips:
 
 **Use shortcuts:**
 - Instead of "Check MEMORY.md": "What do you know about the project?"
@@ -262,7 +262,7 @@ for the audit_scc tool, both at once."
 create the KFLUXINFRA-3000 analysis file."
 ```
 
-### ⚠ Things to avoid:
+### Things to avoid:
 
  **Too general questions:** "Help with the project"
  **Missing context:** "Why doesn't it work?" (what? where?)
@@ -318,7 +318,7 @@ create the KFLUXINFRA-3000 analysis file."
 5. Provide fix steps"
 ```
 
-### 📖 Practice:
+### Practice:
 Give a complex task and ask me to break it down into steps.
 
 ---
@@ -329,13 +329,13 @@ Give a complex task and ask me to break it down into steps.
 
 | Claude Code (CLI) | Claude Web (claude.ai) |
 |-------------------|------------------------|
-|  File system access |  No file access |
-|  Shell commands |  No shell |
-|  Multi-session memory | ⚠ Conversation history |
-|  MCP tool integrations |  No MCP (yet) |
-|  Git repository work |  Copy-paste workflow |
-| ⚠ No image support |  Image input/output |
-| ⚠ Limited web access |  Artifacts, Canvas |
+| File system access | No file access |
+| Shell commands | No shell |
+| Multi-session memory | Conversation history |
+| MCP tool integrations | No MCP (yet) |
+| Git repository work | Copy-paste workflow |
+| No image support | Image input/output |
+| Limited web access | Artifacts, Canvas |
 
 ### When to use which:
 
@@ -355,7 +355,7 @@ Give a complex task and ask me to break it down into steps.
 
 ---
 
-## 🔟 Module: Practical Workshop
+## Module: Practical Workshop
 
 ### Mini Project: "Claude Efficiency Test"
 
@@ -366,35 +366,35 @@ Give a complex task and ask me to break it down into steps.
 4. Saves results to JSON file
 
 **Practice:**
--  Formulating structured requests
--  Iterative development (basic first, then error handling)
--  Testing and validation
--  Requesting documentation
+- Formulating structured requests
+- Iterative development (basic first, then error handling)
+- Testing and validation
+- Requesting documentation
 
 **Bonus challenges:**
-- Add collection of 📖 Practice sections
+- Add collection of Practice sections
 - Create progress bar (how many modules learned)
 - Export in HTML format too
 
 ---
 
-## 📊 Summary: Layers of Using Claude Effectively
+## Summary: Layers of Using Claude Effectively
 
 ```
-┌─────────────────────────────────────────┐
-│   Mastery: Autonomous Collaboration   │ ← You + Claude as a team
-├─────────────────────────────────────────┤
-│   Advanced: Multi-Session Projects    │ ← Memory, agents, complex workflows
-├─────────────────────────────────────────┤
-│   Intermediate: Effective Prompting   │ ← Structured requests, iteration
-├─────────────────────────────────────────┤
-│   Basic: Understanding Capabilities   │ ← Know what I can/can't do
-└─────────────────────────────────────────┘
+
+ Mastery: Autonomous Collaboration ← You + Claude as a team
+
+ Advanced: Multi-Session Projects ← Memory, agents, complex workflows
+
+ Intermediate: Effective Prompting ← Structured requests, iteration
+
+ Basic: Understanding Capabilities ← Know what I can/can't do
+
 ```
 
 ---
 
-##  Action Items - Getting Started
+## Action Items - Getting Started
 
 ### Week 1: Basics
 - [ ] Read the MEMORY.md file
@@ -418,7 +418,7 @@ Give a complex task and ask me to break it down into steps.
 
 ---
 
-##  Further Learning
+## Further Learning
 
 ### Reading Materials:
 1. **CLAUDE.md files in projects** - See how I structure knowledge
@@ -432,24 +432,24 @@ Give a complex task and ask me to break it down into steps.
 
 ---
 
-## 🤝 Collaboration Principles
+## Collaboration Principles
 
 **What you can expect from me:**
--  Precise, structured answers
--  Code quality and best practices
--  Admitting and fixing my mistakes
--  Preserving context in memory
--  CRITICAL: Git safety (no auto-commit)
+- Precise, structured answers
+- Code quality and best practices
+- Admitting and fixing my mistakes
+- Preserving context in memory
+- CRITICAL: Git safety (no auto-commit)
 
 **What I need from you:**
--  Clear goals and context
--  Feedback if I'm going the wrong direction
--  Explicit preferences (e.g., "concise answer", "detailed explanation")
+- Clear goals and context
+- Feedback if I'm going the wrong direction
+- Explicit preferences (e.g., "concise answer", "detailed explanation")
 - ⏸ Stop command if I'm overcomplicating
 
 ---
 
-##  Checklist: "Am I using Claude effectively?"
+## Checklist: "Am I using Claude effectively?"
 
 - [ ] I ask structured questions (context + specifics + expectation)
 - [ ] I leverage the memory system (updates, references)
@@ -465,4 +465,4 @@ Give a complex task and ask me to break it down into steps.
 
 You can start right now! Give me a task and observe how I work - that's the best learning!
 
-**First challenge:** "Claude, create a Python script that parses this learning plan and outputs how many practices (📖 Practice) it contains!"
+**First challenge:** "Claude, create a Python script that parses this learning plan and outputs how many practices ( Practice) it contains!"

@@ -50,9 +50,9 @@ l - Move right
 ### Word Movement
 
 ```
-w  - Move forward to start of next word
-b  - Move backward to start of previous word
-e  - Move to end of current/next word
+w - Move forward to start of next word
+b - Move backward to start of previous word
+e - Move to end of current/next word
 ge - Move to end of previous word
 
 W, B, E - Same as above, but treat punctuation as part of words
@@ -63,29 +63,29 @@ W, B, E - Same as above, but treat punctuation as part of words
 Cursor on: "hello-world.example"
 
 w stops at: h w . e
-            hello-world.example
-            ^   ^ ^   ^ ^
+ hello-world.example
+ ^ ^ ^ ^ ^
 
 W stops at: h e
-            hello-world.example
-            ^               ^
+ hello-world.example
+ ^ ^
 ```
 
 ### Line Movement
 
 ```
-0  - Move to start of line (column 0)
-^  - Move to first non-blank character
-$  - Move to end of line
+0 - Move to start of line (column 0)
+^ - Move to first non-blank character
+$ - Move to end of line
 g_ - Move to last non-blank character
 ```
 
 ### Screen Movement
 
 ```
-H  - Move to top of screen (High)
-M  - Move to middle of screen (Middle)
-L  - Move to bottom of screen (Low)
+H - Move to top of screen (High)
+M - Move to middle of screen (Middle)
+L - Move to bottom of screen (Low)
 
 Ctrl+u - Scroll up half page
 Ctrl+d - Scroll down half page
@@ -93,7 +93,7 @@ Ctrl+b - Scroll up full page (Back)
 Ctrl+f - Scroll down full page (Forward)
 
 gg - Go to first line of file
-G  - Go to last line of file
+G - Go to last line of file
 :42 or 42G - Go to line 42
 
 zz - Center current line on screen
@@ -145,15 +145,15 @@ S - Delete line and insert
 ### Delete Commands
 
 ```
-x  - Delete character under cursor
-X  - Delete character before cursor
+x - Delete character under cursor
+X - Delete character before cursor
 
 dw - Delete from cursor to start of next word
 db - Delete from cursor to start of previous word
 de - Delete from cursor to end of word
 
 dd - Delete entire line
-D  - Delete from cursor to end of line
+D - Delete from cursor to end of line
 d$ - Same as D
 d0 - Delete from cursor to start of line
 
@@ -169,7 +169,7 @@ cb - Change backward word
 ce - Change to end of word
 
 cc - Change entire line
-C  - Change from cursor to end of line
+C - Change from cursor to end of line
 
 ciw - Change inner word (works anywhere in word)
 ci" - Change inside quotes
@@ -194,28 +194,28 @@ Result: const API_KEY = "new_value";
 
 ```
 yy or Y - Yank (copy) entire line
-yw     - Yank word
-yiw    - Yank inner word
-y$     - Yank to end of line
-y0     - Yank to start of line
+yw - Yank word
+yiw - Yank inner word
+y$ - Yank to end of line
+y0 - Yank to start of line
 
-3yy    - Yank 3 lines
-y3w    - Yank 3 words
+3yy - Yank 3 lines
+y3w - Yank 3 words
 
 p - Paste after cursor/below line
 P - Paste before cursor/above line
 
 "ayy - Yank line into register a
-"ap  - Paste from register a
+"ap - Paste from register a
 ```
 
 ### Undo/Redo
 
 ```
-u      - Undo last change
+u - Undo last change
 Ctrl+r - Redo (undo the undo)
 
-3u     - Undo last 3 changes
+3u - Undo last 3 changes
 ```
 
 ---
@@ -225,8 +225,8 @@ Ctrl+r - Redo (undo the undo)
 ### Enter Visual Mode
 
 ```
-v      - Character-wise visual mode
-V      - Line-wise visual mode
+v - Character-wise visual mode
+V - Line-wise visual mode
 Ctrl+v - Block visual mode (column selection)
 ```
 
@@ -236,38 +236,38 @@ Once in visual mode, move cursor to select, then:
 
 ```
 d or x - Delete selection
-y      - Yank (copy) selection
-c      - Change selection (delete and enter insert mode)
->      - Indent selection right
-<      - Indent selection left
-~      - Toggle case
-u      - Convert to lowercase
-U      - Convert to uppercase
+y - Yank (copy) selection
+c - Change selection (delete and enter insert mode)
+> - Indent selection right
+< - Indent selection left
+~ - Toggle case
+u - Convert to lowercase
+U - Convert to uppercase
 ```
 
 **Examples:**
 
 **1. Delete multiple lines:**
 ```
-V      → Enter line visual mode
-3j     → Select 3 lines down
-d      → Delete
+V → Enter line visual mode
+3j → Select 3 lines down
+d → Delete
 ```
 
 **2. Block edit (add # to multiple lines):**
 ```
 Ctrl+v → Enter block visual mode
-5j     → Select 5 lines down
-I      → Enter insert mode
-#      → Type #
-Esc    → Apply to all selected lines
+5j → Select 5 lines down
+I → Enter insert mode
+# → Type #
+Esc → Apply to all selected lines
 ```
 
 **3. Comment out code block:**
 ```
-V      → Line visual mode
-}      → Select until next paragraph/block
-:s/^/# /  → Add "# " at start of each line
+V → Line visual mode
+} → Select until next paragraph/block
+:s/^/# / → Add "# " at start of each line
 ```
 
 ---
@@ -277,36 +277,36 @@ V      → Line visual mode
 ### Search
 
 ```
-/pattern    - Search forward for pattern
-?pattern    - Search backward for pattern
-n           - Next match (forward)
-N           - Previous match (backward)
+/pattern - Search forward for pattern
+?pattern - Search backward for pattern
+n - Next match (forward)
+N - Previous match (backward)
 
-*  - Search forward for word under cursor
-#  - Search backward for word under cursor
+* - Search forward for word under cursor
+# - Search backward for word under cursor
 
 :noh or :nohlsearch - Clear search highlighting
 ```
 
 **Example:**
 ```
-/TODO      → Search for "TODO"
-n          → Next TODO
-N          → Previous TODO
+/TODO → Search for "TODO"
+n → Next TODO
+N → Previous TODO
 ```
 
 ### Replace (Substitute)
 
 ```
-:s/old/new/        - Replace first occurrence on current line
-:s/old/new/g       - Replace all occurrences on current line
-:s/old/new/gc      - Replace all with confirmation
+:s/old/new/ - Replace first occurrence on current line
+:s/old/new/g - Replace all occurrences on current line
+:s/old/new/gc - Replace all with confirmation
 
-:%s/old/new/g      - Replace all in file
-:%s/old/new/gc     - Replace all in file with confirmation
+:%s/old/new/g - Replace all in file
+:%s/old/new/gc - Replace all in file with confirmation
 
-:10,20s/old/new/g  - Replace in lines 10-20
-:'<,'>s/old/new/g  - Replace in visual selection
+:10,20s/old/new/g - Replace in lines 10-20
+:'<,'>s/old/new/g - Replace in visual selection
 ```
 
 **Flags:**
@@ -325,7 +325,7 @@ N          → Previous TODO
 :%s/\s\+$//g
 
 # Convert tabs to 4 spaces
-:%s/\t/    /g
+:%s/\t/ /g
 
 # Add semicolon to end of lines 10-50
 :10,50s/$/;/g
@@ -341,43 +341,43 @@ N          → Previous TODO
 ### Open and Save
 
 ```
-:e filename    - Open (edit) file
-:w             - Save (write) file
-:w filename    - Save as filename
+:e filename - Open (edit) file
+:w - Save (write) file
+:w filename - Save as filename
 :wq or :x or ZZ - Save and quit
-:q             - Quit (fails if unsaved)
-:q!            - Quit without saving
-:qa            - Quit all windows
-:wqa           - Save and quit all
+:q - Quit (fails if unsaved)
+:q! - Quit without saving
+:qa - Quit all windows
+:wqa - Save and quit all
 ```
 
 ### File Exploration
 
 ```
-:e .           - Open file explorer in current directory
-:Ex            - Open explorer
-:Sex           - Open explorer in horizontal split
-:Vex           - Open explorer in vertical split
+:e . - Open file explorer in current directory
+:Ex - Open explorer
+:Sex - Open explorer in horizontal split
+:Vex - Open explorer in vertical split
 
 In explorer:
 Enter - Open file/directory
--     - Go up to parent directory
-d     - Create directory
-%     - Create new file
-R     - Rename file
-D     - Delete file
+- - Go up to parent directory
+d - Create directory
+% - Create new file
+R - Rename file
+D - Delete file
 ```
 
 ### Multiple Files
 
 ```
-:e file2.txt         - Switch to file2.txt
-:bn                  - Next buffer
-:bp                  - Previous buffer
-:ls or :buffers      - List all buffers
-:b <number>          - Switch to buffer number
-:b filename          - Switch to buffer by filename
-:bd                  - Delete (close) current buffer
+:e file2.txt - Switch to file2.txt
+:bn - Next buffer
+:bp - Previous buffer
+:ls or :buffers - List all buffers
+:b <number> - Switch to buffer number
+:b filename - Switch to buffer by filename
+:bd - Delete (close) current buffer
 ```
 
 ---
@@ -387,33 +387,33 @@ D     - Delete file
 ### Split Windows
 
 ```
-:split or :sp        - Horizontal split
-:vsplit or :vsp      - Vertical split
-:sp filename         - Open filename in horizontal split
-:vsp filename        - Open filename in vertical split
+:split or :sp - Horizontal split
+:vsplit or :vsp - Vertical split
+:sp filename - Open filename in horizontal split
+:vsp filename - Open filename in vertical split
 
-Ctrl+w s             - Horizontal split (same file)
-Ctrl+w v             - Vertical split (same file)
+Ctrl+w s - Horizontal split (same file)
+Ctrl+w v - Vertical split (same file)
 
-Ctrl+w h/j/k/l       - Navigate between windows
-Ctrl+w w             - Cycle through windows
-Ctrl+w c             - Close current window
-Ctrl+w o             - Close all other windows (only current remains)
+Ctrl+w h/j/k/l - Navigate between windows
+Ctrl+w w - Cycle through windows
+Ctrl+w c - Close current window
+Ctrl+w o - Close all other windows (only current remains)
 
-Ctrl+w =             - Make all windows equal size
-Ctrl+w _             - Maximize current window height
-Ctrl+w |             - Maximize current window width
+Ctrl+w = - Make all windows equal size
+Ctrl+w _ - Maximize current window height
+Ctrl+w | - Maximize current window width
 ```
 
 ### Tabs
 
 ```
 :tabnew or :tabnew file - Open new tab
-:tabn or gt             - Next tab
-:tabp or gT             - Previous tab
-:tabclose               - Close current tab
-:tabonly                - Close all other tabs
-:tabs                   - List all tabs
+:tabn or gt - Next tab
+:tabp or gT - Previous tab
+:tabclose - Close current tab
+:tabonly - Close all other tabs
+:tabs - List all tabs
 ```
 
 ---
@@ -423,41 +423,41 @@ Ctrl+w |             - Maximize current window width
 ### Marks and Jumps
 
 ```
-ma       - Set mark 'a' at current position
-'a       - Jump to mark 'a'
-`a       - Jump to exact position of mark 'a'
+ma - Set mark 'a' at current position
+'a - Jump to mark 'a'
+`a - Jump to exact position of mark 'a'
 
-:marks   - List all marks
+:marks - List all marks
 
-Ctrl+o   - Jump to previous location
-Ctrl+i   - Jump to next location
-``       - Jump to position before last jump
-'.       - Jump to last edit
+Ctrl+o - Jump to previous location
+Ctrl+i - Jump to next location
+`` - Jump to position before last jump
+'. - Jump to last edit
 ```
 
 ### Macros
 
 ```
-qa       - Start recording macro into register 'a'
+qa - Start recording macro into register 'a'
 <commands>
-q        - Stop recording
+q - Stop recording
 
-@a       - Execute macro 'a'
-@@       - Repeat last macro
-5@a      - Execute macro 'a' 5 times
+@a - Execute macro 'a'
+@@ - Repeat last macro
+5@a - Execute macro 'a' 5 times
 ```
 
 **Example: Add quotes around words on multiple lines**
 ```
-qa       → Start recording macro 'a'
-I"       → Insert " at start of line
-Esc      → Back to normal mode
-A"       → Append " at end of line
-Esc      → Back to normal mode
-j        → Move down one line
-q        → Stop recording
+qa → Start recording macro 'a'
+I" → Insert " at start of line
+Esc → Back to normal mode
+A" → Append " at end of line
+Esc → Back to normal mode
+j → Move down one line
+q → Stop recording
 
-10@a     → Execute macro on next 10 lines
+10@a → Execute macro on next 10 lines
 ```
 
 ### Text Objects
@@ -496,35 +496,35 @@ dat - Delete around tag (tag and content)
 ### Indentation
 
 ```
->>   - Indent line right
-<<   - Indent line left
-3>>  - Indent 3 lines right
+>> - Indent line right
+<< - Indent line left
+3>> - Indent 3 lines right
 
-==   - Auto-indent current line
+== - Auto-indent current line
 gg=G - Auto-indent entire file
 
 In visual mode:
->    - Indent selection right
-<    - Indent selection left
-=    - Auto-indent selection
+> - Indent selection right
+< - Indent selection left
+= - Auto-indent selection
 ```
 
 ### Join Lines
 
 ```
-J    - Join current line with next (removes newline)
-3J   - Join 3 lines
-gJ   - Join without adding space
+J - Join current line with next (removes newline)
+3J - Join 3 lines
+gJ - Join without adding space
 ```
 
 ### Sorting
 
 ```
-:sort             - Sort lines alphabetically
-:sort!            - Sort in reverse
-:sort u           - Sort and remove duplicates
-:10,20sort        - Sort lines 10-20
-:'<,'>sort        - Sort visual selection
+:sort - Sort lines alphabetically
+:sort! - Sort in reverse
+:sort u - Sort and remove duplicates
+:10,20sort - Sort lines 10-20
+:'<,'>sort - Sort visual selection
 ```
 
 ---
@@ -534,17 +534,17 @@ gJ   - Join without adding space
 ### Execute Shell Commands
 
 ```
-:!command         - Execute shell command
-:!ls -la          - List directory
-:!date            - Show current date/time
-:r !command       - Read command output into file
-:r !date          - Insert current date
+:!command - Execute shell command
+:!ls -la - List directory
+:!date - Show current date/time
+:r !command - Read command output into file
+:r !date - Insert current date
 
-:.!command        - Replace current line with command output
-:%!command        - Filter entire file through command
-:'<,'>!command    - Filter visual selection through command
+:.!command - Replace current line with command output
+:%!command - Filter entire file through command
+:'<,'>!command - Filter visual selection through command
 
-:w !sudo tee %    - Save file with sudo (when opened without sudo)
+:w !sudo tee % - Save file with sudo (when opened without sudo)
 ```
 
 **Example:**
@@ -562,24 +562,24 @@ gJ   - Join without adding space
 ### Read and Write Partial Files
 
 ```
-:r filename       - Read filename and insert below cursor
-:10r filename     - Insert filename below line 10
+:r filename - Read filename and insert below cursor
+:10r filename - Insert filename below line 10
 
-:10,20w newfile   - Write lines 10-20 to newfile
+:10,20w newfile - Write lines 10-20 to newfile
 :'<,'>w selection.txt - Write visual selection to file
 ```
 
 ### Global Commands
 
 ```
-:g/pattern/command   - Execute command on lines matching pattern
-:g!/pattern/command  - Execute command on lines NOT matching pattern
-:v/pattern/command   - Same as :g! (inverse)
+:g/pattern/command - Execute command on lines matching pattern
+:g!/pattern/command - Execute command on lines NOT matching pattern
+:v/pattern/command - Same as :g! (inverse)
 
-:g/TODO/d            - Delete all lines containing "TODO"
-:g/^$/d              - Delete all empty lines
-:g/^#/d              - Delete all comment lines (starting with #)
-:v/error/d           - Delete all lines NOT containing "error"
+:g/TODO/d - Delete all lines containing "TODO"
+:g/^$/d - Delete all empty lines
+:g/^#/d - Delete all comment lines (starting with #)
+:v/error/d - Delete all lines NOT containing "error"
 ```
 
 ---
@@ -589,31 +589,31 @@ gJ   - Join without adding space
 ### Runtime Settings
 
 ```
-:set number or :set nu     - Show line numbers
+:set number or :set nu - Show line numbers
 :set nonumber or :set nonu - Hide line numbers
 :set relativenumber or :set rnu - Relative line numbers
 
-:set hlsearch        - Highlight search matches
-:set incsearch       - Incremental search (search as you type)
-:set ignorecase      - Case-insensitive search
-:set smartcase       - Case-sensitive if search contains uppercase
+:set hlsearch - Highlight search matches
+:set incsearch - Incremental search (search as you type)
+:set ignorecase - Case-insensitive search
+:set smartcase - Case-sensitive if search contains uppercase
 
-:set tabstop=4       - Tab width (display)
-:set shiftwidth=4    - Indent width (>>, <<)
-:set expandtab       - Use spaces instead of tabs
-:set noexpandtab     - Use tabs
+:set tabstop=4 - Tab width (display)
+:set shiftwidth=4 - Indent width (>>, <<)
+:set expandtab - Use spaces instead of tabs
+:set noexpandtab - Use tabs
 
-:set autoindent      - Auto-indent new lines
-:set smartindent     - Smart auto-indenting
+:set autoindent - Auto-indent new lines
+:set smartindent - Smart auto-indenting
 
-:set paste           - Paste mode (disables auto-indent)
-:set nopaste         - Exit paste mode
+:set paste - Paste mode (disables auto-indent)
+:set nopaste - Exit paste mode
 
-:syntax on           - Enable syntax highlighting
-:syntax off          - Disable syntax highlighting
+:syntax on - Enable syntax highlighting
+:syntax off - Disable syntax highlighting
 
-:set list            - Show invisible characters
-:set nolist          - Hide invisible characters
+:set list - Show invisible characters
+:set nolist - Hide invisible characters
 ```
 
 ### .vimrc Configuration
@@ -622,27 +622,27 @@ Create `~/.vimrc` for persistent settings:
 
 ```vim
 " Basic Settings
-set number              " Show line numbers
-set relativenumber      " Relative line numbers
-set tabstop=4           " Tab width
-set shiftwidth=4        " Indent width
-set expandtab           " Use spaces instead of tabs
-set autoindent          " Auto-indent
-set smartindent         " Smart auto-indent
-set hlsearch            " Highlight search
-set incsearch           " Incremental search
-set ignorecase          " Case-insensitive search
-set smartcase           " Case-sensitive if uppercase present
-syntax on               " Syntax highlighting
+set number " Show line numbers
+set relativenumber " Relative line numbers
+set tabstop=4 " Tab width
+set shiftwidth=4 " Indent width
+set expandtab " Use spaces instead of tabs
+set autoindent " Auto-indent
+set smartindent " Smart auto-indent
+set hlsearch " Highlight search
+set incsearch " Incremental search
+set ignorecase " Case-insensitive search
+set smartcase " Case-sensitive if uppercase present
+syntax on " Syntax highlighting
 
 " UI Enhancements
-set cursorline          " Highlight current line
-set wildmenu            " Enhanced command-line completion
-set showmatch           " Show matching brackets
-set ruler               " Show cursor position
+set cursorline " Highlight current line
+set wildmenu " Enhanced command-line completion
+set showmatch " Show matching brackets
+set ruler " Show cursor position
 
 " Performance
-set lazyredraw          " Don't redraw during macros
+set lazyredraw " Don't redraw during macros
 
 " Key Mappings
 " Clear search highlight with Ctrl+L
@@ -768,11 +768,11 @@ gg=G
 
 ```vim
 :Git status or :Gstatus
-:Git add %              " Stage current file
+:Git add % " Stage current file
 :Git commit
 :Git push
-:Git blame              " Show git blame
-:Gdiff                  " Git diff in split
+:Git blame " Show git blame
+:Gdiff " Git diff in split
 ```
 
 ### Edit Commit Messages
@@ -813,7 +813,7 @@ git rebase -i HEAD~3
 Install vim-plug:
 ```bash
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 Add to `~/.vimrc`:
@@ -875,11 +875,11 @@ rm ~/.vim/swap/*.swp
 ### Undo Recovery
 
 ```vim
-:earlier 5m    - Undo to state 5 minutes ago
-:earlier 3h    - Undo to state 3 hours ago
-:later 2m      - Redo to state 2 minutes later
+:earlier 5m - Undo to state 5 minutes ago
+:earlier 3h - Undo to state 3 hours ago
+:later 2m - Redo to state 2 minutes later
 
-:undolist      - Show undo tree
+:undolist - Show undo tree
 ```
 
 ### Persistent Undo
@@ -903,42 +903,42 @@ mkdir -p ~/.vim/undo
 
 ```
 Navigation:
-  h/j/k/l    - Left/Down/Up/Right
-  w/b        - Next/Previous word
-  0/$        - Start/End of line
-  gg/G       - Start/End of file
-  Ctrl+d/u   - Half page down/up
+ h/j/k/l - Left/Down/Up/Right
+ w/b - Next/Previous word
+ 0/$ - Start/End of line
+ gg/G - Start/End of file
+ Ctrl+d/u - Half page down/up
 
 Editing:
-  i/a        - Insert before/after cursor
-  I/A        - Insert start/end of line
-  o/O        - Open line below/above
-  x          - Delete character
-  dd         - Delete line
-  yy         - Yank (copy) line
-  p/P        - Paste after/before
-  u          - Undo
-  Ctrl+r     - Redo
+ i/a - Insert before/after cursor
+ I/A - Insert start/end of line
+ o/O - Open line below/above
+ x - Delete character
+ dd - Delete line
+ yy - Yank (copy) line
+ p/P - Paste after/before
+ u - Undo
+ Ctrl+r - Redo
 
 Visual:
-  v/V/Ctrl+v - Char/Line/Block visual
-  d/y/c      - Delete/Yank/Change
+ v/V/Ctrl+v - Char/Line/Block visual
+ d/y/c - Delete/Yank/Change
 
 Search:
-  /pattern   - Search forward
-  n/N        - Next/Previous match
-  */#        - Search word under cursor
+ /pattern - Search forward
+ n/N - Next/Previous match
+ */# - Search word under cursor
 
 File:
-  :w         - Save
-  :q         - Quit
-  :wq        - Save and quit
-  :q!        - Quit without saving
-  :e file    - Open file
+ :w - Save
+ :q - Quit
+ :wq - Save and quit
+ :q! - Quit without saving
+ :e file - Open file
 
 Replace:
-  :%s/old/new/g   - Replace all in file
-  :%s/old/new/gc  - Replace all with confirm
+ :%s/old/new/g - Replace all in file
+ :%s/old/new/gc - Replace all with confirm
 ```
 
 ---
@@ -961,6 +961,6 @@ Replace:
 
 ---
 
-**Updated:** 2026-05-23  
-**Author:** Miklos Greczi  
+**Updated:** 2026-05-23 
+**Author:** Documentation Team 
 **Use Case:** Text editing, SRE, DevOps, Programming

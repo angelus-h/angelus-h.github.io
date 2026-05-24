@@ -1,10 +1,10 @@
 # Fujica GL690 / GM670 Professional - Complete Reference Manual
 
-**Camera Type:** Professional Medium Format Rangefinder  
-**Film Format:** 120 / 220 Roll Film  
-**Manufacturer:** Fuji Photo Film Co., Ltd.  
-**Production Era:** 1970s  
-**Source:** Official Owner's Manual & Technical Documentation  
+**Camera Type:** Professional Medium Format Rangefinder 
+**Film Format:** 120 / 220 Roll Film 
+**Manufacturer:** Fuji Photo Film Co., Ltd. 
+**Production Era:** 1970s 
+**Source:** Official Owner's Manual & Technical Documentation 
 
 ---
 
@@ -24,8 +24,8 @@ These cameras feature the world's first Electron Beam Coated (EBC) lens system w
 2. **Two-Stroke Film Advance:** Advances film and cocks shutter in one motion
 3. **Dual Film Support:** Accepts both 120 and 220 roll film
 4. **Large Format Negatives:**
-   - GL690: 2¼ x 3¼ in. (6 x 9 cm)
-   - GM670: 2¼ x 2¾ in. (6 x 7 cm)
+ - GL690: 2¼ x 3¼ in. (6 x 9 cm)
+ - GM670: 2¼ x 2¾ in. (6 x 7 cm)
 5. **Interchangeable Lens System:** Color-balanced FUJINON lenses from 50mm super wideangle to 180mm telephoto
 6. **All-Speed Flash Sync:** Between-the-lens shutter synchronizes at all speeds (M & X contacts, EBC AE lens X only)
 
@@ -225,53 +225,53 @@ These cameras feature the world's first Electron Beam Coated (EBC) lens system w
 ### Step 1: Prepare Camera Back
 
 1. **Open Camera Back:**
-   - Erect the Camera Back Lock/Spool Loading Key
-   - Turn in direction of arrow
-   - Back releases and swings open
+ - Erect the Camera Back Lock/Spool Loading Key
+ - Turn in direction of arrow
+ - Back releases and swings open
 
 2. **Select Film Type:**
-   - Identify film type: 120 or 220
-   - Check pressure plate position
-   - One side marked for 120, other for 220
-   - If wrong side facing, press plate in arrow direction to release and flip
+ - Identify film type: 120 or 220
+ - Check pressure plate position
+ - One side marked for 120, other for 220
+ - If wrong side facing, press plate in arrow direction to release and flip
 
 3. **Set Frame Counter:**
-   - Use Film Selector on top plate
-   - Set to match your film type and desired frame count
+ - Use Film Selector on top plate
+ - Set to match your film type and desired frame count
 
 ### Step 2: Load Film
 
 1. **Insert Empty Take-up Spool:**
-   - Lift Film Loading Key
-   - Place empty spool in right chamber
-   - Ensure it seats properly
+ - Lift Film Loading Key
+ - Place empty spool in right chamber
+ - Ensure it seats properly
 
 2. **Insert Fresh Film:**
-   - Place new 120/220 roll in left (film) chamber
-   - Orient so film pulls from bottom of roll
+ - Place new 120/220 roll in left (film) chamber
+ - Orient so film pulls from bottom of roll
 
 3. **Thread Film:**
-   - Pull film leader across pressure plate
-   - Align with Film Start Positioning Mark
-   - Insert leader into slot on take-up spool
+ - Pull film leader across pressure plate
+ - Align with Film Start Positioning Mark
+ - Insert leader into slot on take-up spool
 
 4. **Initial Wind:**
-   - Turn take-up spool clockwise to secure film
-   - Ensure film is taut and properly threaded
-   - Watch that film doesn't slip from spool
+ - Turn take-up spool clockwise to secure film
+ - Ensure film is taut and properly threaded
+ - Watch that film doesn't slip from spool
 
 ### Step 3: Close and Advance
 
 1. **Close Camera Back:**
-   - Swing back closed
-   - Ensure it latches securely
-   - Check that lock is engaged
+ - Swing back closed
+ - Ensure it latches securely
+ - Check that lock is engaged
 
 2. **Advance to Frame 1:**
-   - Stroke film advance lever twice (two-stroke system)
-   - Watch frame counter
-   - Continue until counter shows "1"
-   - Camera is now ready for first exposure
+ - Stroke film advance lever twice (two-stroke system)
+ - Watch frame counter
+ - Continue until counter shows "1"
+ - Camera is now ready for first exposure
 
 ---
 
@@ -280,36 +280,36 @@ These cameras feature the world's first Electron Beam Coated (EBC) lens system w
 ### Basic Operation Sequence
 
 1. **Set Film Speed** (for EBC AE lens):
-   - Rotate ASA Speed Selector Ring
-   - Match to your film's ISO rating
-   - Lock at 1/3 stop click stops
+ - Rotate ASA Speed Selector Ring
+ - Match to your film's ISO rating
+ - Lock at 1/3 stop click stops
 
 2. **Compose Image:**
-   - Look through range-viewfinder
-   - See bright frame for your lens
-   - Frame subject within guidelines
+ - Look through range-viewfinder
+ - See bright frame for your lens
+ - Frame subject within guidelines
 
 3. **Focus:**
-   - Look at center of viewfinder
-   - See double image when out of focus
-   - Rotate focusing ring
-   - Align double images until they merge
-   - Single sharp image = correct focus
+ - Look at center of viewfinder
+ - See double image when out of focus
+ - Rotate focusing ring
+ - Align double images until they merge
+ - Single sharp image = correct focus
 
 4. **Set Exposure:**
-   - **Automatic (EBC AE lens):** Set Shutter Speed Ring to "A", select aperture
-   - **Manual:** Set both aperture and shutter speed rings
-   - Check settings match scene requirements
+ - **Automatic (EBC AE lens):** Set Shutter Speed Ring to "A", select aperture
+ - **Manual:** Set both aperture and shutter speed rings
+ - Check settings match scene requirements
 
 5. **Advance Film:**
-   - Stroke film advance lever (two strokes)
-   - This also cocks shutter
-   - Frame counter advances
+ - Stroke film advance lever (two strokes)
+ - This also cocks shutter
+ - Frame counter advances
 
 6. **Release Shutter:**
-   - Gently press shutter release button
-   - Use either top or front button
-   - Cable release recommended for slow speeds
+ - Gently press shutter release button
+ - Use either top or front button
+ - Cable release recommended for slow speeds
 
 ### Rangefinder Focusing Technique
 
@@ -334,34 +334,34 @@ These cameras feature the world's first Electron Beam Coated (EBC) lens system w
 ### Mounting Procedure
 
 1. **Align Dots:**
-   - Locate red dot on lens mount
-   - Find white and red dots on lens mounting ring
-   - Align dots together
+ - Locate red dot on lens mount
+ - Find white and red dots on lens mounting ring
+ - Align dots together
 
 2. **Insert Lens:**
-   - Fit lens straight onto mount
-   - Turn mounting ring clockwise (to the right)
-   - Continue until lens locks with audible/tactile click
+ - Fit lens straight onto mount
+ - Turn mounting ring clockwise (to the right)
+ - Continue until lens locks with audible/tactile click
 
 3. **Verify Mount:**
-   - Gently tug lens to confirm secure mounting
-   - Check that safety lock is engaged
+ - Gently tug lens to confirm secure mounting
+ - Check that safety lock is engaged
 
 ### Dismounting Procedure
 
 1. **Close Shutter Curtain:**
-   - Erect Shutter Curtain Set Key
-   - Turn to close dark blind
-   - This releases safety lock
+ - Erect Shutter Curtain Set Key
+ - Turn to close dark blind
+ - This releases safety lock
 
 2. **Release Lens:**
-   - Push Lens Safety Lock back
-   - Turn mounting ring counter-clockwise
-   - Align dots on ring with dot on mount
+ - Push Lens Safety Lock back
+ - Turn mounting ring counter-clockwise
+ - Align dots on ring with dot on mount
 
 3. **Remove Lens:**
-   - Pull lens straight out
-   - Store with front and rear caps
+ - Pull lens straight out
+ - Store with front and rear caps
 
 **Important Notes:**
 
@@ -379,18 +379,18 @@ Each lens is equipped with depth of field markings on the lens barrel, showing t
 ### Reading the Scale
 
 1. **Focus on Subject:**
-   - Use rangefinder to focus precisely on main subject
-   - Note distance on focusing scale
+ - Use rangefinder to focus precisely on main subject
+ - Note distance on focusing scale
 
 2. **Check Depth of Field:**
-   - Look at aperture setting you plan to use
-   - Find corresponding depth markings (usually paired lines)
-   - Read distances on focusing scale between these marks
+ - Look at aperture setting you plan to use
+ - Find corresponding depth markings (usually paired lines)
+ - Read distances on focusing scale between these marks
 
 3. **Interpret Results:**
-   - Near limit: Closest acceptable sharpness
-   - Far limit: Farthest acceptable sharpness
-   - Everything between limits will be acceptably sharp
+ - Near limit: Closest acceptable sharpness
+ - Far limit: Farthest acceptable sharpness
+ - Everything between limits will be acceptably sharp
 
 ### Hyperfocal Distance Technique
 
@@ -478,24 +478,24 @@ Each lens is equipped with depth of field markings on the lens barrel, showing t
 **Technique Recommendations:**
 
 1. **Use Tripod for Slow Speeds:**
-   - Large 6x9/6x7 format magnifies camera shake
-   - Use tripod for speeds slower than 1/125 sec
-   - Cable release eliminates vibration from button press
+ - Large 6x9/6x7 format magnifies camera shake
+ - Use tripod for speeds slower than 1/125 sec
+ - Cable release eliminates vibration from button press
 
 2. **Optimal Apertures:**
-   - Most lenses sharpest at f/8 to f/11
-   - Avoid both extreme minimum and maximum apertures
-   - Test your specific lens to find sweet spot
+ - Most lenses sharpest at f/8 to f/11
+ - Avoid both extreme minimum and maximum apertures
+ - Test your specific lens to find sweet spot
 
 3. **Critical Focusing:**
-   - Rangefinder is precise tool—use it carefully
-   - Focus on most important element
-   - Remember shallow depth of field at large apertures
+ - Rangefinder is precise tool—use it carefully
+ - Focus on most important element
+ - Remember shallow depth of field at large apertures
 
 4. **Minimize Vibration:**
-   - Mirror lockup not needed (rangefinder design)
-   - Still use cable release for long exposures
-   - Wait for vibration to settle on tripod
+ - Mirror lockup not needed (rangefinder design)
+ - Still use cable release for long exposures
+ - Wait for vibration to settle on tripod
 
 ### Film Selection Recommendations
 

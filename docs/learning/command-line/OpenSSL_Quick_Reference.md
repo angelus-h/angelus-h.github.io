@@ -331,17 +331,17 @@ openssl req -new -key private.key -out request.csr -config openssl.cnf
 **openssl.cnf Example:**
 ```ini
 [ req ]
-default_bits       = 2048
+default_bits = 2048
 distinguished_name = req_distinguished_name
-req_extensions     = req_ext
+req_extensions = req_ext
 
 [ req_distinguished_name ]
-countryName                 = Country Name (2 letter code)
-countryName_default         = US
-stateOrProvinceName         = State or Province Name
+countryName = Country Name (2 letter code)
+countryName_default = US
+stateOrProvinceName = State or Province Name
 stateOrProvinceName_default = California
-commonName                  = Common Name (FQDN)
-commonName_default          = example.com
+commonName = Common Name (FQDN)
+commonName_default = example.com
 
 [ req_ext ]
 subjectAltName = @alt_names
@@ -357,12 +357,12 @@ DNS.3 = *.example.com
 ```bash
 # Encrypt all .txt files in a directory
 for file in *.txt; do
-  openssl enc -aes-256-cbc -salt -in "$file" -out "$file.enc" -pass pass:MySecretPassword
+ openssl enc -aes-256-cbc -salt -in "$file" -out "$file.enc" -pass pass:MySecretPassword
 done
 
 # Decrypt
 for file in *.txt.enc; do
-  openssl enc -aes-256-cbc -d -in "$file" -out "${file%.enc}" -pass pass:MySecretPassword
+ openssl enc -aes-256-cbc -d -in "$file" -out "${file%.enc}" -pass pass:MySecretPassword
 done
 ```
 
@@ -375,8 +375,8 @@ done
 ```bash
 # 1. Generate certificate and key
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-  -keyout tls.key -out tls.crt \
-  -subj "/CN=myapp.example.com/O=myapp"
+ -keyout tls.key -out tls.crt \
+ -subj "/CN=myapp.example.com/O=myapp"
 
 # 2. Create Kubernetes TLS secret
 kubectl create secret tls myapp-tls --cert=tls.crt --key=tls.key
@@ -384,10 +384,10 @@ kubectl create secret tls myapp-tls --cert=tls.crt --key=tls.key
 # 3. Use in Ingress/Route
 # OpenShift Route YAML:
 # spec:
-#   tls:
-#     termination: edge
-#     key: <tls.key content>
-#     certificate: <tls.crt content>
+# tls:
+# termination: edge
+# key: <tls.key content>
+# certificate: <tls.crt content>
 ```
 
 ### Verify Service Mesh (Istio) Certificates
@@ -418,6 +418,6 @@ kubectl exec -it <pod-name> -- openssl s_client -connect external-service.com:44
 
 ---
 
-**Updated:** 2026-05-23  
-**Author:** Miklos Greczi  
+**Updated:** 2026-05-23 
+**Author:** Documentation Team 
 **Use Case:** SRE, DevOps, Security Engineering

@@ -94,9 +94,9 @@ uv init
 
 # Project structure
 # hello-uv/
-# ├── pyproject.toml
-# ├── README.md
-# └── hello.py
+# pyproject.toml
+# README.md
+# hello.py
 
 # Run Python script (automatic venv management)
 uv run hello.py
@@ -126,13 +126,13 @@ cat > main.py << 'EOF'
 import requests
 
 def get_user(username):
-    response = requests.get(f"https://api.github.com/users/{username}")
-    return response.json()
+ response = requests.get(f"https://api.github.com/users/{username}")
+ return response.json()
 
 if __name__ == "__main__":
-    user = get_user("astral-sh")
-    print(f"Name: {user['name']}")
-    print(f"Public repos: {user['public_repos']}")
+ user = get_user("astral-sh")
+ print(f"Name: {user['name']}")
+ print(f"Public repos: {user['public_repos']}")
 EOF
 
 # 4. Run
@@ -163,8 +163,8 @@ uv run python main.py
 uv run python script.py
 
 # Activate manually (if needed)
-source .venv/bin/activate  # Linux/macOS
-.venv\Scripts\activate     # Windows
+source .venv/bin/activate # Linux/macOS
+.venv\Scripts\activate # Windows
 ```
 
 **Manual venv creation:**
@@ -246,20 +246,20 @@ from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
 async def main():
-    server_params = StdioServerParameters(
-        command="uvx",
-        args=["mcp-server-time"]
-    )
+ server_params = StdioServerParameters(
+ command="uvx",
+ args=["mcp-server-time"]
+ )
 
-    async with stdio_client(server_params) as (read, write):
-        async with ClientSession(read, write) as session:
-            await session.initialize()
-            tools = await session.list_tools()
-            print(f"Available tools: {[t.name for t in tools.tools]}")
+ async with stdio_client(server_params) as (read, write):
+ async with ClientSession(read, write) as session:
+ await session.initialize()
+ tools = await session.list_tools()
+ print(f"Available tools: {[t.name for t in tools.tools]}")
 
 if __name__ == "__main__":
-    import asyncio
-    asyncio.run(main())
+ import asyncio
+ asyncio.run(main())
 EOF
 
 # 5. Run
@@ -290,22 +290,22 @@ name = "my-awesome-project"
 version = "0.1.0"
 description = "A brief description"
 authors = [
-    { name = "Miklos Greczi", email = "developer@company.com" }
+ { name = "Documentation Team", email = "developer@company.com" }
 ]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    "requests>=2.31.0",
-    "pydantic>=2.0.0",
+ "requests>=2.31.0",
+ "pydantic>=2.0.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0.0",
-    "ruff>=0.1.0",
+ "pytest>=7.0.0",
+ "ruff>=0.1.0",
 ]
 docs = [
-    "sphinx>=7.0.0",
+ "sphinx>=7.0.0",
 ]
 
 [build-system]
@@ -314,7 +314,7 @@ build-backend = "hatchling.build"
 
 [tool.uv]
 dev-dependencies = [
-    "pytest>=8.0.0",
+ "pytest>=8.0.0",
 ]
 
 [tool.ruff]
@@ -499,10 +499,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return "Hello from Flask!"
+ return "Hello from Flask!"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+ app.run(debug=True)
 EOF
 
 # 2. Migrate to uv
@@ -541,33 +541,33 @@ uv run python app.py
 **Workspace example:**
 ```
 konflux-mcp-workspace/
-├── pyproject.toml          # Root workspace config
-├── uv.lock                 # Shared lock file
-├── packages/
-│   ├── jira-mcp-server/
-│   │   ├── pyproject.toml
-│   │   └── src/
-│   ├── lumino-mcp-server/
-│   │   ├── pyproject.toml
-│   │   └── src/
-│   └── servicenow-mcp-server/
-│       ├── pyproject.toml
-│       └── src/
+ pyproject.toml # Root workspace config
+ uv.lock # Shared lock file
+ packages/
+ jira-mcp-server/
+ pyproject.toml
+ src/
+ lumino-mcp-server/
+ pyproject.toml
+ src/
+ servicenow-mcp-server/
+ pyproject.toml
+ src/
 ```
 
 **Root pyproject.toml:**
 ```toml
 [tool.uv.workspace]
 members = [
-    "packages/jira-mcp-server",
-    "packages/lumino-mcp-server",
-    "packages/servicenow-mcp-server",
+ "packages/jira-mcp-server",
+ "packages/lumino-mcp-server",
+ "packages/servicenow-mcp-server",
 ]
 
 [tool.uv]
 dev-dependencies = [
-    "pytest>=8.0.0",
-    "ruff>=0.3.0",
+ "pytest>=8.0.0",
+ "ruff>=0.3.0",
 ]
 ```
 
@@ -614,7 +614,7 @@ members = ["servers/*"]
 
 [tool.uv]
 dev-dependencies = [
-    "pytest>=8.0.0",
+ "pytest>=8.0.0",
 ]
 EOF
 
@@ -632,10 +632,10 @@ server = Server("time-server")
 
 @server.list_tools()
 async def list_tools():
-    return [{
-        "name": "get_time",
-        "description": "Get current time"
-    }]
+ return [{
+ "name": "get_time",
+ "description": "Get current time"
+ }]
 EOF
 
 # 4. Second MCP server
@@ -726,11 +726,11 @@ cat > test_compatibility.py << EOF
 import sys
 
 def test_version():
-    print(f"Running on Python {sys.version}")
-    assert sys.version_info >= (3, 11)
+ print(f"Running on Python {sys.version}")
+ assert sys.version_info >= (3, 11)
 
 if __name__ == "__main__":
-    test_version()
+ test_version()
 EOF
 
 # 3. Python 3.11 test
@@ -763,41 +763,41 @@ rm -rf .venv-py311 .venv-py312
 image: python:3.12-slim
 
 stages:
-  - test
-  - build
+ - test
+ - build
 
 variables:
-  UV_CACHE_DIR: .uv-cache
+ UV_CACHE_DIR: .uv-cache
 
 # Install uv with caching
 .install-uv: &install-uv
-  - curl -LsSf https://astral.sh/uv/install.sh | sh
-  - export PATH="$HOME/.cargo/bin:$PATH"
+ - curl -LsSf https://astral.sh/uv/install.sh | sh
+ - export PATH="$HOME/.cargo/bin:$PATH"
 
 cache:
-  key: ${CI_COMMIT_REF_SLUG}
-  paths:
-    - .uv-cache/
+ key: ${CI_COMMIT_REF_SLUG}
+ paths:
+ - .uv-cache/
 
 test:
-  stage: test
-  before_script:
-    - *install-uv
-  script:
-    - uv sync
-    - uv run pytest tests/
-    - uv run ruff check .
-  coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
+ stage: test
+ before_script:
+ - *install-uv
+ script:
+ - uv sync
+ - uv run pytest tests/
+ - uv run ruff check .
+ coverage: '/(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/'
 
 build:
-  stage: build
-  before_script:
-    - *install-uv
-  script:
-    - uv build
-  artifacts:
-    paths:
-      - dist/
+ stage: build
+ before_script:
+ - *install-uv
+ script:
+ - uv build
+ artifacts:
+ paths:
+ - dist/
 ```
 
 #### 7.2 GitHub Actions
@@ -809,31 +809,31 @@ name: Test
 on: [push, pull_request]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.11", "3.12"]
+ test:
+ runs-on: ubuntu-latest
+ strategy:
+ matrix:
+ python-version: ["3.11", "3.12"]
 
-    steps:
-      - uses: actions/checkout@v4
+ steps:
+ - uses: actions/checkout@v4
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v1
-        with:
-          version: "latest"
+ - name: Install uv
+ uses: astral-sh/setup-uv@v1
+ with:
+ version: "latest"
 
-      - name: Set up Python ${{ matrix.python-version }}
-        run: uv python install ${{ matrix.python-version }}
+ - name: Set up Python ${{ matrix.python-version }}
+ run: uv python install ${{ matrix.python-version }}
 
-      - name: Install dependencies
-        run: uv sync --all-extras --dev
+ - name: Install dependencies
+ run: uv sync --all-extras --dev
 
-      - name: Run tests
-        run: uv run pytest
+ - name: Run tests
+ run: uv run pytest
 
-      - name: Lint
-        run: uv run ruff check .
+ - name: Lint
+ run: uv run ruff check .
 ```
 
 #### 7.3 Docker Multi-Stage Build
@@ -893,11 +893,11 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"message": "Hello CI/CD"}
+ return {"message": "Hello CI/CD"}
 
 @app.get("/health")
 def health():
-    return {"status": "healthy"}
+ return {"status": "healthy"}
 EOF
 
 # 3. Tests
@@ -909,13 +909,13 @@ from src.api import app
 client = TestClient(app)
 
 def test_root():
-    response = client.get("/")
-    assert response.status_code == 200
-    assert response.json() == {"message": "Hello CI/CD"}
+ response = client.get("/")
+ assert response.status_code == 200
+ assert response.json() == {"message": "Hello CI/CD"}
 
 def test_health():
-    response = client.get("/health")
-    assert response.status_code == 200
+ response = client.get("/health")
+ assert response.status_code == 200
 EOF
 
 # 4. GitLab CI configuration
@@ -923,17 +923,17 @@ cat > .gitlab-ci.yml << EOF
 image: python:3.12-slim
 
 stages:
-  - test
+ - test
 
 test:
-  stage: test
-  before_script:
-    - curl -LsSf https://astral.sh/uv/install.sh | sh
-    - export PATH="\$HOME/.cargo/bin:\$PATH"
-  script:
-    - uv sync
-    - uv run pytest -v
-    - uv run ruff check .
+ stage: test
+ before_script:
+ - curl -LsSf https://astral.sh/uv/install.sh | sh
+ - export PATH="\$HOME/.cargo/bin:\$PATH"
+ script:
+ - uv sync
+ - uv run pytest -v
+ - uv run ruff check .
 EOF
 
 # 5. Local test
@@ -981,12 +981,12 @@ export UV_EXTRA_INDEX_URL="https://pypi.org/simple"
 # Git repository dependency
 [project]
 dependencies = [
-    "my-package @ git+https://github.com/org/repo.git@v1.0.0",
+ "my-package @ git+https://github.com/org/repo.git@v1.0.0",
 ]
 
 # Local path dependency
 dependencies = [
-    "my-local-package @ file:///home/mgreczi/projects/my-package",
+ "my-local-package @ file:///home/mgreczi/projects/my-package",
 ]
 ```
 
@@ -1036,7 +1036,7 @@ uv init --name internal-utils
 
 cat > src/internal_utils/__init__.py << EOF
 def secret_function():
-    return "This is from internal PyPI"
+ return "This is from internal PyPI"
 EOF
 
 # 3. Build
@@ -1167,8 +1167,8 @@ uv init
 # 2. Induce conflict
 # Install packages with overlapping dependencies
 
-uv add requests  # Depends: urllib3<3,>=1.21.1
-uv add botocore  # Depends: urllib3<2.0,>=1.25.4
+uv add requests # Depends: urllib3<3,>=1.21.1
+uv add botocore # Depends: urllib3<2.0,>=1.25.4
 
 # 3. Check
 uv tree
@@ -1295,16 +1295,16 @@ podman push quay.io/geored/lumino-mcp-server:latest
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: lumino-config
+ name: lumino-config
 data:
-  pyproject.toml: |
-    [project]
-    name = "lumino-mcp-server"
-    version = "1.0.0"
-    dependencies = [
-      "mcp>=1.0.0",
-      "kubernetes>=28.0.0",
-    ]
+ pyproject.toml: |
+ [project]
+ name = "lumino-mcp-server"
+ version = "1.0.0"
+ dependencies = [
+ "mcp>=1.0.0",
+ "kubernetes>=28.0.0",
+ ]
 ```
 
 **Deployment:**
@@ -1312,21 +1312,21 @@ data:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lumino-mcp-server
+ name: lumino-mcp-server
 spec:
-  replicas: 1
-  template:
-    spec:
-      containers:
-      - name: server
-        image: quay.io/geored/lumino-mcp-server:latest
-        env:
-        - name: KUBERNETES_NAMESPACE
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
-        - name: PYTHONUNBUFFERED
-          value: "1"
+ replicas: 1
+ template:
+ spec:
+ containers:
+ - name: server
+ image: quay.io/geored/lumino-mcp-server:latest
+ env:
+ - name: KUBERNETES_NAMESPACE
+ valueFrom:
+ fieldRef:
+ fieldPath: metadata.namespace
+ - name: PYTHONUNBUFFERED
+ value: "1"
 ```
 
 ### Exercise 10.1: ServiceNow MCP Server Setup
@@ -1358,31 +1358,31 @@ server = Server("servicenow-mcp-server")
 
 @server.list_tools()
 async def list_tools():
-    return [
-        {
-            "name": "get_incident",
-            "description": "Get ServiceNow incident details",
-            "inputSchema": {
-                "type": "object",
-                "properties": {
-                    "incident_id": {"type": "string"}
-                },
-                "required": ["incident_id"]
-            }
-        }
-    ]
+ return [
+ {
+ "name": "get_incident",
+ "description": "Get ServiceNow incident details",
+ "inputSchema": {
+ "type": "object",
+ "properties": {
+ "incident_id": {"type": "string"}
+ },
+ "required": ["incident_id"]
+ }
+ }
+ ]
 
 @server.call_tool()
 async def call_tool(name: str, arguments: dict):
-    if name == "get_incident":
-        incident_id = arguments["incident_id"]
-        # TODO: Implement ServiceNow API call
-        return {
-            "content": [{
-                "type": "text",
-                "text": f"Incident {incident_id} details"
-            }]
-        }
+ if name == "get_incident":
+ incident_id = arguments["incident_id"]
+ # TODO: Implement ServiceNow API call
+ return {
+ "content": [{
+ "type": "text",
+ "text": f"Incident {incident_id} details"
+ }]
+ }
 EOF
 
 # 6. Entry point
@@ -1392,15 +1392,15 @@ from mcp.server.stdio import stdio_server
 from src.server_mcp import server
 
 async def main():
-    async with stdio_server() as (read_stream, write_stream):
-        await server.run(
-            read_stream,
-            write_stream,
-            server.create_initialization_options()
-        )
+ async with stdio_server() as (read_stream, write_stream):
+ await server.run(
+ read_stream,
+ write_stream,
+ server.create_initialization_options()
+ )
 
 if __name__ == "__main__":
-    asyncio.run(main())
+ asyncio.run(main())
 EOF
 
 # 7. Test
@@ -1481,5 +1481,5 @@ If you enjoyed this learning plan, consider these next:
 
 **Version:** 1.0.0
 **Last Updated:** 2026-03-25
-**Author:** Claude Code + Miklos Greczi
+**Author:** Claude Code + Documentation Team
 **Project:** Platform Infrastructure - Learning Plans

@@ -1,7 +1,7 @@
 # Depth of Field Field Guide - Practical Reference for Film Photography
 
-**Purpose:** Quick reference for calculating and estimating depth of field in the field  
-**Film Formats:** 35mm (24×36mm) and 120 Medium Format (6×6, 6×7, 6×9)  
+**Purpose:** Quick reference for calculating and estimating depth of field in the field 
+**Film Formats:** 35mm (24×36mm) and 120 Medium Format (6×6, 6×7, 6×9) 
 **Updated:** 2026-05-23
 
 ---
@@ -20,12 +20,12 @@
 
 ```mermaid
 graph TD
-    A[Subject in Focus] --> B[Zone of Acceptable Sharpness]
-    B --> C[Near Limit of DoF]
-    B --> D[Far Limit of DoF]
-    C --> E[Everything Closer: Progressively Blurred]
-    D --> F[Everything Farther: Progressively Blurred]
-    
+ A[Subject in Focus] --> B[Zone of Acceptable Sharpness]
+ B --> C[Near Limit of DoF]
+ B --> D[Far Limit of DoF]
+ C --> E[Everything Closer: Progressively Blurred]
+ D --> F[Everything Farther: Progressively Blurred]
+ 
 ```
 
 ### DoF Distribution Rule
@@ -53,7 +53,7 @@ graph TD
 | **120 - 6×7** | 56 × 70 mm | 0.053 mm |
 | **120 - 6×9** | 56 × 84 mm | 0.060 mm |
 
-**Derivation:** CoC ≈ diagonal / 1500  
+**Derivation:** CoC ≈ diagonal / 1500 
 *Example (35mm):* √(24² + 36²) / 1500 = 43.3 / 1500 ≈ 0.029 mm
 
 ### Simplified DoF Formula (Field Use)
@@ -62,7 +62,7 @@ For quick mental calculation:
 
 ```
 Near Limit ≈ D / (1 + D·A·C / f²)
-Far Limit  ≈ D / (1 - D·A·C / f²)
+Far Limit ≈ D / (1 - D·A·C / f²)
 
 Where:
 D = Focus distance (meters)
@@ -144,18 +144,18 @@ H ≈ f² / (A × C)
 
 ```mermaid
 graph LR
-    subgraph "f/2.8 at 5m"
-    A1[3.85m] --- B1[5m SUBJECT] --- C1[7.14m]
-    end
-    
-    subgraph "f/8 at 5m"
-    A2[3.33m] --- B2[5m SUBJECT] --- C2[10.0m]
-    end
-    
-    subgraph "f/16 at 5m"
-    A3[2.63m] --- B3[5m SUBJECT] --- C3[∞]
-    end
-    
+ subgraph "f/2.8 at 5m"
+ A1[3.85m] --- B1[5m SUBJECT] --- C1[7.14m]
+ end
+ 
+ subgraph "f/8 at 5m"
+ A2[3.33m] --- B2[5m SUBJECT] --- C2[10.0m]
+ end
+ 
+ subgraph "f/16 at 5m"
+ A3[2.63m] --- B3[5m SUBJECT] --- C3[∞]
+ end
+ 
 ```
 
 ---
@@ -214,12 +214,12 @@ graph LR
 
 ```mermaid
 graph TD
-    A[Same: f/8, 5m focus, ~80mm lens] --> B[6×6: CoC 0.050mm]
-    A --> C[6×7: CoC 0.053mm]
-    B --> D["DoF: 3.57m - 9.09m (5.52m)"]
-    C --> E["DoF: 3.47m - 8.77m (5.30m)"]
-    E --> F[Slightly shallower DoF]
-    
+ A[Same: f/8, 5m focus, ~80mm lens] --> B[6×6: CoC 0.050mm]
+ A --> C[6×7: CoC 0.053mm]
+ B --> D["DoF: 3.57m - 9.09m (5.52m)"]
+ C --> E["DoF: 3.47m - 8.77m (5.30m)"]
+ E --> F[Slightly shallower DoF]
+ 
 ```
 
 **Practical takeaway:** 6×7 and 6×9 have marginally shallower DoF than 6×6 at the same settings, but difference is small (< 5%).
@@ -235,22 +235,22 @@ graph TD
 1. **Know your hyperfocal distance** for common f-stops (memorize or carry table)
 2. **Focus at hyperfocal distance** - DoF extends from H/2 to infinity
 3. **Example:** 35mm, 50mm lens, f/11
-   - Hyperfocal = 7.6m
-   - Focus at 7.6m → DoF from 3.8m to ∞
+ - Hyperfocal = 7.6m
+ - Focus at 7.6m → DoF from 3.8m to ∞
 
 ### Method 2: Lens Distance Scales
 
 **Traditional lens markings:**
 
 ```
-       ∞    30  10  5  3  2  1.5  1  0.7m
-        |    |   |  |  |  |   |   |   |
-f/16   [=====================================]
-f/11    [===================================]
-f/8      [=================================]
-f/5.6     [==============================]
-f/4        [===========================]
-f/2.8       [========================]
+ ∞ 30 10 5 3 2 1.5 1 0.7m
+ | | | | | | | | |
+f/16 [=====================================]
+f/11 [===================================]
+f/8 [=================================]
+f/5.6 [==============================]
+f/4 [===========================]
+f/2.8 [========================]
 ```
 
 **How to read:**
@@ -371,21 +371,21 @@ Example: f/11 at 1:1 → effective f/22 (for exposure)
 
 ```mermaid
 graph TD
-    A[Choose Desired DoF] --> B{Deep or Shallow?}
-    B -->|Deep DoF| C[Landscape/Architecture]
-    B -->|Shallow DoF| D[Portrait/Isolation]
-    
-    C --> E[Wide lens: 24-35mm]
-    C --> F[Small aperture: f/11-f/16]
-    C --> G[Focus: Hyperfocal distance]
-    
-    D --> H[Tele lens: 85-135mm]
-    D --> I[Large aperture: f/1.4-f/2.8]
-    D --> J[Focus: Precisely on subject]
-    
-    G --> K[DoF: Foreground to ∞]
-    J --> L[DoF: Centimeters depth]
-    
+ A[Choose Desired DoF] --> B{Deep or Shallow?}
+ B -->|Deep DoF| C[Landscape/Architecture]
+ B -->|Shallow DoF| D[Portrait/Isolation]
+ 
+ C --> E[Wide lens: 24-35mm]
+ C --> F[Small aperture: f/11-f/16]
+ C --> G[Focus: Hyperfocal distance]
+ 
+ D --> H[Tele lens: 85-135mm]
+ D --> I[Large aperture: f/1.4-f/2.8]
+ D --> J[Focus: Precisely on subject]
+ 
+ G --> K[DoF: Foreground to ∞]
+ J --> L[DoF: Centimeters depth]
+ 
 ```
 
 ---
@@ -417,18 +417,18 @@ graph TD
 
 ```mermaid
 graph LR
-    A[Same Field of View] --> B[35mm: 50mm lens]
-    A --> C[6x6: 80mm lens]
-    A --> D[6x9: 105mm lens]
-    
-    B --> E[DoF: Deepest]
-    C --> F[DoF: Medium]
-    D --> G[DoF: Shallowest]
-    
-    E --> H[CoC: 0.030mm]
-    F --> I[CoC: 0.050mm]
-    G --> J[CoC: 0.060mm]
-    
+ A[Same Field of View] --> B[35mm: 50mm lens]
+ A --> C[6x6: 80mm lens]
+ A --> D[6x9: 105mm lens]
+ 
+ B --> E[DoF: Deepest]
+ C --> F[DoF: Medium]
+ D --> G[DoF: Shallowest]
+ 
+ E --> H[CoC: 0.030mm]
+ F --> I[CoC: 0.050mm]
+ G --> J[CoC: 0.060mm]
+ 
 ```
 
 **Key insight:** Larger format = shallower DoF for same framing and aperture.
@@ -507,7 +507,7 @@ H = f² / (A × C) = _____² / (_____ × _____) = _____ mm = _____ m
 **Calculate DoF at Distance D:**
 ```
 Near = D / (1 + D·A·C / f²) = _____ / (1 + _____) = _____ m
-Far  = D / (1 - D·A·C / f²) = _____ / (1 - _____) = _____ m
+Far = D / (1 - D·A·C / f²) = _____ / (1 - _____) = _____ m
 Total DoF = _____ m
 ```
 
@@ -537,6 +537,6 @@ Total DoF = _____ m
 
 ---
 
-**Compiled:** 2026-05-23  
-**Formats:** 35mm (24×36mm), 120 (6×6, 6×7, 6×9)  
+**Compiled:** 2026-05-23 
+**Formats:** 35mm (24×36mm), 120 (6×6, 6×7, 6×9) 
 **For:** Field use with film cameras

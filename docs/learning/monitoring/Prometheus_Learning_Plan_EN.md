@@ -60,22 +60,22 @@ open http://localhost:9090
 
 **Architecture Diagram:**
 ```
-┌─────────────────────────────────────────────────┐
-│              Prometheus Server                  │
-│  ┌──────────┐  ┌──────────┐  ┌──────────────┐  │
-│  │Retrieval │→ │   TSDB   │→ │ HTTP Server │  │
-│  │  Engine  │  │(Storage) │  │   (API)     │  │
-│  └──────────┘  └──────────┘  └──────────────┘  │
-└─────────────────────────────────────────────────┘
-         ↓ scrape                    ↓ query
-    ┌─────────┐              ┌──────────────┐
-    │Exporters│              │  Grafana     │
-    │ Targets │              │  Dashboards  │
-    └─────────┘              └──────────────┘
-         ↓ alerts
-    ┌──────────────┐
-    │Alertmanager  │→ Email, Slack, PagerDuty
-    └──────────────┘
+
+ Prometheus Server 
+ 
+ Retrieval → TSDB → HTTP Server 
+ Engine (Storage) (API) 
+ 
+
+ ↓ scrape ↓ query
+ 
+ Exporters Grafana 
+ Targets Dashboards 
+ 
+ ↓ alerts
+ 
+ Alertmanager → Email, Slack, PagerDuty
+ 
 ```
 
 **Hands-On:**
@@ -95,15 +95,15 @@ open http://localhost:9090
 
 **Metric Types:**
 1. **Counter:** Cumulative, only increases (resets on restart)
-   - Example: `http_requests_total`, `errors_total`
+ - Example: `http_requests_total`, `errors_total`
 2. **Gauge:** Current value, can go up/down
-   - Example: `temperature_celsius`, `memory_usage_bytes`
+ - Example: `temperature_celsius`, `memory_usage_bytes`
 3. **Histogram:** Distribution of values in buckets
-   - Example: `http_request_duration_seconds`
-   - Generates: `_bucket`, `_sum`, `_count`
+ - Example: `http_request_duration_seconds`
+ - Generates: `_bucket`, `_sum`, `_count`
 4. **Summary:** Similar to histogram, with quantiles
-   - Example: `rpc_duration_seconds`
-   - Generates: `{quantile="0.5"}`, `_sum`, `_count`
+ - Example: `rpc_duration_seconds`
+ - Generates: `{quantile="0.5"}`, `_sum`, `_count`
 
 **Naming Conventions:**
 - Use base unit (seconds, not milliseconds)
@@ -144,22 +144,22 @@ prometheus_http_request_duration_seconds_bucket
 **Basic Configuration:**
 ```yaml
 global:
-  scrape_interval: 15s      # How often to scrape targets
-  evaluation_interval: 15s  # How often to evaluate rules
-  external_labels:
-    cluster: 'production'
-    region: 'us-east-1'
+ scrape_interval: 15s # How often to scrape targets
+ evaluation_interval: 15s # How often to evaluate rules
+ external_labels:
+ cluster: 'production'
+ region: 'us-east-1'
 
 scrape_configs:
-  - job_name: 'prometheus'
-    static_configs:
-      - targets: ['localhost:9090']
+ - job_name: 'prometheus'
+ static_configs:
+ - targets: ['localhost:9090']
 
-  - job_name: 'node_exporter'
-    static_configs:
-      - targets: ['localhost:9100']
-        labels:
-          env: 'production'
+ - job_name: 'node_exporter'
+ static_configs:
+ - targets: ['localhost:9100']
+ labels:
+ env: 'production'
 ```
 
 **Hands-On:**
@@ -243,17 +243,17 @@ node_network_transmit_bytes_total
 ```yaml
 # Service discovery example
 scrape_configs:
-  - job_name: 'kubernetes-pods'
-    kubernetes_sd_configs:
-      - role: pod
-    relabel_configs:
-      - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
-        action: keep
-        regex: true
-      - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
-        action: replace
-        target_label: __metrics_path__
-        regex: (.+)
+ - job_name: 'kubernetes-pods'
+ kubernetes_sd_configs:
+ - role: pod
+ relabel_configs:
+ - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+ action: keep
+ regex: true
+ - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+ action: replace
+ target_label: __metrics_path__
+ regex: (.+)
 ```
 
 **Hands-On:**
@@ -302,8 +302,8 @@ active_users = Gauge('active_users', 'Number of active users')
 # Instrument your code
 @request_duration.time()
 def process_request(method, endpoint):
-    request_count.labels(method=method, endpoint=endpoint).inc()
-    time.sleep(0.1)  # Simulate work
+ request_count.labels(method=method, endpoint=endpoint).inc()
+ time.sleep(0.1) # Simulate work
 
 # Start metrics server
 start_http_server(8000)
@@ -381,23 +381,23 @@ EOF
 ```yaml
 # prometheus.yml
 rule_files:
-  - "recording_rules.yml"
+ - "recording_rules.yml"
 
 # recording_rules.yml
 groups:
-  - name: cpu_rules
-    interval: 30s
-    rules:
-      - record: instance:node_cpu_utilization:rate5m
-        expr: |
-          100 - (
-            avg by (instance) (
-              irate(node_cpu_seconds_total{mode="idle"}[5m])
-            ) * 100
-          )
+ - name: cpu_rules
+ interval: 30s
+ rules:
+ - record: instance:node_cpu_utilization:rate5m
+ expr: |
+ 100 - (
+ avg by (instance) (
+ irate(node_cpu_seconds_total{mode="idle"}[5m])
+ ) * 100
+ )
 
-      - record: job:http_requests:rate5m
-        expr: sum(rate(http_requests_total[5m])) by (job)
+ - record: job:http_requests:rate5m
+ expr: sum(rate(http_requests_total[5m])) by (job)
 ```
 
 **Hands-On:**
@@ -414,61 +414,61 @@ groups:
 ```yaml
 # alerting_rules.yml
 groups:
-  - name: instance_alerts
-    rules:
-      - alert: InstanceDown
-        expr: up == 0
-        for: 5m
-        labels:
-          severity: critical
-        annotations:
-          summary: "Instance {{ $labels.instance }} is down"
-          description: "{{ $labels.instance }} has been down for more than 5 minutes."
+ - name: instance_alerts
+ rules:
+ - alert: InstanceDown
+ expr: up == 0
+ for: 5m
+ labels:
+ severity: critical
+ annotations:
+ summary: "Instance {{ $labels.instance }} is down"
+ description: "{{ $labels.instance }} has been down for more than 5 minutes."
 
-      - alert: HighMemoryUsage
-        expr: |
-          (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes)
-          / node_memory_MemTotal_bytes * 100 > 90
-        for: 10m
-        labels:
-          severity: warning
-        annotations:
-          summary: "High memory usage on {{ $labels.instance }}"
+ - alert: HighMemoryUsage
+ expr: |
+ (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes)
+ / node_memory_MemTotal_bytes * 100 > 90
+ for: 10m
+ labels:
+ severity: warning
+ annotations:
+ summary: "High memory usage on {{ $labels.instance }}"
 ```
 
 **Alertmanager Configuration:**
 ```yaml
 # alertmanager.yml
 global:
-  resolve_timeout: 5m
+ resolve_timeout: 5m
 
 route:
-  group_by: ['alertname', 'cluster']
-  group_wait: 10s
-  group_interval: 10s
-  repeat_interval: 12h
-  receiver: 'default'
-  routes:
-    - match:
-        severity: critical
-      receiver: 'pagerduty'
-    - match:
-        severity: warning
-      receiver: 'slack'
+ group_by: ['alertname', 'cluster']
+ group_wait: 10s
+ group_interval: 10s
+ repeat_interval: 12h
+ receiver: 'default'
+ routes:
+ - match:
+ severity: critical
+ receiver: 'pagerduty'
+ - match:
+ severity: warning
+ receiver: 'slack'
 
 receivers:
-  - name: 'default'
-    email_configs:
-      - to: 'team@example.com'
+ - name: 'default'
+ email_configs:
+ - to: 'team@example.com'
 
-  - name: 'slack'
-    slack_configs:
-      - api_url: 'https://hooks.slack.com/services/XXX'
-        channel: '#alerts'
+ - name: 'slack'
+ slack_configs:
+ - api_url: 'https://hooks.slack.com/services/XXX'
+ channel: '#alerts'
 
-  - name: 'pagerduty'
-    pagerduty_configs:
-      - service_key: 'YOUR_SERVICE_KEY'
+ - name: 'pagerduty'
+ pagerduty_configs:
+ - service_key: 'YOUR_SERVICE_KEY'
 ```
 
 **Hands-On:**
@@ -491,40 +491,40 @@ receivers:
 **Kubernetes SD Example:**
 ```yaml
 scrape_configs:
-  - job_name: 'kubernetes-pods'
-    kubernetes_sd_configs:
-      - role: pod
-    relabel_configs:
-      # Only scrape pods with annotation: prometheus.io/scrape=true
-      - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
-        action: keep
-        regex: true
+ - job_name: 'kubernetes-pods'
+ kubernetes_sd_configs:
+ - role: pod
+ relabel_configs:
+ # Only scrape pods with annotation: prometheus.io/scrape=true
+ - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+ action: keep
+ regex: true
 
-      # Custom metrics path
-      - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
-        action: replace
-        target_label: __metrics_path__
-        regex: (.+)
+ # Custom metrics path
+ - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_path]
+ action: replace
+ target_label: __metrics_path__
+ regex: (.+)
 
-      # Custom port
-      - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
-        action: replace
-        regex: ([^:]+)(?::\d+)?;(\d+)
-        replacement: $1:$2
-        target_label: __address__
+ # Custom port
+ - source_labels: [__address__, __meta_kubernetes_pod_annotation_prometheus_io_port]
+ action: replace
+ regex: ([^:]+)(?::\d+)?;(\d+)
+ replacement: $1:$2
+ target_label: __address__
 
-      # Add namespace as label
-      - source_labels: [__meta_kubernetes_namespace]
-        target_label: kubernetes_namespace
+ # Add namespace as label
+ - source_labels: [__meta_kubernetes_namespace]
+ target_label: kubernetes_namespace
 ```
 
 **Consul SD Example:**
 ```yaml
 scrape_configs:
-  - job_name: 'consul-services'
-    consul_sd_configs:
-      - server: 'localhost:8500'
-        services: ['web', 'api', 'database']
+ - job_name: 'consul-services'
+ consul_sd_configs:
+ - server: 'localhost:8500'
+ services: ['web', 'api', 'database']
 ```
 
 **Hands-On:**
@@ -543,28 +543,28 @@ Hierarchical Prometheus setup for large-scale monitoring.
 ```yaml
 # Parent Prometheus federating from children
 scrape_configs:
-  - job_name: 'federate'
-    scrape_interval: 15s
-    honor_labels: true
-    metrics_path: '/federate'
-    params:
-      'match[]':
-        - '{job="prometheus"}'
-        - '{__name__=~"job:.*"}'
-    static_configs:
-      - targets:
-        - 'child-prometheus-1:9090'
-        - 'child-prometheus-2:9090'
+ - job_name: 'federate'
+ scrape_interval: 15s
+ honor_labels: true
+ metrics_path: '/federate'
+ params:
+ 'match[]':
+ - '{job="prometheus"}'
+ - '{__name__=~"job:.*"}'
+ static_configs:
+ - targets:
+ - 'child-prometheus-1:9090'
+ - 'child-prometheus-2:9090'
 ```
 
 **Remote Write/Read:**
 ```yaml
 # Send data to long-term storage
 remote_write:
-  - url: "http://thanos-receive:19291/api/v1/receive"
+ - url: "http://thanos-receive:19291/api/v1/receive"
 
 remote_read:
-  - url: "http://thanos-query:19291/api/v1/read"
+ - url: "http://thanos-query:19291/api/v1/read"
 ```
 
 **Hands-On:**
@@ -586,17 +586,17 @@ remote_read:
 
 **HA Setup:**
 ```
-┌─────────────────┐     ┌─────────────────┐
-│  Prometheus A   │     │  Prometheus B   │
-│  (replica 1)    │     │  (replica 2)    │
-└────────┬────────┘     └────────┬────────┘
-         │                       │
-         └───────────┬───────────┘
-                     ↓
-              ┌──────────────┐
-              │    Thanos    │
-              │  (Querier)   │
-              └──────────────┘
+ 
+ Prometheus A Prometheus B 
+ (replica 1) (replica 2) 
+ 
+ 
+ 
+ ↓
+ 
+ Thanos 
+ (Querier) 
+ 
 ```
 
 **Scaling Strategies:**
@@ -659,29 +659,29 @@ needed_disk_space = retention_time_seconds * ingested_samples_per_second * bytes
 ```yaml
 # prometheus.yml
 global:
-  scrape_interval: 15s
+ scrape_interval: 15s
 
 scrape_configs:
-  - job_name: 'secure-service'
-    scheme: https
-    tls_config:
-      ca_file: /etc/prometheus/ca.crt
-      cert_file: /etc/prometheus/client.crt
-      key_file: /etc/prometheus/client.key
-    basic_auth:
-      username: 'prometheus'
-      password_file: /etc/prometheus/password
+ - job_name: 'secure-service'
+ scheme: https
+ tls_config:
+ ca_file: /etc/prometheus/ca.crt
+ cert_file: /etc/prometheus/client.crt
+ key_file: /etc/prometheus/client.key
+ basic_auth:
+ username: 'prometheus'
+ password_file: /etc/prometheus/password
 ```
 
 **Web Configuration:**
 ```yaml
 # web-config.yml
 tls_server_config:
-  cert_file: /etc/prometheus/server.crt
-  key_file: /etc/prometheus/server.key
+ cert_file: /etc/prometheus/server.crt
+ key_file: /etc/prometheus/server.key
 
 basic_auth_users:
-  admin: $2y$12$hashed_password
+ admin: $2y$12$hashed_password
 ```
 
 **Hands-On:**
@@ -696,20 +696,20 @@ basic_auth_users:
 
 **Best Practices:**
 1. **Cardinality Management:**
-   - Avoid high-cardinality labels (user IDs, timestamps)
-   - Limit unique label combinations
-   - Use recording rules for expensive queries
+ - Avoid high-cardinality labels (user IDs, timestamps)
+ - Limit unique label combinations
+ - Use recording rules for expensive queries
 
 2. **Query Optimization:**
-   - Avoid `count()` without `by()`
-   - Use recording rules for dashboards
-   - Limit time ranges
-   - Use `topk()` instead of sorting all results
+ - Avoid `count()` without `by()`
+ - Use recording rules for dashboards
+ - Limit time ranges
+ - Use `topk()` instead of sorting all results
 
 3. **Resource Tuning:**
-   - Increase memory for large setups
-   - Tune scrape intervals
-   - Optimize retention settings
+ - Increase memory for large setups
+ - Tune scrape intervals
+ - Optimize retention settings
 
 **Monitoring Prometheus:**
 ```promql
@@ -753,9 +753,9 @@ prometheus_tsdb_storage_blocks_bytes
 **Hands-On:**
 - Add Prometheus datasource to Grafana
 - Create dashboards for:
-  - Node metrics
-  - Kubernetes cluster overview
-  - Application performance
+ - Node metrics
+ - Kubernetes cluster overview
+ - Application performance
 - Setup Grafana alerts
 - Export/import dashboards
 
@@ -771,25 +771,25 @@ prometheus_tsdb_storage_blocks_bytes
 
 **Thanos Components:**
 ```
-┌─────────────┐
-│ Prometheus  │
-│  + Sidecar  │────┐
-└─────────────┘    │
-                   │    ┌─────────────────┐
-┌─────────────┐    ├───→│  Object Storage │
-│ Prometheus  │    │    │ (S3, GCS, etc.) │
-│  + Sidecar  │────┘    └─────────────────┘
-└─────────────┘               ↑
-                              │
-                    ┌─────────┴─────────┐
-                    │                   │
-              ┌─────▼─────┐     ┌──────▼──────┐
-              │   Store   │     │  Compactor  │
-              └─────┬─────┘     └─────────────┘
-                    │
-              ┌─────▼─────┐
-              │   Query   │←── Dashboard queries
-              └───────────┘
+
+ Prometheus 
+ + Sidecar 
+ 
+ 
+ → Object Storage 
+ Prometheus (S3, GCS, etc.) 
+ + Sidecar 
+ ↑
+ 
+ 
+ 
+ 
+ Store Compactor 
+ 
+ 
+ 
+ Query ← Dashboard queries
+ 
 ```
 
 **Hands-On:**
@@ -805,10 +805,10 @@ prometheus_tsdb_storage_blocks_bytes
 **Scenario 1: Kubernetes Platform Monitoring**
 - Deploy full Prometheus stack (Operator)
 - Monitor:
-  - Cluster resources
-  - Node health
-  - Application performance
-  - Tekton pipelines (Platform context)
+ - Cluster resources
+ - Node health
+ - Application performance
+ - Tekton pipelines (Platform context)
 
 **Scenario 2: Multi-Cluster Monitoring**
 - Federation or Thanos
@@ -982,10 +982,10 @@ By completing this learning plan, you should be able to:
 - LUMINO uses Prometheus for Kubernetes metrics
 - PromQL knowledge enhances LUMINO tool development
 - Potential new LUMINO tools:
-  - `prometheus_advanced_query` - Complex PromQL builder
-  - `prometheus_recording_rule_validator` - Validate rules before deployment
-  - `prometheus_cardinality_analyzer` - Detect high-cardinality labels
-  - `prometheus_slo_calculator` - SLO compliance checker
+ - `prometheus_advanced_query` - Complex PromQL builder
+ - `prometheus_recording_rule_validator` - Validate rules before deployment
+ - `prometheus_cardinality_analyzer` - Detect high-cardinality labels
+ - `prometheus_slo_calculator` - SLO compliance checker
 
 **Action Items:**
 - Integrate Prometheus best practices in LUMINO
@@ -995,5 +995,5 @@ By completing this learning plan, you should be able to:
 ---
 
 **Last Updated:** 2026-03-13
-**Maintainer:** Miklos Greczi
+**Maintainer:** Documentation Team
 **Related:** See `PromQL_Learning_Plan_EN.md` for detailed PromQL training

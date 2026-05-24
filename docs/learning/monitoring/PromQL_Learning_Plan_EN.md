@@ -268,8 +268,8 @@ histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket[5m])) by 
 
 # Apdex score (target: 500ms, tolerance: 2s)
 (
-  sum(rate(http_request_duration_seconds_bucket{le="0.5"}[5m])) +
-  sum(rate(http_request_duration_seconds_bucket{le="2"}[5m])) / 2
+ sum(rate(http_request_duration_seconds_bucket{le="0.5"}[5m])) +
+ sum(rate(http_request_duration_seconds_bucket{le="2"}[5m])) / 2
 ) / sum(rate(http_request_duration_seconds_count[5m]))
 ```
 
@@ -321,8 +321,8 @@ count(kube_pod_status_phase{phase="Pending"}) by (namespace)
 
 # Nodes at >80% memory
 count(
-  (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes)
-  / node_memory_MemTotal_bytes > 0.8
+ (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes)
+ / node_memory_MemTotal_bytes > 0.8
 )
 ```
 
@@ -330,8 +330,8 @@ count(
 ```promql
 # Detect sudden CPU spikes (>50% increase from baseline)
 (
-  rate(container_cpu_usage_seconds_total[5m])
-  - rate(container_cpu_usage_seconds_total[5m] offset 1h)
+ rate(container_cpu_usage_seconds_total[5m])
+ - rate(container_cpu_usage_seconds_total[5m] offset 1h)
 ) / rate(container_cpu_usage_seconds_total[5m] offset 1h) > 0.5
 ```
 
@@ -388,4 +388,4 @@ After mastering PromQL:
 ---
 
 **Last Updated:** 2026-03-13
-**Maintainer:** Miklos Greczi
+**Maintainer:** Documentation Team

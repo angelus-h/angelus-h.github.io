@@ -6,7 +6,7 @@
 
 ---
 
-##  Table of Contents
+## Table of Contents
 
 1. [Code Formatting](#1-code-formatting---black--ruff-format) - Black & Ruff
 2. [Linting](#2-linting---ruff) - Ruff (faster than flake8/pylint)
@@ -21,7 +21,7 @@
 
 ---
 
-##  Why Are These Tools Important?
+## Why Are These Tools Important?
 
 | Tool | What it does | Why you need it |
 |------|--------------|-----------------|
@@ -36,7 +36,7 @@
 
 ---
 
-##  Installation (Prerequisites)
+## Installation (Prerequisites)
 
 ```bash
 # With uv (modern, recommended - you're already using it!)
@@ -66,20 +66,20 @@ Create an `ugly_code.py` file:
 ```python
 # ugly_code.py - BAD formatting
 def calculate(x,y,z):
-    result=x+y+z
-    if result>100:
-        print( "Too big!" )
-    else:
-        print("OK")
-    return result
+ result=x+y+z
+ if result>100:
+ print( "Too big!" )
+ else:
+ print("OK")
+ return result
 
 class MyClass:
-  def __init__(self,name,age):
-      self.name=name
-      self.age=age
+ def __init__(self,name,age):
+ self.name=name
+ self.age=age
 
-  def greet(self):
-        return f"Hello, {self.name}"
+ def greet(self):
+ return f"Hello, {self.name}"
 
 data=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
 my_dict={"key1":"value1","key2":"value2","key3":"value3","key4":"value4"}
@@ -106,29 +106,29 @@ black .
 ```python
 # ugly_code.py - After Black
 def calculate(x, y, z):
-    result = x + y + z
-    if result > 100:
-        print("Too big!")
-    else:
-        print("OK")
-    return result
+ result = x + y + z
+ if result > 100:
+ print("Too big!")
+ else:
+ print("OK")
+ return result
 
 
 class MyClass:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
+ def __init__(self, name, age):
+ self.name = name
+ self.age = age
 
-    def greet(self):
-        return f"Hello, {self.name}"
+ def greet(self):
+ return f"Hello, {self.name}"
 
 
 data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 my_dict = {
-    "key1": "value1",
-    "key2": "value2",
-    "key3": "value3",
-    "key4": "value4",
+ "key1": "value1",
+ "key2": "value2",
+ "key3": "value3",
+ "key4": "value4",
 }
 ```
 
@@ -141,12 +141,12 @@ target-version = ['py311']
 include = '\.pyi?$'
 extend-exclude = '''
 /(
-  # directories
-  \.eggs
-  | \.git
-  | \.venv
-  | build
-  | dist
+ # directories
+ \.eggs
+ | \.git
+ | \.venv
+ | build
+ | dist
 )/
 '''
 ```
@@ -213,22 +213,22 @@ Create a `bad_code.py` file:
 import os
 import sys
 import json
-import time  # Unused import
+import time # Unused import
 
 def my_function(x):
-    y = x + 1  # Unused variable
-    if x == True:  # Bad practice (use "if x:")
-        print("yes")
-    return x
+ y = x + 1 # Unused variable
+ if x == True: # Bad practice (use "if x:")
+ print("yes")
+ return x
 
-class myclass:  # Bad class name (should be: MyClass)
-    pass
+class myclass: # Bad class name (should be: MyClass)
+ pass
 
 def another_function():
-    try:
-        result = 10 / 0
-    except:  # Too general except
-        pass
+ try:
+ result = 10 / 0
+ except: # Too general except
+ pass
 
 # Trailing whitespace
 name = "test"
@@ -244,7 +244,7 @@ ruff check bad_code.py
 ruff check --fix bad_code.py
 
 # Specific rules
-ruff check --select F,E bad_code.py  # Only F (pyflakes) and E (pycodestyle)
+ruff check --select F,E bad_code.py # Only F (pyflakes) and E (pycodestyle)
 
 # Output:
 # bad_code.py:4:8: F401 [*] `time` imported but unused
@@ -263,33 +263,33 @@ target-version = "py311"
 
 # Enable rules
 select = [
-    "E",   # pycodestyle errors
-    "W",   # pycodestyle warnings
-    "F",   # pyflakes
-    "I",   # isort
-    "N",   # pep8-naming
-    "UP",  # pyupgrade
-    "B",   # flake8-bugbear
-    "C4",  # flake8-comprehensions
-    "SIM", # flake8-simplify
+ "E", # pycodestyle errors
+ "W", # pycodestyle warnings
+ "F", # pyflakes
+ "I", # isort
+ "N", # pep8-naming
+ "UP", # pyupgrade
+ "B", # flake8-bugbear
+ "C4", # flake8-comprehensions
+ "SIM", # flake8-simplify
 ]
 
 # Disable rules
 ignore = [
-    "E501",  # line too long (Black handles this)
+ "E501", # line too long (Black handles this)
 ]
 
 # Skip files
 exclude = [
-    ".git",
-    ".venv",
-    "build",
-    "dist",
+ ".git",
+ ".venv",
+ "build",
+ "dist",
 ]
 
 [tool.ruff.per-file-ignores]
-"__init__.py" = ["F401"]  # Unused imports OK in __init__.py
-"tests/*" = ["S101"]      # Assert usage OK in tests
+"__init__.py" = ["F401"] # Unused imports OK in __init__.py
+"tests/*" = ["S101"] # Assert usage OK in tests
 ```
 
 **Task 2:** Run Ruff on the Jira MCP server!
@@ -297,7 +297,7 @@ exclude = [
 ```bash
 cd ~/repos/jira-mcp-server
 ruff check src/
-ruff check --fix src/  # Auto-fix
+ruff check --fix src/ # Auto-fix
 ```
 
 ---
@@ -361,7 +361,7 @@ from myapp.utils import helper
 
 ```toml
 [tool.isort]
-profile = "black"  # Black-compatible
+profile = "black" # Black-compatible
 line_length = 100
 multi_line_output = 3
 include_trailing_comma = true
@@ -396,23 +396,23 @@ Create a `typed_code.py` file:
 from typing import List, Dict, Optional
 
 def greet(name: str) -> str:
-    """Greet a person."""
-    return f"Hello, {name}"
+ """Greet a person."""
+ return f"Hello, {name}"
 
 def calculate_sum(numbers: List[int]) -> int:
-    """Sum a list of integers."""
-    return sum(numbers)
+ """Sum a list of integers."""
+ return sum(numbers)
 
 def get_user(user_id: int) -> Optional[Dict[str, str]]:
-    """Get user by ID."""
-    if user_id == 1:
-        return {"name": "Alice", "email": "alice@example.com"}
-    return None
+ """Get user by ID."""
+ if user_id == 1:
+ return {"name": "Alice", "email": "alice@example.com"}
+ return None
 
 # Type errors (mypy will catch these)
-result = greet(123)  # ERROR: Expected str, got int
-total = calculate_sum(["1", "2", "3"])  # ERROR: Expected List[int], got List[str]
-user = get_user("invalid")  # ERROR: Expected int, got str
+result = greet(123) # ERROR: Expected str, got int
+total = calculate_sum(["1", "2", "3"]) # ERROR: Expected List[int], got List[str]
+user = get_user("invalid") # ERROR: Expected int, got str
 ```
 
 **Run:**
@@ -434,20 +434,20 @@ mypy typed_code.py
 from typing import List, Dict, Optional
 
 def greet(name: str) -> str:
-    return f"Hello, {name}"
+ return f"Hello, {name}"
 
 def calculate_sum(numbers: List[int]) -> int:
-    return sum(numbers)
+ return sum(numbers)
 
 def get_user(user_id: int) -> Optional[Dict[str, str]]:
-    if user_id == 1:
-        return {"name": "Alice", "email": "alice@example.com"}
-    return None
+ if user_id == 1:
+ return {"name": "Alice", "email": "alice@example.com"}
+ return None
 
 # Correct usage
-result = greet("Alice")  # OK
-total = calculate_sum([1, 2, 3])  # OK
-user = get_user(1)  # OK
+result = greet("Alice") # OK
+total = calculate_sum([1, 2, 3]) # OK
+user = get_user(1) # OK
 ```
 
 **Configuration (`pyproject.toml`):**
@@ -469,7 +469,7 @@ strict_equality = true
 # Per-module options
 [[tool.mypy.overrides]]
 module = "tests.*"
-disallow_untyped_defs = false  # Relaxed rules in tests
+disallow_untyped_defs = false # Relaxed rules in tests
 ```
 
 **Task 3:** Add type hints to one of LUMINO server's helper modules and run mypy!
@@ -494,22 +494,22 @@ Create a `calculator.py` file:
 from typing import Union
 
 def add(a: Union[int, float], b: Union[int, float]) -> Union[int, float]:
-    """Add two numbers."""
-    return a + b
+ """Add two numbers."""
+ return a + b
 
 def subtract(a: Union[int, float], b: Union[int, float]) -> Union[int, float]:
-    """Subtract b from a."""
-    return a - b
+ """Subtract b from a."""
+ return a - b
 
 def multiply(a: Union[int, float], b: Union[int, float]) -> Union[int, float]:
-    """Multiply two numbers."""
-    return a * b
+ """Multiply two numbers."""
+ return a * b
 
 def divide(a: Union[int, float], b: Union[int, float]) -> float:
-    """Divide a by b."""
-    if b == 0:
-        raise ValueError("Cannot divide by zero")
-    return a / b
+ """Divide a by b."""
+ if b == 0:
+ raise ValueError("Cannot divide by zero")
+ return a / b
 ```
 
 Create a `tests/test_calculator.py` file:
@@ -520,44 +520,44 @@ import pytest
 from calculator import add, subtract, multiply, divide
 
 def test_add():
-    assert add(2, 3) == 5
-    assert add(-1, 1) == 0
-    assert add(0, 0) == 0
+ assert add(2, 3) == 5
+ assert add(-1, 1) == 0
+ assert add(0, 0) == 0
 
 def test_subtract():
-    assert subtract(5, 3) == 2
-    assert subtract(0, 5) == -5
+ assert subtract(5, 3) == 2
+ assert subtract(0, 5) == -5
 
 def test_multiply():
-    assert multiply(3, 4) == 12
-    assert multiply(-2, 3) == -6
+ assert multiply(3, 4) == 12
+ assert multiply(-2, 3) == -6
 
 def test_divide():
-    assert divide(10, 2) == 5
-    assert divide(9, 3) == 3
+ assert divide(10, 2) == 5
+ assert divide(9, 3) == 3
 
 def test_divide_by_zero():
-    """Test exception handling."""
-    with pytest.raises(ValueError, match="Cannot divide by zero"):
-        divide(10, 0)
+ """Test exception handling."""
+ with pytest.raises(ValueError, match="Cannot divide by zero"):
+ divide(10, 0)
 
 # Parametrized tests
 @pytest.mark.parametrize("a,b,expected", [
-    (2, 3, 5),
-    (0, 0, 0),
-    (-1, 1, 0),
-    (10, -5, 5),
+ (2, 3, 5),
+ (0, 0, 0),
+ (-1, 1, 0),
+ (10, -5, 5),
 ])
 def test_add_parametrized(a, b, expected):
-    assert add(a, b) == expected
+ assert add(a, b) == expected
 
 # Fixtures
 @pytest.fixture
 def sample_numbers():
-    return [1, 2, 3, 4, 5]
+ return [1, 2, 3, 4, 5]
 
 def test_with_fixture(sample_numbers):
-    assert sum(sample_numbers) == 15
+ assert sum(sample_numbers) == 15
 ```
 
 **Run:**
@@ -579,7 +579,7 @@ pytest tests/test_calculator.py::test_add
 pytest --cov=calculator --cov-report=term-missing
 
 # Parallel execution (faster)
-pytest -n auto  # Requires: pip install pytest-xdist
+pytest -n auto # Requires: pip install pytest-xdist
 ```
 
 **Configuration (`pyproject.toml`):**
@@ -590,13 +590,13 @@ testpaths = ["tests"]
 python_files = "test_*.py"
 python_functions = "test_*"
 addopts = [
-    "-v",
-    "--strict-markers",
-    "--tb=short",
+ "-v",
+ "--strict-markers",
+ "--tb=short",
 ]
 markers = [
-    "slow: marks tests as slow",
-    "integration: marks tests as integration tests",
+ "slow: marks tests as slow",
+ "integration: marks tests as integration tests",
 ]
 ```
 
@@ -620,11 +620,11 @@ uv pip install coverage pytest-cov
 pytest --cov=calculator --cov-report=term-missing
 
 # Output:
-# Name            Stmts   Miss  Cover   Missing
+# Name Stmts Miss Cover Missing
 # ---------------------------------------------
-# calculator.py      10      0   100%
+# calculator.py 10 0 100%
 # ---------------------------------------------
-# TOTAL              10      0   100%
+# TOTAL 10 0 100%
 
 # HTML report (viewable in browser)
 pytest --cov=calculator --cov-report=html
@@ -640,10 +640,10 @@ pytest --cov=calculator --cov-report=xml
 [tool.coverage.run]
 source = ["src"]
 omit = [
-    "*/tests/*",
-    "*/__pycache__/*",
-    "*/venv/*",
-    "*/.venv/*",
+ "*/tests/*",
+ "*/__pycache__/*",
+ "*/venv/*",
+ "*/.venv/*",
 ]
 
 [tool.coverage.report]
@@ -651,12 +651,12 @@ precision = 2
 show_missing = true
 skip_covered = false
 exclude_lines = [
-    "pragma: no cover",
-    "def __repr__",
-    "raise AssertionError",
-    "raise NotImplementedError",
-    "if __name__ == .__main__.:",
-    "if TYPE_CHECKING:",
+ "pragma: no cover",
+ "def __repr__",
+ "raise AssertionError",
+ "raise NotImplementedError",
+ "if __name__ == .__main__.:",
+ "if TYPE_CHECKING:",
 ]
 
 [tool.coverage.html]
@@ -688,50 +688,50 @@ isolated_build = True
 
 [testenv]
 deps =
-    pytest
-    pytest-cov
+ pytest
+ pytest-cov
 commands =
-    pytest --cov=src --cov-report=term-missing {posargs}
+ pytest --cov=src --cov-report=term-missing {posargs}
 
 [testenv:lint]
 deps =
-    ruff
+ ruff
 commands =
-    ruff check src/ tests/
+ ruff check src/ tests/
 
 [testenv:format]
 deps =
-    black
-    ruff
+ black
+ ruff
 commands =
-    black --check src/ tests/
-    ruff format --check src/ tests/
+ black --check src/ tests/
+ ruff format --check src/ tests/
 
 [testenv:type]
 deps =
-    mypy
-    pytest
+ mypy
+ pytest
 commands =
-    mypy src/
+ mypy src/
 
 [testenv:coverage]
 deps =
-    pytest
-    pytest-cov
+ pytest
+ pytest-cov
 commands =
-    pytest --cov=src --cov-report=html --cov-report=term-missing
+ pytest --cov=src --cov-report=html --cov-report=term-missing
 
 [testenv:all]
 deps =
-    {[testenv:lint]deps}
-    {[testenv:format]deps}
-    {[testenv:type]deps}
-    {[testenv]deps}
+ {[testenv:lint]deps}
+ {[testenv:format]deps}
+ {[testenv:type]deps}
+ {[testenv]deps}
 commands =
-    {[testenv:format]commands}
-    {[testenv:lint]commands}
-    {[testenv:type]commands}
-    {[testenv]commands}
+ {[testenv:format]commands}
+ {[testenv:lint]commands}
+ {[testenv:type]commands}
+ {[testenv]commands}
 ```
 
 **Run:**
@@ -762,45 +762,45 @@ skipsdist = True
 
 [testenv]
 deps =
-    -r requirements.txt
-    pytest
-    pytest-asyncio
-    pytest-cov
+ -r requirements.txt
+ pytest
+ pytest-asyncio
+ pytest-cov
 
 [testenv:test]
 commands =
-    pytest tests/ --cov=src --cov-report=term-missing -v
+ pytest tests/ --cov=src --cov-report=term-missing -v
 
 [testenv:lint]
 deps =
-    ruff
+ ruff
 commands =
-    ruff check src/ tests/
+ ruff check src/ tests/
 
 [testenv:format-check]
 deps =
-    ruff
+ ruff
 commands =
-    ruff format --check src/ tests/
+ ruff format --check src/ tests/
 
 [testenv:type]
 deps =
-    mypy
-    types-aiofiles
+ mypy
+ types-aiofiles
 commands =
-    mypy src/
+ mypy src/
 
 [testenv:all]
 deps =
-    {[testenv:lint]deps}
-    {[testenv:format-check]deps}
-    {[testenv:type]deps}
-    {[testenv]deps}
+ {[testenv:lint]deps}
+ {[testenv:format-check]deps}
+ {[testenv:type]deps}
+ {[testenv]deps}
 commands =
-    {[testenv:format-check]commands}
-    {[testenv:lint]commands}
-    {[testenv:type]commands}
-    {[testenv:test]commands}
+ {[testenv:format-check]commands}
+ {[testenv:lint]commands}
+ {[testenv:type]commands}
+ {[testenv:test]commands}
 ```
 
 **Task 5:** Create tox.ini for the Jira MCP server!
@@ -823,40 +823,40 @@ Create a `.pre-commit-config.yaml` file:
 ```yaml
 # .pre-commit-config.yaml
 repos:
-  # Ruff - linting and formatting
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.9
-    hooks:
-      - id: ruff
-        args: [--fix]
-      - id: ruff-format
+ # Ruff - linting and formatting
+ - repo: https://github.com/astral-sh/ruff-pre-commit
+ rev: v0.1.9
+ hooks:
+ - id: ruff
+ args: [--fix]
+ - id: ruff-format
 
-  # mypy - type checking
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.8.0
-    hooks:
-      - id: mypy
-        additional_dependencies: [types-all]
+ # mypy - type checking
+ - repo: https://github.com/pre-commit/mirrors-mypy
+ rev: v1.8.0
+ hooks:
+ - id: mypy
+ additional_dependencies: [types-all]
 
-  # Standard hooks
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
-    hooks:
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
-      - id: check-yaml
-      - id: check-json
-      - id: check-toml
-      - id: check-added-large-files
-        args: [--maxkb=1000]
-      - id: detect-private-key
+ # Standard hooks
+ - repo: https://github.com/pre-commit/pre-commit-hooks
+ rev: v4.5.0
+ hooks:
+ - id: trailing-whitespace
+ - id: end-of-file-fixer
+ - id: check-yaml
+ - id: check-json
+ - id: check-toml
+ - id: check-added-large-files
+ args: [--maxkb=1000]
+ - id: detect-private-key
 
-  # Security check
-  - repo: https://github.com/PyCQA/bandit
-    rev: 1.7.6
-    hooks:
-      - id: bandit
-        args: ["-c", "pyproject.toml"]
+ # Security check
+ - repo: https://github.com/PyCQA/bandit
+ rev: 1.7.6
+ hooks:
+ - id: bandit
+ args: ["-c", "pyproject.toml"]
 ```
 
 **Setup:**
@@ -894,7 +894,7 @@ git commit -m "Add new feature"
 # - trailing-whitespace: auto-fix
 
 # 4. Review and re-commit
-git add src/main.py  # Fixed files
+git add src/main.py # Fixed files
 git commit -m "Add new feature"
 ```
 
@@ -903,7 +903,7 @@ git commit -m "Add new feature"
 ```toml
 [tool.bandit]
 exclude_dirs = ["tests", ".venv"]
-skips = ["B101"]  # assert_used (OK in tests)
+skips = ["B101"] # assert_used (OK in tests)
 ```
 
 **Task 6:** Install pre-commit on the LUMINO MCP server and run it!
@@ -918,55 +918,55 @@ skips = ["B101"]  # assert_used (OK in tests)
 
 ```python
 def calculate_discount(price: float, discount_percent: float) -> float:
-    """
-    Calculate discounted price.
+ """
+ Calculate discounted price.
 
-    Args:
-        price: Original price in dollars.
-        discount_percent: Discount percentage (0-100).
+ Args:
+ price: Original price in dollars.
+ discount_percent: Discount percentage (0-100).
 
-    Returns:
-        Discounted price in dollars.
+ Returns:
+ Discounted price in dollars.
 
-    Raises:
-        ValueError: If discount_percent is not between 0 and 100.
+ Raises:
+ ValueError: If discount_percent is not between 0 and 100.
 
-    Examples:
-        >>> calculate_discount(100, 20)
-        80.0
-        >>> calculate_discount(50, 10)
-        45.0
-    """
-    if not 0 <= discount_percent <= 100:
-        raise ValueError("Discount must be between 0 and 100")
-    return price * (1 - discount_percent / 100)
+ Examples:
+ >>> calculate_discount(100, 20)
+ 80.0
+ >>> calculate_discount(50, 10)
+ 45.0
+ """
+ if not 0 <= discount_percent <= 100:
+ raise ValueError("Discount must be between 0 and 100")
+ return price * (1 - discount_percent / 100)
 ```
 
 **NumPy Style:**
 
 ```python
 def calculate_discount(price, discount_percent):
-    """
-    Calculate discounted price.
+ """
+ Calculate discounted price.
 
-    Parameters
-    ----------
-    price : float
-        Original price in dollars.
-    discount_percent : float
-        Discount percentage (0-100).
+ Parameters
+ ----------
+ price : float
+ Original price in dollars.
+ discount_percent : float
+ Discount percentage (0-100).
 
-    Returns
-    -------
-    float
-        Discounted price in dollars.
+ Returns
+ -------
+ float
+ Discounted price in dollars.
 
-    Raises
-    ------
-    ValueError
-        If discount_percent is not between 0 and 100.
-    """
-    pass
+ Raises
+ ------
+ ValueError
+ If discount_percent is not between 0 and 100.
+ """
+ pass
 ```
 
 ### 9.2 Sphinx (HTML documentation generation)
@@ -993,19 +993,19 @@ open _build/html/index.html
 
 ```
 my-awesome-project/
-├── src/
-│   └── myapp/
-│       ├── __init__.py
-│       ├── main.py
-│       └── utils.py
-├── tests/
-│   ├── __init__.py
-│   └── test_utils.py
-├── pyproject.toml
-├── tox.ini
-├── .pre-commit-config.yaml
-├── .gitignore
-└── README.md
+ src/
+ myapp/
+ __init__.py
+ main.py
+ utils.py
+ tests/
+ __init__.py
+ test_utils.py
+ pyproject.toml
+ tox.ini
+ .pre-commit-config.yaml
+ .gitignore
+ README.md
 ```
 
 ### 10.2 pyproject.toml (Complete config)
@@ -1025,14 +1025,14 @@ dependencies = []
 
 [project.optional-dependencies]
 dev = [
-    "black",
-    "ruff",
-    "isort",
-    "mypy",
-    "pytest",
-    "pytest-cov",
-    "tox",
-    "pre-commit",
+ "black",
+ "ruff",
+ "isort",
+ "mypy",
+ "pytest",
+ "pytest-cov",
+ "tox",
+ "pre-commit",
 ]
 
 # Black
@@ -1114,13 +1114,13 @@ all: format lint type test
 **Usage:**
 
 ```bash
-make install    # Install
-make format     # Format
-make lint       # Lint
-make type       # Type check
-make test       # Tests
-make coverage   # Coverage report
-make all        # Everything at once
+make install # Install
+make format # Format
+make lint # Lint
+make type # Type check
+make test # Tests
+make coverage # Coverage report
+make all # Everything at once
 ```
 
 ### 10.4 GitHub Actions CI/CD
@@ -1134,46 +1134,46 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ["3.11", "3.12"]
+ test:
+ runs-on: ubuntu-latest
+ strategy:
+ matrix:
+ python-version: ["3.11", "3.12"]
 
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v4
-        with:
-          python-version: ${{ matrix.python-version }}
+ steps:
+ - uses: actions/checkout@v4
+ - name: Set up Python ${{ matrix.python-version }}
+ uses: actions/setup-python@v4
+ with:
+ python-version: ${{ matrix.python-version }}
 
-      - name: Install uv
-        run: pip install uv
+ - name: Install uv
+ run: pip install uv
 
-      - name: Install dependencies
-        run: uv pip install -e ".[dev]"
+ - name: Install dependencies
+ run: uv pip install -e ".[dev]"
 
-      - name: Format check
-        run: ruff format --check src/ tests/
+ - name: Format check
+ run: ruff format --check src/ tests/
 
-      - name: Lint
-        run: ruff check src/ tests/
+ - name: Lint
+ run: ruff check src/ tests/
 
-      - name: Type check
-        run: mypy src/
+ - name: Type check
+ run: mypy src/
 
-      - name: Test
-        run: pytest --cov=src --cov-report=xml
+ - name: Test
+ run: pytest --cov=src --cov-report=xml
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@v3
-        with:
-          file: ./coverage.xml
+ - name: Upload coverage
+ uses: codecov/codecov-action@v3
+ with:
+ file: ./coverage.xml
 ```
 
 ---
 
-## 📊 Comparison - Tools
+## Comparison - Tools
 
 | Task | Tool options | Recommendation | Why |
 |------|--------------|----------------|-----|
@@ -1188,7 +1188,7 @@ jobs:
 
 ---
 
-##  Recommended Minimal Setup
+## Recommended Minimal Setup
 
 **For beginners (3 tools):**
 1. **Ruff** - format + lint + import sort
@@ -1204,7 +1204,7 @@ jobs:
 
 ---
 
-##  Practical Tasks
+## Practical Tasks
 
 ### Task 1: LUMINO MCP Server Setup
 ```bash
@@ -1252,7 +1252,7 @@ git init
 
 ---
 
-##  Additional Resources
+## Additional Resources
 
 **Official documentation:**
 - Ruff: https://docs.astral.sh/ruff/
@@ -1269,13 +1269,13 @@ git init
 
 ---
 
-##  Next Steps
+## Next Steps
 
-1.  Install tools: `uv pip install ruff mypy pytest pytest-cov tox pre-commit`
-2.  Create pyproject.toml for your existing projects
-3.  Add pre-commit
-4.  Write tests (goal: 80%+ coverage)
-5.  Set up CI/CD (GitHub Actions / GitLab CI)
+1. Install tools: `uv pip install ruff mypy pytest pytest-cov tox pre-commit`
+2. Create pyproject.toml for your existing projects
+3. Add pre-commit
+4. Write tests (goal: 80%+ coverage)
+5. Set up CI/CD (GitHub Actions / GitLab CI)
 
 **Ready?** Start with the **Code Formatting** (Black/Ruff) chapter! 
 

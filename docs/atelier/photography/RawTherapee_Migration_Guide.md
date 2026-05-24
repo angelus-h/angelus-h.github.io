@@ -1,24 +1,24 @@
 # RawTherapee Migration Guide - From Adobe Camera RAW
 
-**Version:** 1.0  
-**Created:** 2026-05-05  
-**Objective:** Seamless transition from Adobe Camera RAW to RawTherapee  
+**Version:** 1.0 
+**Created:** 2026-05-05 
+**Objective:** Seamless transition from Adobe Camera RAW to RawTherapee 
 **Platform:** RawTherapee 5.9+ (Linux, Windows, macOS)
 
 ---
 
-##  Introduction
+## Introduction
 
 **RawTherapee** is an open-source, professional-grade RAW photo editor that serves as an excellent alternative to Adobe Camera RAW. It's completely free, highly powerful, and requires no subscription.
 
 ### Why Choose RawTherapee?
 
- **Free and Open Source** - No subscription, no license fees  
- **Professional Tools** - Advanced color management, local corrections, HDR  
- **Complete RAW Processing** - Supports all major camera RAW formats  
- **Non-destructive Workflow** - Original files remain untouched  
- **Batch Processing** - Mass processing with sidecar files  
- **Cross-platform** - Linux, Windows, macOS  
+ **Free and Open Source** - No subscription, no license fees 
+ **Professional Tools** - Advanced color management, local corrections, HDR 
+ **Complete RAW Processing** - Supports all major camera RAW formats 
+ **Non-destructive Workflow** - Original files remain untouched 
+ **Batch Processing** - Mass processing with sidecar files 
+ **Cross-platform** - Linux, Windows, macOS 
  **No Vendor Lock-in** - Open formats, exportable settings
 
 ---
@@ -71,13 +71,13 @@ brew install --cask rawtherapee
 #### 2. Color Management Tab
 ```
 - Monitor Profile: 
-  - If calibrated: Select ICC profile
-  - If not: sRGB IEC61966-2.1 (default)
+ - If calibrated: Select ICC profile
+ - If not: sRGB IEC61966-2.1 (default)
 
 - Output Profile (for export):
-  - Web: sRGB
-  - Print: Adobe RGB (1998)
-  - Professional: ProPhoto RGB
+ - Web: sRGB
+ - Print: Adobe RGB (1998)
+ - Professional: ProPhoto RGB
 ```
 
 #### 3. Image Processing Tab
@@ -145,17 +145,17 @@ brew install --cask rawtherapee
 
 ```
 Exposure → Exposure
-├─ Exposure Compensation: -2.0 to +5.0 EV (brightness)
-├─ Contrast: -100 to +100 (contrast)
-├─ Saturation: -100 to +100 (saturation)
-├─ Black: 0 to 65535 (black point)
-└─ Highlight Compression: 0-500 (save overexposed)
+ Exposure Compensation: -2.0 to +5.0 EV (brightness)
+ Contrast: -100 to +100 (contrast)
+ Saturation: -100 to +100 (saturation)
+ Black: 0 to 65535 (black point)
+ Highlight Compression: 0-500 (save overexposed)
 
 Exposure → Tone Mapping (Advanced)
-├─ Highlights: -100 to +100
-├─ Shadows: -100 to +100
-├─ Local Contrast: 0 to 100
-└─ Tone Curve: Linear, Film-like, etc.
+ Highlights: -100 to +100
+ Shadows: -100 to +100
+ Local Contrast: 0 to 100
+ Tone Curve: Linear, Film-like, etc.
 ```
 
 **Exercise 3.1: Fixing Underexposed Image**
@@ -182,18 +182,18 @@ Exposure → Tone Mapping (Advanced)
 
 ```
 Color Tab → White Balance
-├─ Method: 
-│   ├─ Camera (camera setting)
-│   ├─ Auto (automatic)
-│   ├─ Daylight (5500K)
-│   ├─ Cloudy (6500K)
-│   ├─ Shade (7500K)
-│   ├─ Tungsten (2850K)
-│   ├─ Fluorescent (4000K)
-│   └─ Custom
-│
-├─ Temperature: 2000K - 12000K (warm/cool)
-└─ Tint (Green <-> Magenta): -150 to +150
+ Method: 
+ Camera (camera setting)
+ Auto (automatic)
+ Daylight (5500K)
+ Cloudy (6500K)
+ Shade (7500K)
+ Tungsten (2850K)
+ Fluorescent (4000K)
+ Custom
+
+ Temperature: 2000K - 12000K (warm/cool)
+ Tint (Green <-> Magenta): -150 to +150
 ```
 
 **Exercise 3.2: Warm Sunset Mood**
@@ -231,15 +231,15 @@ Color Tab → White Balance
 
 ```
 Detail Tab → Sharpening
-├─ Sharpening Method:
-│   ├─ Unsharp Mask (USM) - classic
-│   ├─ RL Deconvolution - professional
-│   └─ Contrast by Detail Levels - detail-rich
-│
-├─ Amount: 0-300 (strength)
-├─ Radius: 0.5-2.5 (scope)
-├─ Threshold: 0-2000 (edge detection)
-└─ Only Edges: Enable (sharpen edges only)
+ Sharpening Method:
+ Unsharp Mask (USM) - classic
+ RL Deconvolution - professional
+ Contrast by Detail Levels - detail-rich
+
+ Amount: 0-300 (strength)
+ Radius: 0.5-2.5 (scope)
+ Threshold: 0-2000 (edge detection)
+ Only Edges: Enable (sharpen edges only)
 ```
 
 **Exercise 3.3: Portrait Sharpening**
@@ -267,15 +267,15 @@ Detail Tab → Sharpening
 
 ```
 Detail Tab → Noise Reduction
-├─ Luminance (brightness noise):
-│   ├─ Luminance: 0-100 (strength)
-│   ├─ Detail Recovery: 0-100 (preserve details)
-│   └─ Luminance Detail: 0-100
-│
-└─ Chrominance (color noise):
-    ├─ Chrominance Master: 0-100
-    ├─ Red-Green: 0-100
-    └─ Blue-Yellow: 0-100
+ Luminance (brightness noise):
+ Luminance: 0-100 (strength)
+ Detail Recovery: 0-100 (preserve details)
+ Luminance Detail: 0-100
+
+ Chrominance (color noise):
+ Chrominance Master: 0-100
+ Red-Green: 0-100
+ Blue-Yellow: 0-100
 ```
 
 **Exercise 3.5: High ISO Noise Handling**
@@ -307,9 +307,9 @@ Detail Tab → Noise Reduction
 Exposure Tab → Saturation: -100 to +100 (global saturation)
 
 Color Tab → Vibrance
-├─ Pastels Saturation: -100 to +100 (pale colors)
-├─ Saturated Saturation: -100 to +100 (saturated colors)
-└─ Threshold: 0-100 (boundary)
+ Pastels Saturation: -100 to +100 (pale colors)
+ Saturated Saturation: -100 to +100 (saturated colors)
+ Threshold: 0-100 (boundary)
 ```
 
 **Exercise 4.1: Natural Color Enhancement**
@@ -332,15 +332,15 @@ Color Tab → Vibrance
 
 ```
 Color Tab → HSV Equalizer
-├─ Hue: 
-│   - Red, Orange, Yellow, Green, Cyan, Blue, Magenta, Purple
-│   - Shift hue: -180 to +180°
-│
-├─ Saturation:
-│   - Per-channel saturation: -100 to +100
-│
-└─ Value (Brightness):
-    - Per-channel brightness: -100 to +100
+ Hue: 
+ - Red, Orange, Yellow, Green, Cyan, Blue, Magenta, Purple
+ - Shift hue: -180 to +180°
+
+ Saturation:
+ - Per-channel saturation: -100 to +100
+
+ Value (Brightness):
+ - Per-channel brightness: -100 to +100
 ```
 
 **Exercise 4.2: Blue Sky Enhancement**
@@ -367,11 +367,11 @@ Color Tab → HSV Equalizer
 
 ```
 Color Tab → Lab Adjustments
-├─ Lightness (L): -100 to +100 (brightness)
-├─ a (Green-Red): -100 to +100
-├─ b (Blue-Yellow): -100 to +100
-├─ Chromaticity: -100 to +100 (color saturation)
-└─ Lightness Curve (tone curve for brightness)
+ Lightness (L): -100 to +100 (brightness)
+ a (Green-Red): -100 to +100
+ b (Blue-Yellow): -100 to +100
+ Chromaticity: -100 to +100 (color saturation)
+ Lightness Curve (tone curve for brightness)
 ```
 
 **Exercise 4.4: Cinematic Color Grading**
@@ -400,10 +400,10 @@ Color Tab → Lab Adjustments
 
 ```
 Transform Tab → Graduated Filter
-├─ Strength: -2.0 to +2.0 EV (brightness change)
-├─ Feather: 0-100 (transition smoothing)
-├─ Angle: 0-360° (filter direction)
-└─ Center X/Y: 0-100% (position)
+ Strength: -2.0 to +2.0 EV (brightness change)
+ Feather: 0-100 (transition smoothing)
+ Angle: 0-360° (filter direction)
+ Center X/Y: 0-100% (position)
 ```
 
 **Exercise 5.1: Darken Sky**
@@ -437,14 +437,14 @@ Transform Tab → Graduated Filter
 
 ```
 Raw Tab → Demosaicing
-├─ Method:
-│   ├─ AMaZE (best quality, slow)
-│   ├─ DCB (balanced)
-│   ├─ RCD (fast, good quality)
-│   └─ IGV (green channel optimized)
-│
-├─ False Color Suppression: 0-100 (suppress false colors)
-└─ Iterations: 1-5 (refinement steps)
+ Method:
+ AMaZE (best quality, slow)
+ DCB (balanced)
+ RCD (fast, good quality)
+ IGV (green channel optimized)
+
+ False Color Suppression: 0-100 (suppress false colors)
+ Iterations: 1-5 (refinement steps)
 ```
 
 **Recommendation:**
@@ -456,9 +456,9 @@ Raw Tab → Demosaicing
 
 ```
 Raw Tab → Chromatic Aberration
-├─ Auto Correction: Enable (automatic)
-├─ Red: -3.0 to +3.0 (red shift)
-└─ Blue: -3.0 to +3.0 (blue shift)
+ Auto Correction: Enable (automatic)
+ Red: -3.0 to +3.0 (red shift)
+ Blue: -3.0 to +3.0 (blue shift)
 ```
 
 **Exercise 6.1: Lens Error Correction**
@@ -467,17 +467,17 @@ Raw Tab → Chromatic Aberration
 1. Raw → Chromatic Aberration
 2. Auto Correction: Enable
 3. If visible purple/green fringe: manual adjustment
-   - 100% zoom (Ctrl+1) at edges
-   - Red/Blue slider fine-tuning
+ - 100% zoom (Ctrl+1) at edges
+ - Red/Blue slider fine-tuning
 ```
 
 ### Vignetting Correction
 
 ```
 Transform Tab → Vignetting Filter
-├─ Amount: -100 to +100 (darken/lighten)
-├─ Radius: 0-100 (distance from center)
-└─ Strength: 1-100 (effect strength)
+ Amount: -100 to +100 (darken/lighten)
+ Radius: 0-100 (distance from center)
+ Strength: 1-100 (effect strength)
 ```
 
 **Exercise 6.2: Creative Vignetting**
@@ -499,21 +499,21 @@ Transform Tab → Vignetting Filter
 ```
 File → Save Image (Ctrl+S)
 
-├─ JPEG (Quality 1-100)
-│   - Web: 85-90 Quality
-│   - Print: 95-100 Quality
-│   - Chroma Subsampling: Best quality (4:4:4)
-│
-├─ TIFF (8-bit or 16-bit)
-│   - Uncompressed (highest quality)
-│   - LZW Compression (lossless)
-│   - ZIP Compression (smaller file size)
-│
-├─ PNG (8-bit or 16-bit)
-│   - Lossless compression
-│   - Good for web with transparency
-│
-└─ PPM/PGM (rare use)
+ JPEG (Quality 1-100)
+ - Web: 85-90 Quality
+ - Print: 95-100 Quality
+ - Chroma Subsampling: Best quality (4:4:4)
+
+ TIFF (8-bit or 16-bit)
+ - Uncompressed (highest quality)
+ - LZW Compression (lossless)
+ - ZIP Compression (smaller file size)
+
+ PNG (8-bit or 16-bit)
+ - Lossless compression
+ - Good for web with transparency
+
+ PPM/PGM (rare use)
 ```
 
 **Recommended Workflow:**
@@ -544,11 +544,11 @@ File → Save Image (Ctrl+S)
 
 ```
 1. Edit first image:
-   - Exposure: +0.5 EV
-   - WB: Daylight
-   - Saturation: +10
-   - Sharpening: Amount 100
-   
+ - Exposure: +0.5 EV
+ - WB: Daylight
+ - Saturation: +10
+ - Sharpening: Amount 100
+ 
 2. Save Profile as "Wedding_Preset.pp3"
 
 3. File Browser → Select all 50 RAW files (Ctrl+A)
@@ -556,9 +556,9 @@ File → Save Image (Ctrl+S)
 4. Batch → Add to Queue
 
 5. Output:
-   - Format: JPEG
-   - Quality: 95
-   - Directory: /home/user/processed/
+ - Format: JPEG
+ - Quality: 95
+ - Directory: /home/user/processed/
 
 6. Start Processing
 ```
@@ -571,13 +571,13 @@ File → Save Image (Ctrl+S)
 
 ```
 Exposure Tab → Processing Profile Dropdown
-├─ Neutral (default, neutral)
-├─ Standard (mild contrast)
-├─ Landscape (saturated colors)
-├─ Portrait (soft skin)
-├─ Sunset (warm tones)
-├─ Night (noise reduction)
-└─ Custom (saved profiles)
+ Neutral (default, neutral)
+ Standard (mild contrast)
+ Landscape (saturated colors)
+ Portrait (soft skin)
+ Sunset (warm tones)
+ Night (noise reduction)
+ Custom (saved profiles)
 ```
 
 ### Saving Custom Processing Profile
@@ -587,23 +587,23 @@ Exposure Tab → Processing Profile Dropdown
 2. Processing Profile Dropdown → Save Current Profile
 3. Filename: "MyPortrait.pp3"
 4. Save location: ~/.config/RawTherapee/profiles/ (Linux)
-   or C:\Users\<User>\AppData\Local\RawTherapee\profiles\ (Windows)
+ or C:\Users\<User>\AppData\Local\RawTherapee\profiles\ (Windows)
 ```
 
 **Exercise 8.1: Creating "Film Look" Profile**
 
 ```
 1. Exposure:
-   - Contrast: -10 (flatter)
-   - Saturation: -15
-   - Tone Curve: Film-like (built-in)
+ - Contrast: -10 (flatter)
+ - Saturation: -15
+ - Tone Curve: Film-like (built-in)
 
 2. Color → Lab Adjustments:
-   - a (Green-Red): +5
-   - b (Blue-Yellow): -3
+ - a (Green-Red): +5
+ - b (Blue-Yellow): -3
 
 3. Detail → Sharpening:
-   - Amount: 60 (mild)
+ - Amount: 60 (mild)
 
 4. Save Profile → "Film_Look.pp3"
 ```
@@ -680,19 +680,19 @@ Exposure Tab → Processing Profile Dropdown
 
 ```
 photos/
-├── IMG_0001.CR2          (Canon RAW - original)
-├── IMG_0001.CR2.pp3      (RawTherapee settings)
-├── IMG_0002.NEF          (Nikon RAW - original)
-└── IMG_0002.NEF.pp3      (RawTherapee settings)
+ IMG_0001.CR2 (Canon RAW - original)
+ IMG_0001.CR2.pp3 (RawTherapee settings)
+ IMG_0002.NEF (Nikon RAW - original)
+ IMG_0002.NEF.pp3 (RawTherapee settings)
 ```
 
 ### Tip 2: Using Histogram
 
 ```
 Histogram Panel (above image)
-├─ Left edge (Black): Shadows clipping (too dark)
-├─ Right edge (White): Highlights clipping (overexposed)
-└─ Center: Midtones
+ Left edge (Black): Shadows clipping (too dark)
+ Right edge (White): Highlights clipping (overexposed)
+ Center: Midtones
 ```
 
 **Clipping Warning:**
@@ -713,26 +713,26 @@ View → Show Clipped Highlights (Ctrl+H)
 1. RAW Import
 
 2. Exposure Tab
-   - Exposure Compensation: +0.3 EV (brighter skin)
-   - Contrast: -5 (softer)
-   - Saturation: -5 (more natural)
+ - Exposure Compensation: +0.3 EV (brighter skin)
+ - Contrast: -5 (softer)
+ - Saturation: -5 (more natural)
 
 3. Color Tab
-   - White Balance: Auto or Daylight
-   - HSV Equalizer → Orange (skin):
-     * Hue: -3
-     * Saturation: -10
-     * Value: +5
+ - White Balance: Auto or Daylight
+ - HSV Equalizer → Orange (skin):
+ * Hue: -3
+ * Saturation: -10
+ * Value: +5
 
 4. Detail Tab
-   - Sharpening: Amount 60, Radius 0.8
-   - Noise Reduction: Luminance 20 (if high ISO)
+ - Sharpening: Amount 60, Radius 0.8
+ - Noise Reduction: Luminance 20 (if high ISO)
 
 5. Transform Tab
-   - Vignetting: -15 (darken background)
+ - Vignetting: -15 (darken background)
 
 6. Export
-   - JPEG, Quality 95
+ - JPEG, Quality 95
 ```
 
 ### 11.2 Landscape Photo Workflow
@@ -741,32 +741,32 @@ View → Show Clipped Highlights (Ctrl+H)
 1. RAW Import
 
 2. Exposure Tab
-   - Exposure Compensation: According to histogram
-   - Contrast: +15 (dramatic sky)
-   - Saturation: +20 (vivid colors)
+ - Exposure Compensation: According to histogram
+ - Contrast: +15 (dramatic sky)
+ - Saturation: +20 (vivid colors)
 
 3. Color Tab
-   - Vibrance: Pastels +30, Saturated +10
-   - HSV Equalizer:
-     * Blue (sky): H +5, S +25, V -5
-     * Green (foliage): H -5, S +15, V +5
+ - Vibrance: Pastels +30, Saturated +10
+ - HSV Equalizer:
+ * Blue (sky): H +5, S +25, V -5
+ * Green (foliage): H -5, S +15, V +5
 
 4. Detail Tab
-   - Sharpening Method: RL Deconvolution
-   - Iterations: 40
-   - Microcontrast: +25 (enhance details)
+ - Sharpening Method: RL Deconvolution
+ - Iterations: 40
+ - Microcontrast: +25 (enhance details)
 
 5. Transform Tab
-   - Graduated Filter (darken sky):
-     * Strength: -0.6 EV
-     * Feather: 70
-     * Angle: 0°
+ - Graduated Filter (darken sky):
+ * Strength: -0.6 EV
+ * Feather: 70
+ * Angle: 0°
 
 6. Raw Tab
-   - Demosaicing: AMaZE (best quality)
+ - Demosaicing: AMaZE (best quality)
 
 7. Export
-   - JPEG, Quality 98 (for print)
+ - JPEG, Quality 98 (for print)
 ```
 
 ---
@@ -855,10 +855,10 @@ View → Show Clipped Highlights (Ctrl+H)
 **Conclusion:**
 
 RawTherapee is an excellent free alternative if:
--  You don't want Adobe subscription
--  You use Linux
--  You need batch processing
--  You focus on RAW development (vs local corrections)
+- You don't want Adobe subscription
+- You use Linux
+- You need batch processing
+- You focus on RAW development (vs local corrections)
 
 **Recommended Combination:**
 - **RawTherapee** - RAW development
@@ -867,9 +867,9 @@ RawTherapee is an excellent free alternative if:
 
 ---
 
-**Created:** 2026-05-05  
-**Author:** AI Assistant for portfolio demonstration  
-**Purpose:** Adobe Camera RAW → RawTherapee migration  
+**Created:** 2026-05-05 
+**Author:** AI Assistant for portfolio demonstration 
+**Purpose:** Adobe Camera RAW → RawTherapee migration 
 
 **Happy Photo Editing! **
 

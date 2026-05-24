@@ -1,7 +1,7 @@
 # Photography Filters - Exposure Reference Guide
 
-**Purpose:** Quick reference for photographic filter light loss and exposure compensation  
-**Film Formats:** 35mm and 120 Medium Format  
+**Purpose:** Quick reference for photographic filter light loss and exposure compensation 
+**Film Formats:** 35mm and 120 Medium Format 
 **Updated:** 2026-05-23
 
 ---
@@ -83,8 +83,8 @@ ND density = Stop loss × 0.3
 - Deepen blue sky
 - Increase contrast
 
-**Stop loss:** 1-2 stop (average 1.5 stop)  
-**Filter factor:** ~3×  
+**Stop loss:** 1-2 stop (average 1.5 stop) 
+**Filter factor:** ~3× 
 **ISO compensation:** ISO 100 - meter at ISO 400
 
 **Usage:**
@@ -139,7 +139,7 @@ ND density = Stop loss × 0.3
 - **0.6 (2 stop)** - Medium contrast difference
 - **0.9 (3 stop)** - Strong contrast difference (sunset)
 
-**Stop loss:** Variable (0 stop on lower half, 1-3 stop on upper half)  
+**Stop loss:** Variable (0 stop on lower half, 1-3 stop on upper half) 
 **ISO compensation:** Meter for foreground, sky compensates automatically
 
 **Note:** In field, use spot metering separately for foreground and sky. Choose grad ND based on the difference between the two values.
@@ -205,8 +205,8 @@ ND density = Stop loss × 0.3
 | ND8 | 3 stop |
 | **Total** | **4.5 stop** |
 
-**Original exposure:** 1/500s, f/8, ISO 100  
-**Compensated exposure:** 1/30s, f/8, ISO 100  
+**Original exposure:** 1/500s, f/8, ISO 100 
+**Compensated exposure:** 1/30s, f/8, ISO 100 
 **OR ISO method:** 1/500s, f/8, meter at ISO 1600-2000
 
 **Caution:**
@@ -264,7 +264,7 @@ ND density = Stop loss × 0.3
 | 5 stop | Meter at ISO 3200 | Meter at ISO 12800 | - |
 | 6 stop | Meter at ISO 6400 | Meter at ISO 25600 | - |
 
-**Advantage:** No mental calculation, meter automatically gives correct value.  
+**Advantage:** No mental calculation, meter automatically gives correct value. 
 **Disadvantage:** Don't forget to reset to actual ISO after removing filter!
 
 ---
@@ -433,27 +433,27 @@ Metered value: 1/___s, f/___
 
 ### Mistake 1: Underexposed Image After Filter Use
 
-**Cause:** Forgot to compensate for filter stop loss.  
+**Cause:** Forgot to compensate for filter stop loss. 
 **Solution:** Always meter again with filter, OR use ISO compensation method.
 
 ### Mistake 2: Blurry Image After ND Filter
 
-**Cause:** Camera movement during long shutter speed.  
+**Cause:** Camera movement during long shutter speed. 
 **Solution:** Use tripod and cable release for shutter speeds below 1/30s.
 
 ### Mistake 3: Vignetting (Dark Corners)
 
-**Cause:** Too many stacked filters.  
+**Cause:** Too many stacked filters. 
 **Solution:** Use maximum 2 filters together, or thin-mount (slim) filters.
 
 ### Mistake 4: Color Shift with ND Filter
 
-**Cause:** Cheap ND filters are not truly neutral.  
+**Cause:** Cheap ND filters are not truly neutral. 
 **Solution:** Use quality filters (B+W, Hoya Pro1D, Lee), or correct with color temperature.
 
 ### Mistake 5: Forgotten Filter ISO Reset
 
-**Cause:** After filter removal, meter still at compensated ISO.  
+**Cause:** After filter removal, meter still at compensated ISO. 
 **Solution:** Make field notes about filter changes, or use reminder marker (e.g., colored rubber band on meter).
 
 ---
@@ -482,6 +482,6 @@ Metered value: 1/___s, f/___
 
 ---
 
-**Compiled:** 2026-05-23  
-**Formats:** Universal (35mm, 120, 4×5 film)  
+**Compiled:** 2026-05-23 
+**Formats:** Universal (35mm, 120, 4×5 film) 
 **For field use:** Print and laminate

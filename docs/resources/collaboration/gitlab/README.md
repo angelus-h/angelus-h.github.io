@@ -80,7 +80,7 @@
 1. **Check your GitLab version:**
  ```bash
  # Company GitLab
- curl https://gitlab.cee.redhat.com/api/v4/version
+ curl https://gitlab.company.com/api/v4/version
  ```
 
 2. **Create personal access token:**
@@ -89,7 +89,7 @@
 
 3. **Clone app-interface locally:**
  ```bash
- git clone https://gitlab.cee.redhat.com/service/app-interface.git
+ git clone https://gitlab.company.com/service/app-interface.git
  ```
 
 ---
@@ -124,8 +124,8 @@
 - **API Reference:** https://docs.gitlab.com/ee/api/
 
 ### Company Internal:
-- **GitLab CE:** https://gitlab.cee.redhat.com
-- **App-Interface:** https://gitlab.cee.redhat.com/service/app-interface
+- **GitLab CE:** https://gitlab.company.com
+- **App-Interface:** https://gitlab.company.com/service/app-interface
 
 ---
 

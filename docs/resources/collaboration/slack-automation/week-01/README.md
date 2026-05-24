@@ -95,7 +95,7 @@ curl -X POST -H 'Content-type: application/json' \
  },
  {
  "type": "mrkdwn",
- "text": "*Author:*\nmgreczi"
+ "text": "*Author:*\ndemo_user"
  }
  ]
  },
@@ -107,7 +107,7 @@ curl -X POST -H 'Content-type: application/json' \
  "elements": [
  {
  "type": "mrkdwn",
- "text": "Commit: <https://github.com/konflux/repo/commit/abc123|abc123> • <https://console.redhat.com/logs|View Logs>"
+ "text": "Commit: <https://github.com/platform/repo/commit/abc123|abc123> • <https://console.company.com/logs|View Logs>"
  }
  ]
  }
@@ -161,11 +161,11 @@ fi
 
 **Channel naming conventions:**
 ```
-#konflux-ci-cd - General CI/CD updates
-#konflux-alerts-critical - P0/P1 alerts only
-#konflux-builds - Build pipeline status
-#konflux-deploys - Deployment notifications
-#konflux-incidents - Incident management
+#platform-ci-cd - General CI/CD updates
+#platform-alerts-critical - P0/P1 alerts only
+#platform-builds - Build pipeline status
+#platform-deploys - Deployment notifications
+#platform-incidents - Incident management
 ```
 
 **Message threading (note: requires Slack API, not webhooks):**
@@ -321,8 +321,8 @@ if __name__ == "__main__":
  pipeline_name="build-service-123",
  status="failed",
  duration="5m 32s",
- author="mgreczi",
- commit_url="https://github.com/konflux/repo/commit/abc123"
+ author="demo_user",
+ commit_url="https://github.com/platform/repo/commit/abc123"
  )
 ```
 
@@ -497,8 +497,8 @@ if __name__ == "__main__":
  notify_pipeline_result(
  pipeline_run_name=os.environ.get('PIPELINE_RUN_NAME', 'test-pipeline-run'),
  status=os.environ.get('PIPELINE_STATUS', 'Succeeded'),
- namespace=os.environ.get('NAMESPACE', 'konflux-ci'),
- logs_url=os.environ.get('LOGS_URL', 'https://console.redhat.com/...')
+ namespace=os.environ.get('NAMESPACE', 'platform-ci'),
+ logs_url=os.environ.get('LOGS_URL', 'https://console.company.com/...')
  )
 ```
 

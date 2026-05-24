@@ -9,7 +9,7 @@
 
 ## CRITICAL ANALYSIS: What's Wrong with the Current SOP?
 
-**Original SOP Location:** `https://gitlab.cee.redhat.com/konflux/docs/sop/-/blob/main/sre/incident-management-process.md#incident-severity-levels`
+**Original SOP Location:** `https://gitlab.company.com/platform/docs/sop/-/blob/main/sre/incident-management-process.md#incident-severity-levels`
 
 ### Problem #1: Subjective, Unusable Definitions
 
@@ -59,7 +59,7 @@
 **Current SOP says (S1 Response, lines 56-62):**
 > - Immediate response required.
 > - Allocate all available resources.
-> - WebRCA.
+> - Incident Tracking Tool.
 > - Update Platform Status Banner immediately.
 > - Regular updates to Platform users.
 > - Formal PMR hosted.
@@ -89,7 +89,7 @@
 **What the current SOP gives you:**
 - "Update banner immediately" (no text provided)
 - "Regular updates to users" (no template provided)
-- "Send email to konflux-announce" (no template provided)
+- "Send email to platform-announce" (no template provided)
 
 **During a critical incident, you don't have time to write messages from scratch.**
 
@@ -195,10 +195,10 @@ Can users perform core workflows?
 
 ---
 
-#### ⏱ **MINUTE 1: Declare Incident in WebRCA**
+#### ⏱ **MINUTE 1: Declare Incident in Incident Tracking Tool**
 
 **Action:**
-1. Navigate to: `https://web-rca.corp.redhat.com/`
+1. Navigate to: `https://incident-tracker.company.com/`
 2. Click: **"Create New Incident"**
 3. Copy-paste this template into the form:
 
@@ -234,7 +234,7 @@ Severity: Critical (Severity 1)
 
 #### ⏱ **MINUTE 2: Post Initial Slack Message**
 
-**Channel:** `#announce-konflux-incidents` (auto-created by WebRCA as `#incident-<ID>`)
+**Channel:** `#announce-platform-incidents` (auto-created by Incident Tracking Tool as `#incident-<ID>`)
 
 ** Copy-Paste Template:**
 ```
@@ -247,7 +247,7 @@ Status: Investigation ongoing
 
 I am the Incident Commander. Updates every 15 minutes in this channel.
 
-WebRCA: [paste link from step 1]
+Incident Tracking Tool: [paste link from step 1]
 ```
 
 **Real Example:**
@@ -261,7 +261,7 @@ Status: Investigation ongoing
 
 I am the Incident Commander. Updates every 15 minutes in this channel.
 
-WebRCA: https://web-rca.corp.redhat.com/incidents/12345
+Incident Tracking Tool: https://incident-tracker.company.com/incidents/12345
 ```
 
 ---
@@ -269,8 +269,8 @@ WebRCA: https://web-rca.corp.redhat.com/incidents/12345
 #### ⏱ **MINUTE 3: Update Platform Status Banner**
 
 **Action:**
-1. Go to: `https://github.com/redhat-appstudio/infra-deployments`
-2. Edit: `components/konflux-info/base/banner.yaml`
+1. Go to: `https://github.com/company/platform-deployments`
+2. Edit: `components/platform-info/base/banner.yaml`
 3. Set `enabled: true`
 4. Copy-paste banner text:
 
@@ -281,7 +281,7 @@ WebRCA: https://web-rca.corp.redhat.com/incidents/12345
 
 **Real Example:**
 ```
- SERVICE DISRUPTION: Platform Login is currently unavailable. We are investigating. Updates: https://redhat.slack.com/archives/C12345
+ SERVICE DISRUPTION: Platform Login is currently unavailable. We are investigating. Updates: https://company.slack.com/archives/C12345
 ```
 
 **How to update:**
@@ -289,16 +289,16 @@ WebRCA: https://web-rca.corp.redhat.com/incidents/12345
 banner:
  enabled: true
  variant: "error"
- message: " SERVICE DISRUPTION: Platform Login is currently unavailable. We are investigating. Updates: https://redhat.slack.com/archives/C12345"
+ message: " SERVICE DISRUPTION: Platform Login is currently unavailable. We are investigating. Updates: https://company.slack.com/archives/C12345"
 ```
 
 5. Create PR (request fast-track approval for S1 incidents)
 
 ---
 
-#### ⏱ **MINUTE 4: Notify #konflux-users**
+#### ⏱ **MINUTE 4: Notify #platform-users**
 
-**Channel:** `#konflux-users`
+**Channel:** `#platform-users`
 
 ** Copy-Paste Template:**
 ```
@@ -323,9 +323,9 @@ For real-time updates, please follow: #incident-2026-03-11-login-outage
 #### ⏱ **MINUTE 5: Send Email Notifications**
 
 **To:**
-- `konflux-announce@redhat.com`
-- `konflux@redhat.com`
-- `outage-list@redhat.com`
+- `platform-announce@company.com`
+- `platform@company.com`
+- `outage-list@company.com`
 
 **Subject Line Template:**
 ```
@@ -352,7 +352,7 @@ STATUS:
 
 REAL-TIME UPDATES:
 - Slack: #incident-2026-03-11-login-outage
-- Status banner: https://konflux.ci.redhat.com
+- Status banner: https://platform.company.com
 
 We apologize for the inconvenience and will provide updates as soon as we have more information.
 
@@ -493,13 +493,13 @@ SRE Team
 #### Required Activities
 
 - **Day 1:** Schedule Post-Mortem Review (PMR) meeting
-- **Day 2-3:** Complete WebRCA document with full timeline
+- **Day 2-3:** Complete Incident Tracking Tool document with full timeline
 - **Day 4:** Host PMR meeting (60 minutes, blameless)
 - **Day 5:** Publish final RCA to Platform users
 
 ---
 
-#### WebRCA Document Structure
+#### Incident Tracking Tool Document Structure
 
 ** Complete RCA Template:**
 
@@ -522,8 +522,8 @@ Service was restored at 14:47 UTC after deploying a new certificate.
 | 14:30 | SSO certificate expired (unknown to team at this time) |
 | 14:32 | First PagerDuty alert triggered: "SSO service returning 502 errors" |
 | 14:33 | Incident Commander joined incident channel, declared Severity 1 |
-| 14:34 | WebRCA incident created |
-| 14:35 | Banner updated, Slack #konflux-users notified, emails sent |
+| 14:34 | Incident Tracking Tool incident created |
+| 14:35 | Banner updated, Slack #platform-users notified, emails sent |
 | 14:38 | Root cause identified: SSO certificate expiry |
 | 14:42 | New certificate generated |
 | 14:45 | Certificate deployed to production |
@@ -569,11 +569,11 @@ Service was restored at 14:47 UTC after deploying a new certificate.
 
 | Action | Owner | Due Date | JIRA | Status |
 |--------|-------|----------|------|--------|
-| Implement automated cert renewal (Let's Encrypt or similar) | Platform Team | 2026-03-25 | KFLUX-1234 | Open |
-| Add certificate expiry monitoring with 30-day warning alerts | Observability | 2026-03-18 | KFLUX-1235 | Open |
-| Document certificate management process in runbook | SRE Team | 2026-03-15 | KFLUX-1236 | Open |
-| Audit all service certificates for upcoming expiry dates | Security | 2026-03-20 | KFLUX-1237 | Open |
-| Create quarterly certificate review process | SRE Lead | 2026-03-22 | KFLUX-1238 | Open |
+| Implement automated cert renewal (Let's Encrypt or similar) | Platform Team | 2026-03-25 | PLAT-1234 | Open |
+| Add certificate expiry monitoring with 30-day warning alerts | Observability | 2026-03-18 | PLAT-1235 | Open |
+| Document certificate management process in runbook | SRE Team | 2026-03-15 | PLAT-1236 | Open |
+| Audit all service certificates for upcoming expiry dates | Security | 2026-03-20 | PLAT-1237 | Open |
+| Create quarterly certificate review process | SRE Lead | 2026-03-22 | PLAT-1238 | Open |
 
 ## Lessons Learned
 
@@ -623,7 +623,7 @@ Service was restored at 14:47 UTC after deploying a new certificate.
 
 ### Your First 5 Minutes - Step by Step
 
-#### ⏱ **MINUTE 1: Declare Incident in WebRCA**
+#### ⏱ **MINUTE 1: Declare Incident in Incident Tracking Tool**
 
 ** Copy-Paste Template:**
 ```
@@ -645,7 +645,7 @@ Severity: High (Severity 2)
 
 #### ⏱ **MINUTE 2: Post Initial Slack Message**
 
-**Channel:** WebRCA auto-created incident channel
+**Channel:** Incident Tracking Tool auto-created incident channel
 
 ** Copy-Paste Template:**
 ```
@@ -659,7 +659,7 @@ Started: [HH:MM UTC]
 
 I am the Incident Commander. Updates every 20 minutes in this channel.
 
-WebRCA: [link]
+Incident Tracking Tool: [link]
 ```
 
 **Real Example:**
@@ -674,7 +674,7 @@ Started: 15:20 UTC
 
 I am the Incident Commander. Updates every 20 minutes in this channel.
 
-WebRCA: https://web-rca.corp.redhat.com/incidents/12346
+Incident Tracking Tool: https://incident-tracker.company.com/incidents/12346
 ```
 
 ---
@@ -696,7 +696,7 @@ banner:
 
 ---
 
-#### ⏱ **MINUTE 4: Notify #konflux-users**
+#### ⏱ **MINUTE 4: Notify #platform-users**
 
 ** Copy-Paste Template:**
 ```
@@ -755,7 +755,7 @@ WORKAROUND:
 
 UPDATES:
 - Slack: #incident-2026-03-11-build-degradation
-- Status page: https://konflux.ci.redhat.com
+- Status page: https://platform.company.com
 
 We will provide updates as we learn more.
 
@@ -856,7 +856,7 @@ SRE Team
 ### Post-Incident: RCA Requirements
 
 **For Severity 2:**
-- WebRCA document required (within 5 business days)
+- Incident Tracking Tool document required (within 5 business days)
 - Formal RCA shared with Platform users
 - PMR meeting **optional** (recommended for high-impact S2 incidents)
 
@@ -892,7 +892,7 @@ SRE Team
 
 ### Your First 5 Minutes - Step by Step
 
-#### ⏱ **MINUTE 1-2: Declare Incident in WebRCA**
+#### ⏱ **MINUTE 1-2: Declare Incident in Incident Tracking Tool**
 
 ** Copy-Paste Template:**
 ```
@@ -914,7 +914,7 @@ Severity: Low (Severity 3)
 
 #### ⏱ **MINUTE 3: Post Slack Message (Internal)**
 
-**Channel:** WebRCA incident channel
+**Channel:** Incident Tracking Tool incident channel
 
 ** Copy-Paste Template:**
 ```
@@ -928,7 +928,7 @@ Started: [HH:MM UTC]
 
 Investigation ongoing. Updates every 30 minutes.
 
-WebRCA: [link]
+Incident Tracking Tool: [link]
 ```
 
 **Real Example:**
@@ -943,7 +943,7 @@ Started: 16:45 UTC
 
 Investigation ongoing. Updates every 30 minutes.
 
-WebRCA: https://web-rca.corp.redhat.com/incidents/12347
+Incident Tracking Tool: https://incident-tracker.company.com/incidents/12347
 ```
 
 ---
@@ -1007,10 +1007,10 @@ Remove banner or update to:
 ### Post-Incident: RCA Requirements
 
 **For Severity 3:**
-- WebRCA document required (within 5 business days)
+- Incident Tracking Tool document required (within 5 business days)
 - Updates to affected users (if identifiable)
 - No formal PMR meeting required
-- RCA optional (but document learnings in WebRCA)
+- RCA optional (but document learnings in Incident Tracking Tool)
 
 ---
 
@@ -1027,7 +1027,7 @@ Remove banner or update to:
 ## Summary: Why This Redesign Works
 
 ### **Old SOP Said:**
-> "Immediate response required. Allocate all resources. WebRCA. Update banner. Regular updates. Formal PMR. Formal RCA."
+> "Immediate response required. Allocate all resources. Incident Tracking Tool. Update banner. Regular updates. Formal PMR. Formal RCA."
 
 **Problem:** No actionable steps, no templates, no timing guidance.
 
@@ -1035,7 +1035,7 @@ Remove banner or update to:
 
 ### **New SOP Says:**
 
-> **Minute 1:** Create WebRCA with THIS template. [copy-paste ready]
+> **Minute 1:** Create Incident Tracking Tool with THIS template. [copy-paste ready]
 >
 > **Minute 2:** Post THIS message in Slack. [copy-paste ready]
 >
@@ -1059,10 +1059,10 @@ Remove banner or update to:
 
 | Template | Link |
 |----------|------|
-| WebRCA Title | [Minute 1](#⏱-minute-1-declare-incident-in-webrca) |
+| Incident Tracking Tool Title | [Minute 1](#⏱-minute-1-declare-incident-in-incident-tracker) |
 | Slack Initial Message | [Minute 2](#⏱-minute-2-post-initial-slack-message) |
-| Banner Text | [Minute 3](#⏱-minute-3-update-konflux-status-banner) |
-| User Notification | [Minute 4](#⏱-minute-4-notify-konflux-users) |
+| Banner Text | [Minute 3](#⏱-minute-3-update-platform-status-banner) |
+| User Notification | [Minute 4](#⏱-minute-4-notify-platform-users) |
 | Email Template | [Minute 5](#⏱-minute-5-send-email-notifications) |
 | 15-min Update (No Progress) | [During Incident](#-template-no-progress-yet) |
 | 15-min Update (Progress) | [During Incident](#-template-progress-made) |
@@ -1090,7 +1090,7 @@ Remove banner or update to:
 **What the Incident Commander DOES:**
 - Coordinates communication (uses templates above)
 - Ensures regular updates (every 15/20/30 min based on severity)
-- Keeps timeline documented in WebRCA
+- Keeps timeline documented in Incident Tracking Tool
 - Manages stakeholder expectations
 - Facilitates post-incident review
 
@@ -1107,8 +1107,8 @@ Remove banner or update to:
 **Document Version:** 2.0
 **Created:** 2026-03-11
 **Based on:**
-- Current SOP: `https://gitlab.cee.redhat.com/konflux/docs/sop/-/blob/main/sre/incident-management-process.md`
-- Incident Manager Handbook: `/home/mgreczi/learning-plans/incident-manager-kezikonyv.md` (2026-03-10)
+- Current SOP: `https://gitlab.company.com/platform/docs/sop/-/blob/main/sre/incident-management-process.md`
+- Incident Manager Handbook: `/home/user/learning-plans/incident-manager-kezikonyv.md` (2026-03-10)
 
 **Author:** Documentation Team
 **Reviewed by:** Claude Code

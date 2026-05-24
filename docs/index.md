@@ -135,13 +135,13 @@ An infrastructure engineer with expertise across multiple domains:
 - **Multi-platform administration** - Linux (RHEL, Fedora) and Windows Server
 - **Security & cryptography** - SSL/TLS, GPG, certificate management
 
-### Certifications & Skills
-- **Red Hat Certified Engineer (RHCE)**
-- **Red Hat Certified System Administrator (RHCSA)**
+### Skills & Expertise
 - Deep Kubernetes/OpenShift expertise
 - Python automation and tooling
 - Ansible playbook development
 - Observability stack implementation (OTel, DataDog, Prometheus)
+- Linux system administration (RHEL, Fedora, Ubuntu)
+- Configuration management and infrastructure as code
 
 This knowledge base represents years of learning, experimentation, and production experience, distilled into practical, actionable quick references and guides.
 

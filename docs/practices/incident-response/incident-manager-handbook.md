@@ -3,7 +3,7 @@
 **Version:** 1.0
 **Date:** 2026-03-10
 **Author:** Documentation Team
-**Purpose:** Complete guide to Incident Management, RCA facilitation, and WebRCA usage
+**Purpose:** Complete guide to Incident Management, RCA facilitation, and Incident Tracking Tool usage
 
 ---
 
@@ -14,7 +14,7 @@
 3. [The Incident Lifecycle](#the-incident-lifecycle)
 4. [Slack Incident Coordination](#slack-incident-coordination)
 5. [RCA Meeting Facilitation](#rca-meeting-facilitation)
-6. [WebRCA Tool Usage](#webrca-tool-usage)
+6. [Incident Tracking Tool Tool Usage](#incident-tracker-tool-usage)
 7. [Communication Templates](#communication-templates)
 8. [Common Mistakes](#common-mistakes)
 9. [Best Practices](#best-practices)
@@ -152,7 +152,7 @@ Understanding the full lifecycle helps you know what to do at each stage.
 
 7. Post-Incident (RCA)
  IM facilitates RCA meeting
- WebRCA document created
+ Incident Tracking Tool document created
  Action items tracked
  Learnings shared
 ```
@@ -214,7 +214,7 @@ Current summary (please correct if needed):
 
 • Impact: Platform Dataplane API returning 500 errors
 • Start time: 10:05 UTC (approx 15 minutes ago)
-• Systems involved: konflux-dataplane service, AWS kflux-prd-es01 cluster
+• Systems involved: platform-dataplane service, AWS platform-prd-es01 cluster
 • Current observations: PagerDuty alert triggered, error rate 45%
 
 Investigation ongoing.
@@ -305,7 +305,7 @@ Update: service appears to be stable.
 
 Error rate returned to normal (<1%).
 
-We will continue root cause analysis and document findings in WebRCA.
+We will continue root cause analysis and document findings in Incident Tracking Tool.
 ```
 
 **Transition to RCA:**
@@ -317,7 +317,7 @@ Thank you everyone for the quick response.
 
 I'll schedule an RCA meeting for <day/time> to review timeline and identify improvements.
 
-WebRCA document will be created at <link>.
+Incident Tracking Tool document will be created at <link>.
 ```
 
 ---
@@ -529,7 +529,7 @@ Tracking: <Jira ticket ID>
 Action: Add configuration validation to CI pipeline
 Owner: Platform Team (@john)
 Due date: Next sprint (2026-03-24)
-Tracking: KFLUXINFRA-XXXX
+Tracking: INFRA-XXXX
 ```
 
 ---
@@ -541,11 +541,11 @@ Tracking: KFLUXINFRA-XXXX
 ```
 Thanks everyone for the input.
 
-We'll document the findings in WebRCA and track the action items in Jira.
+We'll document the findings in Incident Tracking Tool and track the action items in Jira.
 
 The goal is to ensure we learn from this incident and improve the system.
 
-I'll share the WebRCA document in #announce-konflux-incidents when it's ready.
+I'll share the Incident Tracking Tool document in #announce-platform-incidents when it's ready.
 ```
 
 ---
@@ -575,17 +575,17 @@ Let's focus on the root cause rather than implementation details.
 
 ---
 
-## WebRCA Tool Usage
+## Incident Tracking Tool Tool Usage
 
-**WebRCA is the documentation tool**, not the process itself.
+**Incident Tracking Tool is the documentation tool**, not the process itself.
 
-### When to Create WebRCA Document
+### When to Create Incident Tracking Tool Document
 
 **Timing:** After incident resolution, before RCA meeting.
 
 **Who creates it:** The Incident Manager.
 
-### WebRCA Structure
+### Incident Tracking Tool Structure
 
 Typical sections:
 
@@ -617,11 +617,11 @@ Typical sections:
 
 ---
 
-### How to Use WebRCA
+### How to Use Incident Tracking Tool
 
 **Step 1: Create RCA**
 
-Go to: https://web-rca.corp.redhat.com/
+Go to: https://incident-tracker.company.com/
 
 Click: "Create New RCA"
 
@@ -635,7 +635,7 @@ Status: Draft
 
 Severity: Critical / High / Medium / Low
 
-Affected Services: konflux-dataplane, kflux-prd-es01
+Affected Services: platform-dataplane, platform-prd-es01
 ```
 
 **Step 3: Timeline Section**
@@ -670,7 +670,7 @@ Validation was missing in CI pipeline, allowing invalid config to be deployed.
 **Step 6: Share**
 
 - Post link in incident Slack channel
-- Share in #announce-konflux-incidents
+- Share in #announce-platform-incidents
 - Link in RCA meeting invite
 
 ---
@@ -743,7 +743,7 @@ Update: service appears to be stable.
 
 <Metric> returned to normal.
 
-We will continue root cause analysis and document findings in WebRCA.
+We will continue root cause analysis and document findings in Incident Tracking Tool.
 ```
 
 ---
@@ -906,7 +906,7 @@ Keep a scratchpad during the incident:
 10:24 - Rollback deployed
 ```
 
-This becomes your WebRCA timeline.
+This becomes your Incident Tracking Tool timeline.
 
 ---
 
@@ -931,8 +931,8 @@ Track them in team standups.
 
 ### Practice 6: Share Learnings Widely
 
-Post WebRCA summary in:
-- #announce-konflux-incidents
+Post Incident Tracking Tool summary in:
+- #announce-platform-incidents
 - Team Slack channels
 - Wiki/Confluence
 
@@ -952,7 +952,7 @@ Post WebRCA summary in:
 5. Provide regular updates (every 10-15 min)
 6. Document timeline (real-time notes)
 7. Confirm mitigation (verify service recovery)
-8. Transition to RCA (schedule meeting, create WebRCA)
+8. Transition to RCA (schedule meeting, create Incident Tracking Tool)
 ```
 
 ---
@@ -967,7 +967,7 @@ Post WebRCA summary in:
 5. Discuss what worked well
 6. Define improvements
 7. Create action items (owner + deadline)
-8. Document in WebRCA
+8. Document in Incident Tracking Tool
 ```
 
 ---
@@ -1010,12 +1010,12 @@ If everyone knows the answer to these, you're doing well.
 
 ### External Resources
 
-- **WebRCA Tool:** https://web-rca.corp.redhat.com/
-- **PagerDuty:** https://redhat.pagerduty.com/
+- **Incident Tracking Tool Tool:** https://incident-tracker.company.com/
+- **PagerDuty:** https://company.pagerduty.com/
 - **Slack Channels:**
- - `#announce-konflux-incidents`
+ - `#announce-platform-incidents`
  - `#sd-sre-team-oncall`
- - `#webrca-status-board-adoption`
+ - `#incident-tracker-status-board-adoption`
 
 ---
 
@@ -1032,7 +1032,7 @@ If everyone knows the answer to these, you're doing well.
 This is a living document. If you have suggestions or encounter situations not covered here:
 
 1. Create a Jira ticket or
-2. Reach out in #konflux-sre-team or
+2. Reach out in #platform-sre-team or
 3. Submit a pull request to update this guide
 
 **The goal:** Every SRE engineer should feel confident managing incidents and facilitating RCAs.

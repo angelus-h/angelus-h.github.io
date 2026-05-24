@@ -428,7 +428,7 @@ processors:
  value: production
  action: insert
  - key: cluster_name
- value: konflux-prod
+ value: platform-prod
  action: upsert
  - key: internal_ip
  action: delete
@@ -447,7 +447,7 @@ processors:
  resource:
  attributes:
  - key: cluster.name
- value: konflux-production
+ value: platform-production
  action: insert
  - key: cloud.provider
  value: aws
@@ -542,7 +542,7 @@ exporters:
  endpoint: "0.0.0.0:8889"
  namespace: otel
  const_labels:
- cluster: konflux-prod
+ cluster: platform-prod
 ```
 
 **Use Case:** Prometheus scrapes metrics from collector's `/metrics` endpoint.
@@ -712,7 +712,7 @@ processors:
  resource:
  attributes:
  - key: cluster.name
- value: konflux-production
+ value: platform-production
  action: insert
  k8sattributes:
  auth_type: serviceAccount
@@ -817,7 +817,7 @@ receivers:
  - role: pod
  namespaces:
  names:
- - konflux-system
+ - platform-system
  - default
  relabel_configs:
  - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
@@ -1082,7 +1082,7 @@ processors:
  resource:
  attributes:
  - key: cluster.name
- value: konflux-production
+ value: platform-production
  action: insert
 ```
 
@@ -1319,7 +1319,7 @@ processors:
  resource:
  attributes:
  - key: cluster.name
- value: konflux-production
+ value: platform-production
  action: insert
  - key: environment
  value: production

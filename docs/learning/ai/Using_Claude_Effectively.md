@@ -118,7 +118,7 @@ Observe a workflow - what tools do I use, in what order?
 
 ### Auto Memory System
 
-**Location:** `/home/mgreczi/.claude/projects/-home-mgreczi-ai-konflux-lumino/memory/`
+**Location:** `/home/user/.claude/projects/-home-demo_user-ai-konflux-lumino/memory/`
 
 **Files:**
 - `MEMORY.md` - Main index (max 200 lines, always loaded)
@@ -139,11 +139,11 @@ Observe a workflow - what tools do I use, in what order?
 
 **Manual update:**
 ```
-"Update memory: KFLUXINFRA-2992 issue closed, Emily's MR merged."
+"Update memory: INFRA-2992 issue closed, TeamMember's MR merged."
 ```
 
 ### Practice:
-- Check: `cat /home/mgreczi/.claude/projects/-home-mgreczi-ai-konflux-lumino/memory/MEMORY.md`
+- Check: `cat /home/user/.claude/projects/-home-demo_user-ai-konflux-lumino/memory/MEMORY.md`
 - Ask me: "Summarize what you know about me from your memory"
 
 ---
@@ -193,7 +193,7 @@ It doesn't have to be perfect at once!
 **Leverage CLAUDE.md:**
 ```
 "Following CLAUDE.md, create an investigation directory
-for KFLUXINFRA-XXXX issue"
+for INFRA-XXXX issue"
 ```
 
 I automatically follow the documented structure!
@@ -233,8 +233,8 @@ Plan a 4-step project (e.g., write new script, document it, test it, deploy).
 ### Effective session structure:
 
 **At session start:**
-1. Brief context: "Continue with KFLUXINFRA-2992"
-2. Concrete goal: "Today finish Emily's MR review"
+1. Brief context: "Continue with INFRA-2992"
+2. Concrete goal: "Today finish TeamMember's MR review"
 
 **During session:**
 3. Iterative progress: small steps, validation before next step
@@ -258,8 +258,8 @@ for the audit_scc tool, both at once."
 
 **Use references:**
 ```
-"In the same structure as KFLUXINFRA-2992/KFLUXINFRA-2992_Analysis.md,
-create the KFLUXINFRA-3000 analysis file."
+"In the same structure as INFRA-2992/INFRA-2992_Analysis.md,
+create the INFRA-3000 analysis file."
 ```
 
 ### Things to avoid:

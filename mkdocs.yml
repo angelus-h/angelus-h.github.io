@@ -73,101 +73,112 @@ nav:
   - Technologies:
       - Programming:
           - Python:
-              - SRE Interview Preparation: learning/python/sre-interview-prep.md
-              - UV Package Manager: learning/python/uv-package-manager-en.md
-              - Development Tools: learning/python/dev-tools.md
+              - Python SRE Interview Prep: learning/python/sre-interview-prep.md
+              - Python UV Package Manager: learning/python/uv-package-manager-en.md
+              - Python Development Tools: learning/python/dev-tools.md
           - Bash:
-              - Interview Preparation: learning/bash/sre-interview-prep.md
-          - Sed:
-              - Quick Reference: learning/bash/sed-quick-reference.md
-          - Awk:
-              - Quick Reference: learning/bash/awk-quick-reference.md
+              - Bash Interview Preparation: learning/bash/sre-interview-prep.md
+              - Bash Sed Quick Reference: learning/bash/sed-quick-reference.md
+              - Bash Awk Quick Reference: learning/bash/awk-quick-reference.md
       - AI & Automation:
-          - LLM Architecture:
-              - Technical Deep Dive: learning/ai/technical-deep-dive.md
-          - Cursor IDE:
-              - Usage Guide: learning/ai/cursor-ide-guide.md
-          - Productivity:
-              - Cost Optimization: learning/ai/productivity-optimization.md
-          - AI Best Practices:
-              - Effective & Responsible Use: learning/ai/AI_Effective_Responsible_Use_Guide.md
-          - Using Claude:
-              - Effectively: learning/ai/Using_Claude_Effectively.md
+          - AI Fundamentals:
+              - AI Getting Started Guide: learning/ai/AI_Getting_Started_Guide.md
+              - LLM Architecture Deep Dive: learning/ai/technical-deep-dive.md
+              - AI Effective & Responsible Use: learning/ai/AI_Effective_Responsible_Use_Guide.md
+          - Practical AI Tools:
+              - Using Claude Effectively: learning/ai/Using_Claude_Effectively.md
+              - Claude Cost Optimization: learning/ai/productivity-optimization.md
+              - Cursor IDE Usage Guide: learning/ai/cursor-ide-guide.md
+              - Self-Hosted LLM Guide: learning/ai/Self_Hosted_LLM_Guide.md
+              - NotebookLM Quick Reference: learning/ai/NotebookLM_Quick_Reference.md
       - DevOps Tools:
-          - Terraform:
-              - Practice Guide: learning/devops/terraform-guide.md
-          - Kustomize:
-              - Guide & Reference: learning/devops/kustomize-guide.md
-          - HashiCorp Vault:
-              - Quick Reference: learning/devops/HashiCorp_Vault_Learning_Plan.md
+          - Infrastructure as Code:
+              - Terraform Practice Guide: learning/devops/terraform-guide.md
+              - Kustomize Guide & Reference: learning/devops/kustomize-guide.md
+          - Secrets Management:
+              - HashiCorp Vault Quick Reference: learning/devops/HashiCorp_Vault_Learning_Plan.md
       - Monitoring & Observability:
-          - Prometheus:
-              - Quick Reference: learning/monitoring/Prometheus_Learning_Plan_EN.md
-          - PromQL:
-              - Quick Reference: learning/monitoring/PromQL_Learning_Plan_EN.md
-          - Grafana & Loki:
-              - Workshop Quick Reference: learning/monitoring/Grafana_Loki_Workshop_Quick_Reference_EN.md
-          - OpenTelemetry:
-              - Collector Guide: learning/monitoring/OpenTelemetry_Collector_Guide_EN.md
+          - Metrics & Queries:
+              - Prometheus Quick Reference: learning/monitoring/Prometheus_Learning_Plan_EN.md
+              - PromQL Quick Reference: learning/monitoring/PromQL_Learning_Plan_EN.md
+          - Logging & Tracing:
+              - Grafana & Loki Workshop: learning/monitoring/Grafana_Loki_Workshop_Quick_Reference_EN.md
+              - OpenTelemetry Collector Guide: learning/monitoring/OpenTelemetry_Collector_Guide_EN.md
       - Cloud Platforms:
-          - AWS:
-              - Quick Reference: learning/cloud/AWS_Learning_Plan.md
-          - GCP:
-              - Quick Reference: learning/cloud/GCP_Learning_Plan.md
-          - IBM Cloud:
-              - Quick Reference: learning/cloud/IBM_Cloud_Learning_Plan.md
-          - Kubernetes:
-              - Lab (K3s): learning/cloud/Kubernetes_Lab_K3s.md
+          - Cloud Providers:
+              - AWS Quick Reference: learning/cloud/AWS_Learning_Plan.md
+              - GCP Quick Reference: learning/cloud/GCP_Learning_Plan.md
+              - IBM Cloud Quick Reference: learning/cloud/IBM_Cloud_Learning_Plan.md
+          - Container Orchestration:
+              - Kubernetes Lab (K3s): learning/cloud/Kubernetes_Lab_K3s.md
       - Databases:
-          - PostgreSQL:
-              - Quick Reference: learning/databases/PostgreSQL_Learning_Plan.md
-          - MongoDB:
-              - Quick Reference: learning/databases/MongoDB_Learning_Plan.md
-          - Redis:
-              - Quick Reference: learning/databases/Redis_Learning_Plan.md
-          - GraphQL:
-              - Quick Reference: learning/databases/GraphQL_Learning_Plan_EN.md
+          - SQL Databases:
+              - PostgreSQL Quick Reference: learning/databases/PostgreSQL_Learning_Plan.md
+          - NoSQL Databases:
+              - MongoDB Quick Reference: learning/databases/MongoDB_Learning_Plan.md
+              - Redis Quick Reference: learning/databases/Redis_Learning_Plan.md
+          - APIs:
+              - GraphQL Quick Reference: learning/databases/GraphQL_Learning_Plan_EN.md
       - Streaming & Messaging:
-          - Apache Kafka:
-              - Quick Reference: learning/streaming/Apache_Kafka_Quick_Reference.md
-          - RabbitMQ:
-              - Overview: learning/streaming/RabbitMQ_Overview.md
+          - Message Brokers:
+              - Apache Kafka Quick Reference: learning/streaming/Apache_Kafka_Quick_Reference.md
+              - RabbitMQ Overview: learning/streaming/RabbitMQ_Overview.md
 
   - Practices:
       - Overview: practices/index.md
-      # Operations: Incident Management, Change Management, On-Call
+      - Incident Response:
+          - Incident Manager Handbook: practices/incident-response/incident-manager-handbook.md
+          - Severity Levels Guide: practices/incident-response/severity-levels.md
+          - Interrupt Catcher Guide: practices/incident-response/interrupt-catcher-guide.md
+          - PagerDuty Guide: practices/incident-response/pagerduty-guide.md
+      - Workflows:
+          - Jira Triage Guide: practices/workflows/jira-triage-guide.md
+          - Triage Example INFRA-456: practices/workflows/jira-triage-example-INFRA-456.md
+      - Methodologies:
+          - Agile & Scrum Guide: practices/methodologies/agile-scrum-guide.md
+          - ITIL Guide: practices/methodologies/itil-guide.md
+          - Kanban Guide: practices/methodologies/kanban-guide.md
+      - Professional Development:
+          - Boundary Setting Guide: practices/professional-development/boundary-setting-guide.md
+          - Work Acceptance Checklist: practices/professional-development/work-acceptance-checklist.md
       # Development Workflows: Git, Code Review
-      # Career Development: Interview Prep, Resume, Networking
+      # Team Leadership: Mentoring, 1-on-1s
 
   - Resources:
       - Overview: resources/index.md
       - Technical Writing:
-          - Quick Reference: learning/technical-writing/Technical_Writing_Quick_Reference.md
-          - LaTeX:
-              - Quick Reference: learning/technical-writing/LaTeX_Learning_Plan.md
-          - Mermaid Diagrams:
-              - Quick Reference: learning/technical-writing/Mermaid_Diagrams_Learning_Plan.md
-          - Pandoc:
-              - Guide & Reference: learning/technical-writing/Pandoc_Guide_and_Reference.md
-          - Markdown:
-              - Reference: learning/technical-writing/Markdown_Reference.md
-          - Marp:
-              - Presentations Guide: learning/technical-writing/Marp_Markdown_Presentations_Guide.md
-          - MkDocs:
-              - Static Site Guide: learning/technical-writing/MkDocs_GitLab_Pages_Guide.md
+          - Writing Fundamentals:
+              - Technical Writing Quick Reference: learning/technical-writing/Technical_Writing_Quick_Reference.md
+              - Markdown Reference: learning/technical-writing/Markdown_Reference.md
+          - Advanced Formatting:
+              - LaTeX Quick Reference: learning/technical-writing/LaTeX_Learning_Plan.md
+              - Pandoc Guide & Reference: learning/technical-writing/Pandoc_Guide_and_Reference.md
+              - Mermaid Diagrams Quick Reference: learning/technical-writing/Mermaid_Diagrams_Learning_Plan.md
+              - Marp Presentations Guide: learning/technical-writing/Marp_Markdown_Presentations_Guide.md
+          - Documentation Tools:
+              - MkDocs Static Site Guide: learning/technical-writing/MkDocs_GitLab_Pages_Guide.md
       - Command-Line Tools:
-          - Vim:
-              - Quick Reference: learning/command-line/Vim_Quick_Reference.md
-          - Bash Readline:
-              - Quick Reference: learning/command-line/Bash_Readline_Quick_Reference.md
-          - tmux:
-              - Quick Reference: learning/command-line/tmux_Quick_Reference.md
-          - screen:
-              - Quick Reference: learning/command-line/screen_Quick_Reference.md
-          - OpenSSL:
-              - Quick Reference: learning/command-line/OpenSSL_Quick_Reference.md
-          - GPG:
-              - Quick Reference: learning/command-line/GPG_Quick_Reference.md
+          - Editors & Shell:
+              - Vim Quick Reference: learning/command-line/Vim_Quick_Reference.md
+              - Bash Readline Quick Reference: learning/command-line/Bash_Readline_Quick_Reference.md
+          - Terminal Multiplexers:
+              - tmux Quick Reference: learning/command-line/tmux_Quick_Reference.md
+              - screen Quick Reference: learning/command-line/screen_Quick_Reference.md
+          - Security Tools:
+              - OpenSSL Quick Reference: learning/command-line/OpenSSL_Quick_Reference.md
+              - GPG Quick Reference: learning/command-line/GPG_Quick_Reference.md
+      - Collaboration Tools:
+          - GitHub:
+              - GitHub Learning Plan: resources/collaboration/github/README.md
+              - Week 1 - Fundamentals: resources/collaboration/github/week-01/README.md
+          - GitLab:
+              - GitLab Learning Plan: resources/collaboration/gitlab/README.md
+              - Week 1 - Fundamentals: resources/collaboration/gitlab/week-01/README.md
+          - Slack Automation:
+              - Slack Automation Guide: resources/collaboration/slack-automation/README.md
+              - Week 1 - Webhooks: resources/collaboration/slack-automation/week-01/README.md
+              - Week 2 - Bot Development: resources/collaboration/slack-automation/week-02/README.md
+              - Week 3 - CI/CD Integration: resources/collaboration/slack-automation/week-03/README.md
       # Quick References: Cheat Sheets
       # Templates & Snippets: Reusable code
       # Troubleshooting Guides: Common solutions
@@ -176,14 +187,25 @@ nav:
   - Atelier:
       - Overview: atelier/index.md
       - Photography:
-          - RawTherapee Migration Guide: atelier/photography/RawTherapee_Migration_Guide.md
-          - SilverFast Professional Guide: atelier/photography/SilverFast_Professional_Guide.md
-          - Fujica GL690/GM670 Complete Manual: atelier/photography/Fujica_GL690_GM670_Complete_Manual.md
-          - Fujica GL690/GM670 Lens Reference: atelier/photography/Fujica_GL690_GM670_Lens_Reference.md
-          - Historical Photography Processes: atelier/photography/Historical_Photography_Processes_Lexicon.md
-          - Depth of Field Field Guide: atelier/photography/Depth_of_Field_Field_Guide.md
-          - Photography Filter Reference: atelier/photography/Photography_Filter_Reference.md
-          - Film Stock Reference Guide: atelier/photography/Film_Stock_Reference_Guide.md
+          - Camera & Optics:
+              - Fujica GL690/GM670 Manual: atelier/photography/Fujica_GL690_GM670_Complete_Manual.md
+              - Fujica GL690/GM670 Lenses: atelier/photography/Fujica_GL690_GM670_Lens_Reference.md
+              - Depth of Field Field Guide: atelier/photography/Depth_of_Field_Field_Guide.md
+          - Film & Materials:
+              - Film Stock Reference Guide: atelier/photography/Film_Stock_Reference_Guide.md
+              - Historical Photography Processes: atelier/photography/Historical_Photography_Processes_Lexicon.md
+              - Photography Filter Reference: atelier/photography/Photography_Filter_Reference.md
+          - Digital Processing:
+              - RawTherapee Migration Guide: atelier/photography/RawTherapee_Migration_Guide.md
+              - SilverFast Professional Guide: atelier/photography/SilverFast_Professional_Guide.md
+              - Color Management Workflow: atelier/photography/Color_Management_Workflow_Reference.md
+          - Fine Art Printing:
+              - Print Foundations: atelier/photography/Print_Foundations_Reference.md
+              - Tonal Control: atelier/photography/Tonal_Control_Reference.md
+              - Paper and Materials: atelier/photography/Paper_and_Materials_Reference.md
+              - Print Editing Techniques: atelier/photography/Print_Editing_Techniques_Reference.md
+              - Philosophy and Mindset: atelier/photography/Fine_Art_Print_Philosophy_Reference.md
+              - Resources and Tools: atelier/photography/Fine_Art_Print_Resources.md
       # Printmaking & Crafts: Alternative Processes
       # Fine Art: Composition, Color Theory
       # Tools & Materials: Cameras, Chemicals, Studio
@@ -197,8 +219,6 @@ nav:
       # Reading & Inspirations
       # Goals & Aspirations
       # Mindfulness & Practice
-
-  - About: about.md
 
 # Markdown extensions (comprehensive support)
 markdown_extensions:

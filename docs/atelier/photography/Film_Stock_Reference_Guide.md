@@ -1,7 +1,7 @@
 # Film Stock Reference Guide - 35mm & 120 Medium Format
 
-**Purpose:** Comprehensive reference for commercially available film stocks with exposure and development characteristics  
-**Film Formats:** 35mm (135) and 120 (Medium Format)  
+**Purpose:** Comprehensive reference for commercially available film stocks with exposure and development characteristics 
+**Film Formats:** 35mm (135) and 120 (Medium Format) 
 **Updated:** 2026-05-23
 
 ---
@@ -44,12 +44,12 @@
 
 #### Ilford Pan F Plus 50
 
-**Format:** 35mm, 120  
-**ISO:** 50  
-**Grain:** Extra fine  
-**Contrast:** Medium  
-**Exposure latitude:** -1 to +3 stops (better overexposed)  
-**Push capability:** Push to ISO 100-200 (loses shadow detail)  
+**Format:** 35mm, 120 
+**ISO:** 50 
+**Grain:** Extra fine 
+**Contrast:** Medium 
+**Exposure latitude:** -1 to +3 stops (better overexposed) 
+**Push capability:** Push to ISO 100-200 (loses shadow detail) 
 **Pull capability:** Pull to ISO 25-32 (increases latitude)
 
 **Best use:**
@@ -72,12 +72,12 @@
 
 #### Fomapan 100 Classic
 
-**Format:** 35mm, 120  
-**ISO:** 100  
-**Grain:** Fine  
-**Contrast:** Medium-high  
-**Exposure latitude:** -0.5 to +2 stops  
-**Push capability:** Push to ISO 200-400 reliably  
+**Format:** 35mm, 120 
+**ISO:** 100 
+**Grain:** Fine 
+**Contrast:** Medium-high 
+**Exposure latitude:** -0.5 to +2 stops 
+**Push capability:** Push to ISO 200-400 reliably 
 **Pull capability:** Pull to ISO 50
 
 **Best use:**
@@ -101,12 +101,12 @@
 
 #### Ilford FP4 Plus 125
 
-**Format:** 35mm, 120  
-**ISO:** 125  
-**Grain:** Fine  
-**Contrast:** Medium  
-**Exposure latitude:** -1 to +3 stops  
-**Push capability:** Push to ISO 250-800 (excellent)  
+**Format:** 35mm, 120 
+**ISO:** 125 
+**Grain:** Fine 
+**Contrast:** Medium 
+**Exposure latitude:** -1 to +3 stops 
+**Push capability:** Push to ISO 250-800 (excellent) 
 **Pull capability:** Pull to ISO 64-80
 
 **Best use:**
@@ -129,12 +129,12 @@
 
 #### Kodak T-MAX 100
 
-**Format:** 35mm, 120  
-**ISO:** 100  
-**Grain:** Extremely fine (T-grain technology)  
-**Contrast:** Medium-high  
-**Exposure latitude:** -0.5 to +2 stops  
-**Push capability:** Push to ISO 200-400 (maintains fine grain)  
+**Format:** 35mm, 120 
+**ISO:** 100 
+**Grain:** Extremely fine (T-grain technology) 
+**Contrast:** Medium-high 
+**Exposure latitude:** -0.5 to +2 stops 
+**Push capability:** Push to ISO 200-400 (maintains fine grain) 
 **Pull capability:** Pull to ISO 50
 
 **Best use:**
@@ -159,12 +159,12 @@
 
 #### Ilford HP5 Plus 400
 
-**Format:** 35mm, 120  
-**ISO:** 400  
-**Grain:** Medium  
-**Contrast:** Medium  
-**Exposure latitude:** -1 to +4 stops (exceptional)  
-**Push capability:** Push to ISO 800-3200 (legendary)  
+**Format:** 35mm, 120 
+**ISO:** 400 
+**Grain:** Medium 
+**Contrast:** Medium 
+**Exposure latitude:** -1 to +4 stops (exceptional) 
+**Push capability:** Push to ISO 800-3200 (legendary) 
 **Pull capability:** Pull to ISO 200-250
 
 **Best use:**
@@ -188,12 +188,12 @@
 
 #### Kodak Tri-X 400
 
-**Format:** 35mm, 120  
-**ISO:** 400  
-**Grain:** Medium-coarse (characteristic)  
-**Contrast:** Medium-high  
-**Exposure latitude:** -1 to +3 stops  
-**Push capability:** Push to ISO 800-1600 (classic use)  
+**Format:** 35mm, 120 
+**ISO:** 400 
+**Grain:** Medium-coarse (characteristic) 
+**Contrast:** Medium-high 
+**Exposure latitude:** -1 to +3 stops 
+**Push capability:** Push to ISO 800-1600 (classic use) 
 **Pull capability:** Pull to ISO 200
 
 **Best use:**
@@ -217,12 +217,12 @@
 
 #### Kodak T-MAX 400
 
-**Format:** 35mm, 120  
-**ISO:** 400  
-**Grain:** Fine (T-grain)  
-**Contrast:** Medium  
-**Exposure latitude:** -0.5 to +2 stops  
-**Push capability:** Push to ISO 800-3200 (excellent grain control)  
+**Format:** 35mm, 120 
+**ISO:** 400 
+**Grain:** Fine (T-grain) 
+**Contrast:** Medium 
+**Exposure latitude:** -0.5 to +2 stops 
+**Push capability:** Push to ISO 800-3200 (excellent grain control) 
 **Pull capability:** Pull to ISO 200
 
 **Best use:**
@@ -244,12 +244,12 @@
 
 #### Fomapan 400 Action
 
-**Format:** 35mm, 120  
-**ISO:** 400  
-**Grain:** Medium-coarse  
-**Contrast:** High  
-**Exposure latitude:** -0.5 to +2 stops  
-**Push capability:** Push to ISO 800-1600  
+**Format:** 35mm, 120 
+**ISO:** 400 
+**Grain:** Medium-coarse 
+**Contrast:** High 
+**Exposure latitude:** -0.5 to +2 stops 
+**Push capability:** Push to ISO 800-1600 
 **Pull capability:** Pull to ISO 200
 
 **Best use:**
@@ -272,12 +272,12 @@
 
 #### Ilford Delta 3200 Professional
 
-**Format:** 35mm, 120  
-**ISO:** 3200 (actually ~1000, designed to be pushed)  
-**Grain:** Coarse but controlled  
-**Contrast:** Medium  
-**Exposure latitude:** -0.5 to +2 stops  
-**Push capability:** Push to ISO 6400-12800  
+**Format:** 35mm, 120 
+**ISO:** 3200 (actually ~1000, designed to be pushed) 
+**Grain:** Coarse but controlled 
+**Contrast:** Medium 
+**Exposure latitude:** -0.5 to +2 stops 
+**Push capability:** Push to ISO 6400-12800 
 **Pull capability:** Pull to ISO 1600 (defeats purpose)
 
 **Best use:**
@@ -300,12 +300,12 @@
 
 #### Kodak T-MAX P3200
 
-**Format:** 35mm only  
-**ISO:** 3200 (actually ~800, designed to be pushed)  
-**Grain:** Fine for the speed (T-grain)  
-**Contrast:** Medium  
-**Exposure latitude:** -0.5 to +2 stops  
-**Push capability:** Push to ISO 6400-25000  
+**Format:** 35mm only 
+**ISO:** 3200 (actually ~800, designed to be pushed) 
+**Grain:** Fine for the speed (T-grain) 
+**Contrast:** Medium 
+**Exposure latitude:** -0.5 to +2 stops 
+**Push capability:** Push to ISO 6400-25000 
 **Pull capability:** Pull to ISO 1600
 
 **Best use:**
@@ -330,11 +330,11 @@
 
 #### Ilford Ortho Plus 80
 
-**Format:** 35mm, 120  
-**ISO:** 80 (daylight), 40 (tungsten)  
-**Grain:** Extra fine  
-**Contrast:** Medium-high  
-**Exposure latitude:** -1 to +2 stops  
+**Format:** 35mm, 120 
+**ISO:** 80 (daylight), 40 (tungsten) 
+**Grain:** Extra fine 
+**Contrast:** Medium-high 
+**Exposure latitude:** -1 to +2 stops 
 **Spectral sensitivity:** Orthochromatic (blue/green sensitive, NOT red)
 
 **Best use:**
@@ -355,10 +355,10 @@
 
 #### Rollei Infrared 400
 
-**Format:** 35mm only  
-**ISO:** 400 (without filter), 6-25 (with R72 IR filter)  
-**Grain:** Medium  
-**Contrast:** High  
+**Format:** 35mm only 
+**ISO:** 400 (without filter), 6-25 (with R72 IR filter) 
+**Grain:** Medium 
+**Contrast:** High 
 **Spectral sensitivity:** Extended infrared (to ~750nm)
 
 **Best use:**
@@ -383,13 +383,13 @@
 
 #### Kodak Ektar 100
 
-**Format:** 35mm, 120  
-**ISO:** 100  
-**Grain:** Extra fine (world's finest grain color negative)  
-**Contrast:** Medium  
-**Color saturation:** High (vivid, saturated)  
-**Exposure latitude:** -1 to +2 stops (color negative tolerance)  
-**Push capability:** Not recommended (color shifts)  
+**Format:** 35mm, 120 
+**ISO:** 100 
+**Grain:** Extra fine (world's finest grain color negative) 
+**Contrast:** Medium 
+**Color saturation:** High (vivid, saturated) 
+**Exposure latitude:** -1 to +2 stops (color negative tolerance) 
+**Push capability:** Not recommended (color shifts) 
 **Pull capability:** Pull to ISO 50-64
 
 **Best use:**
@@ -410,10 +410,10 @@
 
 **Note:** Listed for reference as old stock still circulates. Replaced by Fujicolor Pro 400.
 
-**Format:** 35mm, 120  
-**ISO:** 400  
-**Grain:** Fine  
-**Color palette:** Muted, pastel, low saturation  
+**Format:** 35mm, 120 
+**ISO:** 400 
+**Grain:** Fine 
+**Color palette:** Muted, pastel, low saturation 
 **Exposure latitude:** -1 to +3 stops (excellent)
 
 **Character:** Wedding photographer favorite, soft skin tones, dreamy look. Now highly sought after.
@@ -422,12 +422,12 @@
 
 #### Fujifilm Fujicolor Pro 400
 
-**Format:** 35mm, 120 (limited availability)  
-**ISO:** 400  
-**Grain:** Fine  
-**Color saturation:** Medium (warmer than 400H)  
-**Exposure latitude:** -1 to +3 stops  
-**Push capability:** Push to ISO 800 (acceptable)  
+**Format:** 35mm, 120 (limited availability) 
+**ISO:** 400 
+**Grain:** Fine 
+**Color saturation:** Medium (warmer than 400H) 
+**Exposure latitude:** -1 to +3 stops 
+**Push capability:** Push to ISO 800 (acceptable) 
 **Pull capability:** Pull to ISO 200
 
 **Best use:**
@@ -446,11 +446,11 @@
 
 #### Kodak Gold 200
 
-**Format:** 35mm only  
-**ISO:** 200  
-**Grain:** Fine  
-**Color saturation:** Medium-high (warm)  
-**Exposure latitude:** -0.5 to +2 stops  
+**Format:** 35mm only 
+**ISO:** 200 
+**Grain:** Fine 
+**Color saturation:** Medium-high (warm) 
+**Exposure latitude:** -0.5 to +2 stops 
 **Push capability:** Push to ISO 400 (acceptable)
 
 **Best use:**
@@ -467,10 +467,10 @@
 
 #### Kodak ColorPlus 200
 
-**Format:** 35mm only  
-**ISO:** 200  
-**Grain:** Fine-medium  
-**Color saturation:** Medium  
+**Format:** 35mm only 
+**ISO:** 200 
+**Grain:** Fine-medium 
+**Color saturation:** Medium 
 **Exposure latitude:** -0.5 to +2 stops
 
 **Best use:**
@@ -483,12 +483,12 @@
 
 #### Kodak Portra 160
 
-**Format:** 35mm, 120  
-**ISO:** 160  
-**Grain:** Extra fine  
-**Color saturation:** Low-medium (neutral, accurate skin tones)  
-**Exposure latitude:** -1 to +4 stops (legendary overexposure tolerance)  
-**Push capability:** Not recommended (defeats purpose)  
+**Format:** 35mm, 120 
+**ISO:** 160 
+**Grain:** Extra fine 
+**Color saturation:** Low-medium (neutral, accurate skin tones) 
+**Exposure latitude:** -1 to +4 stops (legendary overexposure tolerance) 
+**Push capability:** Not recommended (defeats purpose) 
 **Pull capability:** Pull to ISO 100
 
 **Best use:**
@@ -505,12 +505,12 @@
 
 #### Kodak Portra 400
 
-**Format:** 35mm, 120  
-**ISO:** 400  
-**Grain:** Fine  
-**Color saturation:** Low-medium (neutral)  
-**Exposure latitude:** -1 to +4 stops (exceptional)  
-**Push capability:** Push to ISO 800-1600 (acceptable, color shifts)  
+**Format:** 35mm, 120 
+**ISO:** 400 
+**Grain:** Fine 
+**Color saturation:** Low-medium (neutral) 
+**Exposure latitude:** -1 to +4 stops (exceptional) 
+**Push capability:** Push to ISO 800-1600 (acceptable, color shifts) 
 **Pull capability:** Pull to ISO 200
 
 **Best use:**
@@ -527,12 +527,12 @@
 
 #### Kodak Portra 800
 
-**Format:** 35mm, 120  
-**ISO:** 800  
-**Grain:** Medium (fine for the speed)  
-**Color saturation:** Low-medium  
-**Exposure latitude:** -1 to +3 stops  
-**Push capability:** Push to ISO 1600-3200  
+**Format:** 35mm, 120 
+**ISO:** 800 
+**Grain:** Medium (fine for the speed) 
+**Color saturation:** Low-medium 
+**Exposure latitude:** -1 to +3 stops 
+**Push capability:** Push to ISO 1600-3200 
 **Pull capability:** Pull to ISO 400
 
 **Best use:**
@@ -551,11 +551,11 @@
 
 #### Cinestill 800T
 
-**Format:** 35mm, 120  
-**ISO:** 800 (tungsten balanced for 3200K)  
-**Grain:** Medium  
-**Color balance:** Tungsten (3200K) - blue in daylight without filter  
-**Exposure latitude:** -0.5 to +2 stops  
+**Format:** 35mm, 120 
+**ISO:** 800 (tungsten balanced for 3200K) 
+**Grain:** Medium 
+**Color balance:** Tungsten (3200K) - blue in daylight without filter 
+**Exposure latitude:** -0.5 to +2 stops 
 **Halation:** Yes (removed remjet causes halos around lights)
 
 **Best use:**
@@ -574,10 +574,10 @@
 
 #### Lomography Color Negative 100/400/800
 
-**Format:** 35mm, 120  
-**ISO:** 100, 400, 800 variants  
-**Grain:** Medium  
-**Color saturation:** High (exaggerated)  
+**Format:** 35mm, 120 
+**ISO:** 100, 400, 800 variants 
+**Grain:** Medium 
+**Color saturation:** High (exaggerated) 
 **Exposure latitude:** Variable (inconsistent batches)
 
 **Best use:**
@@ -597,13 +597,13 @@
 
 #### Fujichrome Velvia 50
 
-**Format:** 35mm, 120  
-**ISO:** 50  
-**Grain:** Extra fine  
-**Color saturation:** Extremely high (legendary)  
-**Contrast:** High  
-**Exposure latitude:** -0.5 to +0.5 stops (VERY tight, slide film)  
-**Push capability:** Not recommended  
+**Format:** 35mm, 120 
+**ISO:** 50 
+**Grain:** Extra fine 
+**Color saturation:** Extremely high (legendary) 
+**Contrast:** High 
+**Exposure latitude:** -0.5 to +0.5 stops (VERY tight, slide film) 
+**Push capability:** Not recommended 
 **Pull capability:** Not recommended
 
 **Best use:**
@@ -620,12 +620,12 @@
 
 #### Fujichrome Velvia 100
 
-**Format:** 35mm, 120  
-**ISO:** 100  
-**Grain:** Extra fine  
-**Color saturation:** Very high (slightly less than Velvia 50)  
-**Contrast:** Medium-high  
-**Exposure latitude:** -0.5 to +1 stop (marginally more forgiving)  
+**Format:** 35mm, 120 
+**ISO:** 100 
+**Grain:** Extra fine 
+**Color saturation:** Very high (slightly less than Velvia 50) 
+**Contrast:** Medium-high 
+**Exposure latitude:** -0.5 to +1 stop (marginally more forgiving) 
 **Push capability:** Push to ISO 200 (acceptable)
 
 **Best use:**
@@ -640,13 +640,13 @@
 
 #### Fujichrome Provia 100F
 
-**Format:** 35mm, 120  
-**ISO:** 100  
-**Grain:** Extra fine  
-**Color saturation:** Medium (neutral, accurate)  
-**Contrast:** Medium  
-**Exposure latitude:** -0.5 to +1 stop  
-**Push capability:** Push to ISO 200-400  
+**Format:** 35mm, 120 
+**ISO:** 100 
+**Grain:** Extra fine 
+**Color saturation:** Medium (neutral, accurate) 
+**Contrast:** Medium 
+**Exposure latitude:** -0.5 to +1 stop 
+**Push capability:** Push to ISO 200-400 
 **Pull capability:** Pull to ISO 50
 
 **Best use:**
@@ -662,13 +662,13 @@
 
 #### Ektachrome E100
 
-**Format:** 35mm, 120  
-**ISO:** 100  
-**Grain:** Extra fine  
-**Color saturation:** Medium (slightly warm)  
-**Contrast:** Medium  
-**Exposure latitude:** -0.5 to +1 stop  
-**Push capability:** Push to ISO 200-400 (good)  
+**Format:** 35mm, 120 
+**ISO:** 100 
+**Grain:** Extra fine 
+**Color saturation:** Medium (slightly warm) 
+**Contrast:** Medium 
+**Exposure latitude:** -0.5 to +1 stop 
+**Push capability:** Push to ISO 200-400 (good) 
 **Pull capability:** Pull to ISO 50
 
 **Best use:**
@@ -755,12 +755,12 @@
 
 ## Push/Pull Processing Guide
 
-**Push processing** = Develop longer (increases ISO, increases contrast/grain)  
+**Push processing** = Develop longer (increases ISO, increases contrast/grain) 
 **Pull processing** = Develop shorter (decreases ISO, decreases contrast)
 
 ### When to Push
 
-**1-2 stops:** Common, acceptable quality loss  
+**1-2 stops:** Common, acceptable quality loss 
 **3+ stops:** Emergency only, severe grain/contrast increase
 
 **Best films for pushing:**
@@ -771,7 +771,7 @@
 
 ### When to Pull
 
-**Reduce contrast** - High contrast scene, want smoother tones  
+**Reduce contrast** - High contrast scene, want smoother tones 
 **Overexposed accidentally** - Shot at wrong ISO
 
 **Best films for pulling:**
@@ -920,12 +920,12 @@
 
 ### Exposure Notes
 
-**Film:** __________________  
-**Scene:** __________________  
-**Metered at:** ISO ___  
-**Actual film:** ISO ___  
-**Compensation:** ___ stops  
-**Development:** Push/Pull ___ stops  
+**Film:** __________________ 
+**Scene:** __________________ 
+**Metered at:** ISO ___ 
+**Actual film:** ISO ___ 
+**Compensation:** ___ stops 
+**Development:** Push/Pull ___ stops 
 **Notes:** ___________________________________
 
 ---
@@ -947,6 +947,6 @@
 
 ---
 
-**Compiled:** 2026-05-23  
-**Formats:** 35mm (135) and 120 (Medium Format)  
+**Compiled:** 2026-05-23 
+**Formats:** 35mm (135) and 120 (Medium Format) 
 **For field use:** Print and laminate

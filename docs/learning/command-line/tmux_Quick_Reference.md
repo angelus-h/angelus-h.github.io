@@ -25,13 +25,13 @@ tmux -V
 
 ```
 tmux Server
-  └─ Session (mywork)
-      ├─ Window 0: editor (active)
-      │   ├─ Pane 0: vim (active)
-      │   ├─ Pane 1: terminal
-      │   └─ Pane 2: logs
-      ├─ Window 1: monitoring
-      └─ Window 2: database
+ Session (mywork)
+ Window 0: editor (active)
+ Pane 0: vim (active)
+ Pane 1: terminal
+ Pane 2: logs
+ Window 1: monitoring
+ Window 2: database
 ```
 
 **Terminology:**
@@ -99,32 +99,32 @@ Ctrl+b $
 ### Create and Navigate Windows
 
 ```
-Ctrl+b c       - Create new window
-Ctrl+b ,       - Rename current window
-Ctrl+b &       - Kill current window (prompts for confirmation)
+Ctrl+b c - Create new window
+Ctrl+b , - Rename current window
+Ctrl+b & - Kill current window (prompts for confirmation)
 
-Ctrl+b n       - Next window
-Ctrl+b p       - Previous window
-Ctrl+b 0-9     - Switch to window 0-9
-Ctrl+b l       - Switch to last window
-Ctrl+b w       - List windows (interactive)
+Ctrl+b n - Next window
+Ctrl+b p - Previous window
+Ctrl+b 0-9 - Switch to window 0-9
+Ctrl+b l - Switch to last window
+Ctrl+b w - List windows (interactive)
 
-Ctrl+b f       - Find window by name
+Ctrl+b f - Find window by name
 ```
 
 **Example:**
 ```bash
 # Create 3 windows for different tasks
-Ctrl+b c       → Window 1 (created)
-Ctrl+b ,       → Rename to "editor"
-Ctrl+b c       → Window 2 (created)
-Ctrl+b ,       → Rename to "logs"
-Ctrl+b c       → Window 3 (created)
-Ctrl+b ,       → Rename to "monitoring"
+Ctrl+b c → Window 1 (created)
+Ctrl+b , → Rename to "editor"
+Ctrl+b c → Window 2 (created)
+Ctrl+b , → Rename to "logs"
+Ctrl+b c → Window 3 (created)
+Ctrl+b , → Rename to "monitoring"
 
 # Navigate
-Ctrl+b 0       → Switch to window 0
-Ctrl+b n       → Next window
+Ctrl+b 0 → Switch to window 0
+Ctrl+b n → Next window
 ```
 
 ---
@@ -134,67 +134,67 @@ Ctrl+b n       → Next window
 ### Split Panes
 
 ```
-Ctrl+b %       - Split pane vertically (left/right)
-Ctrl+b "       - Split pane horizontally (top/bottom)
-Ctrl+b x       - Kill current pane
+Ctrl+b % - Split pane vertically (left/right)
+Ctrl+b " - Split pane horizontally (top/bottom)
+Ctrl+b x - Kill current pane
 
-Ctrl+b arrow   - Navigate between panes (↑ ↓ ← →)
-Ctrl+b o       - Cycle through panes
-Ctrl+b ;       - Toggle between last two panes
+Ctrl+b arrow - Navigate between panes (↑ ↓ ← →)
+Ctrl+b o - Cycle through panes
+Ctrl+b ; - Toggle between last two panes
 
-Ctrl+b q       - Show pane numbers (then press number to select)
-Ctrl+b z       - Toggle pane zoom (fullscreen/restore)
+Ctrl+b q - Show pane numbers (then press number to select)
+Ctrl+b z - Toggle pane zoom (fullscreen/restore)
 ```
 
 ### Resize Panes
 
 ```
-Ctrl+b Ctrl+arrow   - Resize pane (hold Ctrl, press arrow multiple times)
-Ctrl+b Alt+arrow    - Resize pane by 5 cells
+Ctrl+b Ctrl+arrow - Resize pane (hold Ctrl, press arrow multiple times)
+Ctrl+b Alt+arrow - Resize pane by 5 cells
 
 # or resize mode
 Ctrl+b :
-resize-pane -L 10   # Resize left 10 cells
-resize-pane -R 10   # Resize right 10 cells
-resize-pane -U 5    # Resize up 5 cells
-resize-pane -D 5    # Resize down 5 cells
+resize-pane -L 10 # Resize left 10 cells
+resize-pane -R 10 # Resize right 10 cells
+resize-pane -U 5 # Resize up 5 cells
+resize-pane -D 5 # Resize down 5 cells
 ```
 
 ### Arrange Panes
 
 ```
-Ctrl+b Space   - Cycle through preset layouts
-Ctrl+b Alt+1   - Even horizontal layout
-Ctrl+b Alt+2   - Even vertical layout
-Ctrl+b Alt+3   - Main horizontal layout
-Ctrl+b Alt+4   - Main vertical layout
-Ctrl+b Alt+5   - Tiled layout
+Ctrl+b Space - Cycle through preset layouts
+Ctrl+b Alt+1 - Even horizontal layout
+Ctrl+b Alt+2 - Even vertical layout
+Ctrl+b Alt+3 - Main horizontal layout
+Ctrl+b Alt+4 - Main vertical layout
+Ctrl+b Alt+5 - Tiled layout
 
 # Swap panes
-Ctrl+b {       - Swap with previous pane
-Ctrl+b }       - Swap with next pane
+Ctrl+b { - Swap with previous pane
+Ctrl+b } - Swap with next pane
 ```
 
 **Example Workflow:**
 ```bash
 # Create editor + terminal + logs layout
-Ctrl+b "       → Split horizontally
-Ctrl+b %       → Split right pane vertically
+Ctrl+b " → Split horizontally
+Ctrl+b % → Split right pane vertically
 
 # Result:
-# ┌─────────────────┐
-# │                 │
-# │     Editor      │
-# │                 │
-# ├─────────┬───────┤
-# │Terminal │ Logs  │
-# └─────────┴───────┘
+# 
+# 
+# Editor 
+# 
+# 
+# Terminal Logs 
+# 
 
 # Zoom into editor
-Ctrl+b ↑       → Move to top pane
-Ctrl+b z       → Zoom fullscreen
+Ctrl+b ↑ → Move to top pane
+Ctrl+b z → Zoom fullscreen
 # Work in editor...
-Ctrl+b z       → Restore layout
+Ctrl+b z → Restore layout
 ```
 
 ---
@@ -204,27 +204,27 @@ Ctrl+b z       → Restore layout
 ### Enter Copy Mode
 
 ```
-Ctrl+b [       - Enter copy mode (scroll with arrows/PgUp/PgDn)
-q              - Exit copy mode
+Ctrl+b [ - Enter copy mode (scroll with arrows/PgUp/PgDn)
+q - Exit copy mode
 
 # In copy mode (vi bindings):
-Space          - Start selection
-Enter          - Copy selection
-Ctrl+b ]       - Paste copied text
+Space - Start selection
+Enter - Copy selection
+Ctrl+b ] - Paste copied text
 ```
 
 ### Copy Mode Navigation (vi-style)
 
 ```
-h, j, k, l     - Move cursor (left, down, up, right)
-w, b           - Move by word (forward, backward)
-0, $           - Start/end of line
-gg, G          - Top/bottom of buffer
+h, j, k, l - Move cursor (left, down, up, right)
+w, b - Move by word (forward, backward)
+0, $ - Start/end of line
+gg, G - Top/bottom of buffer
 Ctrl+f, Ctrl+b - Page down/up
-/              - Search forward
-?              - Search backward
-n              - Next search result
-N              - Previous search result
+/ - Search forward
+? - Search backward
+n - Next search result
+N - Previous search result
 ```
 
 ### Copy Mode Navigation (emacs-style)
@@ -235,9 +235,9 @@ N              - Previous search result
 
 Ctrl+n, Ctrl+p - Move up/down
 Ctrl+f, Ctrl+b - Move forward/backward
-Alt+f, Alt+b   - Move by word
+Alt+f, Alt+b - Move by word
 Ctrl+a, Ctrl+e - Start/end of line
-Ctrl+v, Alt+v  - Page down/up
+Ctrl+v, Alt+v - Page down/up
 Ctrl+s, Ctrl+r - Search forward/backward
 ```
 
@@ -248,15 +248,15 @@ Ctrl+s, Ctrl+r - Search forward/backward
 ### Execute Commands
 
 ```
-Ctrl+b :       - Enter command mode
+Ctrl+b : - Enter command mode
 
 # Useful commands:
-:new-window -n logs    # Create window named "logs"
-:split-window -h       # Horizontal split
-:split-window -v       # Vertical split
-:resize-pane -L 10     # Resize pane
-:select-layout tiled   # Apply tiled layout
-:set-option -g mouse on   # Enable mouse
+:new-window -n logs # Create window named "logs"
+:split-window -h # Horizontal split
+:split-window -v # Vertical split
+:resize-pane -L 10 # Resize pane
+:select-layout tiled # Apply tiled layout
+:set-option -g mouse on # Enable mouse
 :source-file ~/.tmux.conf # Reload config
 ```
 
@@ -457,9 +457,9 @@ set -g @themepack 'powerline/default/cyan'
 
 **Plugin Commands:**
 ```
-Ctrl+b I       - Install plugins
-Ctrl+b U       - Update plugins
-Ctrl+b Alt+u   - Uninstall plugins not in list
+Ctrl+b I - Install plugins
+Ctrl+b U - Update plugins
+Ctrl+b Alt+u - Uninstall plugins not in list
 ```
 
 ---
@@ -643,46 +643,46 @@ bind-key C-a send-prefix
 
 ### Session Management
 ```
-tmux new -s name       - Create session
-tmux a -t name         - Attach to session
-tmux ls                - List sessions
-Ctrl+b d               - Detach from session
-Ctrl+b $               - Rename session
+tmux new -s name - Create session
+tmux a -t name - Attach to session
+tmux ls - List sessions
+Ctrl+b d - Detach from session
+Ctrl+b $ - Rename session
 ```
 
 ### Windows
 ```
-Ctrl+b c               - Create window
-Ctrl+b ,               - Rename window
-Ctrl+b n/p             - Next/previous window
-Ctrl+b 0-9             - Switch to window 0-9
-Ctrl+b w               - List windows
+Ctrl+b c - Create window
+Ctrl+b , - Rename window
+Ctrl+b n/p - Next/previous window
+Ctrl+b 0-9 - Switch to window 0-9
+Ctrl+b w - List windows
 ```
 
 ### Panes
 ```
-Ctrl+b %               - Vertical split
-Ctrl+b "               - Horizontal split
-Ctrl+b arrow           - Navigate panes
-Ctrl+b z               - Zoom pane
-Ctrl+b x               - Kill pane
-Ctrl+b Space           - Cycle layouts
+Ctrl+b % - Vertical split
+Ctrl+b " - Horizontal split
+Ctrl+b arrow - Navigate panes
+Ctrl+b z - Zoom pane
+Ctrl+b x - Kill pane
+Ctrl+b Space - Cycle layouts
 ```
 
 ### Copy Mode
 ```
-Ctrl+b [               - Enter copy mode
-Space                  - Start selection
-Enter                  - Copy selection
-Ctrl+b ]               - Paste
-q                      - Exit copy mode
+Ctrl+b [ - Enter copy mode
+Space - Start selection
+Enter - Copy selection
+Ctrl+b ] - Paste
+q - Exit copy mode
 ```
 
 ### Misc
 ```
-Ctrl+b ?               - List all key bindings
-Ctrl+b :               - Command mode
-Ctrl+b t               - Show clock
+Ctrl+b ? - List all key bindings
+Ctrl+b : - Command mode
+Ctrl+b t - Show clock
 ```
 
 ---
@@ -708,6 +708,6 @@ Ctrl+b t               - Show clock
 
 ---
 
-**Updated:** 2026-05-23  
-**Author:** Miklos Greczi  
+**Updated:** 2026-05-23 
+**Author:** Documentation Team 
 **Use Case:** Terminal multiplexing, SRE, DevOps, Remote work

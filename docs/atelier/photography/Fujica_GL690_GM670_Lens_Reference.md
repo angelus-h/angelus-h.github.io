@@ -1,9 +1,9 @@
 # Fujica GL690 / GM670 Lens System Reference
 
-**Camera System:** Fujica GL690 Professional / GM670 Professional  
-**Mount Type:** Bayonet with Safety Lock  
-**Compatibility:** Interchangeable across GL690, GM670, and G690BL  
-**Common Features:** All lenses feature Seiko #0 leaf shutter, 72mm filter thread  
+**Camera System:** Fujica GL690 Professional / GM670 Professional 
+**Mount Type:** Bayonet with Safety Lock 
+**Compatibility:** Interchangeable across GL690, GM670, and G690BL 
+**Common Features:** All lenses feature Seiko #0 leaf shutter, 72mm filter thread 
 
 ---
 
@@ -400,7 +400,7 @@ Medium telephoto providing compressed perspective and selective focus. Excellent
 
 ### Recommended Shutter Speeds
 
-**Handheld Minimum:** 1/125 sec (1/250 sec preferred)  
+**Handheld Minimum:** 1/125 sec (1/250 sec preferred) 
 **Tripod:** Recommended for best sharpness, especially at f/5.6-f/8
 
 ---
@@ -472,8 +472,8 @@ Long telephoto providing maximum reach in the system. Strong perspective compres
 
 ### Recommended Usage
 
-**Handheld:** Not recommended except bright sun at 1/250-1/500 sec  
-**Tripod:** Strongly recommended for all serious work  
+**Handheld:** Not recommended except bright sun at 1/250-1/500 sec 
+**Tripod:** Strongly recommended for all serious work 
 **Cable Release:** Essential to avoid camera shake
 
 ---
@@ -608,6 +608,6 @@ The 100mm lens (either version) remains the versatile cornerstone, with the 65mm
 - [Depth of Field Field Guide](Depth_of_Field_Field_Guide.md) - DOF calculations for medium format
 - [Photography Filter Reference](Photography_Filter_Reference.md) - Filter exposure compensation guide
 
-**Document Version:** 1.0  
-**Last Updated:** 2026-05-23  
+**Document Version:** 1.0 
+**Last Updated:** 2026-05-23 
 **Source:** Official Fujica lens specifications and documentation

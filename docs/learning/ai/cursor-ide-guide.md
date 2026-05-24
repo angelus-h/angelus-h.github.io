@@ -37,16 +37,16 @@
 | Price | $10/month (Copilot) | $20/month (Pro) or Free tier |
 
 **When to use Cursor:**
--  Need AI assistance for complex refactoring
--  Want codebase-aware AI (knows your project structure)
--  Prefer Claude over GitHub Copilot
--  Need multi-file AI editing
--  Want MCP server integration
+- Need AI assistance for complex refactoring
+- Want codebase-aware AI (knows your project structure)
+- Prefer Claude over GitHub Copilot
+- Need multi-file AI editing
+- Want MCP server integration
 
 **When to stick with VS Code:**
--  Just need autocomplete (Copilot is enough)
--  Company blocks Cursor
--  Don't want to learn new IDE
+- Just need autocomplete (Copilot is enough)
+- Company blocks Cursor
+- Don't want to learn new IDE
 
 ---
 
@@ -130,22 +130,22 @@ cursor --version
 
 ```json
 {
-  // AI model preference
-  "cursor.models.default": "claude-sonnet-3.5",
+ // AI model preference
+ "cursor.models.default": "claude-sonnet-3.5",
 
-  // Privacy: Don't send code to training
-  "cursor.privacy.codebaseIndexing": false,
-  "cursor.privacy.telemetry": false,
+ // Privacy: Don't send code to training
+ "cursor.privacy.codebaseIndexing": false,
+ "cursor.privacy.telemetry": false,
 
-  // Terminal
-  "terminal.integrated.shell.linux": "/bin/bash",
+ // Terminal
+ "terminal.integrated.shell.linux": "/bin/bash",
 
-  // Git
-  "git.enableCommitSigning": true,
-  "git.confirmSync": false,
+ // Git
+ "git.enableCommitSigning": true,
+ "git.confirmSync": false,
 
-  // Python (if using)
-  "python.defaultInterpreterPath": "/usr/bin/python3"
+ // Python (if using)
+ "python.defaultInterpreterPath": "/usr/bin/python3"
 }
 ```
 
@@ -199,9 +199,9 @@ You: Refactor this to use async/await
 
 # Press Enter, Cursor generates:
 def fibonacci(n):
-    if n <= 1:
-        return n
-    return fibonacci(n-1) + fibonacci(n-2)
+ if n <= 1:
+ return n
+ return fibonacci(n-1) + fibonacci(n-2)
 ```
 
 **Tips:**
@@ -231,11 +231,11 @@ def fibonacci(n):
 
 # Before
 def process_data(data):
-    return [x * 2 for x in data]
+ return [x * 2 for x in data]
 
 # After
 def process_data(data: list[int]) -> list[int]:
-    return [x * 2 for x in data]
+ return [x * 2 for x in data]
 ```
 
 **Convert to async:**
@@ -244,14 +244,14 @@ def process_data(data: list[int]) -> list[int]:
 
 # Before
 def fetch_data(url):
-    response = requests.get(url)
-    return response.json()
+ response = requests.get(url)
+ return response.json()
 
 # After
 async def fetch_data(url: str) -> dict:
-    async with aiohttp.ClientSession() as session:
-        async response = await session.get(url)
-        return await response.json()
+ async with aiohttp.ClientSession() as session:
+ async response = await session.get(url)
+ return await response.json()
 ```
 
 ---
@@ -466,14 +466,14 @@ Add comments explaining the logic
 
 # [Cursor generates:]
 def fibonacci(n: int, memo: dict = None) -> int:
-    if memo is None:
-        memo = {}
-    if n in memo:
-        return memo[n]
-    if n <= 1:
-        return n
-    memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
-    return memo[n]
+ if memo is None:
+ memo = {}
+ if n in memo:
+ return memo[n]
+ if n <= 1:
+ return n
+ memo[n] = fibonacci(n-1, memo) + fibonacci(n-2, memo)
+ return memo[n]
 ```
 
 ---
@@ -488,7 +488,7 @@ def fibonacci(n: int, memo: dict = None) -> int:
 # Existing code:
 @app.get("/users/{user_id}")
 async def get_user(user_id: int):
-    return {"user_id": user_id}
+ return {"user_id": user_id}
 
 # Type comment for next endpoint:
 # GET /posts/{post_id}
@@ -496,7 +496,7 @@ async def get_user(user_id: int):
 # [Cursor generates:]
 @app.get("/posts/{post_id}")
 async def get_post(post_id: int):
-    return {"post_id": post_id}
+ return {"post_id": post_id}
 ```
 
 ---
@@ -508,17 +508,17 @@ async def get_post(post_id: int):
 ```python
 # Write test
 def test_calculate_discount():
-    assert calculate_discount(100, 0.1) == 90
-    assert calculate_discount(50, 0.2) == 40
-    assert calculate_discount(200, 0) == 200
+ assert calculate_discount(100, 0.1) == 90
+ assert calculate_discount(50, 0.2) == 40
+ assert calculate_discount(200, 0) == 200
 
 # Place cursor below, type comment:
 # Implement calculate_discount function
 
 # [Cursor generates:]
 def calculate_discount(price: float, discount: float) -> float:
-    """Calculate price after applying discount."""
-    return price * (1 - discount)
+ """Calculate price after applying discount."""
+ return price * (1 - discount)
 ```
 
 ---
@@ -532,29 +532,29 @@ def calculate_discount(price: float, discount: float) -> float:
 # Function to fetch user data from API
 
 def fetch_user(user_id):
-    response = requests.get(f"/api/users/{user_id}")
-    return response.json()
+ response = requests.get(f"/api/users/{user_id}")
+ return response.json()
 
 # Step 2: Select function, Cmd+K: "add error handling"
 def fetch_user(user_id):
-    try:
-        response = requests.get(f"/api/users/{user_id}")
-        response.raise_for_status()
-        return response.json()
-    except requests.RequestException as e:
-        logger.error(f"Failed to fetch user {user_id}: {e}")
-        return None
+ try:
+ response = requests.get(f"/api/users/{user_id}")
+ response.raise_for_status()
+ return response.json()
+ except requests.RequestException as e:
+ logger.error(f"Failed to fetch user {user_id}: {e}")
+ return None
 
 # Step 3: Select function, Cmd+K: "make it async"
 async def fetch_user(user_id: int) -> dict | None:
-    try:
-        async with aiohttp.ClientSession() as session:
-            async with session.get(f"/api/users/{user_id}") as response:
-                response.raise_for_status()
-                return await response.json()
-    except aiohttp.ClientError as e:
-        logger.error(f"Failed to fetch user {user_id}: {e}")
-        return None
+ try:
+ async with aiohttp.ClientSession() as session:
+ async with session.get(f"/api/users/{user_id}") as response:
+ response.raise_for_status()
+ return await response.json()
+ except aiohttp.ClientError as e:
+ logger.error(f"Failed to fetch user {user_id}: {e}")
+ return None
 ```
 
 ---
@@ -578,11 +578,11 @@ This function fails when input is None. Add null checking and return empty list.
 ### 2. Review AI-Generated Code
 
 **Always review:**
--  Logic correctness
--  Edge cases handled
--  Security (no SQL injection, XSS, etc.)
--  Performance (no N+1 queries, infinite loops)
--  Imports are correct
+- Logic correctness
+- Edge cases handled
+- Security (no SQL injection, XSS, etc.)
+- Performance (no N+1 queries, infinite loops)
+- Imports are correct
 
 **Don't blindly accept AI code!**
 
@@ -659,30 +659,30 @@ Create `~/.cursor/mcp_servers.json`:
 
 ```json
 {
-  "mcpServers": {
-    "jira": {
-      "command": "uv",
-      "args": [
-        "--directory",
-        "/home/mgreczi/repos/jira-mcp-server",
-        "run",
-        "python",
-        "main.py"
-      ],
-      "env": {
-        "JIRA_URL": "https://your-company.atlassian.net",
-        "JIRA_EMAIL": "your.email@company.com",
-        "JIRA_TOKEN": "${JIRA_API_TOKEN}"
-      }
-    },
-    "github": {
-      "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
-      }
-    }
-  }
+ "mcpServers": {
+ "jira": {
+ "command": "uv",
+ "args": [
+ "--directory",
+ "/home/mgreczi/repos/jira-mcp-server",
+ "run",
+ "python",
+ "main.py"
+ ],
+ "env": {
+ "JIRA_URL": "https://your-company.atlassian.net",
+ "JIRA_EMAIL": "your.email@company.com",
+ "JIRA_TOKEN": "${JIRA_API_TOKEN}"
+ }
+ },
+ "github": {
+ "command": "npx",
+ "args": ["-y", "@modelcontextprotocol/server-github"],
+ "env": {
+ "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+ }
+ }
+ }
 }
 ```
 
@@ -951,21 +951,21 @@ Terminal: Ctrl+`
 # Select function, Cmd+K: "add Google-style docstring"
 
 def calculate_discount(price: float, discount: float) -> float:
-    """Calculate the discounted price.
+ """Calculate the discounted price.
 
-    Args:
-        price: Original price before discount.
-        discount: Discount rate (0.0 to 1.0).
+ Args:
+ price: Original price before discount.
+ discount: Discount rate (0.0 to 1.0).
 
-    Returns:
-        The price after applying the discount.
+ Returns:
+ The price after applying the discount.
 
-    Raises:
-        ValueError: If discount is not between 0 and 1.
-    """
-    if not 0 <= discount <= 1:
-        raise ValueError("Discount must be between 0 and 1")
-    return price * (1 - discount)
+ Raises:
+ ValueError: If discount is not between 0 and 1.
+ """
+ if not 0 <= discount <= 1:
+ raise ValueError("Discount must be between 0 and 1")
+ return price * (1 - discount)
 ```
 
 ---
@@ -990,14 +990,14 @@ AI: I found several issues:
 
 | Feature | Cursor Pro | Claude Code CLI | GitHub Copilot | VS Code |
 |---------|-----------|-----------------|----------------|---------|
-| **AI Chat** |  Built-in |  Terminal-based |  | Extension |
-| **Code Completion** |  |  |  | Extensions |
-| **Multi-file Editing** |  |  |  | Manual |
-| **Codebase Context** |  Indexed |  MCP |  |  |
-| **MCP Support** |  |  Native |  | Extensions |
+| **AI Chat** | Built-in | Terminal-based | | Extension |
+| **Code Completion** | | | | Extensions |
+| **Multi-file Editing** | | | | Manual |
+| **Codebase Context** | Indexed | MCP | | |
+| **MCP Support** | | Native | | Extensions |
 | **Cost** | $20/month | Free (beta) | $10/month | Free |
 | **Models** | Claude, GPT-4 | Claude only | GPT-4 | N/A |
-| **Privacy Mode** |  (Pro) |  |  | N/A |
+| **Privacy Mode** | (Pro) | | | N/A |
 
 **Recommendation:**
 - **Cursor Pro** - Best for daily coding with AI assistance

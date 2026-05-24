@@ -37,27 +37,27 @@ sed -e 'command1' -e 'command2' file.txt
 sed -f script.sed file.txt
 
 # Print (p command)
-sed 'p' file.txt              # Print every line twice
-sed -n 'p' file.txt           # Print every line once (-n suppresses default)
+sed 'p' file.txt # Print every line twice
+sed -n 'p' file.txt # Print every line once (-n suppresses default)
 
 # Specific line
-sed -n '3p' file.txt          # Print line 3
-sed -n '1,5p' file.txt        # Print lines 1-5
-sed -n '10,$p' file.txt       # Print line 10 to end
+sed -n '3p' file.txt # Print line 3
+sed -n '1,5p' file.txt # Print lines 1-5
+sed -n '10,$p' file.txt # Print line 10 to end
 
 # Pattern matching
-sed -n '/error/p' file.txt    # Print lines containing "error"
-sed -n '/^#/p' file.txt       # Print comment lines
+sed -n '/error/p' file.txt # Print lines containing "error"
+sed -n '/^#/p' file.txt # Print comment lines
 ```
 
 **Delete (d command):**
 ```bash
 # Delete lines
-sed '3d' file.txt             # Delete line 3
-sed '1,5d' file.txt           # Delete lines 1-5
-sed '/pattern/d' file.txt     # Delete lines matching pattern
-sed '/^$/d' file.txt          # Delete empty lines
-sed '/^#/d' file.txt          # Delete comment lines
+sed '3d' file.txt # Delete line 3
+sed '1,5d' file.txt # Delete lines 1-5
+sed '/pattern/d' file.txt # Delete lines matching pattern
+sed '/^$/d' file.txt # Delete empty lines
+sed '/^#/d' file.txt # Delete comment lines
 
 # Delete except pattern
 sed -n '/pattern/!d; p' file.txt
@@ -102,7 +102,7 @@ sed 's/error/ERROR/gip' file.txt
 **Alternative Delimiters:**
 ```bash
 # Use different delimiter when pattern contains /
-sed 's/\/path\/to\/old/\/path\/to\/new/' file.txt  # Hard to read
+sed 's/\/path\/to\/old/\/path\/to\/new/' file.txt # Hard to read
 
 # Better with different delimiter
 sed 's|/path/to/old|/path/to/new|' file.txt
@@ -113,7 +113,7 @@ sed 's@http://old@https://new@' file.txt
 **Back-references:**
 ```bash
 # Capture groups with \( \) and reference with \1, \2, etc.
-sed 's/\([0-9]*\)-\([0-9]*\)/\2-\1/' file.txt  # Swap numbers
+sed 's/\([0-9]*\)-\([0-9]*\)/\2-\1/' file.txt # Swap numbers
 
 # Example: 123-456 becomes 456-123
 
@@ -122,7 +122,7 @@ echo "John Doe" | sed 's/\(.*\) \(.*\)/Last: \2, First: \1/'
 # Output: Last: Doe, First: John
 
 # Duplicate pattern
-sed 's/\(word\)/\1 \1/' file.txt  # "word" becomes "word word"
+sed 's/\(word\)/\1 \1/' file.txt # "word" becomes "word word"
 
 # Phone number formatting
 echo "5551234567" | sed 's/\([0-9]\{3\}\)\([0-9]\{3\}\)\([0-9]\{4\}\)/(\1) \2-\3/'
@@ -159,7 +159,7 @@ sed 's/[a-zA-Z]/*/g' file.txt
 sed 's/[[:space:]]//' file.txt
 
 # Negation
-sed 's/[^0-9]//g' file.txt    # Remove all non-digits
+sed 's/[^0-9]//g' file.txt # Remove all non-digits
 ```
 
 **Quantifiers:**
@@ -171,10 +171,10 @@ sed 's/a*/X/' file.txt
 sed 's/[0-9]\+/NUM/g' file.txt
 
 # \? (zero or one)
-sed 's/colou\?r/color/g' file.txt  # Matches color and colour
+sed 's/colou\?r/color/g' file.txt # Matches color and colour
 
 # \{n,m\} (range)
-sed 's/[0-9]\{3,4\}/XXX/g' file.txt  # Match 3-4 digits
+sed 's/[0-9]\{3,4\}/XXX/g' file.txt # Match 3-4 digits
 ```
 
 **Anchors:**
@@ -186,7 +186,7 @@ sed 's/^/PREFIX: /' file.txt
 sed 's/$/ SUFFIX/' file.txt
 
 # \< and \> (word boundaries)
-sed 's/\<cat\>/dog/g' file.txt  # Replace whole word "cat"
+sed 's/\<cat\>/dog/g' file.txt # Replace whole word "cat"
 
 # Example: Add line numbers
 sed = file.txt | sed 'N; s/\n/: /'
@@ -217,7 +217,7 @@ sed -E 's/([0-9]{3})-([0-9]{4})/\1.\2/' file.txt
 **Next Command (N):**
 ```bash
 # Join lines
-sed 'N; s/\n/ /' file.txt     # Join every two lines
+sed 'N; s/\n/ /' file.txt # Join every two lines
 
 # Remove line breaks in paragraphs
 sed ':a; N; $!ba; s/\n/ /g' file.txt
@@ -233,7 +233,7 @@ sed '1!G; h; $!d' file.txt
 
 # Explanation:
 # 1!G - Append hold space to pattern space (except first line)
-# h   - Copy pattern space to hold space
+# h - Copy pattern space to hold space
 # $!d - Delete pattern space (except last line)
 
 # Print duplicate lines
@@ -332,10 +332,10 @@ s/token=[^ ]*/token=REDACTED/gi
 sed '/pattern/b skip; s/old/new/; :skip' file.txt
 
 # Label and goto
-sed ':loop; s/aa/a/g; t loop' file.txt  # Remove all double 'a'
+sed ':loop; s/aa/a/g; t loop' file.txt # Remove all double 'a'
 
 # Conditional replace
-sed '/start/,/end/s/old/new/g' file.txt  # Replace only in range
+sed '/start/,/end/s/old/new/g' file.txt # Replace only in range
 ```
 
 **Hands-On Practice:**
@@ -378,12 +378,12 @@ find . -name "*.conf" -exec sed -i 's/old/new/g' {} \;
 
 # Loop with backup
 for file in *.txt; do
-    sed -i.bak 's/old/new/g' "$file"
+ sed -i.bak 's/old/new/g' "$file"
 done
 
 # Process and rename
 for file in *.txt; do
-    sed 's/old/new/g' "$file" > "processed_$file"
+ sed 's/old/new/g' "$file" > "processed_$file"
 done
 ```
 
@@ -400,9 +400,9 @@ sed 's/:.*//' /etc/passwd | cut -d: -f1
 
 # Pipeline example
 cat access.log | \
-    sed -n '/404/p' | \
-    sed 's/.*"\(.*\)".*/\1/' | \
-    sort | uniq -c | sort -rn
+ sed -n '/404/p' | \
+ sed 's/.*"\(.*\)".*/\1/' | \
+ sort | uniq -c | sort -rn
 ```
 
 **Hands-On Practice:**
@@ -420,17 +420,17 @@ cat access.log | \
 **Extract error counts by hour:**
 ```bash
 cat app.log | \
-    sed -n '/ERROR/p' | \
-    sed 's/\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} [0-9]\{2\}\):.*/\1/' | \
-    sort | uniq -c
+ sed -n '/ERROR/p' | \
+ sed 's/\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} [0-9]\{2\}\):.*/\1/' | \
+ sort | uniq -c
 ```
 
 **Sanitize logs:**
 ```bash
 sed -e 's/password=[^ ]*/password=****/g' \
-    -e 's/api_key=[^ ]*/api_key=****/g' \
-    -e 's/[0-9]\{3\}-[0-9]\{2\}-[0-9]\{4\}/XXX-XX-XXXX/g' \
-    sensitive.log > clean.log
+ -e 's/api_key=[^ ]*/api_key=****/g' \
+ -e 's/[0-9]\{3\}-[0-9]\{2\}-[0-9]\{4\}/XXX-XX-XXXX/g' \
+ sensitive.log > clean.log
 ```
 
 ### Use Case 2: Configuration Management
@@ -472,8 +472,8 @@ sed -i 's/from old_module import/from new_module import/g' **/*.py
 ```bash
 # license.txt contains header
 for file in src/**/*.java; do
-    sed -i '1s/^//' "$file"  # Ensure blank first line
-    sed -i '1r license.txt' "$file"
+ sed -i '1s/^//' "$file" # Ensure blank first line
+ sed -i '1r license.txt' "$file"
 done
 ```
 
@@ -490,9 +490,9 @@ sed "s/\(.*\),\(.*\),\(.*\)/INSERT INTO users VALUES ('\1', '\2', \3);/" data.cs
 **Format JSON (simple):**
 ```bash
 echo '{"name":"John","age":30}' | \
-    sed 's/,/,\n  /g' | \
-    sed 's/{/{\n  /' | \
-    sed 's/}/\n}/'
+ sed 's/,/,\n /g' | \
+ sed 's/{/{\n /' | \
+ sed 's/}/\n}/'
 ```
 
 ---
@@ -584,7 +584,7 @@ echo "1234567" | sed ':a;s/\B[0-9]\{3\}\>/,&/;ta'
 
 **Print pattern space:**
 ```bash
-sed -n 'l' file.txt  # List (show special characters)
+sed -n 'l' file.txt # List (show special characters)
 ```
 
 **Step-by-step execution:**
@@ -646,8 +646,8 @@ sed "s/old/$new/" file.txt
 sed 's/old/new/' file.txt
 
 # When you need variables:
-sed "s/old/$new/" file.txt  # OK if intentional
-sed 's/old/'"$new"'/' file.txt  # Safer
+sed "s/old/$new/" file.txt # OK if intentional
+sed 's/old/'"$new"'/' file.txt # Safer
 ```
 
 ---

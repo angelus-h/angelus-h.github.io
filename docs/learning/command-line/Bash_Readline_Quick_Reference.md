@@ -28,23 +28,23 @@ Ctrl+e - Move to end of line (E = end)
 Ctrl+b - Move back one character (B = back)
 Ctrl+f - Move forward one character (F = forward)
 
-Alt+b  - Move back one word
-Alt+f  - Move forward one word
+Alt+b - Move back one word
+Alt+f - Move forward one word
 ```
 
 **Example:**
 ```bash
 $ ls -la /var/log/application.log
-       ^ cursor here
+ ^ cursor here
 
 Ctrl+a → $ ls -la /var/log/application.log
-         ^ cursor at start
+ ^ cursor at start
 
 Ctrl+e → $ ls -la /var/log/application.log
-                                          ^ cursor at end
+ ^ cursor at end
 
-Alt+b  → $ ls -la /var/log/application.log
-                           ^ cursor moved back one word
+Alt+b → $ ls -la /var/log/application.log
+ ^ cursor moved back one word
 ```
 
 **Mnemonic:**
@@ -65,7 +65,7 @@ Ctrl+k - Kill (cut) from cursor to end of line (K = kill)
 Ctrl+u - Kill from cursor to beginning of line
 Ctrl+w - Kill word before cursor (W = word)
 
-Alt+d  - Kill word after cursor
+Alt+d - Kill word after cursor
 Alt+Backspace - Kill word before cursor (alternative to Ctrl+w)
 ```
 
@@ -74,34 +74,34 @@ Alt+Backspace - Kill word before cursor (alternative to Ctrl+w)
 ```bash
 # Delete from cursor to end of line
 $ echo "This is a long command with many arguments"
-         ^ cursor here
+ ^ cursor here
 Ctrl+k → $ echo "
-         (text after cursor is killed/cut)
+ (text after cursor is killed/cut)
 
 # Delete from cursor to start of line
 $ git commit -m "Initial commit"
-                      ^ cursor here
-Ctrl+u → $  "Initial commit"
-         (text before cursor is killed)
+ ^ cursor here
+Ctrl+u → $ "Initial commit"
+ (text before cursor is killed)
 
 # Delete previous word
 $ kubectl get pods --namespace production
-                              ^ cursor here
+ ^ cursor here
 Ctrl+w → $ kubectl get pods --namespace
-         (word "production" is killed)
+ (word "production" is killed)
 ```
 
 ### Paste (Yank)
 
 ```
 Ctrl+y - Yank (paste) last killed text
-Alt+y  - Rotate through kill ring (after Ctrl+y)
+Alt+y - Rotate through kill ring (after Ctrl+y)
 ```
 
 **Example:**
 ```bash
 $ echo "delete this" keep this
-       ^ select "delete this"
+ ^ select "delete this"
 Ctrl+u → $ keep this
 $ echo "paste here: "
 Ctrl+y → $ echo "paste here: delete this"
@@ -111,43 +111,43 @@ Ctrl+y → $ echo "paste here: delete this"
 
 ```
 Ctrl+t - Transpose (swap) characters (T = transpose)
-Alt+t  - Transpose words
+Alt+t - Transpose words
 ```
 
 **Example:**
 ```bash
 # Fix typo "teh" → "the"
 $ teh quick brown
-    ^ cursor between e and h
+ ^ cursor between e and h
 Ctrl+t → $ the quick brown
-         (h and e swapped)
+ (h and e swapped)
 
 # Swap words
 $ brown quick fox
-        ^ cursor on "quick"
-Alt+t  → $ quick brown fox
+ ^ cursor on "quick"
+Alt+t → $ quick brown fox
 ```
 
 ### Case Manipulation
 
 ```
-Alt+u  - Uppercase word from cursor (U = uppercase)
-Alt+l  - Lowercase word from cursor (L = lowercase)
-Alt+c  - Capitalize word from cursor (C = capitalize)
+Alt+u - Uppercase word from cursor (U = uppercase)
+Alt+l - Lowercase word from cursor (L = lowercase)
+Alt+c - Capitalize word from cursor (C = capitalize)
 ```
 
 **Example:**
 ```bash
 $ echo hello world
-       ^ cursor here
+ ^ cursor here
 Alt+u → $ echo HELLO world
 
 $ echo HELLO WORLD
-       ^ cursor here
+ ^ cursor here
 Alt+l → $ echo hello WORLD
 
 $ echo hello world
-       ^ cursor here
+ ^ cursor here
 Alt+c → $ echo Hello world
 ```
 
@@ -167,7 +167,7 @@ Ctrl+n - Next command in history (N = next, same as Down arrow)
 ```
 Ctrl+r - Reverse incremental search (R = reverse)
 Ctrl+s - Forward incremental search (S = search)
-         (Note: Ctrl+s may be disabled by flow control, see troubleshooting)
+ (Note: Ctrl+s may be disabled by flow control, see troubleshooting)
 
 Ctrl+g - Escape from history search mode
 Ctrl+j or Enter - Execute found command
@@ -191,15 +191,15 @@ Ctrl+r
 ### History Expansion
 
 ```
-!!      - Repeat last command
-!$      - Last argument of previous command
-!^      - First argument of previous command
-!*      - All arguments of previous command
-!n      - Execute command number n from history
-!-n     - Execute command n lines back
+!! - Repeat last command
+!$ - Last argument of previous command
+!^ - First argument of previous command
+!* - All arguments of previous command
+!n - Execute command number n from history
+!-n - Execute command n lines back
 
-Alt+.   - Insert last argument of previous command
-Alt+_   - Same as Alt+.
+Alt+. - Insert last argument of previous command
+Alt+_ - Same as Alt+.
 ```
 
 **Examples:**
@@ -224,12 +224,12 @@ $ vim Alt+.
 ### History Commands
 
 ```
-history        - Show command history
-history 20     - Show last 20 commands
-history -c     - Clear history
-!123           - Execute command 123 from history
-!ssh           - Execute last command starting with "ssh"
-!?pattern      - Execute last command containing "pattern"
+history - Show command history
+history 20 - Show last 20 commands
+history -c - Clear history
+!123 - Execute command 123 from history
+!ssh - Execute last command starting with "ssh"
+!?pattern - Execute last command containing "pattern"
 ```
 
 ---
@@ -239,11 +239,11 @@ history -c     - Clear history
 ### Tab Completion
 
 ```
-Tab       - Complete command/filename
-Tab Tab   - Show all possible completions
+Tab - Complete command/filename
+Tab Tab - Show all possible completions
 
-Alt+?     - List possible completions (same as Tab Tab)
-Alt+*     - Insert all possible completions
+Alt+? - List possible completions (same as Tab Tab)
+Alt+* - Insert all possible completions
 ```
 
 **Examples:**
@@ -253,7 +253,7 @@ $ cd /var/lo[Tab]
 $ cd /var/log/
 
 $ systemctl sta[Tab][Tab]
-start    status   stop
+start status stop
 
 $ git comm[Tab]
 $ git commit
@@ -293,7 +293,7 @@ source <(kubectl completion bash)
 
 ```
 Ctrl+_ or Ctrl+x Ctrl+u - Undo last edit
-Alt+r                   - Revert line (undo all changes)
+Alt+r - Revert line (undo all changes)
 ```
 
 ### Clear Screen and Line
@@ -317,7 +317,7 @@ Ctrl+q - Same as Ctrl+v (Q = quote)
 # Insert a Tab character literally (instead of completion)
 $ echo "hello[Ctrl+v][Tab]world"
 $ echo "hello	world"
-         ^ actual tab character
+ ^ actual tab character
 
 # Insert Ctrl+C literally
 $ echo "Press [Ctrl+v][Ctrl+c] to cancel"
@@ -353,28 +353,28 @@ In Vi mode, you start in **Insert mode** and can press `Esc` to enter **Normal m
 **Normal Mode Commands:**
 ```
 h/j/k/l - Left/Down/Up/Right (like Vim)
-w/b     - Forward/Backward word
-0/$     - Start/End of line
-x       - Delete character
-dw      - Delete word
-dd      - Delete line
-yy      - Yank line
-p       - Paste
-u       - Undo
-/       - Search history forward
-?       - Search history backward
-n       - Next search result
+w/b - Forward/Backward word
+0/$ - Start/End of line
+x - Delete character
+dw - Delete word
+dd - Delete line
+yy - Yank line
+p - Paste
+u - Undo
+/ - Search history forward
+? - Search history backward
+n - Next search result
 ```
 
 **Example:**
 ```bash
 $ git commit -m "Initial commit"
-Esc     → Enter normal mode
-0       → Move to start of line
-w       → Move forward one word
-dw      → Delete "commit"
-i       → Back to insert mode
-push    → Type "push"
+Esc → Enter normal mode
+0 → Move to start of line
+w → Move forward one word
+dw → Delete "commit"
+i → Back to insert mode
+push → Type "push"
 $ git push -m "Initial commit"
 ```
 
@@ -470,7 +470,7 @@ $ cd ~
 
 # Jump to directory in $CDPATH
 export CDPATH=.:~:/var/log:/etc
-$ cd nginx  # Jumps to /etc/nginx if it exists
+$ cd nginx # Jumps to /etc/nginx if it exists
 ```
 
 **Readline shortcuts:**
@@ -534,8 +534,8 @@ Ctrl+u → Kill line
 
 $ echo ""
 Ctrl+y → Pastes: "third text"
-Alt+y  → Rotates to: "second text"
-Alt+y  → Rotates to: "first text"
+Alt+y → Rotates to: "second text"
+Alt+y → Rotates to: "first text"
 ```
 
 ---
@@ -548,8 +548,8 @@ Add to `~/.bashrc`:
 
 ```bash
 # Increase history size
-export HISTSIZE=10000        # In-memory history
-export HISTFILESIZE=20000    # On-disk history
+export HISTSIZE=10000 # In-memory history
+export HISTFILESIZE=20000 # On-disk history
 
 # Avoid duplicates
 export HISTCONTROL=ignoredups:erasedups
@@ -583,8 +583,8 @@ $ !1234
 $ !kubectl
 
 # Search and confirm before executing
-$ !git:p  # Prints command, doesn't execute
-$ !!      # Then execute if correct
+$ !git:p # Prints command, doesn't execute
+$ !! # Then execute if correct
 ```
 
 ---
@@ -641,7 +641,7 @@ sudo dnf install bash-completion
 
 # Enable in ~/.bashrc
 if [ -f /etc/bash_completion ]; then
-  . /etc/bash_completion
+ . /etc/bash_completion
 fi
 ```
 
@@ -680,28 +680,28 @@ $ python3
 
 ```bash
 mysql> SELECT * FROM users WHERE username = 'admin';
-       ^A^E^B^B^B^B^K
+ ^A^E^B^B^B^B^K
 ```
 
 ### PostgreSQL (psql)
 
 ```bash
 psql=# \d users
-       ^P (previous command)
+ ^P (previous command)
 ```
 
 ### Redis CLI
 
 ```bash
 127.0.0.1:6379> GET mykey
-                ^A^F^F^F (move forward)
+ ^A^F^F^F (move forward)
 ```
 
 ### Node.js REPL
 
 ```bash
 > console.log("Hello");
-  ^U (clear line)
+ ^U (clear line)
 ```
 
 ---
@@ -710,46 +710,46 @@ psql=# \d users
 
 ### Navigation
 ```
-Ctrl+a     - Beginning of line
-Ctrl+e     - End of line
-Ctrl+b     - Back one character
-Ctrl+f     - Forward one character
-Alt+b      - Back one word
-Alt+f      - Forward one word
+Ctrl+a - Beginning of line
+Ctrl+e - End of line
+Ctrl+b - Back one character
+Ctrl+f - Forward one character
+Alt+b - Back one word
+Alt+f - Forward one word
 ```
 
 ### Editing
 ```
-Ctrl+d     - Delete character under cursor
-Ctrl+h     - Delete character before cursor
-Ctrl+k     - Kill to end of line
-Ctrl+u     - Kill to beginning of line
-Ctrl+w     - Kill previous word
-Alt+d      - Kill next word
-Ctrl+y     - Yank (paste) killed text
-Ctrl+t     - Transpose characters
-Alt+t      - Transpose words
+Ctrl+d - Delete character under cursor
+Ctrl+h - Delete character before cursor
+Ctrl+k - Kill to end of line
+Ctrl+u - Kill to beginning of line
+Ctrl+w - Kill previous word
+Alt+d - Kill next word
+Ctrl+y - Yank (paste) killed text
+Ctrl+t - Transpose characters
+Alt+t - Transpose words
 ```
 
 ### History
 ```
-Ctrl+p     - Previous command
-Ctrl+n     - Next command
-Ctrl+r     - Reverse search
-Ctrl+g     - Cancel search
-!!         - Repeat last command
-!$         - Last argument
-Alt+.      - Insert last argument
+Ctrl+p - Previous command
+Ctrl+n - Next command
+Ctrl+r - Reverse search
+Ctrl+g - Cancel search
+!! - Repeat last command
+!$ - Last argument
+Alt+. - Insert last argument
 ```
 
 ### Control
 ```
-Ctrl+l     - Clear screen
-Ctrl+c     - Cancel/Interrupt
-Ctrl+d     - Exit (if line empty)
-Ctrl+z     - Suspend process
-Tab        - Complete
-Tab Tab    - Show completions
+Ctrl+l - Clear screen
+Ctrl+c - Cancel/Interrupt
+Ctrl+d - Exit (if line empty)
+Ctrl+z - Suspend process
+Tab - Complete
+Tab Tab - Show completions
 ```
 
 ---
@@ -863,7 +863,7 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # Enable bash completion
 if [ -f /etc/bash_completion ]; then
-  . /etc/bash_completion
+ . /etc/bash_completion
 fi
 
 # Disable flow control (enable Ctrl+s search)
@@ -889,6 +889,6 @@ stty -ixon
 
 ---
 
-**Updated:** 2026-05-23  
-**Author:** Miklos Greczi  
+**Updated:** 2026-05-23 
+**Author:** Documentation Team 
 **Use Case:** Command-line efficiency, SRE, DevOps, System Administration

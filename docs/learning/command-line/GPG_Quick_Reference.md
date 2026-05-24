@@ -282,13 +282,13 @@ gpg --keyserver keyserver.ubuntu.com --refresh-keys KEY_ID
 # Get key ID
 gpg --list-secret-keys --keyid-format LONG
 # Output example:
-# sec   rsa4096/1234ABCD5678EFGH 2024-01-01 [SC]
-#       ^^^^^^^^^^^^^^^^^^^^^^^ <- This is the KEY_ID
+# sec rsa4096/1234ABCD5678EFGH 2024-01-01 [SC]
+# ^^^^^^^^^^^^^^^^^^^^^^^ <- This is the KEY_ID
 
 # Configure Git
 git config --global user.signingkey 1234ABCD5678EFGH
-git config --global commit.gpgSign true  # Auto-sign all commits
-git config --global tag.gpgSign true     # Auto-sign all tags
+git config --global commit.gpgSign true # Auto-sign all commits
+git config --global tag.gpgSign true # Auto-sign all tags
 ```
 
 ### Create Signed Commit
@@ -374,9 +374,9 @@ gpgconf --launch gpg-agent
 
 ```bash
 # Edit ~/.gnupg/gpg-agent.conf
-default-cache-ttl 3600        # 1 hour (default: 10 minutes)
-max-cache-ttl 86400           # Max 24 hours
-pinentry-program /usr/bin/pinentry-gtk-2  # GUI passphrase prompt
+default-cache-ttl 3600 # 1 hour (default: 10 minutes)
+max-cache-ttl 86400 # Max 24 hours
+pinentry-program /usr/bin/pinentry-gtk-2 # GUI passphrase prompt
 ```
 
 ```bash
@@ -434,8 +434,8 @@ kubeseal --fetch-cert > sealed-secrets-pub.pem
 
 # Encrypt secret
 echo -n "my-secret-password" | kubectl create secret generic my-secret \
-  --dry-run=client --from-file=password=/dev/stdin -o yaml | \
-  kubeseal -o yaml > sealed-secret.yaml
+ --dry-run=client --from-file=password=/dev/stdin -o yaml | \
+ kubeseal -o yaml > sealed-secret.yaml
 
 # Apply
 kubectl apply -f sealed-secret.yaml
@@ -449,7 +449,7 @@ kubectl apply -f sealed-secret.yaml
 
 # Configure GPG key in .sops.yaml
 # creation_rules:
-#   - pgp: '1234ABCD5678EFGH'
+# - pgp: '1234ABCD5678EFGH'
 
 # Encrypt secret
 sops --encrypt --pgp 1234ABCD5678EFGH secrets.yaml > secrets.enc.yaml
@@ -485,7 +485,7 @@ git-crypt unlock
 
 ## 11. Security and Best Practices
 
-### ✅ DO
+### DO
 
 - **Use strong passphrase:** Minimum 12 characters, numbers/symbols
 - **Backup private key:** Store securely (offline USB, password manager)
@@ -494,7 +494,7 @@ git-crypt unlock
 - **Verify fingerprints:** Before signing/importing keys
 - **Use 4096 bit keys:** Stronger than 2048 bit
 
-### ❌ DON'T
+### DON'T
 
 - **Never share private key:** NEVER send via email/chat
 - **Don't store passphrase in plaintext:** Don't write down, don't put in environment variables
@@ -506,11 +506,11 @@ git-crypt unlock
 
 ```bash
 # DON'T DO THIS:
-export GPG_PASSPHRASE="MySecretPassword"  # Stays in shell history!
+export GPG_PASSPHRASE="MySecretPassword" # Stays in shell history!
 gpg --passphrase "$GPG_PASSPHRASE" --decrypt file.gpg
 
 # Use gpg-agent instead (caches passphrase)
-gpg --decrypt file.gpg  # Prompts once, then cached
+gpg --decrypt file.gpg # Prompts once, then cached
 ```
 
 ---
@@ -540,7 +540,7 @@ gpg --import private-key.asc
 export GPG_TTY=$(tty)
 
 # Or in gpg-agent.conf:
-pinentry-program /usr/bin/pinentry-curses  # CLI-friendly
+pinentry-program /usr/bin/pinentry-curses # CLI-friendly
 ```
 
 ### "gpg: WARNING: unsafe permissions on homedir"
@@ -586,6 +586,6 @@ echo "test" | gpg --clearsign
 
 ---
 
-**Updated:** 2026-05-23  
-**Author:** Miklos Greczi  
+**Updated:** 2026-05-23 
+**Author:** Documentation Team 
 **Use Case:** Security, DevOps, Software Engineering

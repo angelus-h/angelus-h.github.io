@@ -102,24 +102,24 @@ Even deeper structure.
 ```latex
 % Unordered list
 \begin{itemize}
-  \item First item
-  \item Second item
-    \begin{itemize}
-      \item Nested item
-    \end{itemize}
+ \item First item
+ \item Second item
+ \begin{itemize}
+ \item Nested item
+ \end{itemize}
 \end{itemize}
 
 % Numbered list
 \begin{enumerate}
-  \item First step
-  \item Second step
-  \item Third step
+ \item First step
+ \item Second step
+ \item Third step
 \end{enumerate}
 
 % Description list
 \begin{description}
-  \item[Term 1] Definition of first term
-  \item[Term 2] Definition of second term
+ \item[Term 1] Definition of first term
+ \item[Term 2] Definition of second term
 \end{description}
 
 % Text styles
@@ -153,12 +153,12 @@ The equation $E = mc^2$ is Einstein's famous formula.
 
 % Display math (centered, numbered)
 \begin{equation}
-  \int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}
+ \int_{-\infty}^{\infty} e^{-x^2} \, dx = \sqrt{\pi}
 \end{equation}
 
 % Display math (unnumbered)
 \[
-  f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
+ f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2}\left(\frac{x-\mu}{\sigma}\right)^2}
 \]
 ```
 
@@ -206,25 +206,25 @@ x^2, x^{n+1}, x_i, x_{i,j}
 % Matrix
 \[
 A = \begin{pmatrix}
-  a_{11} & a_{12} & a_{13} \\
-  a_{21} & a_{22} & a_{23} \\
-  a_{31} & a_{32} & a_{33}
+ a_{11} & a_{12} & a_{13} \\
+ a_{21} & a_{22} & a_{23} \\
+ a_{31} & a_{32} & a_{33}
 \end{pmatrix}
 \]
 
 % Determinant
 \[
 \begin{vmatrix}
-  1 & 2 \\
-  3 & 4
+ 1 & 2 \\
+ 3 & 4
 \end{vmatrix}
 \]
 
 % Bmatrix (square brackets)
 \[
 \begin{bmatrix}
-  1 & 0 \\
-  0 & 1
+ 1 & 0 \\
+ 0 & 1
 \end{bmatrix}
 \]
 ```
@@ -233,16 +233,16 @@ A = \begin{pmatrix}
 ```latex
 % Multiple aligned equations
 \begin{align}
-  f(x) &= x^2 + 2x + 1 \\
-       &= (x + 1)^2 \\
-       &= (x + 1)(x + 1)
+ f(x) &= x^2 + 2x + 1 \\
+ &= (x + 1)^2 \\
+ &= (x + 1)(x + 1)
 \end{align}
 
 % Cases (piecewise functions)
 \[
 f(x) = \begin{cases}
-  x^2       & \text{if } x \geq 0 \\
-  -x^2      & \text{if } x < 0
+ x^2 & \text{if } x \geq 0 \\
+ -x^2 & \text{if } x < 0
 \end{cases}
 \]
 ```
@@ -256,11 +256,11 @@ f(x) = \begin{cases}
 \newtheorem{definition}{Definition}[section]
 
 \begin{theorem}[Pythagorean Theorem]
-  In a right triangle, $a^2 + b^2 = c^2$.
+ In a right triangle, $a^2 + b^2 = c^2$.
 \end{theorem}
 
 \begin{proof}
-  Proof content here.
+ Proof content here.
 \end{proof}
 ```
 
@@ -285,18 +285,18 @@ f(x) = \begin{cases}
 **Basic Table:**
 ```latex
 \begin{table}[h]
-  \centering
-  \caption{Sample Data}
-  \label{tab:sample}
-  \begin{tabular}{lcc}
-    \hline
-    Item & Value 1 & Value 2 \\
-    \hline
-    A & 10 & 20 \\
-    B & 15 & 25 \\
-    C & 30 & 40 \\
-    \hline
-  \end{tabular}
+ \centering
+ \caption{Sample Data}
+ \label{tab:sample}
+ \begin{tabular}{lcc}
+ \hline
+ Item & Value 1 & Value 2 \\
+ \hline
+ A & 10 & 20 \\
+ B & 15 & 25 \\
+ C & 30 & 40 \\
+ \hline
+ \end{tabular}
 \end{table}
 ```
 
@@ -305,18 +305,18 @@ f(x) = \begin{cases}
 \usepackage{booktabs}
 
 \begin{table}[h]
-  \centering
-  \caption{Performance Metrics}
-  \label{tab:metrics}
-  \begin{tabular}{lrrr}
-    \toprule
-    Method & Accuracy & Precision & Recall \\
-    \midrule
-    Method A & 0.92 & 0.89 & 0.91 \\
-    Method B & 0.95 & 0.93 & 0.94 \\
-    Method C & 0.88 & 0.85 & 0.87 \\
-    \bottomrule
-  \end{tabular}
+ \centering
+ \caption{Performance Metrics}
+ \label{tab:metrics}
+ \begin{tabular}{lrrr}
+ \toprule
+ Method & Accuracy & Precision & Recall \\
+ \midrule
+ Method A & 0.92 & 0.89 & 0.91 \\
+ Method B & 0.95 & 0.93 & 0.94 \\
+ Method C & 0.88 & 0.85 & 0.87 \\
+ \bottomrule
+ \end{tabular}
 \end{table}
 ```
 
@@ -339,10 +339,10 @@ f(x) = \begin{cases}
 \usepackage{graphicx}
 
 \begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.8\textwidth]{image.png}
-  \caption{System Architecture Diagram}
-  \label{fig:architecture}
+ \centering
+ \includegraphics[width=0.8\textwidth]{image.png}
+ \caption{System Architecture Diagram}
+ \label{fig:architecture}
 \end{figure}
 
 % Reference: See Figure~\ref{fig:architecture}
@@ -353,20 +353,20 @@ f(x) = \begin{cases}
 \usepackage{subcaption}
 
 \begin{figure}[htbp]
-  \centering
-  \begin{subfigure}{0.45\textwidth}
-    \includegraphics[width=\textwidth]{image1.png}
-    \caption{Before optimization}
-    \label{fig:before}
-  \end{subfigure}
-  \hfill
-  \begin{subfigure}{0.45\textwidth}
-    \includegraphics[width=\textwidth]{image2.png}
-    \caption{After optimization}
-    \label{fig:after}
-  \end{subfigure}
-  \caption{Comparison of results}
-  \label{fig:comparison}
+ \centering
+ \begin{subfigure}{0.45\textwidth}
+ \includegraphics[width=\textwidth]{image1.png}
+ \caption{Before optimization}
+ \label{fig:before}
+ \end{subfigure}
+ \hfill
+ \begin{subfigure}{0.45\textwidth}
+ \includegraphics[width=\textwidth]{image2.png}
+ \caption{After optimization}
+ \label{fig:after}
+ \end{subfigure}
+ \caption{Comparison of results}
+ \label{fig:comparison}
 \end{figure}
 ```
 
@@ -412,7 +412,7 @@ According to \citet{knuth1984}, LaTeX is excellent.
 Many researchers agree \citep{lamport1994,goossens1994}.
 
 \bibliographystyle{plainnat}
-\bibliography{references}  % references.bib file
+\bibliography{references} % references.bib file
 
 \end{document}
 ```
@@ -420,26 +420,26 @@ Many researchers agree \citep{lamport1994,goossens1994}.
 **BibTeX Database (references.bib):**
 ```bibtex
 @book{knuth1984,
-  author    = {Donald E. Knuth},
-  title     = {The TeXbook},
-  publisher = {Addison-Wesley},
-  year      = {1984},
-  isbn      = {0-201-13447-0}
+ author = {Donald E. Knuth},
+ title = {The TeXbook},
+ publisher = {Addison-Wesley},
+ year = {1984},
+ isbn = {0-201-13447-0}
 }
 
 @article{lamport1994,
-  author  = {Leslie Lamport},
-  title   = {LaTeX: A Document Preparation System},
-  journal = {Addison-Wesley Professional},
-  year    = {1994},
-  volume  = {2}
+ author = {Leslie Lamport},
+ title = {LaTeX: A Document Preparation System},
+ journal = {Addison-Wesley Professional},
+ year = {1994},
+ volume = {2}
 }
 
 @inproceedings{goossens1994,
-  author    = {Michel Goossens and Frank Mittelbach},
-  title     = {The LaTeX Companion},
-  booktitle = {Addison-Wesley},
-  year      = {1994}
+ author = {Michel Goossens and Frank Mittelbach},
+ title = {The LaTeX Companion},
+ booktitle = {Addison-Wesley},
+ year = {1994}
 }
 ```
 
@@ -491,29 +491,29 @@ Multiple citations \cite{lamport1994,goossens1994}.
 \frame{\titlepage}
 
 \begin{frame}
-  \frametitle{Outline}
-  \tableofcontents
+ \frametitle{Outline}
+ \tableofcontents
 \end{frame}
 
 \section{Introduction}
 
 \begin{frame}
-  \frametitle{Background}
-  \begin{itemize}
-    \item<1-> First point appears
-    \item<2-> Second point appears
-    \item<3-> Third point appears
-  \end{itemize}
+ \frametitle{Background}
+ \begin{itemize}
+ \item<1-> First point appears
+ \item<2-> Second point appears
+ \item<3-> Third point appears
+ \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Key Results}
-  \begin{columns}
-    \column{0.5\textwidth}
-      Content in left column
-    \column{0.5\textwidth}
-      Content in right column
-  \end{columns}
+ \frametitle{Key Results}
+ \begin{columns}
+ \column{0.5\textwidth}
+ Content in left column
+ \column{0.5\textwidth}
+ Content in right column
+ \end{columns}
 \end{frame}
 
 \end{document}
@@ -523,16 +523,16 @@ Multiple citations \cite{lamport1994,goossens1994}.
 ```latex
 % Progressive reveal
 \begin{frame}
-  \frametitle{Incremental Display}
-  \begin{itemize}
-    \item<1-> Always visible
-    \item<2-> Appears on slide 2
-    \item<3-4> Visible only on slides 3-4
-    \item<4-> Appears from slide 4 onward
-  \end{itemize}
+ \frametitle{Incremental Display}
+ \begin{itemize}
+ \item<1-> Always visible
+ \item<2-> Appears on slide 2
+ \item<3-4> Visible only on slides 3-4
+ \item<4-> Appears from slide 4 onward
+ \end{itemize}
 
-  \only<2>{Content visible only on slide 2}
-  \uncover<3->{Content revealed from slide 3}
+ \only<2>{Content visible only on slide 2}
+ \uncover<3->{Content revealed from slide 3}
 \end{frame}
 ```
 
@@ -556,23 +556,23 @@ Multiple citations \cite{lamport1994,goossens1994}.
 \usetikzlibrary{shapes,arrows,positioning}
 
 \begin{tikzpicture}
-  % Nodes
-  \node[draw, rectangle] (A) {Input};
-  \node[draw, circle, right=of A] (B) {Process};
-  \node[draw, rectangle, right=of B] (C) {Output};
+ % Nodes
+ \node[draw, rectangle] (A) {Input};
+ \node[draw, circle, right=of A] (B) {Process};
+ \node[draw, rectangle, right=of B] (C) {Output};
 
-  % Arrows
-  \draw[->] (A) -- (B);
-  \draw[->] (B) -- (C);
+ % Arrows
+ \draw[->] (A) -- (B);
+ \draw[->] (B) -- (C);
 \end{tikzpicture}
 ```
 
 **Flowchart:**
 ```latex
 \begin{tikzpicture}[
-  node distance=2cm,
-  block/.style={rectangle, draw, text width=5em, text centered, rounded corners, minimum height=3em},
-  decision/.style={diamond, draw, text width=4.5em, text centered, inner sep=0pt}
+ node distance=2cm,
+ block/.style={rectangle, draw, text width=5em, text centered, rounded corners, minimum height=3em},
+ decision/.style={diamond, draw, text width=4.5em, text centered, inner sep=0pt}
 ]
 
 \node [block] (start) {Start};
@@ -596,15 +596,15 @@ Multiple citations \cite{lamport1994,goossens1994}.
 \pgfplotsset{compat=1.18}
 
 \begin{tikzpicture}
-  \begin{axis}[
-    xlabel=$x$,
-    ylabel=$f(x)$,
-    title={Function Plot}
-  ]
-  \addplot[blue, thick] {x^2};
-  \addplot[red, thick] {2*x + 1};
-  \legend{$x^2$, $2x+1$}
-  \end{axis}
+ \begin{axis}[
+ xlabel=$x$,
+ ylabel=$f(x)$,
+ title={Function Plot}
+ ]
+ \addplot[blue, thick] {x^2};
+ \addplot[red, thick] {2*x + 1};
+ \legend{$x^2$, $2x+1$}
+ \end{axis}
 \end{tikzpicture}
 ```
 
@@ -629,8 +629,8 @@ Multiple citations \cite{lamport1994,goossens1994}.
 **Custom Commands:**
 ```latex
 % Simple command
-\newcommand{\RR}{\mathbb{R}}  % Real numbers
-\newcommand{\CC}{\mathbb{C}}  % Complex numbers
+\newcommand{\RR}{\mathbb{R}} % Real numbers
+\newcommand{\CC}{\mathbb{C}} % Complex numbers
 
 % Command with arguments
 \newcommand{\vect}[1]{\mathbf{#1}}
@@ -641,19 +641,19 @@ Multiple citations \cite{lamport1994,goossens1994}.
 
 % Usage:
 The vector $\vect{x} \in \RR^n$ has norm $\norm{\vect{x}}$.
-\derivative{f}        % df/dx
-\derivative[t]{f}     % df/dt
+\derivative{f} % df/dx
+\derivative[t]{f} % df/dt
 ```
 
 **Custom Environments:**
 ```latex
 \newenvironment{warning}
-  {\begin{quotation}\textbf{Warning:}}
-  {\end{quotation}}
+ {\begin{quotation}\textbf{Warning:}}
+ {\end{quotation}}
 
 % Usage:
 \begin{warning}
-  This is a warning message.
+ This is a warning message.
 \end{warning}
 ```
 
@@ -713,19 +713,19 @@ pdflatex diff.tex
 name: Build LaTeX
 on: [push]
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Compile LaTeX
-        uses: xu-cheng/latex-action@v2
-        with:
-          root_file: main.tex
-      - name: Upload PDF
-        uses: actions/upload-artifact@v3
-        with:
-          name: PDF
-          path: main.pdf
+ build:
+ runs-on: ubuntu-latest
+ steps:
+ - uses: actions/checkout@v3
+ - name: Compile LaTeX
+ uses: xu-cheng/latex-action@v2
+ with:
+ root_file: main.tex
+ - name: Upload PDF
+ uses: actions/upload-artifact@v3
+ with:
+ name: PDF
+ path: main.pdf
 ```
 
 **Hands-On Practice:**
@@ -820,24 +820,24 @@ Write a book chapter including:
 **Common Errors:**
 
 1. **Undefined control sequence**
-   - Missing package import
-   - Typo in command name
-   - Solution: Check package requirements
+ - Missing package import
+ - Typo in command name
+ - Solution: Check package requirements
 
 2. **Missing $ inserted**
-   - Math mode used outside $ or \[ \]
-   - Special characters (%, &, _) not escaped
-   - Solution: Enclose in $ or use \textbackslash
+ - Math mode used outside $ or \[ \]
+ - Special characters (%, &, _) not escaped
+ - Solution: Enclose in $ or use \textbackslash
 
 3. **File not found**
-   - Image path incorrect
-   - Bibliography file missing
-   - Solution: Check file paths and extensions
+ - Image path incorrect
+ - Bibliography file missing
+ - Solution: Check file paths and extensions
 
 4. **Package conflicts**
-   - Incompatible package versions
-   - Package load order matters
-   - Solution: Load hyperref last (usually)
+ - Incompatible package versions
+ - Package load order matters
+ - Solution: Load hyperref last (usually)
 
 **Best Practices:**
 - Compile frequently to catch errors early

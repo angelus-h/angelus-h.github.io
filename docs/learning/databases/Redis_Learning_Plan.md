@@ -60,9 +60,9 @@ redis-cli ping
 redis-cli
 
 # Simple key-value operations
-SET name "Miklos"
+SET name "User"
 GET name
-# Response: "Miklos"
+# Response: "User"
 
 # Delete key
 DEL name
@@ -583,7 +583,7 @@ def get_session(key):
 if __name__ == '__main__':
  print("\n=== Flask Session Demo ===")
  print("Try with curl or Postman:")
- print(" curl -X POST http://localhost:5000/login -H 'Content-Type: application/json' -d '{\"username\":\"miklos\"}' -c cookies.txt")
+ print(" curl -X POST http://localhost:5000/login -H 'Content-Type: application/json' -d '{\"username: demo_user\"}' -c cookies.txt")
  print(" curl http://localhost:5000/profile -b cookies.txt")
  print(" curl http://localhost:5000/set/theme/dark -b cookies.txt")
  print(" curl http://localhost:5000/get/theme -b cookies.txt")
@@ -599,7 +599,7 @@ python3 redis_session_example.py
 # In another terminal:
 curl -X POST http://localhost:5000/login \
  -H 'Content-Type: application/json' \
- -d '{"username":"miklos"}' \
+ -d '{"username":"demo_user"}' \
  -c cookies.txt
 
 curl http://localhost:5000/profile -b cookies.txt

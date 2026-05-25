@@ -374,7 +374,7 @@ uv run serve --port 8080
 **Task:** Analyze the lumino-mcp-server `pyproject.toml` file.
 
 ```bash
-cd ~/ai/konflux-lumino/mcp-servers/lumino-mcp-server
+cd ~/ai/platform-tools/mcp-servers/lumino-mcp-server
 cat pyproject.toml
 ```
 
@@ -540,7 +540,7 @@ uv run python app.py
 
 **Workspace example:**
 ```
-konflux-mcp-workspace/
+platform-mcp-workspace/
  pyproject.toml # Root workspace config
  uv.lock # Shared lock file
  packages/
@@ -959,8 +959,8 @@ uv run ruff check .
 ```toml
 # pyproject.toml
 [[tool.uv.index]]
-name = "redhat-internal"
-url = "https://pypi.internal.company.com/simple"
+name = "company-internal"
+url = "https://pypi.company.com/simple"
 default = false
 
 [[tool.uv.index]]
@@ -971,7 +971,7 @@ default = true
 
 **Environment variables:**
 ```bash
-export UV_INDEX_URL="https://pypi.internal.company.com/simple"
+export UV_INDEX_URL="https://pypi.company.com/simple"
 export UV_EXTRA_INDEX_URL="https://pypi.org/simple"
 ```
 
@@ -986,7 +986,7 @@ dependencies = [
 
 # Local path dependency
 dependencies = [
- "my-local-package @ file:///home/mgreczi/projects/my-package",
+ "my-local-package @ file:///home/user/projects/my-package",
 ]
 ```
 
@@ -1202,7 +1202,7 @@ uv lock
 **Developer workflow:**
 ```bash
 # 1. Clone and setup
-cd ~/ai/konflux-lumino/mcp-servers/lumino-mcp-server
+cd ~/ai/platform-tools/mcp-servers/lumino-mcp-server
 uv sync
 
 # 2. Develop new tool
@@ -1335,8 +1335,8 @@ spec:
 
 ```bash
 # 1. Project init (if not exists)
-mkdir -p ~/ai/konflux-lumino/mcp-servers/servicenow-mcp-server
-cd ~/ai/konflux-lumino/mcp-servers/servicenow-mcp-server
+mkdir -p ~/ai/platform-tools/mcp-servers/servicenow-mcp-server
+cd ~/ai/platform-tools/mcp-servers/servicenow-mcp-server
 
 # 2. uv init
 uv init --name servicenow-mcp-server
@@ -1406,17 +1406,17 @@ EOF
 # 7. Test
 uv run python main.py --help
 
-# 8. Git commit preparation (Miklos will do it!)
+# 8. Git commit preparation (User will do it!)
 cat > GIT_COMMANDS.txt << EOF
 # ServiceNow MCP Server - Git Setup
-cd ~/ai/konflux-lumino/mcp-servers/servicenow-mcp-server
+cd ~/ai/platform-tools/mcp-servers/servicenow-mcp-server
 
 git init
 git add .
 git commit -m "feat: Initial ServiceNow MCP Server setup with uv"
 
 # Push to remote (after creating repo)
-# git remote add origin https://github.com/mgreczi/servicenow-mcp-server.git
+# git remote add origin https://github.com/username/servicenow-mcp-server.git
 # git push -u origin main
 EOF
 ```
@@ -1464,10 +1464,10 @@ EOF
 
 ### Internal Resources
 
-- Lumino MCP Server: `~/ai/konflux-lumino/mcp-servers/lumino-mcp-server/`
+- Lumino MCP Server: `~/ai/platform-tools/mcp-servers/lumino-mcp-server/`
 - Jira MCP Server: `~/repos/jira-mcp-server/`
-- ServiceNow MCP: `~/ai/konflux-lumino/mcp-servers/servicenow-mcp-server/`
-- Claude Code MEMORY: `~/.claude/projects/-home-mgreczi-ai-konflux-lumino/memory/`
+- ServiceNow MCP: `~/ai/platform-tools/mcp-servers/servicenow-mcp-server/`
+- Claude Code MEMORY: `~/.claude/projects/-home-demo_user-ai-konflux-lumino/memory/`
 
 ### Next Learning Plans
 

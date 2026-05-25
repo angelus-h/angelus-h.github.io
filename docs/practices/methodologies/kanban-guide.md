@@ -966,7 +966,7 @@ Requests → Backlog → Design → Development → Testing → Deployed
 
 ### Integration with Jira
 
-**Jira Kanban Board for KFLUXINFRA:**
+**Jira Kanban Board for INFRA:**
 ```
 TO DO → IN PROGRESS → CODE REVIEW → TESTING → DONE
 ```

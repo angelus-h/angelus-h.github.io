@@ -720,7 +720,7 @@ Going through Scrum motions without agile mindset:
 
 **Backlog:**
 - Jira as backlog management tool
-- Epics for larger initiatives (KFLUXINFRA epics)
+- Epics for larger initiatives (INFRA epics)
 - Stories for user-facing features
 - Tasks for technical work
 - Bugs prioritized with stories

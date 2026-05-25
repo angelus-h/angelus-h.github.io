@@ -664,7 +664,7 @@ Create `~/.cursor/mcp_servers.json`:
  "command": "uv",
  "args": [
  "--directory",
- "/home/mgreczi/repos/jira-mcp-server",
+ "/home/user/repos/jira-mcp-server",
  "run",
  "python",
  "main.py"

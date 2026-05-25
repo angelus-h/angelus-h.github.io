@@ -36,7 +36,7 @@ ssh -T git@github.com
 **Explore Platform:**
 ```bash
 # Browse Platform organization
-https://github.com/konflux-ci
+https://github.com/platform-ci
 
 # Key repos:
 - architecture # Technical docs & ADRs
@@ -61,21 +61,21 @@ https://github.com/konflux-ci
 
 ```bash
 # 1. Fork repo on GitHub UI
-https://github.com/konflux-ci/architecture → Fork button
+https://github.com/platform-ci/architecture → Fork button
 
 # 2. Clone YOUR fork
 git clone git@github.com:YOUR_USERNAME/architecture.git
 cd architecture
 
 # 3. Add upstream remote
-git remote add upstream https://github.com/konflux-ci/architecture.git
+git remote add upstream https://github.com/platform-ci/architecture.git
 
 # 4. Verify remotes
 git remote -v
 # origin git@github.com:YOUR_USERNAME/architecture.git (fetch)
 # origin git@github.com:YOUR_USERNAME/architecture.git (push)
-# upstream https://github.com/konflux-ci/architecture.git (fetch)
-# upstream https://github.com/konflux-ci/architecture.git (push)
+# upstream https://github.com/platform-ci/architecture.git (fetch)
+# upstream https://github.com/platform-ci/architecture.git (push)
 ```
 
 **Keep fork in sync:**
@@ -111,7 +111,7 @@ git push origin fix/typo-in-readme
 # 5. Create PR on GitHub UI
 - Go to your fork on GitHub
 - Click "Compare & pull request"
-- Base: konflux-ci/architecture main
+- Base: platform-ci/architecture main
 - Head: YOUR_USERNAME/architecture fix/typo-in-readme
 - Fill in PR template
 - Create pull request
@@ -132,7 +132,7 @@ git push origin fix/typo-in-readme
 
 1. **Go to PR:**
  ```
- https://github.com/konflux-ci/architecture/pulls
+ https://github.com/platform-ci/architecture/pulls
  ```
 
 2. **Files changed tab:**
@@ -153,7 +153,7 @@ git push origin fix/typo-in-readme
 
  **Suggested change:**
  ```suggestion
- name: konflux-pipeline
+ name: platform-pipeline
  ```
  Contributor can click "Commit suggestion" to apply!
 
@@ -177,7 +177,7 @@ git push origin fix/typo-in-readme
 
 ```bash
 # Create issue via UI
-https://github.com/konflux-ci/architecture/issues/new
+https://github.com/platform-ci/architecture/issues/new
 
 # Or via GitHub CLI
 gh issue create \
@@ -191,7 +191,7 @@ gh issue create \
 # In PR description:
 Closes #123
 Fixes #456
-Resolves konflux-ci/docs#789
+Resolves platform-ci/docs#789
 ```
 
 **When PR merges → Issues automatically close!**
@@ -218,12 +218,12 @@ Resolves konflux-ci/docs#789
 
 ```bash
 # 1. Fork via UI
-https://github.com/konflux-ci/architecture → Fork
+https://github.com/platform-ci/architecture → Fork
 
 # 2. Clone & setup
 git clone git@github.com:YOUR_USERNAME/architecture.git
 cd architecture
-git remote add upstream https://github.com/konflux-ci/architecture.git
+git remote add upstream https://github.com/platform-ci/architecture.git
 
 # 3. Verify
 git remote -v
@@ -278,9 +278,9 @@ sudo apt install gh
 gh auth login
 
 # Test
-gh repo view konflux-ci/architecture
-gh issue list --repo konflux-ci/architecture
-gh pr list --repo konflux-ci/architecture
+gh repo view platform-ci/architecture
+gh issue list --repo platform-ci/architecture
+gh pr list --repo platform-ci/architecture
 ```
 
 ---
@@ -289,7 +289,7 @@ gh pr list --repo konflux-ci/architecture
 
 ```bash
 # Find open PRs
-https://github.com/konflux-ci/architecture/pulls
+https://github.com/platform-ci/architecture/pulls
 
 # Pick one, review:
 1. Read description
@@ -325,9 +325,9 @@ https://github.com/konflux-ci/architecture/pulls
 - **GitHub CLI:** https://cli.github.com/manual/
 
 ### Platform Resources:
-- **GitHub Org:** https://github.com/konflux-ci
-- **Contributing Guide:** https://github.com/konflux-ci/architecture/blob/main/CONTRIBUTING.md
-- **Architecture Repo:** https://github.com/konflux-ci/architecture
+- **GitHub Org:** https://github.com/platform-ci
+- **Contributing Guide:** https://github.com/platform-ci/architecture/blob/main/CONTRIBUTING.md
+- **Architecture Repo:** https://github.com/platform-ci/architecture
 
 ---
 

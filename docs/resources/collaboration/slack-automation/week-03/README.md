@@ -69,7 +69,7 @@ class AlertAggregator:
  # Single alert, send normally
  alert = alerts[0]
  self.client.chat_postMessage(
- channel="#konflux-alerts",
+ channel="#platform-alerts",
  text=f" {category}: {alert['name']}"
  )
  else:
@@ -78,7 +78,7 @@ class AlertAggregator:
  more = f"\n...and {count - 10} more" if count > 10 else ""
 
  self.client.chat_postMessage(
- channel="#konflux-alerts",
+ channel="#platform-alerts",
  blocks=[
  {
  "type": "header",
@@ -139,7 +139,7 @@ class AlertDeduplicator:
 
  # Send alert
  self.client.chat_postMessage(
- channel="#konflux-alerts",
+ channel="#platform-alerts",
  text=message
  )
 
@@ -183,11 +183,11 @@ class SmartThrottler:
 
  # Send to appropriate channel based on severity
  if severity == "critical":
- channel = "#konflux-critical"
+ channel = "#platform-critical"
  elif severity in ["high", "medium"]:
- channel = "#konflux-alerts"
+ channel = "#platform-alerts"
  else:
- channel = "#konflux-info"
+ channel = "#platform-info"
 
  self.client.chat_postMessage(
  channel=channel,
@@ -215,16 +215,16 @@ class AlertRouter:
 
  CHANNEL_MAP = {
  # Severity routing
- "critical": "#konflux-critical",
- "high": "#konflux-alerts",
- "medium": "#konflux-alerts",
- "low": "#konflux-info",
+ "critical": "#platform-critical",
+ "high": "#platform-alerts",
+ "medium": "#platform-alerts",
+ "low": "#platform-info",
 
  # Component routing
- "pipeline": "#konflux-pipelines",
- "build": "#konflux-builds",
- "deploy": "#konflux-deploys",
- "security": "#konflux-security",
+ "pipeline": "#platform-pipelines",
+ "build": "#platform-builds",
+ "deploy": "#platform-deploys",
+ "security": "#platform-security",
  }
 
  def __init__(self, slack_client):
@@ -236,11 +236,11 @@ class AlertRouter:
 
  # Route by severity
  if "severity" in alert:
- channels.add(self.CHANNEL_MAP.get(alert["severity"], "#konflux-alerts"))
+ channels.add(self.CHANNEL_MAP.get(alert["severity"], "#platform-alerts"))
 
  # Route by component
  if "component" in alert:
- channels.add(self.CHANNEL_MAP.get(alert["component"], "#konflux-alerts"))
+ channels.add(self.CHANNEL_MAP.get(alert["component"], "#platform-alerts"))
 
  return list(channels)
 
@@ -320,11 +320,11 @@ alert = {
  "environment": "production",
  "description": "Error rate spiked to 25% in the last 5 minutes",
  "dashboard_url": "https://grafana.example.com/d/pipeline-errors",
- "logs_url": "https://console.redhat.com/logs?filter=errors"
+ "logs_url": "https://console.company.com/logs?filter=errors"
 }
 
 router.send_alert(alert)
-# Sends to both #konflux-critical and #konflux-pipelines
+# Sends to both #platform-critical and #platform-pipelines
 ```
 
 **Context enrichment:**
@@ -552,12 +552,12 @@ def handle_pr(payload):
 
  if action == "opened":
  slack_client.chat_postMessage(
- channel="#konflux-github",
+ channel="#platform-github",
  text=f" New PR: {pr['title']}\n{pr['html_url']}"
  )
  elif action == "closed" and pr['merged']:
  slack_client.chat_postMessage(
- channel="#konflux-github",
+ channel="#platform-github",
  text=f" PR merged: {pr['title']}"
  )
 
@@ -720,7 +720,7 @@ def handle_incident_create(ack, body, client, view):
 
  # Announce in main channel
  client.chat_postMessage(
- channel="#konflux-incidents",
+ channel="#platform-incidents",
  text=f" New {severity.upper()} incident: {title}\nJoin <#{channel_id}> for updates"
  )
 
@@ -806,7 +806,7 @@ def resolve_incident(ack, body, client):
 
  # Announce resolution
  client.chat_postMessage(
- channel="#konflux-incidents",
+ channel="#platform-incidents",
  text=f" {incident_id} resolved by <@{user}>"
  )
 

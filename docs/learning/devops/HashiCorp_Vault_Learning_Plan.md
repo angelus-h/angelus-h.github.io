@@ -1288,13 +1288,13 @@ vault kv put stonesoup/staging/ui/backstage-sa-token \
  token="<k8s-token-from-secret>"
 ```
 
-**Terraform integration (Emily MR !589 style):**
+**Terraform integration (TeamMember MR !589 style):**
 ```hcl
 # Kubernetes ServiceAccount token resource
 resource "kubernetes_token_request_v1" "backstage_sa" {
  metadata {
- name = "backstage-konflux-test"
- namespace = "konflux-ui"
+ name = "backstage-platform-test"
+ namespace = "platform-ui"
  }
 
  spec {
@@ -1320,7 +1320,7 @@ resource "vault_kv_secret_v2" "backstage_token" {
 import { VaultClient } from '@backstage/plugin-vault';
 
 const vaultClient = new VaultClient({
- baseUrl: 'https://vault.devshift.net',
+ baseUrl: 'https://vault.company.com',
  token: process.env.VAULT_TOKEN,
 });
 
@@ -1349,7 +1349,7 @@ k8sConfig.loadFromOptions({
 **.gitlab-ci.yml:**
 ```yaml
 variables:
- VAULT_ADDR: "https://vault.devshift.net"
+ VAULT_ADDR: "https://vault.company.com"
 
 before_script:
  # Login to Vault with AppRole
@@ -1361,19 +1361,19 @@ build:
  stage: build
  script:
  # Get Quay.io credentials from Vault
- - export QUAY_USER=$(vault kv get -field=username secret/konflux/quay)
- - export QUAY_PASSWORD=$(vault kv get -field=password secret/konflux/quay)
+ - export QUAY_USER=$(vault kv get -field=username secret/platform/quay)
+ - export QUAY_PASSWORD=$(vault kv get -field=password secret/platform/quay)
 
  # Docker build & push
  - docker login -u $QUAY_USER -p $QUAY_PASSWORD quay.io
- - docker build -t quay.io/konflux/myapp:${CI_COMMIT_SHA} .
- - docker push quay.io/konflux/myapp:${CI_COMMIT_SHA}
+ - docker build -t quay.io/platform/myapp:${CI_COMMIT_SHA} .
+ - docker push quay.io/platform/myapp:${CI_COMMIT_SHA}
 
 deploy_staging:
  stage: deploy
  script:
  # Get K8s token from Vault
- - export K8S_TOKEN=$(vault kv get -field=token secret/konflux/staging/k8s)
+ - export K8S_TOKEN=$(vault kv get -field=token secret/platform/staging/k8s)
 
  # Deploy to staging cluster
  - kubectl --token=$K8S_TOKEN apply -f manifests/
@@ -1384,9 +1384,9 @@ deploy_staging:
 **Vault secret structure:**
 ```
 secret/
- konflux/
+ platform/
  quay
- username: "konflux+robot"
+ username: "platform+robot"
  password: "XXX"
  staging/
  k8s

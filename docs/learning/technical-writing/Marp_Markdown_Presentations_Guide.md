@@ -1196,7 +1196,7 @@ Same footer.
 
 ```bash
 # Generate QR code
-qrencode -o qr-code.png "https://red.ht/konflux"
+qrencode -o qr-code.png "https://red.ht/platform"
 
 # Use on slide
 ```
@@ -1407,7 +1407,7 @@ marp --server slides.md
 
 **Contact:**
 - Questions: developer@company.com
-- Examples: `/home/mgreczi/ai/konflux-lumino/investigations/DEMO-SLIDES.md`
+- Examples: `/home/user/ai/platform-tools/investigations/DEMO-SLIDES.md`
 
 **Version:** 1.0
 **Last updated:** 2026-03-22

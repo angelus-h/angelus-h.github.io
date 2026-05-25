@@ -492,8 +492,8 @@ extra_javascript:
 ```yaml
 theme:
  name: material
- logo: assets/images/redhat-logo.svg
- favicon: assets/images/redhat-logo.svg
+ logo: assets/images/company-logo.svg
+ favicon: assets/images/company-logo.svg
 
  palette:
  # Dark mode (Company black)
@@ -516,10 +516,10 @@ theme:
  code: Company Mono
 
 extra_css:
- - assets/stylesheets/redhat.css
+ - assets/stylesheets/company.css
 ```
 
-**docs/assets/stylesheets/redhat.css:**
+**docs/assets/stylesheets/company.css:**
 
 ```css
 /* Company color scheme */

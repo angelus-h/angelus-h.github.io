@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  <!-- SEO Meta Tags -->
+  <meta name="keywords" content="SRE, DevOps, Kubernetes, Python, Infrastructure, AI, Machine Learning, Photography, Technical Writing, Ansible, Prometheus, Grafana, HashiCorp Vault, OpenTelemetry">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Angelus-H">
+
+  <!-- Open Graph Meta Tags (Facebook, LinkedIn, Discord) -->
+  <meta property="og:site_name" content="Angelus-H's Athenaeum">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  {% if page %}
+  <meta property="og:url" content="{{ page.canonical_url }}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}">
+  <meta property="og:description" content="{{ config.site_description }}">
+  {% if page.meta and page.meta.image %}
+  <meta property="og:image" content="{{ page.meta.image }}">
+  {% else %}
+  <meta property="og:image" content="{{ config.site_url }}assets/angel.jpg">
+  {% endif %}
+  {% else %}
+  <meta property="og:url" content="{{ config.site_url }}">
+  <meta property="og:title" content="{{ config.site_name }}">
+  <meta property="og:description" content="{{ config.site_description }}">
+  <meta property="og:image" content="{{ config.site_url }}assets/angel.jpg">
+  {% endif %}
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@angelus-h">
+  <meta name="twitter:creator" content="@angelus-h">
+  {% if page %}
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }} - {% endif %}{{ config.site_name }}">
+  <meta name="twitter:description" content="{{ config.site_description }}">
+  {% if page.meta and page.meta.image %}
+  <meta name="twitter:image" content="{{ page.meta.image }}">
+  {% else %}
+  <meta name="twitter:image" content="{{ config.site_url }}assets/angel.jpg">
+  {% endif %}
+  {% else %}
+  <meta name="twitter:title" content="{{ config.site_name }}">
+  <meta name="twitter:description" content="{{ config.site_description }}">
+  <meta name="twitter:image" content="{{ config.site_url }}assets/angel.jpg">
+  {% endif %}
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ config.site_name }}",
+    "url": "{{ config.site_url }}",
+    "description": "{{ config.site_description }}",
+    "author": {
+      "@type": "Person",
+      "name": "Angelus-H",
+      "url": "https://github.com/angelus-h"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Angelus-H"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ config.site_url }}?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Additional Structured Data for Documentation -->
+  {% if page and page.title %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "{{ page.title }}",
+    "url": "{{ page.canonical_url }}",
+    "datePublished": "{% if page.meta and page.meta.date %}{{ page.meta.date }}{% else %}2026-05-25{% endif %}",
+    "dateModified": "{% if page.meta and page.meta.date %}{{ page.meta.date }}{% else %}2026-05-25{% endif %}",
+    "author": {
+      "@type": "Person",
+      "name": "Angelus-H"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "Angelus-H"
+    },
+    "description": "{% if page.meta and page.meta.description %}{{ page.meta.description }}{% else %}{{ config.site_description }}{% endif %}"
+  }
+  </script>
+  {% endif %}
+{% endblock %}

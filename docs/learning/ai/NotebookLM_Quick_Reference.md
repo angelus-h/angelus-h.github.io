@@ -15,7 +15,7 @@
  - [Step 1: Access NotebookLM](#step-1-access-notebooklm)
  - [Step 2: Create Your First Notebook](#step-2-create-your-first-notebook)
  - [Step 3: Add Sources](#step-3-add-sources)
- - [Step 4: Try the Team Knowledge Base (Team Resource)](#step-4-try-the-konflux-user-advisor-team-resource)
+ - [Step 4: Try the Team Knowledge Base (Team Resource)](#step-4-try-the-platform-user-advisor-team-resource)
 5. [Core Features](#core-features)
 6. [Use Cases for Everyone](#use-cases-for-everyone)
 7. [Use Cases for New Hires](#use-cases-for-new-hires)

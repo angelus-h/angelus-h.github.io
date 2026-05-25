@@ -32,6 +32,7 @@ Career skills, boundary setting, and protecting your wellbeing:
 
 - **[Boundary Setting Guide](professional-development/boundary-setting-guide.md)** - Recognizing and preventing exploitable patterns
 - **[Work Acceptance Checklist](professional-development/work-acceptance-checklist.md)** - Deciding when to accept new work
+- **[Probation Success Strategy](professional-development/probation-success-strategy.md)** - 3-phase strategy for successful probation periods and avoiding scope creep
 
 ---
 

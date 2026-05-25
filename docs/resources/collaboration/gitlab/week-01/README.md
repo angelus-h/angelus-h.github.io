@@ -1,3 +1,7 @@
+---
+description: GitLab fundamentals week 1 - architecture, projects, merge requests, code review, labels, milestones, and advanced MR features.
+---
+
 # GitLab Week 1: Fundamentals + MR Workflow
 
 ## Goal

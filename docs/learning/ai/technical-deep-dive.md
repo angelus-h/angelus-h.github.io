@@ -1,3 +1,7 @@
+---
+description: Technical deep dive into AI architecture - transformers, LLMs, tokens, context windows, RAG, MCP servers, and agent systems explained.
+---
+
 # AI Technologies - Technical Deep Dive & Architecture
 
 **Version:** 1.0

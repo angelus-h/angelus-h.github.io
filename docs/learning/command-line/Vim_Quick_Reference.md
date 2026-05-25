@@ -1,3 +1,7 @@
+---
+description: Vim quick reference - modal editing, navigation, text manipulation, commands, visual mode, search, replace, and configuration essentials.
+---
+
 # Vim Quick Reference
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: Artistic philosophy of fine art printing - mindset, wall display design, organic digital aesthetic, portfolio curation, and exhibition preparation.
+---
+
 # Fine Art Print Philosophy Reference
 
 ## Overview

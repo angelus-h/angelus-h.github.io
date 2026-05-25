@@ -1,3 +1,7 @@
+---
+description: Slack automation week 1 - workspace setup, incoming webhooks, message formatting, and CI/CD notification integration.
+---
+
 # Slack Week 1: Basics + Webhooks
 
 ## Goal

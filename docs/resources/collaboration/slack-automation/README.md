@@ -1,3 +1,7 @@
+---
+description: Slack automation learning plan - webhooks, slash commands, bot development, CI/CD integration, and intelligent notification workflows.
+---
+
 # Slack Automation & Workflow Optimization - 3 Weeks
 
 ## Context

@@ -1,3 +1,7 @@
+---
+description: Prometheus quick reference - architecture, service discovery, PromQL, alerting, Kubernetes integration, and production deployment.
+---
+
 # Prometheus Complete Quick Reference
 
 **Target Audience:** DevOps Engineers, SREs, Platform Engineers, System Administrators

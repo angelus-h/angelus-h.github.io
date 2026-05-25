@@ -1,3 +1,7 @@
+---
+description: Mermaid diagrams comprehensive guide - flowcharts, sequence diagrams, class diagrams, state machines, ER diagrams, and Gantt charts in Markdown.
+---
+
 # Mermaid Diagrams - Comprehensive Learning Plan
 
 ## Table of Contents

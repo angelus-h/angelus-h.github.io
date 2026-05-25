@@ -1,3 +1,7 @@
+---
+description: GPG quick reference - email encryption, file encryption, digital signatures, key management, Git commit signing, and secure storage.
+---
+
 # GPG (GnuPG) Quick Reference
 
 ## Overview

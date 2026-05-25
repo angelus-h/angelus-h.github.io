@@ -1,3 +1,7 @@
+---
+description: AWS quick reference guide - key services, free tier usage, EC2, S3, RDS, Lambda, VPC, IAM, and Terraform integration for cloud infrastructure.
+---
+
 # AWS Quick Reference
 
 ## Goals

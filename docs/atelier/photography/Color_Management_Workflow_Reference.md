@@ -1,3 +1,7 @@
+---
+description: Complete color-managed workflow from capture to print - ICC profiles, monitor calibration, soft proofing, and systematic testing for predictable results.
+---
+
 # Color Management & Print Workflow Reference
 
 ## Overview
@@ -590,10 +594,10 @@ Some papers "scale up" better than others—texture visibility and impact change
 
 ## Related References
 
-- **[Print_Foundations_Reference.md](Print_Foundations_Reference.md)** - Tonal basics for print
-- **[Paper_and_Materials_Reference.md](Paper_and_Materials_Reference.md)** - Paper ICC profiles and characteristics
-- **[Print_Editing_Techniques_Reference.md](Print_Editing_Techniques_Reference.md)** - Print-specific adjustments
-- **[Fine_Art_Print_Philosophy_Reference.md](Fine_Art_Print_Philosophy_Reference.md)** - Iterative refinement mindset
+- **[Print_Foundations_Reference.md](fine-art-printing/Print_Foundations_Reference.md)** - Tonal basics for print
+- **[Paper_and_Materials_Reference.md](fine-art-printing/Paper_and_Materials_Reference.md)** - Paper ICC profiles and characteristics
+- **[Print_Editing_Techniques_Reference.md](fine-art-printing/Print_Editing_Techniques_Reference.md)** - Print-specific adjustments
+- **[Fine_Art_Print_Philosophy_Reference.md](fine-art-printing/Fine_Art_Print_Philosophy_Reference.md)** - Iterative refinement mindset
 
 ---
 

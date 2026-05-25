@@ -1,3 +1,7 @@
+---
+description: Python SRE interview prep - operational scripting, parsing, API calls, system automation, and live coding practice for SRE roles.
+---
+
 # Python for SRE - Interview Preparation
 
 **Goal:** Prepare for live coding interviews for SRE positions 

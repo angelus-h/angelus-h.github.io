@@ -1,3 +1,7 @@
+---
+description: GNU screen quick reference - terminal multiplexer, session management, detach/reattach, persistent SSH sessions, and window commands.
+---
+
 # screen Quick Reference
 
 ## Overview

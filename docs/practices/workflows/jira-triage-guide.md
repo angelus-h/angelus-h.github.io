@@ -1,3 +1,7 @@
+---
+description: Jira ticket triage guide - 5-question framework, severity vs priority, impact assessment, IC shifts, and backlog grooming workflows.
+---
+
 # Jira Ticket Triage - Practical Guide with Examples 
 
 **Version:** 1.0

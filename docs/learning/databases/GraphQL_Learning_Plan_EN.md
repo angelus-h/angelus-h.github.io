@@ -1,3 +1,7 @@
+---
+description: GraphQL quick reference - schema design, queries, mutations, subscriptions, resolvers, Apollo, and production best practices.
+---
+
 # GraphQL Quick Reference
 
 **Target Audience:** Backend Developers, Frontend Developers, Full-Stack Engineers, API Designers

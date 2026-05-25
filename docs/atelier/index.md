@@ -17,12 +17,12 @@ A creative studio for visual arts, analog photography, and handcrafted technique
 - **Darkroom & Printing Techniques**: Chemical processing, printing, and fine art reproduction
  - [Cyanotype Printing Reference](photography/Cyanotype_Printing_Reference.md) - Comprehensive field guide for cyanotype printing covering chemistry, coating, exposure, toning, and archival practice
  - [Salt Print Reference](photography/Salt_Print_Reference.md) - Historical salt printing process guide
- - [Print Foundations Reference](photography/Print_Foundations_Reference.md) - Fundamental darkroom printing techniques
- - [Tonal Control Reference](photography/Tonal_Control_Reference.md) - Exposure and development control for tonal range
- - [Print Editing Techniques Reference](photography/Print_Editing_Techniques_Reference.md) - Advanced dodging, burning, and localized control
- - [Paper and Materials Reference](photography/Paper_and_Materials_Reference.md) - Darkroom papers, chemistry, and materials guide
- - [Fine Art Print Philosophy Reference](photography/Fine_Art_Print_Philosophy_Reference.md) - Aesthetic and conceptual approaches to fine art printing
- - [Fine Art Print Resources](photography/Fine_Art_Print_Resources.md) - Resources for fine art print production
+ - [Print Foundations Reference](photography/fine-art-printing/Print_Foundations_Reference.md) - Fundamental darkroom printing techniques
+ - [Tonal Control Reference](photography/fine-art-printing/Tonal_Control_Reference.md) - Exposure and development control for tonal range
+ - [Print Editing Techniques Reference](photography/fine-art-printing/Print_Editing_Techniques_Reference.md) - Advanced dodging, burning, and localized control
+ - [Paper and Materials Reference](photography/fine-art-printing/Paper_and_Materials_Reference.md) - Darkroom papers, chemistry, and materials guide
+ - [Fine Art Print Philosophy Reference](photography/fine-art-printing/Fine_Art_Print_Philosophy_Reference.md) - Aesthetic and conceptual approaches to fine art printing
+ - [Fine Art Print Resources](photography/fine-art-printing/Fine_Art_Print_Resources.md) - Resources for fine art print production
 - **Digital Photography & Scanning**: Composition, lighting, and post-processing
  - [RawTherapee Migration Guide](photography/RawTherapee_Migration_Guide.md) - Migrating from proprietary RAW processors
  - [SilverFast Professional Guide](photography/SilverFast_Professional_Guide.md) - Professional film scanning workflow

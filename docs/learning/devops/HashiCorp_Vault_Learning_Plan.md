@@ -1,3 +1,7 @@
+---
+description: HashiCorp Vault secrets management - architecture, authentication, secret engines, policies, Kubernetes integration, and production HA setup.
+---
+
 # Learning Plan: HashiCorp Vault Secrets Management
 
 ## Learning Objectives

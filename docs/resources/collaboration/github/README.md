@@ -1,3 +1,7 @@
+---
+description: GitHub learning plan - 3-week structured course covering pull requests, GitHub Actions, code review, API automation, and open source workflows.
+---
+
 # GitHub Learning Plan - 3 Weeks
 
 ## Context

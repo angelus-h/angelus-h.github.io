@@ -1,3 +1,7 @@
+---
+description: Kanban essential guide - visual workflow management, WIP limits, flow optimization, board design, and continuous improvement principles.
+---
+
 # Kanban Essential Guide (English)
 
 **Target Audience:** Development Teams, Operations Teams, Support Teams, Project Managers, Any team wanting to visualize work

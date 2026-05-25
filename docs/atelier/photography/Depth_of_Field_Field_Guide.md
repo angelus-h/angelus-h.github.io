@@ -1,3 +1,7 @@
+---
+description: Practical DoF reference for 35mm and 120 medium format film - calculations, hyperfocal distance, and field estimation techniques.
+---
+
 # Depth of Field Field Guide - Practical Reference for Film Photography
 
 **Purpose:** Quick reference for calculating and estimating depth of field in the field 

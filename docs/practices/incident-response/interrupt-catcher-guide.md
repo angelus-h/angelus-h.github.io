@@ -1,3 +1,7 @@
+---
+description: SRE Interrupt Catcher role guide - on-call rotation, incident handling, alert triage, escalation procedures, and team protection workflows.
+---
+
 # SRE Team Interrupt Catcher (IC) Role Guide
 
 ## What is the Interrupt Catcher (IC)?

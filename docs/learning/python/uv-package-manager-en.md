@@ -1,3 +1,7 @@
+---
+description: UV Python package manager learning plan - fast Rust-based alternative to pip, virtual environments, dependency management, and project workflows.
+---
+
 # UV - Modern Python Package Manager - Learning Plan
 
 ## Overview

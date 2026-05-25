@@ -1,3 +1,7 @@
+---
+description: Complete guide to fine art printing papers - surface types, cotton rag vs RC, baryta characteristics, paper selection, and material impact on image perception.
+---
+
 # Paper and Materials Reference
 
 ## Overview
@@ -450,7 +454,7 @@ Independent testing of print permanence:
 
 - **[Print_Foundations_Reference.md](Print_Foundations_Reference.md)** - Tonal range and paper capabilities
 - **[Tonal_Control_Reference.md](Tonal_Control_Reference.md)** - Microcontrast and paper surface interaction
-- **[Color_Management_Workflow_Reference.md](Color_Management_Workflow_Reference.md)** - ICC profiles for different papers
+- **[Color_Management_Workflow_Reference.md](../Color_Management_Workflow_Reference.md)** - ICC profiles for different papers
 - **[Fine_Art_Print_Philosophy_Reference.md](Fine_Art_Print_Philosophy_Reference.md)** - Material awareness in fine art
 
 ---

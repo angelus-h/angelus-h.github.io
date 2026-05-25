@@ -1,3 +1,7 @@
+---
+description: Advanced tonal control for fine art prints - highlight rolloff, shadow separation, microcontrast mastery, and natural analog-feeling rendering.
+---
+
 # Tonal Control Reference
 
 ## Overview

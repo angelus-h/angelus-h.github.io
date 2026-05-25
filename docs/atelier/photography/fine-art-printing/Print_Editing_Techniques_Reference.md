@@ -1,3 +1,7 @@
+---
+description: Print-specific editing workflows - two-pass strategy, dodge and burn techniques, local adjustments, and creating dimensional three-dimensional fine art prints.
+---
+
 # Print Editing Techniques Reference
 
 ## Overview
@@ -585,7 +589,7 @@ Isolate subject in busy composition via selective darkening (burn down distracti
 
 - **[Print_Foundations_Reference.md](Print_Foundations_Reference.md)** - Tonal basics, screen vs. print differences
 - **[Tonal_Control_Reference.md](Tonal_Control_Reference.md)** - Highlight/shadow control, microcontrast
-- **[Color_Management_Workflow_Reference.md](Color_Management_Workflow_Reference.md)** - Iterative testing workflow
+- **[Color_Management_Workflow_Reference.md](../Color_Management_Workflow_Reference.md)** - Iterative testing workflow
 - **[Fine_Art_Print_Philosophy_Reference.md](Fine_Art_Print_Philosophy_Reference.md)** - Print-first mindset
 
 ---

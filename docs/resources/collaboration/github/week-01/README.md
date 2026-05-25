@@ -1,3 +1,7 @@
+---
+description: GitHub fundamentals week 1 - account setup, repositories, pull requests, code review, forking, and open source contribution workflow.
+---
+
 # GitHub Week 1: Fundamentals + PR Workflow
 
 ## Goal

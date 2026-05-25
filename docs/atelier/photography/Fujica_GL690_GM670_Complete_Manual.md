@@ -1,3 +1,7 @@
+---
+description: Complete manual for Fujica GL690/GM670 medium format rangefinder - technical specs, operation, lens system, and professional photography workflows.
+---
+
 # Fujica GL690 / GM670 Professional - Complete Reference Manual
 
 **Camera Type:** Professional Medium Format Rangefinder 

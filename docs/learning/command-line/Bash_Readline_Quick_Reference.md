@@ -1,3 +1,7 @@
+---
+description: Bash readline quick reference - keyboard shortcuts for command-line navigation, editing, history, and efficient terminal workflows.
+---
+
 # Bash Readline Quick Reference
 
 ## Overview

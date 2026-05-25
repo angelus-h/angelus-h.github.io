@@ -1,3 +1,7 @@
+---
+description: Slack workflow optimization week 3 - alert aggregation, noise reduction, advanced patterns, GitOps integration, and production deployment.
+---
+
 # Slack Week 3: Workflow Optimization & Advanced Patterns
 
 ## Goal

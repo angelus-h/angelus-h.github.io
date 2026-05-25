@@ -1,3 +1,7 @@
+---
+description: GCP quick reference - Compute Engine, Cloud Storage, GKE, networking, free tier usage, and Terraform integration for Google Cloud infrastructure.
+---
+
 # Google Cloud Platform (GCP) Quick Reference
 
 ## Goals

@@ -1,3 +1,7 @@
+---
+description: Agile and Scrum essential guide - sprints, ceremonies, roles, backlog management, retrospectives, and iterative development workflows.
+---
+
 # Agile & Scrum Essential Guide (English)
 
 **Target Audience:** Development Teams, Project Managers, Product Owners, Scrum Masters, Team Leaders

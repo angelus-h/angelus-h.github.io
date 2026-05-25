@@ -1,3 +1,7 @@
+---
+description: tmux quick reference - terminal multiplexer, session persistence, panes, windows, key bindings, and remote server workflows.
+---
+
 # tmux Quick Reference
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: Slack bot development week 2 - Bolt framework, Web API, OAuth, interactive components, slash commands, and event-driven workflows.
+---
+
 # Slack Week 2: Slack API + Bot Development
 
 ## Goal

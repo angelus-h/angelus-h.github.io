@@ -1,3 +1,7 @@
+---
+description: Complete guide to using Claude effectively - LLM fundamentals, prompt engineering, context management, and advanced techniques for developers.
+---
+
 # Learning Plan: Using Claude Effectively
 
 ## Learning Objectives

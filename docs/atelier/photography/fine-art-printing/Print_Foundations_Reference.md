@@ -1,3 +1,7 @@
+---
+description: Fundamental concepts for fine art printing - screen vs print differences, tonal systems, natural rendering, and film-like character in digital prints.
+---
+
 # Print Foundations Reference
 
 ## Overview

@@ -1,3 +1,7 @@
+---
+description: Apache Kafka quick reference - distributed streaming, topics, producers, consumers, partitions, replication, and event-driven architecture.
+---
+
 # Apache Kafka Quick Reference
 
 ## What is Kafka?

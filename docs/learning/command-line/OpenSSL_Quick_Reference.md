@@ -1,3 +1,7 @@
+---
+description: OpenSSL quick reference - SSL/TLS certificates, key generation, encryption, hashing, digital signatures, and network connection testing.
+---
+
 # OpenSSL Quick Reference
 
 ## Overview

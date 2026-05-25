@@ -1,3 +1,7 @@
+---
+description: ITIL 4 essential guide - IT service management, incident management, change control, service value chain, and best practices.
+---
+
 # ITIL 4 Essential Guide (English)
 
 **Target Audience:** IT Service Management professionals, DevOps Engineers, SREs, IT Managers, Support Teams

@@ -1,3 +1,7 @@
+---
+description: GitLab learning plan - 3-week course covering merge requests, CI/CD pipelines, webhooks, API automation, and advanced collaboration workflows.
+---
+
 # GitLab Learning Plan - 3 Weeks
 
 ## Context

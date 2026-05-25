@@ -1,3 +1,7 @@
+---
+description: MongoDB practical guide - CRUD operations, data modeling, aggregation pipeline, indexing, replication, and cluster setup.
+---
+
 # MongoDB Learning Plan - Practical Guide
 
 **Created:** 2026-03-09

@@ -1,3 +1,7 @@
+---
+description: PromQL quick reference - query fundamentals, aggregation, functions, rate calculations, alerting, and real-world monitoring patterns.
+---
+
 # PromQL Quick Reference
 
 **Target Audience:** DevOps Engineers, SREs, Platform Engineers

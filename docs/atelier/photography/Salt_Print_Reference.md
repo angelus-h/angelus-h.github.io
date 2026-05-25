@@ -1,3 +1,7 @@
+---
+description: Complete guide to salted paper printing - Talbot's 1839 photographic process covering chemistry, coating, UV exposure, toning, and archival processing.
+---
+
 # Salt Print Reference
 
 ## What Salt Printing Is

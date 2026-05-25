@@ -1,3 +1,7 @@
+---
+description: Effective and responsible AI use - Claude Code, Cursor, ChatGPT best practices while maintaining critical thinking and learning skills.
+---
+
 # AI Effective and Responsible Use Guide
 
 **Version:** 1.0

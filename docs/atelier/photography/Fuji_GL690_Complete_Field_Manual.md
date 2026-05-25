@@ -1,3 +1,7 @@
+---
+description: Expert field manual for Fuji GL690/G690/GM670 medium format rangefinder - technical operation, lens system, exposure workflow, and field techniques.
+---
+
 # The Fuji GL690 / G690 / GM670 System: A Comprehensive Field Manual
 
 ## Preface: The Camera That Demands Your Full Attention

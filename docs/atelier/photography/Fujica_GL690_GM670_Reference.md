@@ -1,3 +1,7 @@
+---
+description: Quick reference for Fujica GL690/GM670 medium format rangefinder - key features, technical specs, and operational essentials.
+---
+
 # Fujica GL690 / GM670 Professional Reference
 
 **Camera Type:** Medium Format Rangefinder 

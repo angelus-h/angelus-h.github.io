@@ -1,3 +1,7 @@
+---
+description: Android light meter apps for film photography - comparison, testing methodology, and recommendations for Samsung Galaxy S24 Ultra.
+---
+
 # Light Meter Apps for Android - Samsung Galaxy S24 Ultra Guide
 
 **Purpose:** Guide to using Android smartphone as a light meter for film photography 

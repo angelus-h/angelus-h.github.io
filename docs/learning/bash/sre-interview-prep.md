@@ -1,3 +1,7 @@
+---
+description: Bash interview preparation for SRE roles - operational scripting, system administration, automation, and live coding practice.
+---
+
 # Bash for SRE - Interview Preparation
 
 **Goal:** Prepare for live scripting interviews for SRE positions 

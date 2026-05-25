@@ -168,9 +168,9 @@
 ```
  Pipeline Failed: build-service
 
-Pipeline: konflux-build-123
+Pipeline: platform-build-123
 Commit: abc123 (fix: update deps)
-Author: mgreczi
+Author: demo_user
 Duration: 5m 32s
 
 [View Logs] [Rerun Pipeline] [View PR]

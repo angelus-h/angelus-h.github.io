@@ -821,6 +821,64 @@
 
 ---
 
+## Reciprocity Failure Characteristics
+
+**What is reciprocity failure?**
+At very long exposures (typically >1 second), the reciprocal relationship between aperture and shutter speed breaks down. Film becomes less sensitive, requiring additional exposure beyond what a meter indicates.
+
+**Critical for:**
+- Long exposures (landscape, night photography)
+- Astrophotography
+- Low-light architecture
+- Any exposure >1 second
+
+### Reciprocity Correction Table
+
+**Source:** Manufacturer datasheets ([Kodak E-31](https://125px.com/docs/techpubs/kodak/e31-2002_07.pdf), [Ilford technical data](https://www.ilfordphoto.com/technical-downloads/))
+
+| Film | Reciprocity Threshold | Measured 1s | Measured 10s | Measured 100s | Notes |
+|------|----------------------|-------------|--------------|---------------|-------|
+| **Ilford HP5 Plus** | >0.5s | +0.5s (1.5s) | +40s (50s) | — | Up to 1/2s: no correction needed |
+| **Ilford FP4 Plus** | >1s | +1s (2s) | +20s (30s) | — | Minimal correction needed <10s |
+| **Ilford Pan F Plus** | >1s | +1s (2s) | +30s (40s) | — | Similar to FP4+ |
+| **Kodak Tri-X 400** | >0.9s | +1s (2s) | +50s (60s) | — | Reciprocity kicks in ~1s |
+| **Kodak T-Max 100/400** | >1s | +2s (3s) | +60s (70s) | — | T-grain technology has better reciprocity |
+| **Fomapan 100/400** | >1s | ~+1s | ~+30s | — | Conservative estimates; test recommended |
+| **Kodak Portra 400** | >1s | +1.5s (2.5s) | +45s (55s) | — | Color negative, relatively forgiving |
+| **Kodak Ektar 100** | >1s | +2s (3s) | +80s (90s) | — | Requires significant correction >10s |
+| **Fuji Provia 100F** | >2s | +4s (6s) | +2 stops | +3 stops | Slide film: critical accuracy needed |
+| **Fuji Velvia 50** | >4s | +1 stop | +2.5 stops | +3.5 stops | Extremely sensitive to reciprocity |
+
+**How to use this table:**
+1. Meter the scene and note the indicated shutter speed (e.g., 10 seconds)
+2. Find your film in the table
+3. Use the corrected exposure time (e.g., HP5+ @ 10s measured → 50s actual)
+
+**Important notes:**
+- Color shifts may occur in color films during long exposures (especially slide films)
+- Some films (notably Ilford Delta series) have improved reciprocity characteristics not listed here
+- Always bracket exposures for critical work (±1 stop minimum)
+- Consult manufacturer datasheets for exact reciprocity curves
+- Digital meters do NOT account for reciprocity failure (manual correction required)
+
+**Recommended practice for long exposures:**
+1. Use bulb mode (B) with locking cable release
+2. Calculate corrected time using table above
+3. Bracket: shoot corrected time, +1 stop, +2 stops
+4. Keep exposure notes (critical for learning your film's behavior)
+
+**Modern film reciprocity improvements:**
+- Ilford Delta series: improved reciprocity over HP5+/FP4+
+- Kodak T-Max series: better reciprocity than Tri-X
+- Fomapan: limited official data; user testing recommended
+
+**For ultra-long exposures (>100s):**
+- Consult film-specific datasheets
+- Consider development compensation (N-1 processing)
+- Some films become impractical beyond certain thresholds (Velvia >120s)
+
+---
+
 ## Film vs Digital ISO Equivalency
 
 **Film ISO is NOT the same as digital ISO:**

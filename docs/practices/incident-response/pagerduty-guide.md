@@ -46,7 +46,7 @@
 - Incident analytics and reporting
 
 **Access:**
-- **URL:** https://redhat.pagerduty.com
+- **URL:** https://company.pagerduty.com
 - **Authentication:** Company SSO
 - **Mobile App:** iOS/Android for on-call engineers
 
@@ -256,7 +256,7 @@ Escalation Policy notifies On-Call Engineer
 
 **Setup:**
 1. Service → Add Integration → Email
-2. Get unique email address: `service-xyz@redhat.pagerduty.com`
+2. Get unique email address: `service-xyz@company.pagerduty.com`
 3. Configure monitoring tool to send alerts to that email
 
 **Email Parsing:**
@@ -474,7 +474,7 @@ Override: Bob covers Alice's shift
 **Actions:**
 1. **Add Responders:** Notify team lead, manager
 2. **Create Conference Bridge:** Auto-create Zoom link
-3. **Send Slack Message:** Post to #konflux-incidents channel
+3. **Send Slack Message:** Post to #platform-incidents channel
 4. **Create Jira Ticket:** Auto-create incident ticket
 5. **Send Status Page Update:** Notify customers (if applicable)
 
@@ -508,7 +508,7 @@ Override: Bob covers Alice's shift
 **Service Settings:**
 ```
 Service: Platform API Server
-Runbook URL: https://wiki.redhat.com/konflux-api-runbooks
+Runbook URL: https://wiki.company.com/platform-api-runbooks
 ```
 
 **Incident Screen Shows:**
@@ -744,12 +744,12 @@ Level 2: SRE Manager (5 min, after-hours critical alerts)
 - Bidirectional sync: Updates in Jira reflect in PagerDuty
 
 **Slack Integration:**
-- Incident notifications to #konflux-incidents, #spre-alerts
+- Incident notifications to #platform-incidents, #spre-alerts
 - Acknowledge/resolve incidents from Slack
 
 ### Company SSO
 
-**Login:** https://redhat.pagerduty.com
+**Login:** https://company.pagerduty.com
 
 **Authentication:** Company corporate SSO
 
@@ -1016,7 +1016,7 @@ Examples:
 ### Next Steps
 
 **Beginner:**
-1. Log into PagerDuty (https://redhat.pagerduty.com)
+1. Log into PagerDuty (https://company.pagerduty.com)
 2. View your team's services
 3. Check on-call schedule
 4. Acknowledge a test incident

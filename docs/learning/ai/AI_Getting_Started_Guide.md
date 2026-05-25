@@ -599,7 +599,7 @@ Time spent: 10 minutes
 If you're comfortable using AI for basic tasks:
 
 1. **Deeper Prompt Engineering:**
- - `/home/mgreczi/learning-plans/Using_Claude_Effectively.md`
+ - `/home/user/learning-plans/Using_Claude_Effectively.md`
  - Chain of Thought, Few-Shot Learning
 
 2. **Specialized AI Tools:**

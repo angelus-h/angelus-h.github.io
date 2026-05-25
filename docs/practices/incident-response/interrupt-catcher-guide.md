@@ -8,13 +8,13 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 - **Follow The Sun (FTS)**: Business hours coverage (NASA and EMEA shifts)
 - **Primary Oncall**: 24/7 weekly rotation (30-minute response time for critical alerts)
 - **PagerDuty Schedules**:
- - FTS: https://redhat.pagerduty.com/schedules#PQ022DV
- - Primary: https://redhat.pagerduty.com/schedules#PHS3079
+ - FTS: https://company.pagerduty.com/schedules#SCHEDULE-ID-1
+ - Primary: https://company.pagerduty.com/schedules#SCHEDULE-ID-2
 
 **Slack Handles:**
-- `@sre-team-ic` - Interrupt Catcher
-- `@sre-team-oncall` - 24/7 Oncall
-- `@sre-team-onboarding-ic` - Onboarding support (separate rotation)
+- `@team-ic` - Interrupt Catcher
+- `@team-oncall` - 24/7 Oncall
+- `@team-onboarding-ic` - Onboarding support (separate rotation)
 
 ---
 
@@ -24,7 +24,7 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 **What is this?**
 - `critical` or `critical-fts` severity alerts via PagerDuty
-- Slack channel: `#sd-sre-team-oncall`
+- Slack channel: `#team-channel-oncall`
 
 **What to do:**
 1. **Respond immediately** - This is the highest priority, everything else can wait!
@@ -47,7 +47,7 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 ### 2. Production User-Reported Issues
 
 **Where?**
-- Slack channel: `#sd-sre-team`
+- Slack channel: `#team-channel`
 
 **Types of issues:**
 - User reports production problem but there's no alert
@@ -72,10 +72,10 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 ### 3. App-Interface Merge Request Reviews
 
 **Dashboards:**
-- [Merge Queue](https://gitlab.cee.redhat.com/service/app-interface-output/-/blob/master/app-interface-merge-queue.md)
-- [Review Queue](https://gitlab.cee.redhat.com/service/app-interface-output/-/blob/master/app-interface-review-queue.md)
-- [InScope Review Queue](https://inscope.corp.redhat.com/app-interface/review-queue)
-- [InScope Merge Queue](https://inscope.corp.redhat.com/app-interface/merge-queue)
+- [Merge Queue](https://gitlab.company.com/service/app-interface-output/-/blob/master/app-interface-merge-queue.md)
+- [Review Queue](https://gitlab.company.com/service/app-interface-output/-/blob/master/app-interface-review-queue.md)
+- [InScope Review Queue](https://tools.company.com/app-interface/review-queue)
+- [InScope Merge Queue](https://tools.company.com/app-interface/merge-queue)
 
 **SLO:**
 - **3 hours** review time target
@@ -123,7 +123,7 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 ---
 
-### 4b. User Questions (#sd-sre-team)
+### 4b. User Questions (#team-channel)
 
 **Types of questions:**
 - How do I do X in app-interface?
@@ -131,15 +131,15 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 **Important exceptions:**
 1. **If app status is `InProgress`:**
- - Redirect → `#sd-sre-team-onboarding` channel
+ - Redirect → `#team-channel-onboarding` channel
 2. **If OSD cluster question:**
  - If not app-interface managed → Redirect to `#forum-rosa-support`
 
 **What to do:**
 - Answer if you can
 - Use documentation:
- - [Developer Guidelines](https://gitlab.cee.redhat.com/service/dev-guidelines)
- - [App-Interface FAQ](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/FAQ.md)
+ - [Developer Guidelines](https://gitlab.company.com/service/dev-guidelines)
+ - [App-Interface FAQ](https://gitlab.company.com/service/app-interface/-/blob/master/FAQ.md)
 - If you can't answer → Escalate or create ASIC ticket
 
 **Community Support:**
@@ -148,9 +148,9 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 ---
 
-### 5. High Alerts (#sd-sre-team-alert)
+### 5. High Alerts (#team-channel-alert)
 
-**Slack Channel:** `#sd-sre-team-alert`
+**Slack Channel:** `#team-channel-alert`
 
 **Not urgent**, but keep an eye on them!
 
@@ -165,7 +165,7 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
  - If yes → Create ASIC ticket
 
 **IMPORTANT - Channel Maintenance:**
-- **The IC is responsible for maintaining the `#sd-sre-team-alert` channel!**
+- **The IC is responsible for maintaining the `#team-channel-alert` channel!**
 - If you detect a flappy alert:
  - Downgrade severity → `medium`
  - Notify tenant to fix it
@@ -185,7 +185,7 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 ```
 [INFO] [DRY-RUN] [renderer.py:process_template:301] - diff for template xxx...
 ```
-- Check open MRs: [Template MR Filter](https://gitlab.cee.redhat.com/service/app-interface/-/merge_requests/?label_name%5B%5D=template-output)
+- Check open MRs: [Template MR Filter](https://gitlab.company.com/service/app-interface/-/merge_requests/?label_name%5B%5D=template-output)
 - If uncertain → Ask the person who could merge it
 
 #### Unused Resources in SaaS Files
@@ -199,24 +199,24 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 ---
 
-## Web-RCA Service Handling
+## Incident Tracking Tool Service Handling
 
-### What is Web-RCA?
+### What is Incident Tracking Tool?
 
-**Web-RCA** is an incident tracking tool that allows anyone at Company to create **RCAs (Root Cause Analysis)** / incident reports.
+**Incident Tracking Tool** is an incident tracking tool that allows anyone at Company to create **RCAs (Root Cause Analysis)** / incident reports.
 
 **Service Info:**
 - **Owner:** SD OPS Dev team
-- **Email:** sd-ops-services-dev@redhat.com
+- **Email:** team-dev@company.com
 - **Slack Escalation:** `@status-board`
 
 **Environments:**
-- **Stage:** https://web-rca.stage.devshift.net
-- **Production:** https://web-rca.devshift.net
+- **Stage:** https://incident-tracker-stage.company.com
+- **Production:** https://incident-tracker.company.com
 
-**Architecture Doc:** https://gitlab.cee.redhat.com/service/web-rca/-/blob/main/docs/architecture.md
+**Architecture Doc:** https://gitlab.company.com/service/incident-tracker/-/blob/main/docs/architecture.md
 
-**Grafana Dashboard:** https://grafana.sre-team.devshift.net/d/_7_Ul_07k/web-rca?orgId=1
+**Grafana Dashboard:** https://grafana.company.com/d/_7_Ul_07k/incident-tracker?orgId=1
 
 ---
 
@@ -229,34 +229,34 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 ---
 
-### Web-RCA Incident Handling
+### Incident Tracking Tool Incident Handling
 
-#### 1. Web-RCA Production Down
+#### 1. Incident Tracking Tool Production Down
 
 **Severity:** High
 
 **Impact:**
-- WebRCA UI down: https://web-rca.devshift.net/
+- Incident Tracking Tool UI down: https://incident-tracker.company.com/
 
 **Access Required:**
 - View access to prod cluster
-- Namespace: `web-rca-production`
+- Namespace: `incident-tracker-production`
 
 **Steps:**
 1. **Confirm pod health:**
  ```bash
- oc get pods -n web-rca-production
+ oc get pods -n incident-tracker-production
  ```
- Console: https://console-openshift-console.apps.rosa.appsrep11ue1.tgem.p3.openshiftapps.com/k8s/ns/web-rca-production/pods
+ Console: https://console.openshift.company.com/k8s/ns/incident-tracker-production/pods
 
 2. **Check service status:**
  ```bash
- oc get svc -n web-rca-production
+ oc get svc -n incident-tracker-production
  ```
 
 3. **Optionally try to restart pods:**
  ```bash
- oc delete pod <pod-name> -n web-rca-production
+ oc delete pod <pod-name> -n incident-tracker-production
  ```
  - Pod will be re-created from deployment
 
@@ -264,17 +264,17 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 **Escalation:**
 - Ping `@status-board` on Slack
-- Email: sd-ops-services-dev@redhat.com
+- Email: team-dev@company.com
 
 **Escalation Policy:**
-- File: `/teams/sd-ops-dev/escalation-policies/web-rca.yml`
+- File: `/teams/sd-ops-dev/escalation-policies/incident-tracker.yml`
 - **Note:** "This service is in stage only. Escalate only via the slack channel and e-mail."
 - **Escalate after:** 1 hour of down-time
 - **Do NOT start manager escalation**
 
 ---
 
-#### 2. Web-RCA Low Availability (High 5xx Errors)
+#### 2. Incident Tracking Tool Low Availability (High 5xx Errors)
 
 **Severity:** High
 
@@ -288,23 +288,23 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 **Steps:**
 
 1. **Login to console and verify pods:**
- - Stage: https://console-openshift-console.apps.sre-team-stage-0.k3s7.p1.openshiftapps.com/k8s/ns/web-rca-stage/pods
- - Production: https://console-openshift-console.apps.rosa.appsrep11ue1.tgem.p3.openshiftapps.com/k8s/ns/web-rca-production/pods
+ - Stage: https://console.openshift.company.com/k8s/ns/incident-tracker-stage/pods
+ - Production: https://console.openshift.company.com/k8s/ns/incident-tracker-production/pods
 
 2. **Check pod status:**
  ```bash
- oc get pods -n web-rca-production
- oc describe pod <pod-name> -n web-rca-production
+ oc get pods -n incident-tracker-production
+ oc describe pod <pod-name> -n incident-tracker-production
  ```
 
 3. **Check pod logs:**
  ```bash
- oc logs <pod-name> -n web-rca-production --tail=100
+ oc logs <pod-name> -n incident-tracker-production --tail=100
  ```
 
 4. **Check for OOM (Out of Memory):**
  ```bash
- oc describe pod <pod-name> -n web-rca-production | grep -i oom
+ oc describe pod <pod-name> -n incident-tracker-production | grep -i oom
  ```
 
 5. **Optionally:**
@@ -317,7 +317,7 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 ---
 
-#### 3. Web-RCA High Latency (p99 > 1 second)
+#### 3. Incident Tracking Tool High Latency (p99 > 1 second)
 
 **Severity:** Medium
 
@@ -330,28 +330,28 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 2. Check database performance (RDS)
 3. Check pod resource usage:
  ```bash
- oc top pods -n web-rca-production
+ oc top pods -n incident-tracker-production
  ```
 4. Scale horizontally if needed
 5. Escalate to SD OPS Dev if persistent
 
 ---
 
-### Web-RCA Additional Resources
+### Incident Tracking Tool Additional Resources
 
 **Repository Locations:**
-- **API:** https://gitlab.cee.redhat.com/service/web-rca
-- **UI:** https://gitlab.cee.redhat.com/service/web-rca-ui
-- **Ansible Integration:** https://gitlab.cee.redhat.com/sd-ops-services-dev/web-rca-ansible
-- **Incident Summarizer:** https://github.com/RedHatInsights/web-rca-incident-summarizer
+- **API:** https://gitlab.company.com/service/incident-tracker
+- **UI:** https://gitlab.company.com/service/incident-tracker-ui
+- **Ansible Integration:** https://gitlab.company.com/sd-ops-services-dev/incident-tracker-ansible
+- **Incident Summarizer:** https://github.com/company-tools/incident-summarizer
 
 **SOP Documentation:**
-- **Location:** `/home/mgreczi/repos/app-interface/docs/tenant-services/web-rca/sops/`
+- **Location:** `/home/user/repos/app-interface/docs/tenant-services/incident-tracker/sops/`
 - Files:
- - `web-rca-production-down.md`
- - `web-rca-stage-down.md`
- - `web-rca-availability.md`
- - `web-rca-latency.md`
+ - `incident-tracker-production-down.md`
+ - `incident-tracker-stage-down.md`
+ - `incident-tracker-availability.md`
+ - `incident-tracker-latency.md`
  - `disaster-recovery.md`
  - `load-testing.md`
 
@@ -367,10 +367,10 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 ### Pipeline RCA Process
 
-**Documentation Location:** https://spaces.redhat.com/display/SP/Pipeline+RCA+Process (SAML protected)
+**Documentation Location:** https://confluence.company.com/display/SP/Pipeline+RCA+Process (SAML protected)
 
 **RCA Template in JIRA:**
-- Location: `/home/mgreczi/repos/catalog/templates/jira/recent-incident-rca-description.j2`
+- Location: `/home/user/repos/catalog/templates/jira/recent-incident-rca-description.j2`
 
 **Sections:**
 1. **Summary** - What problems occurred?
@@ -389,7 +389,7 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 ## Handover Process
 
-**Slack Channel:** `#sd-sre-team-handover`
+**Slack Channel:** `#team-channel-handover`
 
 **Timing:** End of shift (Slack reminder configured)
 
@@ -398,7 +398,7 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
  - "Working on X incident, next IC should monitor Y"
 2. **Helpful information:**
  - "Many MRs in queue, didn't have time to review"
- - "Open tenant request in #sd-sre-team about Z"
+ - "Open tenant request in #team-channel about Z"
 3. **If nothing:**
  - "There are no issues to handover."
 
@@ -422,29 +422,29 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 ## Resources & Quick Links
 
 ### Slack Channels
-- `#sd-sre-team` - Main support channel
-- `#sd-sre-team-oncall` - Critical alerts
-- `#sd-sre-team-alert` - High severity alerts
-- `#sd-sre-team-teamchat` - Team chat (ask for help here!)
-- `#sd-sre-team-handover` - IC handover
-- `#sd-sre-team-onboarding` - Onboarding support
+- `#team-channel` - Main support channel
+- `#team-channel-oncall` - Critical alerts
+- `#team-channel-alert` - High severity alerts
+- `#team-channel-teamchat` - Team chat (ask for help here!)
+- `#team-channel-handover` - IC handover
+- `#team-channel-onboarding` - Onboarding support
 
 ### Dashboards
-- [Merge Queue](https://inscope.corp.redhat.com/app-interface/merge-queue)
-- [Review Queue](https://inscope.corp.redhat.com/app-interface/review-queue)
-- [Self-Service Review Queue](https://inscope.corp.redhat.com/app-interface/self-serviceable)
+- [Merge Queue](https://tools.company.com/app-interface/merge-queue)
+- [Review Queue](https://tools.company.com/app-interface/review-queue)
+- [Self-Service Review Queue](https://tools.company.com/app-interface/self-serviceable)
 - [ASIC JIRA Board](https://jira.company.com/projects/ASIC/issues/)
 - [Onboarding JIRA Board](https://jira.company.com/secure/Dashboard.jspa?selectPageId=12341197)
 
 ### Documentation
 - [Incident Process](/docs/sre-team/incident-process.md)
-- [App-Interface FAQ](https://gitlab.cee.redhat.com/service/app-interface/-/blob/master/FAQ.md)
-- [Developer Guidelines](https://gitlab.cee.redhat.com/service/dev-guidelines)
-- [AAA - Anthology of App-SRE Axioms](https://gitlab.cee.redhat.com/service/app-interface/blob/master/docs/sre-team/AAA.md)
+- [App-Interface FAQ](https://gitlab.company.com/service/app-interface/-/blob/master/FAQ.md)
+- [Developer Guidelines](https://gitlab.company.com/service/dev-guidelines)
+- [AAA - Anthology of App-SRE Axioms](https://gitlab.company.com/service/app-interface/blob/master/docs/sre-team/AAA.md)
 
 ### PagerDuty
-- [Follow The Sun Schedule](https://redhat.pagerduty.com/schedules#PQ022DV)
-- [Primary Oncall Schedule](https://redhat.pagerduty.com/schedules#PHS3079)
+- [Follow The Sun Schedule](https://company.pagerduty.com/schedules#SCHEDULE-ID-1)
+- [Primary Oncall Schedule](https://company.pagerduty.com/schedules#SCHEDULE-ID-2)
 
 ---
 
@@ -452,7 +452,7 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 ### 1. Ask for Help!
 - IC work is intense and requires context switching
-- If overwhelmed → Ask in `#sd-sre-team-teamchat`
+- If overwhelmed → Ask in `#team-channel-teamchat`
 - Team members can jump in for MRs, alerts, etc.
 
 ### 2. Prioritize by SLO
@@ -490,19 +490,19 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
  ↓
  Major impact? → Declare incident
  ↓
- Need help? → Ask in #sd-sre-team-teamchat
+ Need help? → Ask in #team-channel-teamchat
  ↓
  Still blocked? → Manager escalation (PagerDuty)
 
-2. Web-RCA Down
+2. Incident Tracking Tool Down
  ↓
- Check pods → oc get pods -n web-rca-production
+ Check pods → oc get pods -n incident-tracker-production
  ↓
  Restart pod if needed
  ↓
  Still down after 1 hour? → Ping @status-board
  ↓
- NO manager escalation for Web-RCA!
+ NO manager escalation for Incident Tracking Tool!
 ```
 
 ---
@@ -518,15 +518,15 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 **During Shift:**
 - [ ] Respond to critical alerts immediately
-- [ ] Monitor #sd-sre-team for production issues
+- [ ] Monitor #team-channel for production issues
 - [ ] Review MRs (target 3 hours)
 - [ ] Triage ASIC tickets
 - [ ] Answer user questions
-- [ ] Monitor high alerts in #sd-sre-team-alert
+- [ ] Monitor high alerts in #team-channel-alert
 - [ ] Clean up looping integrations
 
 **Shift End:**
-- [ ] Write handover in #sd-sre-team-handover
+- [ ] Write handover in #team-channel-handover
 - [ ] Unassign ASIC tickets
 - [ ] Notify next IC of any ongoing issues
 

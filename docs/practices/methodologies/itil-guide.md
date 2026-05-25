@@ -742,7 +742,7 @@ Application "E-commerce Website"
 **Practical Application:**
 
 ### Incident Management
-- **Tool:** Jira (KFLUXINFRA tickets), PagerDuty alerts
+- **Tool:** Jira (INFRA tickets), PagerDuty alerts
 - **Process:** Alert → Investigate → Mitigate → Resolve → Post-mortem
 - **Roles:** On-call SRE, incident commander, subject matter experts
 

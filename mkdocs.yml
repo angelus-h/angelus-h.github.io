@@ -9,6 +9,7 @@ repo_url: https://github.com/angelus-h/angelus-h.github.io
 
 theme:
   name: material
+  custom_dir: docs/overrides
 
   # Logo and favicon
   logo: assets/angel.jpg
@@ -76,6 +77,8 @@ nav:
               - Python SRE Interview Prep: learning/python/sre-interview-prep.md
               - Python UV Package Manager: learning/python/uv-package-manager-en.md
               - Python Development Tools: learning/python/dev-tools.md
+              - Flask Learning Plan: learning/python/Flask_Learning_Plan.md
+              - Django Learning Plan: learning/python/Django_Learning_Plan.md
           - Bash:
               - Bash Interview Preparation: learning/bash/sre-interview-prep.md
               - Bash Sed Quick Reference: learning/bash/sed-quick-reference.md
@@ -83,6 +86,7 @@ nav:
       - AI & Automation:
           - AI Fundamentals:
               - AI Getting Started Guide: learning/ai/AI_Getting_Started_Guide.md
+              - Machine Learning Fundamentals: learning/ai/Machine_Learning_Fundamentals.md
               - LLM Architecture Deep Dive: learning/ai/technical-deep-dive.md
               - AI Effective & Responsible Use: learning/ai/AI_Effective_Responsible_Use_Guide.md
           - Practical AI Tools:
@@ -141,6 +145,7 @@ nav:
       - Professional Development:
           - Boundary Setting Guide: practices/professional-development/boundary-setting-guide.md
           - Work Acceptance Checklist: practices/professional-development/work-acceptance-checklist.md
+          - Probation Success Strategy: practices/professional-development/probation-success-strategy.md
       # Development Workflows: Git, Code Review
       # Team Leadership: Mentoring, 1-on-1s
 
@@ -157,6 +162,8 @@ nav:
               - Marp Presentations Guide: learning/technical-writing/Marp_Markdown_Presentations_Guide.md
           - Documentation Tools:
               - MkDocs Static Site Guide: learning/technical-writing/MkDocs_GitLab_Pages_Guide.md
+          - Web Publishing:
+              - SEO Optimization Guide: learning/technical-writing/SEO_Optimization_Guide.md
       - Command-Line Tools:
           - Editors & Shell:
               - Vim Quick Reference: learning/command-line/Vim_Quick_Reference.md
@@ -188,24 +195,33 @@ nav:
       - Overview: atelier/index.md
       - Photography:
           - Camera & Optics:
+              - Fuji GL690 Complete Field Manual: atelier/photography/Fuji_GL690_Complete_Field_Manual.md
               - Fujica GL690/GM670 Manual: atelier/photography/Fujica_GL690_GM670_Complete_Manual.md
               - Fujica GL690/GM670 Lenses: atelier/photography/Fujica_GL690_GM670_Lens_Reference.md
+              - Fujica GL690/GM670 Reference: atelier/photography/Fujica_GL690_GM670_Reference.md
               - Depth of Field Field Guide: atelier/photography/Depth_of_Field_Field_Guide.md
           - Film & Materials:
               - Film Stock Reference Guide: atelier/photography/Film_Stock_Reference_Guide.md
+              - Reciprocity Failure Field Guide: atelier/photography/Reciprocity_Failure_Field_Guide.md
+              - Film Developing Chemistry Reference: atelier/photography/Film_Developing_Chemistry_Reference.md
               - Historical Photography Processes: atelier/photography/Historical_Photography_Processes_Lexicon.md
               - Photography Filter Reference: atelier/photography/Photography_Filter_Reference.md
+          - Landscape & Atmospheric:
+              - Weather & Atmospheric Field Guide: atelier/photography/Photographers_Weather_Atmospheric_Field_Guide.md
           - Digital Processing:
               - RawTherapee Migration Guide: atelier/photography/RawTherapee_Migration_Guide.md
               - SilverFast Professional Guide: atelier/photography/SilverFast_Professional_Guide.md
               - Color Management Workflow: atelier/photography/Color_Management_Workflow_Reference.md
           - Fine Art Printing:
-              - Print Foundations: atelier/photography/Print_Foundations_Reference.md
-              - Tonal Control: atelier/photography/Tonal_Control_Reference.md
-              - Paper and Materials: atelier/photography/Paper_and_Materials_Reference.md
-              - Print Editing Techniques: atelier/photography/Print_Editing_Techniques_Reference.md
-              - Philosophy and Mindset: atelier/photography/Fine_Art_Print_Philosophy_Reference.md
-              - Resources and Tools: atelier/photography/Fine_Art_Print_Resources.md
+              - Silver Gelatin Darkroom Printing: atelier/photography/fine-art-printing/Silver_Gelatin_Darkroom_Printing_Reference.md
+              - Cyanotype Printing Reference: atelier/photography/Cyanotype_Printing_Reference.md
+              - Salt Print Reference: atelier/photography/Salt_Print_Reference.md
+              - Print Foundations: atelier/photography/fine-art-printing/Print_Foundations_Reference.md
+              - Tonal Control: atelier/photography/fine-art-printing/Tonal_Control_Reference.md
+              - Paper and Materials: atelier/photography/fine-art-printing/Paper_and_Materials_Reference.md
+              - Print Editing Techniques: atelier/photography/fine-art-printing/Print_Editing_Techniques_Reference.md
+              - Philosophy and Mindset: atelier/photography/fine-art-printing/Fine_Art_Print_Philosophy_Reference.md
+              - Resources and Tools: atelier/photography/fine-art-printing/Fine_Art_Print_Resources.md
       # Printmaking & Crafts: Alternative Processes
       # Fine Art: Composition, Color Theory
       # Tools & Materials: Cameras, Chemicals, Studio
@@ -285,6 +301,12 @@ plugins:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - tags:
       tags_file: tags.md
+  - meta-descriptions:
+      export_csv: false
+      quiet: false
+      enable_checks: true
+      min_length: 50
+      max_length: 160
 
 # Extra configuration
 extra:

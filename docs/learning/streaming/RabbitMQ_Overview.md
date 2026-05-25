@@ -1450,16 +1450,16 @@ Tekton Event → RabbitMQ Exchange (topic) → Queues (notification, metrics, au
 
 ```python
 # Declare topic exchange
-channel.exchange_declare(exchange='konflux.events', exchange_type='topic')
+channel.exchange_declare(exchange='platform.events', exchange_type='topic')
 
 # Bind queues
-channel.queue_bind(exchange='konflux.events', queue='notifications', routing_key='pipeline.*.failed')
-channel.queue_bind(exchange='konflux.events', queue='metrics', routing_key='pipeline.#')
-channel.queue_bind(exchange='konflux.events', queue='audit', routing_key='#')
+channel.queue_bind(exchange='platform.events', queue='notifications', routing_key='pipeline.*.failed')
+channel.queue_bind(exchange='platform.events', queue='metrics', routing_key='pipeline.#')
+channel.queue_bind(exchange='platform.events', queue='audit', routing_key='#')
 
 # Publish pipeline event
 channel.basic_publish(
- exchange='konflux.events',
+ exchange='platform.events',
  routing_key='pipeline.build.failed',
  body=json.dumps({
  'pipeline': 'my-app-build',

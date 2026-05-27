@@ -1,3 +1,7 @@
+---
+description: GPG quick reference - email encryption, file encryption, digital signatures, key management, Git commit signing, and secure storage.
+---
+
 # GPG (GnuPG) Quick Reference
 
 ## Overview
@@ -434,8 +438,8 @@ kubeseal --fetch-cert > sealed-secrets-pub.pem
 
 # Encrypt secret
 echo -n "my-secret-password" | kubectl create secret generic my-secret \
- --dry-run=client --from-file=password=/dev/stdin -o yaml | \
- kubeseal -o yaml > sealed-secret.yaml
+--dry-run=client --from-file=password=/dev/stdin -o yaml | \
+kubeseal -o yaml > sealed-secret.yaml
 
 # Apply
 kubectl apply -f sealed-secret.yaml

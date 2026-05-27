@@ -12,10 +12,10 @@
 2. [Quick Start: Try It Now!](#quick-start-try-it-now)
 3. [Why NotebookLM is Essential](#why-notebooklm-is-essential)
 4. [Getting Started](#getting-started)
- - [Step 1: Access NotebookLM](#step-1-access-notebooklm)
- - [Step 2: Create Your First Notebook](#step-2-create-your-first-notebook)
- - [Step 3: Add Sources](#step-3-add-sources)
- - [Step 4: Try the Team Knowledge Base (Team Resource)](#step-4-try-the-platform-user-advisor-team-resource)
+- [Step 1: Access NotebookLM](#step-1-access-notebooklm)
+- [Step 2: Create Your First Notebook](#step-2-create-your-first-notebook)
+- [Step 3: Add Sources](#step-3-add-sources)
+- [Step 4: Try the Team Knowledge Base (Team Resource)](#step-4-try-the-platform-user-advisor-team-resource)
 5. [Core Features](#core-features)
 6. [Use Cases for Everyone](#use-cases-for-everyone)
 7. [Use Cases for New Hires](#use-cases-for-new-hires)
@@ -156,10 +156,10 @@ We have a **shared team notebook** ready to use - no setup required:
 ```
 1. Click "+ Sources" in your notebook
 2. Choose source type:
- - Upload PDF/TXT
- - Paste text
- - Link Google Doc
- - Enter URL
+- Upload PDF/TXT
+- Paste text
+- Link Google Doc
+- Enter URL
 3. Wait for processing (few seconds)
 4. Start asking questions!
 ```
@@ -190,10 +190,10 @@ We have a **shared team notebook** ready to use - no setup required:
 1. Click the link above (anyone can access)
 2. Click "Open in NotebookLM"
 3. Start asking questions:
- - "What is Platform?"
- - "How do I create a new pipeline?"
- - "How to troubleshoot a failed build?"
- - "What are the deployment stages?"
+- "What is Platform?"
+- "How do I create a new pipeline?"
+- "How to troubleshoot a failed build?"
+- "What are the deployment stages?"
 4. Use as reference or copy to your own notebook
 ```
 
@@ -207,11 +207,11 @@ We have a **shared team notebook** ready to use - no setup required:
 **Pro Tip for New Hires:**
 ```
 Day 1: Start with Team Knowledge Base
- → Get immediate answers to basic questions
+→ Get immediate answers to basic questions
 
 Day 2+: Create your own "My Platform Learning" notebook
- → Add task-specific docs as you work
- → Build personalized knowledge base
+→ Add task-specific docs as you work
+→ Build personalized knowledge base
 ```
 
 **Team Maintenance:**
@@ -399,18 +399,18 @@ Time saved: 1.5+ hours
 ```
 1. Create notebook: "JIRA-1234 Investigation"
 2. Add sources:
- - Copy-paste ticket description
- - Copy-paste all comments
- - Link related Confluence pages
- - Upload relevant code snippets
+- Copy-paste ticket description
+- Copy-paste all comments
+- Link related Confluence pages
+- Upload relevant code snippets
 3. Ask questions:
- - "What is the root cause mentioned?"
- - "Who suggested the fix?"
- - "What was tried already?"
- - "Are there related tickets?"
+- "What is the root cause mentioned?"
+- "Who suggested the fix?"
+- "What was tried already?"
+- "Are there related tickets?"
 4. Generate summary:
- - "Summarize the current status"
- - "List all attempted solutions"
+- "Summarize the current status"
+- "List all attempted solutions"
 ```
 
 **Benefit:** See the big picture instead of reading 50 comments chronologically.
@@ -426,14 +426,14 @@ Time saved: 1.5+ hours
 ```
 1. Create notebook: "Q1 Architecture Review Prep"
 2. Add sources:
- - Meeting agenda (Google Doc)
- - Design proposals (PDFs)
- - Previous meeting notes
+- Meeting agenda (Google Doc)
+- Design proposals (PDFs)
+- Previous meeting notes
 3. Ask NotebookLM:
- - "What are the main discussion topics?"
- - "What decisions need to be made?"
- - "What are the open questions?"
- - "Summarize each proposal"
+- "What are the main discussion topics?"
+- "What decisions need to be made?"
+- "What are the open questions?"
+- "Summarize each proposal"
 4. Create your own prep notes
 5. Export to bring to meeting
 ```
@@ -451,14 +451,14 @@ Time saved: 1.5+ hours
 ```
 1. Create notebook: "Kubernetes Learning"
 2. Add sources:
- - Official Kubernetes docs (URLs)
- - Tutorial PDFs
- - Blog posts you found
- - Your own notes from experiments
+- Official Kubernetes docs (URLs)
+- Tutorial PDFs
+- Blog posts you found
+- Your own notes from experiments
 3. Ask questions as you learn:
- - "What is a Pod?"
- - "Difference between Deployment and StatefulSet?"
- - "How does service discovery work?"
+- "What is a Pod?"
+- "Difference between Deployment and StatefulSet?"
+- "How does service discovery work?"
 4. Build knowledge incrementally
 5. Review chat history to reinforce learning
 ```
@@ -476,13 +476,13 @@ Time saved: 1.5+ hours
 ```
 1. Open pre-created notebook: "Production System Docs"
 2. Sources already loaded:
- - Architecture diagrams
- - Runbooks
- - Previous postmortems
+- Architecture diagrams
+- Runbooks
+- Previous postmortems
 3. Rapid Q&A during incident:
- - "Where are the database backups?"
- - "How to rollback deployment?"
- - "Who is the DRI for component X?"
+- "Where are the database backups?"
+- "How to rollback deployment?"
+- "Who is the DRI for component X?"
 4. No time wasted searching documentation
 ```
 
@@ -501,10 +501,10 @@ Time saved: 1.5+ hours
 ```
 Morning (First 30 minutes):
 1. Try the team's shared notebook first:
- → Open Team Knowledge Base
- → [Contact your team for shared notebook link]
- → Ask: "What is Platform?" and "What should I learn first?"
- → Get immediate orientation
+→ Open Team Knowledge Base
+→ [Contact your team for shared notebook link]
+→ Ask: "What is Platform?" and "What should I learn first?"
+→ Get immediate orientation
 
 Morning (Rest of day):
 2. Create your personal notebook: "My Onboarding"
@@ -514,9 +514,9 @@ Morning (Rest of day):
 
 Afternoon:
 6. Ask specific questions as you read:
- - "What is RHTAP?" (answer instantly)
- - "What's the difference between staging and production?"
- - "Who do I contact for X?"
+- "What is RHTAP?" (answer instantly)
+- "What's the difference between staging and production?"
+- "Who do I contact for X?"
 ```
 
 **Outcome:** Feel oriented, not overwhelmed.
@@ -582,12 +582,12 @@ For each task:
 ```
 1. Create notebook: "Onboarding Improvements"
 2. Add sources:
- - Current onboarding docs
- - Your notes on confusing parts
- - Gaps you discovered
+- Current onboarding docs
+- Your notes on confusing parts
+- Gaps you discovered
 3. Ask NotebookLM:
- - "What information is missing for new hires?"
- - "What concepts need better explanation?"
+- "What information is missing for new hires?"
+- "What concepts need better explanation?"
 4. Write improved documentation
 5. Share with team
 ```
@@ -770,18 +770,18 @@ AI: [Troubleshooting guide]
 **Good Sharing Use Cases:**
 
 ```
- Shared team runbook notebook
- Project-specific investigation notebook
- Onboarding notebook for all new hires
- Incident response playbooks
+Shared team runbook notebook
+Project-specific investigation notebook
+Onboarding notebook for all new hires
+Incident response playbooks
 ```
 
 **Don't Share:**
 
 ```
- Personal learning notes (unless you want to)
- Sensitive information (credentials, private data)
- Work-in-progress messy notes
+Personal learning notes (unless you want to)
+Sensitive information (credentials, private data)
+Work-in-progress messy notes
 ```
 
 ---
@@ -818,7 +818,7 @@ A: [Flow explanation with diagram references]
 Day 1 Afternoon: Generate Audio Overview, listen during lunch
 
 Day 2: Ask specific questions about each component
- Deep dive on areas relevant to her first task
+Deep dive on areas relevant to her first task
 
 Result: Basic understanding in 1 day, deep knowledge by day 3
 ```
@@ -877,19 +877,19 @@ Result: Complete understanding in 10 minutes
 ```
 1. Upload both documents to notebook
 2. Ask: "What is being proposed?"
- [Get 3-paragraph summary]
+[Get 3-paragraph summary]
 
 3. Ask: "What are the main tradeoffs discussed?"
- [See pros/cons of approach]
+[See pros/cons of approach]
 
 4. Ask: "What decisions need to be made?"
- [Understand meeting goals]
+[Understand meeting goals]
 
 5. Ask: "What concerns are raised in the appendix?"
- [Spot technical issues]
+[Spot technical issues]
 
 6. Create note: "My questions for the meeting"
- - Based on gaps or unclear areas
+- Based on gaps or unclear areas
 
 Result: Walk into meeting prepared, contribute meaningfully
 ```
@@ -915,9 +915,9 @@ Result: Walk into meeting prepared, contribute meaningfully
 ```
 1. Create notebook: "Learning Kubernetes StatefulSets"
 2. Add sources:
- - Official K8s docs on StatefulSets (URL)
- - Tutorial PDF
- - Your team's existing StatefulSet YAMLs (paste)
+- Official K8s docs on StatefulSets (URL)
+- Tutorial PDF
+- Your team's existing StatefulSet YAMLs (paste)
 3. Ask questions specific to your task:
 
 Q: "What is a StatefulSet and when to use it?"
@@ -958,7 +958,7 @@ Result: Learn general concept AND specific usage in 30 minutes
 ```python
 # Don't just paste code
 def my_function():
- pass
+pass
 
 # Add context as comments
 """
@@ -968,8 +968,8 @@ RELATED: See authentication.md for flow diagram
 """
 
 def generate_token(user_id: str) -> str:
- # Token generation logic
- pass
+# Token generation logic
+pass
 ```
 
 **Why:** AI gives better answers when it understands context.
@@ -1003,9 +1003,9 @@ Template questions to ask for any new codebase:
 2. Add meeting agenda as source
 3. Take notes in the notebook
 4. After meeting, ask NotebookLM:
- - "Summarize key decisions"
- - "List action items"
- - "What topics need follow-up?"
+- "Summarize key decisions"
+- "List action items"
+- "What topics need follow-up?"
 5. Export summary to share with team
 ```
 
@@ -1091,19 +1091,19 @@ Use as instant lookup tool
 **When to Use Each:**
 
 ```
- NotebookLM:
+NotebookLM:
 - Understanding documentation
 - Research and learning
 - Meeting preparation
 - Jira ticket analysis
 
- Claude Code:
+Claude Code:
 - Writing/editing code
 - File operations
 - Git workflows
 - Automation scripts
 
- ChatGPT:
+ChatGPT:
 - General questions
 - Brainstorming
 - Quick lookups
@@ -1133,7 +1133,7 @@ You: [Spend 2 hours reading all 47 pages]
 NotebookLM:
 Query: "How does the deployment pipeline work?"
 Result: "The deployment pipeline consists of 5 stages...
- [detailed answer citing 3 specific pages]"
+[detailed answer citing 3 specific pages]"
 You: [Read answer in 2 minutes, click citations if need details]
 ```
 
@@ -1149,7 +1149,7 @@ You: [Read answer in 2 minutes, click citations if need details]
 
 ```
 [ ] Try the shared Team Knowledge Base notebook first
- → [Contact your team for shared notebook link]
+→ [Contact your team for shared notebook link]
 [ ] Sign up at notebooklm.google.com
 [ ] Create your first personal notebook
 [ ] Add 3-5 sources
@@ -1276,7 +1276,7 @@ Pre-create runbook notebook → Add all runbooks → During incident: rapid Q&A
 **Day 1:**
 ```
 [ ] Try Team Knowledge Base first (shared team notebook)
- [Contact your team for shared notebook link]
+[Contact your team for shared notebook link]
 [ ] Create "My Onboarding" notebook (your personal one)
 [ ] Add all docs from manager
 [ ] Ask: "What should I focus on first?"
@@ -1306,9 +1306,9 @@ Pre-create runbook notebook → Add all runbooks → During incident: rapid Q&A
 
 ```
 [ ] Create specialized notebooks:
- - "Coding Standards"
- - "Debugging Guides"
- - "Team Processes"
+- "Coding Standards"
+- "Debugging Guides"
+- "Team Processes"
 [ ] Add READMEs, runbooks, wiki pages
 [ ] Start asking "how" and "why" questions
 [ ] Take summary notes after each learning session

@@ -45,14 +45,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hello, Flask!'
+return 'Hello, Flask!'
 
 @app.route('/user/<username>')
 def show_user(username):
-    return f'Hello, {username}!'
+return f'Hello, {username}!'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+app.run(debug=True)
 ```
 
 **Exercise 1.1:**
@@ -68,23 +68,23 @@ app = Flask(__name__)
 
 @app.route('/api/health')
 def health():
-    return jsonify({"status": "healthy"})
+return jsonify({"status": "healthy"})
 
 @app.route('/api/version')
 def version():
-    return jsonify({"version": "1.0.0"})
+return jsonify({"version": "1.0.0"})
 
 @app.route('/api/user/<int:user_id>')
 def get_user(user_id):
-    # Mock data
-    users = {
-        1: {"user_id": 1, "name": "demo_user", "role": "SRE"},
-        2: {"user_id": 2, "name": "Alice", "role": "Developer"}
-    }
-    return jsonify(users.get(user_id, {"error": "User not found"}))
+# Mock data
+users = {
+1: {"user_id": 1, "name": "demo_user", "role": "SRE"},
+2: {"user_id": 2, "name": "Alice", "role": "Developer"}
+}
+return jsonify(users.get(user_id, {"error": "User not found"}))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+app.run(debug=True)
 ```
 
 **Testing:**
@@ -109,33 +109,33 @@ tasks = []
 
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
-    return jsonify(tasks)
+return jsonify(tasks)
 
 @app.route('/tasks', methods=['POST'])
 def create_task():
-    data = request.get_json()
-    task = {
-        'id': len(tasks) + 1,
-        'title': data.get('title'),
-        'completed': False
-    }
-    tasks.append(task)
-    return jsonify(task), 201
+data = request.get_json()
+task = {
+'id': len(tasks) + 1,
+'title': data.get('title'),
+'completed': False
+}
+tasks.append(task)
+return jsonify(task), 201
 
 @app.route('/tasks/<int:task_id>', methods=['PUT'])
 def update_task(task_id):
-    data = request.get_json()
-    for task in tasks:
-        if task['id'] == task_id:
-            task['completed'] = data.get('completed', task['completed'])
-            return jsonify(task)
-    return jsonify({'error': 'Task not found'}), 404
+data = request.get_json()
+for task in tasks:
+if task['id'] == task_id:
+task['completed'] = data.get('completed', task['completed'])
+return jsonify(task)
+return jsonify({'error': 'Task not found'}), 404
 
 @app.route('/tasks/<int:task_id>', methods=['DELETE'])
 def delete_task(task_id):
-    global tasks
-    tasks = [t for t in tasks if t['id'] != task_id]
-    return '', 204
+global tasks
+tasks = [t for t in tasks if t['id'] != task_id]
+return '', 204
 ```
 
 **Exercise 1.2:**
@@ -159,74 +159,74 @@ task_id_counter = 1
 
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
-    completed = request.args.get('completed')
-    if completed is not None:
-        completed_bool = completed.lower() == 'true'
-        filtered = [t for t in tasks if t['completed'] == completed_bool]
-        return jsonify(filtered)
-    return jsonify(tasks)
+completed = request.args.get('completed')
+if completed is not None:
+completed_bool = completed.lower() == 'true'
+filtered = [t for t in tasks if t['completed'] == completed_bool]
+return jsonify(filtered)
+return jsonify(tasks)
 
 @app.route('/tasks/<int:task_id>', methods=['GET'])
 def get_task(task_id):
-    task = next((t for t in tasks if t['id'] == task_id), None)
-    if task:
-        return jsonify(task)
-    return jsonify({'error': 'Task not found'}), 404
+task = next((t for t in tasks if t['id'] == task_id), None)
+if task:
+return jsonify(task)
+return jsonify({'error': 'Task not found'}), 404
 
 @app.route('/tasks', methods=['POST'])
 def create_task():
-    global task_id_counter
-    data = request.get_json()
+global task_id_counter
+data = request.get_json()
 
-    if not data or 'title' not in data:
-        return jsonify({'error': 'Title required'}), 400
+if not data or 'title' not in data:
+return jsonify({'error': 'Title required'}), 400
 
-    task = {
-        'id': task_id_counter,
-        'title': data['title'],
-        'description': data.get('description', ''),
-        'completed': False
-    }
-    tasks.append(task)
-    task_id_counter += 1
-    return jsonify(task), 201
+task = {
+'id': task_id_counter,
+'title': data['title'],
+'description': data.get('description', ''),
+'completed': False
+}
+tasks.append(task)
+task_id_counter += 1
+return jsonify(task), 201
 
 @app.route('/tasks/<int:task_id>', methods=['PUT'])
 def update_task(task_id):
-    task = next((t for t in tasks if t['id'] == task_id), None)
-    if not task:
-        return jsonify({'error': 'Task not found'}), 404
+task = next((t for t in tasks if t['id'] == task_id), None)
+if not task:
+return jsonify({'error': 'Task not found'}), 404
 
-    data = request.get_json()
-    task['title'] = data.get('title', task['title'])
-    task['description'] = data.get('description', task['description'])
-    task['completed'] = data.get('completed', task['completed'])
-    return jsonify(task)
+data = request.get_json()
+task['title'] = data.get('title', task['title'])
+task['description'] = data.get('description', task['description'])
+task['completed'] = data.get('completed', task['completed'])
+return jsonify(task)
 
 @app.route('/tasks/<int:task_id>', methods=['DELETE'])
 def delete_task(task_id):
-    global tasks
-    tasks = [t for t in tasks if t['id'] != task_id]
-    return '', 204
+global tasks
+tasks = [t for t in tasks if t['id'] != task_id]
+return '', 204
 
 if __name__ == '__main__':
-    app.run(debug=True)
+app.run(debug=True)
 ```
 
 **Testing:**
 ```bash
 # Create
 curl -X POST http://localhost:5000/tasks \
-  -H "Content-Type: application/json" \
-  -d '{"title": "Learn Flask", "description": "Complete tutorial"}'
+-H "Content-Type: application/json" \
+-d '{"title": "Learn Flask", "description": "Complete tutorial"}'
 
 # List
 curl http://localhost:5000/tasks
 
 # Update
 curl -X PUT http://localhost:5000/tasks/1 \
-  -H "Content-Type: application/json" \
-  -d '{"completed": true}'
+-H "Content-Type: application/json" \
+-d '{"completed": true}'
 
 # Filter
 curl http://localhost:5000/tasks?completed=true
@@ -248,11 +248,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    tasks = [
-        {'id': 1, 'title': 'Learn Flask', 'completed': False},
-        {'id': 2, 'title': 'Build API', 'completed': True}
-    ]
-    return render_template('index.html', tasks=tasks)
+tasks = [
+{'id': 1, 'title': 'Learn Flask', 'completed': False},
+{'id': 2, 'title': 'Build API', 'completed': True}
+]
+return render_template('index.html', tasks=tasks)
 ```
 
 ```html
@@ -260,18 +260,18 @@ def index():
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Task Manager</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<title>Task Manager</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>My Tasks</h1>
-    <ul>
-    {% for task in tasks %}
-        <li class="{% if task.completed %}completed{% endif %}">
-            {{ task.title }}
-        </li>
-    {% endfor %}
-    </ul>
+<h1>My Tasks</h1>
+<ul>
+{% for task in tasks %}
+<li class="{% if task.completed %}completed{% endif %}">
+{{ task.title }}
+</li>
+{% endfor %}
+</ul>
 </body>
 </html>
 ```
@@ -279,14 +279,14 @@ def index():
 ```css
 /* static/style.css */
 body {
-    font-family: Arial, sans-serif;
-    max-width: 600px;
-    margin: 50px auto;
+font-family: Arial, sans-serif;
+max-width: 600px;
+margin: 50px auto;
 }
 
 .completed {
-    text-decoration: line-through;
-    color: gray;
+text-decoration: line-through;
+color: gray;
 }
 ```
 
@@ -303,9 +303,9 @@ File structure:
 flask-task-app/
 ├── app.py
 ├── templates/
-│   └── tasks.html
+│  └── tasks.html
 └── static/
-    └── style.css
+└── style.css
 ```
 
 ---
@@ -332,40 +332,40 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class Task(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.Text)
-    completed = db.Column(db.Boolean, default=False)
-    created_at = db.Column(db.DateTime, default=db.func.now())
+id = db.Column(db.Integer, primary_key=True)
+title = db.Column(db.String(100), nullable=False)
+description = db.Column(db.Text)
+completed = db.Column(db.Boolean, default=False)
+created_at = db.Column(db.DateTime, default=db.func.now())
 
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'title': self.title,
-            'description': self.description,
-            'completed': self.completed,
-            'created_at': self.created_at.isoformat()
-        }
+def to_dict(self):
+return {
+'id': self.id,
+'title': self.title,
+'description': self.description,
+'completed': self.completed,
+'created_at': self.created_at.isoformat()
+}
 
 # Create tables
 with app.app_context():
-    db.create_all()
+db.create_all()
 
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
-    tasks = Task.query.all()
-    return jsonify([task.to_dict() for task in tasks])
+tasks = Task.query.all()
+return jsonify([task.to_dict() for task in tasks])
 
 @app.route('/tasks', methods=['POST'])
 def create_task():
-    data = request.get_json()
-    task = Task(
-        title=data['title'],
-        description=data.get('description', '')
-    )
-    db.session.add(task)
-    db.session.commit()
-    return jsonify(task.to_dict()), 201
+data = request.get_json()
+task = Task(
+title=data['title'],
+description=data.get('description', '')
+)
+db.session.add(task)
+db.session.commit()
+return jsonify(task.to_dict()), 201
 ```
 
 **Exercise 2.1:**
@@ -393,164 +393,164 @@ db = SQLAlchemy(app)
 
 # Models
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), unique=True, nullable=False)
-    email = db.Column(db.String(100), unique=True, nullable=False)
-    role = db.Column(db.String(20), default='developer')
-    tasks = db.relationship('Task', backref='assigned_user', lazy=True)
+id = db.Column(db.Integer, primary_key=True)
+username = db.Column(db.String(50), unique=True, nullable=False)
+email = db.Column(db.String(100), unique=True, nullable=False)
+role = db.Column(db.String(20), default='developer')
+tasks = db.relationship('Task', backref='assigned_user', lazy=True)
 
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'username': self.username,
-            'email': self.email,
-            'role': self.role
-        }
+def to_dict(self):
+return {
+'id': self.id,
+'username': self.username,
+'email': self.email,
+'role': self.role
+}
 
 class Project(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.Text)
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    tasks = db.relationship('Task', backref='project', lazy=True, cascade='all, delete-orphan')
+id = db.Column(db.Integer, primary_key=True)
+name = db.Column(db.String(100), nullable=False)
+description = db.Column(db.Text)
+created_at = db.Column(db.DateTime, default=datetime.utcnow)
+tasks = db.relationship('Task', backref='project', lazy=True, cascade='all, delete-orphan')
 
-    def to_dict(self, include_tasks=False):
-        result = {
-            'id': self.id,
-            'name': self.name,
-            'description': self.description,
-            'created_at': self.created_at.isoformat()
-        }
-        if include_tasks:
-            result['tasks'] = [task.to_dict() for task in self.tasks]
-        return result
+def to_dict(self, include_tasks=False):
+result = {
+'id': self.id,
+'name': self.name,
+'description': self.description,
+'created_at': self.created_at.isoformat()
+}
+if include_tasks:
+result['tasks'] = [task.to_dict() for task in self.tasks]
+return result
 
 class Task(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    description = db.Column(db.Text)
-    completed = db.Column(db.Boolean, default=False)
-    project_id = db.Column(db.Integer, db.ForeignKey('project.id'), nullable=False)
-    assigned_to = db.Column(db.Integer, db.ForeignKey('user.id'))
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+id = db.Column(db.Integer, primary_key=True)
+title = db.Column(db.String(100), nullable=False)
+description = db.Column(db.Text)
+completed = db.Column(db.Boolean, default=False)
+project_id = db.Column(db.Integer, db.ForeignKey('project.id'), nullable=False)
+assigned_to = db.Column(db.Integer, db.ForeignKey('user.id'))
+created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'title': self.title,
-            'description': self.description,
-            'completed': self.completed,
-            'project_id': self.project_id,
-            'assigned_to': self.assigned_to,
-            'created_at': self.created_at.isoformat()
-        }
+def to_dict(self):
+return {
+'id': self.id,
+'title': self.title,
+'description': self.description,
+'completed': self.completed,
+'project_id': self.project_id,
+'assigned_to': self.assigned_to,
+'created_at': self.created_at.isoformat()
+}
 
 # Initialize DB
 with app.app_context():
-    db.create_all()
+db.create_all()
 
 # User endpoints
 @app.route('/users', methods=['GET', 'POST'])
 def users():
-    if request.method == 'POST':
-        data = request.get_json()
-        user = User(
-            username=data['username'],
-            email=data['email'],
-            role=data.get('role', 'developer')
-        )
-        db.session.add(user)
-        db.session.commit()
-        return jsonify(user.to_dict()), 201
+if request.method == 'POST':
+data = request.get_json()
+user = User(
+username=data['username'],
+email=data['email'],
+role=data.get('role', 'developer')
+)
+db.session.add(user)
+db.session.commit()
+return jsonify(user.to_dict()), 201
 
-    users = User.query.all()
-    return jsonify([u.to_dict() for u in users])
+users = User.query.all()
+return jsonify([u.to_dict() for u in users])
 
 @app.route('/users/<int:user_id>/tasks')
 def user_tasks(user_id):
-    user = User.query.get_or_404(user_id)
-    return jsonify([task.to_dict() for task in user.tasks])
+user = User.query.get_or_404(user_id)
+return jsonify([task.to_dict() for task in user.tasks])
 
 # Project endpoints
 @app.route('/projects', methods=['GET', 'POST'])
 def projects():
-    if request.method == 'POST':
-        data = request.get_json()
-        project = Project(
-            name=data['name'],
-            description=data.get('description', '')
-        )
-        db.session.add(project)
-        db.session.commit()
-        return jsonify(project.to_dict()), 201
+if request.method == 'POST':
+data = request.get_json()
+project = Project(
+name=data['name'],
+description=data.get('description', '')
+)
+db.session.add(project)
+db.session.commit()
+return jsonify(project.to_dict()), 201
 
-    projects = Project.query.all()
-    return jsonify([p.to_dict() for p in projects])
+projects = Project.query.all()
+return jsonify([p.to_dict() for p in projects])
 
 @app.route('/projects/<int:project_id>')
 def get_project(project_id):
-    project = Project.query.get_or_404(project_id)
-    return jsonify(project.to_dict(include_tasks=True))
+project = Project.query.get_or_404(project_id)
+return jsonify(project.to_dict(include_tasks=True))
 
 @app.route('/projects/<int:project_id>/tasks', methods=['GET', 'POST'])
 def project_tasks(project_id):
-    project = Project.query.get_or_404(project_id)
+project = Project.query.get_or_404(project_id)
 
-    if request.method == 'POST':
-        data = request.get_json()
-        task = Task(
-            title=data['title'],
-            description=data.get('description', ''),
-            project_id=project_id,
-            assigned_to=data.get('assigned_to')
-        )
-        db.session.add(task)
-        db.session.commit()
-        return jsonify(task.to_dict()), 201
+if request.method == 'POST':
+data = request.get_json()
+task = Task(
+title=data['title'],
+description=data.get('description', ''),
+project_id=project_id,
+assigned_to=data.get('assigned_to')
+)
+db.session.add(task)
+db.session.commit()
+return jsonify(task.to_dict()), 201
 
-    return jsonify([task.to_dict() for task in project.tasks])
+return jsonify([task.to_dict() for task in project.tasks])
 
 # Task endpoints
 @app.route('/tasks/<int:task_id>', methods=['GET', 'PUT', 'DELETE'])
 def task_detail(task_id):
-    task = Task.query.get_or_404(task_id)
+task = Task.query.get_or_404(task_id)
 
-    if request.method == 'DELETE':
-        db.session.delete(task)
-        db.session.commit()
-        return '', 204
+if request.method == 'DELETE':
+db.session.delete(task)
+db.session.commit()
+return '', 204
 
-    if request.method == 'PUT':
-        data = request.get_json()
-        task.title = data.get('title', task.title)
-        task.description = data.get('description', task.description)
-        task.completed = data.get('completed', task.completed)
-        task.assigned_to = data.get('assigned_to', task.assigned_to)
-        db.session.commit()
-        return jsonify(task.to_dict())
+if request.method == 'PUT':
+data = request.get_json()
+task.title = data.get('title', task.title)
+task.description = data.get('description', task.description)
+task.completed = data.get('completed', task.completed)
+task.assigned_to = data.get('assigned_to', task.assigned_to)
+db.session.commit()
+return jsonify(task.to_dict())
 
-    return jsonify(task.to_dict())
+return jsonify(task.to_dict())
 
 if __name__ == '__main__':
-    app.run(debug=True)
+app.run(debug=True)
 ```
 
 **Testing:**
 ```bash
 # Create user
 curl -X POST http://localhost:5000/users \
-  -H "Content-Type: application/json" \
-  -d '{"username": "demo_user", "email": "user@company.com", "role": "SRE"}'
+-H "Content-Type: application/json" \
+-d '{"username": "demo_user", "email": "user@company.com", "role": "SRE"}'
 
 # Create project
 curl -X POST http://localhost:5000/projects \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Platform MCP", "description": "Infrastructure observability"}'
+-H "Content-Type: application/json" \
+-d '{"name": "Platform MCP", "description": "Infrastructure observability"}'
 
 # Create task
 curl -X POST http://localhost:5000/projects/1/tasks \
-  -H "Content-Type: application/json" \
-  -d '{"title": "Implement new tool", "assigned_to": 1}'
+-H "Content-Type: application/json" \
+-d '{"title": "Implement new tool", "assigned_to": 1}'
 
 # List project tasks
 curl http://localhost:5000/projects/1/tasks
@@ -584,116 +584,116 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 db = SQLAlchemy(app)
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), unique=True, nullable=False)
-    password_hash = db.Column(db.String(200), nullable=False)
-    role = db.Column(db.String(20), default='user')  # user, admin
+id = db.Column(db.Integer, primary_key=True)
+username = db.Column(db.String(50), unique=True, nullable=False)
+password_hash = db.Column(db.String(200), nullable=False)
+role = db.Column(db.String(20), default='user') # user, admin
 
-    def set_password(self, password):
-        self.password_hash = generate_password_hash(password)
+def set_password(self, password):
+self.password_hash = generate_password_hash(password)
 
-    def check_password(self, password):
-        return check_password_hash(self.password_hash, password)
+def check_password(self, password):
+return check_password_hash(self.password_hash, password)
 
 with app.app_context():
-    db.create_all()
+db.create_all()
 
 # JWT decorator
 def token_required(f):
-    @wraps(f)
-    def decorated(*args, **kwargs):
-        token = request.headers.get('Authorization')
+@wraps(f)
+def decorated(*args, **kwargs):
+token = request.headers.get('Authorization')
 
-        if not token:
-            return jsonify({'error': 'Token missing'}), 401
+if not token:
+return jsonify({'error': 'Token missing'}), 401
 
-        try:
-            # Remove "Bearer " prefix
-            if token.startswith('Bearer '):
-                token = token[7:]
+try:
+# Remove "Bearer " prefix
+if token.startswith('Bearer '):
+token = token[7:]
 
-            data = jwt.decode(token, app.config['SECRET_KEY'], algorithms=['HS256'])
-            current_user = User.query.get(data['user_id'])
+data = jwt.decode(token, app.config['SECRET_KEY'], algorithms=['HS256'])
+current_user = User.query.get(data['user_id'])
 
-            if not current_user:
-                return jsonify({'error': 'Invalid token'}), 401
+if not current_user:
+return jsonify({'error': 'Invalid token'}), 401
 
-        except jwt.ExpiredSignatureError:
-            return jsonify({'error': 'Token expired'}), 401
-        except jwt.InvalidTokenError:
-            return jsonify({'error': 'Invalid token'}), 401
+except jwt.ExpiredSignatureError:
+return jsonify({'error': 'Token expired'}), 401
+except jwt.InvalidTokenError:
+return jsonify({'error': 'Invalid token'}), 401
 
-        return f(current_user, *args, **kwargs)
+return f(current_user, *args, **kwargs)
 
-    return decorated
+return decorated
 
 # Admin required decorator
 def admin_required(f):
-    @wraps(f)
-    @token_required
-    def decorated(current_user, *args, **kwargs):
-        if current_user.role != 'admin':
-            return jsonify({'error': 'Admin access required'}), 403
-        return f(current_user, *args, **kwargs)
-    return decorated
+@wraps(f)
+@token_required
+def decorated(current_user, *args, **kwargs):
+if current_user.role != 'admin':
+return jsonify({'error': 'Admin access required'}), 403
+return f(current_user, *args, **kwargs)
+return decorated
 
 # Auth endpoints
 @app.route('/register', methods=['POST'])
 def register():
-    data = request.get_json()
+data = request.get_json()
 
-    if User.query.filter_by(username=data['username']).first():
-        return jsonify({'error': 'Username already exists'}), 400
+if User.query.filter_by(username=data['username']).first():
+return jsonify({'error': 'Username already exists'}), 400
 
-    user = User(
-        username=data['username'],
-        role=data.get('role', 'user')
-    )
-    user.set_password(data['password'])
+user = User(
+username=data['username'],
+role=data.get('role', 'user')
+)
+user.set_password(data['password'])
 
-    db.session.add(user)
-    db.session.commit()
+db.session.add(user)
+db.session.commit()
 
-    return jsonify({'message': 'User created successfully'}), 201
+return jsonify({'message': 'User created successfully'}), 201
 
 @app.route('/login', methods=['POST'])
 def login():
-    data = request.get_json()
-    user = User.query.filter_by(username=data['username']).first()
+data = request.get_json()
+user = User.query.filter_by(username=data['username']).first()
 
-    if not user or not user.check_password(data['password']):
-        return jsonify({'error': 'Invalid credentials'}), 401
+if not user or not user.check_password(data['password']):
+return jsonify({'error': 'Invalid credentials'}), 401
 
-    # Generate token (expires in 24 hours)
-    token = jwt.encode({
-        'user_id': user.id,
-        'username': user.username,
-        'role': user.role,
-        'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
-    }, app.config['SECRET_KEY'], algorithm='HS256')
+# Generate token (expires in 24 hours)
+token = jwt.encode({
+'user_id': user.id,
+'username': user.username,
+'role': user.role,
+'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
+}, app.config['SECRET_KEY'], algorithm='HS256')
 
-    return jsonify({'token': token})
+return jsonify({'token': token})
 
 # Protected endpoints
 @app.route('/profile')
 @token_required
 def profile(current_user):
-    return jsonify({
-        'username': current_user.username,
-        'role': current_user.role
-    })
+return jsonify({
+'username': current_user.username,
+'role': current_user.role
+})
 
 @app.route('/admin/users')
 @admin_required
 def admin_users(current_user):
-    users = User.query.all()
-    return jsonify([
-        {'id': u.id, 'username': u.username, 'role': u.role}
-        for u in users
-    ])
+users = User.query.all()
+return jsonify([
+{'id': u.id, 'username': u.username, 'role': u.role}
+for u in users
+])
 
 if __name__ == '__main__':
-    app.run(debug=True)
+app.run(debug=True)
 ```
 
 **Exercise 2.2:**
@@ -729,10 +729,10 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(50), unique=True)
-    email = db.Column(db.String(100), unique=True)
-    # Later add: created_at = db.Column(db.DateTime, default=datetime.utcnow)
+id = db.Column(db.Integer, primary_key=True)
+username = db.Column(db.String(50), unique=True)
+email = db.Column(db.String(100), unique=True)
+# Later add: created_at = db.Column(db.DateTime, default=datetime.utcnow)
 ```
 
 **Migration workflow:**
@@ -760,16 +760,16 @@ flask db downgrade
 Project: Blog API with migrations
 
 1. First version:
-   - User (username, email)
-   - Post (title, content, user_id)
+- User (username, email)
+- Post (title, content, user_id)
 
 2. Second version (migration):
-   - User: +created_at, +last_login
-   - Post: +published, +created_at
+- User: +created_at, +last_login
+- Post: +published, +created_at
 
 3. Third version (migration):
-   - Comment model (content, user_id, post_id, created_at)
-   - Post: +view_count
+- Comment model (content, user_id, post_id, created_at)
+- Post: +view_count
 
 Create a migration for each change and test!
 ```
@@ -784,18 +784,18 @@ Create a migration for each change and test!
 ```
 flask-app/
 ├── app/
-│   ├── __init__.py          # Application factory
-│   ├── models.py            # Database models
-│   ├── auth/
-│   │   ├── __init__.py
-│   │   └── routes.py        # Auth blueprint
-│   ├── api/
-│   │   ├── __init__.py
-│   │   ├── tasks.py         # Tasks blueprint
-│   │   └── projects.py      # Projects blueprint
-│   └── utils/
-│       ├── __init__.py
-│       └── decorators.py
+│  ├── __init__.py     # Application factory
+│  ├── models.py      # Database models
+│  ├── auth/
+│  │  ├── __init__.py
+│  │  └── routes.py    # Auth blueprint
+│  ├── api/
+│  │  ├── __init__.py
+│  │  ├── tasks.py     # Tasks blueprint
+│  │  └── projects.py   # Projects blueprint
+│  └── utils/
+│    ├── __init__.py
+│    └── decorators.py
 ├── migrations/
 ├── tests/
 ├── config.py
@@ -813,23 +813,23 @@ db = SQLAlchemy()
 migrate = Migrate()
 
 def create_app(config_name='default'):
-    app = Flask(__name__)
+app = Flask(__name__)
 
-    # Load config
-    app.config.from_object(f'config.{config_name.capitalize()}Config')
+# Load config
+app.config.from_object(f'config.{config_name.capitalize()}Config')
 
-    # Initialize extensions
-    db.init_app(app)
-    migrate.init_app(app, db)
+# Initialize extensions
+db.init_app(app)
+migrate.init_app(app, db)
 
-    # Register blueprints
-    from app.auth import auth_bp
-    from app.api import api_bp
+# Register blueprints
+from app.auth import auth_bp
+from app.api import api_bp
 
-    app.register_blueprint(auth_bp, url_prefix='/auth')
-    app.register_blueprint(api_bp, url_prefix='/api')
+app.register_blueprint(auth_bp, url_prefix='/auth')
+app.register_blueprint(api_bp, url_prefix='/api')
 
-    return app
+return app
 ```
 
 ```python
@@ -837,19 +837,19 @@ def create_app(config_name='default'):
 import os
 
 class Config:
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'dev-secret-key'
-    SQLALCHEMY_TRACK_MODIFICATIONS = False
+SECRET_KEY = os.environ.get('SECRET_KEY') or 'dev-secret-key'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevelopmentConfig(Config):
-    DEBUG = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'
+DEBUG = True
+SQLALCHEMY_DATABASE_URI = 'sqlite:///dev.db'
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
 
 class TestingConfig(Config):
-    TESTING = True
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
+TESTING = True
+SQLALCHEMY_DATABASE_URI = 'sqlite:///test.db'
 ```
 
 ```python
@@ -870,14 +870,14 @@ from app import db
 
 @auth_bp.route('/register', methods=['POST'])
 def register():
-    data = request.get_json()
-    # ... registration logic
-    return jsonify({'message': 'User created'}), 201
+data = request.get_json()
+# ... registration logic
+return jsonify({'message': 'User created'}), 201
 
 @auth_bp.route('/login', methods=['POST'])
 def login():
-    # ... login logic
-    return jsonify({'token': 'jwt-token'})
+# ... login logic
+return jsonify({'token': 'jwt-token'})
 ```
 
 ```python
@@ -888,7 +888,7 @@ import os
 app = create_app(os.environ.get('FLASK_ENV', 'development'))
 
 if __name__ == '__main__':
-    app.run()
+app.run()
 ```
 
 **Exercise 3.1:**
@@ -924,29 +924,29 @@ from flask import jsonify
 from werkzeug.exceptions import HTTPException
 
 def register_error_handlers(app):
-    @app.errorhandler(404)
-    def not_found(error):
-        return jsonify({'error': 'Resource not found'}), 404
+@app.errorhandler(404)
+def not_found(error):
+return jsonify({'error': 'Resource not found'}), 404
 
-    @app.errorhandler(400)
-    def bad_request(error):
-        return jsonify({'error': 'Bad request', 'message': str(error)}), 400
+@app.errorhandler(400)
+def bad_request(error):
+return jsonify({'error': 'Bad request', 'message': str(error)}), 400
 
-    @app.errorhandler(500)
-    def internal_error(error):
-        app.logger.error(f'Server Error: {error}')
-        return jsonify({'error': 'Internal server error'}), 500
+@app.errorhandler(500)
+def internal_error(error):
+app.logger.error(f'Server Error: {error}')
+return jsonify({'error': 'Internal server error'}), 500
 
-    @app.errorhandler(Exception)
-    def handle_exception(e):
-        # Pass through HTTP errors
-        if isinstance(e, HTTPException):
-            return e
+@app.errorhandler(Exception)
+def handle_exception(e):
+# Pass through HTTP errors
+if isinstance(e, HTTPException):
+return e
 
-        # Log the error
-        app.logger.exception('Unhandled exception')
+# Log the error
+app.logger.exception('Unhandled exception')
 
-        return jsonify({'error': 'An unexpected error occurred'}), 500
+return jsonify({'error': 'An unexpected error occurred'}), 500
 ```
 
 **Logging setup:**
@@ -957,33 +957,33 @@ from logging.handlers import RotatingFileHandler
 import os
 
 def create_app(config_name='default'):
-    app = Flask(__name__)
-    # ... config loading
+app = Flask(__name__)
+# ... config loading
 
-    # Setup logging
-    if not app.debug and not app.testing:
-        if not os.path.exists('logs'):
-            os.mkdir('logs')
+# Setup logging
+if not app.debug and not app.testing:
+if not os.path.exists('logs'):
+os.mkdir('logs')
 
-        file_handler = RotatingFileHandler(
-            'logs/flask-app.log',
-            maxBytes=10240000,  # 10MB
-            backupCount=10
-        )
-        file_handler.setFormatter(logging.Formatter(
-            '[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
-        ))
-        file_handler.setLevel(logging.INFO)
-        app.logger.addHandler(file_handler)
+file_handler = RotatingFileHandler(
+'logs/flask-app.log',
+maxBytes=10240000, # 10MB
+backupCount=10
+)
+file_handler.setFormatter(logging.Formatter(
+'[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
+))
+file_handler.setLevel(logging.INFO)
+app.logger.addHandler(file_handler)
 
-        app.logger.setLevel(logging.INFO)
-        app.logger.info('Flask app startup')
+app.logger.setLevel(logging.INFO)
+app.logger.info('Flask app startup')
 
-    # Register error handlers
-    from app.errors import register_error_handlers
-    register_error_handlers(app)
+# Register error handlers
+from app.errors import register_error_handlers
+register_error_handlers(app)
 
-    return app
+return app
 ```
 
 **Structured logging:**
@@ -993,33 +993,33 @@ import logging
 import json
 
 class JSONFormatter(logging.Formatter):
-    def format(self, record):
-        log_record = {
-            'timestamp': self.formatTime(record),
-            'level': record.levelname,
-            'module': record.module,
-            'message': record.getMessage(),
-        }
+def format(self, record):
+log_record = {
+'timestamp': self.formatTime(record),
+'level': record.levelname,
+'module': record.module,
+'message': record.getMessage(),
+}
 
-        if record.exc_info:
-            log_record['exception'] = self.formatException(record.exc_info)
+if record.exc_info:
+log_record['exception'] = self.formatException(record.exc_info)
 
-        return json.dumps(log_record)
+return json.dumps(log_record)
 
 # Usage in routes:
 from flask import current_app
 
 @api_bp.route('/tasks', methods=['POST'])
 def create_task():
-    try:
-        data = request.get_json()
-        current_app.logger.info('Creating task', extra={'data': data})
-        # ... create task
-        current_app.logger.info('Task created', extra={'task_id': task.id})
-        return jsonify(task.to_dict()), 201
-    except Exception as e:
-        current_app.logger.error('Failed to create task', exc_info=True)
-        raise
+try:
+data = request.get_json()
+current_app.logger.info('Creating task', extra={'data': data})
+# ... create task
+current_app.logger.info('Task created', extra={'task_id': task.id})
+return jsonify(task.to_dict()), 201
+except Exception as e:
+current_app.logger.error('Failed to create task', exc_info=True)
+raise
 ```
 
 **Exercise 3.2:**
@@ -1027,16 +1027,16 @@ def create_task():
 Implement comprehensive error handling and logging:
 
 1. Custom exceptions:
-   - ResourceNotFoundError
-   - ValidationError
-   - AuthorizationError
+- ResourceNotFoundError
+- ValidationError
+- AuthorizationError
 
 2. Error handlers for each
 
 3. Request/Response logging middleware:
-   - Log every request: method, path, duration
-   - Log response status
-   - Log user_id if authenticated
+- Log every request: method, path, duration
+- Log response status
+- Log user_id if authenticated
 
 4. Structured JSON logging in production
 
@@ -1060,112 +1060,112 @@ from app.models import User, Project, Task
 
 @pytest.fixture
 def app():
-    app = create_app('testing')
+app = create_app('testing')
 
-    with app.app_context():
-        db.create_all()
-        yield app
-        db.session.remove()
-        db.drop_all()
+with app.app_context():
+db.create_all()
+yield app
+db.session.remove()
+db.drop_all()
 
 @pytest.fixture
 def client(app):
-    return app.test_client()
+return app.test_client()
 
 @pytest.fixture
 def runner(app):
-    return app.test_cli_runner()
+return app.test_cli_runner()
 
 @pytest.fixture
 def auth_headers(client):
-    # Create test user and get token
-    client.post('/auth/register', json={
-        'username': 'testuser',
-        'password': 'testpass'
-    })
+# Create test user and get token
+client.post('/auth/register', json={
+'username': 'testuser',
+'password': 'testpass'
+})
 
-    response = client.post('/auth/login', json={
-        'username': 'testuser',
-        'password': 'testpass'
-    })
+response = client.post('/auth/login', json={
+'username': 'testuser',
+'password': 'testpass'
+})
 
-    token = response.get_json()['token']
-    return {'Authorization': f'Bearer {token}'}
+token = response.get_json()['token']
+return {'Authorization': f'Bearer {token}'}
 ```
 
 ```python
 # tests/test_auth.py
 def test_register(client):
-    response = client.post('/auth/register', json={
-        'username': 'newuser',
-        'password': 'password123'
-    })
+response = client.post('/auth/register', json={
+'username': 'newuser',
+'password': 'password123'
+})
 
-    assert response.status_code == 201
-    assert 'message' in response.get_json()
+assert response.status_code == 201
+assert 'message' in response.get_json()
 
 def test_login(client):
-    # First register
-    client.post('/auth/register', json={
-        'username': 'testuser',
-        'password': 'testpass'
-    })
+# First register
+client.post('/auth/register', json={
+'username': 'testuser',
+'password': 'testpass'
+})
 
-    # Then login
-    response = client.post('/auth/login', json={
-        'username': 'testuser',
-        'password': 'testpass'
-    })
+# Then login
+response = client.post('/auth/login', json={
+'username': 'testuser',
+'password': 'testpass'
+})
 
-    assert response.status_code == 200
-    assert 'token' in response.get_json()
+assert response.status_code == 200
+assert 'token' in response.get_json()
 
 def test_login_invalid_credentials(client):
-    response = client.post('/auth/login', json={
-        'username': 'nonexistent',
-        'password': 'wrong'
-    })
+response = client.post('/auth/login', json={
+'username': 'nonexistent',
+'password': 'wrong'
+})
 
-    assert response.status_code == 401
+assert response.status_code == 401
 ```
 
 ```python
 # tests/test_tasks.py
 def test_create_task(client, auth_headers):
-    # First create a project
-    response = client.post('/api/projects',
-        json={'name': 'Test Project'},
-        headers=auth_headers
-    )
-    project_id = response.get_json()['id']
+# First create a project
+response = client.post('/api/projects',
+json={'name': 'Test Project'},
+headers=auth_headers
+)
+project_id = response.get_json()['id']
 
-    # Create task
-    response = client.post(f'/api/projects/{project_id}/tasks',
-        json={'title': 'Test Task'},
-        headers=auth_headers
-    )
+# Create task
+response = client.post(f'/api/projects/{project_id}/tasks',
+json={'title': 'Test Task'},
+headers=auth_headers
+)
 
-    assert response.status_code == 201
-    data = response.get_json()
-    assert data['title'] == 'Test Task'
-    assert data['project_id'] == project_id
+assert response.status_code == 201
+data = response.get_json()
+assert data['title'] == 'Test Task'
+assert data['project_id'] == project_id
 
 def test_list_tasks_requires_auth(client):
-    response = client.get('/api/tasks')
-    assert response.status_code == 401
+response = client.get('/api/tasks')
+assert response.status_code == 401
 
 def test_update_task(client, auth_headers):
-    # Create task first
-    # ... setup
+# Create task first
+# ... setup
 
-    # Update
-    response = client.put('/api/tasks/1',
-        json={'completed': True},
-        headers=auth_headers
-    )
+# Update
+response = client.put('/api/tasks/1',
+json={'completed': True},
+headers=auth_headers
+)
 
-    assert response.status_code == 200
-    assert response.get_json()['completed'] is True
+assert response.status_code == 200
+assert response.get_json()['completed'] is True
 ```
 
 **Run tests:**
@@ -1191,19 +1191,19 @@ pytest -x
 Write comprehensive test suite for Project Management API:
 
 1. Unit tests:
-   - Model methods (to_dict, validations)
-   - Utility functions
+- Model methods (to_dict, validations)
+- Utility functions
 
 2. Integration tests:
-   - Auth flow (register, login, protected routes)
-   - CRUD operations for all resources
-   - Permissions (user vs admin)
-   - Edge cases (404, 400, 403)
+- Auth flow (register, login, protected routes)
+- CRUD operations for all resources
+- Permissions (user vs admin)
+- Edge cases (404, 400, 403)
 
 3. Test fixtures:
-   - Sample users (regular, admin)
-   - Sample projects with tasks
-   - Helper functions
+- Sample users (regular, admin)
+- Sample projects with tasks
+- Helper functions
 
 Goal: >80% code coverage
 ```
@@ -1222,28 +1222,28 @@ pip install celery redis
 from celery import Celery
 
 def make_celery(app):
-    celery = Celery(
-        app.import_name,
-        backend=app.config['CELERY_RESULT_BACKEND'],
-        broker=app.config['CELERY_BROKER_URL']
-    )
-    celery.conf.update(app.config)
+celery = Celery(
+app.import_name,
+backend=app.config['CELERY_RESULT_BACKEND'],
+broker=app.config['CELERY_BROKER_URL']
+)
+celery.conf.update(app.config)
 
-    class ContextTask(celery.Task):
-        def __call__(self, *args, **kwargs):
-            with app.app_context():
-                return self.run(*args, **kwargs)
+class ContextTask(celery.Task):
+def __call__(self, *args, **kwargs):
+with app.app_context():
+return self.run(*args, **kwargs)
 
-    celery.Task = ContextTask
-    return celery
+celery.Task = ContextTask
+return celery
 ```
 
 ```python
 # config.py
 class Config:
-    # ... existing config
-    CELERY_BROKER_URL = 'redis://localhost:6379/0'
-    CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+# ... existing config
+CELERY_BROKER_URL = 'redis://localhost:6379/0'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
 ```
 
 ```python
@@ -1254,35 +1254,35 @@ import time
 
 @celery.task
 def send_email(user_id, subject, body):
-    user = User.query.get(user_id)
-    # Simulate email sending
-    time.sleep(2)
-    print(f'Email sent to {user.email}: {subject}')
-    return f'Email sent to {user.email}'
+user = User.query.get(user_id)
+# Simulate email sending
+time.sleep(2)
+print(f'Email sent to {user.email}: {subject}')
+return f'Email sent to {user.email}'
 
 @celery.task(bind=True)
 def generate_report(self, project_id):
-    # Update task progress
-    self.update_state(state='PROGRESS', meta={'current': 0, 'total': 100})
+# Update task progress
+self.update_state(state='PROGRESS', meta={'current': 0, 'total': 100})
 
-    project = Project.query.get(project_id)
-    tasks = project.tasks
+project = Project.query.get(project_id)
+tasks = project.tasks
 
-    # Simulate heavy processing
-    for i in range(100):
-        time.sleep(0.1)
-        self.update_state(state='PROGRESS', meta={'current': i + 1, 'total': 100})
+# Simulate heavy processing
+for i in range(100):
+time.sleep(0.1)
+self.update_state(state='PROGRESS', meta={'current': i + 1, 'total': 100})
 
-    # Generate report
-    report = Report(
-        project_id=project_id,
-        total_tasks=len(tasks),
-        completed_tasks=len([t for t in tasks if t.completed])
-    )
-    db.session.add(report)
-    db.session.commit()
+# Generate report
+report = Report(
+project_id=project_id,
+total_tasks=len(tasks),
+completed_tasks=len([t for t in tasks if t.completed])
+)
+db.session.add(report)
+db.session.commit()
 
-    return {'report_id': report.id}
+return {'report_id': report.id}
 ```
 
 ```python
@@ -1292,52 +1292,52 @@ from app.tasks import send_email, generate_report
 @api_bp.route('/tasks/<int:task_id>/assign', methods=['POST'])
 @token_required
 def assign_task(current_user, task_id):
-    data = request.get_json()
-    task = Task.query.get_or_404(task_id)
-    user = User.query.get_or_404(data['user_id'])
+data = request.get_json()
+task = Task.query.get_or_404(task_id)
+user = User.query.get_or_404(data['user_id'])
 
-    task.assigned_to = user.id
-    db.session.commit()
+task.assigned_to = user.id
+db.session.commit()
 
-    # Send email asynchronously
-    send_email.delay(
-        user.id,
-        f'New task assigned: {task.title}',
-        f'You have been assigned task: {task.title}'
-    )
+# Send email asynchronously
+send_email.delay(
+user.id,
+f'New task assigned: {task.title}',
+f'You have been assigned task: {task.title}'
+)
 
-    return jsonify(task.to_dict())
+return jsonify(task.to_dict())
 
 @api_bp.route('/projects/<int:project_id>/report', methods=['POST'])
 @token_required
 def create_report(current_user, project_id):
-    # Start background task
-    task = generate_report.delay(project_id)
+# Start background task
+task = generate_report.delay(project_id)
 
-    return jsonify({
-        'task_id': task.id,
-        'status_url': f'/api/tasks/status/{task.id}'
-    }), 202
+return jsonify({
+'task_id': task.id,
+'status_url': f'/api/tasks/status/{task.id}'
+}), 202
 
 @api_bp.route('/tasks/status/<task_id>')
 @token_required
 def task_status(current_user, task_id):
-    task = generate_report.AsyncResult(task_id)
+task = generate_report.AsyncResult(task_id)
 
-    if task.state == 'PENDING':
-        response = {'state': 'PENDING', 'current': 0, 'total': 100}
-    elif task.state == 'PROGRESS':
-        response = {
-            'state': 'PROGRESS',
-            'current': task.info.get('current', 0),
-            'total': task.info.get('total', 100)
-        }
-    elif task.state == 'SUCCESS':
-        response = {'state': 'SUCCESS', 'result': task.result}
-    else:
-        response = {'state': task.state}
+if task.state == 'PENDING':
+response = {'state': 'PENDING', 'current': 0, 'total': 100}
+elif task.state == 'PROGRESS':
+response = {
+'state': 'PROGRESS',
+'current': task.info.get('current', 0),
+'total': task.info.get('total', 100)
+}
+elif task.state == 'SUCCESS':
+response = {'state': 'SUCCESS', 'result': task.result}
+else:
+response = {'state': task.state}
 
-    return jsonify(response)
+return jsonify(response)
 ```
 
 **Run Celery worker:**
@@ -1354,22 +1354,22 @@ celery -A app.celery worker --loglevel=info
 Implement background tasks:
 
 1. Email notifications:
-   - Task assigned
-   - Task completed
-   - Project deadline approaching
+- Task assigned
+- Task completed
+- Project deadline approaching
 
 2. Report generation:
-   - Weekly project summary
-   - User activity report
-   - Progress tracking with status endpoint
+- Weekly project summary
+- User activity report
+- Progress tracking with status endpoint
 
 3. Periodic tasks (Celery Beat):
-   - Daily reminder for overdue tasks
-   - Weekly inactive user cleanup
+- Daily reminder for overdue tasks
+- Weekly inactive user cleanup
 
 4. Test async tasks:
-   - Mock email sending
-   - Test task status polling
+- Mock email sending
+- Test task status polling
 ```
 
 ---
@@ -1417,16 +1417,16 @@ Implement background tasks:
 ```
 investigation-tracker/
 ├── app/
-│   ├── __init__.py
-│   ├── models.py
-│   ├── auth/
-│   ├── api/
-│   │   ├── investigations.py
-│   │   ├── findings.py
-│   │   ├── actions.py
-│   │   └── metrics.py
-│   ├── tasks.py
-│   └── utils/
+│  ├── __init__.py
+│  ├── models.py
+│  ├── auth/
+│  ├── api/
+│  │  ├── investigations.py
+│  │  ├── findings.py
+│  │  ├── actions.py
+│  │  └── metrics.py
+│  ├── tasks.py
+│  └── utils/
 ├── migrations/
 ├── tests/
 ├── config.py
@@ -1484,31 +1484,31 @@ investigation-tracker/
 from flask_talisman import Talisman
 
 if not app.debug:
-    Talisman(app, force_https=True)
+Talisman(app, force_https=True)
 
 # 2. CORS configuration
 from flask_cors import CORS
 
 CORS(app, resources={
-    r"/api/*": {
-        "origins": ["https://yourdomain.com"],
-        "methods": ["GET", "POST", "PUT", "DELETE"],
-        "allow_headers": ["Content-Type", "Authorization"]
-    }
+r"/api/*": {
+"origins": ["https://yourdomain.com"],
+"methods": ["GET", "POST", "PUT", "DELETE"],
+"allow_headers": ["Content-Type", "Authorization"]
+}
 })
 
 # 3. Input validation
 from marshmallow import Schema, fields, validate
 
 class TaskSchema(Schema):
-    title = fields.Str(required=True, validate=validate.Length(min=1, max=100))
-    description = fields.Str(validate=validate.Length(max=500))
-    completed = fields.Bool()
+title = fields.Str(required=True, validate=validate.Length(min=1, max=100))
+description = fields.Str(validate=validate.Length(max=500))
+completed = fields.Bool()
 
 schema = TaskSchema()
 errors = schema.validate(request.get_json())
 if errors:
-    return jsonify({'errors': errors}), 400
+return jsonify({'errors': errors}), 400
 
 # 4. SQL injection prevention (use ORM)
 # WRONG:
@@ -1522,15 +1522,15 @@ from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
 
 limiter = Limiter(
-    app,
-    key_func=get_remote_address,
-    default_limits=["200 per day", "50 per hour"]
+app,
+key_func=get_remote_address,
+default_limits=["200 per day", "50 per hour"]
 )
 
 @app.route('/api/expensive-operation')
 @limiter.limit("10 per minute")
 def expensive():
-    pass
+pass
 
 # 6. Secret management
 # WRONG:
@@ -1547,7 +1547,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY') or secrets.token_hex(32)
 # WRONG (N+1 problem):
 projects = Project.query.all()
 for project in projects:
-    print(project.tasks)  # Triggers separate query for each project
+print(project.tasks) # Triggers separate query for each project
 
 # RIGHT (eager loading):
 projects = Project.query.options(db.joinedload(Project.tasks)).all()
@@ -1558,15 +1558,15 @@ from flask_caching import Cache
 cache = Cache(app, config={'CACHE_TYPE': 'redis'})
 
 @app.route('/api/heavy-operation')
-@cache.cached(timeout=300)  # Cache for 5 minutes
+@cache.cached(timeout=300) # Cache for 5 minutes
 def heavy_operation():
-    # Expensive computation
-    return jsonify(result)
+# Expensive computation
+return jsonify(result)
 
 # Cache with key function
 @cache.cached(timeout=60, key_prefix=lambda: f'user_{current_user.id}_tasks')
 def get_user_tasks():
-    return Task.query.filter_by(user_id=current_user.id).all()
+return Task.query.filter_by(user_id=current_user.id).all()
 
 # 3. Database connection pooling
 app.config['SQLALCHEMY_POOL_SIZE'] = 10
@@ -1590,37 +1590,37 @@ metrics = PrometheusMetrics(app)
 
 # Custom metrics
 task_counter = metrics.counter(
-    'tasks_created_total',
-    'Total tasks created',
-    labels={'status': lambda: 'completed'}
+'tasks_created_total',
+'Total tasks created',
+labels={'status': lambda: 'completed'}
 )
 
 @app.route('/tasks', methods=['POST'])
 def create_task():
-    # ... create task
-    task_counter.inc()
-    return jsonify(task.to_dict())
+# ... create task
+task_counter.inc()
+return jsonify(task.to_dict())
 
 # 2. Health checks
 @app.route('/health')
 def health():
-    try:
-        # Check database
-        db.session.execute('SELECT 1')
+try:
+# Check database
+db.session.execute('SELECT 1')
 
-        # Check Redis
-        cache.get('health_check')
+# Check Redis
+cache.get('health_check')
 
-        return jsonify({
-            'status': 'healthy',
-            'database': 'ok',
-            'cache': 'ok'
-        })
-    except Exception as e:
-        return jsonify({
-            'status': 'unhealthy',
-            'error': str(e)
-        }), 503
+return jsonify({
+'status': 'healthy',
+'database': 'ok',
+'cache': 'ok'
+})
+except Exception as e:
+return jsonify({
+'status': 'unhealthy',
+'error': str(e)
+}), 503
 
 # 3. Request tracing
 import uuid
@@ -1628,21 +1628,21 @@ from flask import g
 
 @app.before_request
 def before_request():
-    g.request_id = request.headers.get('X-Request-ID') or str(uuid.uuid4())
+g.request_id = request.headers.get('X-Request-ID') or str(uuid.uuid4())
 
 @app.after_request
 def after_request(response):
-    response.headers['X-Request-ID'] = g.request_id
-    return response
+response.headers['X-Request-ID'] = g.request_id
+return response
 
 # 4. Structured logging with request context
 @app.route('/api/tasks', methods=['POST'])
 def create_task():
-    app.logger.info('Creating task', extra={
-        'request_id': g.request_id,
-        'user_id': current_user.id,
-        'endpoint': request.endpoint
-    })
+app.logger.info('Creating task', extra={
+'request_id': g.request_id,
+'user_id': current_user.id,
+'endpoint': request.endpoint
+})
 ```
 
 ---

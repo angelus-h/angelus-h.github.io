@@ -72,6 +72,16 @@ nav:
   - Home: index.md
 
   - Technologies:
+      - Operating Systems:
+          - Linux:
+              - Linux From Beginner to Advanced: learning/linux/Linux_From_Beginner_to_Advanced_User.md
+          - Windows:
+              - Windows Admin Learning Plan: learning/windows/Windows_Admin_Learning_Plan.md
+              - Windows Quick Reference: learning/windows/Windows_Quick_Reference.md
+              - PowerShell Quick Reference: learning/windows/PowerShell_Quick_Reference.md
+          - Security:
+              - CEH Practical Training Guide: learning/security/CEH_Practical_Training_Guide.md
+              - CEH Overview: learning/security/CEH_README.md
       - Programming:
           - Python:
               - Python SRE Interview Prep: learning/python/sre-interview-prep.md
@@ -92,6 +102,8 @@ nav:
           - Practical AI Tools:
               - Using Claude Effectively: learning/ai/Using_Claude_Effectively.md
               - Claude Cost Optimization: learning/ai/productivity-optimization.md
+              - Claude Code Installation: learning/ai/Claude_Code_Installation_Guide.md
+              - Claude Code Mastery Workflow: learning/ai/Claude_Code_Mastery_Workflow_Guide.md
               - Cursor IDE Usage Guide: learning/ai/cursor-ide-guide.md
               - Self-Hosted LLM Guide: learning/ai/Self_Hosted_LLM_Guide.md
               - NotebookLM Quick Reference: learning/ai/NotebookLM_Quick_Reference.md
@@ -104,10 +116,21 @@ nav:
       - Monitoring & Observability:
           - Metrics & Queries:
               - Prometheus Quick Reference: learning/monitoring/Prometheus_Learning_Plan_EN.md
+              - Prometheus Alert Git Workflow: learning/monitoring/Prometheus_Alert_Git_Workflow.md
               - PromQL Quick Reference: learning/monitoring/PromQL_Learning_Plan_EN.md
           - Logging & Tracing:
               - Grafana & Loki Workshop: learning/monitoring/Grafana_Loki_Workshop_Quick_Reference_EN.md
               - OpenTelemetry Collector Guide: learning/monitoring/OpenTelemetry_Collector_Guide_EN.md
+          - APM & Infrastructure:
+              - Datadog Learning Plan: learning/monitoring/Datadog_Learning_Plan_EN.md
+              - Datadog Agent Configuration: learning/monitoring/Datadog-Agent-Configuration.md
+              - Datadog Infrastructure Monitoring: learning/monitoring/Datadog-Infrastructure-Monitoring.md
+              - Datadog Network Monitoring: learning/monitoring/Datadog-Network-Monitoring-Setup.md
+              - Datadog PostgreSQL Setup: learning/monitoring/Datadog-PostgreSQL-Setup.md
+              - SignalFx/Splunk Observability: learning/monitoring/SignalFx_Splunk_Observability_Learning_Plan.md
+              - SignalFx Detector Best Practices: learning/monitoring/SignalFx_Detector_Configuration_Best_Practices.md
+              - SumoLogic Learning Plan: learning/monitoring/SumoLogic_Learning_Plan_EN.md
+              - Catchpoint Learning Plan: learning/monitoring/Catchpoint_Learning_Plan.md
       - Cloud Platforms:
           - Cloud Providers:
               - AWS Quick Reference: learning/cloud/AWS_Learning_Plan.md
@@ -115,6 +138,8 @@ nav:
               - IBM Cloud Quick Reference: learning/cloud/IBM_Cloud_Learning_Plan.md
           - Container Orchestration:
               - Kubernetes Lab (K3s): learning/cloud/Kubernetes_Lab_K3s.md
+              - Kubernetes & OpenShift Networking: learning/cloud/Kubernetes_OpenShift_Networking_Reference.md
+              - OpenShift Virtualization Guide: learning/cloud/OpenShift_Virtualization_Guide.md
       - Databases:
           - SQL Databases:
               - PostgreSQL Quick Reference: learning/databases/PostgreSQL_Learning_Plan.md
@@ -138,6 +163,7 @@ nav:
       - Workflows:
           - Jira Triage Guide: practices/workflows/jira-triage-guide.md
           - Triage Example INFRA-456: practices/workflows/jira-triage-example-INFRA-456.md
+          - AI-Assisted Jira Investigation: practices/workflows/ai-assisted-jira-investigation.md
       - Methodologies:
           - Agile & Scrum Guide: practices/methodologies/agile-scrum-guide.md
           - ITIL Guide: practices/methodologies/itil-guide.md
@@ -162,9 +188,12 @@ nav:
               - Marp Presentations Guide: learning/technical-writing/Marp_Markdown_Presentations_Guide.md
           - Documentation Tools:
               - MkDocs Static Site Guide: learning/technical-writing/MkDocs_GitLab_Pages_Guide.md
+              - Tesseract OCR Quick Reference: learning/technical-writing/Tesseract_OCR_Quick_Reference.md
           - Web Publishing:
               - SEO Optimization Guide: learning/technical-writing/SEO_Optimization_Guide.md
       - Command-Line Tools:
+          - Infrastructure Management:
+              - IPMI Deep Reference: resources/command-line-tools/ipmi-deep-reference.md
           - Editors & Shell:
               - Vim Quick Reference: learning/command-line/Vim_Quick_Reference.md
               - Bash Readline Quick Reference: learning/command-line/Bash_Readline_Quick_Reference.md
@@ -172,8 +201,10 @@ nav:
               - tmux Quick Reference: learning/command-line/tmux_Quick_Reference.md
               - screen Quick Reference: learning/command-line/screen_Quick_Reference.md
           - Security Tools:
+              - SSH Deep Dive Guide: learning/command-line/SSH_Deep_Dive_Guide.md
               - OpenSSL Quick Reference: learning/command-line/OpenSSL_Quick_Reference.md
               - GPG Quick Reference: learning/command-line/GPG_Quick_Reference.md
+              - Kerberos Quick Reference: learning/command-line/Kerberos_Quick_Reference.md
       - Collaboration Tools:
           - GitHub:
               - GitHub Learning Plan: resources/collaboration/github/README.md
@@ -186,6 +217,11 @@ nav:
               - Week 1 - Webhooks: resources/collaboration/slack-automation/week-01/README.md
               - Week 2 - Bot Development: resources/collaboration/slack-automation/week-02/README.md
               - Week 3 - CI/CD Integration: resources/collaboration/slack-automation/week-03/README.md
+      - Hardware Platforms:
+          - Enterprise Servers:
+              - Dell PowerEdge & iDRAC Field Guide: learning/infrastructure/Dell_PowerEdge_iDRAC_Field_Guide.md
+              - IBM Power Systems Field Guide: learning/infrastructure/IBM_Power_Systems_Field_Guide.md
+              - HPE ProLiant & iLO Field Guide: learning/hardware/HPE_ProLiant_iLO_Engineering_Field_Guide.md
       # Quick References: Cheat Sheets
       # Templates & Snippets: Reusable code
       # Troubleshooting Guides: Common solutions

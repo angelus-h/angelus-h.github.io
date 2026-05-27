@@ -378,12 +378,12 @@ find . -name "*.conf" -exec sed -i 's/old/new/g' {} \;
 
 # Loop with backup
 for file in *.txt; do
- sed -i.bak 's/old/new/g' "$file"
+sed -i.bak 's/old/new/g' "$file"
 done
 
 # Process and rename
 for file in *.txt; do
- sed 's/old/new/g' "$file" > "processed_$file"
+sed 's/old/new/g' "$file" > "processed_$file"
 done
 ```
 
@@ -400,9 +400,9 @@ sed 's/:.*//' /etc/passwd | cut -d: -f1
 
 # Pipeline example
 cat access.log | \
- sed -n '/404/p' | \
- sed 's/.*"\(.*\)".*/\1/' | \
- sort | uniq -c | sort -rn
+sed -n '/404/p' | \
+sed 's/.*"\(.*\)".*/\1/' | \
+sort | uniq -c | sort -rn
 ```
 
 **Hands-On Practice:**
@@ -420,17 +420,17 @@ cat access.log | \
 **Extract error counts by hour:**
 ```bash
 cat app.log | \
- sed -n '/ERROR/p' | \
- sed 's/\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} [0-9]\{2\}\):.*/\1/' | \
- sort | uniq -c
+sed -n '/ERROR/p' | \
+sed 's/\([0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} [0-9]\{2\}\):.*/\1/' | \
+sort | uniq -c
 ```
 
 **Sanitize logs:**
 ```bash
 sed -e 's/password=[^ ]*/password=****/g' \
- -e 's/api_key=[^ ]*/api_key=****/g' \
- -e 's/[0-9]\{3\}-[0-9]\{2\}-[0-9]\{4\}/XXX-XX-XXXX/g' \
- sensitive.log > clean.log
+-e 's/api_key=[^ ]*/api_key=****/g' \
+-e 's/[0-9]\{3\}-[0-9]\{2\}-[0-9]\{4\}/XXX-XX-XXXX/g' \
+sensitive.log > clean.log
 ```
 
 ### Use Case 2: Configuration Management
@@ -472,8 +472,8 @@ sed -i 's/from old_module import/from new_module import/g' **/*.py
 ```bash
 # license.txt contains header
 for file in src/**/*.java; do
- sed -i '1s/^//' "$file" # Ensure blank first line
- sed -i '1r license.txt' "$file"
+sed -i '1s/^//' "$file" # Ensure blank first line
+sed -i '1r license.txt' "$file"
 done
 ```
 
@@ -490,9 +490,9 @@ sed "s/\(.*\),\(.*\),\(.*\)/INSERT INTO users VALUES ('\1', '\2', \3);/" data.cs
 **Format JSON (simple):**
 ```bash
 echo '{"name":"John","age":30}' | \
- sed 's/,/,\n /g' | \
- sed 's/{/{\n /' | \
- sed 's/}/\n}/'
+sed 's/,/,\n /g' | \
+sed 's/{/{\n /' | \
+sed 's/}/\n}/'
 ```
 
 ---

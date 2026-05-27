@@ -27,36 +27,36 @@ k3s-worker2 192.168.122.12 2 CPU, 4GB RAM, 50GB disk
 ```bash
 # Master
 virt-install \
- --name k3s-master \
- --ram 2048 \
- --vcpus 2 \
- --disk path=/var/lib/libvirt/images/k3s-master.qcow2,size=50 \
- --network network=default \
- --os-variant rocky9 \
- --location /path/to/rocky9.iso \
- --extra-args "console=ttyS0"
+--name k3s-master \
+--ram 2048 \
+--vcpus 2 \
+--disk path=/var/lib/libvirt/images/k3s-master.qcow2,size=50 \
+--network network=default \
+--os-variant rocky9 \
+--location /path/to/rocky9.iso \
+--extra-args "console=ttyS0"
 
 # Worker 1
 virt-install \
- --name k3s-worker1 \
- --ram 4096 \
- --vcpus 2 \
- --disk path=/var/lib/libvirt/images/k3s-worker1.qcow2,size=50 \
- --network network=default \
- --os-variant rocky9 \
- --location /path/to/rocky9.iso \
- --extra-args "console=ttyS0"
+--name k3s-worker1 \
+--ram 4096 \
+--vcpus 2 \
+--disk path=/var/lib/libvirt/images/k3s-worker1.qcow2,size=50 \
+--network network=default \
+--os-variant rocky9 \
+--location /path/to/rocky9.iso \
+--extra-args "console=ttyS0"
 
 # Worker 2
 virt-install \
- --name k3s-worker2 \
- --ram 4096 \
- --vcpus 2 \
- --disk path=/var/lib/libvirt/images/k3s-worker2.qcow2,size=50 \
- --network network=default \
- --os-variant rocky9 \
- --location /path/to/rocky9.iso \
- --extra-args "console=ttyS0"
+--name k3s-worker2 \
+--ram 4096 \
+--vcpus 2 \
+--disk path=/var/lib/libvirt/images/k3s-worker2.qcow2,size=50 \
+--network network=default \
+--os-variant rocky9 \
+--location /path/to/rocky9.iso \
+--extra-args "console=ttyS0"
 ```
 
 ### OpenShift Virtualization
@@ -289,20 +289,20 @@ See: `docs/useful-commands.md`
 
 ```
 k8s-lab/
- README.md # This file
- scripts/
- prepare-node.sh # VM preparation
- setup-master.sh # Master installation
- setup-worker.sh # Worker join
- test-nginx.sh # Test deployment
- manifests/
- test-pvc.yaml
- test-pod-with-storage.yaml
- web-app-with-ingress.yaml
- dashboard-admin.yaml
- docs/
- useful-commands.md
- troubleshooting.md
+README.md # This file
+scripts/
+prepare-node.sh # VM preparation
+setup-master.sh # Master installation
+setup-worker.sh # Worker join
+test-nginx.sh # Test deployment
+manifests/
+test-pvc.yaml
+test-pod-with-storage.yaml
+web-app-with-ingress.yaml
+dashboard-admin.yaml
+docs/
+useful-commands.md
+troubleshooting.md
 ```
 
 ---

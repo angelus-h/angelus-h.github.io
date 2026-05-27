@@ -52,16 +52,16 @@
 
 ```
 
- OpenTelemetry Collector 
- 
- 
- Receivers > Processors > Exporters 
- 
- 
- 
- Extensions (optional) 
- - Health Check, pprof, zpages, etc. 
- 
+OpenTelemetry Collector 
+
+
+Receivers > Processors > Exporters 
+
+
+
+Extensions (optional) 
+- Health Check, pprof, zpages, etc. 
+
 
 
 Data Flow: Receivers → Processors → Exporters
@@ -180,7 +180,7 @@ Extensions provide additional services.
 
 ```
 Application → OTel Agent (DaemonSet) → OTel Gateway → Backends
- (Collect, enrich) (Aggregate, sample, export)
+(Collect, enrich) (Aggregate, sample, export)
 ```
 
 **Benefits:**
@@ -197,32 +197,32 @@ Application → OTel Agent (DaemonSet) → OTel Gateway → Backends
 ```yaml
 # OpenTelemetry Collector Configuration
 receivers:
- # Define data sources
- otlp:
- protocols:
- grpc:
- http:
+# Define data sources
+otlp:
+protocols:
+grpc:
+http:
 
 processors:
- # Define data transformations
- batch:
+# Define data transformations
+batch:
 
 exporters:
- # Define backends
- prometheus:
- endpoint: "0.0.0.0:8889"
+# Define backends
+prometheus:
+endpoint: "0.0.0.0:8889"
 
 extensions:
- # Additional services
- health_check:
+# Additional services
+health_check:
 
 service:
- extensions: [health_check]
- pipelines:
- metrics:
- receivers: [otlp]
- processors: [batch]
- exporters: [prometheus]
+extensions: [health_check]
+pipelines:
+metrics:
+receivers: [otlp]
+processors: [batch]
+exporters: [prometheus]
 ```
 
 ### Service Section
@@ -240,16 +240,16 @@ The `service` section defines:
 
 ```yaml
 service:
- extensions: [health_check, pprof]
- pipelines:
- metrics:
- receivers: [otlp, prometheus]
- processors: [batch, memory_limiter]
- exporters: [prometheusremotewrite]
- traces:
- receivers: [otlp, jaeger]
- processors: [batch, tail_sampling]
- exporters: [jaeger, datadog]
+extensions: [health_check, pprof]
+pipelines:
+metrics:
+receivers: [otlp, prometheus]
+processors: [batch, memory_limiter]
+exporters: [prometheusremotewrite]
+traces:
+receivers: [otlp, jaeger]
+processors: [batch, tail_sampling]
+exporters: [jaeger, datadog]
 ```
 
 ---
@@ -264,12 +264,12 @@ service:
 
 ```yaml
 receivers:
- otlp:
- protocols:
- grpc:
- endpoint: 0.0.0.0:4317
- http:
- endpoint: 0.0.0.0:4318
+otlp:
+protocols:
+grpc:
+endpoint: 0.0.0.0:4317
+http:
+endpoint: 0.0.0.0:4318
 ```
 
 **Use Case:** Applications instrumented with OpenTelemetry SDKs.
@@ -282,20 +282,20 @@ receivers:
 
 ```yaml
 receivers:
- prometheus:
- config:
- scrape_configs:
- - job_name: 'otel-collector'
- scrape_interval: 10s
- static_configs:
- - targets: ['localhost:8888']
- - job_name: 'kubernetes-pods'
- kubernetes_sd_configs:
- - role: pod
- relabel_configs:
- - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
- action: keep
- regex: true
+prometheus:
+config:
+scrape_configs:
+- job_name: 'otel-collector'
+scrape_interval: 10s
+static_configs:
+- targets: ['localhost:8888']
+- job_name: 'kubernetes-pods'
+kubernetes_sd_configs:
+- role: pod
+relabel_configs:
+- source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+action: keep
+regex: true
 ```
 
 **Use Case:** Collect metrics from Prometheus exporters or annotated pods.
@@ -308,12 +308,12 @@ receivers:
 
 ```yaml
 receivers:
- jaeger:
- protocols:
- grpc:
- endpoint: 0.0.0.0:14250
- thrift_http:
- endpoint: 0.0.0.0:14268
+jaeger:
+protocols:
+grpc:
+endpoint: 0.0.0.0:14250
+thrift_http:
+endpoint: 0.0.0.0:14268
 ```
 
 **Use Case:** Migrate from Jaeger to OTel without changing instrumentation.
@@ -326,17 +326,17 @@ receivers:
 
 ```yaml
 receivers:
- hostmetrics:
- collection_interval: 10s
- scrapers:
- cpu:
- memory:
- disk:
- filesystem:
- network:
- load:
- paging:
- processes:
+hostmetrics:
+collection_interval: 10s
+scrapers:
+cpu:
+memory:
+disk:
+filesystem:
+network:
+load:
+paging:
+processes:
 ```
 
 **Use Case:** Monitor node health in Kubernetes DaemonSet deployments.
@@ -349,10 +349,10 @@ receivers:
 
 ```yaml
 receivers:
- k8s_cluster:
- auth_type: serviceAccount
- node_conditions_to_report: [Ready, MemoryPressure, DiskPressure]
- allocatable_types_to_report: [cpu, memory, storage]
+k8s_cluster:
+auth_type: serviceAccount
+node_conditions_to_report: [Ready, MemoryPressure, DiskPressure]
+allocatable_types_to_report: [cpu, memory, storage]
 ```
 
 **Use Case:** Collect cluster-level metrics (node status, pod count, resource usage).
@@ -365,15 +365,15 @@ receivers:
 
 ```yaml
 receivers:
- filelog:
- include:
- - /var/log/myapp/*.log
- operators:
- - type: regex_parser
- regex: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) (?P<level>\w+) (?P<message>.*)$'
- timestamp:
- parse_from: attributes.timestamp
- layout: '%Y-%m-%d %H:%M:%S'
+filelog:
+include:
+- /var/log/myapp/*.log
+operators:
+- type: regex_parser
+regex: '^(?P<timestamp>\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}) (?P<level>\w+) (?P<message>.*)$'
+timestamp:
+parse_from: attributes.timestamp
+layout: '%Y-%m-%d %H:%M:%S'
 ```
 
 **Use Case:** Ingest application logs from files.
@@ -390,10 +390,10 @@ receivers:
 
 ```yaml
 processors:
- batch:
- timeout: 10s
- send_batch_size: 1000
- send_batch_max_size: 1500
+batch:
+timeout: 10s
+send_batch_size: 1000
+send_batch_max_size: 1500
 ```
 
 **Recommendation:** **Always use batch processor** for production deployments.
@@ -406,10 +406,10 @@ processors:
 
 ```yaml
 processors:
- memory_limiter:
- check_interval: 1s
- limit_mib: 512
- spike_limit_mib: 128
+memory_limiter:
+check_interval: 1s
+limit_mib: 512
+spike_limit_mib: 128
 ```
 
 **Recommendation:** **Place first in processor chain** to protect collector.
@@ -422,16 +422,16 @@ processors:
 
 ```yaml
 processors:
- attributes:
- actions:
- - key: environment
- value: production
- action: insert
- - key: cluster_name
- value: platform-prod
- action: upsert
- - key: internal_ip
- action: delete
+attributes:
+actions:
+- key: environment
+value: production
+action: insert
+- key: cluster_name
+value: platform-prod
+action: upsert
+- key: internal_ip
+action: delete
 ```
 
 **Use Case:** Add cluster/environment metadata to all telemetry.
@@ -444,14 +444,14 @@ processors:
 
 ```yaml
 processors:
- resource:
- attributes:
- - key: cluster.name
- value: platform-production
- action: insert
- - key: cloud.provider
- value: aws
- action: insert
+resource:
+attributes:
+- key: cluster.name
+value: platform-production
+action: insert
+- key: cloud.provider
+value: aws
+action: insert
 ```
 
 **Use Case:** Tag all telemetry with cluster/cloud information.
@@ -464,20 +464,20 @@ processors:
 
 ```yaml
 processors:
- k8sattributes:
- auth_type: serviceAccount
- passthrough: false
- extract:
- metadata:
- - k8s.namespace.name
- - k8s.pod.name
- - k8s.pod.uid
- - k8s.deployment.name
- - k8s.node.name
- labels:
- - tag_name: app
- key: app.kubernetes.io/name
- from: pod
+k8sattributes:
+auth_type: serviceAccount
+passthrough: false
+extract:
+metadata:
+- k8s.namespace.name
+- k8s.pod.name
+- k8s.pod.uid
+- k8s.deployment.name
+- k8s.node.name
+labels:
+- tag_name: app
+key: app.kubernetes.io/name
+from: pod
 ```
 
 **Use Case:** Add pod/namespace/deployment metadata to traces and metrics.
@@ -490,10 +490,10 @@ processors:
 
 ```yaml
 processors:
- filter/drop_health_checks:
- metrics:
- metric:
- - 'metric.name == "http.server.duration" and attributes["http.route"] == "/health"'
+filter/drop_health_checks:
+metrics:
+metric:
+- 'metric.name == "http.server.duration" and attributes["http.route"] == "/health"'
 ```
 
 **Use Case:** Drop health check metrics to reduce cardinality.
@@ -506,22 +506,22 @@ processors:
 
 ```yaml
 processors:
- tail_sampling:
- decision_wait: 10s
- num_traces: 100
- policies:
- - name: errors
- type: status_code
- status_code:
- status_codes: [ERROR]
- - name: slow_requests
- type: latency
- latency:
- threshold_ms: 1000
- - name: probabilistic
- type: probabilistic
- probabilistic:
- sampling_percentage: 10
+tail_sampling:
+decision_wait: 10s
+num_traces: 100
+policies:
+- name: errors
+type: status_code
+status_code:
+status_codes: [ERROR]
+- name: slow_requests
+type: latency
+latency:
+threshold_ms: 1000
+- name: probabilistic
+type: probabilistic
+probabilistic:
+sampling_percentage: 10
 ```
 
 **Use Case:** Keep all error traces, sample 10% of successful traces.
@@ -538,11 +538,11 @@ processors:
 
 ```yaml
 exporters:
- prometheus:
- endpoint: "0.0.0.0:8889"
- namespace: otel
- const_labels:
- cluster: platform-prod
+prometheus:
+endpoint: "0.0.0.0:8889"
+namespace: otel
+const_labels:
+cluster: platform-prod
 ```
 
 **Use Case:** Prometheus scrapes metrics from collector's `/metrics` endpoint.
@@ -555,12 +555,12 @@ exporters:
 
 ```yaml
 exporters:
- prometheusremotewrite:
- endpoint: "https://prometheus.example.com/api/v1/write"
- headers:
- Authorization: "Bearer ${PROMETHEUS_TOKEN}"
- resource_to_telemetry_conversion:
- enabled: true
+prometheusremotewrite:
+endpoint: "https://prometheus.example.com/api/v1/write"
+headers:
+Authorization: "Bearer ${PROMETHEUS_TOKEN}"
+resource_to_telemetry_conversion:
+enabled: true
 ```
 
 **Use Case:** Send metrics to Prometheus, Thanos, Cortex, or Mimir.
@@ -573,12 +573,12 @@ exporters:
 
 ```yaml
 exporters:
- otlp:
- endpoint: "jaeger-collector:4317"
- tls:
- insecure: false
- cert_file: /etc/certs/client.crt
- key_file: /etc/certs/client.key
+otlp:
+endpoint: "jaeger-collector:4317"
+tls:
+insecure: false
+cert_file: /etc/certs/client.crt
+key_file: /etc/certs/client.key
 ```
 
 **Use Case:** Send to Jaeger, Grafana Tempo, or other OTLP backends.
@@ -591,10 +591,10 @@ exporters:
 
 ```yaml
 exporters:
- jaeger:
- endpoint: "jaeger-collector:14250"
- tls:
- insecure: true
+jaeger:
+endpoint: "jaeger-collector:14250"
+tls:
+insecure: true
 ```
 
 **Use Case:** Export traces to Jaeger for analysis.
@@ -607,12 +607,12 @@ exporters:
 
 ```yaml
 exporters:
- loki:
- endpoint: "http://loki:3100/loki/api/v1/push"
- labels:
- resource:
- cluster: "cluster.name"
- namespace: "k8s.namespace.name"
+loki:
+endpoint: "http://loki:3100/loki/api/v1/push"
+labels:
+resource:
+cluster: "cluster.name"
+namespace: "k8s.namespace.name"
 ```
 
 **Use Case:** Centralize logs in Loki for querying with LogQL.
@@ -625,10 +625,10 @@ exporters:
 
 ```yaml
 exporters:
- logging:
- loglevel: debug
- sampling_initial: 5
- sampling_thereafter: 200
+logging:
+loglevel: debug
+sampling_initial: 5
+sampling_thereafter: 200
 ```
 
 **Use Case:** Debugging collector pipelines during development.
@@ -645,9 +645,9 @@ exporters:
 
 ```yaml
 extensions:
- health_check:
- endpoint: 0.0.0.0:13133
- path: /health
+health_check:
+endpoint: 0.0.0.0:13133
+path: /health
 ```
 
 **Use Case:** Kubernetes liveness/readiness probes.
@@ -660,8 +660,8 @@ extensions:
 
 ```yaml
 extensions:
- pprof:
- endpoint: 0.0.0.0:1777
+pprof:
+endpoint: 0.0.0.0:1777
 ```
 
 **Use Case:** Profile collector performance.
@@ -674,8 +674,8 @@ extensions:
 
 ```yaml
 extensions:
- zpages:
- endpoint: 0.0.0.0:55679
+zpages:
+endpoint: 0.0.0.0:55679
 ```
 
 **Use Case:** Debug pipeline status at `http://localhost:55679/debug/tracez`.
@@ -690,60 +690,60 @@ extensions:
 
 ```yaml
 receivers:
- otlp:
- protocols:
- grpc:
- endpoint: 0.0.0.0:4317
- hostmetrics:
- collection_interval: 30s
- scrapers:
- cpu:
- memory:
- disk:
- filesystem:
- network:
+otlp:
+protocols:
+grpc:
+endpoint: 0.0.0.0:4317
+hostmetrics:
+collection_interval: 30s
+scrapers:
+cpu:
+memory:
+disk:
+filesystem:
+network:
 
 processors:
- memory_limiter:
- check_interval: 1s
- limit_mib: 256
- batch:
- timeout: 10s
- resource:
- attributes:
- - key: cluster.name
- value: platform-production
- action: insert
- k8sattributes:
- auth_type: serviceAccount
- passthrough: false
- extract:
- metadata:
- - k8s.namespace.name
- - k8s.pod.name
- - k8s.node.name
+memory_limiter:
+check_interval: 1s
+limit_mib: 256
+batch:
+timeout: 10s
+resource:
+attributes:
+- key: cluster.name
+value: platform-production
+action: insert
+k8sattributes:
+auth_type: serviceAccount
+passthrough: false
+extract:
+metadata:
+- k8s.namespace.name
+- k8s.pod.name
+- k8s.node.name
 
 exporters:
- otlp:
- endpoint: "otel-gateway:4317"
- tls:
- insecure: true
+otlp:
+endpoint: "otel-gateway:4317"
+tls:
+insecure: true
 
 extensions:
- health_check:
- endpoint: 0.0.0.0:13133
+health_check:
+endpoint: 0.0.0.0:13133
 
 service:
- extensions: [health_check]
- pipelines:
- metrics:
- receivers: [hostmetrics]
- processors: [memory_limiter, batch, resource]
- exporters: [otlp]
- traces:
- receivers: [otlp]
- processors: [memory_limiter, batch, k8sattributes]
- exporters: [otlp]
+extensions: [health_check]
+pipelines:
+metrics:
+receivers: [hostmetrics]
+processors: [memory_limiter, batch, resource]
+exporters: [otlp]
+traces:
+receivers: [otlp]
+processors: [memory_limiter, batch, k8sattributes]
+exporters: [otlp]
 ```
 
 ### Example 2: Gateway Mode (Centralized)
@@ -752,55 +752,55 @@ service:
 
 ```yaml
 receivers:
- otlp:
- protocols:
- grpc:
- endpoint: 0.0.0.0:4317
+otlp:
+protocols:
+grpc:
+endpoint: 0.0.0.0:4317
 
 processors:
- memory_limiter:
- check_interval: 1s
- limit_mib: 2048
- batch:
- timeout: 10s
- send_batch_size: 10000
- tail_sampling:
- decision_wait: 10s
- policies:
- - name: errors
- type: status_code
- status_code:
- status_codes: [ERROR]
- - name: probabilistic
- type: probabilistic
- probabilistic:
- sampling_percentage: 5
+memory_limiter:
+check_interval: 1s
+limit_mib: 2048
+batch:
+timeout: 10s
+send_batch_size: 10000
+tail_sampling:
+decision_wait: 10s
+policies:
+- name: errors
+type: status_code
+status_code:
+status_codes: [ERROR]
+- name: probabilistic
+type: probabilistic
+probabilistic:
+sampling_percentage: 5
 
 exporters:
- jaeger:
- endpoint: "jaeger-collector:14250"
- tls:
- insecure: true
- prometheusremotewrite:
- endpoint: "https://prometheus-remote-write.example.com/api/v1/write"
- headers:
- Authorization: "Bearer ${PROMETHEUS_TOKEN}"
+jaeger:
+endpoint: "jaeger-collector:14250"
+tls:
+insecure: true
+prometheusremotewrite:
+endpoint: "https://prometheus-remote-write.example.com/api/v1/write"
+headers:
+Authorization: "Bearer ${PROMETHEUS_TOKEN}"
 
 extensions:
- health_check:
- pprof:
+health_check:
+pprof:
 
 service:
- extensions: [health_check, pprof]
- pipelines:
- traces:
- receivers: [otlp]
- processors: [memory_limiter, batch, tail_sampling]
- exporters: [jaeger]
- metrics:
- receivers: [otlp]
- processors: [memory_limiter, batch]
- exporters: [prometheusremotewrite]
+extensions: [health_check, pprof]
+pipelines:
+traces:
+receivers: [otlp]
+processors: [memory_limiter, batch, tail_sampling]
+exporters: [jaeger]
+metrics:
+receivers: [otlp]
+processors: [memory_limiter, batch]
+exporters: [prometheusremotewrite]
 ```
 
 ### Example 3: Prometheus Scraping + OTLP Export
@@ -809,43 +809,43 @@ service:
 
 ```yaml
 receivers:
- prometheus:
- config:
- scrape_configs:
- - job_name: 'kubernetes-pods'
- kubernetes_sd_configs:
- - role: pod
- namespaces:
- names:
- - platform-system
- - default
- relabel_configs:
- - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
- action: keep
- regex: true
- - source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_port]
- action: replace
- target_label: __address__
- regex: (.+)
- replacement: $1:8080
+prometheus:
+config:
+scrape_configs:
+- job_name: 'kubernetes-pods'
+kubernetes_sd_configs:
+- role: pod
+namespaces:
+names:
+- platform-system
+- default
+relabel_configs:
+- source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_scrape]
+action: keep
+regex: true
+- source_labels: [__meta_kubernetes_pod_annotation_prometheus_io_port]
+action: replace
+target_label: __address__
+regex: (.+)
+replacement: $1:8080
 
 processors:
- memory_limiter:
- limit_mib: 512
- batch:
+memory_limiter:
+limit_mib: 512
+batch:
 
 exporters:
- prometheusremotewrite:
- endpoint: "https://prometheus.example.com/api/v1/write"
- resource_to_telemetry_conversion:
- enabled: true
+prometheusremotewrite:
+endpoint: "https://prometheus.example.com/api/v1/write"
+resource_to_telemetry_conversion:
+enabled: true
 
 service:
- pipelines:
- metrics:
- receivers: [prometheus]
- processors: [memory_limiter, batch]
- exporters: [prometheusremotewrite]
+pipelines:
+metrics:
+receivers: [prometheus]
+processors: [memory_limiter, batch]
+exporters: [prometheusremotewrite]
 ```
 
 ---
@@ -858,53 +858,53 @@ service:
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
- name: otel-agent
- namespace: observability
+name: otel-agent
+namespace: observability
 spec:
- selector:
- matchLabels:
- app: otel-agent
- template:
- metadata:
- labels:
- app: otel-agent
- spec:
- serviceAccountName: otel-agent
- containers:
- - name: otel-collector
- image: otel/opentelemetry-collector-k8s:0.94.0
- args:
- - "--config=/conf/otel-agent-config.yaml"
- env:
- - name: KUBE_NODE_NAME
- valueFrom:
- fieldRef:
- fieldPath: spec.nodeName
- resources:
- limits:
- memory: 512Mi
- cpu: 200m
- requests:
- memory: 256Mi
- cpu: 100m
- ports:
- - containerPort: 4317 # OTLP gRPC
- - containerPort: 13133 # Health check
- volumeMounts:
- - name: config
- mountPath: /conf
- livenessProbe:
- httpGet:
- path: /
- port: 13133
- readinessProbe:
- httpGet:
- path: /
- port: 13133
- volumes:
- - name: config
- configMap:
- name: otel-agent-config
+selector:
+matchLabels:
+app: otel-agent
+template:
+metadata:
+labels:
+app: otel-agent
+spec:
+serviceAccountName: otel-agent
+containers:
+- name: otel-collector
+image: otel/opentelemetry-collector-k8s:0.94.0
+args:
+- "--config=/conf/otel-agent-config.yaml"
+env:
+- name: KUBE_NODE_NAME
+valueFrom:
+fieldRef:
+fieldPath: spec.nodeName
+resources:
+limits:
+memory: 512Mi
+cpu: 200m
+requests:
+memory: 256Mi
+cpu: 100m
+ports:
+- containerPort: 4317 # OTLP gRPC
+- containerPort: 13133 # Health check
+volumeMounts:
+- name: config
+mountPath: /conf
+livenessProbe:
+httpGet:
+path: /
+port: 13133
+readinessProbe:
+httpGet:
+path: /
+port: 13133
+volumes:
+- name: config
+configMap:
+name: otel-agent-config
 ```
 
 ### Deployment (Gateway Mode)
@@ -913,66 +913,66 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: otel-gateway
- namespace: observability
+name: otel-gateway
+namespace: observability
 spec:
- replicas: 3
- selector:
- matchLabels:
- app: otel-gateway
- template:
- metadata:
- labels:
- app: otel-gateway
- spec:
- serviceAccountName: otel-gateway
- containers:
- - name: otel-collector
- image: otel/opentelemetry-collector-contrib:0.94.0
- args:
- - "--config=/conf/otel-gateway-config.yaml"
- resources:
- limits:
- memory: 4Gi
- cpu: 2
- requests:
- memory: 2Gi
- cpu: 1
- ports:
- - containerPort: 4317 # OTLP gRPC
- - containerPort: 8889 # Prometheus exporter
- - containerPort: 13133 # Health check
- volumeMounts:
- - name: config
- mountPath: /conf
- livenessProbe:
- httpGet:
- path: /
- port: 13133
- readinessProbe:
- httpGet:
- path: /
- port: 13133
- volumes:
- - name: config
- configMap:
- name: otel-gateway-config
+replicas: 3
+selector:
+matchLabels:
+app: otel-gateway
+template:
+metadata:
+labels:
+app: otel-gateway
+spec:
+serviceAccountName: otel-gateway
+containers:
+- name: otel-collector
+image: otel/opentelemetry-collector-contrib:0.94.0
+args:
+- "--config=/conf/otel-gateway-config.yaml"
+resources:
+limits:
+memory: 4Gi
+cpu: 2
+requests:
+memory: 2Gi
+cpu: 1
+ports:
+- containerPort: 4317 # OTLP gRPC
+- containerPort: 8889 # Prometheus exporter
+- containerPort: 13133 # Health check
+volumeMounts:
+- name: config
+mountPath: /conf
+livenessProbe:
+httpGet:
+path: /
+port: 13133
+readinessProbe:
+httpGet:
+path: /
+port: 13133
+volumes:
+- name: config
+configMap:
+name: otel-gateway-config
 ---
 apiVersion: v1
 kind: Service
 metadata:
- name: otel-gateway
- namespace: observability
+name: otel-gateway
+namespace: observability
 spec:
- selector:
- app: otel-gateway
- ports:
- - name: otlp-grpc
- port: 4317
- targetPort: 4317
- - name: prometheus
- port: 8889
- targetPort: 8889
+selector:
+app: otel-gateway
+ports:
+- name: otlp-grpc
+port: 4317
+targetPort: 4317
+- name: prometheus
+port: 8889
+targetPort: 8889
 ```
 
 ### RBAC (ServiceAccount)
@@ -981,43 +981,43 @@ spec:
 apiVersion: v1
 kind: ServiceAccount
 metadata:
- name: otel-agent
- namespace: observability
+name: otel-agent
+namespace: observability
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
- name: otel-agent
+name: otel-agent
 rules:
- - apiGroups: [""]
- resources:
- - nodes
- - nodes/stats
- - nodes/proxy
- - pods
- - services
- - endpoints
- verbs: ["get", "list", "watch"]
- - apiGroups: ["apps"]
- resources:
- - deployments
- - replicasets
- - daemonsets
- - statefulsets
- verbs: ["get", "list", "watch"]
+- apiGroups: [""]
+resources:
+- nodes
+- nodes/stats
+- nodes/proxy
+- pods
+- services
+- endpoints
+verbs: ["get", "list", "watch"]
+- apiGroups: ["apps"]
+resources:
+- deployments
+- replicasets
+- daemonsets
+- statefulsets
+verbs: ["get", "list", "watch"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
- name: otel-agent
+name: otel-agent
 roleRef:
- apiGroup: rbac.authorization.k8s.io
- kind: ClusterRole
- name: otel-agent
+apiGroup: rbac.authorization.k8s.io
+kind: ClusterRole
+name: otel-agent
 subjects:
- - kind: ServiceAccount
- name: otel-agent
- namespace: observability
+- kind: ServiceAccount
+name: otel-agent
+namespace: observability
 ```
 
 ---
@@ -1031,9 +1031,9 @@ subjects:
 **Configuration:**
 ```yaml
 processors:
- batch:
- timeout: 10s
- send_batch_size: 1000
+batch:
+timeout: 10s
+send_batch_size: 1000
 ```
 
 ### 2. Use Memory Limiter First in Chain
@@ -1043,9 +1043,9 @@ processors:
 **Configuration:**
 ```yaml
 processors:
- memory_limiter:
- check_interval: 1s
- limit_mib: 512
+memory_limiter:
+check_interval: 1s
+limit_mib: 512
 ```
 
 **Processor Order:**
@@ -1060,16 +1060,16 @@ processors: [memory_limiter, batch, k8sattributes]
 **Configuration:**
 ```yaml
 processors:
- tail_sampling:
- policies:
- - name: errors
- type: status_code
- status_code:
- status_codes: [ERROR]
- - name: probabilistic
- type: probabilistic
- probabilistic:
- sampling_percentage: 5
+tail_sampling:
+policies:
+- name: errors
+type: status_code
+status_code:
+status_codes: [ERROR]
+- name: probabilistic
+type: probabilistic
+probabilistic:
+sampling_percentage: 5
 ```
 
 ### 4. Add Resource Attributes for Context
@@ -1079,11 +1079,11 @@ processors:
 **Configuration:**
 ```yaml
 processors:
- resource:
- attributes:
- - key: cluster.name
- value: platform-production
- action: insert
+resource:
+attributes:
+- key: cluster.name
+value: platform-production
+action: insert
 ```
 
 ### 5. Use Health Checks for Kubernetes Probes
@@ -1091,20 +1091,20 @@ processors:
 **Configuration:**
 ```yaml
 extensions:
- health_check:
- endpoint: 0.0.0.0:13133
+health_check:
+endpoint: 0.0.0.0:13133
 ```
 
 **Kubernetes Probes:**
 ```yaml
 livenessProbe:
- httpGet:
- path: /
- port: 13133
+httpGet:
+path: /
+port: 13133
 readinessProbe:
- httpGet:
- path: /
- port: 13133
+httpGet:
+path: /
+port: 13133
 ```
 
 ### 6. Monitor Collector Metrics
@@ -1112,13 +1112,13 @@ readinessProbe:
 **Self-monitoring:**
 ```yaml
 receivers:
- prometheus:
- config:
- scrape_configs:
- - job_name: 'otel-collector'
- scrape_interval: 10s
- static_configs:
- - targets: ['localhost:8888']
+prometheus:
+config:
+scrape_configs:
+- job_name: 'otel-collector'
+scrape_interval: 10s
+static_configs:
+- targets: ['localhost:8888']
 ```
 
 **Key Metrics:**
@@ -1132,13 +1132,13 @@ receivers:
 **Configuration:**
 ```yaml
 exporters:
- otlp:
- endpoint: "jaeger-collector:4317"
- tls:
- insecure: false
- cert_file: /etc/certs/client.crt
- key_file: /etc/certs/client.key
- ca_file: /etc/certs/ca.crt
+otlp:
+endpoint: "jaeger-collector:4317"
+tls:
+insecure: false
+cert_file: /etc/certs/client.crt
+key_file: /etc/certs/client.key
+ca_file: /etc/certs/ca.crt
 ```
 
 ### 8. Set Resource Limits in Kubernetes
@@ -1146,23 +1146,23 @@ exporters:
 **DaemonSet (Agent):**
 ```yaml
 resources:
- limits:
- memory: 512Mi
- cpu: 200m
- requests:
- memory: 256Mi
- cpu: 100m
+limits:
+memory: 512Mi
+cpu: 200m
+requests:
+memory: 256Mi
+cpu: 100m
 ```
 
 **Deployment (Gateway):**
 ```yaml
 resources:
- limits:
- memory: 4Gi
- cpu: 2
- requests:
- memory: 2Gi
- cpu: 1
+limits:
+memory: 4Gi
+cpu: 2
+requests:
+memory: 2Gi
+cpu: 1
 ```
 
 ---
@@ -1182,11 +1182,11 @@ resources:
 
 ```yaml
 processors:
- memory_limiter:
- limit_mib: 512
- spike_limit_mib: 128
- batch:
- send_batch_size: 500 # Reduce from default
+memory_limiter:
+limit_mib: 512
+spike_limit_mib: 128
+batch:
+send_batch_size: 500 # Reduce from default
 ```
 
 ### Issue 2: High Latency in Traces
@@ -1201,10 +1201,10 @@ processors:
 
 ```yaml
 processors:
- batch:
- timeout: 5s # Reduce from 10s
- tail_sampling:
- decision_wait: 5s # Reduce if acceptable
+batch:
+timeout: 5s # Reduce from 10s
+tail_sampling:
+decision_wait: 5s # Reduce if acceptable
 ```
 
 ### Issue 3: Data Not Appearing in Backend
@@ -1218,15 +1218,15 @@ processors:
 1. **Enable logging exporter:**
 ```yaml
 exporters:
- logging:
- loglevel: debug
+logging:
+loglevel: debug
 
 service:
- pipelines:
- traces:
- receivers: [otlp]
- processors: [batch]
- exporters: [logging, jaeger] # Add logging
+pipelines:
+traces:
+receivers: [otlp]
+processors: [batch]
+exporters: [logging, jaeger] # Add logging
 ```
 
 2. **Check collector logs:**
@@ -1255,13 +1255,13 @@ kubectl exec -it otel-gateway-xyz -- curl -v http://jaeger-collector:14268
 
 ```yaml
 processors:
- k8sattributes:
- auth_type: serviceAccount
- passthrough: false
- extract:
- metadata:
- - k8s.namespace.name
- - k8s.pod.name
+k8sattributes:
+auth_type: serviceAccount
+passthrough: false
+extract:
+metadata:
+- k8s.namespace.name
+- k8s.pod.name
 ```
 
 ### Issue 5: Prometheus Scraping Fails
@@ -1282,11 +1282,11 @@ kubectl exec -it otel-gateway-xyz -- curl http://localhost:8889/metrics
 apiVersion: v1
 kind: Service
 metadata:
- name: otel-gateway
- annotations:
- prometheus.io/scrape: "true"
- prometheus.io/port: "8889"
- prometheus.io/path: "/metrics"
+name: otel-gateway
+annotations:
+prometheus.io/scrape: "true"
+prometheus.io/port: "8889"
+prometheus.io/path: "/metrics"
 ```
 
 ---
@@ -1299,112 +1299,112 @@ metadata:
 
 ```yaml
 receivers:
- otlp:
- protocols:
- grpc:
- endpoint: 0.0.0.0:4317
- hostmetrics:
- collection_interval: 30s
- scrapers:
- cpu:
- memory:
- disk:
- network:
+otlp:
+protocols:
+grpc:
+endpoint: 0.0.0.0:4317
+hostmetrics:
+collection_interval: 30s
+scrapers:
+cpu:
+memory:
+disk:
+network:
 
 processors:
- memory_limiter:
- limit_mib: 256
- batch:
- timeout: 10s
- resource:
- attributes:
- - key: cluster.name
- value: platform-production
- action: insert
- - key: environment
- value: production
- action: insert
- k8sattributes:
- auth_type: serviceAccount
- extract:
- metadata:
- - k8s.namespace.name
- - k8s.pod.name
- - k8s.deployment.name
+memory_limiter:
+limit_mib: 256
+batch:
+timeout: 10s
+resource:
+attributes:
+- key: cluster.name
+value: platform-production
+action: insert
+- key: environment
+value: production
+action: insert
+k8sattributes:
+auth_type: serviceAccount
+extract:
+metadata:
+- k8s.namespace.name
+- k8s.pod.name
+- k8s.deployment.name
 
 exporters:
- otlp:
- endpoint: "otel-gateway.observability.svc.cluster.local:4317"
- tls:
- insecure: true
+otlp:
+endpoint: "otel-gateway.observability.svc.cluster.local:4317"
+tls:
+insecure: true
 
 service:
- pipelines:
- metrics:
- receivers: [hostmetrics]
- processors: [memory_limiter, batch, resource]
- exporters: [otlp]
- traces:
- receivers: [otlp]
- processors: [memory_limiter, batch, k8sattributes]
- exporters: [otlp]
+pipelines:
+metrics:
+receivers: [hostmetrics]
+processors: [memory_limiter, batch, resource]
+exporters: [otlp]
+traces:
+receivers: [otlp]
+processors: [memory_limiter, batch, k8sattributes]
+exporters: [otlp]
 ```
 
 **Gateway Config:**
 
 ```yaml
 receivers:
- otlp:
- protocols:
- grpc:
- endpoint: 0.0.0.0:4317
+otlp:
+protocols:
+grpc:
+endpoint: 0.0.0.0:4317
 
 processors:
- memory_limiter:
- limit_mib: 2048
- batch:
- timeout: 10s
- send_batch_size: 10000
- tail_sampling:
- decision_wait: 10s
- policies:
- - name: errors_and_slow
- type: composite
- composite:
- max_total_spans_per_second: 1000
- policy_order: [errors, slow_requests, probabilistic]
- composite_sub_policy:
- - name: errors
- type: status_code
- status_code:
- status_codes: [ERROR]
- - name: slow_requests
- type: latency
- latency:
- threshold_ms: 500
- - name: probabilistic
- type: probabilistic
- probabilistic:
- sampling_percentage: 5
+memory_limiter:
+limit_mib: 2048
+batch:
+timeout: 10s
+send_batch_size: 10000
+tail_sampling:
+decision_wait: 10s
+policies:
+- name: errors_and_slow
+type: composite
+composite:
+max_total_spans_per_second: 1000
+policy_order: [errors, slow_requests, probabilistic]
+composite_sub_policy:
+- name: errors
+type: status_code
+status_code:
+status_codes: [ERROR]
+- name: slow_requests
+type: latency
+latency:
+threshold_ms: 500
+- name: probabilistic
+type: probabilistic
+probabilistic:
+sampling_percentage: 5
 
 exporters:
- otlp:
- endpoint: "jaeger-collector.observability.svc.cluster.local:4317"
- prometheusremotewrite:
- endpoint: "https://prometheus.company.com/api/v1/write"
- headers:
- Authorization: "Bearer ${PROMETHEUS_TOKEN}"
+otlp:
+endpoint: "jaeger-collector.observability.svc.cluster.local:4317"
+prometheusremotewrite:
+endpoint: "https://prometheus.company.com/api/v1/write"
+headers:
+Authorization: "Bearer ${PROMETHEUS_TOKEN}"
 
 service:
- pipelines:
- traces:
- receivers: [otlp]
- processors: [memory_limiter, batch, tail_sampling]
- exporters: [otlp]
- metrics:
- receivers: [otlp]
- processors: [memory_limiter, batch]
- exporters: [prometheusremotewrite]
+pipelines:
+traces:
+receivers: [otlp]
+processors: [memory_limiter, batch, tail_sampling]
+exporters: [otlp]
+metrics:
+receivers: [otlp]
+processors: [memory_limiter, batch]
+exporters: [prometheusremotewrite]
 ```
 
 ---

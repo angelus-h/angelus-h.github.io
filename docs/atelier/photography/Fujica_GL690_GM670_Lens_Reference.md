@@ -1,3 +1,7 @@
+---
+description: Fujica GL690/GM670 lens system - complete lineup from 50mm to 180mm, specifications, optical performance, and practical field use.
+---
+
 # Fujica GL690 / GM670 Lens System Reference
 
 **Camera System:** Fujica GL690 Professional / GM670 Professional 

@@ -1,3 +1,7 @@
+---
+description: Curated resources for fine art photography printing - books, photographers, YouTube channels, print labs, paper manufacturers, and online communities.
+---
+
 # Fine Art Print Resources
 
 ## Overview
@@ -381,7 +385,7 @@ Curated resources for fine art photographic printing: books, photographers to st
 - [Print_Foundations_Reference.md](Print_Foundations_Reference.md)
 - [Tonal_Control_Reference.md](Tonal_Control_Reference.md)
 - [Paper_and_Materials_Reference.md](Paper_and_Materials_Reference.md)
-- [Color_Management_Workflow_Reference.md](Color_Management_Workflow_Reference.md)
+- [Color_Management_Workflow_Reference.md](../Color_Management_Workflow_Reference.md)
 - [Print_Editing_Techniques_Reference.md](Print_Editing_Techniques_Reference.md)
 - [Fine_Art_Print_Philosophy_Reference.md](Fine_Art_Print_Philosophy_Reference.md)
 

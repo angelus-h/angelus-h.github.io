@@ -1,3 +1,7 @@
+---
+description: Agile and Scrum essential guide - sprints, ceremonies, roles, backlog management, retrospectives, and iterative development workflows.
+---
+
 # Agile & Scrum Essential Guide (English)
 
 **Target Audience:** Development Teams, Project Managers, Product Owners, Scrum Masters, Team Leaders
@@ -50,28 +54,28 @@
 
 ```
 
- PRODUCT BACKLOG 
- (Prioritized list of features/requirements) 
+PRODUCT BACKLOG 
+(Prioritized list of features/requirements) 
 
- 
- ↓
 
- SPRINT (1-4 weeks) 
- 
- SPRINT PLANNING → Daily Scrum → Development Work 
- ↓ 
- SPRINT BACKLOG (Selected items for this sprint) 
- 
+↓
 
- 
- ↓
+SPRINT (1-4 weeks) 
 
- SPRINT REVIEW & RETROSPECTIVE 
- (Demo + Team Improvement) 
+SPRINT PLANNING → Daily Scrum → Development Work 
+↓ 
+SPRINT BACKLOG (Selected items for this sprint) 
 
- 
- ↓
- INCREMENT (Working software)
+
+
+↓
+
+SPRINT REVIEW & RETROSPECTIVE 
+(Demo + Team Improvement) 
+
+
+↓
+INCREMENT (Working software)
 ```
 
 ---
@@ -187,11 +191,11 @@ Priority | Story | Estimate | Status
 **Example Sprint Backlog (Task Board):**
 ```
 
- TO DO IN PROGRESS REVIEW DONE 
+TO DO IN PROGRESS REVIEW DONE 
 
- Story A Story B Story C Story D 
- - Task 1 - Task 3 - Task 5 
- - Task 2 - Task 4 
+Story A Story B Story C Story D 
+- Task 1 - Task 3 - Task 5 
+- Task 2 - Task 4 
 
 ```
 
@@ -303,12 +307,12 @@ Priority | Story | Estimate | Status
 **Example Retrospective Outcomes:**
 ```
 What went well:
- Good collaboration on complex story
- Automated deployment pipeline
+Good collaboration on complex story
+Automated deployment pipeline
 
 What didn't go well:
- Too many production bugs
- Unclear acceptance criteria
+Too many production bugs
+Unclear acceptance criteria
 
 Action Items:
 → Implement automated testing for critical paths
@@ -321,15 +325,15 @@ Action Items:
 
 ```
 Week 1:
- Monday: Sprint Planning (4 hours)
- Tue-Fri: Daily Scrum (15 min each morning)
- Development Work
+Monday: Sprint Planning (4 hours)
+Tue-Fri: Daily Scrum (15 min each morning)
+Development Work
 
 Week 2:
- Mon-Thu: Daily Scrum + Development Work
- Friday: Sprint Review (2 hours)
- Sprint Retrospective (1.5 hours)
- [Next Sprint Planning can start immediately]
+Mon-Thu: Daily Scrum + Development Work
+Friday: Sprint Review (2 hours)
+Sprint Retrospective (1.5 hours)
+[Next Sprint Planning can start immediately]
 ```
 
 ---
@@ -362,13 +366,13 @@ Week 2:
 **Example Velocity Chart:**
 ```
 Story Points Completed
- ↑
+↑
 40| 
 35| 
 30| 
 25| 
- → Sprints
- 1 2 3 4 5 6
+→ Sprints
+1 2 3 4 5 6
 ```
 
 ### Definition of Ready (DoR)

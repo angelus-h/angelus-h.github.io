@@ -1,3 +1,7 @@
+---
+description: Fundamental concepts for fine art printing - screen vs print differences, tonal systems, natural rendering, and film-like character in digital prints.
+---
+
 # Print Foundations Reference
 
 ## Overview
@@ -63,10 +67,10 @@ Why screen-optimized images fail on paper:
 2. Print each at 8x10" on matte photo paper (local lab OK)
 3. View prints in natural window light (not direct sun)
 4. Note what changed:
- - Are highlights blown out?
- - Do shadows go solid black?
- - Does contrast feel harsh or dull?
- - Has color shifted?
+- Are highlights blown out?
+- Do shadows go solid black?
+- Does contrast feel harsh or dull?
+- Has color shifted?
 5. Document observations in notebook
 
 **Common Findings:**
@@ -141,11 +145,11 @@ Ansel Adams' Zone System divides the tonal range into 11 zones (0-X):
 **Process:**
 1. Select 3 images (portrait, landscape, still life)
 2. For each image:
- - Identify key tones (brightest highlight, darkest shadow, midtone anchor)
- - Use curves to place these in zones:
- - Highlights: Zone VIII (textured white, not blown)
- - Shadows: Zone III (visible detail, not blocked)
- - Midtone: Zone V (middle gray, 18%)
+- Identify key tones (brightest highlight, darkest shadow, midtone anchor)
+- Use curves to place these in zones:
+- Highlights: Zone VIII (textured white, not blown)
+- Shadows: Zone III (visible detail, not blocked)
+- Midtone: Zone V (middle gray, 18%)
 3. Print test (8x10")
 4. Evaluate: Do tones "breathe" or feel compressed?
 
@@ -178,11 +182,11 @@ Understanding contrast as a multi-layered system is critical for print.
 **Exercise: Contrast Laddering**
 - Take one landscape image
 - Create 5 versions with varying global contrast:
- - Version 1: Very flat (soft contrast curve)
- - Version 2: Slightly flat
- - Version 3: Normal (straight curve)
- - Version 4: Slightly punchy
- - Version 5: High contrast
+- Version 1: Very flat (soft contrast curve)
+- Version 2: Slightly flat
+- Version 3: Normal (straight curve)
+- Version 4: Slightly punchy
+- Version 5: High contrast
 - Print all 5 on same paper (contact sheet style, 4x5" each)
 - View under consistent lighting
 - Which version has best tonal separation without harshness?
@@ -224,9 +228,9 @@ Understanding contrast as a multi-layered system is critical for print.
 
 **Print Consideration:**
 - Paper surface affects microcontrast perception:
- - Glossy: High microcontrast (sharp, crisp)
- - Matte: Lower microcontrast (soft, atmospheric)
- - Textured rag: Diffused microcontrast (painterly)
+- Glossy: High microcontrast (sharp, crisp)
+- Matte: Lower microcontrast (soft, atmospheric)
+- Textured rag: Diffused microcontrast (painterly)
 - For analog-feeling prints, aim for **slightly lower microcontrast** than screen-optimal
 
 **See Also:** [Tonal_Control_Reference.md](Tonal_Control_Reference.md) for deep dive on microcontrast.

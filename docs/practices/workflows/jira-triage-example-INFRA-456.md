@@ -148,8 +148,8 @@
 
 ```
 
- TRIAGE ASSESSMENT: PLATFORM-11591 
- CrashLoopBackOff: network-controller pods 
+TRIAGE ASSESSMENT: PLATFORM-11591 
+CrashLoopBackOff: network-controller pods 
 
 
 Issue Type: Infrastructure Bug (Networking)
@@ -180,10 +180,10 @@ Reasoning:
 
 
 WATCH FOR:
- User reports of networking issues in production-cluster-01
- Escalation to Severity 1 if user-facing impact emerges
- Reassignment if Manish requests additional expertise
- Ticket stale for >3 days without update
+User reports of networking issues in production-cluster-01
+Escalation to Severity 1 if user-facing impact emerges
+Reassignment if Manish requests additional expertise
+Ticket stale for >3 days without update
 
 
 
@@ -203,59 +203,59 @@ IF I WERE THE ASSIGNEE, INVESTIGATION STEPS:
 ### **What Was EXCELLENT About This Ticket:**
 
 1. **Comprehensive Details**
- - Exact pod names provided
- - Cluster and namespace specified
- - Timestamps of crashes included
- - Logs and CSV attached
+- Exact pod names provided
+- Cluster and namespace specified
+- Timestamps of crashes included
+- Logs and CSV attached
 
 2. **Automated Detection**
- - Proactive monitoring tool found the issue
- - Not waiting for user complaints
- - Shows mature observability
+- Proactive monitoring tool found the issue
+- Not waiting for user complaints
+- Shows mature observability
 
 3. **Proper Initial Routing**
- - Reporter correctly identified as Infrastructure issue
- - Assigned to domain expert ([Infrastructure Engineer])
- - Component tagged appropriately
+- Reporter correctly identified as Infrastructure issue
+- Assigned to domain expert ([Infrastructure Engineer])
+- Component tagged appropriately
 
 4. **Clear Scope**
- - 7 specific pods listed
- - Single cluster affected (production-cluster-01)
- - Easy to reproduce/investigate
+- 7 specific pods listed
+- Single cluster affected (production-cluster-01)
+- Easy to reproduce/investigate
 
 5. **Tool Transparency**
- - GitHub link to monitoring tool provided
- - Command used for detection shared
- - Reproducible findings
+- GitHub link to monitoring tool provided
+- Command used for detection shared
+- Reproducible findings
 
 ---
 
 ### **What Could Be IMPROVED:**
 
 1. **Missing User Impact Assessment**
- - No mention if users experiencing issues
- - No check if workloads affected
- - **Recommended:** Add "User Impact: None reported" or "Investigating user impact"
+- No mention if users experiencing issues
+- No check if workloads affected
+- **Recommended:** Add "User Impact: None reported" or "Investigating user impact"
 
 2. **No Current Status Update**
- - Ticket says "last 24 hours" but created Dec 19
- - Are pods STILL crashing on Mar 10?
- - **Recommended:** Regular status updates
+- Ticket says "last 24 hours" but created Dec 19
+- Are pods STILL crashing on Mar 10?
+- **Recommended:** Regular status updates
 
 3. **No Mitigation Attempted Section**
- - What was tried before creating ticket?
- - Were pods restarted? Did it help?
- - **Recommended:** Add "Attempted fixes: None yet, needs investigation"
+- What was tried before creating ticket?
+- Were pods restarted? Did it help?
+- **Recommended:** Add "Attempted fixes: None yet, needs investigation"
 
 4. **Priority Might Be Too Low**
- - If production users affected, should be higher
- - Networking in production = potential P1
- - **Recommended:** Verify user impact before confirming priority
+- If production users affected, should be higher
+- Networking in production = potential P1
+- **Recommended:** Verify user impact before confirming priority
 
 5. **Missing Related Context**
- - Any recent cluster changes?
- - Related to recent deployments?
- - **Recommended:** Check cluster change log
+- Any recent cluster changes?
+- Related to recent deployments?
+- **Recommended:** Check cluster change log
 
 ---
 
@@ -351,7 +351,7 @@ This ticket demonstrates a critical triage principle:
 
 | Criteria | Score | Notes |
 |----------|-------|-------|
-| **Speed** | ⏱ 3 minutes | Quick assessment without deep diving |
+| **Speed** | 3 minutes | Quick assessment without deep diving |
 | **Accuracy** | 95% | Correctly identified as properly handled |
 | **Information Gathering** | 100% | Used all provided information |
 | **Communication** | N/A | No comment needed (already assigned) |
@@ -374,16 +374,16 @@ This ticket demonstrates a critical triage principle:
 **Trigger for Re-Assessment:**
 
 1. **User reports networking issues in production-cluster-01**
- - Action: Escalate to P1/P2, declare potential incident
+- Action: Escalate to P1/P2, declare potential incident
 
 2. **Ticket stale for >3 days**
- - Action: Ping assignee for status update
+- Action: Ping assignee for status update
 
 3. **Crash rate increases (monitoring shows more pods)**
- - Action: Check if spreading, escalate if worsening
+- Action: Check if spreading, escalate if worsening
 
 4. **Assignee requests help**
- - Action: Loop in additional teams (Networking, SRE)
+- Action: Loop in additional teams (Networking, SRE)
 
 ---
 

@@ -1,3 +1,7 @@
+---
+description: GNU screen quick reference - terminal multiplexer, session management, detach/reattach, persistent SSH sessions, and window commands.
+---
+
 # screen Quick Reference
 
 ## Overview
@@ -27,10 +31,10 @@ Unlike tmux's three-level hierarchy (session → window → pane), screen has a 
 
 ```
 screen Session
- Window 0: bash
- Window 1: vim
- Window 2: logs
- Window 3: monitoring
+Window 0: bash
+Window 1: vim
+Window 2: logs
+Window 3: monitoring
 ```
 
 **Terminology:**

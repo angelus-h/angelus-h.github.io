@@ -13,12 +13,12 @@
 
 ### Why Self-hosted LLM?
 
- **Privacy** - Sensitive code/documents never leave your machine 
- **Cost-Effective** - No API costs (ChatGPT: $20/mo, Claude Pro: $20/mo) 
- **Offline Operation** - Works without internet 
- **Customizable** - Fine-tune with your own data 
- **Full Control** - No rate limiting, no usage restrictions 
- **Local Integration** - VSCode, IDE plugins with local model
+**Privacy** - Sensitive code/documents never leave your machine 
+**Cost-Effective** - No API costs (ChatGPT: $20/mo, Claude Pro: $20/mo) 
+**Offline Operation** - Works without internet 
+**Customizable** - Fine-tune with your own data 
+**Full Control** - No rate limiting, no usage restrictions 
+**Local Integration** - VSCode, IDE plugins with local model
 
 **Enterprise Benefits:**
 - Sensitive code (infrastructure, cloud configurations) stays private
@@ -90,15 +90,15 @@ Use case: Large models (70B+), batch processing, finetuning
 
 ```
 Versions:
- Llama 3.1 8B (14GB VRAM FP16, 4GB Q4)
- Llama 3.1 70B (140GB VRAM FP16, 35GB Q4)
- Llama 3.1 405B (810GB VRAM - multi-GPU)
+Llama 3.1 8B (14GB VRAM FP16, 4GB Q4)
+Llama 3.1 70B (140GB VRAM FP16, 35GB Q4)
+Llama 3.1 405B (810GB VRAM - multi-GPU)
 
 Strengths:
- Excellent coding (Python, JavaScript, Go)
- Long context (128k tokens)
- Instruction-following
- Multilingual support
+Excellent coding (Python, JavaScript, Go)
+Long context (128k tokens)
+Instruction-following
+Multilingual support
 
 License: Llama 3.1 Community License (commercial use OK)
 ```
@@ -120,15 +120,15 @@ ollama run llama3.1:8b
 
 ```
 Versions:
- Mistral 7B v0.3 (14GB VRAM FP16, 4GB Q4)
- Mixtral 8x7B (90GB VRAM FP16, 24GB Q4) - MoE (Mixture of Experts)
- Mistral NeMo 12B (24GB VRAM FP16, 7GB Q4)
+Mistral 7B v0.3 (14GB VRAM FP16, 4GB Q4)
+Mixtral 8x7B (90GB VRAM FP16, 24GB Q4) - MoE (Mixture of Experts)
+Mistral NeMo 12B (24GB VRAM FP16, 7GB Q4)
 
 Strengths:
- Very fast inference (optimized architecture)
- Outstanding code generation (especially Python)
- Good mathematical ability
- 32k context window
+Very fast inference (optimized architecture)
+Outstanding code generation (especially Python)
+Good mathematical ability
+32k context window
 
 License: Apache 2.0 (fully open)
 ```
@@ -147,16 +147,16 @@ ollama run mistral:7b
 
 ```
 Versions:
- Qwen 2.5 7B (14GB VRAM FP16, 4GB Q4)
- Qwen 2.5 14B (28GB VRAM FP16, 8GB Q4)
- Qwen 2.5 32B (64GB VRAM FP16, 16GB Q4)
- Qwen 2.5 72B (144GB VRAM FP16, 36GB Q4)
+Qwen 2.5 7B (14GB VRAM FP16, 4GB Q4)
+Qwen 2.5 14B (28GB VRAM FP16, 8GB Q4)
+Qwen 2.5 32B (64GB VRAM FP16, 16GB Q4)
+Qwen 2.5 72B (144GB VRAM FP16, 36GB Q4)
 
 Strengths:
- Excellent multilingual (English, Chinese, Hungarian)
- Long context (128k tokens)
- Strong coding (Python, Go, Rust)
- Math & reasoning
+Excellent multilingual (English, Chinese, Hungarian)
+Long context (128k tokens)
+Strong coding (Python, Go, Rust)
+Math & reasoning
 
 License: Apache 2.0
 ```
@@ -175,15 +175,15 @@ ollama run qwen2.5:7b
 
 ```
 Versions:
- DeepSeek Coder 6.7B (14GB VRAM FP16, 4GB Q4)
- DeepSeek Coder 33B (66GB VRAM FP16, 18GB Q4)
- DeepSeek Coder V2 236B (multi-GPU)
+DeepSeek Coder 6.7B (14GB VRAM FP16, 4GB Q4)
+DeepSeek Coder 33B (66GB VRAM FP16, 18GB Q4)
+DeepSeek Coder V2 236B (multi-GPU)
 
 Strengths:
- Best code generation (GPT-4 level coding)
- 16k context (full file context)
- Code completion, refactoring
- Multi-language support (80+ programming languages)
+Best code generation (GPT-4 level coding)
+16k context (full file context)
+Code completion, refactoring
+Multi-language support (80+ programming languages)
 
 License: DeepSeek License (commercial OK)
 ```
@@ -202,18 +202,18 @@ ollama run deepseek-coder:6.7b
 
 ```
 Versions:
- Phi-3 Mini (3.8B) - 8GB VRAM FP16, 2GB Q4
- Phi-3 Medium (14B) - 28GB VRAM FP16, 8GB Q4
+Phi-3 Mini (3.8B) - 8GB VRAM FP16, 2GB Q4
+Phi-3 Medium (14B) - 28GB VRAM FP16, 8GB Q4
 
 Strengths:
- Very small (runs on CPU!)
- Fast inference (up to 50 tokens/sec on CPU)
- Good reasoning
- Low latency
+Very small (runs on CPU!)
+Fast inference (up to 50 tokens/sec on CPU)
+Good reasoning
+Low latency
 
 Weaknesses:
- Shorter context (4k-8k)
- Less detailed responses
+Shorter context (4k-8k)
+Less detailed responses
 
 License: MIT License
 ```
@@ -232,9 +232,9 @@ ollama run phi3:mini
 
 ```
 Versions:
- CodeLlama 7B (14GB VRAM FP16, 4GB Q4)
- CodeLlama 13B (26GB VRAM FP16, 8GB Q4)
- CodeLlama 34B (68GB VRAM FP16, 18GB Q4)
+CodeLlama 7B (14GB VRAM FP16, 4GB Q4)
+CodeLlama 13B (26GB VRAM FP16, 8GB Q4)
+CodeLlama 34B (68GB VRAM FP16, 18GB Q4)
 
 Variants:
 - CodeLlama Base: Code completion
@@ -242,9 +242,9 @@ Variants:
 - CodeLlama Python: Python specific
 
 Strengths:
- Infilling (insert code in middle)
- Code completion (IDE integration)
- Long context (16k tokens - full files)
+Infilling (insert code in middle)
+Code completion (IDE integration)
+Long context (16k tokens - full files)
 
 License: Llama 2 License
 ```
@@ -285,9 +285,9 @@ ollama serve # Port: 11434
 
 # cURL usage
 curl http://localhost:11434/api/generate -d '{
- "model": "llama3.1:8b",
- "prompt": "Why is Kubernetes important?",
- "stream": false
+"model": "llama3.1:8b",
+"prompt": "Why is Kubernetes important?",
+"stream": false
 }'
 ```
 
@@ -379,9 +379,9 @@ pip install vllm
 
 # Start server
 vllm serve meta-llama/Llama-3.1-8B-Instruct \
- --host 0.0.0.0 \
- --port 8000 \
- --tensor-parallel-size 1
+--host 0.0.0.0 \
+--port 8000 \
+--tensor-parallel-size 1
 ```
 
 **Features:**
@@ -408,8 +408,8 @@ vllm serve meta-llama/Llama-3.1-8B-Instruct \
 ```bash
 # Podman run
 podman run -p 8080:8080 \
- -v $HOME/.local/share/localai:/build/models \
- quay.io/go-skynet/local-ai:latest
+-v $HOME/.local/share/localai:/build/models \
+quay.io/go-skynet/local-ai:latest
 
 # OpenAI SDK usage (Python)
 import openai
@@ -417,8 +417,8 @@ openai.api_base = "http://localhost:8080/v1"
 openai.api_key = "not-needed"
 
 response = openai.ChatCompletion.create(
- model="llama3.1",
- messages=[{"role": "user", "content": "Hello!"}]
+model="llama3.1",
+messages=[{"role": "user", "content": "Hello!"}]
 )
 print(response.choices[0].message.content)
 ```
@@ -443,14 +443,14 @@ code --install-extension continue.continue
 # Settings (Ctrl+Shift+P → Continue: Open Config)
 # ~/.continue/config.json
 {
- "models": [
- {
- "title": "Llama 3.1 8B",
- "provider": "ollama",
- "model": "llama3.1:8b",
- "apiBase": "http://localhost:11434"
- }
- ]
+"models": [
+{
+"title": "Llama 3.1 8B",
+"provider": "ollama",
+"model": "llama3.1:8b",
+"apiBase": "http://localhost:11434"
+}
+]
 }
 ```
 
@@ -468,7 +468,7 @@ code --install-extension continue.continue
 ```
 Continue chat:
 >>> Generate an Ansible playbook to install and configure PostgreSQL 15 on RHEL 9,
- with custom pg_hba.conf for remote access.
+with custom pg_hba.conf for remote access.
 
 [Llama 3.1 generates 50-100 lines of Ansible YAML]
 
@@ -498,18 +498,18 @@ ollama run deepseek-coder:6.7b
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: myapp
+name: myapp
 spec:
- replicas: 1
- template:
- spec:
- containers:
- - name: app
- image: myapp:latest
- resources:
- requests:
- memory: "64Mi"
- cpu: "250m"
+replicas: 1
+template:
+spec:
+containers:
+- name: app
+image: myapp:latest
+resources:
+requests:
+memory: "64Mi"
+cpu: "250m"
 ```
 
 **LLM prompt:**
@@ -542,16 +542,16 @@ Recommendations:
 ```go
 // Original code (no documentation)
 func ReconcilePipeline(ctx context.Context, pr *tektonv1.PipelineRun) error {
- if pr.Status.CompletionTime != nil {
- return nil
- }
- if pr.Spec.Timeout != nil {
- deadline := pr.CreationTimestamp.Add(pr.Spec.Timeout.Duration)
- if time.Now().After(deadline) {
- return fmt.Errorf("pipeline timed out")
- }
- }
- return r.updateStatus(ctx, pr)
+if pr.Status.CompletionTime != nil {
+return nil
+}
+if pr.Spec.Timeout != nil {
+deadline := pr.CreationTimestamp.Add(pr.Spec.Timeout.Duration)
+if time.Now().After(deadline) {
+return fmt.Errorf("pipeline timed out")
+}
+}
+return r.updateStatus(ctx, pr)
 }
 ```
 
@@ -559,7 +559,7 @@ func ReconcilePipeline(ctx context.Context, pr *tektonv1.PipelineRun) error {
 
 ```
 >>> Add comprehensive GoDoc comments to this function, explaining parameters,
- return values, and edge cases.
+return values, and edge cases.
 
 [Model generated documentation:]
 
@@ -582,7 +582,7 @@ func ReconcilePipeline(ctx context.Context, pr *tektonv1.PipelineRun) error {
 // - If pr.Spec.Timeout is nil, no timeout validation is performed
 // - CompletionTime check prevents redundant reconciliation of finished runs
 func ReconcilePipeline(ctx context.Context, pr *tektonv1.PipelineRun) error {
- // ... original code ...
+// ... original code ...
 }
 ```
 
@@ -599,65 +599,65 @@ func ReconcilePipeline(ctx context.Context, pr *tektonv1.PipelineRun) error {
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: ollama
- namespace: ai-services
+name: ollama
+namespace: ai-services
 spec:
- replicas: 1
- selector:
- matchLabels:
- app: ollama
- template:
- metadata:
- labels:
- app: ollama
- spec:
- containers:
- - name: ollama
- image: ollama/ollama:latest
- ports:
- - containerPort: 11434
- name: http
- resources:
- requests:
- memory: "8Gi"
- cpu: "2"
- limits:
- memory: "16Gi"
- cpu: "4"
- nvidia.com/gpu: "1" # GPU support
- volumeMounts:
- - name: models
- mountPath: /root/.ollama
- volumes:
- - name: models
- persistentVolumeClaim:
- claimName: ollama-models-pvc
+replicas: 1
+selector:
+matchLabels:
+app: ollama
+template:
+metadata:
+labels:
+app: ollama
+spec:
+containers:
+- name: ollama
+image: ollama/ollama:latest
+ports:
+- containerPort: 11434
+name: http
+resources:
+requests:
+memory: "8Gi"
+cpu: "2"
+limits:
+memory: "16Gi"
+cpu: "4"
+nvidia.com/gpu: "1" # GPU support
+volumeMounts:
+- name: models
+mountPath: /root/.ollama
+volumes:
+- name: models
+persistentVolumeClaim:
+claimName: ollama-models-pvc
 ---
 apiVersion: v1
 kind: Service
 metadata:
- name: ollama
- namespace: ai-services
+name: ollama
+namespace: ai-services
 spec:
- selector:
- app: ollama
- ports:
- - port: 11434
- targetPort: 11434
- type: ClusterIP
+selector:
+app: ollama
+ports:
+- port: 11434
+targetPort: 11434
+type: ClusterIP
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
- name: ollama-models-pvc
- namespace: ai-services
+name: ollama-models-pvc
+namespace: ai-services
 spec:
- accessModes:
- - ReadWriteOnce
- resources:
- requests:
- storage: 100Gi
- storageClassName: fast-ssd
+accessModes:
+- ReadWriteOnce
+resources:
+requests:
+storage: 100Gi
+storageClassName: fast-ssd
 ```
 
 **Deploy:**
@@ -707,10 +707,10 @@ Total (5 years): $500 + ($87 × 5) = $935 ($187/year average)
 ROI: ~2.5 years (break-even point)
 
 Benefits:
- Unlimited usage
- Offline mode
- Complete privacy
- Customizable (finetuning)
+Unlimited usage
+Offline mode
+Complete privacy
+Customizable (finetuning)
 ```
 
 ---
@@ -721,50 +721,50 @@ Benefits:
 
 ```
 1. DeepSeek Coder 6.7B (Q4: 4GB VRAM)
- - Best code generation
- - Fast inference
- - IDE integration (Continue.dev)
+- Best code generation
+- Fast inference
+- IDE integration (Continue.dev)
 
 2. CodeLlama 7B Instruct (Q4: 4GB VRAM)
- - Good coding + chat
- - Long context (16k)
+- Good coding + chat
+- Long context (16k)
 
 3. Qwen 2.5 Coder 7B (Q4: 4GB VRAM)
- - Multilingual code (Python, Go, Rust)
- - Strong reasoning
+- Multilingual code (Python, Go, Rust)
+- Strong reasoning
 ```
 
 ### General Chat + Documentation
 
 ```
 1. Llama 3.1 8B Instruct (Q4: 4GB VRAM)
- - Balanced (code + chat + reasoning)
- - Long context (128k)
- - Good multilingual
+- Balanced (code + chat + reasoning)
+- Long context (128k)
+- Good multilingual
 
 2. Qwen 2.5 14B Instruct (Q4: 8GB VRAM)
- - Better reasoning
- - Excellent multilingual
- - Math
+- Better reasoning
+- Excellent multilingual
+- Math
 
 3. Mistral 7B Instruct (Q4: 4GB VRAM)
- - Fast
- - Good reasoning
- - Compact
+- Fast
+- Good reasoning
+- Compact
 ```
 
 ### CPU-Only (No GPU)
 
 ```
 1. Phi-3 Mini (3.8B) - Q4: 2GB RAM
- - Runs on CPU (15-20 tokens/sec)
- - Good for small tasks
- - Low latency
+- Runs on CPU (15-20 tokens/sec)
+- Good for small tasks
+- Low latency
 
 2. TinyLlama 1.1B - Q4: 1GB RAM
- - Ultra fast CPU inference
- - Basic chatbot
- - Embedded devices
+- Ultra fast CPU inference
+- Basic chatbot
+- Embedded devices
 ```
 
 ---

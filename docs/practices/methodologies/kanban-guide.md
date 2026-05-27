@@ -53,15 +53,15 @@ The **Kanban board** is the heart of the system. It visualizes work flowing thro
 
 ```
 
- KANBAN BOARD 
+KANBAN BOARD 
 
- BACKLOG TO DO IN PROGRESS REVIEW DONE 
- 
- Story A Story C Story E Story G Story I 
- Story B Story D Story F Story H Story J 
- Story E Story K 
- 
- WIP Limit: 3 WIP Limit:2 WIP Limit:2 
+BACKLOG TO DO IN PROGRESS REVIEW DONE 
+
+Story A Story C Story E Story G Story I 
+Story B Story D Story F Story H Story J 
+Story E Story K 
+
+WIP Limit: 3 WIP Limit:2 WIP Limit:2 
 
 ```
 
@@ -127,19 +127,19 @@ WIP Limit = Number of Team Members + 1
 
 ```
 
- IN PROGRESS (WIP: 3/3) - LIMIT REACHED! 
- • Task A 
- • Task B 
- • Task C 
+IN PROGRESS (WIP: 3/3) - LIMIT REACHED! 
+• Task A 
+• Task B 
+• Task C 
 
- ↓
- CANNOT PULL NEW WORK
- ↓
- OPTIONS:
- 1. Help finish existing tasks
- 2. Remove blockers
- 3. Swarm on oldest item
- 4. Address impediments
+↓
+CANNOT PULL NEW WORK
+↓
+OPTIONS:
+1. Help finish existing tasks
+2. Remove blockers
+3. Swarm on oldest item
+4. Address impediments
 ```
 
 **Golden Rule:** Stop starting, start finishing!
@@ -165,16 +165,16 @@ WIP Limit = Number of Team Members + 1
 **Example:**
 ```
 
- Swimlanes by Work Type 
+Swimlanes by Work Type 
 
- FEATURES 
- Story A Story C 
+FEATURES 
+Story A Story C 
 
- BUGS 
- Bug X Bug Y 
+BUGS 
+Bug X Bug Y 
 
- SUPPORT 
- Req 1 Req 2 
+SUPPORT 
+Req 1 Req 2 
 
 ```
 
@@ -207,14 +207,14 @@ WIP Limit = Number of Team Members + 1
 **Cumulative Flow Diagram (CFD):**
 ```
 Items
- ↑
- Done
- 
- In Review
- In Progress
- To Do
- 
- → Time
+↑
+Done
+
+In Review
+In Progress
+To Do
+
+→ Time
 
 Width of each band = WIP in that state
 Slope = Throughput
@@ -236,15 +236,15 @@ Slope = Throughput
 **Example Policy Board Section:**
 ```
 
- POLICIES 
+POLICIES 
 
- • WIP Limit "In Progress" = 5 
- • Critical bugs take priority 
- • Definition of Done: 
- - Code reviewed 
- - Tests pass 
- - Deployed to staging 
- • Daily standup at 9:00 AM 
+• WIP Limit "In Progress" = 5 
+• Critical bugs take priority 
+• Definition of Done: 
+- Code reviewed 
+- Tests pass 
+- Deployed to staging 
+• Daily standup at 9:00 AM 
 
 ```
 
@@ -354,9 +354,9 @@ Cycle Time = 5 days
 ```
 Lead Time
 
- Backlog Cycle Time 
- (wait) (active work) 
- 
+Backlog Cycle Time 
+(wait) (active work) 
+
 Request Start Done
 ```
 
@@ -380,14 +380,14 @@ Request Start Done
 **Throughput Chart:**
 ```
 Items/Week
- ↑
+↑
 15 
- 
+
 10 
- 
- 5
- → Weeks
- 1 2 3 4 5 6
+
+5
+→ Weeks
+1 2 3 4 5 6
 ```
 
 ---
@@ -431,12 +431,12 @@ Items/Week
 **Example (Development Team):**
 ```
 
- BACKLOG READY DEVELOP REVIEW DONE 
- (WIP: 5) (WIP: 3) (WIP: 2) 
+BACKLOG READY DEVELOP REVIEW DONE 
+(WIP: 5) (WIP: 3) (WIP: 2) 
 
- Story 10 Story 4 Story 1 Story 2 Story 3
- Story 11 Story 5 
- Story 12 
+Story 10 Story 4 Story 1 Story 2 Story 3
+Story 11 Story 5 
+Story 12 
 
 ```
 
@@ -449,7 +449,7 @@ Items/Week
 **Example (Leadership/PM):**
 ```
 
- IDEATION ANALYSIS EXECUTING COMPLETE 
+IDEATION ANALYSIS EXECUTING COMPLETE 
 
 Project A Project D Project E Project G 
 Project B Project F Project H 
@@ -466,7 +466,7 @@ Project C
 **Example (IT Support):**
 ```
 
- NEW TRIAGE IN PROGRESS WAITING RESOLVED 
+NEW TRIAGE IN PROGRESS WAITING RESOLVED 
 
 INC-1 INC-5 INC-10 INC-15 INC-20 
 INC-2 INC-6 INC-11 INC-16 INC-21 
@@ -589,17 +589,17 @@ INC-4
 
 ```
 
- EXPEDITE (no limit) 
- [INC-123: DB Down] 
+EXPEDITE (no limit) 
+[INC-123: DB Down] 
 
- FIXED DATE 
- [Feature X - Due: March 30] 
+FIXED DATE 
+[Feature X - Due: March 30] 
 
- STANDARD (WIP: 5) 
- [Feature A] [Feature B] [Bug C] 
+STANDARD (WIP: 5) 
+[Feature A] [Feature B] [Bug C] 
 
- INTANGIBLE 
- [Refactor module Y] 
+INTANGIBLE 
+[Refactor module Y] 
 
 ```
 
@@ -626,15 +626,15 @@ Many teams combine Scrum and Kanban for the best of both worlds.
 **Example Scrumban Board:**
 ```
 
- SPRINT TO DO DOING REVIEW DONE 
- BACKLOG (WIP: 5) (WIP: 3) (WIP: 2) 
+SPRINT TO DO DOING REVIEW DONE 
+BACKLOG (WIP: 5) (WIP: 3) (WIP: 2) 
 
- Story A Story D Story F Story H Story 
- Story B Story E Story G I 
- Story C 
+Story A Story D Story F Story H Story 
+Story B Story E Story G I 
+Story C 
 
- ↑ ↓
- Sprint Planning Sprint Review
+↑ ↓
+Sprint Planning Sprint Review
 ```
 
 **When to Use Scrumban:**
@@ -987,13 +987,13 @@ TO DO → IN PROGRESS → CODE REVIEW → TESTING → DONE
 ### Books
 
 - **"Kanban: Successful Evolutionary Change for Your Technology Business"** - David J. Anderson
- - THE definitive Kanban book
+- THE definitive Kanban book
 - **"Kanban from the Inside"** - Mike Burrows
- - Values and principles focus
+- Values and principles focus
 - **"The Phoenix Project"** - Gene Kim
- - Novel demonstrating Kanban/DevOps concepts
+- Novel demonstrating Kanban/DevOps concepts
 - **"Making Work Visible"** - Dominica DeGrandis
- - Time theft and how Kanban helps
+- Time theft and how Kanban helps
 
 ---
 

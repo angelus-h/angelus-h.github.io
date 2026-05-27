@@ -58,32 +58,32 @@
 
 ```
 
- Monitoring/Alerting Tools 
- (SignalFx, Prometheus, Datadog, CloudWatch, etc.) 
+Monitoring/Alerting Tools 
+(SignalFx, Prometheus, Datadog, CloudWatch, etc.) 
 
- 
- Send Alert
- 
 
- PagerDuty 
- 
- 
- Service > Incident > Escalation 
- (Integration) (Created) Policy 
- 
- 
- 
- 
- On-Call 
- Schedule 
- 
+Send Alert
 
- 
- 
- 
- On-Call Engineer 
- (SMS, Push, Phone) 
- 
+
+PagerDuty 
+
+
+Service > Incident > Escalation 
+(Integration) (Created) Policy 
+
+
+
+
+On-Call 
+Schedule 
+
+
+
+
+
+On-Call Engineer 
+(SMS, Push, Phone) 
+
 ```
 
 ### Key Components
@@ -103,7 +103,7 @@
 ### 1. Services
 
 **What is a Service?**
-- Represents a technical component (e.g., Platform API, Brew Database)
+- Represents a technical component (e.g., Platform API, Service-C Database)
 - Receives alerts from integrations
 - Routes incidents to on-call engineers
 
@@ -167,13 +167,13 @@ Week 3: Charlie (Primary), Alice (Secondary)
 **Example Escalation:**
 ```
 Level 1: On-Call Engineer (Primary) - Immediate
- > If no ACK in 5 minutes
+> If no ACK in 5 minutes
 
 Level 2: On-Call Engineer (Secondary) - 5 minutes later
- > If no ACK in 5 minutes
+> If no ACK in 5 minutes
 
 Level 3: Team Lead - 10 minutes later
- > If no ACK in 10 minutes
+> If no ACK in 10 minutes
 
 Level 4: Manager - 20 minutes later
 ```
@@ -242,11 +242,11 @@ Immediately: Push notification + SMS
 **Alert Flow:**
 ```
 SignalFx Detector fires
- ↓
+↓
 Sends alert to PagerDuty Integration Key
- ↓
+↓
 PagerDuty creates Incident on Service
- ↓
+↓
 Escalation Policy notifies On-Call Engineer
 ```
 
@@ -532,11 +532,11 @@ Runbook URL: https://wiki.company.com/platform-api-runbooks
 
 1. **Click incident** → **Run Postmortem**
 2. **Fill template:**
- - **What happened?** Summary of incident
- - **Why did it happen?** Root cause
- - **What was the impact?** Services affected, duration
- - **How was it resolved?** Actions taken
- - **What can we improve?** Action items
+- **What happened?** Summary of incident
+- **Why did it happen?** Root cause
+- **What was the impact?** Services affected, duration
+- **How was it resolved?** Actions taken
+- **What can we improve?** Action items
 
 **Example Postmortem:**
 ```
@@ -636,28 +636,28 @@ Action Items:
 **Tool 1: Get Current Incidents**
 ```python
 mcp.call("pagerduty.get_incidents",
- status="triggered",
- service="Platform API Server")
+status="triggered",
+service="Platform API Server")
 ```
 
 **Tool 2: Get On-Call Engineer**
 ```python
 mcp.call("pagerduty.get_oncall",
- escalation_policy="Platform SRE Primary")
+escalation_policy="Platform SRE Primary")
 ```
 
 **Tool 3: Acknowledge Incident**
 ```python
 mcp.call("pagerduty.acknowledge_incident",
- incident_id="PXYZ123")
+incident_id="PXYZ123")
 ```
 
 **Tool 4: Create Incident**
 ```python
 mcp.call("pagerduty.create_incident",
- service="Platform API Server",
- title="Manual escalation: Database connection pool exhausted",
- urgency="high")
+service="Platform API Server",
+title="Manual escalation: Database connection pool exhausted",
+urgency="high")
 ```
 
 ### Using PagerDuty MCP with Claude Code
@@ -670,18 +670,18 @@ mcp.call("pagerduty.create_incident",
 ```python
 # Get on-call engineer
 oncall = mcp.call("pagerduty.get_oncall",
- escalation_policy="Platform SRE Primary")
+escalation_policy="Platform SRE Primary")
 
 # Get active incidents
 incidents = mcp.call("pagerduty.get_incidents",
- status="triggered",
- service="Platform API Server")
+status="triggered",
+service="Platform API Server")
 
 # Response
 print(f"On-Call: {oncall['user']['name']}")
 print(f"Active Incidents: {len(incidents)}")
 for inc in incidents:
- print(f" - {inc['title']} (since {inc['created_at']})")
+print(f" - {inc['title']} (since {inc['created_at']})")
 ```
 
 **Result:** Instant visibility into on-call status and active incidents without opening PagerDuty UI.
@@ -714,9 +714,9 @@ Level 4: Platform Manager (20 min)
 ### SRE Team On-Call
 
 **Services:**
-- `Brew - Build Infrastructure`
+- `Service-C - Build Infrastructure`
 - `Dist-Git - Repository Service`
-- `MBS - Module Build Service`
+- `Service-A - Module Build Service`
 - `RHSM-Pulp - Subscription Management`
 
 **Schedule:**
@@ -744,7 +744,7 @@ Level 2: SRE Manager (5 min, after-hours critical alerts)
 - Bidirectional sync: Updates in Jira reflect in PagerDuty
 
 **Slack Integration:**
-- Incident notifications to #platform-incidents, #spre-alerts
+- Incident notifications to #platform-incidents, #ops-alerts
 - Acknowledge/resolve incidents from Slack
 
 ### Company SSO
@@ -767,7 +767,7 @@ Level 2: SRE Manager (5 min, after-hours critical alerts)
 
 Examples:
 - Platform - API Server
-- SRE - Brew Builders
+- SRE - Service-C Builders
 - RHDH - PostgreSQL Database
 ```
 
@@ -891,21 +891,21 @@ Examples:
 **Debugging:**
 
 1. **Check Integration:**
- - Service → Integrations → Verify integration key
- - Test integration: Send test alert
+- Service → Integrations → Verify integration key
+- Test integration: Send test alert
 
 2. **Check Escalation Policy:**
- - Service → Settings → Verify escalation policy assigned
- - Escalation policy → Verify on-call schedule linked
+- Service → Settings → Verify escalation policy assigned
+- Escalation policy → Verify on-call schedule linked
 
 3. **Check User Notification Rules:**
- - User Profile → Notification Rules
- - Verify phone number, email correct
- - Test notifications
+- User Profile → Notification Rules
+- Verify phone number, email correct
+- Test notifications
 
 4. **Check On-Call Schedule:**
- - Is user actually on-call at that time?
- - Check for overrides or gaps
+- Is user actually on-call at that time?
+- Check for overrides or gaps
 
 **Solution:**
 - Fix integration key
@@ -928,12 +928,12 @@ Examples:
 
 **Prevent Future Storms:**
 1. **Enable Alert Grouping:**
- - Service → Settings → Intelligent Grouping
+- Service → Settings → Intelligent Grouping
 2. **Add Deduplication:**
- - Use dedup_key in alert payload
+- Use dedup_key in alert payload
 3. **Tune Monitoring:**
- - Increase alert threshold
- - Add dampening (fire only if condition persists 5+ minutes)
+- Increase alert threshold
+- Add dampening (fire only if condition persists 5+ minutes)
 
 ---
 
@@ -946,15 +946,15 @@ Examples:
 **Debugging:**
 
 1. **Check Escalation Policy Levels:**
- - Are multiple levels defined?
- - Are timeout values set correctly?
+- Are multiple levels defined?
+- Are timeout values set correctly?
 
 2. **Check Incident Timeline:**
- - When was incident triggered?
- - When should it have escalated?
+- When was incident triggered?
+- When should it have escalated?
 
 3. **Manually Escalate:**
- - Incident → Actions → Escalate
+- Incident → Actions → Escalate
 
 **Solution:**
 - Add secondary/tertiary levels to escalation policy
@@ -972,16 +972,16 @@ Examples:
 **Debugging:**
 
 1. **Check Company SSO:**
- - Try logging into other Company services
- - If SSO broken, contact IT
+- Try logging into other Company services
+- If SSO broken, contact IT
 
 2. **Check User Account:**
- - Are you provisioned in PagerDuty?
- - Contact PagerDuty admin
+- Are you provisioned in PagerDuty?
+- Contact PagerDuty admin
 
 3. **Check Network:**
- - VPN connected?
- - Firewall blocking access?
+- VPN connected?
+- Firewall blocking access?
 
 **Solution:**
 - Reset password via Company SSO
@@ -995,23 +995,23 @@ Examples:
 ### Key Takeaways
 
 1. **PagerDuty = Incident Management Hub**
- - Routes alerts from monitoring tools
- - Notifies on-call engineers
- - Orchestrates response workflows
+- Routes alerts from monitoring tools
+- Notifies on-call engineers
+- Orchestrates response workflows
 
 2. **Core Workflow:**
- - Monitoring tool → Integration → Service → Escalation Policy → On-Call Engineer
+- Monitoring tool → Integration → Service → Escalation Policy → On-Call Engineer
 
 3. **Essential Skills:**
- - Acknowledge/resolve incidents
- - Understand escalation policies
- - Read on-call schedules
- - Write postmortems
+- Acknowledge/resolve incidents
+- Understand escalation policies
+- Read on-call schedules
+- Write postmortems
 
 4. **PagerDuty MCP Server:**
- - Programmatic access to PagerDuty
- - Integrate with Claude Code for investigations
- - Query incidents, on-call status without UI
+- Programmatic access to PagerDuty
+- Integrate with Claude Code for investigations
+- Query incidents, on-call status without UI
 
 ### Next Steps
 

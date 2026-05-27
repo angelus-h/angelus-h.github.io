@@ -95,24 +95,24 @@ This reference covers print-specific editing workflows: adjusting images for ref
 
 1. Edit image as you normally would (satisfying on monitor)
 2. Typical screen edit:
- - Punchy contrast (+20 to +30)
- - Vibrant colors (Vibrance +15 to +25, Saturation +5 to +10)
- - Microcontrast high (Clarity +20 to +40)
- - Deep blacks (Blacks -20 to -40)
- - Bright highlights (Whites +10 to +20)
+- Punchy contrast (+20 to +30)
+- Vibrant colors (Vibrance +15 to +25, Saturation +5 to +10)
+- Microcontrast high (Clarity +20 to +40)
+- Deep blacks (Blacks -20 to -40)
+- Bright highlights (Whites +10 to +20)
 3. Export for web/screen use
 
 **Pass 2: Print-Optimized Edit**
 
 1. Create virtual copy (Lightroom) or snapshot (Photoshop)
 2. Apply print adjustments:
- - **Lift midtones:** Curves midpoint up 5-10%
- - **Soften highlights:** Compress highlights in curves
- - **Open shadows:** Lift shadow endpoint 3-5%
- - **Reduce contrast:** Contrast slider -10 or flatten curve slightly
- - **Add warmth:** Temperature +200-300K
- - **Lower Clarity:** Reduce Clarity by -10 to -20 from Pass 1 value
- - **Adjust Saturation:** Vibrance +5 (compensate for print saturation loss)
+- **Lift midtones:** Curves midpoint up 5-10%
+- **Soften highlights:** Compress highlights in curves
+- **Open shadows:** Lift shadow endpoint 3-5%
+- **Reduce contrast:** Contrast slider -10 or flatten curve slightly
+- **Add warmth:** Temperature +200-300K
+- **Lower Clarity:** Reduce Clarity by -10 to -20 from Pass 1 value
+- **Adjust Saturation:** Vibrance +5 (compensate for print saturation loss)
 3. Soft-proof (verify paper gamut)
 4. Print test
 
@@ -125,16 +125,16 @@ This reference covers print-specific editing workflows: adjusting images for ref
 1. Select 5 images you consider "finished" for screen
 
 2. For each image:
- - **Pass 1:** Export as-is (screen-optimized)
- - **Pass 2:** Create virtual copy, apply print adjustments (see above)
+- **Pass 1:** Export as-is (screen-optimized)
+- **Pass 2:** Create virtual copy, apply print adjustments (see above)
 
 3. Print both versions (8x10")
 
 4. Compare side-by-side in natural light:
- - Which version looks better on paper?
- - Is Pass 1 too harsh/contrasty?
- - Is Pass 2 more natural/organic?
- - Document findings in notebook
+- Which version looks better on paper?
+- Is Pass 1 too harsh/contrasty?
+- Is Pass 2 more natural/organic?
+- Document findings in notebook
 
 **Expected Result:** Pass 2 (print-optimized) feels more natural, dimensional, and cohesive on paper.
 
@@ -153,31 +153,31 @@ Create a reusable starting point for print adjustments—apply as base, then fin
 1. Start with neutral image (not already edited)
 
 2. Apply print-friendly adjustments:
- - **Tone Curve:**
- - Slight S-curve with lifted blacks (black point to 3-5%)
- - Gentle highlight compression (see Tonal Control Reference)
- - **Basic Panel:**
- - Exposure: +0.15 to +0.30 (compensate for print darkness)
- - Contrast: -10 to -15 (reduce harshness)
- - Highlights: -5 to -10 (prevent clipping)
- - Shadows: +10 to +15 (open shadow detail)
- - Whites: -5 (preserve highlight rolloff)
- - Blacks: +5 (prevent blocked shadows)
- - Clarity: 0 to +10 (organic, not harsh)
- - Vibrance: +5 (compensate for print saturation loss)
- - Saturation: 0 (or slight reduction -5)
- - **Color:**
- - Temperature: +2 to +5 (add warmth, print pulls cool)
- - Tint: 0 (adjust per image if needed)
+- **Tone Curve:**
+- Slight S-curve with lifted blacks (black point to 3-5%)
+- Gentle highlight compression (see Tonal Control Reference)
+- **Basic Panel:**
+- Exposure: +0.15 to +0.30 (compensate for print darkness)
+- Contrast: -10 to -15 (reduce harshness)
+- Highlights: -5 to -10 (prevent clipping)
+- Shadows: +10 to +15 (open shadow detail)
+- Whites: -5 (preserve highlight rolloff)
+- Blacks: +5 (prevent blocked shadows)
+- Clarity: 0 to +10 (organic, not harsh)
+- Vibrance: +5 (compensate for print saturation loss)
+- Saturation: 0 (or slight reduction -5)
+- **Color:**
+- Temperature: +2 to +5 (add warmth, print pulls cool)
+- Tint: 0 (adjust per image if needed)
 
 3. Test on 10 diverse images
 
 4. Print all 10 (8x10")
 
 5. Refine preset based on results:
- - Too bright? Reduce Exposure
- - Too flat? Increase Contrast slightly
- - Too warm? Reduce Temperature
+- Too bright? Reduce Exposure
+- Too flat? Increase Contrast slightly
+- Too warm? Reduce Temperature
 
 6. Save final version as **"My Print Preset"**
 
@@ -209,23 +209,23 @@ Create a reusable starting point for print adjustments—apply as base, then fin
 2. Print (8x10")
 3. View in target lighting (wait 10-15 min for inks to settle)
 4. Take detailed notes:
- - **Brightness:** Too dark? Too bright? (rate 1-10, 5 = perfect)
- - **Highlights:** Blown? OK? Too soft?
- - **Shadows:** Blocked? Visible? Too open?
- - **Contrast:** Harsh? Flat? Balanced?
- - **Colors:** Accurate? Too saturated? Too dull? Shifts?
- - **Paper match:** Does surface suit image?
+- **Brightness:** Too dark? Too bright? (rate 1-10, 5 = perfect)
+- **Highlights:** Blown? OK? Too soft?
+- **Shadows:** Blocked? Visible? Too open?
+- **Contrast:** Harsh? Flat? Balanced?
+- **Colors:** Accurate? Too saturated? Too dull? Shifts?
+- **Paper match:** Does surface suit image?
 
 **Iteration 2 (Correction):**
 
 1. Address biggest issue first (usually brightness or contrast)
 2. Make small changes:
- - Too dark → +0.15 to +0.30 Exposure
- - Too bright → -0.10 to -0.20 Exposure
- - Too harsh → Contrast -10, flatten curve
- - Too flat → Contrast +10, add S-curve
- - Highlights blown → Compress with curves
- - Shadows blocked → Shadows +15, lift curve endpoint
+- Too dark → +0.15 to +0.30 Exposure
+- Too bright → -0.10 to -0.20 Exposure
+- Too harsh → Contrast -10, flatten curve
+- Too flat → Contrast +10, add S-curve
+- Highlights blown → Compress with curves
+- Shadows blocked → Shadows +15, lift curve endpoint
 3. Print again (8x10")
 4. Compare to Iteration 1
 5. Document progress
@@ -234,9 +234,9 @@ Create a reusable starting point for print adjustments—apply as base, then fin
 
 1. Address remaining minor issues
 2. Smaller adjustments:
- - Brightness tweak +/- 0.10 Exposure
- - Highlight/shadow fine-tune +/- 5
- - Color shifts +/- 200K Temperature, +/- 2 Tint
+- Brightness tweak +/- 0.10 Exposure
+- Highlight/shadow fine-tune +/- 5
+- Color shifts +/- 200K Temperature, +/- 2 Tint
 3. Print (8x10")
 4. Evaluate: Satisfied?
 
@@ -284,8 +284,8 @@ Create a reusable starting point for print adjustments—apply as base, then fin
 - Prints lack screen luminosity → dimensionality must be "built in"
 - Subtle tonal shaping guides the viewer's eye
 - Creates depth cues:
- - Lighter = closer, more important
- - Darker = receding, supporting
+- Lighter = closer, more important
+- Darker = receding, supporting
 
 **Screen vs. Print:**
 - Effective dodge & burn is **invisible on screen**
@@ -327,34 +327,34 @@ Enhance facial structure, create three-dimensional feel, flatter skin.
 2. Fill with 50% gray (Edit > Fill > 50% Gray)
 3. Set blend mode to **Soft Light** (or Overlay for stronger effect)
 4. Select brush tool:
- - White brush = dodge (lighten)
- - Black brush = burn (darken)
- - Opacity: 5-10% (subtle, buildable)
- - Soft round brush, appropriate size
+- White brush = dodge (lighten)
+- Black brush = burn (darken)
+- Opacity: 5-10% (subtle, buildable)
+- Soft round brush, appropriate size
 
 **Dodge Areas (White Brush, 5-10% Opacity):**
 
 - **Face:**
- - Forehead center (convex form)
- - Bridge of nose (highlight)
- - Cheekbones (prominence)
- - Chin (if prominent)
- - Catchlights in eyes (enhance existing, don't fabricate)
+- Forehead center (convex form)
+- Bridge of nose (highlight)
+- Cheekbones (prominence)
+- Chin (if prominent)
+- Catchlights in eyes (enhance existing, don't fabricate)
 - **Body:**
- - Shoulders/collarbone (structure)
- - Arms (cylindrical form, top lit)
+- Shoulders/collarbone (structure)
+- Arms (cylindrical form, top lit)
 
 **Burn Areas (Black Brush, 5-10% Opacity):**
 
 - **Face:**
- - Temples (concave, recedes)
- - Sides of nose (shadow, defines nose)
- - Under cheekbones (contour, adds definition)
- - Jawline (sharpens, defines edge)
- - Neck sides (narrows, creates shadow)
+- Temples (concave, recedes)
+- Sides of nose (shadow, defines nose)
+- Under cheekbones (contour, adds definition)
+- Jawline (sharpens, defines edge)
+- Neck sides (narrows, creates shadow)
 - **Background:**
- - Around hair (separates subject from background)
- - Edges of frame (subtle vignette, contains composition)
+- Around hair (separates subject from background)
+- Edges of frame (subtle vignette, contains composition)
 
 **Technique:**
 - Build up effect with multiple low-opacity strokes
@@ -372,9 +372,9 @@ Enhance facial structure, create three-dimensional feel, flatter skin.
 3. Print before/after (11x14" or larger to see effect)
 
 4. Evaluate:
- - Does face feel more three-dimensional?
- - Is lighting more sculpted?
- - Does subject "pop" from background?
+- Does face feel more three-dimensional?
+- Is lighting more sculpted?
+- Does subject "pop" from background?
 
 **Expected Result:**
 - Before: Flat, two-dimensional
@@ -422,9 +422,9 @@ Create depth via tonal separation—foreground "comes forward," background "rece
 4. View from 3-6 feet (typical gallery viewing distance)
 
 5. Evaluate:
- - Does image "pull you in" more?
- - Does foreground feel closer?
- - Does background recede naturally?
+- Does image "pull you in" more?
+- Does foreground feel closer?
+- Does background recede naturally?
 
 **Expected Result:**
 - Before: Flat, all elements same depth plane
@@ -445,10 +445,10 @@ Isolate subject in busy composition via selective darkening (burn down distracti
 1. Identify main subject
 
 2. Burn down everything except subject area:
- - **Backgrounds:** -10 to -15% Exposure (significant darkening)
- - **Corners:** -20 to -30% Exposure (strong vignette)
- - **Competing elements:** -5 to -10% Exposure (de-emphasize)
- - **Leave subject at normal or slightly dodged** (0 to +5% Exposure)
+- **Backgrounds:** -10 to -15% Exposure (significant darkening)
+- **Corners:** -20 to -30% Exposure (strong vignette)
+- **Competing elements:** -5 to -10% Exposure (de-emphasize)
+- **Leave subject at normal or slightly dodged** (0 to +5% Exposure)
 
 3. Use radial/graduated filters for broad areas
 
@@ -467,9 +467,9 @@ Isolate subject in busy composition via selective darkening (burn down distracti
 3. Print (8x10")
 
 4. Evaluate:
- - Does eye go straight to subject?
- - Are distractions subdued?
- - Does composition feel cleaner?
+- Does eye go straight to subject?
+- Are distractions subdued?
+- Does composition feel cleaner?
 
 **Expected Result:**
 - Before: Eye wanders, no clear focal point

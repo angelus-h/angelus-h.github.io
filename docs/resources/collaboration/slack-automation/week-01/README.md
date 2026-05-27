@@ -41,8 +41,8 @@ export SLACK_WEBHOOK_URL="https://hooks.slack.com/services/T00000000/B00000000/X
 **Test your webhook:**
 ```bash
 curl -X POST -H 'Content-type: application/json' \
- --data '{"text":"Hello from Platform!"}' \
- $SLACK_WEBHOOK_URL
+--data '{"text":"Hello from Platform!"}' \
+$SLACK_WEBHOOK_URL
 ```
 
 **Key concepts:**
@@ -63,61 +63,61 @@ curl -X POST -H 'Content-type: application/json' \
 **Simple message (plain text):**
 ```bash
 curl -X POST -H 'Content-type: application/json' \
- --data '{
- "text": "Pipeline failed: build-service"
- }' \
- $SLACK_WEBHOOK_URL
+--data '{
+"text": "Pipeline failed: build-service"
+}' \
+$SLACK_WEBHOOK_URL
 ```
 
 **Rich message (Block Kit):**
 ```bash
 curl -X POST -H 'Content-type: application/json' \
- --data '{
- "blocks": [
- {
- "type": "header",
- "text": {
- "type": "plain_text",
- "text": " Pipeline Failed",
- "emoji": true
- }
- },
- {
- "type": "section",
- "fields": [
- {
- "type": "mrkdwn",
- "text": "*Pipeline:*\nbuild-service-123"
- },
- {
- "type": "mrkdwn",
- "text": "*Status:*\nFailed"
- },
- {
- "type": "mrkdwn",
- "text": "*Duration:*\n5m 32s"
- },
- {
- "type": "mrkdwn",
- "text": "*Author:*\ndemo_user"
- }
- ]
- },
- {
- "type": "divider"
- },
- {
- "type": "context",
- "elements": [
- {
- "type": "mrkdwn",
- "text": "Commit: <https://github.com/platform/repo/commit/abc123|abc123> • <https://console.company.com/logs|View Logs>"
- }
- ]
- }
- ]
- }' \
- $SLACK_WEBHOOK_URL
+--data '{
+"blocks": [
+{
+"type": "header",
+"text": {
+"type": "plain_text",
+"text": " Pipeline Failed",
+"emoji": true
+}
+},
+{
+"type": "section",
+"fields": [
+{
+"type": "mrkdwn",
+"text": "*Pipeline:*\nbuild-service-123"
+},
+{
+"type": "mrkdwn",
+"text": "*Status:*\nFailed"
+},
+{
+"type": "mrkdwn",
+"text": "*Duration:*\n5m 32s"
+},
+{
+"type": "mrkdwn",
+"text": "*Author:*\ndemo_user"
+}
+]
+},
+{
+"type": "divider"
+},
+{
+"type": "context",
+"elements": [
+{
+"type": "mrkdwn",
+"text": "Commit: <https://github.com/platform/repo/commit/abc123|abc123> • <https://console.company.com/logs|View Logs>"
+}
+]
+}
+]
+}' \
+$SLACK_WEBHOOK_URL
 ```
 
 **Block Kit Builder:**
@@ -157,9 +157,9 @@ export SLACK_WEBHOOK_DEPLOYS="https://hooks.slack.com/services/.../deployments"
 
 # Route based on severity
 if [ "$SEVERITY" = "critical" ]; then
- WEBHOOK=$SLACK_WEBHOOK_CRITICAL
+WEBHOOK=$SLACK_WEBHOOK_CRITICAL
 else
- WEBHOOK=$SLACK_WEBHOOK_INFO
+WEBHOOK=$SLACK_WEBHOOK_INFO
 fi
 ```
 
@@ -205,14 +205,14 @@ fi
 **Alert fatigue prevention:**
 ```
 Bad:
- Pipeline succeeded: build-1
- Pipeline succeeded: build-2
- Pipeline succeeded: build-3
- (Nobody reads these...)
+Pipeline succeeded: build-1
+Pipeline succeeded: build-2
+Pipeline succeeded: build-3
+(Nobody reads these...)
 
 Good:
- Hourly Summary: 15/16 pipelines succeeded
- 1 failure: image-build-service (link)
+Hourly Summary: 15/16 pipelines succeeded
+1 failure: image-build-service (link)
 ```
 
 **Security checklist:**
@@ -239,8 +239,8 @@ App → Incoming Webhooks → Add to #test-webhooks
 export SLACK_WEBHOOK_URL="your-url-here"
 
 curl -X POST -H 'Content-type: application/json' \
- --data '{"text":"My first webhook! "}' \
- $SLACK_WEBHOOK_URL
+--data '{"text":"My first webhook! "}' \
+$SLACK_WEBHOOK_URL
 
 # Expected: Message appears in #test-webhooks
 ```
@@ -253,10 +253,10 @@ Use Block Kit Builder to create:
 ```
 Header: Pipeline Failed
 Fields:
- - Pipeline name
- - Commit SHA
- - Author
- - Duration
+- Pipeline name
+- Commit SHA
+- Author
+- Duration
 Link: View Logs (to a fake URL)
 ```
 
@@ -264,8 +264,8 @@ Test it with curl:
 ```bash
 # Copy JSON from Block Kit Builder
 curl -X POST -H 'Content-type: application/json' \
- --data '@pipeline-failure.json' \
- $SLACK_WEBHOOK_URL
+--data '@pipeline-failure.json' \
+$SLACK_WEBHOOK_URL
 ```
 
 ---
@@ -283,51 +283,51 @@ import os
 SLACK_WEBHOOK = os.environ.get('SLACK_WEBHOOK_URL')
 
 def send_pipeline_alert(pipeline_name, status, duration, author, commit_url):
- emoji = "" if status == "success" else ""
- color = "good" if status == "success" else "danger"
+emoji = "" if status == "success" else ""
+color = "good" if status == "success" else "danger"
 
- message = {
- "blocks": [
- {
- "type": "header",
- "text": {
- "type": "plain_text",
- "text": f"{emoji} Pipeline {status.title()}"
- }
- },
- {
- "type": "section",
- "fields": [
- {"type": "mrkdwn", "text": f"*Pipeline:*\n{pipeline_name}"},
- {"type": "mrkdwn", "text": f"*Status:*\n{status}"},
- {"type": "mrkdwn", "text": f"*Duration:*\n{duration}"},
- {"type": "mrkdwn", "text": f"*Author:*\n{author}"}
- ]
- },
- {
- "type": "context",
- "elements": [
- {
- "type": "mrkdwn",
- "text": f"<{commit_url}|View Commit>"
- }
- ]
- }
- ]
- }
+message = {
+"blocks": [
+{
+"type": "header",
+"text": {
+"type": "plain_text",
+"text": f"{emoji} Pipeline {status.title()}"
+}
+},
+{
+"type": "section",
+"fields": [
+{"type": "mrkdwn", "text": f"*Pipeline:*\n{pipeline_name}"},
+{"type": "mrkdwn", "text": f"*Status:*\n{status}"},
+{"type": "mrkdwn", "text": f"*Duration:*\n{duration}"},
+{"type": "mrkdwn", "text": f"*Author:*\n{author}"}
+]
+},
+{
+"type": "context",
+"elements": [
+{
+"type": "mrkdwn",
+"text": f"<{commit_url}|View Commit>"
+}
+]
+}
+]
+}
 
- response = requests.post(SLACK_WEBHOOK, json=message)
- return response.status_code == 200
+response = requests.post(SLACK_WEBHOOK, json=message)
+return response.status_code == 200
 
 # Test
 if __name__ == "__main__":
- send_pipeline_alert(
- pipeline_name="build-service-123",
- status="failed",
- duration="5m 32s",
- author="demo_user",
- commit_url="https://github.com/platform/repo/commit/abc123"
- )
+send_pipeline_alert(
+pipeline_name="build-service-123",
+status="failed",
+duration="5m 32s",
+author="demo_user",
+commit_url="https://github.com/platform/repo/commit/abc123"
+)
 ```
 
 Save as: `slack_notifier.py`
@@ -349,23 +349,23 @@ Create a Tekton Task that sends Slack notifications:
 apiVersion: tekton.dev/v1
 kind: Task
 metadata:
- name: slack-notify
+name: slack-notify
 spec:
- params:
- - name: message
- type: string
- description: Message to send
- - name: webhook-url
- type: string
- description: Slack webhook URL
- steps:
- - name: send-notification
- image: curlimages/curl:latest
- script: |
- #!/bin/sh
- curl -X POST -H 'Content-type: application/json' \
- --data '{"text":"$(params.message)"}' \
- $(params.webhook-url)
+params:
+- name: message
+type: string
+description: Message to send
+- name: webhook-url
+type: string
+description: Slack webhook URL
+steps:
+- name: send-notification
+image: curlimages/curl:latest
+script: |
+#!/bin/sh
+curl -X POST -H 'Content-type: application/json' \
+--data '{"text":"$(params.message)"}' \
+$(params.webhook-url)
 ```
 
 Use in a pipeline:
@@ -373,26 +373,26 @@ Use in a pipeline:
 apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
- name: build-with-slack
+name: build-with-slack
 spec:
- params:
- - name: slack-webhook
- tasks:
- - name: build
- taskRef:
- name: buildah
- # ... build params
+params:
+- name: slack-webhook
+tasks:
+- name: build
+taskRef:
+name: buildah
+# ... build params
 
- - name: notify-success
- runAfter:
- - build
- taskRef:
- name: slack-notify
- params:
- - name: message
- value: " Build succeeded!"
- - name: webhook-url
- value: $(params.slack-webhook)
+- name: notify-success
+runAfter:
+- build
+taskRef:
+name: slack-notify
+params:
+- name: message
+value: " Build succeeded!"
+- name: webhook-url
+value: $(params.slack-webhook)
 ```
 
 ---
@@ -435,75 +435,75 @@ import sys
 WEBHOOK_URL = os.environ.get('SLACK_WEBHOOK_URL')
 
 def notify_pipeline_result(pipeline_run_name, status, namespace, logs_url):
- """Send pipeline result to Slack"""
+"""Send pipeline result to Slack"""
 
- # Emoji and color based on status
- if status == "Succeeded":
- emoji = ""
- status_text = "succeeded"
- elif status == "Failed":
- emoji = ""
- status_text = "failed"
- else:
- emoji = "⏳"
- status_text = status.lower()
+# Emoji and color based on status
+if status == "Succeeded":
+emoji = ""
+status_text = "succeeded"
+elif status == "Failed":
+emoji = ""
+status_text = "failed"
+else:
+emoji = "⏳"
+status_text = status.lower()
 
- # Build message
- message = {
- "blocks": [
- {
- "type": "header",
- "text": {
- "type": "plain_text",
- "text": f"{emoji} Pipeline {status_text.title()}",
- "emoji": True
- }
- },
- {
- "type": "section",
- "fields": [
- {
- "type": "mrkdwn",
- "text": f"*Pipeline:*\n{pipeline_run_name}"
- },
- {
- "type": "mrkdwn",
- "text": f"*Namespace:*\n{namespace}"
- }
- ]
- },
- {
- "type": "divider"
- },
- {
- "type": "context",
- "elements": [
- {
- "type": "mrkdwn",
- "text": f"<{logs_url}|View Logs in Console>"
- }
- ]
- }
- ]
- }
+# Build message
+message = {
+"blocks": [
+{
+"type": "header",
+"text": {
+"type": "plain_text",
+"text": f"{emoji} Pipeline {status_text.title()}",
+"emoji": True
+}
+},
+{
+"type": "section",
+"fields": [
+{
+"type": "mrkdwn",
+"text": f"*Pipeline:*\n{pipeline_run_name}"
+},
+{
+"type": "mrkdwn",
+"text": f"*Namespace:*\n{namespace}"
+}
+]
+},
+{
+"type": "divider"
+},
+{
+"type": "context",
+"elements": [
+{
+"type": "mrkdwn",
+"text": f"<{logs_url}|View Logs in Console>"
+}
+]
+}
+]
+}
 
- # Send to Slack
- response = requests.post(WEBHOOK_URL, json=message)
+# Send to Slack
+response = requests.post(WEBHOOK_URL, json=message)
 
- if response.status_code != 200:
- print(f"Failed to send Slack notification: {response.status_code}")
- sys.exit(1)
+if response.status_code != 200:
+print(f"Failed to send Slack notification: {response.status_code}")
+sys.exit(1)
 
- print(f"Slack notification sent successfully!")
+print(f"Slack notification sent successfully!")
 
 if __name__ == "__main__":
- # Example usage (get these from Tekton params)
- notify_pipeline_result(
- pipeline_run_name=os.environ.get('PIPELINE_RUN_NAME', 'test-pipeline-run'),
- status=os.environ.get('PIPELINE_STATUS', 'Succeeded'),
- namespace=os.environ.get('NAMESPACE', 'platform-ci'),
- logs_url=os.environ.get('LOGS_URL', 'https://console.company.com/...')
- )
+# Example usage (get these from Tekton params)
+notify_pipeline_result(
+pipeline_run_name=os.environ.get('PIPELINE_RUN_NAME', 'test-pipeline-run'),
+status=os.environ.get('PIPELINE_STATUS', 'Succeeded'),
+namespace=os.environ.get('NAMESPACE', 'platform-ci'),
+logs_url=os.environ.get('LOGS_URL', 'https://console.company.com/...')
+)
 ```
 
 ---

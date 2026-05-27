@@ -29,13 +29,13 @@ tmux -V
 
 ```
 tmux Server
- Session (mywork)
- Window 0: editor (active)
- Pane 0: vim (active)
- Pane 1: terminal
- Pane 2: logs
- Window 1: monitoring
- Window 2: database
+Session (mywork)
+Window 0: editor (active)
+Pane 0: vim (active)
+Pane 1: terminal
+Pane 2: logs
+Window 1: monitoring
+Window 2: database
 ```
 
 **Terminology:**

@@ -33,7 +33,7 @@ description: Slack automation learning plan - webhooks, slash commands, bot deve
 - Channel management & routing
 - Slash commands basics
 
- **[Go to Week 1 →](./week-01/README.md)**
+**[Go to Week 1 →](./week-01/README.md)**
 
 ---
 
@@ -48,7 +48,7 @@ description: Slack automation learning plan - webhooks, slash commands, bot deve
 - Event subscriptions
 - Message threading & context
 
- **[Go to Week 2 →](./week-02/README.md)**
+**[Go to Week 2 →](./week-02/README.md)**
 
 ---
 
@@ -63,7 +63,7 @@ description: Slack automation learning plan - webhooks, slash commands, bot deve
 - Monitoring alert optimization
 - Incident management workflows
 
- **[Go to Week 3 →](./week-03/README.md)**
+**[Go to Week 3 →](./week-03/README.md)**
 
 ---
 
@@ -82,27 +82,27 @@ description: Slack automation learning plan - webhooks, slash commands, bot deve
 ### Immediate Actions (Day 1):
 
 1. **Create a Slack App:**
- ```bash
- # Go to: https://api.slack.com/apps
- # Create New App → From scratch
- # Name: "Platform Bot" (or similar)
- # Pick your workspace
- ```
+```bash
+# Go to: https://api.slack.com/apps
+# Create New App → From scratch
+# Name: "Platform Bot" (or similar)
+# Pick your workspace
+```
 
 2. **Enable Incoming Webhooks:**
- ```bash
- # In your app settings:
- Features → Incoming Webhooks → Activate
- # Add New Webhook to Workspace
- # Select a test channel
- ```
+```bash
+# In your app settings:
+Features → Incoming Webhooks → Activate
+# Add New Webhook to Workspace
+# Select a test channel
+```
 
 3. **Test your first webhook:**
- ```bash
- curl -X POST -H 'Content-type: application/json' \
- --data '{"text":"Hello from Platform!"}' \
- YOUR_WEBHOOK_URL
- ```
+```bash
+curl -X POST -H 'Content-type: application/json' \
+--data '{"text":"Hello from Platform!"}' \
+YOUR_WEBHOOK_URL
+```
 
 ---
 
@@ -145,24 +145,24 @@ description: Slack automation learning plan - webhooks, slash commands, bot deve
 ## Tips for Platform Integration
 
 1. **Start with Webhooks:**
- - Simple CI/CD notifications
- - Pipeline success/failure alerts
- - Don't over-engineer early
+- Simple CI/CD notifications
+- Pipeline success/failure alerts
+- Don't over-engineer early
 
 2. **Reduce Noise from Day 1:**
- - Use threads for related updates
- - Aggregate similar alerts
- - Different channels by severity
+- Use threads for related updates
+- Aggregate similar alerts
+- Different channels by severity
 
 3. **Make Alerts Actionable:**
- - Add "View Logs" button
- - Link to dashboards
- - Include relevant context (commit SHA, PR link)
+- Add "View Logs" button
+- Link to dashboards
+- Include relevant context (commit SHA, PR link)
 
 4. **Security:**
- - Never commit webhook URLs to git
- - Use environment variables
- - Rotate tokens regularly
+- Never commit webhook URLs to git
+- Use environment variables
+- Rotate tokens regularly
 
 ---
 
@@ -170,7 +170,7 @@ description: Slack automation learning plan - webhooks, slash commands, bot deve
 
 ### Use Case 1: Pipeline Failure Alert
 ```
- Pipeline Failed: build-service
+Pipeline Failed: build-service
 
 Pipeline: platform-build-123
 Commit: abc123 (fix: update deps)
@@ -182,7 +182,7 @@ Duration: 5m 32s
 
 ### Use Case 2: Incident Notification
 ```
- CRITICAL: High Error Rate Detected
+CRITICAL: High Error Rate Detected
 
 Service: tekton-controller
 Error Rate: 15% (threshold: 5%)
@@ -193,12 +193,12 @@ Time: 2026-03-03 14:23 UTC
 
 ### Use Case 3: Daily Digest
 ```
- Platform Daily Summary - 2026-03-03
+Platform Daily Summary - 2026-03-03
 
- Successful: 142 pipelines
- Failed: 8 pipelines
-⏱ Avg Duration: 3m 45s
- Top Failure: image-build (5 failures)
+Successful: 142 pipelines
+Failed: 8 pipelines
+Avg Duration: 3m 45s
+Top Failure: image-build (5 failures)
 
 [View Details]
 ```

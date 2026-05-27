@@ -135,36 +135,36 @@ git push origin fix/typo-in-readme
 **How to review:**
 
 1. **Go to PR:**
- ```
- https://github.com/platform-ci/architecture/pulls
- ```
+```
+https://github.com/platform-ci/architecture/pulls
+```
 
 2. **Files changed tab:**
- - See all code changes
- - Add comments on specific lines
+- See all code changes
+- Add comments on specific lines
 
 3. **Comment types:**
 
- **General comment:**
- ```
- This looks good overall, but please add tests.
- ```
+**General comment:**
+```
+This looks good overall, but please add tests.
+```
 
- **Line-specific comment:**
- ```
- Click "+" on line number → Add comment
- ```
+**Line-specific comment:**
+```
+Click "+" on line number → Add comment
+```
 
- **Suggested change:**
- ```suggestion
- name: platform-pipeline
- ```
- Contributor can click "Commit suggestion" to apply!
+**Suggested change:**
+```suggestion
+name: platform-pipeline
+```
+Contributor can click "Commit suggestion" to apply!
 
 4. **Review actions:**
- - **Comment:** Just add feedback
- - **Approve:** Changes look good 
- - **Request changes:** Needs fixes before merge 
+- **Comment:** Just add feedback
+- **Approve:** Changes look good 
+- **Request changes:** Needs fixes before merge 
 
 ---
 
@@ -185,8 +185,8 @@ https://github.com/platform-ci/architecture/issues/new
 
 # Or via GitHub CLI
 gh issue create \
- --title "Add documentation for XYZ" \
- --body "We need docs for feature XYZ"
+--title "Add documentation for XYZ" \
+--body "We need docs for feature XYZ"
 ```
 
 **Link PR to issue:**
@@ -299,9 +299,9 @@ https://github.com/platform-ci/architecture/pulls
 1. Read description
 2. Check "Files changed"
 3. Look for:
- - Clear commit messages?
- - Tests included?
- - Docs updated?
+- Clear commit messages?
+- Tests included?
+- Docs updated?
 4. Leave a practice comment (optional, be nice!)
 ```
 

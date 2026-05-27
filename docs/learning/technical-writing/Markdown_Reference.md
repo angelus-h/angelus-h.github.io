@@ -112,8 +112,8 @@ H2 Header
 ```markdown
 - Item 1
 - Item 2
- - Sub-item 2.1
- - Sub-item 2.2
+- Sub-item 2.1
+- Sub-item 2.2
 - Item 3
 
 * Also works with asterisks
@@ -124,8 +124,8 @@ H2 Header
 
 - Item 1
 - Item 2
- - Sub-item 2.1
- - Sub-item 2.2
+- Sub-item 2.1
+- Sub-item 2.2
 - Item 3
 
 ### Ordered Lists
@@ -134,8 +134,8 @@ H2 Header
 1. First item
 2. Second item
 3. Third item
- 1. Sub-item 3.1
- 2. Sub-item 3.2
+1. Sub-item 3.1
+2. Sub-item 3.2
 ```
 
 **Result:**
@@ -143,8 +143,8 @@ H2 Header
 1. First item
 2. Second item
 3. Third item
- 1. Sub-item 3.1
- 2. Sub-item 3.2
+1. Sub-item 3.1
+2. Sub-item 3.2
 
 ### Task Lists (GitHub)
 
@@ -220,7 +220,7 @@ This is an `inline code` example.
 ````markdown
 ```python
 def hello_world():
- print("Hello, World!")
+print("Hello, World!")
 ```
 ````
 
@@ -228,7 +228,7 @@ def hello_world():
 
 ```python
 def hello_world():
- print("Hello, World!")
+print("Hello, World!")
 ```
 
 ### Supported Languages (Syntax Highlighting)
@@ -248,7 +248,7 @@ console.log("JavaScript code");
 
 ```json
 {
- "name": "value"
+"name": "value"
 }
 ```
 
@@ -272,7 +272,7 @@ RUN apk add --no-cache python3
 ```diff
 - Removed line
 + Added line
- Unchanged line
+Unchanged line
 ```
 ````
 
@@ -596,13 +596,13 @@ This text is properly separated.
 **Wrong:**
 ```markdown
 - Item 1
- - Wrong indentation
+- Wrong indentation
 ```
 
 **Right:**
 ```markdown
 - Item 1
- - Correct indentation (2 spaces)
+- Correct indentation (2 spaces)
 ```
 
 ### Missing Space After # in Headers
@@ -774,7 +774,7 @@ multiple lines
 
 ## Summary
 
- **Markdown is a simple, effective tool for documentation**
+**Markdown is a simple, effective tool for documentation**
 
 **Key Points:**
 - Easy to learn, human-readable

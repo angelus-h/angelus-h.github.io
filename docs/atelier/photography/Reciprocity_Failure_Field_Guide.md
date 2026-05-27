@@ -2,11 +2,11 @@
 
 **A practical reference for long exposure photography with film**
 
-**Target Audience:** Photographers working with exposures longer than 1 second  
-**Scope:** Black-and-white and color negative/reversal films, exposure compensation, development strategies  
+**Target Audience:** Photographers working with exposures longer than 1 second 
+**Scope:** Black-and-white and color negative/reversal films, exposure compensation, development strategies 
 **Approach:** Technical foundation + practical workflow guidance
 
-**Sources and Verification:**  
+**Sources and Verification:** 
 Technical data verified against manufacturer datasheets (Kodak Publication E-31, Ilford technical data), optical physics references (Schwarzschild 1899), and archival conservation standards. Film-specific correction factors sourced from manufacturer technical bulletins.
 
 ---
@@ -39,7 +39,7 @@ Where:
 - $I$ = Illuminance (light intensity)
 - $t$ = Time (shutter speed)
 
-**Reciprocity Principle:**  
+**Reciprocity Principle:** 
 Doubling time and halving intensity (or vice versa) should produce identical exposure.
 
 **Example (Normal Reciprocity):**
@@ -62,7 +62,7 @@ Where:
 - $p = 1$ → Perfect reciprocity
 - $p < 1$ → Reciprocity failure (common in photographic emulsions)
 
-**Physical Cause:**  
+**Physical Cause:** 
 Silver halide crystals require multiple photons to form a latent image. At very low light intensities (long exposures), the time between photon arrivals increases, allowing intermediate states to decay before the next photon arrives. This reduces effective sensitivity.
 
 **Source:** Schwarzschild, K. (1899). *On the deviations from the reciprocity law*. Astrophysikalisches Journal.
@@ -79,7 +79,7 @@ Silver halide crystals require multiple photons to form a latent image. At very 
 | **10s – 100s** | Severe failure | +2 to +4 stops correction |
 | **100s+** | Extreme failure | Unpredictable, film-dependent |
 
-**Critical Insight:**  
+**Critical Insight:** 
 Reciprocity failure affects **different film emulsions differently**. Always consult manufacturer datasheets.
 
 ---
@@ -93,24 +93,24 @@ Reciprocity failure affects **different film emulsions differently**. Always con
 **Ilford HP5 Plus 400:**
 - **Reciprocity threshold:** >0.5s
 - **Correction factors:**
-  - Metered 1s → Actual 1.5s (+0.5 stops)
-  - Metered 10s → Actual 50s (+2.3 stops)
-  - Metered 100s → No published data (extrapolate cautiously)
+- Metered 1s → Actual 1.5s (+0.5 stops)
+- Metered 10s → Actual 50s (+2.3 stops)
+- Metered 100s → No published data (extrapolate cautiously)
 
 **Ilford FP4 Plus 125:**
 - **Reciprocity threshold:** >0.5s
 - **Correction factors:**
-  - Metered 1s → Actual 2s (+1 stop)
-  - Metered 10s → Actual 50s (+2.3 stops)
-  - More pronounced reciprocity failure than HP5+
+- Metered 1s → Actual 2s (+1 stop)
+- Metered 10s → Actual 50s (+2.3 stops)
+- More pronounced reciprocity failure than HP5+
 
 **Ilford Delta 100/400:**
 - **Modern T-grain emulsion → Improved reciprocity characteristics**
 - **Reciprocity threshold:** >1s
 - **Correction factors:**
-  - Metered 1s → Actual 2s (+1 stop)
-  - Metered 10s → Actual 20s (+1 stop)
-  - Better long-exposure performance than traditional emulsions
+- Metered 1s → Actual 2s (+1 stop)
+- Metered 10s → Actual 20s (+1 stop)
+- Better long-exposure performance than traditional emulsions
 
 **Source:** Ilford Technical Data Sheets (HP5 Plus, FP4 Plus, Delta 100/400)
 
@@ -121,17 +121,17 @@ Reciprocity failure affects **different film emulsions differently**. Always con
 **Kodak Tri-X 400:**
 - **Reciprocity threshold:** >0.9s
 - **Correction factors:**
-  - Metered 1s → Actual 2s (+1 stop)
-  - Metered 10s → Actual 60s (+2.6 stops)
-  - Metered 100s → Actual 1200s (+3.6 stops)
+- Metered 1s → Actual 2s (+1 stop)
+- Metered 10s → Actual 60s (+2.6 stops)
+- Metered 100s → Actual 1200s (+3.6 stops)
 
 **Kodak T-Max 100/400:**
 - **Modern T-grain emulsion → Superior reciprocity characteristics**
 - **Reciprocity threshold:** >1s
 - **Correction factors:**
-  - Metered 1s → Actual 2s (+1 stop)
-  - Metered 10s → Actual 20s (+1 stop)
-  - Metered 100s → Actual 240s (+1.3 stops)
+- Metered 1s → Actual 2s (+1 stop)
+- Metered 10s → Actual 20s (+1 stop)
+- Metered 100s → Actual 240s (+1.3 stops)
 - Best B&W film for astrophotography and extreme long exposures
 
 **Source:** Kodak Publication E-31 *Reciprocity Failure Data for Kodak Films*
@@ -143,9 +143,9 @@ Reciprocity failure affects **different film emulsions differently**. Always con
 **Fomapan 100/200/400:**
 - **Reciprocity threshold:** >1s
 - **Correction factors (approximate):**
-  - Metered 1s → Actual 2s (+1 stop)
-  - Metered 10s → Actual 40s (+2 stops)
-  - Metered 100s → Actual 800s (+3 stops)
+- Metered 1s → Actual 2s (+1 stop)
+- Metered 10s → Actual 40s (+2 stops)
+- Metered 100s → Actual 800s (+3 stops)
 - Less precise documentation than Ilford/Kodak
 - Test for critical work
 
@@ -158,16 +158,16 @@ Reciprocity failure affects **different film emulsions differently**. Always con
 **Kodak Portra 160/400/800:**
 - **Reciprocity threshold:** >1s
 - **Correction factors:**
-  - Metered 1s → Actual 2s (+1 stop)
-  - Metered 10s → Actual 30s (+1.6 stops)
-  - Metered 100s → Actual 400s (+2 stops)
+- Metered 1s → Actual 2s (+1 stop)
+- Metered 10s → Actual 30s (+1.6 stops)
+- Metered 100s → Actual 400s (+2 stops)
 - **Color shift:** Minimal (modern emulsion design compensates)
 
 **Kodak Ektar 100:**
 - **Reciprocity threshold:** >1s
 - **Correction factors:**
-  - Metered 1s → Actual 2s (+1 stop)
-  - Metered 10s → Actual 50s (+2.3 stops)
+- Metered 1s → Actual 2s (+1 stop)
+- Metered 10s → Actual 50s (+2.3 stops)
 - **Color shift:** Slight cyan cast at extreme exposures (>100s)
 
 **Source:** Kodak Publication E-31 (updated 2019 for Portra/Ektar)
@@ -179,17 +179,17 @@ Reciprocity failure affects **different film emulsions differently**. Always con
 **Fujifilm Provia 100F (Professional):**
 - **Reciprocity threshold:** >1s
 - **Correction factors:**
-  - Metered 1s → Actual 1.5s (+0.6 stops)
-  - Metered 10s → Actual 20s (+1 stop)
-  - Metered 100s → Actual 300s (+1.6 stops)
+- Metered 1s → Actual 1.5s (+0.6 stops)
+- Metered 10s → Actual 20s (+1 stop)
+- Metered 100s → Actual 300s (+1.6 stops)
 - **Color shift:** Minimal (well-compensated emulsion)
 
 **Fujifilm Velvia 50/100:**
 - **Reciprocity threshold:** >2s (better than Provia)
 - **Correction factors:**
-  - Metered 1s → No correction needed
-  - Metered 10s → Actual 20s (+1 stop)
-  - Metered 100s → Actual 400s (+2 stops)
+- Metered 1s → No correction needed
+- Metered 10s → Actual 20s (+1 stop)
+- Metered 100s → Actual 400s (+2 stops)
 - **Color shift:** Slight magenta cast at extreme exposures (>100s)
 - Excellent for astrophotography (saturated colors)
 
@@ -223,10 +223,10 @@ Reciprocity failure affects **different film emulsions differently**. Always con
 **Interpolation Method (Conservative):**
 - Assume correction factor increases logarithmically
 - For 30s exposure:
-  - Add +2.5 stops (between +2.3 for 10s and +3.0 for 100s)
-  - Actual exposure: 30s × 2^2.5 = 30s × 5.66 ≈ **170 seconds**
+- Add +2.5 stops (between +2.3 for 10s and +3.0 for 100s)
+- Actual exposure: 30s × 2^2.5 = 30s × 5.66 ≈ **170 seconds**
 
-**Alternative: Use Manufacturer's Reciprocity Charts**  
+**Alternative: Use Manufacturer's Reciprocity Charts** 
 Some films publish graphical reciprocity correction curves.
 
 ---
@@ -281,8 +281,8 @@ Frame 12:
 
 ### Scenario 1: Landscape Photography (Moderate Exposures, 1-30s)
 
-**Film:** Ilford Delta 100 (good reciprocity characteristics)  
-**Metered Exposure:** 15s @ f/16  
+**Film:** Ilford Delta 100 (good reciprocity characteristics) 
+**Metered Exposure:** 15s @ f/16 
 **Reciprocity Correction:** +1.5 stops → 45s actual
 
 **Bracketing Approach:**
@@ -294,8 +294,8 @@ Frame 12:
 
 ### Scenario 2: Astrophotography (Extreme Exposures, 5-30 minutes)
 
-**Film:** Kodak T-Max 400 (best reciprocity for long exposures)  
-**Metered Exposure:** 10 minutes @ f/2.8  
+**Film:** Kodak T-Max 400 (best reciprocity for long exposures) 
+**Metered Exposure:** 10 minutes @ f/2.8 
 **Reciprocity Correction:** +1.5 stops (T-Max 400 data) → 25 minutes actual
 
 **Bracketing Approach:**
@@ -303,15 +303,15 @@ Frame 12:
 - **Why:** Extreme exposures have high uncertainty
 - **Development:** N-1 (reduce contrast, star trails benefit from lower gamma)
 
-**Critical Tip:**  
+**Critical Tip:** 
 Use **cable release + mirror lock-up** to avoid vibration during long exposures.
 
 ---
 
 ### Scenario 3: Architectural Interiors (Mixed Lighting, 2-60s)
 
-**Film:** Kodak Portra 400 (color negative, forgiving latitude)  
-**Metered Exposure:** 8s @ f/11  
+**Film:** Kodak Portra 400 (color negative, forgiving latitude) 
+**Metered Exposure:** 8s @ f/11 
 **Reciprocity Correction:** +1.3 stops → 20s actual
 
 **Bracketing Approach:**
@@ -376,19 +376,19 @@ Long exposures affect **shadow density** more than **highlight density**, leadin
 **Best Developers for Reciprocity-Compensated Negatives:**
 
 1. **Kodak D-76 1+1** (diluted)
-   - Moderate contrast increase
-   - Fine grain preservation
-   - Excellent shadow detail recovery
+- Moderate contrast increase
+- Fine grain preservation
+- Excellent shadow detail recovery
 
 2. **Ilford Microphen (stock)**
-   - Higher contrast boost (N+1.5 equivalent)
-   - Speed-enhancing properties help offset reciprocity loss
-   - Good for astrophotography
+- Higher contrast boost (N+1.5 equivalent)
+- Speed-enhancing properties help offset reciprocity loss
+- Good for astrophotography
 
 3. **Rodinal 1+50**
-   - High acutance (edge sharpness)
-   - Strong contrast compensation
-   - **Warning:** Increased grain (not ideal for fine-grain films)
+- High acutance (edge sharpness)
+- Strong contrast compensation
+- **Warning:** Increased grain (not ideal for fine-grain films)
 
 **Avoid:**
 - **Low-contrast developers** (ID-11 1+3, Perceptol) → Won't compensate for flattened curve
@@ -402,27 +402,27 @@ Long exposures affect **shadow density** more than **highlight density**, leadin
 
 **Best Black-and-White Film:**
 - **Kodak T-Max 400**
-  - Superior reciprocity characteristics (+1 stop at 10min)
-  - Fine grain (RMS 8 @ ISO 400)
-  - High sharpness (excellent for star fields)
+- Superior reciprocity characteristics (+1 stop at 10min)
+- Fine grain (RMS 8 @ ISO 400)
+- High sharpness (excellent for star fields)
 
 **Alternative (Budget):**
 - **Ilford Delta 400**
-  - Good reciprocity (+1.5 stops at 10min)
-  - Slightly coarser grain than T-Max
-  - Lower cost
+- Good reciprocity (+1.5 stops at 10min)
+- Slightly coarser grain than T-Max
+- Lower cost
 
 **Best Color Film:**
 - **Fujifilm Velvia 50**
-  - Excellent reciprocity (minimal correction up to 10min)
-  - Saturated colors (nebulae, auroras)
-  - **Limitation:** ISO 50 requires darker skies or longer exposures
+- Excellent reciprocity (minimal correction up to 10min)
+- Saturated colors (nebulae, auroras)
+- **Limitation:** ISO 50 requires darker skies or longer exposures
 
 **Alternative (Faster Speed):**
 - **Kodak Portra 800**
-  - ISO 800 sensitivity (push to 1600 if needed)
-  - Moderate reciprocity failure (+1.5 stops at 10min)
-  - Less saturated colors than Velvia
+- ISO 800 sensitivity (push to 1600 if needed)
+- Moderate reciprocity failure (+1.5 stops at 10min)
+- Less saturated colors than Velvia
 
 ---
 
@@ -430,8 +430,8 @@ Long exposures affect **shadow density** more than **highlight density**, leadin
 
 **Step 1: Exposure Calculation**
 
-**Scenario:** Milky Way core (summer)  
-**Metered Exposure:** 8 minutes @ f/2.8, ISO 400 (T-Max 400)  
+**Scenario:** Milky Way core (summer) 
+**Metered Exposure:** 8 minutes @ f/2.8, ISO 400 (T-Max 400) 
 **Reciprocity Correction:** +1.3 stops → 20 minutes actual
 
 **Step 2: Star Trailing vs. Star Points**
@@ -439,8 +439,8 @@ Long exposures affect **shadow density** more than **highlight density**, leadin
 **Star Trailing (Acceptable):**
 - Exposures >30s will show trailing due to Earth's rotation
 - **500 Rule:** Maximum exposure (seconds) = 500 / focal length (mm)
-  - 50mm lens → 500/50 = 10 seconds max for point stars
-  - Beyond 10s, stars become trails (artistic choice)
+- 50mm lens → 500/50 = 10 seconds max for point stars
+- Beyond 10s, stars become trails (artistic choice)
 
 **Star Points (Tracking Mount Required):**
 - Use equatorial tracking mount (e.g., Vixen Polarie, Sky-Watcher Star Adventurer)
@@ -453,8 +453,8 @@ Long exposures affect **shadow density** more than **highlight density**, leadin
 - Astrophotography scenes have extreme dynamic range
 - Bright stars + faint nebulae → flatten curve to preserve both
 - Example: T-Max 400 in T-Max developer
-  - Normal: 7 minutes @ 20°C
-  - N-1: 5.6 minutes @ 20°C (20% reduction)
+- Normal: 7 minutes @ 20°C
+- N-1: 5.6 minutes @ 20°C (20% reduction)
 
 **Step 4: Post-Processing**
 
@@ -473,16 +473,16 @@ Long exposures affect **shadow density** more than **highlight density**, leadin
 
 ### Common Astrophotography Mistakes
 
-**Mistake 1: Ignoring Reciprocity → Underexposed Negatives**  
+**Mistake 1: Ignoring Reciprocity → Underexposed Negatives** 
 **Fix:** Always apply manufacturer reciprocity corrections + bracket.
 
-**Mistake 2: Normal Development → Blocked Highlights (Stars Blown Out)**  
+**Mistake 2: Normal Development → Blocked Highlights (Stars Blown Out)** 
 **Fix:** Use N-1 or N-1.5 development to compress dynamic range.
 
-**Mistake 3: Forgetting Star Trailing → Blurred Stars**  
+**Mistake 3: Forgetting Star Trailing → Blurred Stars** 
 **Fix:** Use 500 Rule or tracking mount for point stars.
 
-**Mistake 4: Light Pollution → Fogged Negatives**  
+**Mistake 4: Light Pollution → Fogged Negatives** 
 **Fix:** Shoot from dark-sky locations (Bortle Scale 1-3), or use light pollution filters (difficult with film).
 
 ---
@@ -491,7 +491,7 @@ Long exposures affect **shadow density** more than **highlight density**, leadin
 
 ### Color Shift in Long Exposures
 
-**Physical Cause:**  
+**Physical Cause:** 
 Color films have **three emulsion layers** (cyan, magenta, yellow dyes). Each layer has different reciprocity characteristics, causing **non-uniform sensitivity loss** → color shift.
 
 **Typical Color Shifts (>60s exposures):**
@@ -663,6 +663,6 @@ Color films have **three emulsion layers** (cyan, magenta, yellow dyes). Each la
 
 ---
 
-**Document Version:** 1.0  
-**Last Updated:** 2026-05-25  
+**Document Version:** 1.0 
+**Last Updated:** 2026-05-25 
 **Sources:** Kodak E-31, Ilford datasheets, Fujifilm technical data, Schwarzschild (1899), Ansel Adams (1981)

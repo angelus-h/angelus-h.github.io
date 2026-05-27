@@ -233,21 +233,21 @@ description: Android light meter apps for film photography - comparison, testing
 **If you have access to a calibrated meter (Sekonic, Gossen):**
 
 1. **Set identical conditions:**
- - Same ISO (e.g., ISO 100)
- - Same location
- - Meter same gray card or scene
+- Same ISO (e.g., ISO 100)
+- Same location
+- Meter same gray card or scene
 
 2. **Compare readings:**
- - Note difference (e.g., app reads 1/125 f/8, Sekonic reads 1/125 f/11)
- - Difference = 1 stop
+- Note difference (e.g., app reads 1/125 f/8, Sekonic reads 1/125 f/11)
+- Difference = 1 stop
 
 3. **Apply correction:**
- - Most apps have "calibration offset" setting
- - Set to -1 stop (if app overexposed) or +1 stop (if underexposed)
+- Most apps have "calibration offset" setting
+- Set to -1 stop (if app overexposed) or +1 stop (if underexposed)
 
 4. **Test and verify:**
- - Shoot test roll using app readings
- - Adjust calibration until results match expectations
+- Shoot test roll using app readings
+- Adjust calibration until results match expectations
 
 ### Method 2: Gray Card Test
 
@@ -256,21 +256,21 @@ description: Android light meter apps for film photography - comparison, testing
 1. **Obtain 18% gray card** (Kodak Gray Card standard)
 
 2. **Outdoor test (cloudy day, even light):**
- - Place gray card in same light as subject
- - Fill phone screen with gray card (reflective metering)
- - Note reading (e.g., 1/250 f/8 at ISO 100)
+- Place gray card in same light as subject
+- Fill phone screen with gray card (reflective metering)
+- Note reading (e.g., 1/250 f/8 at ISO 100)
 
 3. **Shoot test frame:**
- - Use reading on film
- - Develop normally
+- Use reading on film
+- Develop normally
 
 4. **Evaluate negative:**
- - Gray card should be middle gray on negative
- - If too dark: App underexposed, add +0.5 to +1 stop correction
- - If too light: App overexposed, subtract -0.5 to -1 stop correction
+- Gray card should be middle gray on negative
+- If too dark: App underexposed, add +0.5 to +1 stop correction
+- If too light: App overexposed, subtract -0.5 to -1 stop correction
 
 5. **Iterate:**
- - Repeat test until gray card renders correctly
+- Repeat test until gray card renders correctly
 
 ### Method 3: Known Scene Test
 
@@ -437,9 +437,9 @@ Example: ISO 100 film in bright sun = 1/100s (≈1/125s) at f/16
 4. **Note exposure** (e.g., 1/500s f/8)
 5. **Calculate range** (3 stops difference)
 6. **Decide placement:**
- - Shadow at Zone III → expose 1/60s f/8
- - Develop normally (if range ≤ 5 stops)
- - Compress development (if range > 5 stops)
+- Shadow at Zone III → expose 1/60s f/8
+- Develop normally (if range ≤ 5 stops)
+- Compress development (if range > 5 stops)
 
 ### After Shoot
 
@@ -518,9 +518,9 @@ Example: ISO 100 film in bright sun = 1/100s (≈1/125s) at f/16
 **Manual calculation (if app lacks ND mode):**
 - Refer to Photography Filter Reference Guide
 - Use ISO compensation method:
- - Film ISO 100, ND8 (3 stop)
- - Meter app at ISO 800
- - Reading is automatically compensated
+- Film ISO 100, ND8 (3 stop)
+- Meter app at ISO 800
+- Reading is automatically compensated
 
 ---
 
@@ -672,7 +672,7 @@ val luminance = calculateAverageLuminance(buffer)
 // EV = log₂(N² / t)
 // Where N = f-stop, t = shutter speed in seconds
 fun calculateEV(aperture: Float, shutterSpeed: Float): Float {
- return log2((aperture * aperture) / shutterSpeed)
+return log2((aperture * aperture) / shutterSpeed)
 }
 ```
 
@@ -686,22 +686,22 @@ fun calculateEV(aperture: Float, shutterSpeed: Float): Float {
 
 ```
 LightMeterApp/
- app/
- src/
- main/
- java/com/example/lightmeter/
- MainActivity.kt
- CameraController.kt
- ExposureCalculator.kt
- FilterCalculator.kt
- ReciprocityCalculator.kt
- res/
- layout/
- activity_main.xml
- values/
- AndroidManifest.xml
- build.gradle
- settings.gradle
+app/
+src/
+main/
+java/com/example/lightmeter/
+MainActivity.kt
+CameraController.kt
+ExposureCalculator.kt
+FilterCalculator.kt
+ReciprocityCalculator.kt
+res/
+layout/
+activity_main.xml
+values/
+AndroidManifest.xml
+build.gradle
+settings.gradle
 ```
 
 ### Development Guide Reference

@@ -54,37 +54,37 @@ The **SVS** describes how all components and activities of an organization work 
 
 ```
 
- GOVERNANCE 
- (Oversight & Direction) 
+GOVERNANCE 
+(Oversight & Direction) 
 
- 
 
- 
- 
- Opportunity/ 
- Demand 
- 
- ↓ 
- 
- SERVICE VALUE CHAIN 
- (6 Key Activities) 
- 
- Plan → Improve → Engage 
- Design & Transition 
- Obtain/Build → Deliver 
- 
- 
- ↓ 
- 
- VALUE 
- (for customer) 
- 
- 
- Supported by: 
- • Guiding Principles (7) 
- • Practices (34) 
- • Continual Improvement 
- 
+
+
+
+Opportunity/ 
+Demand 
+
+↓ 
+
+SERVICE VALUE CHAIN 
+(6 Key Activities) 
+
+Plan → Improve → Engage 
+Design & Transition 
+Obtain/Build → Deliver 
+
+
+↓ 
+
+VALUE 
+(for customer) 
+
+
+Supported by: 
+• Guiding Principles (7) 
+• Practices (34) 
+• Continual Improvement 
+
 
 ```
 
@@ -273,10 +273,10 @@ The **Service Value Chain** is a flexible operating model with **6 key activitie
 ### The 6 Activities
 
 ```
- 
- PLAN → IMPROVE → ENGAGE →DESIGN & →OBTAIN/ → DELIVER 
- TRANSITION BUILD & SUPPORT
- 
+
+PLAN → IMPROVE → ENGAGE →DESIGN & →OBTAIN/ → DELIVER 
+TRANSITION BUILD & SUPPORT
+
 ```
 
 ### 1. Plan
@@ -435,8 +435,8 @@ ITIL 4 defines **34 management practices** (previously called "processes" in ITI
 **Incident Lifecycle:**
 ```
 Incident Logged → Categorized → Prioritized → Diagnosed → Resolved → Closed
- ↓
- (Escalation if needed)
+↓
+(Escalation if needed)
 ```
 
 **Example:**
@@ -481,20 +481,20 @@ Incident Logged → Categorized → Prioritized → Diagnosed → Resolved → C
 **Change Types:**
 
 1. **Standard Change:**
- - Pre-authorized
- - Low risk
- - Well-documented procedure
- - Example: Password reset, routine patching
+- Pre-authorized
+- Low risk
+- Well-documented procedure
+- Example: Password reset, routine patching
 
 2. **Normal Change:**
- - Requires assessment and authorization
- - Change Advisory Board (CAB) review (if needed)
- - Example: Application deployment, infrastructure upgrade
+- Requires assessment and authorization
+- Change Advisory Board (CAB) review (if needed)
+- Example: Application deployment, infrastructure upgrade
 
 3. **Emergency Change:**
- - Urgent, can't wait for normal process
- - Expedited authorization
- - Example: Hotfix for critical security vulnerability
+- Urgent, can't wait for normal process
+- Expedited authorization
+- Example: Hotfix for critical security vulnerability
 
 **Change Process:**
 ```
@@ -589,7 +589,7 @@ Request → Assessment → Authorization → Implementation → Review
 **Example:**
 ```
 SLA: Web application available 99.9% during business hours (8am-6pm)
- = Max 43 minutes downtime per month
+= Max 43 minutes downtime per month
 
 Measurement: Track actual uptime, report monthly, review quarterly
 ```
@@ -663,17 +663,17 @@ Request → Approval (if needed) → Fulfillment → Closure
 **Example CMDB Structure:**
 ```
 Application "E-commerce Website"
- Frontend Server (VM)
- Hosted on: AWS EC2
- Depends on: Backend API
- Monitored by: Prometheus
- Backend API (Container)
- Hosted on: Kubernetes Cluster
- Depends on: Database
- Code repository: GitHub
- Database (RDS Instance)
- Hosted on: AWS RDS
- Backed up: Daily
+Frontend Server (VM)
+Hosted on: AWS EC2
+Depends on: Backend API
+Monitored by: Prometheus
+Backend API (Container)
+Hosted on: Kubernetes Cluster
+Depends on: Database
+Code repository: GitHub
+Database (RDS Instance)
+Hosted on: AWS RDS
+Backed up: Daily
 ```
 
 **Benefits:**
@@ -783,35 +783,35 @@ Application "E-commerce Website"
 
 ```
 
- ITIL MASTER 
- (Highest Level) 
+ITIL MASTER 
+(Highest Level) 
 
- 
- 
- 
- 
- ITIL Managing ITIL Strategic 
- Professional Leader 
- (Transition) 
- 
- 
- 
- →Create, Deliver, Support 
- 
- 
- 
- →Drive Stakeholder Value 
- 
- 
- 
- →High Velocity IT →Direct, Plan, 
- Improve 
- 
- 
- 
- ITIL 4 FOUNDATION 
- (Entry Level) 
- 
+
+
+
+
+ITIL Managing ITIL Strategic 
+Professional Leader 
+(Transition) 
+
+
+
+→Create, Deliver, Support 
+
+
+
+→Drive Stakeholder Value 
+
+
+
+→High Velocity IT →Direct, Plan, 
+Improve 
+
+
+
+ITIL 4 FOUNDATION 
+(Entry Level) 
+
 ```
 
 ### ITIL 4 Foundation
@@ -844,20 +844,20 @@ Application "E-commerce Website"
 **For IT Practitioners:**
 
 1. **ITIL Specialist: Create, Deliver and Support**
- - Service desk, incident management, service requests
- - Relevant for operations and support teams
+- Service desk, incident management, service requests
+- Relevant for operations and support teams
 
 2. **ITIL Specialist: Drive Stakeholder Value**
- - Customer journey, user experience
- - Relevant for service managers
+- Customer journey, user experience
+- Relevant for service managers
 
 3. **ITIL Specialist: High Velocity IT**
- - DevOps, Agile, Lean integration
- - **Most relevant for DevOps/SRE roles**
+- DevOps, Agile, Lean integration
+- **Most relevant for DevOps/SRE roles**
 
 4. **ITIL Strategist: Direct, Plan and Improve**
- - Governance, continual improvement
- - Relevant for managers
+- Governance, continual improvement
+- Relevant for managers
 
 ---
 
@@ -867,8 +867,8 @@ Application "E-commerce Website"
 
 1. **ITIL Strategist: Direct, Plan and Improve** (same as MP)
 2. **ITIL Leader: Digital and IT Strategy**
- - Digital transformation, IT strategy
- - C-level and senior management
+- Digital transformation, IT strategy
+- C-level and senior management
 
 ---
 

@@ -78,8 +78,8 @@ The Fujica GL690 and GM670 represent Fuji's professional medium format rangefind
 
 1. **Open Back:** Release back latch on camera base
 2. **Insert Spool:** 
- - Place empty take-up spool in right chamber
- - Insert fresh film in left chamber
+- Place empty take-up spool in right chamber
+- Insert fresh film in left chamber
 3. **Thread Film:** Pull leader across pressure plate to take-up spool
 4. **Engage Film:** Insert leader into take-up spool slot
 5. **Wind On:** Turn advance knob until "START" appears in red window
@@ -102,8 +102,8 @@ The Fujica GL690 and GM670 represent Fuji's professional medium format rangefind
 2. **Compose:** Look through rangefinder viewfinder
 3. **Focus:** Align rangefinder patch (double image becomes single)
 4. **Set Exposure:**
- - Aperture: Rotate aperture ring
- - Shutter Speed: Rotate shutter speed ring
+- Aperture: Rotate aperture ring
+- Shutter Speed: Rotate shutter speed ring
 5. **Cock Shutter:** Advance film (automatically cocks shutter)
 6. **Release:** Gently press shutter button
 

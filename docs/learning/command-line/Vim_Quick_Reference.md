@@ -67,12 +67,12 @@ W, B, E - Same as above, but treat punctuation as part of words
 Cursor on: "hello-world.example"
 
 w stops at: h w . e
- hello-world.example
- ^ ^ ^ ^ ^
+hello-world.example
+^ ^ ^ ^ ^
 
 W stops at: h e
- hello-world.example
- ^ ^
+hello-world.example
+^ ^
 ```
 
 ### Line Movement
@@ -817,7 +817,7 @@ git rebase -i HEAD~3
 Install vim-plug:
 ```bash
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
- https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
 Add to `~/.vimrc`:
@@ -907,42 +907,42 @@ mkdir -p ~/.vim/undo
 
 ```
 Navigation:
- h/j/k/l - Left/Down/Up/Right
- w/b - Next/Previous word
- 0/$ - Start/End of line
- gg/G - Start/End of file
- Ctrl+d/u - Half page down/up
+h/j/k/l - Left/Down/Up/Right
+w/b - Next/Previous word
+0/$ - Start/End of line
+gg/G - Start/End of file
+Ctrl+d/u - Half page down/up
 
 Editing:
- i/a - Insert before/after cursor
- I/A - Insert start/end of line
- o/O - Open line below/above
- x - Delete character
- dd - Delete line
- yy - Yank (copy) line
- p/P - Paste after/before
- u - Undo
- Ctrl+r - Redo
+i/a - Insert before/after cursor
+I/A - Insert start/end of line
+o/O - Open line below/above
+x - Delete character
+dd - Delete line
+yy - Yank (copy) line
+p/P - Paste after/before
+u - Undo
+Ctrl+r - Redo
 
 Visual:
- v/V/Ctrl+v - Char/Line/Block visual
- d/y/c - Delete/Yank/Change
+v/V/Ctrl+v - Char/Line/Block visual
+d/y/c - Delete/Yank/Change
 
 Search:
- /pattern - Search forward
- n/N - Next/Previous match
- */# - Search word under cursor
+/pattern - Search forward
+n/N - Next/Previous match
+*/# - Search word under cursor
 
 File:
- :w - Save
- :q - Quit
- :wq - Save and quit
- :q! - Quit without saving
- :e file - Open file
+:w - Save
+:q - Quit
+:wq - Save and quit
+:q! - Quit without saving
+:e file - Open file
 
 Replace:
- :%s/old/new/g - Replace all in file
- :%s/old/new/gc - Replace all with confirm
+:%s/old/new/g - Replace all in file
+:%s/old/new/gc - Replace all with confirm
 ```
 
 ---

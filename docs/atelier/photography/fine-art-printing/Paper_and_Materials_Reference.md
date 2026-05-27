@@ -240,25 +240,25 @@ This reference covers paper selection, characteristics, and how surface properti
 
 **Process:**
 1. **Order sample packs** from 3-4 manufacturers:
- - Hahnemühle (Photo Rag, Baryta, FineArt Pearl, William Turner)
- - Canson (Baryta Photographique, Platine, Rag Photographique)
- - Epson (Hot Press Natural, Cold Press Bright)
- - Moab (Entrada, Lasal, Slickrock)
+- Hahnemühle (Photo Rag, Baryta, FineArt Pearl, William Turner)
+- Canson (Baryta Photographique, Platine, Rag Photographique)
+- Epson (Hot Press Natural, Cold Press Bright)
+- Moab (Entrada, Lasal, Slickrock)
 
 2. **Create test image** that includes:
- - Smooth gradients (sky, to test banding)
- - Fine detail (texture, to test resolution)
- - Skin tones (if portraits, to test flattering rendering)
- - Deep blacks (to test D-max)
+- Smooth gradients (sky, to test banding)
+- Fine detail (texture, to test resolution)
+- Skin tones (if portraits, to test flattering rendering)
+- Deep blacks (to test D-max)
 
 3. **Print on 8-10 different papers** (5x7" or 8x10" size)
 
 4. **Create reference binder** with paper samples and notes:
- - **Base color:** Cool/neutral/warm?
- - **Texture feel:** Smooth/medium/heavy?
- - **D-max impression:** Deep blacks or soft?
- - **Best use case:** Landscapes, portraits, fine art?
- - **Personal rating:** 1-5 stars
+- **Base color:** Cool/neutral/warm?
+- **Texture feel:** Smooth/medium/heavy?
+- **D-max impression:** Deep blacks or soft?
+- **Best use case:** Landscapes, portraits, fine art?
+- **Personal rating:** 1-5 stars
 
 **Value:** When starting a new project, consult binder to select ideal paper based on tested results.
 
@@ -270,25 +270,25 @@ This reference covers paper selection, characteristics, and how surface properti
 
 **Process:**
 1. Select 5 of your images with different moods:
- - **Image 1:** High-key, soft light (wedding, minimalist)
- - **Image 2:** Low-key, dramatic (moody portrait, street at night)
- - **Image 3:** Vibrant color (travel, autumn foliage)
- - **Image 4:** Neutral, documentary (street, reportage)
- - **Image 5:** Fine art, atmospheric (foggy landscape, abstract)
+- **Image 1:** High-key, soft light (wedding, minimalist)
+- **Image 2:** Low-key, dramatic (moody portrait, street at night)
+- **Image 3:** Vibrant color (travel, autumn foliage)
+- **Image 4:** Neutral, documentary (street, reportage)
+- **Image 5:** Fine art, atmospheric (foggy landscape, abstract)
 
 2. Match each to 2-3 candidate papers based on characteristics:
- - High-key → Warm white rag
- - Low-key → Baryta (deep blacks)
- - Vibrant → Bright white semi-gloss
- - Neutral → Natural white matte rag
- - Atmospheric → Textured rag, warm white
+- High-key → Warm white rag
+- Low-key → Baryta (deep blacks)
+- Vibrant → Bright white semi-gloss
+- Neutral → Natural white matte rag
+- Atmospheric → Textured rag, warm white
 
 3. Print each image on its matched papers
 
 4. Evaluate which pairing feels most cohesive:
- - Does paper enhance mood?
- - Does base color complement image palette?
- - Does texture feel appropriate?
+- Does paper enhance mood?
+- Does base color complement image palette?
+- Does texture feel appropriate?
 
 **Expected Insight:** Right paper makes image "sing." Wrong paper creates dissonance.
 
@@ -301,14 +301,14 @@ This reference covers paper selection, characteristics, and how surface properti
 **Process:**
 1. Take one neutral-toned image (grayscale or muted color)
 2. Print on:
- - **Bright white base** (Epson Cold Press Bright)
- - **Natural white base** (Hahnemühle Photo Rag)
- - **Warm white base** (Canson Platine)
+- **Bright white base** (Epson Cold Press Bright)
+- **Natural white base** (Hahnemühle Photo Rag)
+- **Warm white base** (Canson Platine)
 3. View in daylight
 4. Observe:
- - Bright white: Feels clinical, modern, cooler
- - Natural white: Balanced, neutral, classic
- - Warm white: Nostalgic, vintage, warmer
+- Bright white: Feels clinical, modern, cooler
+- Natural white: Balanced, neutral, classic
+- Warm white: Nostalgic, vintage, warmer
 
 **Conclusion:** Base color is a creative choice, not just technical spec.
 

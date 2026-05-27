@@ -12,11 +12,12 @@ Documentation tools and markup language references:
 
 ## Command-Line Tools
 
-Terminal productivity and security tools:
+Production-grade references for essential infrastructure tools:
 
-- **Editors & Shell**: Vim, Bash Readline shortcuts
-- **Terminal Multiplexers**: tmux, screen session management
-- **Security Tools**: OpenSSL, GPG encryption and certificates
+- **[IPMI Deep Reference](./command-line-tools/ipmi-deep-reference.md)**: Comprehensive IPMI/BMC guide - ipmitool, vendor comparisons (Dell iDRAC, HP iLO, Supermicro), security hardening, troubleshooting cookbook
+- **Editors & Shell**: Vim, Bash Readline shortcuts (coming soon)
+- **Terminal Multiplexers**: tmux, screen session management (coming soon)
+- **Security Tools**: OpenSSL, GPG encryption and certificates (coming soon)
 
 ## Collaboration Tools
 

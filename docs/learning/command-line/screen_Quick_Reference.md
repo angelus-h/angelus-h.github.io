@@ -31,10 +31,10 @@ Unlike tmux's three-level hierarchy (session → window → pane), screen has a 
 
 ```
 screen Session
- Window 0: bash
- Window 1: vim
- Window 2: logs
- Window 3: monitoring
+Window 0: bash
+Window 1: vim
+Window 2: logs
+Window 3: monitoring
 ```
 
 **Terminology:**

@@ -1,8 +1,8 @@
 # Machine Learning Fundamentals - Comprehensive Guide
 
-**Version:** 1.0  
-**Created:** 2026-05-25  
-**Target Audience:** Beginners and intermediate learners  
+**Version:** 1.0 
+**Created:** 2026-05-25 
+**Target Audience:** Beginners and intermediate learners 
 **Estimated Learning Time:** 40-60 hours (fundamentals mastery)
 
 ---
@@ -77,17 +77,17 @@ Testing: prediction on new, unseen inputs
 - **Goal:** Categorize inputs into **discrete classes**
 - **Output:** Discrete label (e.g., "dog", "cat", "bird")
 - **Examples:**
-  - Is this email spam or not spam?
-  - Is the patient's tumor benign or malignant?
-  - Does the image contain a dog, cat, or bird?
+- Is this email spam or not spam?
+- Is the patient's tumor benign or malignant?
+- Does the image contain a dog, cat, or bird?
 
 #### b) Regression
 - **Goal:** Predict a **continuous value**
 - **Output:** Number (e.g., price, temperature, quantity)
 - **Examples:**
-  - House price based on square footage and location
-  - Tomorrow's temperature forecast
-  - Website traffic next week
+- House price based on square footage and location
+- Tomorrow's temperature forecast
+- Website traffic next week
 
 **Popular Algorithms:**
 - Linear Regression
@@ -110,25 +110,25 @@ Testing: prediction on new, unseen inputs
 #### a) Clustering
 - **Goal:** Group **similar data points** together
 - **Examples:**
-  - Customer segmentation by behavior
-  - Grouping similar news articles by topic
-  - Categorizing DNA sequences
-  
+- Customer segmentation by behavior
+- Grouping similar news articles by topic
+- Categorizing DNA sequences
+
 **Algorithms:** K-Means, DBSCAN, Hierarchical Clustering
 
 #### b) Dimensionality Reduction
 - **Goal:** Simplify datasets with many variables **without losing information**
 - **Examples:**
-  - Reducing 1000-dimensional dataset to 2-3 dimensions for visualization
-  - Image compression (e.g., JPEG)
-  
+- Reducing 1000-dimensional dataset to 2-3 dimensions for visualization
+- Image compression (e.g., JPEG)
+
 **Algorithms:** PCA (Principal Component Analysis), t-SNE, Autoencoders
 
 #### c) Association Rule Learning
 - **Goal:** Discover **relationships** between variables
 - **Examples:**
-  - "Customers who buy bread often buy butter" (market basket analysis)
-  
+- "Customers who buy bread often buy butter" (market basket analysis)
+
 **Algorithms:** Apriori, FP-Growth
 
 ---
@@ -190,8 +190,8 @@ Testing: prediction on new, unseen inputs
 #### Features (Variables, Attributes)
 - **Input variables** the model uses to make decisions
 - **Example (house price prediction):**
-  - Features: square footage, number of bedrooms, bathrooms, zip code, year built
-  - Target: house price
+- Features: square footage, number of bedrooms, bathrooms, zip code, year built
+- Target: house price
 
 #### Labels
 - **Output variable** in supervised learning
@@ -270,16 +270,16 @@ Testing: prediction on new, unseen inputs
 - **Configuration settings** set **before** training
 - **NOT** learned by the model
 - **Examples:**
-  - Learning rate
-  - Number of iterations (epochs)
-  - Regularization strength
-  - Number of layers in neural network
+- Learning rate
+- Number of iterations (epochs)
+- Regularization strength
+- Number of layers in neural network
 
 #### Parameters
 - **Internal variables** the model **learns** during training
 - **Examples:**
-  - Weights in linear regression
-  - Connection strengths between neurons in neural networks
+- Weights in linear regression
+- Connection strengths between neurons in neural networks
 
 #### Epoch
 - **One complete pass** through all training data
@@ -308,8 +308,8 @@ Testing: prediction on new, unseen inputs
 5. What are the **success metrics**? (accuracy, precision, F1-score, etc.)
 
 **Example:**
-> **Goal:** Email spam filtering  
-> **ML type:** Supervised learning (classification)  
+> **Goal:** Email spam filtering 
+> **ML type:** Supervised learning (classification) 
 > **Success metric:** Precision (don't put good emails in spam folder)
 
 ---
@@ -339,9 +339,9 @@ Testing: prediction on new, unseen inputs
 **Handling Missing Values:**
 - **Deletion:** If little data is missing
 - **Imputation:** Fill missing values
-  - Numeric: Median, mean
-  - Categorical: Most frequent value
-  - Prediction: Use ML model to fill missing values
+- Numeric: Median, mean
+- Categorical: Most frequent value
+- Prediction: Use ML model to fill missing values
 
 **Outliers:**
 - Real error? → Delete
@@ -388,8 +388,8 @@ x_scaled = (x - mean) / std_dev
 ```
 Color: "red", "blue", "green"
 
-→ red_flag:   [1, 0, 0]
-→ blue_flag:  [0, 1, 0]
+→ red_flag:  [1, 0, 0]
+→ blue_flag: [0, 1, 0]
 → green_flag: [0, 0, 1]
 ```
 
@@ -443,7 +443,7 @@ Or:
 from sklearn.ensemble import RandomForestClassifier
 
 model = RandomForestClassifier(n_estimators=100)
-model.fit(X_train, y_train)  # Training
+model.fit(X_train, y_train) # Training
 ```
 
 **Hyperparameter Tuning:**
@@ -492,9 +492,9 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.json
-    prediction = model.predict([data['features']])
-    return {'prediction': prediction[0]}
+data = request.json
+prediction = model.predict([data['features']])
+return {'prediction': prediction[0]}
 ```
 
 ---
@@ -587,13 +587,13 @@ House price = 150 * square_meters + 50000 * num_rooms + 100000
 
 **How it works:**
 ```
-       [Square meters > 100m²?]
-              /         \
-            Yes          No
-            /             \
-    [Price > 50M?]    [Rooms > 2?]
-      /     \           /       \
- Expensive Medium   Small    Medium
+[Square meters > 100m²?]
+/     \
+Yes     No
+/       \
+[Price > 50M?]  [Rooms > 2?]
+/   \      /    \
+Expensive Medium  Small  Medium
 ```
 
 **Example decision:**
@@ -620,8 +620,8 @@ House price = 150 * square_meters + 50000 * num_rooms + 100000
 ```
 1. Generate many (100-1000) decision trees
 2. Each tree:
-   - Random data subsample (bootstrap sampling)
-   - Random feature subset
+- Random data subsample (bootstrap sampling)
+- Random feature subset
 3. Prediction: Trees vote (majority or average)
 ```
 
@@ -779,11 +779,11 @@ Each neuron:
 **Binary classification example (disease diagnosis):**
 
 ```
-                Reality
-              Sick  Healthy
+Reality
+Sick Healthy
 Prediction
-Sick          TP      FP
-Healthy       FN      TN
+Sick     TP   FP
+Healthy    FN   TN
 
 TP (True Positive): Correctly identified as sick
 FP (False Positive): Incorrectly identified as sick (Type I error)
@@ -1061,7 +1061,7 @@ SS_tot: Total sum of squares (data variance)
 ```python
 import numpy as np
 arr = np.array([1, 2, 3, 4])
-mean = np.mean(arr)  # Mean
+mean = np.mean(arr) # Mean
 ```
 
 ---
@@ -1073,8 +1073,8 @@ mean = np.mean(arr)  # Mean
 ```python
 import pandas as pd
 df = pd.read_csv('data.csv')
-df.head()  # First 5 rows
-df.describe()  # Statistics
+df.head() # First 5 rows
+df.describe() # Statistics
 ```
 
 ---
@@ -1123,9 +1123,9 @@ from tensorflow import keras
 from tensorflow.keras import layers
 
 model = keras.Sequential([
-    layers.Dense(128, activation='relu', input_shape=(input_dim,)),
-    layers.Dense(64, activation='relu'),
-    layers.Dense(num_classes, activation='softmax')
+layers.Dense(128, activation='relu', input_shape=(input_dim,)),
+layers.Dense(64, activation='relu'),
+layers.Dense(num_classes, activation='softmax')
 ])
 
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
@@ -1143,15 +1143,15 @@ import torch
 import torch.nn as nn
 
 class SimpleNet(nn.Module):
-    def __init__(self):
-        super().__init__()
-        self.fc1 = nn.Linear(784, 128)
-        self.fc2 = nn.Linear(128, 10)
-    
-    def forward(self, x):
-        x = torch.relu(self.fc1(x))
-        x = self.fc2(x)
-        return x
+def __init__(self):
+super().__init__()
+self.fc1 = nn.Linear(784, 128)
+self.fc2 = nn.Linear(128, 10)
+
+def forward(self, x):
+x = torch.relu(self.fc1(x))
+x = self.fc2(x)
+return x
 ```
 
 ---
@@ -1323,18 +1323,18 @@ Image recognition model training
 
 **Fundamentals:**
 1. **Python programming**
-   - Basic syntax
-   - NumPy, Pandas
+- Basic syntax
+- NumPy, Pandas
 
 2. **Mathematical foundations**
-   - Linear algebra: Vectors, matrices
-   - Statistics: Mean, standard deviation, distributions
-   - Probability: Bayes' theorem
+- Linear algebra: Vectors, matrices
+- Statistics: Mean, standard deviation, distributions
+- Probability: Bayes' theorem
 
 3. **First ML projects**
-   - Scikit-learn tutorial
-   - Kaggle Titanic competition (classic beginner project)
-   - Iris dataset classification
+- Scikit-learn tutorial
+- Kaggle Titanic competition (classic beginner project)
+- Iris dataset classification
 
 **Recommended Resources:**
 - **Andrew Ng: Machine Learning (Coursera)** - Best beginner course
@@ -1347,22 +1347,22 @@ Image recognition model training
 
 **Topics:**
 1. **Feature Engineering**
-   - Data cleaning best practices
-   - Feature creation techniques
+- Data cleaning best practices
+- Feature creation techniques
 
 2. **Model Selection & Tuning**
-   - Hyperparameter optimization
-   - Cross-validation
-   - Ensemble methods
+- Hyperparameter optimization
+- Cross-validation
+- Ensemble methods
 
 3. **Deep Learning basics**
-   - Neural Networks
-   - TensorFlow/PyTorch
-   - CNN (images), RNN (time series)
+- Neural Networks
+- TensorFlow/PyTorch
+- CNN (images), RNN (time series)
 
 4. **Kaggle competitions**
-   - Real problems
-   - Learning from others' solutions
+- Real problems
+- Learning from others' solutions
 
 **Projects:**
 - Sentiment analysis (Twitter/Reddit data)
@@ -1380,23 +1380,23 @@ Image recognition model training
 
 **Topics:**
 1. **Advanced Deep Learning**
-   - Transformer architecture
-   - GANs (Generative Adversarial Networks)
-   - Reinforcement Learning
+- Transformer architecture
+- GANs (Generative Adversarial Networks)
+- Reinforcement Learning
 
 2. **MLOps (ML Operations)**
-   - Model deployment (Docker, Kubernetes)
-   - CI/CD for ML
-   - Model monitoring
+- Model deployment (Docker, Kubernetes)
+- CI/CD for ML
+- Model monitoring
 
 3. **Domain specialization**
-   - NLP (BERT, GPT fine-tuning)
-   - Computer Vision (Object Detection, Segmentation)
-   - Time Series (LSTM, Prophet)
+- NLP (BERT, GPT fine-tuning)
+- Computer Vision (Object Detection, Segmentation)
+- Time Series (LSTM, Prophet)
 
 4. **Reading research papers**
-   - arXiv.org
-   - Papers With Code
+- arXiv.org
+- Papers With Code
 
 **Projects:**
 - Own API deployment (Flask + Docker)
@@ -1479,33 +1479,33 @@ A:
 ### Key Points
 
 1. **ML = Learning from data** without explicit programming
-   - Supervised: Labeled data
-   - Unsupervised: Unlabeled data
-   - Reinforcement: Reward/punishment based
+- Supervised: Labeled data
+- Unsupervised: Unlabeled data
+- Reinforcement: Reward/punishment based
 
 2. **Project lifecycle:**
-   ```
-   Problem → Data Collection → Preprocessing → Model → Evaluation → Deployment → Monitoring
-   ```
+```
+Problem → Data Collection → Preprocessing → Model → Evaluation → Deployment → Monitoring
+```
 
 3. **80% data, 20% model:**
-   - Feature engineering is most important
-   - More good data > fancy algorithm
+- Feature engineering is most important
+- More good data > fancy algorithm
 
 4. **Evaluation:**
-   - Not just accuracy!
-   - F1-score, Precision, Recall for imbalanced datasets
-   - Cross-validation for reliable metrics
+- Not just accuracy!
+- F1-score, Precision, Recall for imbalanced datasets
+- Cross-validation for reliable metrics
 
 5. **Tools:**
-   - Scikit-learn: Classical ML
-   - TensorFlow/PyTorch: Deep Learning
-   - Pandas/NumPy: Data manipulation
+- Scikit-learn: Classical ML
+- TensorFlow/PyTorch: Deep Learning
+- Pandas/NumPy: Data manipulation
 
 6. **Learning path:**
-   - Start with projects (learning by doing)
-   - Practice with Kaggle competitions
-   - Community learning (Reddit, Discord)
+- Start with projects (learning by doing)
+- Practice with Kaggle competitions
+- Community learning (Reddit, Discord)
 
 ---
 
@@ -1563,6 +1563,6 @@ A:
 
 ---
 
-**Good luck with your Machine Learning journey!** 🚀
+**Good luck with your Machine Learning journey!** 
 
 *This document is a living resource - will be updated with new developments.*

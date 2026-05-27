@@ -17,24 +17,24 @@ This reference covers the artistic and philosophical aspects of fine art printin
 **Core Principles:**
 
 1. **Intentionality Over Perfection**
- - Commercial: Every highlight preserved, no clipping allowed
- - Fine Art: Strategic clipping for impact (Sally Mann's blown highlights)
+- Commercial: Every highlight preserved, no clipping allowed
+- Fine Art: Strategic clipping for impact (Sally Mann's blown highlights)
 
 2. **Subtlety Over Impact**
- - Commercial: Punchy, saturated, screen-optimized
- - Fine Art: Restrained, nuanced, rewards close viewing
+- Commercial: Punchy, saturated, screen-optimized
+- Fine Art: Restrained, nuanced, rewards close viewing
 
 3. **Cohesion Over Variety**
- - Commercial: Each image stands alone
- - Fine Art: Series thinking, images strengthen each other
+- Commercial: Each image stands alone
+- Fine Art: Series thinking, images strengthen each other
 
 4. **Material Awareness**
- - Commercial: Paper is delivery vehicle
- - Fine Art: Paper is part of artwork (baryta for gravitas, rag for intimacy)
+- Commercial: Paper is delivery vehicle
+- Fine Art: Paper is part of artwork (baryta for gravitas, rag for intimacy)
 
 5. **Editions & Scarcity**
- - Commercial: Unlimited prints, maximize volume
- - Fine Art: Limited editions, create value through scarcity
+- Commercial: Unlimited prints, maximize volume
+- Fine Art: Limited editions, create value through scarcity
 
 ### Fine Art vs. "Pretty Picture"
 
@@ -125,20 +125,20 @@ This reference covers the artistic and philosophical aspects of fine art printin
 **Film Characteristics Digital Lacks:**
 
 1. **Grain vs. Noise**
- - Film grain: Organic, three-dimensional
- - Digital noise: Random, electronic, ugly
+- Film grain: Organic, three-dimensional
+- Digital noise: Random, electronic, ugly
 
 2. **Tonal Response**
- - Film: S-curve (gentle rolloff/toe)
- - Digital: Linear (harsh clip)
+- Film: S-curve (gentle rolloff/toe)
+- Digital: Linear (harsh clip)
 
 3. **Color Science**
- - Film: Unique dye layers (Kodachrome blue, Portra skin warmth)
- - Digital: Neutral/accurate (less "character")
+- Film: Unique dye layers (Kodachrome blue, Portra skin warmth)
+- Digital: Neutral/accurate (less "character")
 
 4. **Imperfections as Character**
- - Film: Vignetting, light leaks, dust
- - Digital: Clinically perfect (soulless)
+- Film: Vignetting, light leaks, dust
+- Digital: Clinically perfect (soulless)
 
 ### Achieving Organic Digital
 

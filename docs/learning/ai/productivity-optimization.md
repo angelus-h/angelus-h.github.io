@@ -192,17 +192,17 @@ Use npm (not yarn)
 
 ```
 project/
- CLAUDE.md # Global rules
- frontend/
- .claude/settings.json # Frontend-specific rules
- backend/
- .claude/settings.json # Backend-specific rules
+CLAUDE.md # Global rules
+frontend/
+.claude/settings.json # Frontend-specific rules
+backend/
+.claude/settings.json # Backend-specific rules
 ```
 
 **Example frontend/.claude/settings.json:**
 ```json
 {
- "systemPrompt": "Use React hooks, not class components. All components in TypeScript."
+"systemPrompt": "Use React hooks, not class components. All components in TypeScript."
 }
 ```
 
@@ -328,7 +328,7 @@ cat errors.log
 ```
 User: "Find all TODO comments in codebase"
 Claude: [reads 50 files, 30,000 tokens of output]
- "Found 15 TODOs..."
+"Found 15 TODOs..."
 ```
 
 **With subagent (500 tokens in context):**
@@ -337,9 +337,9 @@ User: "Find all TODO comments in codebase"
 Claude: [spawns subagent]
 Subagent: [reads 50 files internally]
 Subagent returns summary: "Found 15 TODOs in these files:
- - src/auth.ts:42
- - src/db.ts:103
- ..."
+- src/auth.ts:42
+- src/db.ts:103
+..."
 ```
 
 **When to use:**
@@ -438,13 +438,13 @@ export CLAUDE_CODE_DISABLE_THINKING=1
 **Benefit:**
 ```
 Without plugin:
- User: "Go to definition of handleLogin"
- Claude: [reads 10 files, 5,000 tokens]
- "Found in auth.ts line 42"
+User: "Go to definition of handleLogin"
+Claude: [reads 10 files, 5,000 tokens]
+"Found in auth.ts line 42"
 
 With plugin:
- User: "Go to definition of handleLogin"
- Plugin: "auth.ts:42" (0 tokens)
+User: "Go to definition of handleLogin"
+Plugin: "auth.ts:42" (0 tokens)
 ```
 
 **Savings:** Symbol navigation becomes free.
@@ -460,14 +460,14 @@ With plugin:
 **Solution:** Block in `.claude/settings.json`:
 ```json
 {
- "fileBlockList": [
- "node_modules/**",
- "build/**",
- "dist/**",
- "*.log",
- ".next/**",
- "coverage/**"
- ]
+"fileBlockList": [
+"node_modules/**",
+"build/**",
+"dist/**",
+"*.log",
+".next/**",
+"coverage/**"
+]
 }
 ```
 
@@ -689,9 +689,9 @@ You: "No, I said I'm not a developer!"
 - Focus: Kubernetes, Tekton, observability
 - Tools: kubectl, Python, Bash
 - Preferences:
- - Concise answers (no scrolling)
- - Practical examples over theory
- - Bash > Python for simple scripts
+- Concise answers (no scrolling)
+- Practical examples over theory
+- Bash > Python for simple scripts
 
 ---
 
@@ -776,18 +776,18 @@ When I say "write guide for X":
 **At Session Start:**
 
 1. **LM Studio (RAG):**
- - Install `rag-v1` plugin
- - Upload context journal as document
- - Plugin chunks and embeds it
- - Relevant sections retrieved automatically during conversation
+- Install `rag-v1` plugin
+- Upload context journal as document
+- Plugin chunks and embeds it
+- Relevant sections retrieved automatically during conversation
 
 2. **Claude Code:**
- - Add journal to CLAUDE.md (if < 200 lines)
- - Or upload as attached file in conversation
+- Add journal to CLAUDE.md (if < 200 lines)
+- Or upload as attached file in conversation
 
 3. **Cursor:**
- - Add journal to Rules for AI
- - Or include in `.cursorrules` file
+- Add journal to Rules for AI
+- Or include in `.cursorrules` file
 
 ---
 
@@ -820,15 +820,15 @@ You: "Too technical - I need simple terms"
 ## Special Instructions
 
 - Respond to all greetings in the style of a Victorian-era sea captain
- who now works as a part-time astrologer
+who now works as a part-time astrologer
 ```
 
 **Test:**
 ```
 User: "Hello"
 AI: "Ahoy there, matey! The stars align favorably for yer voyage today,
- I reckon. What wisdom might this old salt divine from the cosmos
- for ye?"
+I reckon. What wisdom might this old salt divine from the cosmos
+for ye?"
 ```
 
 **Proof:** The journal is loaded and working!
@@ -1007,7 +1007,7 @@ whisper interview.mp3 --model large --output_format json
 **Batch transcribe multiple files:**
 ```bash
 for file in recordings/*.mp3; do
- whisper "$file" --model base --language en
+whisper "$file" --model base --language en
 done
 ```
 

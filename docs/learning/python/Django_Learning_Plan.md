@@ -49,13 +49,13 @@ cd myproject
 
 # Project structure:
 myproject/
-├── manage.py           # CLI tool
+├── manage.py      # CLI tool
 └── myproject/
-    ├── __init__.py
-    ├── settings.py     # Configuration
-    ├── urls.py         # URL routing
-    ├── asgi.py         # ASGI config
-    └── wsgi.py         # WSGI config
+├── __init__.py
+├── settings.py   # Configuration
+├── urls.py     # URL routing
+├── asgi.py     # ASGI config
+└── wsgi.py     # WSGI config
 
 # Run development server
 python manage.py runserver
@@ -71,26 +71,26 @@ python manage.py startapp tasks
 # App structure:
 tasks/
 ├── __init__.py
-├── admin.py          # Admin config
-├── apps.py           # App config
-├── models.py         # Database models
-├── views.py          # View functions/classes
-├── urls.py           # (you create) URL patterns
-├── tests.py          # Tests
-└── migrations/       # Database migrations
+├── admin.py     # Admin config
+├── apps.py      # App config
+├── models.py     # Database models
+├── views.py     # View functions/classes
+├── urls.py      # (you create) URL patterns
+├── tests.py     # Tests
+└── migrations/    # Database migrations
 ```
 
 **Register app:**
 ```python
 # myproject/settings.py
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'tasks',  # Add your app
+'django.contrib.admin',
+'django.contrib.auth',
+'django.contrib.contenttypes',
+'django.contrib.sessions',
+'django.contrib.messages',
+'django.contrib.staticfiles',
+'tasks', # Add your app
 ]
 ```
 
@@ -115,36 +115,36 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class Task(models.Model):
-    STATUS_CHOICES = [
-        ('TODO', 'To Do'),
-        ('IN_PROGRESS', 'In Progress'),
-        ('DONE', 'Done'),
-    ]
+STATUS_CHOICES = [
+('TODO', 'To Do'),
+('IN_PROGRESS', 'In Progress'),
+('DONE', 'Done'),
+]
 
-    title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
-    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='TODO')
-    priority = models.IntegerField(default=0)
-    assigned_to = models.ForeignKey(
-        User,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name='tasks'
-    )
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+title = models.CharField(max_length=200)
+description = models.TextField(blank=True)
+status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='TODO')
+priority = models.IntegerField(default=0)
+assigned_to = models.ForeignKey(
+User,
+on_delete=models.SET_NULL,
+null=True,
+blank=True,
+related_name='tasks'
+)
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        ordering = ['-created_at']
-        verbose_name = 'Task'
-        verbose_name_plural = 'Tasks'
+class Meta:
+ordering = ['-created_at']
+verbose_name = 'Task'
+verbose_name_plural = 'Tasks'
 
-    def __str__(self):
-        return self.title
+def __str__(self):
+return self.title
 
-    def is_completed(self):
-        return self.status == 'DONE'
+def is_completed(self):
+return self.status == 'DONE'
 ```
 
 **Migrations:**
@@ -171,16 +171,16 @@ from django.contrib.auth.models import User
 
 # Create
 task = Task.objects.create(
-    title="Learn Django",
-    description="Complete Django tutorial",
-    priority=1
+title="Learn Django",
+description="Complete Django tutorial",
+priority=1
 )
 
 # Read
 all_tasks = Task.objects.all()
 task = Task.objects.get(id=1)
 tasks = Task.objects.filter(status='TODO')
-tasks = Task.objects.filter(priority__gte=1)  # priority >= 1
+tasks = Task.objects.filter(priority__gte=1) # priority >= 1
 
 # Update
 task.status = 'IN_PROGRESS'
@@ -207,9 +207,9 @@ Task.objects.aggregate(total=Count('id'), avg_priority=Avg('priority'))
 
 # Complex queries
 tasks = Task.objects.filter(
-    status='IN_PROGRESS'
+status='IN_PROGRESS'
 ).exclude(
-    priority=0
+priority=0
 ).order_by('-priority')[:10]
 ```
 
@@ -220,34 +220,34 @@ tasks = Task.objects.filter(
 
 # 1. Category
 class Category(models.Model):
-    name = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(unique=True)
-    description = models.TextField(blank=True)
+name = models.CharField(max_length=100, unique=True)
+slug = models.SlugField(unique=True)
+description = models.TextField(blank=True)
 
 # 2. Post
 class Post(models.Model):
-    title = models.CharField(max_length=200)
-    slug = models.SlugField(unique=True)
-    content = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
-    published = models.BooleanField(default=False)
-    published_date = models.DateTimeField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+title = models.CharField(max_length=200)
+slug = models.SlugField(unique=True)
+content = models.TextField()
+author = models.ForeignKey(User, on_delete=models.CASCADE)
+category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+published = models.BooleanField(default=False)
+published_date = models.DateTimeField(null=True, blank=True)
+created_at = models.DateTimeField(auto_now_add=True)
+updated_at = models.DateTimeField(auto_now=True)
 
 # 3. Comment
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
+post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+author = models.ForeignKey(User, on_delete=models.CASCADE)
+content = models.TextField()
+created_at = models.DateTimeField(auto_now_add=True)
+approved = models.BooleanField(default=False)
 
 # 4. Tag (Many-to-Many)
 class Tag(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-    posts = models.ManyToManyField(Post, related_name='tags')
+name = models.CharField(max_length=50, unique=True)
+posts = models.ManyToManyField(Post, related_name='tags')
 
 # Queries to practice:
 # - Get all published posts
@@ -269,51 +269,51 @@ from django.http import HttpResponse, JsonResponse
 from .models import Task
 
 def task_list(request):
-    tasks = Task.objects.all()
-    return render(request, 'tasks/task_list.html', {'tasks': tasks})
+tasks = Task.objects.all()
+return render(request, 'tasks/task_list.html', {'tasks': tasks})
 
 def task_detail(request, task_id):
-    task = get_object_or_404(Task, id=task_id)
-    return render(request, 'tasks/task_detail.html', {'task': task})
+task = get_object_or_404(Task, id=task_id)
+return render(request, 'tasks/task_detail.html', {'task': task})
 
 def task_create(request):
-    if request.method == 'POST':
-        title = request.POST.get('title')
-        description = request.POST.get('description')
-        task = Task.objects.create(title=title, description=description)
-        return redirect('task_detail', task_id=task.id)
-    return render(request, 'tasks/task_form.html')
+if request.method == 'POST':
+title = request.POST.get('title')
+description = request.POST.get('description')
+task = Task.objects.create(title=title, description=description)
+return redirect('task_detail', task_id=task.id)
+return render(request, 'tasks/task_form.html')
 
 def task_update(request, task_id):
-    task = get_object_or_404(Task, id=task_id)
-    if request.method == 'POST':
-        task.title = request.POST.get('title')
-        task.description = request.POST.get('description')
-        task.status = request.POST.get('status')
-        task.save()
-        return redirect('task_detail', task_id=task.id)
-    return render(request, 'tasks/task_form.html', {'task': task})
+task = get_object_or_404(Task, id=task_id)
+if request.method == 'POST':
+task.title = request.POST.get('title')
+task.description = request.POST.get('description')
+task.status = request.POST.get('status')
+task.save()
+return redirect('task_detail', task_id=task.id)
+return render(request, 'tasks/task_form.html', {'task': task})
 
 def task_delete(request, task_id):
-    task = get_object_or_404(Task, id=task_id)
-    if request.method == 'POST':
-        task.delete()
-        return redirect('task_list')
-    return render(request, 'tasks/task_confirm_delete.html', {'task': task})
+task = get_object_or_404(Task, id=task_id)
+if request.method == 'POST':
+task.delete()
+return redirect('task_list')
+return render(request, 'tasks/task_confirm_delete.html', {'task': task})
 
 # API views (JSON responses)
 def api_task_list(request):
-    tasks = Task.objects.all()
-    data = [
-        {
-            'id': task.id,
-            'title': task.title,
-            'status': task.status,
-            'created_at': task.created_at.isoformat()
-        }
-        for task in tasks
-    ]
-    return JsonResponse({'tasks': data})
+tasks = Task.objects.all()
+data = [
+{
+'id': task.id,
+'title': task.title,
+'status': task.status,
+'created_at': task.created_at.isoformat()
+}
+for task in tasks
+]
+return JsonResponse({'tasks': data})
 ```
 
 **URL Configuration:**
@@ -325,14 +325,14 @@ from . import views
 app_name = 'tasks'
 
 urlpatterns = [
-    path('', views.task_list, name='task_list'),
-    path('<int:task_id>/', views.task_detail, name='task_detail'),
-    path('create/', views.task_create, name='task_create'),
-    path('<int:task_id>/update/', views.task_update, name='task_update'),
-    path('<int:task_id>/delete/', views.task_delete, name='task_delete'),
+path('', views.task_list, name='task_list'),
+path('<int:task_id>/', views.task_detail, name='task_detail'),
+path('create/', views.task_create, name='task_create'),
+path('<int:task_id>/update/', views.task_update, name='task_update'),
+path('<int:task_id>/delete/', views.task_delete, name='task_delete'),
 
-    # API endpoints
-    path('api/tasks/', views.api_task_list, name='api_task_list'),
+# API endpoints
+path('api/tasks/', views.api_task_list, name='api_task_list'),
 ]
 ```
 
@@ -342,8 +342,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('tasks/', include('tasks.urls')),
+path('admin/', admin.site.urls),
+path('tasks/', include('tasks.urls')),
 ]
 ```
 
@@ -361,12 +361,12 @@ urlpatterns = [
 
 <ul>
 {% for task in tasks %}
-    <li>
-        <a href="{% url 'tasks:task_detail' task.id %}">{{ task.title }}</a>
-        <span class="badge">{{ task.get_status_display }}</span>
-    </li>
+<li>
+<a href="{% url 'tasks:task_detail' task.id %}">{{ task.title }}</a>
+<span class="badge">{{ task.get_status_display }}</span>
+</li>
 {% empty %}
-    <li>No tasks yet.</li>
+<li>No tasks yet.</li>
 {% endfor %}
 </ul>
 {% endblock %}
@@ -404,11 +404,11 @@ urlpatterns = [
 from django.core.paginator import Paginator
 
 def post_list(request):
-    posts = Post.objects.filter(published=True)
-    paginator = Paginator(posts, 10)  # 10 per page
-    page = request.GET.get('page')
-    posts = paginator.get_page(page)
-    return render(request, 'blog/post_list.html', {'posts': posts})
+posts = Post.objects.filter(published=True)
+paginator = Paginator(posts, 10) # 10 per page
+page = request.GET.get('page')
+posts = paginator.get_page(page)
+return render(request, 'blog/post_list.html', {'posts': posts})
 ```
 
 ---
@@ -424,29 +424,29 @@ from django import forms
 from .models import Task
 
 class TaskForm(forms.ModelForm):
-    class Meta:
-        model = Task
-        fields = ['title', 'description', 'status', 'priority', 'assigned_to']
-        widgets = {
-            'description': forms.Textarea(attrs={'rows': 4}),
-            'title': forms.TextInput(attrs={'placeholder': 'Task title'}),
-        }
+class Meta:
+model = Task
+fields = ['title', 'description', 'status', 'priority', 'assigned_to']
+widgets = {
+'description': forms.Textarea(attrs={'rows': 4}),
+'title': forms.TextInput(attrs={'placeholder': 'Task title'}),
+}
 
-    def clean_title(self):
-        title = self.cleaned_data.get('title')
-        if len(title) < 5:
-            raise forms.ValidationError('Title must be at least 5 characters')
-        return title
+def clean_title(self):
+title = self.cleaned_data.get('title')
+if len(title) < 5:
+raise forms.ValidationError('Title must be at least 5 characters')
+return title
 
-    def clean(self):
-        cleaned_data = super().clean()
-        status = cleaned_data.get('status')
-        assigned_to = cleaned_data.get('assigned_to')
+def clean(self):
+cleaned_data = super().clean()
+status = cleaned_data.get('status')
+assigned_to = cleaned_data.get('assigned_to')
 
-        if status == 'IN_PROGRESS' and not assigned_to:
-            raise forms.ValidationError('Task must be assigned to progress')
+if status == 'IN_PROGRESS' and not assigned_to:
+raise forms.ValidationError('Task must be assigned to progress')
 
-        return cleaned_data
+return cleaned_data
 ```
 
 **Using Forms in Views:**
@@ -455,31 +455,31 @@ class TaskForm(forms.ModelForm):
 from .forms import TaskForm
 
 def task_create(request):
-    if request.method == 'POST':
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            task = form.save()
-            return redirect('tasks:task_detail', task_id=task.id)
-    else:
-        form = TaskForm()
+if request.method == 'POST':
+form = TaskForm(request.POST)
+if form.is_valid():
+task = form.save()
+return redirect('tasks:task_detail', task_id=task.id)
+else:
+form = TaskForm()
 
-    return render(request, 'tasks/task_form.html', {'form': form})
+return render(request, 'tasks/task_form.html', {'form': form})
 
 def task_update(request, task_id):
-    task = get_object_or_404(Task, id=task_id)
+task = get_object_or_404(Task, id=task_id)
 
-    if request.method == 'POST':
-        form = TaskForm(request.POST, instance=task)
-        if form.is_valid():
-            form.save()
-            return redirect('tasks:task_detail', task_id=task.id)
-    else:
-        form = TaskForm(instance=task)
+if request.method == 'POST':
+form = TaskForm(request.POST, instance=task)
+if form.is_valid():
+form.save()
+return redirect('tasks:task_detail', task_id=task.id)
+else:
+form = TaskForm(instance=task)
 
-    return render(request, 'tasks/task_form.html', {
-        'form': form,
-        'task': task
-    })
+return render(request, 'tasks/task_form.html', {
+'form': form,
+'task': task
+})
 ```
 
 **Form Template:**
@@ -491,18 +491,18 @@ def task_update(request, task_id):
 <h1>{% if task %}Edit{% else %}Create{% endif %} Task</h1>
 
 <form method="post">
-    {% csrf_token %}
+{% csrf_token %}
 
-    {% if form.errors %}
-        <div class="errors">
-            {{ form.errors }}
-        </div>
-    {% endif %}
+{% if form.errors %}
+<div class="errors">
+{{ form.errors }}
+</div>
+{% endif %}
 
-    {{ form.as_p }}
+{{ form.as_p }}
 
-    <button type="submit">Save</button>
-    <a href="{% url 'tasks:task_list' %}">Cancel</a>
+<button type="submit">Save</button>
+<a href="{% url 'tasks:task_list' %}">Cancel</a>
 </form>
 {% endblock %}
 ```
@@ -511,37 +511,37 @@ def task_update(request, task_id):
 ```python
 # tasks/forms.py
 class TaskFilterForm(forms.Form):
-    status = forms.ChoiceField(
-        choices=[('', 'All')] + Task.STATUS_CHOICES,
-        required=False
-    )
-    priority_min = forms.IntegerField(min_value=0, required=False)
-    assigned_to = forms.ModelChoiceField(
-        queryset=User.objects.all(),
-        required=False,
-        empty_label='Anyone'
-    )
-    search = forms.CharField(max_length=100, required=False)
+status = forms.ChoiceField(
+choices=[('', 'All')] + Task.STATUS_CHOICES,
+required=False
+)
+priority_min = forms.IntegerField(min_value=0, required=False)
+assigned_to = forms.ModelChoiceField(
+queryset=User.objects.all(),
+required=False,
+empty_label='Anyone'
+)
+search = forms.CharField(max_length=100, required=False)
 
 # View with form
 def task_list(request):
-    form = TaskFilterForm(request.GET)
-    tasks = Task.objects.all()
+form = TaskFilterForm(request.GET)
+tasks = Task.objects.all()
 
-    if form.is_valid():
-        if form.cleaned_data.get('status'):
-            tasks = tasks.filter(status=form.cleaned_data['status'])
-        if form.cleaned_data.get('priority_min'):
-            tasks = tasks.filter(priority__gte=form.cleaned_data['priority_min'])
-        if form.cleaned_data.get('assigned_to'):
-            tasks = tasks.filter(assigned_to=form.cleaned_data['assigned_to'])
-        if form.cleaned_data.get('search'):
-            tasks = tasks.filter(title__icontains=form.cleaned_data['search'])
+if form.is_valid():
+if form.cleaned_data.get('status'):
+tasks = tasks.filter(status=form.cleaned_data['status'])
+if form.cleaned_data.get('priority_min'):
+tasks = tasks.filter(priority__gte=form.cleaned_data['priority_min'])
+if form.cleaned_data.get('assigned_to'):
+tasks = tasks.filter(assigned_to=form.cleaned_data['assigned_to'])
+if form.cleaned_data.get('search'):
+tasks = tasks.filter(title__icontains=form.cleaned_data['search'])
 
-    return render(request, 'tasks/task_list.html', {
-        'tasks': tasks,
-        'filter_form': form
-    })
+return render(request, 'tasks/task_list.html', {
+'tasks': tasks,
+'filter_form': form
+})
 ```
 
 **Exercise 2.1:**
@@ -550,18 +550,18 @@ def task_list(request):
 # Create forms:
 
 # 1. PostForm - for creating new blog post
-#    - Auto-generate slug from title
-#    - Only published users can publish
+#  - Auto-generate slug from title
+#  - Only published users can publish
 
 # 2. CommentForm - for adding comment
-#    - Email validation
-#    - Content min 10 characters
+#  - Email validation
+#  - Content min 10 characters
 
 # 3. PostSearchForm - search and filtering
-#    - Search in title and content
-#    - Category filter
-#    - Date range filter (published_date)
-#    - Tags filter (multiple selection)
+#  - Search in title and content
+#  - Category filter
+#  - Date range filter (published_date)
+#  - Tags filter (multiple selection)
 
 # Implement views and templates too!
 ```
@@ -578,88 +578,88 @@ from .models import Task
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ['title', 'status', 'priority', 'assigned_to', 'created_at']
-    list_filter = ['status', 'priority', 'created_at']
-    search_fields = ['title', 'description']
-    ordering = ['-created_at']
-    date_hierarchy = 'created_at'
+list_display = ['title', 'status', 'priority', 'assigned_to', 'created_at']
+list_filter = ['status', 'priority', 'created_at']
+search_fields = ['title', 'description']
+ordering = ['-created_at']
+date_hierarchy = 'created_at'
 
-    fieldsets = [
-        ('Basic Info', {
-            'fields': ['title', 'description']
-        }),
-        ('Details', {
-            'fields': ['status', 'priority', 'assigned_to']
-        }),
-        ('Metadata', {
-            'fields': ['created_at', 'updated_at'],
-            'classes': ['collapse']
-        }),
-    ]
+fieldsets = [
+('Basic Info', {
+'fields': ['title', 'description']
+}),
+('Details', {
+'fields': ['status', 'priority', 'assigned_to']
+}),
+('Metadata', {
+'fields': ['created_at', 'updated_at'],
+'classes': ['collapse']
+}),
+]
 
-    readonly_fields = ['created_at', 'updated_at']
+readonly_fields = ['created_at', 'updated_at']
 
-    # Inline related objects
-    # inlines = [CommentInline]
+# Inline related objects
+# inlines = [CommentInline]
 
-    # Custom actions
-    actions = ['mark_as_done', 'increase_priority']
+# Custom actions
+actions = ['mark_as_done', 'increase_priority']
 
-    def mark_as_done(self, request, queryset):
-        updated = queryset.update(status='DONE')
-        self.message_user(request, f'{updated} tasks marked as done.')
-    mark_as_done.short_description = 'Mark selected as Done'
+def mark_as_done(self, request, queryset):
+updated = queryset.update(status='DONE')
+self.message_user(request, f'{updated} tasks marked as done.')
+mark_as_done.short_description = 'Mark selected as Done'
 
-    def increase_priority(self, request, queryset):
-        for task in queryset:
-            task.priority += 1
-            task.save()
-        self.message_user(request, 'Priority increased.')
+def increase_priority(self, request, queryset):
+for task in queryset:
+task.priority += 1
+task.save()
+self.message_user(request, 'Priority increased.')
 
-    # Custom queryset
-    def get_queryset(self, request):
-        qs = super().get_queryset(request)
-        if request.user.is_superuser:
-            return qs
-        return qs.filter(assigned_to=request.user)
+# Custom queryset
+def get_queryset(self, request):
+qs = super().get_queryset(request)
+if request.user.is_superuser:
+return qs
+return qs.filter(assigned_to=request.user)
 ```
 
 **Inline Admin:**
 ```python
 # blog/models.py
 class Comment(models.Model):
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
-    # ... other fields
+post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+# ... other fields
 
 # blog/admin.py
 class CommentInline(admin.TabularInline):
-    model = Comment
-    extra = 1
-    fields = ['author', 'content', 'approved']
+model = Comment
+extra = 1
+fields = ['author', 'content', 'approved']
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    inlines = [CommentInline]
-    prepopulated_fields = {'slug': ('title',)}
-    list_display = ['title', 'author', 'category', 'published', 'created_at']
-    list_filter = ['published', 'category', 'created_at']
-    search_fields = ['title', 'content']
+inlines = [CommentInline]
+prepopulated_fields = {'slug': ('title',)}
+list_display = ['title', 'author', 'category', 'published', 'created_at']
+list_filter = ['published', 'category', 'created_at']
+search_fields = ['title', 'content']
 ```
 
 **Custom Admin Actions:**
 ```python
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    actions = ['publish_posts', 'unpublish_posts']
+actions = ['publish_posts', 'unpublish_posts']
 
-    def publish_posts(self, request, queryset):
-        from django.utils import timezone
-        updated = queryset.update(published=True, published_date=timezone.now())
-        self.message_user(request, f'{updated} posts published.')
+def publish_posts(self, request, queryset):
+from django.utils import timezone
+updated = queryset.update(published=True, published_date=timezone.now())
+self.message_user(request, f'{updated} posts published.')
 
-    def unpublish_posts(self, request, queryset):
-        updated = queryset.update(published=False)
-        self.message_user(request, f'{updated} posts unpublished.')
+def unpublish_posts(self, request, queryset):
+updated = queryset.update(published=False)
+self.message_user(request, f'{updated} posts unpublished.')
 ```
 
 **Custom Admin Dashboard:**
@@ -678,26 +678,26 @@ admin.site.index_title = "Welcome to Task Management"
 
 # Implement:
 # 1. PostAdmin
-#    - List display: title, author, category, comment count, published
-#    - List filters: published, category, tags
-#    - Search: title, content
-#    - Prepopulated slug
-#    - CommentInline
-#    - Custom action: bulk publish/unpublish
+#  - List display: title, author, category, comment count, published
+#  - List filters: published, category, tags
+#  - Search: title, content
+#  - Prepopulated slug
+#  - CommentInline
+#  - Custom action: bulk publish/unpublish
 
 # 2. CommentAdmin
-#    - List display: post, author, content preview, approved
-#    - List filter: approved, created_at
-#    - Action: approve comments
+#  - List display: post, author, content preview, approved
+#  - List filter: approved, created_at
+#  - Action: approve comments
 
 # 3. CategoryAdmin
-#    - Prepopulated slug
-#    - Show post count
+#  - Prepopulated slug
+#  - Show post count
 
 # 4. Custom dashboard widget showing:
-#    - Total posts
-#    - Published posts
-#    - Pending comments
+#  - Total posts
+#  - Published posts
+#  - Pending comments
 ```
 
 ---
@@ -714,13 +714,13 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
 class SignUpForm(UserCreationForm):
-    email = forms.EmailField(required=True)
-    first_name = forms.CharField(max_length=30, required=False)
-    last_name = forms.CharField(max_length=30, required=False)
+email = forms.EmailField(required=True)
+first_name = forms.CharField(max_length=30, required=False)
+last_name = forms.CharField(max_length=30, required=False)
 
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
+class Meta:
+model = User
+fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
 
 # accounts/views.py
 from django.contrib.auth import login
@@ -728,15 +728,15 @@ from django.shortcuts import render, redirect
 from .forms import SignUpForm
 
 def signup(request):
-    if request.method == 'POST':
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect('tasks:task_list')
-    else:
-        form = SignUpForm()
-    return render(request, 'accounts/signup.html', {'form': form})
+if request.method == 'POST':
+form = SignUpForm(request.POST)
+if form.is_valid():
+user = form.save()
+login(request, user)
+return redirect('tasks:task_list')
+else:
+form = SignUpForm()
+return render(request, 'accounts/signup.html', {'form': form})
 ```
 
 **Login/Logout URLs:**
@@ -746,11 +746,11 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
-    path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
-    path('accounts/signup/', signup, name='signup'),
-    path('tasks/', include('tasks.urls')),
+path('admin/', admin.site.urls),
+path('accounts/login/', auth_views.LoginView.as_view(template_name='accounts/login.html'), name='login'),
+path('accounts/logout/', auth_views.LogoutView.as_view(), name='logout'),
+path('accounts/signup/', signup, name='signup'),
+path('tasks/', include('tasks.urls')),
 ]
 
 # settings.py
@@ -765,44 +765,44 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def task_create(request):
-    # Only authenticated users can access
-    pass
+# Only authenticated users can access
+pass
 
 @login_required
 def task_update(request, task_id):
-    task = get_object_or_404(Task, id=task_id)
+task = get_object_or_404(Task, id=task_id)
 
-    # Check ownership
-    if task.assigned_to != request.user and not request.user.is_staff:
-        raise PermissionDenied
+# Check ownership
+if task.assigned_to != request.user and not request.user.is_staff:
+raise PermissionDenied
 
-    # ... update logic
+# ... update logic
 ```
 
 **Password Reset:**
 ```python
 # myproject/urls.py
 urlpatterns = [
-    # Password reset flow
-    path('accounts/password_reset/',
-         auth_views.PasswordResetView.as_view(template_name='accounts/password_reset.html'),
-         name='password_reset'),
+# Password reset flow
+path('accounts/password_reset/',
+auth_views.PasswordResetView.as_view(template_name='accounts/password_reset.html'),
+name='password_reset'),
 
-    path('accounts/password_reset/done/',
-         auth_views.PasswordResetDoneView.as_view(template_name='accounts/password_reset_done.html'),
-         name='password_reset_done'),
+path('accounts/password_reset/done/',
+auth_views.PasswordResetDoneView.as_view(template_name='accounts/password_reset_done.html'),
+name='password_reset_done'),
 
-    path('accounts/reset/<uidb64>/<token>/',
-         auth_views.PasswordResetConfirmView.as_view(template_name='accounts/password_reset_confirm.html'),
-         name='password_reset_confirm'),
+path('accounts/reset/<uidb64>/<token>/',
+auth_views.PasswordResetConfirmView.as_view(template_name='accounts/password_reset_confirm.html'),
+name='password_reset_confirm'),
 
-    path('accounts/reset/done/',
-         auth_views.PasswordResetCompleteView.as_view(template_name='accounts/password_reset_complete.html'),
-         name='password_reset_complete'),
+path('accounts/reset/done/',
+auth_views.PasswordResetCompleteView.as_view(template_name='accounts/password_reset_complete.html'),
+name='password_reset_complete'),
 ]
 
 # settings.py (email configuration for password reset)
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Dev: print to console
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Dev: print to console
 # Production: use SMTP
 ```
 
@@ -812,11 +812,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Dev: print t
 
 # 1. Create UserProfile model
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    bio = models.TextField(blank=True)
-    avatar = models.ImageField(upload_to='avatars/', blank=True)
-    location = models.CharField(max_length=100, blank=True)
-    website = models.URLField(blank=True)
+user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
+bio = models.TextField(blank=True)
+avatar = models.ImageField(upload_to='avatars/', blank=True)
+location = models.CharField(max_length=100, blank=True)
+website = models.URLField(blank=True)
 
 # 2. Signal to auto-create profile
 from django.db.models.signals import post_save
@@ -824,8 +824,8 @@ from django.dispatch import receiver
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        UserProfile.objects.create(user=instance)
+if created:
+UserProfile.objects.create(user=instance)
 
 # 3. Profile update view & form
 # 4. Show profile on posts/comments
@@ -844,44 +844,44 @@ from django.contrib.auth.decorators import permission_required
 
 @permission_required('tasks.add_task')
 def task_create(request):
-    pass
+pass
 
 @permission_required('tasks.change_task', raise_exception=True)
 def task_update(request, task_id):
-    pass
+pass
 
 # Multiple permissions
 from django.contrib.auth.decorators import user_passes_test
 
 def is_staff_or_owner(user, task):
-    return user.is_staff or task.assigned_to == user
+return user.is_staff or task.assigned_to == user
 
 @user_passes_test(lambda u: u.is_staff)
 def admin_dashboard(request):
-    pass
+pass
 ```
 
 **Custom Permissions:**
 ```python
 # tasks/models.py
 class Task(models.Model):
-    # ... fields
+# ... fields
 
-    class Meta:
-        permissions = [
-            ('can_assign_task', 'Can assign task to users'),
-            ('can_set_priority', 'Can set task priority'),
-            ('can_view_all_tasks', 'Can view all tasks'),
-        ]
+class Meta:
+permissions = [
+('can_assign_task', 'Can assign task to users'),
+('can_set_priority', 'Can set task priority'),
+('can_view_all_tasks', 'Can view all tasks'),
+]
 
 # Usage in view
 @permission_required('tasks.can_assign_task')
 def assign_task(request, task_id):
-    pass
+pass
 
 # In template
 {% if perms.tasks.can_assign_task %}
-    <a href="{% url 'tasks:assign' task.id %}">Assign</a>
+<a href="{% url 'tasks:assign' task.id %}">Assign</a>
 {% endif %}
 ```
 
@@ -905,21 +905,21 @@ user.groups.add(managers)
 
 # Check in view
 if request.user.groups.filter(name='Managers').exists():
-    # Manager-specific logic
-    pass
+# Manager-specific logic
+pass
 ```
 
 **Object-Level Permissions:**
 ```python
 # Manual implementation
 def task_update(request, task_id):
-    task = get_object_or_404(Task, id=task_id)
+task = get_object_or_404(Task, id=task_id)
 
-    # Check ownership or staff
-    if task.assigned_to != request.user and not request.user.is_staff:
-        raise PermissionDenied
+# Check ownership or staff
+if task.assigned_to != request.user and not request.user.is_staff:
+raise PermissionDenied
 
-    # ... update logic
+# ... update logic
 
 # Or use django-guardian for per-object permissions
 # pip install django-guardian
@@ -931,14 +931,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.views.generic import ListView, CreateView
 
 class TaskListView(LoginRequiredMixin, ListView):
-    model = Task
-    template_name = 'tasks/task_list.html'
-    context_object_name = 'tasks'
+model = Task
+template_name = 'tasks/task_list.html'
+context_object_name = 'tasks'
 
 class TaskCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
-    model = Task
-    permission_required = 'tasks.add_task'
-    # ...
+model = Task
+permission_required = 'tasks.add_task'
+# ...
 ```
 
 **Exercise 3.2:**
@@ -946,24 +946,24 @@ class TaskCreateView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
 # Blog Permissions System
 
 # 1. Custom permissions:
-#    - can_publish_post
-#    - can_moderate_comments
-#    - can_feature_post
+#  - can_publish_post
+#  - can_moderate_comments
+#  - can_feature_post
 
 # 2. Groups:
-#    - Authors: can create/edit own posts
-#    - Editors: can publish any post
-#    - Moderators: can approve/delete comments
+#  - Authors: can create/edit own posts
+#  - Editors: can publish any post
+#  - Moderators: can approve/delete comments
 
 # 3. Implement:
-#    - Authors can only edit their own posts
-#    - Editors can publish anything
-#    - Moderators can view/delete any comment
-#    - Regular users can only read and comment
+#  - Authors can only edit their own posts
+#  - Editors can publish anything
+#  - Moderators can view/delete any comment
+#  - Regular users can only read and comment
 
 # 4. View protection:
-#    - @permission_required decorators
-#    - Object-level checks (owner vs editor)
+#  - @permission_required decorators
+#  - Object-level checks (owner vs editor)
 ```
 
 ---
@@ -980,14 +980,14 @@ pip install djangorestframework
 ```python
 # settings.py
 INSTALLED_APPS = [
-    # ... django apps
-    'rest_framework',
-    'tasks',
+# ... django apps
+'rest_framework',
+'tasks',
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+'PAGE_SIZE': 10
 }
 ```
 
@@ -999,27 +999,27 @@ from .models import Task
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'email']
+class Meta:
+model = User
+fields = ['id', 'username', 'email']
 
 class TaskSerializer(serializers.ModelSerializer):
-    assigned_to = UserSerializer(read_only=True)
-    assigned_to_id = serializers.IntegerField(write_only=True, required=False)
+assigned_to = UserSerializer(read_only=True)
+assigned_to_id = serializers.IntegerField(write_only=True, required=False)
 
-    class Meta:
-        model = Task
-        fields = [
-            'id', 'title', 'description', 'status', 'priority',
-            'assigned_to', 'assigned_to_id',
-            'created_at', 'updated_at'
-        ]
-        read_only_fields = ['created_at', 'updated_at']
+class Meta:
+model = Task
+fields = [
+'id', 'title', 'description', 'status', 'priority',
+'assigned_to', 'assigned_to_id',
+'created_at', 'updated_at'
+]
+read_only_fields = ['created_at', 'updated_at']
 
-    def validate_title(self, value):
-        if len(value) < 5:
-            raise serializers.ValidationError('Title too short')
-        return value
+def validate_title(self, value):
+if len(value) < 5:
+raise serializers.ValidationError('Title too short')
+return value
 ```
 
 **API Views:**
@@ -1034,48 +1034,48 @@ from .serializers import TaskSerializer
 # Function-based views
 @api_view(['GET', 'POST'])
 def task_list(request):
-    if request.method == 'GET':
-        tasks = Task.objects.all()
-        serializer = TaskSerializer(tasks, many=True)
-        return Response(serializer.data)
+if request.method == 'GET':
+tasks = Task.objects.all()
+serializer = TaskSerializer(tasks, many=True)
+return Response(serializer.data)
 
-    elif request.method == 'POST':
-        serializer = TaskSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+elif request.method == 'POST':
+serializer = TaskSerializer(data=request.data)
+if serializer.is_valid():
+serializer.save()
+return Response(serializer.data, status=status.HTTP_201_CREATED)
+return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def task_detail(request, pk):
-    try:
-        task = Task.objects.get(pk=pk)
-    except Task.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+try:
+task = Task.objects.get(pk=pk)
+except Task.DoesNotExist:
+return Response(status=status.HTTP_404_NOT_FOUND)
 
-    if request.method == 'GET':
-        serializer = TaskSerializer(task)
-        return Response(serializer.data)
+if request.method == 'GET':
+serializer = TaskSerializer(task)
+return Response(serializer.data)
 
-    elif request.method == 'PUT':
-        serializer = TaskSerializer(task, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+elif request.method == 'PUT':
+serializer = TaskSerializer(task, data=request.data)
+if serializer.is_valid():
+serializer.save()
+return Response(serializer.data)
+return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    elif request.method == 'DELETE':
-        task.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+elif request.method == 'DELETE':
+task.delete()
+return Response(status=status.HTTP_204_NO_CONTENT)
 
 # Class-based views (preferred)
 class TaskListCreate(generics.ListCreateAPIView):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
+queryset = Task.objects.all()
+serializer_class = TaskSerializer
 
 class TaskRetrieveUpdateDestroy(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
+queryset = Task.objects.all()
+serializer_class = TaskSerializer
 ```
 
 **URLs:**
@@ -1085,13 +1085,13 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # Function-based
-    path('api/tasks/', views.task_list),
-    path('api/tasks/<int:pk>/', views.task_detail),
+# Function-based
+path('api/tasks/', views.task_list),
+path('api/tasks/<int:pk>/', views.task_detail),
 
-    # Or class-based
-    path('api/tasks/', views.TaskListCreate.as_view()),
-    path('api/tasks/<int:pk>/', views.TaskRetrieveUpdateDestroy.as_view()),
+# Or class-based
+path('api/tasks/', views.TaskListCreate.as_view()),
+path('api/tasks/<int:pk>/', views.TaskRetrieveUpdateDestroy.as_view()),
 ]
 ```
 
@@ -1102,13 +1102,13 @@ curl http://localhost:8000/api/tasks/
 
 # Create task
 curl -X POST http://localhost:8000/api/tasks/ \
-  -H "Content-Type: application/json" \
-  -d '{"title": "New Task", "status": "TODO"}'
+-H "Content-Type: application/json" \
+-d '{"title": "New Task", "status": "TODO"}'
 
 # Update task
 curl -X PUT http://localhost:8000/api/tasks/1/ \
-  -H "Content-Type: application/json" \
-  -d '{"title": "Updated", "status": "DONE"}'
+-H "Content-Type: application/json" \
+-d '{"title": "Updated", "status": "DONE"}'
 
 # Delete task
 curl -X DELETE http://localhost:8000/api/tasks/1/
@@ -1149,31 +1149,31 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 
 class TaskViewSet(viewsets.ModelViewSet):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
+queryset = Task.objects.all()
+serializer_class = TaskSerializer
 
-    # Custom action
-    @action(detail=False, methods=['get'])
-    def completed(self, request):
-        completed_tasks = Task.objects.filter(status='DONE')
-        serializer = self.get_serializer(completed_tasks, many=True)
-        return Response(serializer.data)
+# Custom action
+@action(detail=False, methods=['get'])
+def completed(self, request):
+completed_tasks = Task.objects.filter(status='DONE')
+serializer = self.get_serializer(completed_tasks, many=True)
+return Response(serializer.data)
 
-    @action(detail=True, methods=['post'])
-    def complete(self, request, pk=None):
-        task = self.get_object()
-        task.status = 'DONE'
-        task.save()
-        serializer = self.get_serializer(task)
-        return Response(serializer.data)
+@action(detail=True, methods=['post'])
+def complete(self, request, pk=None):
+task = self.get_object()
+task.status = 'DONE'
+task.save()
+serializer = self.get_serializer(task)
+return Response(serializer.data)
 
-    # Override queryset for filtering
-    def get_queryset(self):
-        queryset = Task.objects.all()
-        status = self.request.query_params.get('status')
-        if status:
-            queryset = queryset.filter(status=status)
-        return queryset
+# Override queryset for filtering
+def get_queryset(self):
+queryset = Task.objects.all()
+status = self.request.query_params.get('status')
+if status:
+queryset = queryset.filter(status=status)
+return queryset
 ```
 
 **Routers:**
@@ -1188,14 +1188,14 @@ router.register(r'tasks', views.TaskViewSet)
 urlpatterns = router.urls
 
 # Generates:
-# GET    /tasks/                  - list
-# POST   /tasks/                  - create
-# GET    /tasks/<pk>/             - retrieve
-# PUT    /tasks/<pk>/             - update
-# PATCH  /tasks/<pk>/             - partial update
-# DELETE /tasks/<pk>/             - destroy
-# GET    /tasks/completed/        - custom action
-# POST   /tasks/<pk>/complete/    - custom detail action
+# GET  /tasks/         - list
+# POST  /tasks/         - create
+# GET  /tasks/<pk>/       - retrieve
+# PUT  /tasks/<pk>/       - update
+# PATCH /tasks/<pk>/       - partial update
+# DELETE /tasks/<pk>/       - destroy
+# GET  /tasks/completed/    - custom action
+# POST  /tasks/<pk>/complete/  - custom detail action
 ```
 
 **Nested Routers:**
@@ -1211,8 +1211,8 @@ project_router = routers.NestedDefaultRouter(router, r'projects', lookup='projec
 project_router.register(r'tasks', TaskViewSet, basename='project-tasks')
 
 urlpatterns = [
-    path('api/', include(router.urls)),
-    path('api/', include(project_router.urls)),
+path('api/', include(router.urls)),
+path('api/', include(project_router.urls)),
 ]
 
 # Generates:
@@ -1227,8 +1227,8 @@ urlpatterns = [
 
 # ViewSets:
 # - PostViewSet
-#   - Custom action: @action(detail=False) def published(self, request)
-#   - Custom action: @action(detail=True) def publish(self, request, pk)
+#  - Custom action: @action(detail=False) def published(self, request)
+#  - Custom action: @action(detail=True) def publish(self, request, pk)
 # - CommentViewSet (nested under posts)
 
 # Routers:
@@ -1249,22 +1249,22 @@ urlpatterns = [
 ```python
 # settings.py
 INSTALLED_APPS = [
-    # ...
-    'rest_framework.authtoken',
+# ...
+'rest_framework.authtoken',
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-        'rest_framework.authentication.SessionAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
-    ],
+'DEFAULT_AUTHENTICATION_CLASSES': [
+'rest_framework.authentication.TokenAuthentication',
+'rest_framework.authentication.SessionAuthentication',
+],
+'DEFAULT_PERMISSION_CLASSES': [
+'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+],
 }
 
 # Generate tokens
-python manage.py migrate  # Creates token table
+python manage.py migrate # Creates token table
 
 # In shell:
 from rest_framework.authtoken.models import Token
@@ -1286,24 +1286,24 @@ from django.contrib.auth import authenticate
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def login(request):
-    username = request.data.get('username')
-    password = request.data.get('password')
+username = request.data.get('username')
+password = request.data.get('password')
 
-    user = authenticate(username=username, password=password)
-    if user:
-        token, _ = Token.objects.get_or_create(user=user)
-        return Response({'token': token.key})
+user = authenticate(username=username, password=password)
+if user:
+token, _ = Token.objects.get_or_create(user=user)
+return Response({'token': token.key})
 
-    return Response({'error': 'Invalid credentials'}, status=400)
+return Response({'error': 'Invalid credentials'}, status=400)
 
 # Usage:
 # curl -X POST http://localhost:8000/api/login/ \
-#   -d "username=demo_user&password=mypass"
+#  -d "username=demo_user&password=mypass"
 # Response: {"token": "abc123..."}
 
 # Then use token:
 # curl http://localhost:8000/api/tasks/ \
-#   -H "Authorization: Token abc123..."
+#  -H "Authorization: Token abc123..."
 ```
 
 **Permissions:**
@@ -1312,31 +1312,31 @@ def login(request):
 from rest_framework import permissions
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
-    def has_object_permission(self, request, view, obj):
-        # Read permissions allowed for any request
-        if request.method in permissions.SAFE_METHODS:
-            return True
+def has_object_permission(self, request, view, obj):
+# Read permissions allowed for any request
+if request.method in permissions.SAFE_METHODS:
+return True
 
-        # Write permissions only for owner
-        return obj.assigned_to == request.user
+# Write permissions only for owner
+return obj.assigned_to == request.user
 
 class IsStaffOrReadOnly(permissions.BasePermission):
-    def has_permission(self, request, view):
-        if request.method in permissions.SAFE_METHODS:
-            return True
-        return request.user.is_staff
+def has_permission(self, request, view):
+if request.method in permissions.SAFE_METHODS:
+return True
+return request.user.is_staff
 
 # Usage in views
 from .permissions import IsOwnerOrReadOnly
 
 class TaskViewSet(viewsets.ModelViewSet):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
-    permission_classes = [permissions.IsAuthenticated, IsOwnerOrReadOnly]
+queryset = Task.objects.all()
+serializer_class = TaskSerializer
+permission_classes = [permissions.IsAuthenticated, IsOwnerOrReadOnly]
 
-    def perform_create(self, serializer):
-        # Auto-assign to current user
-        serializer.save(assigned_to=self.request.user)
+def perform_create(self, serializer):
+# Auto-assign to current user
+serializer.save(assigned_to=self.request.user)
 ```
 
 **JWT Authentication (better for SPAs):**
@@ -1345,27 +1345,27 @@ class TaskViewSet(viewsets.ModelViewSet):
 
 # settings.py
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
+'DEFAULT_AUTHENTICATION_CLASSES': [
+'rest_framework_simplejwt.authentication.JWTAuthentication',
+],
 }
 
 # urls.py
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
 # Usage:
 # curl -X POST http://localhost:8000/api/token/ \
-#   -d "username=demo_user&password=mypass"
+#  -d "username=demo_user&password=mypass"
 # Response: {"access": "...", "refresh": "..."}
 
 # Use access token:
 # curl http://localhost:8000/api/tasks/ \
-#   -H "Authorization: Bearer <access_token>"
+#  -H "Authorization: Bearer <access_token>"
 ```
 
 **Exercise 4.3:**
@@ -1374,13 +1374,13 @@ urlpatterns = [
 
 # 1. JWT Authentication setup
 # 2. Permissions:
-#    - IsAuthorOrReadOnly (for posts)
-#    - IsModeratorOrReadOnly (for comments)
+#  - IsAuthorOrReadOnly (for posts)
+#  - IsModeratorOrReadOnly (for comments)
 # 3. Views:
-#    - Anyone can read published posts
-#    - Authors can create/edit own posts
-#    - Editors can publish any post
-#    - Moderators can delete comments
+#  - Anyone can read published posts
+#  - Authors can create/edit own posts
+#  - Editors can publish any post
+#  - Moderators can delete comments
 # 4. Test with curl/Postman
 ```
 
@@ -1396,16 +1396,16 @@ pip install django-filter
 ```python
 # settings.py
 INSTALLED_APPS = [
-    # ...
-    'django_filters',
+# ...
+'django_filters',
 ]
 
 REST_FRAMEWORK = {
-    'DEFAULT_FILTER_BACKENDS': [
-        'django_filters.rest_framework.DjangoFilterBackend',
-        'rest_framework.filters.SearchFilter',
-        'rest_framework.filters.OrderingFilter',
-    ],
+'DEFAULT_FILTER_BACKENDS': [
+'django_filters.rest_framework.DjangoFilterBackend',
+'rest_framework.filters.SearchFilter',
+'rest_framework.filters.OrderingFilter',
+],
 }
 ```
 
@@ -1416,29 +1416,29 @@ from django_filters import rest_framework as filters
 from .models import Task
 
 class TaskFilter(filters.FilterSet):
-    title = filters.CharFilter(lookup_expr='icontains')
-    created_after = filters.DateTimeFilter(field_name='created_at', lookup_expr='gte')
-    created_before = filters.DateTimeFilter(field_name='created_at', lookup_expr='lte')
-    priority_min = filters.NumberFilter(field_name='priority', lookup_expr='gte')
+title = filters.CharFilter(lookup_expr='icontains')
+created_after = filters.DateTimeFilter(field_name='created_at', lookup_expr='gte')
+created_before = filters.DateTimeFilter(field_name='created_at', lookup_expr='lte')
+priority_min = filters.NumberFilter(field_name='priority', lookup_expr='gte')
 
-    class Meta:
-        model = Task
-        fields = {
-            'status': ['exact'],
-            'priority': ['exact', 'gte', 'lte'],
-            'assigned_to': ['exact'],
-        }
+class Meta:
+model = Task
+fields = {
+'status': ['exact'],
+'priority': ['exact', 'gte', 'lte'],
+'assigned_to': ['exact'],
+}
 
 # tasks/views.py
 from .filters import TaskFilter
 
 class TaskViewSet(viewsets.ModelViewSet):
-    queryset = Task.objects.all()
-    serializer_class = TaskSerializer
-    filterset_class = TaskFilter
-    search_fields = ['title', 'description']
-    ordering_fields = ['created_at', 'priority', 'status']
-    ordering = ['-created_at']
+queryset = Task.objects.all()
+serializer_class = TaskSerializer
+filterset_class = TaskFilter
+search_fields = ['title', 'description']
+ordering_fields = ['created_at', 'priority', 'status']
+ordering = ['-created_at']
 
 # Usage:
 # /api/tasks/?status=TODO
@@ -1484,30 +1484,30 @@ from .models import Task
 
 @receiver(post_save, sender=Task)
 def task_created(sender, instance, created, **kwargs):
-    if created:
-        print(f'New task created: {instance.title}')
-        # Send notification, create audit log, etc.
+if created:
+print(f'New task created: {instance.title}')
+# Send notification, create audit log, etc.
 
 @receiver(post_save, sender=Task)
 def task_status_changed(sender, instance, created, **kwargs):
-    if not created and instance.status == 'DONE':
-        print(f'Task completed: {instance.title}')
-        # Send completion notification
+if not created and instance.status == 'DONE':
+print(f'Task completed: {instance.title}')
+# Send completion notification
 
 @receiver(pre_delete, sender=Task)
 def task_deleted(sender, instance, **kwargs):
-    print(f'Task being deleted: {instance.title}')
-    # Archive, log, etc.
+print(f'Task being deleted: {instance.title}')
+# Archive, log, etc.
 
 # tasks/apps.py
 from django.apps import AppConfig
 
 class TasksConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
-    name = 'tasks'
+default_auto_field = 'django.db.models.BigAutoField'
+name = 'tasks'
 
-    def ready(self):
-        import tasks.signals  # Register signals
+def ready(self):
+import tasks.signals # Register signals
 ```
 
 **Custom Signals:**
@@ -1515,15 +1515,15 @@ class TasksConfig(AppConfig):
 # tasks/signals.py
 from django.dispatch import Signal
 
-task_assigned = Signal()  # Custom signal
+task_assigned = Signal() # Custom signal
 
 # Emit signal
 from .signals import task_assigned
 
 def assign_task(task, user):
-    task.assigned_to = user
-    task.save()
-    task_assigned.send(sender=Task, task=task, user=user)
+task.assigned_to = user
+task.save()
+task_assigned.send(sender=Task, task=task, user=user)
 
 # Listen to signal
 from django.dispatch import receiver
@@ -1531,8 +1531,8 @@ from .signals import task_assigned
 
 @receiver(task_assigned)
 def on_task_assigned(sender, task, user, **kwargs):
-    # Send email notification
-    print(f'Task {task.title} assigned to {user.username}')
+# Send email notification
+print(f'Task {task.title} assigned to {user.username}')
 ```
 
 **Middleware:**
@@ -1544,35 +1544,35 @@ import logging
 logger = logging.getLogger(__name__)
 
 class RequestLoggingMiddleware:
-    def __init__(self, get_response):
-        self.get_response = get_response
+def __init__(self, get_response):
+self.get_response = get_response
 
-    def __call__(self, request):
-        # Before view
-        start_time = time.time()
-        request_id = request.headers.get('X-Request-ID', 'no-id')
+def __call__(self, request):
+# Before view
+start_time = time.time()
+request_id = request.headers.get('X-Request-ID', 'no-id')
 
-        logger.info(f'Request started: {request.method} {request.path}', extra={
-            'request_id': request_id,
-            'user': request.user.username if request.user.is_authenticated else 'anonymous'
-        })
+logger.info(f'Request started: {request.method} {request.path}', extra={
+'request_id': request_id,
+'user': request.user.username if request.user.is_authenticated else 'anonymous'
+})
 
-        response = self.get_response(request)
+response = self.get_response(request)
 
-        # After view
-        duration = time.time() - start_time
-        logger.info(f'Request completed: {response.status_code}', extra={
-            'request_id': request_id,
-            'duration': f'{duration:.2f}s'
-        })
+# After view
+duration = time.time() - start_time
+logger.info(f'Request completed: {response.status_code}', extra={
+'request_id': request_id,
+'duration': f'{duration:.2f}s'
+})
 
-        response['X-Request-ID'] = request_id
-        return response
+response['X-Request-ID'] = request_id
+return response
 
 # settings.py
 MIDDLEWARE = [
-    # ... default middleware
-    'myproject.middleware.RequestLoggingMiddleware',
+# ... default middleware
+'myproject.middleware.RequestLoggingMiddleware',
 ]
 ```
 
@@ -1581,18 +1581,18 @@ MIDDLEWARE = [
 # Signals & Middleware exercise
 
 # 1. Signals:
-#    - User registered → create UserProfile
-#    - Post published → send notification to followers
-#    - Comment created → notify post author
+#  - User registered → create UserProfile
+#  - Post published → send notification to followers
+#  - Comment created → notify post author
 
 # 2. Custom signal: post_viewed
-#    - Emit when post viewed
-#    - Track view count
+#  - Emit when post viewed
+#  - Track view count
 
 # 3. Middleware:
-#    - Request timing
-#    - User activity logging
-#    - Rate limiting (simple IP-based)
+#  - Request timing
+#  - User activity logging
+#  - Rate limiting (simple IP-based)
 ```
 
 ---
@@ -1603,17 +1603,17 @@ MIDDLEWARE = [
 ```python
 # settings.py
 CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',
-    }
+'default': {
+'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+'LOCATION': 'redis://127.0.0.1:6379/1',
+}
 }
 
 # Or for development:
 CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-    }
+'default': {
+'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+}
 }
 ```
 
@@ -1621,10 +1621,10 @@ CACHES = {
 ```python
 from django.views.decorators.cache import cache_page
 
-@cache_page(60 * 15)  # Cache for 15 minutes
+@cache_page(60 * 15) # Cache for 15 minutes
 def task_list(request):
-    tasks = Task.objects.all()
-    return render(request, 'tasks/task_list.html', {'tasks': tasks})
+tasks = Task.objects.all()
+return render(request, 'tasks/task_list.html', {'tasks': tasks})
 ```
 
 **Template Fragment Caching:**
@@ -1632,11 +1632,11 @@ def task_list(request):
 {% load cache %}
 
 {% cache 500 sidebar request.user.username %}
-    <div class="sidebar">
-        {% for task in user_tasks %}
-            <p>{{ task.title }}</p>
-        {% endfor %}
-    </div>
+<div class="sidebar">
+{% for task in user_tasks %}
+<p>{{ task.title }}</p>
+{% endfor %}
+</div>
 {% endcache %}
 ```
 
@@ -1645,7 +1645,7 @@ def task_list(request):
 from django.core.cache import cache
 
 # Set
-cache.set('my_key', 'value', timeout=300)  # 5 minutes
+cache.set('my_key', 'value', timeout=300) # 5 minutes
 
 # Get
 value = cache.get('my_key')
@@ -1656,7 +1656,7 @@ cache.delete('my_key')
 
 # Increment
 cache.set('counter', 0)
-cache.incr('counter')  # Now 1
+cache.incr('counter') # Now 1
 
 # Get many
 cache.set_many({'a': 1, 'b': 2, 'c': 3})
@@ -1664,14 +1664,14 @@ values = cache.get_many(['a', 'b', 'c'])
 
 # Custom view with caching
 def expensive_view(request):
-    result = cache.get('expensive_result')
+result = cache.get('expensive_result')
 
-    if result is None:
-        # Expensive computation
-        result = perform_expensive_operation()
-        cache.set('expensive_result', result, 3600)
+if result is None:
+# Expensive computation
+result = perform_expensive_operation()
+cache.set('expensive_result', result, 3600)
 
-    return render(request, 'result.html', {'result': result})
+return render(request, 'result.html', {'result': result})
 ```
 
 **Cache Invalidation:**
@@ -1681,8 +1681,8 @@ from django.core.cache import cache
 
 @receiver(post_save, sender=Task)
 def invalidate_task_cache(sender, instance, **kwargs):
-    cache.delete('task_list')
-    cache.delete(f'task_{instance.id}')
+cache.delete('task_list')
+cache.delete(f'task_{instance.id}')
 ```
 
 **Exercise 5.2:**
@@ -1690,21 +1690,21 @@ def invalidate_task_cache(sender, instance, **kwargs):
 # Caching Strategy
 
 # 1. Cache expensive queries:
-#    - Most viewed posts (update hourly)
-#    - Category post counts
-#    - Tag cloud
+#  - Most viewed posts (update hourly)
+#  - Category post counts
+#  - Tag cloud
 
 # 2. Cache template fragments:
-#    - Sidebar (user-specific)
-#    - Recent comments
-#    - Popular posts widget
+#  - Sidebar (user-specific)
+#  - Recent comments
+#  - Popular posts widget
 
 # 3. Invalidation:
-#    - Clear post cache when published
-#    - Clear category cache when post added
+#  - Clear post cache when published
+#  - Clear category cache when post added
 
 # 4. Custom caching decorator:
-#    @cache_user_specific(timeout=600)
+#  @cache_user_specific(timeout=600)
 ```
 
 ---
@@ -1749,30 +1749,30 @@ import time
 
 @shared_task
 def send_task_notification(task_id):
-    task = Task.objects.get(id=task_id)
-    send_mail(
-        f'Task Assigned: {task.title}',
-        f'You have been assigned: {task.title}',
-        'from@example.com',
-        [task.assigned_to.email],
-    )
-    return f'Email sent for task {task_id}'
+task = Task.objects.get(id=task_id)
+send_mail(
+f'Task Assigned: {task.title}',
+f'You have been assigned: {task.title}',
+'from@example.com',
+[task.assigned_to.email],
+)
+return f'Email sent for task {task_id}'
 
 @shared_task
 def generate_report(user_id):
-    # Simulate expensive operation
-    time.sleep(10)
+# Simulate expensive operation
+time.sleep(10)
 
-    from django.contrib.auth.models import User
-    user = User.objects.get(id=user_id)
-    tasks = Task.objects.filter(assigned_to=user)
+from django.contrib.auth.models import User
+user = User.objects.get(id=user_id)
+tasks = Task.objects.filter(assigned_to=user)
 
-    report = {
-        'total': tasks.count(),
-        'completed': tasks.filter(status='DONE').count(),
-    }
+report = {
+'total': tasks.count(),
+'completed': tasks.filter(status='DONE').count(),
+}
 
-    return report
+return report
 ```
 
 **Using Tasks in Views:**
@@ -1781,34 +1781,34 @@ def generate_report(user_id):
 from .tasks import send_task_notification, generate_report
 
 def assign_task(request, task_id):
-    task = get_object_or_404(Task, id=task_id)
-    user_id = request.POST.get('user_id')
+task = get_object_or_404(Task, id=task_id)
+user_id = request.POST.get('user_id')
 
-    task.assigned_to_id = user_id
-    task.save()
+task.assigned_to_id = user_id
+task.save()
 
-    # Send email asynchronously
-    send_task_notification.delay(task.id)
+# Send email asynchronously
+send_task_notification.delay(task.id)
 
-    return redirect('tasks:task_detail', task_id=task.id)
+return redirect('tasks:task_detail', task_id=task.id)
 
 def request_report(request):
-    # Start background task
-    task = generate_report.delay(request.user.id)
+# Start background task
+task = generate_report.delay(request.user.id)
 
-    return JsonResponse({
-        'task_id': task.id,
-        'status': 'processing'
-    })
+return JsonResponse({
+'task_id': task.id,
+'status': 'processing'
+})
 
 def report_status(request, task_id):
-    from celery.result import AsyncResult
-    task = AsyncResult(task_id)
+from celery.result import AsyncResult
+task = AsyncResult(task_id)
 
-    return JsonResponse({
-        'state': task.state,
-        'result': task.result if task.ready() else None
-    })
+return JsonResponse({
+'state': task.state,
+'result': task.result if task.ready() else None
+})
 ```
 
 **Periodic Tasks:**
@@ -1817,8 +1817,8 @@ def report_status(request, task_id):
 
 # settings.py
 INSTALLED_APPS = [
-    # ...
-    'django_celery_beat',
+# ...
+'django_celery_beat',
 ]
 
 # Migrate
@@ -1828,29 +1828,29 @@ python manage.py migrate django_celery_beat
 from celery.schedules import crontab
 
 app.conf.beat_schedule = {
-    'send-daily-summary': {
-        'task': 'tasks.tasks.send_daily_summary',
-        'schedule': crontab(hour=9, minute=0),  # 9am daily
-    },
-    'cleanup-old-tasks': {
-        'task': 'tasks.tasks.cleanup_old_tasks',
-        'schedule': crontab(hour=2, minute=0, day_of_week=1),  # Monday 2am
-    },
+'send-daily-summary': {
+'task': 'tasks.tasks.send_daily_summary',
+'schedule': crontab(hour=9, minute=0), # 9am daily
+},
+'cleanup-old-tasks': {
+'task': 'tasks.tasks.cleanup_old_tasks',
+'schedule': crontab(hour=2, minute=0, day_of_week=1), # Monday 2am
+},
 }
 
 # tasks/tasks.py
 @shared_task
 def send_daily_summary():
-    # Send summary to all users
-    pass
+# Send summary to all users
+pass
 
 @shared_task
 def cleanup_old_tasks():
-    from datetime import timedelta
-    from django.utils import timezone
+from datetime import timedelta
+from django.utils import timezone
 
-    cutoff = timezone.now() - timedelta(days=90)
-    Task.objects.filter(status='DONE', updated_at__lt=cutoff).delete()
+cutoff = timezone.now() - timedelta(days=90)
+Task.objects.filter(status='DONE', updated_at__lt=cutoff).delete()
 ```
 
 **Run Celery:**
@@ -1897,81 +1897,81 @@ from django.contrib.auth.models import User
 from .models import Task
 
 class TaskModelTest(TestCase):
-    def setUp(self):
-        self.user = User.objects.create_user(
-            username='testuser',
-            password='testpass'
-        )
-        self.task = Task.objects.create(
-            title='Test Task',
-            description='Test Description',
-            assigned_to=self.user
-        )
+def setUp(self):
+self.user = User.objects.create_user(
+username='testuser',
+password='testpass'
+)
+self.task = Task.objects.create(
+title='Test Task',
+description='Test Description',
+assigned_to=self.user
+)
 
-    def test_task_creation(self):
-        self.assertEqual(self.task.title, 'Test Task')
-        self.assertEqual(self.task.status, 'TODO')
+def test_task_creation(self):
+self.assertEqual(self.task.title, 'Test Task')
+self.assertEqual(self.task.status, 'TODO')
 
-    def test_task_str(self):
-        self.assertEqual(str(self.task), 'Test Task')
+def test_task_str(self):
+self.assertEqual(str(self.task), 'Test Task')
 
-    def test_is_completed(self):
-        self.assertFalse(self.task.is_completed())
-        self.task.status = 'DONE'
-        self.assertTrue(self.task.is_completed())
+def test_is_completed(self):
+self.assertFalse(self.task.is_completed())
+self.task.status = 'DONE'
+self.assertTrue(self.task.is_completed())
 
 class TaskViewTest(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(
-            username='testuser',
-            password='testpass'
-        )
-        self.client.login(username='testuser', password='testpass')
+def setUp(self):
+self.client = Client()
+self.user = User.objects.create_user(
+username='testuser',
+password='testpass'
+)
+self.client.login(username='testuser', password='testpass')
 
-    def test_task_list(self):
-        response = self.client.get('/tasks/')
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'tasks/task_list.html')
+def test_task_list(self):
+response = self.client.get('/tasks/')
+self.assertEqual(response.status_code, 200)
+self.assertTemplateUsed(response, 'tasks/task_list.html')
 
-    def test_task_create(self):
-        response = self.client.post('/tasks/create/', {
-            'title': 'New Task',
-            'description': 'Description',
-            'status': 'TODO'
-        })
-        self.assertEqual(response.status_code, 302)  # Redirect
-        self.assertTrue(Task.objects.filter(title='New Task').exists())
+def test_task_create(self):
+response = self.client.post('/tasks/create/', {
+'title': 'New Task',
+'description': 'Description',
+'status': 'TODO'
+})
+self.assertEqual(response.status_code, 302) # Redirect
+self.assertTrue(Task.objects.filter(title='New Task').exists())
 
-    def test_task_create_requires_login(self):
-        self.client.logout()
-        response = self.client.get('/tasks/create/')
-        self.assertEqual(response.status_code, 302)  # Redirect to login
+def test_task_create_requires_login(self):
+self.client.logout()
+response = self.client.get('/tasks/create/')
+self.assertEqual(response.status_code, 302) # Redirect to login
 
 class TaskAPITest(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(
-            username='testuser',
-            password='testpass'
-        )
+def setUp(self):
+self.client = Client()
+self.user = User.objects.create_user(
+username='testuser',
+password='testpass'
+)
 
-        from rest_framework.authtoken.models import Token
-        self.token = Token.objects.create(user=self.user)
+from rest_framework.authtoken.models import Token
+self.token = Token.objects.create(user=self.user)
 
-    def test_api_task_list(self):
-        response = self.client.get('/api/tasks/',
-            HTTP_AUTHORIZATION=f'Token {self.token.key}'
-        )
-        self.assertEqual(response.status_code, 200)
+def test_api_task_list(self):
+response = self.client.get('/api/tasks/',
+HTTP_AUTHORIZATION=f'Token {self.token.key}'
+)
+self.assertEqual(response.status_code, 200)
 
-    def test_api_task_create(self):
-        response = self.client.post('/api/tasks/',
-            data={'title': 'API Task', 'status': 'TODO'},
-            content_type='application/json',
-            HTTP_AUTHORIZATION=f'Token {self.token.key}'
-        )
-        self.assertEqual(response.status_code, 201)
+def test_api_task_create(self):
+response = self.client.post('/api/tasks/',
+data={'title': 'API Task', 'status': 'TODO'},
+content_type='application/json',
+HTTP_AUTHORIZATION=f'Token {self.token.key}'
+)
+self.assertEqual(response.status_code, 201)
 
 # Run tests
 python manage.py test
@@ -1991,23 +1991,23 @@ coverage html
 # Comprehensive Test Suite
 
 # 1. Model tests:
-#    - Post creation, validation
-#    - Comment relationships
-#    - Tag many-to-many
+#  - Post creation, validation
+#  - Comment relationships
+#  - Tag many-to-many
 
 # 2. View tests:
-#    - List, detail, create, update, delete
-#    - Permission checks
-#    - Form validation
+#  - List, detail, create, update, delete
+#  - Permission checks
+#  - Form validation
 
 # 3. API tests:
-#    - CRUD operations
-#    - Authentication
-#    - Permissions
-#    - Filtering
+#  - CRUD operations
+#  - Authentication
+#  - Permissions
+#  - Filtering
 
 # 4. Integration tests:
-#    - Full workflow: register → login → create post → publish
+#  - Full workflow: register → login → create post → publish
 
 # Goal: >80% coverage
 ```
@@ -2035,7 +2035,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 INSTALLED_APPS = [
-    # ... apps
+# ... apps
 ]
 
 # settings/development.py
@@ -2045,10 +2045,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+'default': {
+'ENGINE': 'django.db.backends.sqlite3',
+'NAME': BASE_DIR / 'db.sqlite3',
+}
 }
 
 # settings/production.py
@@ -2058,14 +2058,14 @@ DEBUG = False
 ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST', 'example.com')]
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT', '5432'),
-    }
+'default': {
+'ENGINE': 'django.db.backends.postgresql',
+'NAME': os.environ.get('DB_NAME'),
+'USER': os.environ.get('DB_USER'),
+'PASSWORD': os.environ.get('DB_PASSWORD'),
+'HOST': os.environ.get('DB_HOST'),
+'PORT': os.environ.get('DB_PORT', '5432'),
+}
 }
 
 SECURE_SSL_REDIRECT = True
@@ -2094,9 +2094,9 @@ pip install whitenoise
 
 # settings/production.py
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add this
-    # ... other middleware
+'django.middleware.security.SecurityMiddleware',
+'whitenoise.middleware.WhiteNoiseMiddleware', # Add this
+# ... other middleware
 ]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
@@ -2128,7 +2128,7 @@ RUN python manage.py collectstatic --noinput
 
 # Run migrations and start server
 CMD python manage.py migrate && \
-    gunicorn myproject.wsgi:application --bind 0.0.0.0:8000
+gunicorn myproject.wsgi:application --bind 0.0.0.0:8000
 ```
 
 **docker-compose.yml:**
@@ -2136,59 +2136,59 @@ CMD python manage.py migrate && \
 version: '3.8'
 
 services:
-  db:
-    image: postgres:15
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_DB: django_db
-      POSTGRES_USER: django_user
-      POSTGRES_PASSWORD: django_password
+db:
+image: postgres:15
+volumes:
+- postgres_data:/var/lib/postgresql/data
+environment:
+POSTGRES_DB: django_db
+POSTGRES_USER: django_user
+POSTGRES_PASSWORD: django_password
 
-  redis:
-    image: redis:7-alpine
+redis:
+image: redis:7-alpine
 
-  web:
-    build: .
-    command: gunicorn myproject.wsgi:application --bind 0.0.0.0:8000
-    volumes:
-      - .:/app
-      - static_volume:/app/staticfiles
-      - media_volume:/app/media
-    ports:
-      - "8000:8000"
-    env_file:
-      - .env
-    depends_on:
-      - db
-      - redis
+web:
+build: .
+command: gunicorn myproject.wsgi:application --bind 0.0.0.0:8000
+volumes:
+- .:/app
+- static_volume:/app/staticfiles
+- media_volume:/app/media
+ports:
+- "8000:8000"
+env_file:
+- .env
+depends_on:
+- db
+- redis
 
-  celery:
-    build: .
-    command: celery -A myproject worker --loglevel=info
-    volumes:
-      - .:/app
-    env_file:
-      - .env
-    depends_on:
-      - db
-      - redis
+celery:
+build: .
+command: celery -A myproject worker --loglevel=info
+volumes:
+- .:/app
+env_file:
+- .env
+depends_on:
+- db
+- redis
 
-  celery-beat:
-    build: .
-    command: celery -A myproject beat --loglevel=info
-    volumes:
-      - .:/app
-    env_file:
-      - .env
-    depends_on:
-      - db
-      - redis
+celery-beat:
+build: .
+command: celery -A myproject beat --loglevel=info
+volumes:
+- .:/app
+env_file:
+- .env
+depends_on:
+- db
+- redis
 
 volumes:
-  postgres_data:
-  static_volume:
-  media_volume:
+postgres_data:
+static_volume:
+media_volume:
 ```
 
 **.env file:**
@@ -2224,47 +2224,47 @@ docker-compose run web python manage.py createsuperuser
 name: Django CI
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+push:
+branches: [ main ]
+pull_request:
+branches: [ main ]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
+test:
+runs-on: ubuntu-latest
 
-    services:
-      postgres:
-        image: postgres:15
-        env:
-          POSTGRES_PASSWORD: postgres
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+services:
+postgres:
+image: postgres:15
+env:
+POSTGRES_PASSWORD: postgres
+options: >-
+--health-cmd pg_isready
+--health-interval 10s
+--health-timeout 5s
+--health-retries 5
 
-    steps:
-    - uses: actions/checkout@v3
+steps:
+- uses: actions/checkout@v3
 
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
+- name: Set up Python
+uses: actions/setup-python@v4
+with:
+python-version: '3.11'
 
-    - name: Install dependencies
-      run: |
-        pip install -r requirements.txt
+- name: Install dependencies
+run: |
+pip install -r requirements.txt
 
-    - name: Run tests
-      env:
-        DATABASE_URL: postgres://postgres:postgres@localhost/postgres
-      run: |
-        python manage.py test
+- name: Run tests
+env:
+DATABASE_URL: postgres://postgres:postgres@localhost/postgres
+run: |
+python manage.py test
 
-    - name: Check migrations
-      run: |
-        python manage.py makemigrations --check --dry-run
+- name: Check migrations
+run: |
+python manage.py makemigrations --check --dry-run
 ```
 
 ---
@@ -2275,39 +2275,39 @@ jobs:
 ```python
 # settings/production.py
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{',
-        },
-    },
-    'handlers': {
-        'file': {
-            'level': 'INFO',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': '/var/log/django/django.log',
-            'maxBytes': 1024 * 1024 * 10,  # 10MB
-            'backupCount': 10,
-            'formatter': 'verbose',
-        },
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'verbose',
-        },
-    },
-    'root': {
-        'handlers': ['file', 'console'],
-        'level': 'INFO',
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file', 'console'],
-            'level': 'INFO',
-            'propagate': False,
-        },
-    },
+'version': 1,
+'disable_existing_loggers': False,
+'formatters': {
+'verbose': {
+'format': '{levelname} {asctime} {module} {message}',
+'style': '{',
+},
+},
+'handlers': {
+'file': {
+'level': 'INFO',
+'class': 'logging.handlers.RotatingFileHandler',
+'filename': '/var/log/django/django.log',
+'maxBytes': 1024 * 1024 * 10, # 10MB
+'backupCount': 10,
+'formatter': 'verbose',
+},
+'console': {
+'class': 'logging.StreamHandler',
+'formatter': 'verbose',
+},
+},
+'root': {
+'handlers': ['file', 'console'],
+'level': 'INFO',
+},
+'loggers': {
+'django': {
+'handlers': ['file', 'console'],
+'level': 'INFO',
+'propagate': False,
+},
+},
 }
 ```
 
@@ -2318,19 +2318,19 @@ from django.http import JsonResponse
 from django.db import connection
 
 def health_check(request):
-    try:
-        # Database check
-        connection.ensure_connection()
+try:
+# Database check
+connection.ensure_connection()
 
-        return JsonResponse({
-            'status': 'healthy',
-            'database': 'ok',
-        })
-    except Exception as e:
-        return JsonResponse({
-            'status': 'unhealthy',
-            'error': str(e)
-        }, status=503)
+return JsonResponse({
+'status': 'healthy',
+'database': 'ok',
+})
+except Exception as e:
+return JsonResponse({
+'status': 'unhealthy',
+'error': str(e)
+}, status=503)
 ```
 
 ---

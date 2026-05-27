@@ -1,3 +1,7 @@
+---
+description: GitLab fundamentals week 1 - architecture, projects, merge requests, code review, labels, milestones, and advanced MR features.
+---
+
 # GitLab Week 1: Fundamentals + MR Workflow
 
 ## Goal
@@ -90,29 +94,29 @@ git push origin feature/test-mr
 **How to review:**
 
 1. **Check Description:**
- - What/Why clear?
- - Tickets linked?
- - Validation done?
+- What/Why clear?
+- Tickets linked?
+- Validation done?
 
 2. **Review Code:**
- - Click "Changes" tab
- - Add comments on specific lines
- - Use "Start a review" (batch comments)
+- Click "Changes" tab
+- Add comments on specific lines
+- Use "Start a review" (batch comments)
 
 3. **Use Suggestions:**
- ```suggestion
- # Suggest code change (reviewer can apply directly)
- cluster:
- $ref: /openshift/appsres09ue1/cluster.yml
- ```
+```suggestion
+# Suggest code change (reviewer can apply directly)
+cluster:
+$ref: /openshift/appsres09ue1/cluster.yml
+```
 
 4. **Resolve Discussions:**
- - Address all comments
- - Mark as resolved when fixed
+- Address all comments
+- Mark as resolved when fixed
 
 5. **Approve:**
- - Click "Approve" button
- - Or request changes
+- Click "Approve" button
+- Or request changes
 
 ---
 
@@ -200,9 +204,9 @@ https://gitlab.company.com/service/app-interface/-/merge_requests?scope=all&stat
 1. Read description
 2. Check "Changes" tab
 3. Look for patterns:
- - How did they structure commits?
- - What kind of validation?
- - How many approvals needed?
+- How did they structure commits?
+- What kind of validation?
+- How many approvals needed?
 ```
 
 ---

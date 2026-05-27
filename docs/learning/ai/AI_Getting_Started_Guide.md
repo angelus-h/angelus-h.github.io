@@ -45,16 +45,16 @@ Imagine you have an extremely well-read colleague who:
 - **Type:** Text-based AI assistant
 - **Strengths:** Long document analysis, coding, detailed responses
 - **Usage:** 
- - **Claude.ai** - web interface (free + paid)
- - **Claude Code** - terminal/IDE integration for developers
+- **Claude.ai** - web interface (free + paid)
+- **Claude Code** - terminal/IDE integration for developers
 - **When to use:** Complex tasks, code writing/analysis, documentation research
 
 ### ChatGPT (OpenAI)
 - **Type:** Text-based AI assistant
 - **Strengths:** General knowledge, creative writing, brainstorming
 - **Usage:**
- - **ChatGPT Web** - web interface
- - **ChatGPT Plus** - faster, more advanced model (GPT-4)
+- **ChatGPT Web** - web interface
+- **ChatGPT Plus** - faster, more advanced model (GPT-4)
 - **When to use:** Quick answers, ideation, learning
 
 ### GitHub Copilot
@@ -89,12 +89,12 @@ Debug with print() statements, write tests.
 
 #### What can you do with AI?
 ```
- Code generation - "Write a Python function to read JSON file with error handling"
- Documentation search - "How to use pandas DataFrame.merge() function?"
- Code explanation - "What does this regex do: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
- Refactoring - "Refactor this function to be more readable"
- Writing tests - "Write pytest unit tests for this function"
- Bug hunting - "Why isn't this code working? [paste code]"
+Code generation - "Write a Python function to read JSON file with error handling"
+Documentation search - "How to use pandas DataFrame.merge() function?"
+Code explanation - "What does this regex do: ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+Refactoring - "Refactor this function to be more readable"
+Writing tests - "Write pytest unit tests for this function"
+Bug hunting - "Why isn't this code working? [paste code]"
 ```
 
 **Example conversation:**
@@ -118,12 +118,12 @@ browse documentation, troubleshooting.
 
 #### What can you do with AI?
 ```
- Configuration generation - "Create nginx config for reverse proxy with SSL"
- Log analysis - "Analyze this syslog excerpt, find error patterns"
- Command explanation - "What does this do: awk '{sum+=$1} END {print sum}' file.txt"
- Troubleshooting - "Kubernetes pod CrashLoopBackOff, what should I check?"
- Documentation - "How to set up Prometheus alerting?"
- Script writing - "Create Ansible playbook for user creation"
+Configuration generation - "Create nginx config for reverse proxy with SSL"
+Log analysis - "Analyze this syslog excerpt, find error patterns"
+Command explanation - "What does this do: awk '{sum+=$1} END {print sum}' file.txt"
+Troubleshooting - "Kubernetes pod CrashLoopBackOff, what should I check?"
+Documentation - "How to set up Prometheus alerting?"
+Script writing - "Create Ansible playbook for user creation"
 ```
 
 **Example conversation:**
@@ -148,12 +148,12 @@ roadmap planning, stakeholder communication.
 
 #### What can you do with AI?
 ```
- Meeting notes summary - "Summarize this meeting note in 3 bullet points"
- Email drafting - "Write a diplomatic email about the release delay"
- Roadmap planning - "Help prioritize these features [list]"
- Jira ticket writing - "Generate Jira issue description from this idea"
- Presentation outline - "Create presentation outline for Q2 results"
- Report generation - "Write executive summary for this sprint report"
+Meeting notes summary - "Summarize this meeting note in 3 bullet points"
+Email drafting - "Write a diplomatic email about the release delay"
+Roadmap planning - "Help prioritize these features [list]"
+Jira ticket writing - "Generate Jira issue description from this idea"
+Presentation outline - "Create presentation outline for Q2 results"
+Report generation - "Write executive summary for this sprint report"
 ```
 
 **Example conversation:**
@@ -177,12 +177,12 @@ email campaigns, landing page copy.
 
 #### What can you do with AI?
 ```
- Blog post draft - "Write a 500-word blog post on Kubernetes benefits"
- Social media post - "Create 3 LinkedIn posts about the product launch"
- SEO optimization - "What keywords should I use for a Docker tutorial article?"
- Content ideas - "Give 10 blog post topics in DevOps category"
- Email subject line - "Write 5 attention-grabbing subject lines for newsletter"
- Text rewriting - "Rewrite this technical description in plain language"
+Blog post draft - "Write a 500-word blog post on Kubernetes benefits"
+Social media post - "Create 3 LinkedIn posts about the product launch"
+SEO optimization - "What keywords should I use for a Docker tutorial article?"
+Content ideas - "Give 10 blog post topics in DevOps category"
+Email subject line - "Write 5 attention-grabbing subject lines for newsletter"
+Text rewriting - "Rewrite this technical description in plain language"
 ```
 
 **Example conversation:**
@@ -205,12 +205,12 @@ understanding new concepts.
 
 #### What can you do with AI?
 ```
- Concept explanation - "Explain Docker containers simply"
- Learning plan - "Create a 12-week learning plan for mastering Kubernetes"
- Practical examples - "Give 5 practice projects to learn Git"
- Code explanation - "Explain this code line by line, for a beginner"
- Comparisons - "What's the difference between REST API and GraphQL?"
- Exam prep - "Give 10 practice questions for the Linux+ exam"
+Concept explanation - "Explain Docker containers simply"
+Learning plan - "Create a 12-week learning plan for mastering Kubernetes"
+Practical examples - "Give 5 practice projects to learn Git"
+Code explanation - "Explain this code line by line, for a beginner"
+Comparisons - "What's the difference between REST API and GraphQL?"
+Exam prep - "Give 10 practice questions for the Linux+ exam"
 ```
 
 **Example conversation:**
@@ -233,12 +233,12 @@ data analysis, report writing.
 
 #### What can you do with AI?
 ```
- Excel formula - "Write Excel formula with VLOOKUP and nested IF"
- SQL query - "Write SQL query to list top 10 customers from last month"
- Data analysis - "Analyze this CSV data, find trends [paste data]"
- Python script - "Write pandas script for CSV data cleaning"
- Report text - "Write summary for this data [numbers]"
- Dashboard idea - "What metrics should I put on the sales dashboard?"
+Excel formula - "Write Excel formula with VLOOKUP and nested IF"
+SQL query - "Write SQL query to list top 10 customers from last month"
+Data analysis - "Analyze this CSV data, find trends [paste data]"
+Python script - "Write pandas script for CSV data cleaning"
+Report text - "Write summary for this data [numbers]"
+Dashboard idea - "What metrics should I put on the sales dashboard?"
 ```
 
 **Example conversation:**
@@ -319,9 +319,9 @@ AI: [further developed script]
 
 ### 1. Blind Trust - "The AI said it, must be true"
 
- **MISTAKE:** Copy-pasting AI-generated code to production without testing.
+**MISTAKE:** Copy-pasting AI-generated code to production without testing.
 
- **SOLUTION:**
+**SOLUTION:**
 - **Always verify** what AI generates
 - **Test** code before use
 - **Understand** what it does (not just copy-paste)
@@ -339,12 +339,12 @@ os.system(f"rm -rf {user_input}") # DANGEROUS!
 
 ### 2. No Context - "The AI doesn't understand what I want"
 
- **MISTAKE:**
+**MISTAKE:**
 ```
 "The deployment doesn't work"
 ```
 
- **SOLUTION:** Provide context!
+**SOLUTION:** Provide context!
 ```
 "I created a Kubernetes deployment for Ubuntu 24.04 cluster.
 The pod is in CrashLoopBackOff state.
@@ -355,9 +355,9 @@ What should I check?"
 
 ### 3. Sharing Security Data
 
- **MISTAKE:** Sharing API keys, passwords, internal system information.
+**MISTAKE:** Sharing API keys, passwords, internal system information.
 
- **SOLUTION:**
+**SOLUTION:**
 - **NEVER** provide real passwords, API keys
 - Use placeholders: `API_KEY=your_api_key_here`
 - Redact internal IP addresses, domain names
@@ -378,18 +378,18 @@ What's the secure way to handle passwords?"
 
 ### 4. Outdated Information - "AI gave old documentation"
 
- **MISTAKE:** AI has knowledge up to January 2025, doesn't know current versions.
+**MISTAKE:** AI has knowledge up to January 2025, doesn't know current versions.
 
- **SOLUTION:**
+**SOLUTION:**
 - Specify version: "I need example for Kubernetes 1.31"
 - Verify in current documentation
 - Ask: "Is this practice still current in Kubernetes 1.31?"
 
 ### 5. Over-complicated Response - "I don't understand what AI said"
 
- **MISTAKE:** AI gives too technical response for beginners.
+**MISTAKE:** AI gives too technical response for beginners.
 
- **SOLUTION:** Ask for simpler explanation!
+**SOLUTION:** Ask for simpler explanation!
 ```
 "Explain more simply, as if I'm not a developer"
 "Give step-by-step with examples"
@@ -402,7 +402,7 @@ What's the secure way to handle passwords?"
 
 ### What CAN you share with AI?
 
- **Safe:**
+**Safe:**
 - Public documentation quotes
 - Your own general code (not company IP)
 - Stack traces (with redacted internal data)
@@ -411,7 +411,7 @@ What's the secure way to handle passwords?"
 
 ### What NEVER to share?
 
- **FORBIDDEN:**
+**FORBIDDEN:**
 - **Passwords, API keys, tokens**
 - **Company proprietary code** (if company doesn't allow)
 - **Customer data** (names, emails, PII - Personally Identifiable Information)
@@ -443,10 +443,10 @@ Many companies have **AI Usage Policies**:
 Tasks:
 1. Register at claude.ai or chat.openai.com (free)
 2. Try simple questions:
- - "Explain what DNS is simply"
- - "Write 3 fun facts about Kubernetes"
+- "Explain what DNS is simply"
+- "Write 3 fun facts about Kubernetes"
 3. Request code generation:
- - "Write a Python Hello World program"
+- "Write a Python Hello World program"
 ```
 
 **Day 3-4: Work task with AI**
@@ -599,18 +599,18 @@ Time spent: 10 minutes
 If you're comfortable using AI for basic tasks:
 
 1. **Deeper Prompt Engineering:**
- - `/home/user/learning-plans/Using_Claude_Effectively.md`
- - Chain of Thought, Few-Shot Learning
+- `/home/user/learning-plans/Using_Claude_Effectively.md`
+- Chain of Thought, Few-Shot Learning
 
 2. **Specialized AI Tools:**
- - Code review AI (SonarQube AI, CodeRabbit)
- - Security AI (Snyk, GitHub Advanced Security)
- - Data AI (Tableau AI, Power BI Copilot)
+- Code review AI (SonarQube AI, CodeRabbit)
+- Security AI (Snyk, GitHub Advanced Security)
+- Data AI (Tableau AI, Power BI Copilot)
 
 3. **Automation:**
- - API usage (Claude API, OpenAI API)
- - Workflow integration (Zapier + AI)
- - Custom GPT creation
+- API usage (Claude API, OpenAI API)
+- Workflow integration (Zapier + AI)
+- Custom GPT creation
 
 ### Recommended Reading
 
@@ -696,21 +696,21 @@ AI is useful:
 1. **Go to:** https://claude.ai OR https://chat.openai.com
 2. **Register** (free with email)
 3. **Try:**
- ```
- Question 1: "Explain simply what a Docker container is"
- Question 2: "Write a bash script that lists the largest files"
- Question 3: "Help me draft an email about a delayed project"
- ```
+```
+Question 1: "Explain simply what a Docker container is"
+Question 2: "Write a bash script that lists the largest files"
+Question 3: "Help me draft an email about a delayed project"
+```
 4. **Schedule:** "AI practice" 15 min/day in your calendar
 5. **Experiment** with your daily tasks!
 
 ### Remember
 
- **AI = Tool**, not magic 
- **Verify** what it generates 
- **Learn while doing**, don't just copy 
- **Iterate** - refine your questions 
- **Don't be afraid** to experiment!
+**AI = Tool**, not magic 
+**Verify** what it generates 
+**Learn while doing**, don't just copy 
+**Iterate** - refine your questions 
+**Don't be afraid** to experiment!
 
 ---
 

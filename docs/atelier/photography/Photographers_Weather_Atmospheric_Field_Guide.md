@@ -1658,36 +1658,36 @@ Late July-September: dust from combines → hazy afternoons → vivid sunsets.
 **24-48 Hours Before:**
 
 1. **Weather forecast:**
-   - General conditions (cloud cover, precipitation)
-   - Wind speed/direction
-   - Humidity/dew point
-   - Temperature
+- General conditions (cloud cover, precipitation)
+- Wind speed/direction
+- Humidity/dew point
+- Temperature
 
 2. **Satellite imagery:**
-   - Windy.com (cloud layers, radar)
-   - Check cloud type approaching
+- Windy.com (cloud layers, radar)
+- Check cloud type approaching
 
 3. **Radar:**
-   - Storm development
-   - Precipitation patterns
+- Storm development
+- Precipitation patterns
 
 **6-12 Hours Before:**
 
 1. **Refined timing:**
-   - Exact sunset time
-   - Blue hour duration
-   - Check for horizon clouds
+- Exact sunset time
+- Blue hour duration
+- Check for horizon clouds
 
 2. **Location decision:**
-   - Based on forecast
-   - Storm positioning
-   - Fog potential
+- Based on forecast
+- Storm positioning
+- Fog potential
 
 **2 Hours Before:**
 
 1. **Live radar check:**
-   - Is horizon clearing?
-   - Storm position?
+- Is horizon clearing?
+- Storm position?
 
 2. **Drive to location**
 
@@ -1751,23 +1751,23 @@ Late July-September: dust from combines → hazy afternoons → vivid sunsets.
 **High-Probability Scenarios:**
 
 1. **After frontal passage:**
-   - 6-24 hours after front passes
-   - Clearing skies, residual clouds
-   - Clean lower atmosphere, particles aloft
+- 6-24 hours after front passes
+- Clearing skies, residual clouds
+- Clean lower atmosphere, particles aloft
 
 2. **Autumn high pressure:**
-   - Stable, hazy days
-   - Clear horizons at sunset
-   - Extended golden hours
+- Stable, hazy days
+- Clear horizons at sunset
+- Extended golden hours
 
 3. **Storm clearings:**
-   - Storm moves east
-   - You're west of it
-   - Sunset illuminates storm
+- Storm moves east
+- You're west of it
+- Sunset illuminates storm
 
 4. **Post-rain clarity:**
-   - Air washed clean
-   - Crisp, vivid color (less dramatic, more saturated)
+- Air washed clean
+- Crisp, vivid color (less dramatic, more saturated)
 
 ---
 
@@ -1776,22 +1776,22 @@ Late July-September: dust from combines → hazy afternoons → vivid sunsets.
 **Low-Probability Scenarios:**
 
 1. **Solid overcast:**
-   - Thick stratus layer
-   - No breaks
-   - Flat, gray light
+- Thick stratus layer
+- No breaks
+- Flat, gray light
 
 2. **Perfectly clear:**
-   - No clouds, no haze
-   - Sunset is brief, minimal color
-   - (Still beautiful, just not dramatic)
+- No clouds, no haze
+- Sunset is brief, minimal color
+- (Still beautiful, just not dramatic)
 
 3. **Heavy rain at sunset:**
-   - Rain blocks light
-   - (Unless clearing rapidly)
+- Rain blocks light
+- (Unless clearing rapidly)
 
 4. **Low visibility all day:**
-   - Fog/rain/snow
-   - Horizon obscured
+- Fog/rain/snow
+- Horizon obscured
 
 **Decision Rule:**
 
@@ -1958,23 +1958,23 @@ Tell lab to push/pull process (add/subtract development time).
 **Essential:**
 
 1. **Circular Polarizer:**
-   - Deepens blue sky
-   - Cuts haze (use sparingly)
-   - Enhances clouds
-   - Removes water reflections
+- Deepens blue sky
+- Cuts haze (use sparingly)
+- Enhances clouds
+- Removes water reflections
 
 2. **Graduated ND:**
-   - Balance bright sky and dark foreground
-   - Essential for slide film (low dynamic range)
-   - Less critical for negative film
+- Balance bright sky and dark foreground
+- Essential for slide film (low dynamic range)
+- Less critical for negative film
 
 **Nice to Have:**
 
 3. **Warming filters (81A/81B):**
-   - Enhance golden hour (film only, digital does it in post)
+- Enhance golden hour (film only, digital does it in post)
 
 4. **Neutral Density:**
-   - Long exposures (water, clouds)
+- Long exposures (water, clouds)
 
 **Film Specifics:**
 
@@ -2072,9 +2072,9 @@ Tell lab to push/pull process (add/subtract development time).
 
 **Evening Before:**
 - [ ] Check evening conditions:
-  - Clear skies?
-  - Wind <5 km/h?
-  - Dew point within 3°C of temp?
+- Clear skies?
+- Wind <5 km/h?
+- Dew point within 3°C of temp?
 - [ ] Identify valley/low areas
 - [ ] Set alarm for pre-dawn
 
@@ -2224,12 +2224,12 @@ Use these pages to record:
 - NLC sightings
 - Personal observations
 
-Date:  
-Location:  
-Conditions:  
-Light Quality:  
-What Worked:  
-What to Try Next Time:  
+Date: 
+Location: 
+Conditions: 
+Light Quality: 
+What Worked: 
+What to Try Next Time: 
 
 *(Repeat for multiple entries)*
 

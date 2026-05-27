@@ -1,3 +1,7 @@
+---
+description: Advanced tonal control for fine art prints - highlight rolloff, shadow separation, microcontrast mastery, and natural analog-feeling rendering.
+---
+
 # Tonal Control Reference
 
 ## Overview
@@ -40,10 +44,10 @@ This reference covers advanced tonal control techniques critical for natural, an
 1. Open Curves (Lightroom/Photoshop)
 2. Focus on upper right quadrant (highlights)
 3. Create gentle S-curve shoulder:
- - Point 1: 90% input → 90% output (anchor)
- - Point 2: 95% input → 93% output (gentle compression)
- - Point 3: 98% input → 95% output (strong compression)
- - Point 4: 100% input → 98% output (preserve paper white only for speculars)
+- Point 1: 90% input → 90% output (anchor)
+- Point 2: 95% input → 93% output (gentle compression)
+- Point 3: 98% input → 95% output (strong compression)
+- Point 4: 100% input → 98% output (preserve paper white only for speculars)
 4. Result: Highlights compress smoothly, avoiding hard clip
 
 **Visual Check:**
@@ -88,12 +92,12 @@ This reference covers advanced tonal control techniques critical for natural, an
 **Process:**
 1. Select 3 images with bright areas (sky, white clothing, light sources)
 2. For each image:
- - **Before:** Check if highlights are clipped (blinking zebras)
- - **Correction:**
- - Use curves to compress highlights (gentle S-curve in upper end)
- - Add "shoulder" to mimic film response
- - Reduce highlight contrast while preserving midtone punch
- - **Advanced:** Use luminosity masks to selectively smooth highlight transitions
+- **Before:** Check if highlights are clipped (blinking zebras)
+- **Correction:**
+- Use curves to compress highlights (gentle S-curve in upper end)
+- Add "shoulder" to mimic film response
+- Reduce highlight contrast while preserving midtone punch
+- **Advanced:** Use luminosity masks to selectively smooth highlight transitions
 3. Print before/after pairs (8x10")
 4. Evaluate: Do highlights feel "luminous" or "blown out"?
 
@@ -134,8 +138,8 @@ This reference covers advanced tonal control techniques critical for natural, an
 1. Open Curves
 2. Set anchor point at Zone I (3% input → 3% output) to preserve deep blacks
 3. Lift Zone II-III area:
- - Point: 8% input → 12% output (Zone II lifted)
- - Point: 15% input → 20% output (Zone III lifted)
+- Point: 8% input → 12% output (Zone II lifted)
+- Point: 15% input → 20% output (Zone III lifted)
 4. Result: Shadow detail visible, blacks still deep
 
 **Method 2: Shadow Slider + Blacks Slider**
@@ -160,10 +164,10 @@ This reference covers advanced tonal control techniques critical for natural, an
 1. Select 3 low-key or shadow-rich images
 2. Goal: Make shadows printable without losing depth
 3. Technique:
- - Lift shadows globally (+10-15% exposure in shadows)
- - Use curves to add separation in Zone II-III
- - Preserve pure blacks in Zone 0-I (anchors visual weight)
- - Test: Can you see into coat fabric, hair, dark foliage?
+- Lift shadows globally (+10-15% exposure in shadows)
+- Use curves to add separation in Zone II-III
+- Preserve pure blacks in Zone 0-I (anchors visual weight)
+- Test: Can you see into coat fabric, hair, dark foliage?
 4. Print test (8x10")
 5. View in dim light (simulates gallery conditions)
 6. Adjust if shadows disappear or feel washed out
@@ -218,9 +222,9 @@ Film stocks have decades of refinement in tonal rendering. Borrowing their chara
 
 **Option 1: LUTs/Profiles (Fast)**
 - Download film emulation LUTs:
- - RNI Films (accurate film stock emulations)
- - VSCO (preset-based, mobile-friendly)
- - Dehancer (advanced, includes halation/grain)
+- RNI Films (accurate film stock emulations)
+- VSCO (preset-based, mobile-friendly)
+- Dehancer (advanced, includes halation/grain)
 - Apply to images in Lightroom/Capture One
 - Test on 3 digital images
 - Print to see how emulation affects tonal rendering
@@ -236,9 +240,9 @@ Film stocks have decades of refinement in tonal rendering. Borrowing their chara
 2. Print tests (8x10")
 3. Compare to non-emulated prints
 4. Observe:
- - Are highlights softer? (shoulder effect)
- - Are shadows less blocked? (lifted blacks)
- - Does overall feel change? (analog vs. digital)
+- Are highlights softer? (shoulder effect)
+- Are shadows less blocked? (lifted blacks)
+- Does overall feel change? (analog vs. digital)
 
 **Goal:** Understand film's tonal "signature" to replicate intentionally (not blindly apply presets).
 
@@ -372,16 +376,16 @@ Unlike global contrast (overall black-to-white range), microcontrast operates on
 **Process:**
 1. Select 3 images with rich texture (fabric, tree bark, weathered surfaces)
 2. For each image, create 4 versions:
- - **Version 1 (Baseline):** No microcontrast enhancement (Clarity 0, Texture 0)
- - **Version 2 (Subtle):** Clarity +10, Texture +10
- - **Version 3 (Moderate):** Clarity +20, Texture +15
- - **Version 4 (High):** Clarity +40, Texture +30, High-pass overlay
+- **Version 1 (Baseline):** No microcontrast enhancement (Clarity 0, Texture 0)
+- **Version 2 (Subtle):** Clarity +10, Texture +10
+- **Version 3 (Moderate):** Clarity +20, Texture +15
+- **Version 4 (High):** Clarity +40, Texture +30, High-pass overlay
 3. Print all 4 versions per image (contact sheet, 4x5" each)
 4. Compare under magnification (loupe)
 5. Evaluate:
- - Which version enhances texture without creating artifacts?
- - Does high microcontrast feel "digital" and harsh?
- - Does low microcontrast feel soft but natural?
+- Which version enhances texture without creating artifacts?
+- Does high microcontrast feel "digital" and harsh?
+- Does low microcontrast feel soft but natural?
 
 **Expected Result:**
 - Version 1: Soft, lifeless on print
@@ -397,13 +401,13 @@ Unlike global contrast (overall black-to-white range), microcontrast operates on
 1. Take one highly textured image (portrait with skin detail)
 2. Create one version with moderate microcontrast (Clarity +15)
 3. Print on 3 surfaces:
- - Glossy photo paper
- - Matte fine art paper
- - Cotton rag textured paper
+- Glossy photo paper
+- Matte fine art paper
+- Cotton rag textured paper
 4. Evaluate:
- - Does glossy make skin feel "too sharp"?
- - Does matte soften texture pleasingly?
- - Does rag texture complement or fight image texture?
+- Does glossy make skin feel "too sharp"?
+- Does matte soften texture pleasingly?
+- Does rag texture complement or fight image texture?
 5. Adjust microcontrast settings per paper type and reprint
 
 **Typical Findings:**
@@ -418,9 +422,9 @@ Unlike global contrast (overall black-to-white range), microcontrast operates on
 **Process:**
 1. Take landscape with foreground, midground, background
 2. Apply microcontrast selectively:
- - **Foreground:** +20 Clarity (draws eye, enhances depth)
- - **Midground:** +10 Clarity (transition)
- - **Background:** -10 Clarity (pushes back, creates atmospheric separation)
+- **Foreground:** +20 Clarity (draws eye, enhances depth)
+- **Midground:** +10 Clarity (transition)
+- **Background:** -10 Clarity (pushes back, creates atmospheric separation)
 3. Print (11x14" or larger to see effect)
 4. Evaluate: Does selective application create sense of depth?
 

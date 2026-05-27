@@ -21,9 +21,9 @@
 | S2 | "affecting **a large number** of Platform users" |
 | S3 | "affecting **a small number** of Platform users" |
 
- **What does "large" mean?** 10 users? 100? 1000?
- **During an incident, you have NO TIME to philosophize about definitions.**
- **S1 and S2 use the SAME WORDS ("large number") - how do you decide?**
+**What does "large" mean?** 10 users? 100? 1000?
+**During an incident, you have NO TIME to philosophize about definitions.**
+**S1 and S2 use the SAME WORDS ("large number") - how do you decide?**
 
 **What's needed:** Objective numbers (%, user count, error rates)
 
@@ -37,8 +37,8 @@
 - **S2 (line 66):** "but do **not** cause a complete outage or **block a release**"
 - **S2 example (line 70):** "**builds in one of the Platform clusters not accessible**"
 
- **CONTRADICTION:** If builds are not accessible, that **BLOCKS A RELEASE**!
- **So is it S1 or S2?** The SOP contradicts itself!
+**CONTRADICTION:** If builds are not accessible, that **BLOCKS A RELEASE**!
+**So is it S1 or S2?** The SOP contradicts itself!
 
 **What's needed:** Clear "IS Severity X" vs "NOT Severity X" examples
 
@@ -48,7 +48,7 @@
 
 **Current SOP:** Requires reading 3 paragraphs to decide severity during an active incident.
 
- **You have 10 seconds to make a decision, not 10 minutes!**
+**You have 10 seconds to make a decision, not 10 minutes!**
 
 **What's needed:** Visual decision tree with yes/no questions
 
@@ -65,15 +65,15 @@
 > - Formal PMR hosted.
 > - Formal RCA shared with Platform users.
 
- **Problems:**
+**Problems:**
 - "Immediate response" - OK, but **WHAT EXACTLY DO I DO?**
 - "Allocate all resources" - **HOW? Who do I call? In what order?**
 - "Regular updates" - **HOW OFTEN?** Every 5 minutes? Every hour?
 - "Update banner immediately" - **WITH WHAT TEXT?**
 
- **No step-by-step workflow**
- **No message templates**
- **No timing guidance**
+**No step-by-step workflow**
+**No message templates**
+**No timing guidance**
 
 **This is a POLICY document, not a PLAYBOOK.**
 
@@ -103,7 +103,7 @@
 - Line 138: "Incident Technical Lead is **by default** the First Responder"
 - Line 154: "First responder can choose to become either IC or Tech Lead"
 
- **So the same person is:**
+**So the same person is:**
 - First Responder
 - Incident Owner
 - Technical Lead
@@ -133,23 +133,23 @@
 
 ```
 Can users perform core workflows?
- 
- NO (login broken, all pipelines fail)
- SEVERITY 1
- 
- YES, but degraded
- 
- How many users affected?
- >50% users OR all clusters → SEVERITY 1
- 10-50% users OR multiple clusters → SEVERITY 2
- <10% users OR single cluster → SEVERITY 3
- 
- What's the error rate?
- >90% errors on critical path → SEVERITY 1
- 50-90% errors → SEVERITY 2
- <50% errors → SEVERITY 3
- 
- YES, fully functional → NOT AN INCIDENT
+
+NO (login broken, all pipelines fail)
+SEVERITY 1
+
+YES, but degraded
+
+How many users affected?
+>50% users OR all clusters → SEVERITY 1
+10-50% users OR multiple clusters → SEVERITY 2
+<10% users OR single cluster → SEVERITY 3
+
+What's the error rate?
+>90% errors on critical path → SEVERITY 1
+50-90% errors → SEVERITY 2
+<50% errors → SEVERITY 3
+
+YES, fully functional → NOT AN INCIDENT
 ```
 
 **Core workflows:** Login, Build, Integration, Pipeline, Release
@@ -195,7 +195,7 @@ Can users perform core workflows?
 
 ---
 
-#### ⏱ **MINUTE 1: Declare Incident in Incident Tracking Tool**
+#### **MINUTE 1: Declare Incident in Incident Tracking Tool**
 
 **Action:**
 1. Navigate to: `https://incident-tracker.company.com/`
@@ -232,13 +232,13 @@ Severity: Critical (Severity 1)
 
 ---
 
-#### ⏱ **MINUTE 2: Post Initial Slack Message**
+#### **MINUTE 2: Post Initial Slack Message**
 
 **Channel:** `#announce-platform-incidents` (auto-created by Incident Tracking Tool as `#incident-<ID>`)
 
 ** Copy-Paste Template:**
 ```
- SEVERITY 1 INCIDENT DECLARED 
+SEVERITY 1 INCIDENT DECLARED 
 
 Impact: [Core Service] completely unavailable
 Users affected: All Platform users
@@ -252,7 +252,7 @@ Incident Tracking Tool: [paste link from step 1]
 
 **Real Example:**
 ```
- SEVERITY 1 INCIDENT DECLARED 
+SEVERITY 1 INCIDENT DECLARED 
 
 Impact: Platform Login completely unavailable - users cannot access the platform
 Users affected: All Platform users
@@ -266,7 +266,7 @@ Incident Tracking Tool: https://incident-tracker.company.com/incidents/12345
 
 ---
 
-#### ⏱ **MINUTE 3: Update Platform Status Banner**
+#### **MINUTE 3: Update Platform Status Banner**
 
 **Action:**
 1. Go to: `https://github.com/company/platform-deployments`
@@ -276,27 +276,27 @@ Incident Tracking Tool: https://incident-tracker.company.com/incidents/12345
 
 ** Copy-Paste Banner Text:**
 ```
- SERVICE DISRUPTION: [Service] is currently unavailable. We are investigating. Updates: [Slack channel link]
+SERVICE DISRUPTION: [Service] is currently unavailable. We are investigating. Updates: [Slack channel link]
 ```
 
 **Real Example:**
 ```
- SERVICE DISRUPTION: Platform Login is currently unavailable. We are investigating. Updates: https://company.slack.com/archives/C12345
+SERVICE DISRUPTION: Platform Login is currently unavailable. We are investigating. Updates: https://company.slack.com/archives/C12345
 ```
 
 **How to update:**
 ```yaml
 banner:
- enabled: true
- variant: "error"
- message: " SERVICE DISRUPTION: Platform Login is currently unavailable. We are investigating. Updates: https://company.slack.com/archives/C12345"
+enabled: true
+variant: "error"
+message: " SERVICE DISRUPTION: Platform Login is currently unavailable. We are investigating. Updates: https://company.slack.com/archives/C12345"
 ```
 
 5. Create PR (request fast-track approval for S1 incidents)
 
 ---
 
-#### ⏱ **MINUTE 4: Notify #platform-users**
+#### **MINUTE 4: Notify #platform-users**
 
 **Channel:** `#platform-users`
 
@@ -320,7 +320,7 @@ For real-time updates, please follow: #incident-2026-03-11-login-outage
 
 ---
 
-#### ⏱ **MINUTE 5: Send Email Notifications**
+#### **MINUTE 5: Send Email Notifications**
 
 **To:**
 - `platform-announce@company.com`
@@ -368,14 +368,14 @@ SRE Incident Commander
 #### **Template: No Progress Yet**
 
 ```
-⏱ 15-minute update:
+15-minute update:
 
 Status: Still investigating root cause
 
 Investigation threads:
- • Recent deployments - No suspicious changes in last 2 hours
- • SSO service logs - Analyzing error patterns
- • Cluster health - CPU/memory normal
+• Recent deployments - No suspicious changes in last 2 hours
+• SSO service logs - Analyzing error patterns
+• Cluster health - CPU/memory normal
 
 Service still unavailable. Next update in 15 minutes.
 ```
@@ -385,7 +385,7 @@ Service still unavailable. Next update in 15 minutes.
 #### **Template: Progress Made**
 
 ```
-⏱ 15-minute update:
+15-minute update:
 
 Status: Root cause identified
 
@@ -403,7 +403,7 @@ Service still unavailable. Next update in 15 minutes or when service recovers.
 
 ** Slack Message Template:**
 ```
- SERVICE RECOVERED
+SERVICE RECOVERED
 
 Resolution time: [HH:MM UTC]
 Total downtime: [X minutes]
@@ -418,7 +418,7 @@ Thank you for your patience.
 
 **Real Example:**
 ```
- SERVICE RECOVERED
+SERVICE RECOVERED
 
 Resolution time: 14:47 UTC
 Total downtime: 15 minutes
@@ -437,15 +437,15 @@ Thank you for your patience.
 
 ** Banner Message Template:**
 ```
- RESOLVED: [Service] issue has been resolved. Service is now operational.
+RESOLVED: [Service] issue has been resolved. Service is now operational.
 ```
 
 **Real Example:**
 ```yaml
 banner:
- enabled: true
- variant: "success"
- message: " RESOLVED: Platform Login issue has been resolved. Service is now operational."
+enabled: true
+variant: "success"
+message: " RESOLVED: Platform Login issue has been resolved. Service is now operational."
 ```
 
 **Action:** Keep banner for 1 hour, then set `enabled: false`
@@ -553,17 +553,17 @@ Service was restored at 14:47 UTC after deploying a new certificate.
 
 ## What Worked Well
 
- Monitoring detected issue within 2 minutes of certificate expiry
- Team responded quickly (incident declared within 1 minute)
- Root cause identified in 6 minutes
- Communication was clear and frequent (every 15 minutes)
- Banner and email notifications sent promptly
+Monitoring detected issue within 2 minutes of certificate expiry
+Team responded quickly (incident declared within 1 minute)
+Root cause identified in 6 minutes
+Communication was clear and frequent (every 15 minutes)
+Banner and email notifications sent promptly
 
 ## Areas for Improvement
 
- No alerting on certificate expiry (30-day warning would have prevented this)
- No automated certificate renewal (manual process error-prone)
- Certificate expiry date not tracked in any monitoring system
+No alerting on certificate expiry (30-day warning would have prevented this)
+No automated certificate renewal (manual process error-prone)
+Certificate expiry date not tracked in any monitoring system
 
 ## Action Items
 
@@ -623,7 +623,7 @@ Service was restored at 14:47 UTC after deploying a new certificate.
 
 ### Your First 5 Minutes - Step by Step
 
-#### ⏱ **MINUTE 1: Declare Incident in Incident Tracking Tool**
+#### **MINUTE 1: Declare Incident in Incident Tracking Tool**
 
 ** Copy-Paste Template:**
 ```
@@ -643,13 +643,13 @@ Severity: High (Severity 2)
 
 ---
 
-#### ⏱ **MINUTE 2: Post Initial Slack Message**
+#### **MINUTE 2: Post Initial Slack Message**
 
 **Channel:** Incident Tracking Tool auto-created incident channel
 
 ** Copy-Paste Template:**
 ```
- SEVERITY 2 INCIDENT DECLARED
+SEVERITY 2 INCIDENT DECLARED
 
 Impact: [Service] experiencing major degradation
 Users affected: Estimated [10-50%] of Platform users
@@ -664,7 +664,7 @@ Incident Tracking Tool: [link]
 
 **Real Example:**
 ```
- SEVERITY 2 INCIDENT DECLARED
+SEVERITY 2 INCIDENT DECLARED
 
 Impact: Build service experiencing 65% failure rate
 Users affected: Estimated 30% of Platform users
@@ -679,24 +679,24 @@ Incident Tracking Tool: https://incident-tracker.company.com/incidents/12346
 
 ---
 
-#### ⏱ **MINUTE 3: Update Platform Status Banner**
+#### **MINUTE 3: Update Platform Status Banner**
 
 ** Banner Text Template:**
 ```
- SERVICE DEGRADATION: [Service] is experiencing issues. Some users may be affected. We are investigating.
+SERVICE DEGRADATION: [Service] is experiencing issues. Some users may be affected. We are investigating.
 ```
 
 **Real Example:**
 ```yaml
 banner:
- enabled: true
- variant: "warning"
- message: " SERVICE DEGRADATION: Build service is experiencing high failure rates in some clusters. We are investigating."
+enabled: true
+variant: "warning"
+message: " SERVICE DEGRADATION: Build service is experiencing high failure rates in some clusters. We are investigating."
 ```
 
 ---
 
-#### ⏱ **MINUTE 4: Notify #platform-users**
+#### **MINUTE 4: Notify #platform-users**
 
 ** Copy-Paste Template:**
 ```
@@ -724,7 +724,7 @@ Our team is investigating. Real-time updates: #incident-2026-03-11-build-degrada
 
 ---
 
-#### ⏱ **MINUTE 5: Send Email (Recommended)**
+#### **MINUTE 5: Send Email (Recommended)**
 
 **Note:** Email for S2 is **recommended** if impact is widespread.
 
@@ -768,14 +768,14 @@ SRE Incident Commander
 
 ** Update Template:**
 ```
-⏱ 20-minute update:
+20-minute update:
 
 Status: [Investigating / Root cause identified / Mitigation in progress]
 
 Investigation threads:
- • [Thread 1] - [Status]
- • [Thread 2] - [Status]
- • [Thread 3] - [Status]
+• [Thread 1] - [Status]
+• [Thread 2] - [Status]
+• [Thread 3] - [Status]
 
 Current impact: [% failure rate, user count, etc.]
 
@@ -784,14 +784,14 @@ Next update in 20 minutes.
 
 **Real Example:**
 ```
-⏱ 20-minute update:
+20-minute update:
 
 Status: Root cause identified
 
 Investigation threads:
- • Recent deployments - No relevant changes found
- • Resource quotas - FOUND: prd-01, prd-02 hit resource limits
- • Cluster health - CPU/memory maxed out in affected clusters
+• Recent deployments - No relevant changes found
+• Resource quotas - FOUND: prd-01, prd-02 hit resource limits
+• Cluster health - CPU/memory maxed out in affected clusters
 
 Current impact: 65% build failure rate in prd-01, prd-02
 
@@ -806,7 +806,7 @@ Next update in 20 minutes.
 
 ** Resolution Message Template:**
 ```
- SERVICE DEGRADED → NORMAL
+SERVICE DEGRADED → NORMAL
 
 Resolution time: [HH:MM UTC]
 Total degradation period: [X minutes]
@@ -820,9 +820,9 @@ Build success rate returned to normal levels (>95%). Monitoring for stability.
 ** Banner Update:**
 ```yaml
 banner:
- enabled: true
- variant: "success"
- message: " RESOLVED: Build service degradation resolved. Service operating normally."
+enabled: true
+variant: "success"
+message: " RESOLVED: Build service degradation resolved. Service operating normally."
 ```
 
 ** Resolution Email:**
@@ -892,7 +892,7 @@ SRE Team
 
 ### Your First 5 Minutes - Step by Step
 
-#### ⏱ **MINUTE 1-2: Declare Incident in Incident Tracking Tool**
+#### **MINUTE 1-2: Declare Incident in Incident Tracking Tool**
 
 ** Copy-Paste Template:**
 ```
@@ -912,13 +912,13 @@ Severity: Low (Severity 3)
 
 ---
 
-#### ⏱ **MINUTE 3: Post Slack Message (Internal)**
+#### **MINUTE 3: Post Slack Message (Internal)**
 
 **Channel:** Incident Tracking Tool incident channel
 
 ** Copy-Paste Template:**
 ```
- SEVERITY 3 INCIDENT
+SEVERITY 3 INCIDENT
 
 Impact: [Service] experiencing minor issues
 Users affected: <10% of users
@@ -933,7 +933,7 @@ Incident Tracking Tool: [link]
 
 **Real Example:**
 ```
- SEVERITY 3 INCIDENT
+SEVERITY 3 INCIDENT
 
 Impact: UI slow loading times
 Users affected: <10% (prd-01 cluster users only)
@@ -948,7 +948,7 @@ Incident Tracking Tool: https://incident-tracker.company.com/incidents/12347
 
 ---
 
-#### ⏱ **MINUTE 4-5: Consider Banner Update (OPTIONAL)**
+#### **MINUTE 4-5: Consider Banner Update (OPTIONAL)**
 
 **For Severity 3:**
 - Banner update is **OPTIONAL**
@@ -958,9 +958,9 @@ Incident Tracking Tool: https://incident-tracker.company.com/incidents/12347
 ** Banner Template (if used):**
 ```yaml
 banner:
- enabled: true
- variant: "info"
- message: "ℹ NOTICE: Some users may experience slower UI performance in prd-01 cluster. Service remains functional. We are investigating."
+enabled: true
+variant: "info"
+message: "ℹ NOTICE: Some users may experience slower UI performance in prd-01 cluster. Service remains functional. We are investigating."
 ```
 
 ---
@@ -969,7 +969,7 @@ banner:
 
 ** Update Template:**
 ```
-⏱ 30-minute update:
+30-minute update:
 
 Status: [Investigating / Root cause identified]
 Current state: [Service still slow / Issue intermittent / etc.]
@@ -983,7 +983,7 @@ Next update in 30 minutes or when resolved.
 
 ** Resolution Message:**
 ```
- ISSUE RESOLVED
+ISSUE RESOLVED
 
 Resolution time: [HH:MM UTC]
 Duration: [X minutes]
@@ -997,7 +997,7 @@ UI performance returned to normal (<1s page loads). Service operating normally. 
 ** Banner (if used):**
 ```
 Remove banner or update to:
- UI performance issue resolved in prd-01 cluster.
+UI performance issue resolved in prd-01 cluster.
 ```
 
 **Email:** **NOT required** for Severity 3
@@ -1059,11 +1059,11 @@ Remove banner or update to:
 
 | Template | Link |
 |----------|------|
-| Incident Tracking Tool Title | [Minute 1](#⏱-minute-1-declare-incident-in-incident-tracker) |
-| Slack Initial Message | [Minute 2](#⏱-minute-2-post-initial-slack-message) |
-| Banner Text | [Minute 3](#⏱-minute-3-update-platform-status-banner) |
-| User Notification | [Minute 4](#⏱-minute-4-notify-platform-users) |
-| Email Template | [Minute 5](#⏱-minute-5-send-email-notifications) |
+| Incident Tracking Tool Title | [Minute 1](#-minute-1-declare-incident-in-incident-tracker) |
+| Slack Initial Message | [Minute 2](#-minute-2-post-initial-slack-message) |
+| Banner Text | [Minute 3](#-minute-3-update-platform-status-banner) |
+| User Notification | [Minute 4](#-minute-4-notify-platform-users) |
+| Email Template | [Minute 5](#-minute-5-send-email-notifications) |
 | 15-min Update (No Progress) | [During Incident](#-template-no-progress-yet) |
 | 15-min Update (Progress) | [During Incident](#-template-progress-made) |
 | Resolution Slack Message | [Resolution Phase](#when-service-recovers) |

@@ -1,3 +1,7 @@
+---
+description: Comprehensive film stock reference for 35mm and 120 medium format - ISO ratings, exposure latitude, grain, contrast, push/pull, and development.
+---
+
 # Film Stock Reference Guide - 35mm & 120 Medium Format
 
 **Purpose:** Comprehensive reference for commercially available film stocks with exposure and development characteristics 

@@ -1,3 +1,7 @@
+---
+description: Expert field manual for Fuji GL690/G690/GM670 medium format rangefinder - technical operation, lens system, exposure workflow, and field techniques.
+---
+
 # The Fuji GL690 / G690 / GM670 System: A Comprehensive Field Manual
 
 ## Preface: The Camera That Demands Your Full Attention
@@ -313,7 +317,7 @@ This is where the GL690 truly excels. Long exposures of flowing water, moving cl
 3. **Select desired aperture**: For landscape, typically f/11 for moderate DOF or f/16 for maximum. Example: choose f/11 (one stop down from f/8 = 1/30 sec).
 
 4. **Add ND filter and calculate exposure**: With 6-stop ND filter, add 6 stops to exposure time:
-   - 1/30 → 1/15 → 1/8 → 1/4 → 1/2 → 1 → 2 seconds
+- 1/30 → 1/15 → 1/8 → 1/4 → 1/2 → 1 → 2 seconds
 
 5. **Check reciprocity failure**: Different films exhibit different reciprocity characteristics. Kodak Ektar 100 at 2 seconds requires approximately +1/3 stop correction. Adjust to 3 seconds.
 
@@ -625,11 +629,11 @@ The GL690 rewards photographers who visualize the final image before exposing th
 2. **Identify tonal range**: Where is the deepest shadow? The brightest highlight? Are there pure blacks and pure whites, or is the scene predominantly midtones?
 
 3. **Plan filtration**: For black and white, filters dramatically alter tonal relationships:
-   - **Yellow filter**: Slightly darkens blue sky, lightens foliage
-   - **Orange filter**: Moderately darkens blue sky, increases contrast
-   - **Red filter**: Dramatically darkens sky, creates stark high-contrast rendering
-   - **Green filter**: Lightens foliage, improves tonal separation in greenery
-   - **Polarizing filter**: Deepens blue sky (without changing other tonal relationships), reduces reflections
+- **Yellow filter**: Slightly darkens blue sky, lightens foliage
+- **Orange filter**: Moderately darkens blue sky, increases contrast
+- **Red filter**: Dramatically darkens sky, creates stark high-contrast rendering
+- **Green filter**: Lightens foliage, improves tonal separation in greenery
+- **Polarizing filter**: Deepens blue sky (without changing other tonal relationships), reduces reflections
 
 4. **Visualize the print**: Imagine the final black and white print. What tonal values should dominate? Should it be high-key (bright, airy), low-key (dark, moody), or balanced? This mental image guides exposure and development decisions.
 
@@ -890,9 +894,9 @@ Alternatively, accept that the GL690 has finite lifespan. If a critical componen
 - **Handheld light meter**: Incident meter (Sekonic L-308) for general work or spot meter (Sekonic L-758, Pentax Digital Spot Meter) for Zone System work.
 
 - **Filters**:
-  - UV or Skylight (52mm): Lens protection; minimal optical effect
-  - Polarizing filter: Deepens blue skies, reduces reflections (essential for landscape)
-  - ND filters: 3-stop (ND8) and 6-stop (ND64) for long exposures
+- UV or Skylight (52mm): Lens protection; minimal optical effect
+- Polarizing filter: Deepens blue skies, reduces reflections (essential for landscape)
+- ND filters: 3-stop (ND8) and 6-stop (ND64) for long exposures
 
 - **Film changing bag**: For fixing film loading issues in the field without ruining the entire roll.
 
@@ -1111,10 +1115,10 @@ Seascapes combine moving water with strong light (reflections from wet sand, sea
 4. **Use graduated ND filter if necessary**: If sky is significantly brighter than foreground, grad ND filter (2 or 3 stop) can balance exposure. Position filter transition along horizon line.
 
 5. **Choose shutter speed for wave motion**:
-   - 1/60-1/125: Freezes wave detail; good for dramatic crashing waves
-   - 1/4-1 second: Slight blur; water has texture but motion
-   - 2-8 seconds: Smooth, misty water; ethereal quality
-   - 15-30 seconds: Cotton-like water; calm, dreamlike
+- 1/60-1/125: Freezes wave detail; good for dramatic crashing waves
+- 1/4-1 second: Slight blur; water has texture but motion
+- 2-8 seconds: Smooth, misty water; ethereal quality
+- 15-30 seconds: Cotton-like water; calm, dreamlike
 
 6. **Watch wave patterns**: Waves come in sets. Observe for several minutes to identify patterns (typically 7-10 waves per set, with larger waves periodically). Time exposure to coincide with optimal wave moment.
 

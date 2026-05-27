@@ -25,27 +25,27 @@ Many capable engineers find themselves repeatedly in situations where they:
 
 ```
 Challenging project assigned
- ↓
+↓
 Internal pressure: "I need to prove I can do this"
- ↓
+↓
 Don't say NO (even though you should)
- ↓
+↓
 Don't escalate early (even though you should)
- ↓
+↓
 Try to solve alone (to "not be problematic")
- ↓
+↓
 Don't ask for enough help (to "not be a burden")
- ↓
+↓
 Passive mentor: doesn't provide proactive support
- ↓
+↓
 Don't demand it (to "not be pushy")
- ↓
+↓
 Months pass, no progress
- ↓
+↓
 Project fails / work gets reassigned
- ↓
+↓
 Internal pressure: "I wasn't good enough"
- ↓
+↓
 [REPEAT]
 ```
 
@@ -71,15 +71,15 @@ Internal pressure: "I wasn't good enough"
 
 ```
 Read requirements
- ↓
+↓
 Design solution
- ↓
+↓
 Implement code
- ↓
+↓
 Submit for review
- ↓
+↓
 Address feedback
- ↓
+↓
 Deploy
 ```
 
@@ -89,35 +89,35 @@ Deploy
 
 ```
 Read requirements
- ↓
+↓
 META: Is this realistic for my level?
- ↓
+↓
 META: Will I get adequate mentoring?
- ↓
+↓
 META: Is the story point estimation realistic?
- ↓
+↓
 Design solution
- ↓
+↓
 META: Will anyone review this in reasonable time?
- ↓
+↓
 META: Should I push for review or wait?
- ↓
+↓
 Implement code
- ↓
+↓
 META: Am I being set up for failure?
- ↓
+↓
 META: Should I escalate lack of feedback?
- ↓
+↓
 Submit for review
- ↓
+↓
 META: Is 2 weeks delay normal or should I escalate?
- ↓
+↓
 META: Are stakeholders seeing my work?
- ↓
+↓
 META: Will they blame me if review takes too long?
- ↓
+↓
 Address feedback
- ↓
+↓
 META: Is this feedback fair or am I being scapegoated?
 ```
 
@@ -264,24 +264,24 @@ META: Is this feedback fair or am I being scapegoated?
 **If you're currently stuck in a failing project:**
 
 1. **Document current state** (1 hour):
- - What was promised (timeline, support, scope)
- - What actually happened (delays, lack of review, scope creep)
- - What you've tried (questions asked, escalations sent)
+- What was promised (timeline, support, scope)
+- What actually happened (delays, lack of review, scope creep)
+- What you've tried (questions asked, escalations sent)
 
 2. **Send status update** (today):
- - To manager: "Project X status: blocked for [N weeks], need decision by [date]"
- - Be factual, not emotional
- - State reality, not blame
+- To manager: "Project X status: blocked for [N weeks], need decision by [date]"
+- Be factual, not emotional
+- State reality, not blame
 
 3. **Request decision** (this week):
- - "Option A: Provide [specific support] and extend timeline to [realistic date]"
- - "Option B: Reassign to engineer with more experience in [domain]"
- - "I need a decision by [date] to proceed"
+- "Option A: Provide [specific support] and extend timeline to [realistic date]"
+- "Option B: Reassign to engineer with more experience in [domain]"
+- "I need a decision by [date] to proceed"
 
 4. **Protect yourself** (ongoing):
- - Stop working nights/weekends
- - Stop feeling responsible for systemic dysfunction
- - Update resume (just in case)
+- Stop working nights/weekends
+- Stop feeling responsible for systemic dysfunction
+- Update resume (just in case)
 
 **You are not required to sacrifice your wellbeing for broken processes.**
 

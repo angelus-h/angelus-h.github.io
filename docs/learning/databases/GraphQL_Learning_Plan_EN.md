@@ -1,3 +1,7 @@
+---
+description: GraphQL quick reference - schema design, queries, mutations, subscriptions, resolvers, Apollo, and production best practices.
+---
+
 # GraphQL Quick Reference
 
 **Target Audience:** Backend Developers, Frontend Developers, Full-Stack Engineers, API Designers
@@ -48,16 +52,16 @@ Week 1: Fundamentals → Week 2: Schema & Resolvers → Week 3: Advanced Pattern
 ```graphql
 # GraphQL - Get exactly what you need
 query {
- viewer {
- login
- name
- repositories(first: 5) {
- nodes {
- name
- stargazerCount
- }
- }
- }
+viewer {
+login
+name
+repositories(first: 5) {
+nodes {
+name
+stargazerCount
+}
+}
+}
 }
 
 # vs REST - Multiple requests needed
@@ -88,23 +92,23 @@ ID # Unique identifier (serialized as String)
 
 # Object Type
 type User {
- id: ID! # ! means non-nullable
- name: String!
- email: String
- age: Int
- posts: [Post!]! # Array of Posts
+id: ID! # ! means non-nullable
+name: String!
+email: String
+age: Int
+posts: [Post!]! # Array of Posts
 }
 
 # Enum Type
 enum Role {
- ADMIN
- USER
- GUEST
+ADMIN
+USER
+GUEST
 }
 
 # Interface
 interface Node {
- id: ID!
+id: ID!
 }
 
 # Union
@@ -126,66 +130,66 @@ Reading data from the server.
 ```graphql
 # Basic Query
 query GetUser {
- user(id: "123") {
- id
- name
- email
- }
+user(id: "123") {
+id
+name
+email
+}
 }
 
 # Query with Variables
 query GetUser($userId: ID!) {
- user(id: $userId) {
- id
- name
- email
- }
+user(id: $userId) {
+id
+name
+email
+}
 }
 
 # Nested Queries
 query GetUserWithPosts {
- user(id: "123") {
- id
- name
- posts {
- id
- title
- content
- comments {
- id
- text
- author {
- name
- }
- }
- }
- }
+user(id: "123") {
+id
+name
+posts {
+id
+title
+content
+comments {
+id
+text
+author {
+name
+}
+}
+}
+}
 }
 
 # Aliases (fetch same field with different arguments)
 query {
- user1: user(id: "1") {
- name
- }
- user2: user(id: "2") {
- name
- }
+user1: user(id: "1") {
+name
+}
+user2: user(id: "2") {
+name
+}
 }
 
 # Fragments (reusable units)
 fragment UserFields on User {
- id
- name
- email
+id
+name
+email
 }
 
 query {
- user1: user(id: "1") {
- ...UserFields
- }
- user2: user(id: "2") {
- ...UserFields
- }
+user1: user(id: "1") {
+...UserFields
+}
+user2: user(id: "2") {
+...UserFields
+}
 }
 ```
 
@@ -195,49 +199,49 @@ Creating, updating, or deleting data.
 ```graphql
 # Create
 mutation CreateUser($input: CreateUserInput!) {
- createUser(input: $input) {
- user {
- id
- name
- email
- }
- errors {
- field
- message
- }
- }
+createUser(input: $input) {
+user {
+id
+name
+email
+}
+errors {
+field
+message
+}
+}
 }
 
 # Update
 mutation UpdateUser($id: ID!, $input: UpdateUserInput!) {
- updateUser(id: $id, input: $input) {
- user {
- id
- name
- }
- }
+updateUser(id: $id, input: $input) {
+user {
+id
+name
+}
+}
 }
 
 # Delete
 mutation DeleteUser($id: ID!) {
- deleteUser(id: $id) {
- success
- message
- }
+deleteUser(id: $id) {
+success
+message
+}
 }
 
 # Multiple mutations in one request
 mutation {
- createUser(input: {name: "Alice", email: "alice@example.com"}) {
- user {
- id
- }
- }
- createPost(input: {title: "Hello World", authorId: "123"}) {
- post {
- id
- }
- }
+createUser(input: {name: "Alice", email: "alice@example.com"}) {
+user {
+id
+}
+}
+createPost(input: {title: "Hello World", authorId: "123"}) {
+post {
+id
+}
+}
 }
 ```
 
@@ -260,29 +264,29 @@ mutation {
 **Simple HTTP Request (JavaScript):**
 ```javascript
 const query = `
- query GetUser($id: ID!) {
- user(id: $id) {
- id
- name
- email
- }
- }
+query GetUser($id: ID!) {
+user(id: $id) {
+id
+name
+email
+}
+}
 `;
 
 const variables = { id: "123" };
 
 fetch('https://api.example.com/graphql', {
- method: 'POST',
- headers: {
- 'Content-Type': 'application/json',
- },
- body: JSON.stringify({
- query,
- variables,
- }),
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify({
+query,
+variables,
+}),
 })
- .then(res => res.json())
- .then(data => console.log(data));
+.then(res => res.json())
+.then(data => console.log(data));
 ```
 
 **Apollo Client (React):**
@@ -290,34 +294,34 @@ fetch('https://api.example.com/graphql', {
 import { ApolloClient, InMemoryCache, gql, useQuery } from '@apollo/client';
 
 const client = new ApolloClient({
- uri: 'https://api.example.com/graphql',
- cache: new InMemoryCache(),
+uri: 'https://api.example.com/graphql',
+cache: new InMemoryCache(),
 });
 
 const GET_USER = gql`
- query GetUser($id: ID!) {
- user(id: $id) {
- id
- name
- email
- }
- }
+query GetUser($id: ID!) {
+user(id: $id) {
+id
+name
+email
+}
+}
 `;
 
 function UserProfile({ userId }) {
- const { loading, error, data } = useQuery(GET_USER, {
- variables: { id: userId },
- });
+const { loading, error, data } = useQuery(GET_USER, {
+variables: { id: userId },
+});
 
- if (loading) return <p>Loading...</p>;
- if (error) return <p>Error: {error.message}</p>;
+if (loading) return <p>Loading...</p>;
+if (error) return <p>Error: {error.message}</p>;
 
- return (
- <div>
- <h1>{data.user.name}</h1>
- <p>{data.user.email}</p>
- </div>
- );
+return (
+<div>
+<h1>{data.user.name}</h1>
+<p>{data.user.email}</p>
+</div>
+);
 }
 ```
 
@@ -347,139 +351,139 @@ scalar DateTime
 
 # Enums
 enum PostStatus {
- DRAFT
- PUBLISHED
- ARCHIVED
+DRAFT
+PUBLISHED
+ARCHIVED
 }
 
 # Interfaces
 interface Node {
- id: ID!
- createdAt: DateTime!
- updatedAt: DateTime!
+id: ID!
+createdAt: DateTime!
+updatedAt: DateTime!
 }
 
 # Types
 type User implements Node {
- id: ID!
- createdAt: DateTime!
- updatedAt: DateTime!
- name: String!
- email: String!
- bio: String
- avatar: String
- role: Role!
- posts: [Post!]!
- followers: [User!]!
- following: [User!]!
+id: ID!
+createdAt: DateTime!
+updatedAt: DateTime!
+name: String!
+email: String!
+bio: String
+avatar: String
+role: Role!
+posts: [Post!]!
+followers: [User!]!
+following: [User!]!
 }
 
 type Post implements Node {
- id: ID!
- createdAt: DateTime!
- updatedAt: DateTime!
- title: String!
- content: String!
- status: PostStatus!
- author: User!
- comments: [Comment!]!
- tags: [String!]!
+id: ID!
+createdAt: DateTime!
+updatedAt: DateTime!
+title: String!
+content: String!
+status: PostStatus!
+author: User!
+comments: [Comment!]!
+tags: [String!]!
 }
 
 type Comment implements Node {
- id: ID!
- createdAt: DateTime!
- updatedAt: DateTime!
- text: String!
- author: User!
- post: Post!
+id: ID!
+createdAt: DateTime!
+updatedAt: DateTime!
+text: String!
+author: User!
+post: Post!
 }
 
 # Input Types
 input CreateUserInput {
- name: String!
- email: String!
- bio: String
- avatar: String
+name: String!
+email: String!
+bio: String
+avatar: String
 }
 
 input UpdatePostInput {
- title: String
- content: String
- status: PostStatus
- tags: [String!]
+title: String
+content: String
+status: PostStatus
+tags: [String!]
 }
 
 # Root Types
 type Query {
- # User queries
- user(id: ID!): User
- users(first: Int, after: String): UserConnection!
- me: User
+# User queries
+user(id: ID!): User
+users(first: Int, after: String): UserConnection!
+me: User
 
- # Post queries
- post(id: ID!): Post
- posts(
- first: Int
- after: String
- status: PostStatus
- authorId: ID
- ): PostConnection!
+# Post queries
+post(id: ID!): Post
+posts(
+first: Int
+after: String
+status: PostStatus
+authorId: ID
+): PostConnection!
 
- # Search
- search(query: String!): [SearchResult!]!
+# Search
+search(query: String!): [SearchResult!]!
 }
 
 type Mutation {
- # User mutations
- createUser(input: CreateUserInput!): CreateUserPayload!
- updateUser(id: ID!, input: UpdateUserInput!): UpdateUserPayload!
- deleteUser(id: ID!): DeleteUserPayload!
+# User mutations
+createUser(input: CreateUserInput!): CreateUserPayload!
+updateUser(id: ID!, input: UpdateUserInput!): UpdateUserPayload!
+deleteUser(id: ID!): DeleteUserPayload!
 
- # Post mutations
- createPost(input: CreatePostInput!): CreatePostPayload!
- updatePost(id: ID!, input: UpdatePostInput!): UpdatePostPayload!
- deletePost(id: ID!): DeletePostPayload!
+# Post mutations
+createPost(input: CreatePostInput!): CreatePostPayload!
+updatePost(id: ID!, input: UpdatePostInput!): UpdatePostPayload!
+deletePost(id: ID!): DeletePostPayload!
 
- # Follow mutations
- followUser(userId: ID!): FollowUserPayload!
- unfollowUser(userId: ID!): UnfollowUserPayload!
+# Follow mutations
+followUser(userId: ID!): FollowUserPayload!
+unfollowUser(userId: ID!): UnfollowUserPayload!
 }
 
 type Subscription {
- postAdded: Post!
- commentAdded(postId: ID!): Comment!
- userUpdated(userId: ID!): User!
+postAdded: Post!
+commentAdded(postId: ID!): Comment!
+userUpdated(userId: ID!): User!
 }
 
 # Payload Types (best practice)
 type CreateUserPayload {
- user: User
- errors: [Error!]
+user: User
+errors: [Error!]
 }
 
 type Error {
- field: String
- message: String!
+field: String
+message: String!
 }
 
 # Connection Types (Relay-style pagination)
 type UserConnection {
- edges: [UserEdge!]!
- pageInfo: PageInfo!
- totalCount: Int!
+edges: [UserEdge!]!
+pageInfo: PageInfo!
+totalCount: Int!
 }
 
 type UserEdge {
- cursor: String!
- node: User!
+cursor: String!
+node: User!
 }
 
 type PageInfo {
- hasNextPage: Boolean!
- hasPreviousPage: Boolean!
- startCursor: String
- endCursor: String
+hasNextPage: Boolean!
+hasPreviousPage: Boolean!
+startCursor: String
+endCursor: String
 }
 
 # Union Type
@@ -510,98 +514,98 @@ directive @deprecated(reason: String) on FIELD_DEFINITION
 **Resolver Function Signature:**
 ```javascript
 fieldName(parent, args, context, info) {
- // parent: Result from parent resolver
- // args: Arguments passed to the field
- // context: Shared context (auth, dataloaders, etc.)
- // info: Query AST and schema info
+// parent: Result from parent resolver
+// args: Arguments passed to the field
+// context: Shared context (auth, dataloaders, etc.)
+// info: Query AST and schema info
 
- return value;
+return value;
 }
 ```
 
 **Example Resolvers (Node.js with Apollo Server):**
 ```javascript
 const resolvers = {
- Query: {
- // Get user by ID
- user: async (parent, { id }, context) => {
- return await context.dataSources.userAPI.getUserById(id);
- },
+Query: {
+// Get user by ID
+user: async (parent, { id }, context) => {
+return await context.dataSources.userAPI.getUserById(id);
+},
 
- // Get current user (authenticated)
- me: async (parent, args, context) => {
- if (!context.user) {
- throw new Error('Not authenticated');
- }
- return await context.dataSources.userAPI.getUserById(context.user.id);
- },
+// Get current user (authenticated)
+me: async (parent, args, context) => {
+if (!context.user) {
+throw new Error('Not authenticated');
+}
+return await context.dataSources.userAPI.getUserById(context.user.id);
+},
 
- // Get paginated posts
- posts: async (parent, { first, after, status }, context) => {
- return await context.dataSources.postAPI.getPosts({
- limit: first,
- cursor: after,
- status,
- });
- },
- },
+// Get paginated posts
+posts: async (parent, { first, after, status }, context) => {
+return await context.dataSources.postAPI.getPosts({
+limit: first,
+cursor: after,
+status,
+});
+},
+},
 
- Mutation: {
- createUser: async (parent, { input }, context) => {
- try {
- const user = await context.dataSources.userAPI.createUser(input);
- return { user, errors: null };
- } catch (error) {
- return {
- user: null,
- errors: [{ field: 'general', message: error.message }],
- };
- }
- },
+Mutation: {
+createUser: async (parent, { input }, context) => {
+try {
+const user = await context.dataSources.userAPI.createUser(input);
+return { user, errors: null };
+} catch (error) {
+return {
+user: null,
+errors: [{ field: 'general', message: error.message }],
+};
+}
+},
 
- updatePost: async (parent, { id, input }, context) => {
- // Check authorization
- const post = await context.dataSources.postAPI.getPostById(id);
- if (post.authorId !== context.user.id) {
- throw new Error('Not authorized');
- }
+updatePost: async (parent, { id, input }, context) => {
+// Check authorization
+const post = await context.dataSources.postAPI.getPostById(id);
+if (post.authorId !== context.user.id) {
+throw new Error('Not authorized');
+}
 
- return await context.dataSources.postAPI.updatePost(id, input);
- },
- },
+return await context.dataSources.postAPI.updatePost(id, input);
+},
+},
 
- // Type resolvers (nested fields)
- User: {
- posts: async (parent, args, context) => {
- // parent.id is available from the User object
- return await context.dataSources.postAPI.getPostsByAuthorId(parent.id);
- },
+// Type resolvers (nested fields)
+User: {
+posts: async (parent, args, context) => {
+// parent.id is available from the User object
+return await context.dataSources.postAPI.getPostsByAuthorId(parent.id);
+},
 
- followers: async (parent, args, context) => {
- return await context.dataSources.userAPI.getFollowers(parent.id);
- },
- },
+followers: async (parent, args, context) => {
+return await context.dataSources.userAPI.getFollowers(parent.id);
+},
+},
 
- Post: {
- author: async (parent, args, context) => {
- // Use DataLoader to avoid N+1 problem
- return await context.loaders.userLoader.load(parent.authorId);
- },
+Post: {
+author: async (parent, args, context) => {
+// Use DataLoader to avoid N+1 problem
+return await context.loaders.userLoader.load(parent.authorId);
+},
 
- comments: async (parent, args, context) => {
- return await context.dataSources.commentAPI.getCommentsByPostId(parent.id);
- },
- },
+comments: async (parent, args, context) => {
+return await context.dataSources.commentAPI.getCommentsByPostId(parent.id);
+},
+},
 
- // Union type resolver
- SearchResult: {
- __resolveType(obj, context, info) {
- if (obj.email) return 'User';
- if (obj.title) return 'Post';
- if (obj.text) return 'Comment';
- return null;
- },
- },
+// Union type resolver
+SearchResult: {
+__resolveType(obj, context, info) {
+if (obj.email) return 'User';
+if (obj.title) return 'Post';
+if (obj.text) return 'Comment';
+return null;
+},
+},
 };
 ```
 
@@ -622,62 +626,62 @@ const { startStandaloneServer } = require('@apollo/server/standalone');
 
 // Type definitions
 const typeDefs = `#graphql
- type User {
- id: ID!
- name: String!
- email: String!
- }
+type User {
+id: ID!
+name: String!
+email: String!
+}
 
- type Query {
- users: [User!]!
- user(id: ID!): User
- }
+type Query {
+users: [User!]!
+user(id: ID!): User
+}
 
- type Mutation {
- createUser(name: String!, email: String!): User!
- }
+type Mutation {
+createUser(name: String!, email: String!): User!
+}
 `;
 
 // Resolvers
 const resolvers = {
- Query: {
- users: () => users,
- user: (parent, { id }) => users.find(u => u.id === id),
- },
- Mutation: {
- createUser: (parent, { name, email }) => {
- const user = { id: String(users.length + 1), name, email };
- users.push(user);
- return user;
- },
- },
+Query: {
+users: () => users,
+user: (parent, { id }) => users.find(u => u.id === id),
+},
+Mutation: {
+createUser: (parent, { name, email }) => {
+const user = { id: String(users.length + 1), name, email };
+users.push(user);
+return user;
+},
+},
 };
 
 // Server setup
 const server = new ApolloServer({
- typeDefs,
- resolvers,
+typeDefs,
+resolvers,
 });
 
 // Start server
 const { url } = await startStandaloneServer(server, {
- listen: { port: 4000 },
- context: async ({ req }) => {
- // Get auth token from headers
- const token = req.headers.authorization || '';
+listen: { port: 4000 },
+context: async ({ req }) => {
+// Get auth token from headers
+const token = req.headers.authorization || '';
 
- // Get user from token
- const user = await getUserFromToken(token);
+// Get user from token
+const user = await getUserFromToken(token);
 
- // Return context object
- return {
- user,
- dataSources: {
- userAPI: new UserAPI(),
- postAPI: new PostAPI(),
- },
- };
- },
+// Return context object
+return {
+user,
+dataSources: {
+userAPI: new UserAPI(),
+postAPI: new PostAPI(),
+},
+};
+},
 });
 
 console.log(`Server ready at: ${url}`);
@@ -688,13 +692,13 @@ console.log(`Server ready at: ${url}`);
 import { createServer } from '@graphql-yoga/node';
 
 const server = createServer({
- schema: {
- typeDefs,
- resolvers,
- },
- context: ({ request }) => ({
- user: getUserFromRequest(request),
- }),
+schema: {
+typeDefs,
+resolvers,
+},
+context: ({ request }) => ({
+user: getUserFromRequest(request),
+}),
 });
 
 server.start();
@@ -730,8 +734,8 @@ Build a complete GraphQL API for a blog platform:
 const posts = await getPosts(); // 1 query
 
 for (const post of posts) {
- const author = await getUser(post.authorId); // N queries
- post.author = author;
+const author = await getUser(post.authorId); // N queries
+post.author = author;
 }
 // Total: 1 + N queries
 ```
@@ -742,12 +746,12 @@ const DataLoader = require('dataloader');
 
 // Batch function: receives array of IDs, returns array of Users
 async function batchUsers(ids) {
- const users = await db.users.findMany({
- where: { id: { in: ids } },
- });
+const users = await db.users.findMany({
+where: { id: { in: ids } },
+});
 
- // Return users in same order as ids
- return ids.map(id => users.find(user => user.id === id));
+// Return users in same order as ids
+return ids.map(id => users.find(user => user.id === id));
 }
 
 // Create DataLoader
@@ -755,23 +759,23 @@ const userLoader = new DataLoader(batchUsers);
 
 // Usage in resolver
 const resolvers = {
- Post: {
- author: async (post, args, context) => {
- // DataLoader batches all requests in a single tick
- return await context.loaders.userLoader.load(post.authorId);
- },
- },
+Post: {
+author: async (post, args, context) => {
+// DataLoader batches all requests in a single tick
+return await context.loaders.userLoader.load(post.authorId);
+},
+},
 };
 
 // Context setup
 const server = new ApolloServer({
- typeDefs,
- resolvers,
- context: () => ({
- loaders: {
- userLoader: new DataLoader(batchUsers),
- },
- }),
+typeDefs,
+resolvers,
+context: () => ({
+loaders: {
+userLoader: new DataLoader(batchUsers),
+},
+}),
 });
 ```
 
@@ -804,45 +808,45 @@ const { PubSub } = require('graphql-subscriptions');
 const pubsub = new PubSub();
 
 const typeDefs = `#graphql
- type Message {
- id: ID!
- text: String!
- author: String!
- }
+type Message {
+id: ID!
+text: String!
+author: String!
+}
 
- type Query {
- messages: [Message!]!
- }
+type Query {
+messages: [Message!]!
+}
 
- type Mutation {
- sendMessage(text: String!, author: String!): Message!
- }
+type Mutation {
+sendMessage(text: String!, author: String!): Message!
+}
 
- type Subscription {
- messageAdded: Message!
- }
+type Subscription {
+messageAdded: Message!
+}
 `;
 
 const resolvers = {
- Query: {
- messages: () => messages,
- },
- Mutation: {
- sendMessage: (parent, { text, author }) => {
- const message = { id: String(messages.length + 1), text, author };
- messages.push(message);
+Query: {
+messages: () => messages,
+},
+Mutation: {
+sendMessage: (parent, { text, author }) => {
+const message = { id: String(messages.length + 1), text, author };
+messages.push(message);
 
- // Publish event
- pubsub.publish('MESSAGE_ADDED', { messageAdded: message });
+// Publish event
+pubsub.publish('MESSAGE_ADDED', { messageAdded: message });
 
- return message;
- },
- },
- Subscription: {
- messageAdded: {
- subscribe: () => pubsub.asyncIterator(['MESSAGE_ADDED']),
- },
- },
+return message;
+},
+},
+Subscription: {
+messageAdded: {
+subscribe: () => pubsub.asyncIterator(['MESSAGE_ADDED']),
+},
+},
 };
 
 const schema = makeExecutableSchema({ typeDefs, resolvers });
@@ -852,27 +856,27 @@ const httpServer = createServer();
 
 // WebSocket server
 const wsServer = new WebSocketServer({
- server: httpServer,
- path: '/graphql',
+server: httpServer,
+path: '/graphql',
 });
 
 const serverCleanup = useServer({ schema }, wsServer);
 
 // Apollo Server
 const server = new ApolloServer({
- schema,
- plugins: [
- ApolloServerPluginDrainHttpServer({ httpServer }),
- {
- async serverWillStart() {
- return {
- async drainServer() {
- await serverCleanup.dispose();
- },
- };
- },
- },
- ],
+schema,
+plugins: [
+ApolloServerPluginDrainHttpServer({ httpServer }),
+{
+async serverWillStart() {
+return {
+async drainServer() {
+await serverCleanup.dispose();
+},
+};
+},
+},
+],
 });
 
 await server.start();
@@ -883,26 +887,26 @@ await server.start();
 import { useSubscription, gql } from '@apollo/client';
 
 const MESSAGE_SUBSCRIPTION = gql`
- subscription OnMessageAdded {
- messageAdded {
- id
- text
- author
- }
- }
+subscription OnMessageAdded {
+messageAdded {
+id
+text
+author
+}
+}
 `;
 
 function Messages() {
- const { data, loading } = useSubscription(MESSAGE_SUBSCRIPTION);
+const { data, loading } = useSubscription(MESSAGE_SUBSCRIPTION);
 
- if (loading) return <p>Loading...</p>;
+if (loading) return <p>Loading...</p>;
 
- return (
- <div>
- <h2>New Message:</h2>
- <p>{data.messageAdded.author}: {data.messageAdded.text}</p>
- </div>
- );
+return (
+<div>
+<h2>New Message:</h2>
+<p>{data.messageAdded.author}: {data.messageAdded.text}</p>
+</div>
+);
 }
 ```
 
@@ -919,66 +923,66 @@ function Messages() {
 **Offset-based Pagination:**
 ```graphql
 type Query {
- posts(offset: Int, limit: Int): [Post!]!
+posts(offset: Int, limit: Int): [Post!]!
 }
 ```
 
 **Cursor-based Pagination (Relay Connection Pattern):**
 ```graphql
 type Query {
- posts(first: Int, after: String, last: Int, before: String): PostConnection!
+posts(first: Int, after: String, last: Int, before: String): PostConnection!
 }
 
 type PostConnection {
- edges: [PostEdge!]!
- pageInfo: PageInfo!
- totalCount: Int!
+edges: [PostEdge!]!
+pageInfo: PageInfo!
+totalCount: Int!
 }
 
 type PostEdge {
- cursor: String!
- node: Post!
+cursor: String!
+node: Post!
 }
 
 type PageInfo {
- hasNextPage: Boolean!
- hasPreviousPage: Boolean!
- startCursor: String
- endCursor: String
+hasNextPage: Boolean!
+hasPreviousPage: Boolean!
+startCursor: String
+endCursor: String
 }
 ```
 
 **Resolver Implementation:**
 ```javascript
 const resolvers = {
- Query: {
- posts: async (parent, { first, after }, context) => {
- const limit = first || 10;
- const offset = after ? parseInt(Buffer.from(after, 'base64').toString()) : 0;
+Query: {
+posts: async (parent, { first, after }, context) => {
+const limit = first || 10;
+const offset = after ? parseInt(Buffer.from(after, 'base64').toString()) : 0;
 
- const posts = await db.posts.findMany({
- skip: offset,
- take: limit + 1, // Fetch one extra to check if there's a next page
- });
+const posts = await db.posts.findMany({
+skip: offset,
+take: limit + 1, // Fetch one extra to check if there's a next page
+});
 
- const hasNextPage = posts.length > limit;
- const edges = posts.slice(0, limit).map((post, index) => ({
- cursor: Buffer.from(String(offset + index)).toString('base64'),
- node: post,
- }));
+const hasNextPage = posts.length > limit;
+const edges = posts.slice(0, limit).map((post, index) => ({
+cursor: Buffer.from(String(offset + index)).toString('base64'),
+node: post,
+}));
 
- return {
- edges,
- pageInfo: {
- hasNextPage,
- hasPreviousPage: offset > 0,
- startCursor: edges[0]?.cursor,
- endCursor: edges[edges.length - 1]?.cursor,
- },
- totalCount: await db.posts.count(),
- };
- },
- },
+return {
+edges,
+pageInfo: {
+hasNextPage,
+hasPreviousPage: offset > 0,
+startCursor: edges[0]?.cursor,
+endCursor: edges[edges.length - 1]?.cursor,
+},
+totalCount: await db.posts.count(),
+};
+},
+},
 };
 ```
 
@@ -995,18 +999,18 @@ const resolvers = {
 1. **JWT in Headers:**
 ```javascript
 context: async ({ req }) => {
- const token = req.headers.authorization?.replace('Bearer ', '');
- const user = await verifyToken(token);
- return { user };
+const token = req.headers.authorization?.replace('Bearer ', '');
+const user = await verifyToken(token);
+return { user };
 }
 ```
 
 2. **Cookie-based:**
 ```javascript
 context: async ({ req }) => {
- const sessionId = req.cookies.sessionId;
- const user = await getSessionUser(sessionId);
- return { user };
+const sessionId = req.cookies.sessionId;
+const user = await getSessionUser(sessionId);
+return { user };
 }
 ```
 
@@ -1015,20 +1019,20 @@ context: async ({ req }) => {
 **1. Resolver-level:**
 ```javascript
 const resolvers = {
- Mutation: {
- deletePost: async (parent, { id }, context) => {
- if (!context.user) {
- throw new Error('Not authenticated');
- }
+Mutation: {
+deletePost: async (parent, { id }, context) => {
+if (!context.user) {
+throw new Error('Not authenticated');
+}
 
- const post = await getPost(id);
- if (post.authorId !== context.user.id && context.user.role !== 'ADMIN') {
- throw new Error('Not authorized');
- }
+const post = await getPost(id);
+if (post.authorId !== context.user.id && context.user.role !== 'ADMIN') {
+throw new Error('Not authorized');
+}
 
- return await deletePost(id);
- },
- },
+return await deletePost(id);
+},
+},
 };
 ```
 
@@ -1037,7 +1041,7 @@ const resolvers = {
 directive @auth(requires: Role = USER) on FIELD_DEFINITION
 
 type Mutation {
- deletePost(id: ID!): Boolean! @auth(requires: ADMIN)
+deletePost(id: ID!): Boolean! @auth(requires: ADMIN)
 }
 ```
 
@@ -1045,30 +1049,30 @@ type Mutation {
 const { mapSchema, getDirective, MapperKind } = require('@graphql-tools/utils');
 
 function authDirective(schema, directiveName) {
- return mapSchema(schema, {
- [MapperKind.OBJECT_FIELD]: (fieldConfig) => {
- const authDirective = getDirective(schema, fieldConfig, directiveName)?.[0];
+return mapSchema(schema, {
+[MapperKind.OBJECT_FIELD]: (fieldConfig) => {
+const authDirective = getDirective(schema, fieldConfig, directiveName)?.[0];
 
- if (authDirective) {
- const { requires } = authDirective;
- const { resolve = defaultFieldResolver } = fieldConfig;
+if (authDirective) {
+const { requires } = authDirective;
+const { resolve = defaultFieldResolver } = fieldConfig;
 
- fieldConfig.resolve = async function(source, args, context, info) {
- if (!context.user) {
- throw new Error('Not authenticated');
- }
+fieldConfig.resolve = async function(source, args, context, info) {
+if (!context.user) {
+throw new Error('Not authenticated');
+}
 
- if (requires && context.user.role !== requires) {
- throw new Error('Not authorized');
- }
+if (requires && context.user.role !== requires) {
+throw new Error('Not authorized');
+}
 
- return resolve(source, args, context, info);
- };
- }
+return resolve(source, args, context, info);
+};
+}
 
- return fieldConfig;
- },
- });
+return fieldConfig;
+},
+});
 }
 ```
 
@@ -1095,61 +1099,61 @@ function authDirective(schema, directiveName) {
 const { GraphQLError } = require('graphql');
 
 class AuthenticationError extends GraphQLError {
- constructor(message) {
- super(message, {
- extensions: {
- code: 'UNAUTHENTICATED',
- http: { status: 401 },
- },
- });
- }
+constructor(message) {
+super(message, {
+extensions: {
+code: 'UNAUTHENTICATED',
+http: { status: 401 },
+},
+});
+}
 }
 
 class ValidationError extends GraphQLError {
- constructor(message, field) {
- super(message, {
- extensions: {
- code: 'BAD_USER_INPUT',
- field,
- http: { status: 400 },
- },
- });
- }
+constructor(message, field) {
+super(message, {
+extensions: {
+code: 'BAD_USER_INPUT',
+field,
+http: { status: 400 },
+},
+});
+}
 }
 
 // Usage
 const resolvers = {
- Mutation: {
- createUser: async (parent, { input }, context) => {
- if (!isValidEmail(input.email)) {
- throw new ValidationError('Invalid email format', 'email');
- }
+Mutation: {
+createUser: async (parent, { input }, context) => {
+if (!isValidEmail(input.email)) {
+throw new ValidationError('Invalid email format', 'email');
+}
 
- if (!context.user) {
- throw new AuthenticationError('Must be logged in');
- }
+if (!context.user) {
+throw new AuthenticationError('Must be logged in');
+}
 
- // ... create user
- },
- },
+// ... create user
+},
+},
 };
 ```
 
 **Error Response Format:**
 ```json
 {
- "errors": [
- {
- "message": "Invalid email format",
- "locations": [{ "line": 2, "column": 3 }],
- "path": ["createUser"],
- "extensions": {
- "code": "BAD_USER_INPUT",
- "field": "email"
- }
- }
- ],
- "data": null
+"errors": [
+{
+"message": "Invalid email format",
+"locations": [{ "line": 2, "column": 3 }],
+"path": ["createUser"],
+"extensions": {
+"code": "BAD_USER_INPUT",
+"field": "email"
+}
+}
+],
+"data": null
 }
 ```
 
@@ -1170,13 +1174,13 @@ const resolvers = {
 const { createComplexityLimitRule } = require('graphql-validation-complexity');
 
 const server = new ApolloServer({
- typeDefs,
- resolvers,
- validationRules: [
- createComplexityLimitRule(1000, {
- onCost: (cost) => console.log('Query cost:', cost),
- }),
- ],
+typeDefs,
+resolvers,
+validationRules: [
+createComplexityLimitRule(1000, {
+onCost: (cost) => console.log('Query cost:', cost),
+}),
+],
 });
 ```
 
@@ -1185,9 +1189,9 @@ const server = new ApolloServer({
 const depthLimit = require('graphql-depth-limit');
 
 const server = new ApolloServer({
- typeDefs,
- resolvers,
- validationRules: [depthLimit(10)],
+typeDefs,
+resolvers,
+validationRules: [depthLimit(10)],
 });
 ```
 
@@ -1195,12 +1199,12 @@ const server = new ApolloServer({
 ```javascript
 // Client sends query hash instead of full query
 {
- "extensions": {
- "persistedQuery": {
- "version": 1,
- "sha256Hash": "ecf4edb46db40b5132295c0291d62fb65d6759a9eedfa4d5d612dd5ec54a6b38"
- }
- }
+"extensions": {
+"persistedQuery": {
+"version": 1,
+"sha256Hash": "ecf4edb46db40b5132295c0291d62fb65d6759a9eedfa4d5d612dd5ec54a6b38"
+}
+}
 }
 ```
 
@@ -1209,10 +1213,10 @@ const server = new ApolloServer({
 const { cacheControl } = require('@apollo/server-plugin-response-cache');
 
 const typeDefs = `#graphql
- type Query {
- user(id: ID!): User @cacheControl(maxAge: 60)
- posts: [Post!]! @cacheControl(maxAge: 30)
- }
+type Query {
+user(id: ID!): User @cacheControl(maxAge: 60)
+posts: [Post!]! @cacheControl(maxAge: 30)
+}
 `;
 ```
 
@@ -1234,20 +1238,20 @@ Already covered in Day 15-16.
 const { user } = require('./resolvers');
 
 describe('User resolver', () => {
- it('should return user by id', async () => {
- const mockContext = {
- dataSources: {
- userAPI: {
- getUserById: jest.fn(() => ({ id: '1', name: 'Alice' })),
- },
- },
- };
+it('should return user by id', async () => {
+const mockContext = {
+dataSources: {
+userAPI: {
+getUserById: jest.fn(() => ({ id: '1', name: 'Alice' })),
+},
+},
+};
 
- const result = await user(null, { id: '1' }, mockContext);
+const result = await user(null, { id: '1' }, mockContext);
 
- expect(result).toEqual({ id: '1', name: 'Alice' });
- expect(mockContext.dataSources.userAPI.getUserById).toHaveBeenCalledWith('1');
- });
+expect(result).toEqual({ id: '1', name: 'Alice' });
+expect(mockContext.dataSources.userAPI.getUserById).toHaveBeenCalledWith('1');
+});
 });
 ```
 
@@ -1257,32 +1261,32 @@ const { ApolloServer } = require('@apollo/server');
 const { typeDefs, resolvers } = require('./schema');
 
 describe('GraphQL API', () => {
- let server;
+let server;
 
- beforeAll(() => {
- server = new ApolloServer({ typeDefs, resolvers });
- });
+beforeAll(() => {
+server = new ApolloServer({ typeDefs, resolvers });
+});
 
- it('should create a user', async () => {
- const result = await server.executeOperation({
- query: `
- mutation CreateUser($input: CreateUserInput!) {
- createUser(input: $input) {
- user {
- id
- name
- }
- }
- }
- `,
- variables: {
- input: { name: 'Alice', email: 'alice@example.com' },
- },
- });
+it('should create a user', async () => {
+const result = await server.executeOperation({
+query: `
+mutation CreateUser($input: CreateUserInput!) {
+createUser(input: $input) {
+user {
+id
+name
+}
+}
+}
+`,
+variables: {
+input: { name: 'Alice', email: 'alice@example.com' },
+},
+});
 
- expect(result.errors).toBeUndefined();
- expect(result.data.createUser.user.name).toBe('Alice');
- });
+expect(result.errors).toBeUndefined();
+expect(result.data.createUser.user.name).toBe('Alice');
+});
 });
 ```
 
@@ -1292,39 +1296,39 @@ const request = require('supertest');
 const app = require('./app');
 
 describe('GraphQL E2E', () => {
- it('should authenticate and fetch user', async () => {
- // Login
- const loginRes = await request(app)
- .post('/graphql')
- .send({
- query: `
- mutation {
- login(email: "alice@example.com", password: "secret") {
- token
- }
- }
- `,
- });
+it('should authenticate and fetch user', async () => {
+// Login
+const loginRes = await request(app)
+.post('/graphql')
+.send({
+query: `
+mutation {
+login(email: "alice@example.com", password: "secret") {
+token
+}
+}
+`,
+});
 
- const token = loginRes.body.data.login.token;
+const token = loginRes.body.data.login.token;
 
- // Fetch user
- const userRes = await request(app)
- .post('/graphql')
- .set('Authorization', `Bearer ${token}`)
- .send({
- query: `
- query {
- me {
- id
- name
- }
- }
- `,
- });
+// Fetch user
+const userRes = await request(app)
+.post('/graphql')
+.set('Authorization', `Bearer ${token}`)
+.send({
+query: `
+query {
+me {
+id
+name
+}
+}
+`,
+});
 
- expect(userRes.body.data.me.name).toBe('Alice');
- });
+expect(userRes.body.data.me.name).toBe('Alice');
+});
 });
 ```
 
@@ -1351,22 +1355,22 @@ describe('GraphQL E2E', () => {
 **Apollo Server Production Config:**
 ```javascript
 const server = new ApolloServer({
- typeDefs,
- resolvers,
- introspection: process.env.NODE_ENV !== 'production',
- plugins: [
- ApolloServerPluginLandingPageDisabled(),
- // Or: ApolloServerPluginLandingPageProductionDefault()
- ],
- formatError: (error) => {
- // Don't expose internal errors
- if (error.extensions?.code === 'INTERNAL_SERVER_ERROR') {
- return new GraphQLError('Internal server error', {
- extensions: { code: 'INTERNAL_SERVER_ERROR' },
- });
- }
- return error;
- },
+typeDefs,
+resolvers,
+introspection: process.env.NODE_ENV !== 'production',
+plugins: [
+ApolloServerPluginLandingPageDisabled(),
+// Or: ApolloServerPluginLandingPageProductionDefault()
+],
+formatError: (error) => {
+// Don't expose internal errors
+if (error.extensions?.code === 'INTERNAL_SERVER_ERROR') {
+return new GraphQLError('Internal server error', {
+extensions: { code: 'INTERNAL_SERVER_ERROR' },
+});
+}
+return error;
+},
 });
 ```
 
@@ -1375,8 +1379,8 @@ const server = new ApolloServer({
 const rateLimit = require('express-rate-limit');
 
 const limiter = rateLimit({
- windowMs: 15 * 60 * 1000, // 15 minutes
- max: 100, // Limit each IP to 100 requests per windowMs
+windowMs: 15 * 60 * 1000, // 15 minutes
+max: 100, // Limit each IP to 100 requests per windowMs
 });
 
 app.use('/graphql', limiter);
@@ -1387,14 +1391,14 @@ app.use('/graphql', limiter);
 const { ApolloServerPluginUsageReporting } = require('@apollo/server/plugin/usageReporting');
 
 const server = new ApolloServer({
- typeDefs,
- resolvers,
- plugins: [
- ApolloServerPluginUsageReporting({
- sendVariableValues: { all: true },
- sendHeaders: { all: true },
- }),
- ],
+typeDefs,
+resolvers,
+plugins: [
+ApolloServerPluginUsageReporting({
+sendVariableValues: { all: true },
+sendHeaders: { all: true },
+}),
+],
 });
 ```
 
@@ -1415,21 +1419,21 @@ const server = new ApolloServer({
 ```graphql
 # Users Service
 type User @key(fields: "id") {
- id: ID!
- name: String!
- email: String!
+id: ID!
+name: String!
+email: String!
 }
 
 # Posts Service
 extend type User @key(fields: "id") {
- id: ID! @external
- posts: [Post!]!
+id: ID! @external
+posts: [Post!]!
 }
 
 type Post {
- id: ID!
- title: String!
- author: User!
+id: ID!
+title: String!
+author: User!
 }
 ```
 
@@ -1442,10 +1446,10 @@ npm install -D @graphql-codegen/cli @graphql-codegen/typescript
 # codegen.yml
 schema: http://localhost:4000/graphql
 generates:
- ./src/types.ts:
- plugins:
- - typescript
- - typescript-resolvers
+./src/types.ts:
+plugins:
+- typescript
+- typescript-resolvers
 ```
 
 ### Schema Stitching

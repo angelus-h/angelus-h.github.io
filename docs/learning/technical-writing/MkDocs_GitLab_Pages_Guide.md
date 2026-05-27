@@ -134,19 +134,19 @@ mkdocs build --strict
 
 ```
 my-docs/
- docs/ # Documentation source files
- index.md # Homepage
- getting-started.md # Other pages
- advanced.md
- assets/ # Images, CSS, JS
- images/
- stylesheets/
- javascripts/
- mkdocs.yml # MkDocs configuration
- .gitlab-ci.yml # GitLab CI/CD pipeline
- requirements.txt # Python dependencies
- .gitignore # Git ignore file
- README.md # Project README
+docs/ # Documentation source files
+index.md # Homepage
+getting-started.md # Other pages
+advanced.md
+assets/ # Images, CSS, JS
+images/
+stylesheets/
+javascripts/
+mkdocs.yml # MkDocs configuration
+.gitlab-ci.yml # GitLab CI/CD pipeline
+requirements.txt # Python dependencies
+.gitignore # Git ignore file
+README.md # Project README
 ```
 
 ### Basic mkdocs.yml
@@ -157,12 +157,12 @@ site_description: Comprehensive documentation for my project
 site_url: https://your-username.gitlab.io/my-project/
 
 theme:
- name: material
+name: material
 
 nav:
- - Home: index.md
- - Getting Started: getting-started.md
- - Advanced: advanced.md
+- Home: index.md
+- Getting Started: getting-started.md
+- Advanced: advanced.md
 ```
 
 ### requirements.txt
@@ -206,9 +206,9 @@ Thumbs.db
 ### Repository Setup
 
 1. **Create GitLab repository:**
- - Go to GitLab → New Project
- - Name: `my-documentation`
- - Visibility: Public or Private
+- Go to GitLab → New Project
+- Name: `my-documentation`
+- Visibility: Public or Private
 
 2. **Initialize repository:**
 
@@ -250,7 +250,7 @@ site_url: https://your-username.gitlab.io/my-project/
 use_directory_urls: true
 
 theme:
- name: material
+name: material
 ```
 
 ---
@@ -266,21 +266,21 @@ image: python:3.11-slim
 
 # Cache pip packages
 cache:
- paths:
- - .cache/pip
+paths:
+- .cache/pip
 
 # Static Site job
 pages:
- stage: deploy
- script:
- - pip install -r requirements.txt
- - mkdocs build --strict --verbose
- - mv site public # Static Site expects 'public' directory
- artifacts:
- paths:
- - public
- rules:
- - if: $CI_COMMIT_BRANCH == "main"
+stage: deploy
+script:
+- pip install -r requirements.txt
+- mkdocs build --strict --verbose
+- mv site public # Static Site expects 'public' directory
+artifacts:
+paths:
+- public
+rules:
+- if: $CI_COMMIT_BRANCH == "main"
 ```
 
 ### .gitlab-ci.yml (Advanced)
@@ -289,55 +289,55 @@ pages:
 image: python:3.11-slim
 
 variables:
- PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 stages:
- - test
- - deploy
+- test
+- deploy
 
 cache:
- paths:
- - .cache/pip
- - venv/
+paths:
+- .cache/pip
+- venv/
 
 before_script:
- - python -m venv venv
- - source venv/bin/activate
- - pip install -r requirements.txt
+- python -m venv venv
+- source venv/bin/activate
+- pip install -r requirements.txt
 
 # Test build (runs on all branches)
 test:
- stage: test
- script:
- - mkdocs build --strict --verbose
- rules:
- - if: $CI_PIPELINE_SOURCE == "merge_request_event"
- - if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != "main"
+stage: test
+script:
+- mkdocs build --strict --verbose
+rules:
+- if: $CI_PIPELINE_SOURCE == "merge_request_event"
+- if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != "main"
 
 # Deploy to Static Site (only on main branch)
 pages:
- stage: deploy
- script:
- - mkdocs build --strict --verbose
- - mv site public
- artifacts:
- paths:
- - public
- expire_in: 1 week
- rules:
- - if: $CI_COMMIT_BRANCH == "main"
+stage: deploy
+script:
+- mkdocs build --strict --verbose
+- mv site public
+artifacts:
+paths:
+- public
+expire_in: 1 week
+rules:
+- if: $CI_COMMIT_BRANCH == "main"
 
 # Optional: Lint markdown files
 markdown-lint:
- stage: test
- image: node:18-alpine
- before_script:
- - npm install -g markdownlint-cli
- script:
- - markdownlint docs/**/*.md
- allow_failure: true
- rules:
- - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+stage: test
+image: node:18-alpine
+before_script:
+- npm install -g markdownlint-cli
+script:
+- markdownlint docs/**/*.md
+allow_failure: true
+rules:
+- if: $CI_PIPELINE_SOURCE == "merge_request_event"
 ```
 
 ### Pipeline Workflow
@@ -364,102 +364,102 @@ site_description: Comprehensive project documentation
 site_url: https://username.gitlab.io/my-project/
 
 theme:
- name: material
- logo: assets/images/logo.svg
- favicon: assets/images/favicon.ico
+name: material
+logo: assets/images/logo.svg
+favicon: assets/images/favicon.ico
 
- # Color scheme
- palette:
- # Dark mode
- - scheme: slate
- primary: indigo
- accent: cyan
- toggle:
- icon: material/brightness-4
- name: Switch to light mode
- # Light mode
- - scheme: default
- primary: indigo
- accent: cyan
- toggle:
- icon: material/brightness-7
- name: Switch to dark mode
+# Color scheme
+palette:
+# Dark mode
+- scheme: slate
+primary: indigo
+accent: cyan
+toggle:
+icon: material/brightness-4
+name: Switch to light mode
+# Light mode
+- scheme: default
+primary: indigo
+accent: cyan
+toggle:
+icon: material/brightness-7
+name: Switch to dark mode
 
- # Typography
- font:
- text: Roboto
- code: Roboto Mono
+# Typography
+font:
+text: Roboto
+code: Roboto Mono
 
- # Features
- features:
- - navigation.tabs # Top-level tabs
- - navigation.tabs.sticky # Sticky tabs
- - navigation.sections # Section headings in sidebar
- - navigation.expand # Auto-expand sections
- - navigation.top # Back-to-top button
- - navigation.footer # Footer navigation
- - search.suggest # Search suggestions
- - search.highlight # Highlight search terms
- - search.share # Share search results
- - toc.follow # TOC follows scroll
- - toc.integrate # Integrate TOC in sidebar
- - content.code.copy # Copy button for code blocks
- - content.code.annotate # Code annotations
- - content.tabs.link # Link content tabs
+# Features
+features:
+- navigation.tabs # Top-level tabs
+- navigation.tabs.sticky # Sticky tabs
+- navigation.sections # Section headings in sidebar
+- navigation.expand # Auto-expand sections
+- navigation.top # Back-to-top button
+- navigation.footer # Footer navigation
+- search.suggest # Search suggestions
+- search.highlight # Highlight search terms
+- search.share # Share search results
+- toc.follow # TOC follows scroll
+- toc.integrate # Integrate TOC in sidebar
+- content.code.copy # Copy button for code blocks
+- content.code.annotate # Code annotations
+- content.tabs.link # Link content tabs
 
 # Search plugin
 plugins:
- - search:
- lang: en
- separator: '[\s\-\.]+'
+- search:
+lang: en
+separator: '[\s\-\.]+'
 
 # Markdown extensions
 markdown_extensions:
- - admonition # Call-out blocks
- - pymdownx.details # Collapsible blocks
- - pymdownx.superfences # Nested code blocks
- - pymdownx.tabbed: # Tabbed content
- alternate_style: true
- - tables # Markdown tables
- - attr_list # Add HTML attributes
- - md_in_html # Markdown in HTML
- - pymdownx.emoji: # Emoji support
- emoji_index: !!python/name:material.extensions.emoji.twemoji
- emoji_generator: !!python/name:material.extensions.emoji.to_svg
- - pymdownx.highlight: # Code highlighting
- anchor_linenums: true
- - pymdownx.inlinehilite # Inline code highlighting
- - pymdownx.snippets # Include external files
- - pymdownx.keys # Keyboard keys
- - pymdownx.tasklist: # Task lists
- custom_checkbox: true
- - toc:
- permalink: true
- toc_depth: 3
+- admonition # Call-out blocks
+- pymdownx.details # Collapsible blocks
+- pymdownx.superfences # Nested code blocks
+- pymdownx.tabbed: # Tabbed content
+alternate_style: true
+- tables # Markdown tables
+- attr_list # Add HTML attributes
+- md_in_html # Markdown in HTML
+- pymdownx.emoji: # Emoji support
+emoji_index: !!python/name:material.extensions.emoji.twemoji
+emoji_generator: !!python/name:material.extensions.emoji.to_svg
+- pymdownx.highlight: # Code highlighting
+anchor_linenums: true
+- pymdownx.inlinehilite # Inline code highlighting
+- pymdownx.snippets # Include external files
+- pymdownx.keys # Keyboard keys
+- pymdownx.tasklist: # Task lists
+custom_checkbox: true
+- toc:
+permalink: true
+toc_depth: 3
 
 # Social links
 extra:
- social:
- - icon: fontawesome/brands/gitlab
- link: https://gitlab.com/username/project
- name: GitLab Repository
- - icon: fontawesome/brands/slack
- link: https://your-org.slack.com
- name: Slack Channel
- - icon: fontawesome/solid/envelope
- link: mailto:team@example.com
- generator: false # Hide "Made with MkDocs Material"
+social:
+- icon: fontawesome/brands/gitlab
+link: https://gitlab.com/username/project
+name: GitLab Repository
+- icon: fontawesome/brands/slack
+link: https://your-org.slack.com
+name: Slack Channel
+- icon: fontawesome/solid/envelope
+link: mailto:team@example.com
+generator: false # Hide "Made with MkDocs Material"
 
 # Copyright notice
 copyright: Copyright &copy; 2026 Your Organization
 
 # Custom CSS
 extra_css:
- - assets/stylesheets/extra.css
+- assets/stylesheets/extra.css
 
 # Custom JavaScript
 extra_javascript:
- - assets/javascripts/extra.js
+- assets/javascripts/extra.js
 ```
 
 ### Custom CSS (docs/assets/stylesheets/extra.css)
@@ -467,23 +467,23 @@ extra_javascript:
 ```css
 /* Custom color overrides */
 :root {
- --md-primary-fg-color: #0066cc;
- --md-accent-fg-color: #ff6600;
+--md-primary-fg-color: #0066cc;
+--md-accent-fg-color: #ff6600;
 }
 
 /* Custom styling for admonitions */
 .md-typeset .admonition.note {
- border-left: 4px solid #0066cc;
+border-left: 4px solid #0066cc;
 }
 
 /* Code block styling */
 .highlight pre {
- border-radius: 4px;
+border-radius: 4px;
 }
 
 /* Custom footer */
 .md-footer {
- background-color: #1a1a1a;
+background-color: #1a1a1a;
 }
 ```
 
@@ -491,32 +491,32 @@ extra_javascript:
 
 ```yaml
 theme:
- name: material
- logo: assets/images/company-logo.svg
- favicon: assets/images/company-logo.svg
+name: material
+logo: assets/images/company-logo.svg
+favicon: assets/images/company-logo.svg
 
- palette:
- # Dark mode (Company black)
- - scheme: slate
- primary: custom
- accent: red
- toggle:
- icon: material/brightness-4
- name: Switch to light mode
- # Light mode (White background, Company red)
- - scheme: default
- primary: custom
- accent: red
- toggle:
- icon: material/brightness-7
- name: Switch to dark mode
+palette:
+# Dark mode (Company black)
+- scheme: slate
+primary: custom
+accent: red
+toggle:
+icon: material/brightness-4
+name: Switch to light mode
+# Light mode (White background, Company red)
+- scheme: default
+primary: custom
+accent: red
+toggle:
+icon: material/brightness-7
+name: Switch to dark mode
 
- font:
- text: Company Text
- code: Company Mono
+font:
+text: Company Text
+code: Company Mono
 
 extra_css:
- - assets/stylesheets/company.css
+- assets/stylesheets/company.css
 ```
 
 **docs/assets/stylesheets/company.css:**
@@ -524,13 +524,13 @@ extra_css:
 ```css
 /* Company color scheme */
 :root {
- --md-primary-fg-color: #ee0000;
- --md-accent-fg-color: #ee0000;
+--md-primary-fg-color: #ee0000;
+--md-accent-fg-color: #ee0000;
 }
 
 [data-md-color-scheme="slate"] {
- --md-default-bg-color: #0f0f0f;
- --md-default-fg-color: #ffffff;
+--md-default-bg-color: #0f0f0f;
+--md-default-fg-color: #ffffff;
 }
 ```
 
@@ -542,29 +542,29 @@ extra_css:
 
 ```yaml
 nav:
- - Home: index.md
+- Home: index.md
 
- - Getting Started:
- - Installation: getting-started/installation.md
- - Configuration: getting-started/configuration.md
- - First Steps: getting-started/first-steps.md
+- Getting Started:
+- Installation: getting-started/installation.md
+- Configuration: getting-started/configuration.md
+- First Steps: getting-started/first-steps.md
 
- - User Guide:
- - Overview: user-guide/overview.md
- - Basic Usage: user-guide/basic-usage.md
- - Advanced: user-guide/advanced.md
+- User Guide:
+- Overview: user-guide/overview.md
+- Basic Usage: user-guide/basic-usage.md
+- Advanced: user-guide/advanced.md
 
- - API Reference:
- - Authentication: api/authentication.md
- - Endpoints: api/endpoints.md
+- API Reference:
+- Authentication: api/authentication.md
+- Endpoints: api/endpoints.md
 
- - Development:
- - Contributing: development/contributing.md
- - Testing: development/testing.md
+- Development:
+- Contributing: development/contributing.md
+- Testing: development/testing.md
 
- - About:
- - License: about/license.md
- - Changelog: about/changelog.md
+- About:
+- License: about/license.md
+- Changelog: about/changelog.md
 ```
 
 ### 2. Code Block Features
@@ -574,9 +574,9 @@ nav:
 ````markdown
 ```python linenums="1" hl_lines="2 3"
 def hello_world():
- name = "World"
- print(f"Hello, {name}!")
- return True
+name = "World"
+print(f"Hello, {name}!")
+return True
 ```
 ````
 
@@ -602,22 +602,22 @@ key: value # (1)!
 
 ```markdown
 !!! note
- This is a note.
+This is a note.
 
 !!! warning
- This is a warning.
+This is a warning.
 
 !!! danger
- This is dangerous information.
+This is dangerous information.
 
 !!! tip
- This is a helpful tip.
+This is a helpful tip.
 
 !!! info
- This is informational.
+This is informational.
 
 ??? question "Collapsible question"
- This starts collapsed and can be expanded.
+This starts collapsed and can be expanded.
 ```
 
 ### 4. Tabbed Content
@@ -625,21 +625,21 @@ key: value # (1)!
 ```markdown
 === "Python"
 
- ```python
- print("Hello, World!")
- ```
+```python
+print("Hello, World!")
+```
 
 === "JavaScript"
 
- ```javascript
- console.log("Hello, World!");
- ```
+```javascript
+console.log("Hello, World!");
+```
 
 === "Go"
 
- ```go
- fmt.Println("Hello, World!")
- ```
+```go
+fmt.Println("Hello, World!")
+```
 ```
 
 ### 5. Diagrams (Mermaid)
@@ -654,8 +654,8 @@ pip install mkdocs-mermaid2-plugin
 
 ```yaml
 plugins:
- - search
- - mermaid2
+- search
+- mermaid2
 ```
 
 **In Markdown:**
@@ -671,8 +671,8 @@ plugins:
 
 ```yaml
 markdown_extensions:
- - pymdownx.snippets:
- base_path: docs
+- pymdownx.snippets:
+base_path: docs
 ```
 
 **In Markdown:**
@@ -685,13 +685,13 @@ markdown_extensions:
 
 ```yaml
 plugins:
- - search:
- lang: en
- separator: '[\s\-\.]+'
- pipeline:
- - stemmer
- - stopWordFilter
- - trimmer
+- search:
+lang: en
+separator: '[\s\-\.]+'
+pipeline:
+- stemmer
+- stopWordFilter
+- trimmer
 ```
 
 **Boost specific pages:**
@@ -699,7 +699,7 @@ plugins:
 ```markdown
 ---
 search:
- boost: 2
+boost: 2
 ---
 
 # Important Page
@@ -711,16 +711,16 @@ This page is more important in search results.
 
 ```yaml
 plugins:
- - search
- - i18n:
- default_language: en
- languages:
- en: English
- hu: Magyar
- nav_translations:
- hu:
- Home: Főoldal
- Getting Started: Kezdő lépések
+- search
+- i18n:
+default_language: en
+languages:
+en: English
+hu: Magyar
+nav_translations:
+hu:
+Home: Főoldal
+Getting Started: Kezdő lépések
 ```
 
 ---
@@ -780,20 +780,20 @@ Static Site provides:
 
 ```
 docs/
- index.md # Homepage
- getting-started/ # Section directories
- installation.md
- configuration.md
- user-guide/
- overview.md
- advanced.md
- api/
- authentication.md
- endpoints.md
- assets/ # Static assets
- images/
- stylesheets/
- javascripts/
+index.md # Homepage
+getting-started/ # Section directories
+installation.md
+configuration.md
+user-guide/
+overview.md
+advanced.md
+api/
+authentication.md
+endpoints.md
+assets/ # Static assets
+images/
+stylesheets/
+javascripts/
 ```
 
 ### 2. Writing Good Documentation
@@ -824,8 +824,8 @@ Configure the application by editing `config.yaml`:
 
 ```yaml
 server:
- host: 0.0.0.0
- port: 8080
+host: 0.0.0.0
+port: 8080
 ```
 ```
 
@@ -860,18 +860,18 @@ Add to `.gitlab-ci.yml`:
 
 ```yaml
 review:
- stage: deploy
- script:
- - mkdocs build --strict
- - mv site public
- artifacts:
- paths:
- - public
- environment:
- name: review/$CI_COMMIT_REF_NAME
- url: https://$CI_PROJECT_ROOT_NAMESPACE.gitlab.io/-/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/index.html
- rules:
- - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+stage: deploy
+script:
+- mkdocs build --strict
+- mv site public
+artifacts:
+paths:
+- public
+environment:
+name: review/$CI_COMMIT_REF_NAME
+url: https://$CI_PROJECT_ROOT_NAMESPACE.gitlab.io/-/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/index.html
+rules:
+- if: $CI_PIPELINE_SOURCE == "merge_request_event"
 ```
 
 ### 5. Performance Optimization
@@ -898,10 +898,10 @@ Use MkDocs plugins:
 
 ```yaml
 plugins:
- - minify:
- minify_html: true
- minify_js: true
- minify_css: true
+- minify:
+minify_html: true
+minify_js: true
+minify_css: true
 ```
 
 ### 6. Accessibility
@@ -951,12 +951,12 @@ description: Step-by-step installation guide for Ubuntu, macOS, and Windows
 ```yaml
 # Ensure artifacts are correct
 pages:
- script:
- - mkdocs build
- - mv site public # Must be 'public'
- artifacts:
- paths:
- - public # Must be 'public'
+script:
+- mkdocs build
+- mv site public # Must be 'public'
+artifacts:
+paths:
+- public # Must be 'public'
 ```
 
 ### Problem: 404 Errors on Subpages
@@ -993,8 +993,8 @@ use_directory_urls: true
 
 ```yaml
 plugins:
- - search:
- lang: en
+- search:
+lang: en
 ```
 
 ### Problem: Build Fails with "Config Error"
@@ -1019,8 +1019,8 @@ python -c "import yaml; yaml.safe_load(open('mkdocs.yml'))"
 
 ```yaml
 cache:
- paths:
- - .cache/pip
+paths:
+- .cache/pip
 ```
 
 2. **Optimize images:**
@@ -1033,8 +1033,8 @@ imagemin docs/assets/images/* --out-dir=docs/assets/images/
 
 ```yaml
 plugins:
- - search:
- prebuild_index: python # Pre-build search index
+- search:
+prebuild_index: python # Pre-build search index
 ```
 
 ### Problem: Theme Not Applied
@@ -1062,7 +1062,7 @@ mkdocs-material>=9.4.0
 ```yaml
 # mkdocs.yml
 extra_css:
- - assets/stylesheets/extra.css # Path relative to docs/
+- assets/stylesheets/extra.css # Path relative to docs/
 ```
 
 **File location:**
@@ -1079,30 +1079,30 @@ docs/assets/stylesheets/extra.css
 
 ```
 my-documentation/
- .gitlab-ci.yml
- .gitignore
- mkdocs.yml
- requirements.txt
- README.md
- docs/
- index.md
- getting-started/
- installation.md
- configuration.md
- user-guide/
- overview.md
- advanced.md
- api/
- authentication.md
- endpoints.md
- assets/
- images/
- logo.svg
- favicon.ico
- stylesheets/
- extra.css
- javascripts/
- extra.js
+.gitlab-ci.yml
+.gitignore
+mkdocs.yml
+requirements.txt
+README.md
+docs/
+index.md
+getting-started/
+installation.md
+configuration.md
+user-guide/
+overview.md
+advanced.md
+api/
+authentication.md
+endpoints.md
+assets/
+images/
+logo.svg
+favicon.ico
+stylesheets/
+extra.css
+javascripts/
+extra.js
 ```
 
 ### Complete mkdocs.yml
@@ -1114,90 +1114,90 @@ site_url: https://username.gitlab.io/my-documentation/
 site_author: Your Name
 
 theme:
- name: material
- logo: assets/images/logo.svg
- favicon: assets/images/favicon.ico
+name: material
+logo: assets/images/logo.svg
+favicon: assets/images/favicon.ico
 
- palette:
- - scheme: slate
- primary: indigo
- accent: cyan
- toggle:
- icon: material/brightness-4
- name: Switch to light mode
- - scheme: default
- primary: indigo
- accent: cyan
- toggle:
- icon: material/brightness-7
- name: Switch to dark mode
+palette:
+- scheme: slate
+primary: indigo
+accent: cyan
+toggle:
+icon: material/brightness-4
+name: Switch to light mode
+- scheme: default
+primary: indigo
+accent: cyan
+toggle:
+icon: material/brightness-7
+name: Switch to dark mode
 
- font:
- text: Roboto
- code: Roboto Mono
+font:
+text: Roboto
+code: Roboto Mono
 
- features:
- - navigation.tabs
- - navigation.tabs.sticky
- - navigation.sections
- - navigation.expand
- - navigation.top
- - navigation.footer
- - search.suggest
- - search.highlight
- - search.share
- - toc.follow
- - toc.integrate
- - content.code.copy
- - content.code.annotate
+features:
+- navigation.tabs
+- navigation.tabs.sticky
+- navigation.sections
+- navigation.expand
+- navigation.top
+- navigation.footer
+- search.suggest
+- search.highlight
+- search.share
+- toc.follow
+- toc.integrate
+- content.code.copy
+- content.code.annotate
 
 plugins:
- - search:
- lang: en
+- search:
+lang: en
 
 markdown_extensions:
- - admonition
- - pymdownx.details
- - pymdownx.superfences
- - pymdownx.tabbed:
- alternate_style: true
- - tables
- - attr_list
- - md_in_html
- - pymdownx.emoji:
- emoji_index: !!python/name:material.extensions.emoji.twemoji
- emoji_generator: !!python/name:material.extensions.emoji.to_svg
- - pymdownx.highlight:
- anchor_linenums: true
- - pymdownx.inlinehilite
- - pymdownx.snippets
- - toc:
- permalink: true
+- admonition
+- pymdownx.details
+- pymdownx.superfences
+- pymdownx.tabbed:
+alternate_style: true
+- tables
+- attr_list
+- md_in_html
+- pymdownx.emoji:
+emoji_index: !!python/name:material.extensions.emoji.twemoji
+emoji_generator: !!python/name:material.extensions.emoji.to_svg
+- pymdownx.highlight:
+anchor_linenums: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- toc:
+permalink: true
 
 extra:
- social:
- - icon: fontawesome/brands/gitlab
- link: https://gitlab.com/username/my-documentation
- - icon: fontawesome/brands/slack
- link: https://your-org.slack.com
- generator: false
+social:
+- icon: fontawesome/brands/gitlab
+link: https://gitlab.com/username/my-documentation
+- icon: fontawesome/brands/slack
+link: https://your-org.slack.com
+generator: false
 
 copyright: Copyright &copy; 2026 Your Organization
 
 extra_css:
- - assets/stylesheets/extra.css
+- assets/stylesheets/extra.css
 
 nav:
- - Home: index.md
- - Getting Started:
- - Installation: getting-started/installation.md
- - Configuration: getting-started/configuration.md
- - User Guide:
- - Overview: user-guide/overview.md
- - Advanced: user-guide/advanced.md
- - API Reference:
- - Authentication: api/authentication.md
- - Endpoints: api/endpoints.md
+- Home: index.md
+- Getting Started:
+- Installation: getting-started/installation.md
+- Configuration: getting-started/configuration.md
+- User Guide:
+- Overview: user-guide/overview.md
+- Advanced: user-guide/advanced.md
+- API Reference:
+- Authentication: api/authentication.md
+- Endpoints: api/endpoints.md
 ```
 
 ### Complete .gitlab-ci.yml
@@ -1206,37 +1206,37 @@ nav:
 image: python:3.11-slim
 
 variables:
- PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
 stages:
- - test
- - deploy
+- test
+- deploy
 
 cache:
- paths:
- - .cache/pip
+paths:
+- .cache/pip
 
 before_script:
- - pip install -r requirements.txt
+- pip install -r requirements.txt
 
 test:
- stage: test
- script:
- - mkdocs build --strict --verbose
- rules:
- - if: $CI_PIPELINE_SOURCE == "merge_request_event"
- - if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != "main"
+stage: test
+script:
+- mkdocs build --strict --verbose
+rules:
+- if: $CI_PIPELINE_SOURCE == "merge_request_event"
+- if: $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH != "main"
 
 pages:
- stage: deploy
- script:
- - mkdocs build --strict --verbose
- - mv site public
- artifacts:
- paths:
- - public
- rules:
- - if: $CI_COMMIT_BRANCH == "main"
+stage: deploy
+script:
+- mkdocs build --strict --verbose
+- mv site public
+artifacts:
+paths:
+- public
+rules:
+- if: $CI_COMMIT_BRANCH == "main"
 ```
 
 ---
@@ -1293,15 +1293,15 @@ mkdocs gh-deploy
 ```yaml
 # Minimal .gitlab-ci.yml
 pages:
- script:
- - pip install mkdocs-material
- - mkdocs build
- - mv site public
- artifacts:
- paths:
- - public
- only:
- - main
+script:
+- pip install mkdocs-material
+- mkdocs build
+- mv site public
+artifacts:
+paths:
+- public
+only:
+- main
 ```
 
 ### Material Theme Setup
@@ -1312,7 +1312,7 @@ pip install mkdocs-material
 
 ```yaml
 theme:
- name: material
+name: material
 ```
 
 ---

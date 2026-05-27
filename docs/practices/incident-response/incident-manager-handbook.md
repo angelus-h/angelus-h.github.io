@@ -85,15 +85,15 @@ Many engineers confuse these two roles. They are **different but related**.
 
 ```
 Interrupt Catcher receives critical alert
- ↓
+↓
 Escalates to Incident (based on severity/impact)
- ↓
+↓
 Interrupt Catcher becomes Incident Manager
- ↓
+↓
 Coordinates response until resolution
- ↓
+↓
 Facilitates RCA meeting
- ↓
+↓
 Returns to IC duties
 ```
 
@@ -101,11 +101,11 @@ Returns to IC duties
 
 ```
 IC detects critical incident
- ↓
+↓
 Declares incident and creates Slack channel
- ↓
+↓
 Dedicated Incident Manager takes over coordination
- ↓
+↓
 IC continues other duties (alerts, MRs)
 ```
 
@@ -119,42 +119,42 @@ Understanding the full lifecycle helps you know what to do at each stage.
 
 ```
 1. Detection
- Alert triggered
- User report
- Manual discovery
+Alert triggered
+User report
+Manual discovery
 
 2. Declaration
- IC evaluates severity
- Creates incident Slack channel
- Invites relevant teams
+IC evaluates severity
+Creates incident Slack channel
+Invites relevant teams
 
 3. Coordination (Incident Manager takes over)
- Acknowledges ownership
- Gathers initial context
- Summarizes situation
- Assigns investigation threads
- Provides regular updates
+Acknowledges ownership
+Gathers initial context
+Summarizes situation
+Assigns investigation threads
+Provides regular updates
 
 4. Investigation
- Teams investigate in parallel
- IM keeps everyone aligned
- IM documents key findings
+Teams investigate in parallel
+IM keeps everyone aligned
+IM documents key findings
 
 5. Mitigation
- Fix identified
- Fix deployed
- Service recovery confirmed
+Fix identified
+Fix deployed
+Service recovery confirmed
 
 6. Resolution
- Incident declared resolved
- Slack channel archived
- Transition to RCA
+Incident declared resolved
+Slack channel archived
+Transition to RCA
 
 7. Post-Incident (RCA)
- IM facilitates RCA meeting
- Incident Tracking Tool document created
- Action items tracked
- Learnings shared
+IM facilitates RCA meeting
+Incident Tracking Tool document created
+Action items tracked
+Learnings shared
 ```
 
 ---
@@ -355,28 +355,28 @@ The RCA meeting is **separate from the incident**. It happens **after resolution
 
 ```
 1. Opening (5 min)
- Set blameless tone
+Set blameless tone
 
 2. Timeline Reconstruction (10 min)
- Walk through what happened when
+Walk through what happened when
 
 3. Technical Explanation (10 min)
- What actually failed
+What actually failed
 
 4. Root Cause Analysis (10 min)
- Why did it happen (5 Whys method)
+Why did it happen (5 Whys method)
 
 5. What Worked Well (5 min)
- Positive reinforcement
+Positive reinforcement
 
 6. Improvements (10 min)
- What should we change
+What should we change
 
 7. Action Items (5 min)
- Owners and deadlines
+Owners and deadlines
 
 8. Summary (5 min)
- Next steps
+Next steps
 ```
 
 ---
@@ -591,28 +591,28 @@ Typical sections:
 
 ```
 1. Incident Summary
- - Impact
- - Start/end time
- - Affected services
+- Impact
+- Start/end time
+- Affected services
 
 2. Timeline
- - Key events with timestamps
+- Key events with timestamps
 
 3. Root Cause
- - What failed
- - Why it failed
+- What failed
+- Why it failed
 
 4. Resolution
- - How it was fixed
+- How it was fixed
 
 5. What Worked Well
- - Positive observations
+- Positive observations
 
 6. Action Items
- - Improvements with owners
+- Improvements with owners
 
 7. Supporting Data
- - Logs, metrics, screenshots
+- Logs, metrics, screenshots
 ```
 
 ---
@@ -868,8 +868,8 @@ Quick update: No root cause identified yet. Investigation continues.
 **Solution:** Specific actions with owners and deadlines.
 
 ```
- "Improve monitoring"
- "Add alert for invalid config deployment (Owner: SRE, Due: 2026-03-20)"
+"Improve monitoring"
+"Add alert for invalid config deployment (Owner: SRE, Due: 2026-03-20)"
 ```
 
 ---
@@ -1004,7 +1004,7 @@ If everyone knows the answer to these, you're doing well.
 
 ### Internal Documentation
 
-- **Interrupt Catcher Guide:** `/learning-plans/spre-interrupt-catcher-guide.md`
+- **Interrupt Catcher Guide:** `/learning-plans/ops-interrupt-catcher-guide.md`
 - **App-SRE Incident Process:** `/repos/app-interface/docs/sre-team/incident-process.md`
 - **App-SRE IC Process:** `/repos/app-interface/docs/sre-team/interrupt-catching.md`
 
@@ -1013,9 +1013,9 @@ If everyone knows the answer to these, you're doing well.
 - **Incident Tracking Tool Tool:** https://incident-tracker.company.com/
 - **PagerDuty:** https://company.pagerduty.com/
 - **Slack Channels:**
- - `#announce-platform-incidents`
- - `#sd-sre-team-oncall`
- - `#incident-tracker-status-board-adoption`
+- `#announce-platform-incidents`
+- `#sd-sre-team-oncall`
+- `#incident-tracker-status-board-adoption`
 
 ---
 

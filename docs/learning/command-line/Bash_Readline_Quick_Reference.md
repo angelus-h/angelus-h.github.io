@@ -1,3 +1,7 @@
+---
+description: Bash readline quick reference - keyboard shortcuts for command-line navigation, editing, history, and efficient terminal workflows.
+---
+
 # Bash Readline Quick Reference
 
 ## Overview
@@ -35,16 +39,16 @@ Alt+f - Move forward one word
 **Example:**
 ```bash
 $ ls -la /var/log/application.log
- ^ cursor here
+^ cursor here
 
 Ctrl+a → $ ls -la /var/log/application.log
- ^ cursor at start
+^ cursor at start
 
 Ctrl+e → $ ls -la /var/log/application.log
- ^ cursor at end
+^ cursor at end
 
 Alt+b → $ ls -la /var/log/application.log
- ^ cursor moved back one word
+^ cursor moved back one word
 ```
 
 **Mnemonic:**
@@ -74,21 +78,21 @@ Alt+Backspace - Kill word before cursor (alternative to Ctrl+w)
 ```bash
 # Delete from cursor to end of line
 $ echo "This is a long command with many arguments"
- ^ cursor here
+^ cursor here
 Ctrl+k → $ echo "
- (text after cursor is killed/cut)
+(text after cursor is killed/cut)
 
 # Delete from cursor to start of line
 $ git commit -m "Initial commit"
- ^ cursor here
+^ cursor here
 Ctrl+u → $ "Initial commit"
- (text before cursor is killed)
+(text before cursor is killed)
 
 # Delete previous word
 $ kubectl get pods --namespace production
- ^ cursor here
+^ cursor here
 Ctrl+w → $ kubectl get pods --namespace
- (word "production" is killed)
+(word "production" is killed)
 ```
 
 ### Paste (Yank)
@@ -101,7 +105,7 @@ Alt+y - Rotate through kill ring (after Ctrl+y)
 **Example:**
 ```bash
 $ echo "delete this" keep this
- ^ select "delete this"
+^ select "delete this"
 Ctrl+u → $ keep this
 $ echo "paste here: "
 Ctrl+y → $ echo "paste here: delete this"
@@ -118,13 +122,13 @@ Alt+t - Transpose words
 ```bash
 # Fix typo "teh" → "the"
 $ teh quick brown
- ^ cursor between e and h
+^ cursor between e and h
 Ctrl+t → $ the quick brown
- (h and e swapped)
+(h and e swapped)
 
 # Swap words
 $ brown quick fox
- ^ cursor on "quick"
+^ cursor on "quick"
 Alt+t → $ quick brown fox
 ```
 
@@ -139,15 +143,15 @@ Alt+c - Capitalize word from cursor (C = capitalize)
 **Example:**
 ```bash
 $ echo hello world
- ^ cursor here
+^ cursor here
 Alt+u → $ echo HELLO world
 
 $ echo HELLO WORLD
- ^ cursor here
+^ cursor here
 Alt+l → $ echo hello WORLD
 
 $ echo hello world
- ^ cursor here
+^ cursor here
 Alt+c → $ echo Hello world
 ```
 
@@ -167,7 +171,7 @@ Ctrl+n - Next command in history (N = next, same as Down arrow)
 ```
 Ctrl+r - Reverse incremental search (R = reverse)
 Ctrl+s - Forward incremental search (S = search)
- (Note: Ctrl+s may be disabled by flow control, see troubleshooting)
+(Note: Ctrl+s may be disabled by flow control, see troubleshooting)
 
 Ctrl+g - Escape from history search mode
 Ctrl+j or Enter - Execute found command
@@ -317,7 +321,7 @@ Ctrl+q - Same as Ctrl+v (Q = quote)
 # Insert a Tab character literally (instead of completion)
 $ echo "hello[Ctrl+v][Tab]world"
 $ echo "hello	world"
- ^ actual tab character
+^ actual tab character
 
 # Insert Ctrl+C literally
 $ echo "Press [Ctrl+v][Ctrl+c] to cancel"
@@ -641,7 +645,7 @@ sudo dnf install bash-completion
 
 # Enable in ~/.bashrc
 if [ -f /etc/bash_completion ]; then
- . /etc/bash_completion
+. /etc/bash_completion
 fi
 ```
 
@@ -680,28 +684,28 @@ $ python3
 
 ```bash
 mysql> SELECT * FROM users WHERE username = 'admin';
- ^A^E^B^B^B^B^K
+^A^E^B^B^B^B^K
 ```
 
 ### PostgreSQL (psql)
 
 ```bash
 psql=# \d users
- ^P (previous command)
+^P (previous command)
 ```
 
 ### Redis CLI
 
 ```bash
 127.0.0.1:6379> GET mykey
- ^A^F^F^F (move forward)
+^A^F^F^F (move forward)
 ```
 
 ### Node.js REPL
 
 ```bash
 > console.log("Hello");
- ^U (clear line)
+^U (clear line)
 ```
 
 ---
@@ -863,7 +867,7 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
 # Enable bash completion
 if [ -f /etc/bash_completion ]; then
- . /etc/bash_completion
+. /etc/bash_completion
 fi
 
 # Disable flow control (enable Ctrl+s search)

@@ -50,6 +50,38 @@ This section serves as a repository for:
 
 ## Coming Soon
 
+### Operational Lessons from Professional Experience
+
+Building on the Professional Development framework in Practices, this section will feature strategic frameworks and pattern recognition guides for navigating challenging workplace situations.
+
+**Communication Patterns:**
+- Money and professional relationships - why they should never mix
+- Recognizing manipulative colleague behaviors
+- Boundary setting failures - why we say "yes" when we mean "no"
+- Mentorship red flags and dysfunction patterns
+
+**Psychological Patterns:**
+- Compliance compulsion - family origins and workplace manifestations
+- Breaking the people-pleasing cycle
+- Building healthy professional boundaries
+
+**Organizational Dynamics:**
+- Toxic workplace recognition and survival strategies
+- Role ambiguity and unclear expectations
+- When to stay, when to exit
+
+**Strategic Response Frameworks:**
+- Prevention strategies (before situations arise)
+- Mitigation tactics (during difficult situations)
+- Exit criteria and planning
+- Boundary scripts for common scenarios
+
+All content will be:
+- Fully anonymized (no company or individual names)
+- Fact-based and observable patterns only
+- Focused on actionable lessons, not drama
+- Validated with research where applicable
+
 This section will evolve organically as a living document of personal journey and transformation.
 
 ---

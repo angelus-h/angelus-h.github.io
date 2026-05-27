@@ -32,9 +32,9 @@ description: Technical deep dive into AI architecture - transformers, LLMs, toke
 
 ```
 AI (Artificial Intelligence)
- > ML (Machine Learning)
- > DL (Deep Learning)
- > LLM (Large Language Models)
+> ML (Machine Learning)
+> DL (Deep Learning)
+> LLM (Large Language Models)
 ```
 
 | Term | Definition | Example |
@@ -56,9 +56,9 @@ AI (Artificial Intelligence)
 **Analogy:**
 ```
 Human: Reads "The cat sat on the ___" billions of times
- → Probably expects "mat"
+→ Probably expects "mat"
 LLM: Sees "The cat sat on the ___" billions of times
- → Statistically "mat" is most probable (but could be "table", "floor")
+→ Statistically "mat" is most probable (but could be "table", "floor")
 ```
 
 **IMPORTANT:** LLMs **DO NOT** understand text like humans do. They follow statistical patterns.
@@ -84,24 +84,24 @@ LLM: Sees "The cat sat on the ___" billions of times
 
 ```
 Input Text: "The cat sat on the mat"
- ↓
+↓
 [Tokenization]
- ↓
+↓
 [Embedding Layer] - Words → vectors
- ↓
+↓
 [Positional Encoding] - Sequence information
- ↓
+↓
 [Encoder Stack] (BERT-type models)
- > Self-Attention
- > Feed-Forward Network
- > Normalization + Residual Connection
- ↓
+> Self-Attention
+> Feed-Forward Network
+> Normalization + Residual Connection
+↓
 [Decoder Stack] (GPT-type models)
- > Masked Self-Attention
- > Cross-Attention (Encoder output)
- > Feed-Forward Network
- > Normalization + Residual Connection
- ↓
+> Masked Self-Attention
+> Cross-Attention (Encoder output)
+> Feed-Forward Network
+> Normalization + Residual Connection
+↓
 [Output Layer]
 ```
 
@@ -116,13 +116,13 @@ Input Text: "The cat sat on the mat"
 "The animal didn't cross the street because it was too tired."
 
 Question: What was tired?
- - "it" → "animal" (high attention weight)
- - "it" → "street" (low attention weight)
+- "it" → "animal" (high attention weight)
+- "it" → "street" (low attention weight)
 
 Attention score:
- it → animal = 0.89
- it → street = 0.02
- it → cross = 0.05
+it → animal = 0.89
+it → street = 0.02
+it → cross = 0.05
 ```
 
 **Self-Attention Formula (simplified):**
@@ -221,7 +221,7 @@ Input: "The cat sat on the mat."
 
 Token split:
 ["The", " cat", " sat", " on", " the", " mat", "."]
- ^space is part of token!
+^space is part of token!
 
 Token IDs:
 [464, 3857, 3332, 319, 262, 2603, 13]
@@ -273,9 +273,9 @@ If Input = 150,000 tokens
 
 ```
 [Beginning of context] - Model remembers WELL
- ...
+...
 [Middle of context] - Model FORGETS (!)
- ...
+...
 [End of context] - Model remembers WELL
 
 Example:
@@ -337,18 +337,18 @@ Repeat on billions of examples
 **RLHF Workflow (Reinforcement Learning from Human Feedback):**
 ```
 1. Pre-trained Model
- ↓
+↓
 2. Supervised Fine-tuning (SFT)
- ↓
+↓
 3. Reward Model Training
- - Humans rank: "This answer is better than that"
- - Reward model learns what humans prefer
- ↓
+- Humans rank: "This answer is better than that"
+- Reward model learns what humans prefer
+↓
 4. Reinforcement Learning (PPO)
- - Model generates answers
- - Reward model scores them
- - Model optimizes for reward
- ↓
+- Model generates answers
+- Reward model scores them
+- Model optimizes for reward
+↓
 5. Final Model (ChatGPT, Claude)
 ```
 
@@ -384,11 +384,11 @@ Examples given, model learns in-context
 ```
 Prompt:
 "Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls.
- Each can has 3 balls. How many tennis balls does he have now?
+Each can has 3 balls. How many tennis balls does he have now?
 A: Let's think step by step.
- Roger started with 5 balls.
- 2 cans × 3 balls/can = 6 balls
- 5 + 6 = 11 balls."
+Roger started with 5 balls.
+2 cans × 3 balls/can = 6 balls
+5 + 6 = 11 balls."
 
 Better results on reasoning tasks!
 ```
@@ -440,8 +440,8 @@ Assistant: "Use .sort() or sorted(). Example: sorted([3,1,2]) → [1,2,3]"
 "Pizza recipe" → [0.01, 0.02, 0.99, ..., 0.12] (very different!)
 
 Cosine similarity:
- "Kubernetes pod" vs "K8s container" = 0.95 (high!)
- "Kubernetes pod" vs "Pizza recipe" = 0.12 (low!)
+"Kubernetes pod" vs "K8s container" = 0.95 (high!)
+"Kubernetes pod" vs "Pizza recipe" = 0.12 (low!)
 ```
 
 **Popular Embedding Models:**
@@ -486,25 +486,25 @@ Cosine similarity:
 
 ```
 
- Claude Code (MCP Client)
- or other AI tool 
+Claude Code (MCP Client)
+or other AI tool 
 
- MCP Protocol (JSON-RPC over stdio/HTTP)
- ↓
+MCP Protocol (JSON-RPC over stdio/HTTP)
+↓
 
- MCP Server (e.g., lumino-mcp-server)
- - Tools 
- - Resources 
- - Prompts 
+MCP Server (e.g., lumino-mcp-server)
+- Tools 
+- Resources 
+- Prompts 
 
- Kubernetes API, Prometheus, etc.
- ↓
+Kubernetes API, Prometheus, etc.
+↓
 
- External Systems 
- - Kubernetes 
- - Prometheus 
- - Jira 
- - GitHub 
+External Systems 
+- Kubernetes 
+- Prometheus 
+- Jira 
+- GitHub 
 
 ```
 
@@ -532,10 +532,10 @@ mcp = MCPServer("lumino-mcp-server")
 
 @mcp.tool()
 async def get_pod_logs(namespace: str, pod_name: str) -> str:
- """Get logs from a Kubernetes pod."""
- # Call Kubernetes API
- logs = await k8s_api.read_namespaced_pod_log(pod_name, namespace)
- return logs
+"""Get logs from a Kubernetes pod."""
+# Call Kubernetes API
+logs = await k8s_api.read_namespaced_pod_log(pod_name, namespace)
+return logs
 
 # AI calls this:
 # User: "Get logs from pod my-app in namespace production"
@@ -571,9 +571,9 @@ AI: "I don't have real-time data."
 ```
 User: "What's the weather?"
 AI Agent:
- 1. Calls tool: get_weather(location="Budapest")
- 2. Receives: {"temp": 15, "condition": "cloudy"}
- 3. Responds: "It's 15°C and cloudy in Budapest."
+1. Calls tool: get_weather(location="Budapest")
+2. Receives: {"temp": 15, "condition": "cloudy"}
+3. Responds: "It's 15°C and cloudy in Budapest."
 ```
 
 ### Agent Loop (ReAct Pattern)
@@ -585,45 +585,45 @@ User: "Find the latest Kubernetes vulnerability and check if our cluster is affe
 
 Agent Loop:
 
- 1. REASON 
- "I need to search for K8s CVEs" 
+1. REASON 
+"I need to search for K8s CVEs" 
 
- ↓
+↓
 
- 2. ACT 
- Call: search_cve("Kubernetes") 
+2. ACT 
+Call: search_cve("Kubernetes") 
 
- ↓
+↓
 
- 3. OBSERVE 
- Result: CVE-2024-1234 (v1.28.0) 
+3. OBSERVE 
+Result: CVE-2024-1234 (v1.28.0) 
 
- ↓
+↓
 
- 4. REASON 
- "Now check our cluster version" 
+4. REASON 
+"Now check our cluster version" 
 
- ↓
+↓
 
- 5. ACT 
- Call: get_k8s_version() 
+5. ACT 
+Call: get_k8s_version() 
 
- ↓
+↓
 
- 6. OBSERVE 
- Result: v1.28.0 
+6. OBSERVE 
+Result: v1.28.0 
 
- ↓
+↓
 
- 7. REASON 
- "Versions match! Vulnerable!" 
+7. REASON 
+"Versions match! Vulnerable!" 
 
- ↓
+↓
 
- 8. RESPOND 
- "Your cluster v1.28.0 is affected 
- by CVE-2024-1234. Upgrade to 
- v1.28.1 recommended." 
+8. RESPOND 
+"Your cluster v1.28.0 is affected 
+by CVE-2024-1234. Upgrade to 
+v1.28.1 recommended." 
 
 ```
 
@@ -651,7 +651,7 @@ Agent Loop:
 ```
 User: "What's the capital of Atlantis?"
 AI: "The capital of Atlantis is Poseidonis, located in the central district."
- ^^^^ Made up, but sounds confident!
+^^^^ Made up, but sounds confident!
 ```
 
 **Why does it happen?**
@@ -732,41 +732,41 @@ Stereotype: Programming → assumes certain demographics
 
 ```
 
- USER INTERFACE 
- - CLI (Claude Code, Cursor) 
- - Web UI (ChatGPT, Claude.ai) 
- - IDE Plugin (GitHub Copilot, Tabnine) 
+USER INTERFACE 
+- CLI (Claude Code, Cursor) 
+- Web UI (ChatGPT, Claude.ai) 
+- IDE Plugin (GitHub Copilot, Tabnine) 
 
- 
 
- AI ORCHESTRATION LAYER 
- - LangChain / LlamaIndex 
- - MCP Servers (lumino, jira, github) 
- - Agent Framework 
 
- 
+AI ORCHESTRATION LAYER 
+- LangChain / LlamaIndex 
+- MCP Servers (lumino, jira, github) 
+- Agent Framework 
 
- LLM MODELS (API) 
- - OpenAI GPT-4 / GPT-3.5 
- - Anthropic Claude 3.5 
- - Google Gemini 
- - (or Self-hosted: LLaMA, Mistral) 
 
- 
 
- KNOWLEDGE LAYER (RAG) 
- - Vector DB (Pinecone, Weaviate, Chroma) 
- - Embedding Models (OpenAI, Voyage) 
- - Document Store (S3, Postgres) 
+LLM MODELS (API) 
+- OpenAI GPT-4 / GPT-3.5 
+- Anthropic Claude 3.5 
+- Google Gemini 
+- (or Self-hosted: LLaMA, Mistral) 
 
- 
 
- TOOLS & INTEGRATIONS 
- - Kubernetes API 
- - Prometheus / Grafana 
- - Jira / GitHub / GitLab 
- - PagerDuty / Slack 
- - SSH / Bash 
+
+KNOWLEDGE LAYER (RAG) 
+- Vector DB (Pinecone, Weaviate, Chroma) 
+- Embedding Models (OpenAI, Voyage) 
+- Document Store (S3, Postgres) 
+
+
+
+TOOLS & INTEGRATIONS 
+- Kubernetes API 
+- Prometheus / Grafana 
+- Jira / GitHub / GitLab 
+- PagerDuty / Slack 
+- SSH / Bash 
 
 ```
 
@@ -923,42 +923,42 @@ Inference speed:
 ### Papers (Fundamentals)
 
 1. **"Attention Is All You Need" (2017)**
- - Original Transformer paper
- - https://arxiv.org/abs/1706.03762
+- Original Transformer paper
+- https://arxiv.org/abs/1706.03762
 
 2. **"Language Models are Few-Shot Learners" (GPT-3, 2020)**
- - https://arxiv.org/abs/2005.14165
+- https://arxiv.org/abs/2005.14165
 
 3. **"Constitutional AI" (Anthropic, 2022)**
- - https://arxiv.org/abs/2212.08073
+- https://arxiv.org/abs/2212.08073
 
 4. **"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks" (2020)**
- - https://arxiv.org/abs/2005.11401
+- https://arxiv.org/abs/2005.11401
 
 ### Courses
 
 1. **"CS324: Large Language Models" (Stanford)**
- - https://stanford-cs324.github.io/winter2022/
+- https://stanford-cs324.github.io/winter2022/
 
 2. **"Practical Deep Learning for Coders" (fast.ai)**
- - https://course.fast.ai/
+- https://course.fast.ai/
 
 3. **"LangChain for LLM Application Development" (DeepLearning.AI)**
- - https://www.deeplearning.ai/short-courses/
+- https://www.deeplearning.ai/short-courses/
 
 ### Hands-On
 
 1. **Build a RAG system:**
- - LangChain + Chroma + OpenAI API
- - Index your platform docs, ask questions
+- LangChain + Chroma + OpenAI API
+- Index your platform docs, ask questions
 
 2. **Create MCP server:**
- - Follow lumino-mcp-server example
- - Add your own tools
+- Follow lumino-mcp-server example
+- Add your own tools
 
 3. **Fine-tune a model:**
- - Use OpenAI fine-tuning API
- - Fine-tune on your org's data (if allowed)
+- Use OpenAI fine-tuning API
+- Fine-tune on your org's data (if allowed)
 
 ---
 

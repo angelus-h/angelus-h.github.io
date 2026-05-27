@@ -122,7 +122,7 @@ Observe a workflow - what tools do I use, in what order?
 
 ### Auto Memory System
 
-**Location:** `/home/user/.claude/projects/-home-demo_user-ai-konflux-lumino/memory/`
+**Location:** `/home/user/.claude/projects/-home-demo_user-ai-production-lumino/memory/`
 
 **Files:**
 - `MEMORY.md` - Main index (max 200 lines, always loaded)
@@ -147,7 +147,7 @@ Observe a workflow - what tools do I use, in what order?
 ```
 
 ### Practice:
-- Check: `cat /home/user/.claude/projects/-home-demo_user-ai-konflux-lumino/memory/MEMORY.md`
+- Check: `cat /home/user/.claude/projects/-home-demo_user-ai-production-lumino/memory/MEMORY.md`
 - Ask me: "Summarize what you know about me from your memory"
 
 ---
@@ -211,10 +211,10 @@ Plan a 4-step project (e.g., write new script, document it, test it, deploy).
 
 ### What I CANNOT do:
 
- **No persistent memory between sessions** (only memory files)
- **No real-time internet** (only WebSearch/WebFetch tools)
- **Can't see your screen** (only what you paste)
- **Can't open files in IDE** (only read/write/edit)
+**No persistent memory between sessions** (only memory files)
+**No real-time internet** (only WebSearch/WebFetch tools)
+**Can't see your screen** (only what you paste)
+**Can't open files in IDE** (only read/write/edit)
 
 ### Solutions:
 
@@ -268,10 +268,10 @@ create the INFRA-3000 analysis file."
 
 ### Things to avoid:
 
- **Too general questions:** "Help with the project"
- **Missing context:** "Why doesn't it work?" (what? where?)
- **Contradictory instructions:** "Be brief but very detailed"
- **Assuming I remember:** "Continue where you left off" (in new session without memory)
+**Too general questions:** "Help with the project"
+**Missing context:** "Why doesn't it work?" (what? where?)
+**Contradictory instructions:** "Be brief but very detailed"
+**Assuming I remember:** "Continue where you left off" (in new session without memory)
 
 ---
 
@@ -386,13 +386,13 @@ Give a complex task and ask me to break it down into steps.
 
 ```
 
- Mastery: Autonomous Collaboration ← You + Claude as a team
+Mastery: Autonomous Collaboration ← You + Claude as a team
 
- Advanced: Multi-Session Projects ← Memory, agents, complex workflows
+Advanced: Multi-Session Projects ← Memory, agents, complex workflows
 
- Intermediate: Effective Prompting ← Structured requests, iteration
+Intermediate: Effective Prompting ← Structured requests, iteration
 
- Basic: Understanding Capabilities ← Know what I can/can't do
+Basic: Understanding Capabilities ← Know what I can/can't do
 
 ```
 

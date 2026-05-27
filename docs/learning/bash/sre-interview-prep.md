@@ -160,9 +160,9 @@ exit 2 # Misuse of command
 
 # Using exit codes in conditions
 if kubectl get pod nginx-abc12 &>/dev/null; then
- echo "Pod exists"
+echo "Pod exists"
 else
- echo "Pod not found"
+echo "Pod not found"
 fi
 ```
 
@@ -236,23 +236,23 @@ file_count=$(find /tmp -maxdepth 1 -type f | wc -l)
 ```bash
 # Simple if
 if [ -f "/var/log/app.log" ]; then
- echo "Log file exists"
+echo "Log file exists"
 fi
 
 # If-else
 if [ $replica_count -lt 3 ]; then
- echo "WARNING: Low replica count"
+echo "WARNING: Low replica count"
 else
- echo "Replica count OK"
+echo "Replica count OK"
 fi
 
 # If-elif-else
 if [ $cpu_usage -gt 90 ]; then
- echo "CRITICAL: High CPU"
+echo "CRITICAL: High CPU"
 elif [ $cpu_usage -gt 70 ]; then
- echo "WARNING: Elevated CPU"
+echo "WARNING: Elevated CPU"
 else
- echo "CPU normal"
+echo "CPU normal"
 fi
 ```
 
@@ -291,17 +291,17 @@ fi
 ```bash
 # [[ ]] is better: pattern matching, no word splitting
 if [[ $pod_status == "Running" ]]; then
- echo "Pod is running"
+echo "Pod is running"
 fi
 
 # Pattern matching
 if [[ $pod_name == nginx-* ]]; then
- echo "This is an nginx pod"
+echo "This is an nginx pod"
 fi
 
 # Regex matching
 if [[ $log_line =~ ERROR|CRITICAL ]]; then
- echo "Found error in log"
+echo "Found error in log"
 fi
 ```
 
@@ -314,18 +314,18 @@ fi
 pod_status="Running"
 
 case $pod_status in
- "Running")
- echo "Pod is healthy"
- ;;
- "Pending")
- echo "Pod is starting"
- ;;
- "CrashLoopBackOff"|"Error")
- echo "Pod has issues"
- ;;
- *)
- echo "Unknown status"
- ;;
+"Running")
+echo "Pod is healthy"
+;;
+"Pending")
+echo "Pod is starting"
+;;
+"CrashLoopBackOff"|"Error")
+echo "Pod has issues"
+;;
+*)
+echo "Unknown status"
+;;
 esac
 ```
 
@@ -337,21 +337,21 @@ esac
 log_level="$1"
 
 case $log_level in
- ERROR|CRITICAL)
- echo "High severity - alerting on-call"
- # Send alert
- ;;
- WARNING)
- echo "Medium severity - logging to file"
- # Log to file
- ;;
- INFO|DEBUG)
- echo "Low severity - ignoring"
- ;;
- *)
- echo "Unknown log level: $log_level"
- exit 1
- ;;
+ERROR|CRITICAL)
+echo "High severity - alerting on-call"
+# Send alert
+;;
+WARNING)
+echo "Medium severity - logging to file"
+# Log to file
+;;
+INFO|DEBUG)
+echo "Low severity - ignoring"
+;;
+*)
+echo "Unknown log level: $log_level"
+exit 1
+;;
 esac
 ```
 
@@ -362,22 +362,22 @@ esac
 ```bash
 # Iterate over list
 for namespace in default kube-system production; do
- echo "Checking namespace: $namespace"
+echo "Checking namespace: $namespace"
 done
 
 # Iterate over command output
 for pod in $(kubectl get pods -o name); do
- echo "Pod: $pod"
+echo "Pod: $pod"
 done
 
 # C-style for loop
 for ((i=1; i<=5; i++)); do
- echo "Attempt $i"
+echo "Attempt $i"
 done
 
 # Iterate over files
 for logfile in /var/log/*.log; do
- echo "Processing: $logfile"
+echo "Processing: $logfile"
 done
 ```
 
@@ -389,15 +389,15 @@ attempts=0
 max_attempts=3
 
 while [ $attempts -lt $max_attempts ]; do
- echo "Attempt $((attempts + 1))"
- 
- if kubectl get pod nginx-abc12 &>/dev/null; then
- echo "Pod found!"
- break
- fi
- 
- attempts=$((attempts + 1))
- sleep 5
+echo "Attempt $((attempts + 1))"
+
+if kubectl get pod nginx-abc12 &>/dev/null; then
+echo "Pod found!"
+break
+fi
+
+attempts=$((attempts + 1))
+sleep 5
 done
 ```
 
@@ -406,14 +406,14 @@ done
 ```bash
 # Read log file line by line
 while IFS= read -r line; do
- if [[ $line == *ERROR* ]]; then
- echo "Found error: $line"
- fi
+if [[ $line == *ERROR* ]]; then
+echo "Found error: $line"
+fi
 done < /var/log/app.log
 
 # Or with pipe:
 cat /var/log/app.log | while read -r line; do
- echo "Processing: $line"
+echo "Processing: $line"
 done
 ```
 
@@ -441,9 +441,9 @@ done
 read -p "Enter namespace name: " namespace
 
 if kubectl get namespace "$namespace" &>/dev/null; then
- echo "Namespace exists"
+echo "Namespace exists"
 else
- echo "Namespace not found"
+echo "Namespace not found"
 fi
 ```
 </details>
@@ -466,7 +466,7 @@ fi
 #!/bin/bash
 
 kubectl get pods -n default -o custom-columns=NAME:.metadata.name,STATUS:.status.phase --no-headers | while read -r name status; do
- echo "Pod $name: $status"
+echo "Pod $name: $status"
 done
 ```
 </details>
@@ -744,12 +744,12 @@ grep "ERROR" "$logfile" | head -5 | awk '{$1=""; $2=""; print "- " $0}'
 ```bash
 # Simple function
 function greet() {
- echo "Hello from function!"
+echo "Hello from function!"
 }
 
 # Alternative syntax (POSIX-compliant)
 greet() {
- echo "Hello from function!"
+echo "Hello from function!"
 }
 
 # Calling function
@@ -757,10 +757,10 @@ greet
 
 # Function with parameters
 check_pod() {
- local pod_name="$1"
- local namespace="$2"
- 
- echo "Checking pod: $pod_name in namespace: $namespace"
+local pod_name="$1"
+local namespace="$2"
+
+echo "Checking pod: $pod_name in namespace: $namespace"
 }
 
 # Call with arguments
@@ -772,20 +772,20 @@ check_pod "nginx-abc12" "production"
 ```bash
 # Functions return exit codes (0-255)
 is_pod_running() {
- local pod="$1"
- 
- if kubectl get pod "$pod" &>/dev/null; then
- return 0 # Success
- else
- return 1 # Failure
- fi
+local pod="$1"
+
+if kubectl get pod "$pod" &>/dev/null; then
+return 0 # Success
+else
+return 1 # Failure
+fi
 }
 
 # Use in conditions
 if is_pod_running "nginx-abc12"; then
- echo "Pod is running"
+echo "Pod is running"
 else
- echo "Pod not found"
+echo "Pod not found"
 fi
 ```
 
@@ -793,10 +793,10 @@ fi
 
 ```bash
 get_pod_status() {
- local pod="$1"
- 
- status=$(kubectl get pod "$pod" -o jsonpath='{.status.phase}' 2>/dev/null)
- echo "$status"
+local pod="$1"
+
+status=$(kubectl get pod "$pod" -o jsonpath='{.status.phase}' 2>/dev/null)
+echo "$status"
 }
 
 # Capture output
@@ -813,14 +813,14 @@ echo "Status: $pod_status"
 global_var="I am global"
 
 my_function() {
- # Local variable (only exists in function)
- local local_var="I am local"
- 
- # Can access global
- echo "Function sees global: $global_var"
- 
- # Modify global
- global_var="Modified in function"
+# Local variable (only exists in function)
+local local_var="I am local"
+
+# Can access global
+echo "Function sees global: $global_var"
+
+# Modify global
+global_var="Modified in function"
 }
 
 my_function
@@ -838,16 +838,16 @@ echo "Local var outside: $local_var" # Empty (doesn't exist)
 #!/bin/bash
 
 check_url_health() {
- local url="$1"
- local timeout="${2:-5}" # Default 5 seconds
- 
- if curl -sf --max-time "$timeout" "$url" >/dev/null; then
- echo "healthy"
- return 0
- else
- echo "unhealthy"
- return 1
- fi
+local url="$1"
+local timeout="${2:-5}" # Default 5 seconds
+
+if curl -sf --max-time "$timeout" "$url" >/dev/null; then
+echo "healthy"
+return 0
+else
+echo "unhealthy"
+return 1
+fi
 }
 
 # Usage
@@ -855,7 +855,7 @@ status=$(check_url_health "https://example.com")
 echo "Status: $status"
 
 if check_url_health "https://google.com" 10; then
- echo "Google is reachable"
+echo "Google is reachable"
 fi
 ```
 
@@ -865,30 +865,30 @@ fi
 #!/bin/bash
 
 check_pod_health() {
- local pod="$1"
- local namespace="${2:-default}"
- 
- # Get pod status
- status=$(kubectl get pod "$pod" -n "$namespace" \
- -o jsonpath='{.status.phase}' 2>/dev/null)
- 
- # Get restart count
- restarts=$(kubectl get pod "$pod" -n "$namespace" \
- -o jsonpath='{.status.containerStatuses[0].restartCount}' 2>/dev/null)
- 
- if [[ -z "$status" ]]; then
- echo "Pod not found"
- return 2
- elif [[ "$status" != "Running" ]]; then
- echo "Unhealthy (Status: $status)"
- return 1
- elif [[ $restarts -gt 3 ]]; then
- echo "Degraded (Restarts: $restarts)"
- return 1
- else
- echo "Healthy"
- return 0
- fi
+local pod="$1"
+local namespace="${2:-default}"
+
+# Get pod status
+status=$(kubectl get pod "$pod" -n "$namespace" \
+-o jsonpath='{.status.phase}' 2>/dev/null)
+
+# Get restart count
+restarts=$(kubectl get pod "$pod" -n "$namespace" \
+-o jsonpath='{.status.containerStatuses[0].restartCount}' 2>/dev/null)
+
+if [[ -z "$status" ]]; then
+echo "Pod not found"
+return 2
+elif [[ "$status" != "Running" ]]; then
+echo "Unhealthy (Status: $status)"
+return 1
+elif [[ $restarts -gt 3 ]]; then
+echo "Degraded (Restarts: $restarts)"
+return 1
+else
+echo "Healthy"
+return 0
+fi
 }
 
 # Usage
@@ -918,9 +918,9 @@ echo "Pod health: $health"
 #!/bin/bash
 
 celsius_to_fahrenheit() {
- local celsius="$1"
- local fahrenheit=$(echo "scale=2; ($celsius * 9/5) + 32" | bc)
- echo "$fahrenheit"
+local celsius="$1"
+local fahrenheit=$(echo "scale=2; ($celsius * 9/5) + 32" | bc)
+echo "$fahrenheit"
 }
 
 # Test
@@ -953,18 +953,18 @@ echo "100°C = ${result}°F"
 #!/bin/bash
 
 check_file() {
- local filename="$1"
- 
- if [[ ! -e "$filename" ]]; then
- echo "File does not exist"
- return 1
- elif [[ ! -r "$filename" ]]; then
- echo "File exists but not readable"
- return 2
- else
- echo "File exists and is readable"
- return 0
- fi
+local filename="$1"
+
+if [[ ! -e "$filename" ]]; then
+echo "File does not exist"
+return 1
+elif [[ ! -r "$filename" ]]; then
+echo "File exists but not readable"
+return 2
+else
+echo "File exists and is readable"
+return 0
+fi
 }
 
 # Test
@@ -993,16 +993,16 @@ echo "Exit code: $?"
 # Method 1: Check $? immediately after command
 kubectl get pods
 if [ $? -eq 0 ]; then
- echo "Command succeeded"
+echo "Command succeeded"
 else
- echo "Command failed"
+echo "Command failed"
 fi
 
 # Method 2: Use command in if directly (preferred)
 if kubectl get pods; then
- echo "Command succeeded"
+echo "Command succeeded"
 else
- echo "Command failed"
+echo "Command failed"
 fi
 
 # Method 3: Use || and && operators
@@ -1041,8 +1041,8 @@ echo "This won't run if kubectl failed"
 
 # Cleanup function
 cleanup() {
- echo "Cleaning up..."
- rm -f /tmp/temp_file.txt
+echo "Cleaning up..."
+rm -f /tmp/temp_file.txt
 }
 
 # Run cleanup on exit (success or failure)
@@ -1076,9 +1076,9 @@ set +x
 DEBUG=${DEBUG:-false}
 
 debug() {
- if [[ "$DEBUG" == "true" ]]; then
- echo "[DEBUG] $*" >&2
- fi
+if [[ "$DEBUG" == "true" ]]; then
+echo "[DEBUG] $*" >&2
+fi
 }
 
 debug "This is a debug message"
@@ -1095,9 +1095,9 @@ debug "Pod count: $(kubectl get pods --no-headers | wc -l)"
 LOGFILE="/var/log/myscript.log"
 
 log() {
- local level="$1"
- shift
- echo "[$(date +'%Y-%m-%d %H:%M:%S')] [$level] $*" | tee -a "$LOGFILE"
+local level="$1"
+shift
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] [$level] $*" | tee -a "$LOGFILE"
 }
 
 log "INFO" "Script started"
@@ -1112,8 +1112,8 @@ log "WARNING" "High CPU usage detected"
 
 # Check argument count
 if [ $# -ne 2 ]; then
- echo "Usage: $0 <namespace> <pod_name>"
- exit 1
+echo "Usage: $0 <namespace> <pod_name>"
+exit 1
 fi
 
 namespace="$1"
@@ -1121,14 +1121,14 @@ pod_name="$2"
 
 # Validate namespace format (alphanumeric and hyphens only)
 if [[ ! "$namespace" =~ ^[a-z0-9-]+$ ]]; then
- echo "Error: Invalid namespace format"
- exit 1
+echo "Error: Invalid namespace format"
+exit 1
 fi
 
 # Validate pod exists
 if ! kubectl get pod "$pod_name" -n "$namespace" &>/dev/null; then
- echo "Error: Pod $pod_name not found in namespace $namespace"
- exit 1
+echo "Error: Pod $pod_name not found in namespace $namespace"
+exit 1
 fi
 
 echo "Validation passed"
@@ -1159,15 +1159,15 @@ echo "Validation passed"
 set -u
 
 if [ $# -ne 1 ]; then
- echo "Usage: $0 <filename>"
- exit 1
+echo "Usage: $0 <filename>"
+exit 1
 fi
 
 filename="$1"
 
 if [[ ! -f "$filename" ]]; then
- echo "File not found: $filename"
- exit 1
+echo "File not found: $filename"
+exit 1
 fi
 
 rm "$filename"
@@ -1196,27 +1196,27 @@ echo "Deleted: $filename"
 #!/bin/bash
 
 retry_command() {
- local max_attempts=3
- local attempt=1
- 
- while [ $attempt -le $max_attempts ]; do
- echo "Attempt $attempt of $max_attempts"
- 
- if eval "$@"; then
- echo "Command succeeded"
- return 0
- fi
- 
- if [ $attempt -lt $max_attempts ]; then
- echo "Command failed, retrying in 2 seconds..."
- sleep 2
- fi
- 
- attempt=$((attempt + 1))
- done
- 
- echo "All attempts failed"
- return 1
+local max_attempts=3
+local attempt=1
+
+while [ $attempt -le $max_attempts ]; do
+echo "Attempt $attempt of $max_attempts"
+
+if eval "$@"; then
+echo "Command succeeded"
+return 0
+fi
+
+if [ $attempt -lt $max_attempts ]; then
+echo "Command failed, retrying in 2 seconds..."
+sleep 2
+fi
+
+attempt=$((attempt + 1))
+done
+
+echo "All attempts failed"
+return 1
 }
 
 # Test
@@ -1266,14 +1266,14 @@ THRESHOLD=80
 usage=$(df -h "$LOGDIR" | awk 'NR==2 {print $5}' | sed 's/%//')
 
 if [ "$usage" -gt "$THRESHOLD" ]; then
- echo "WARNING: Disk usage at ${usage}%"
- 
- # Find and delete log files older than 7 days
- find "$LOGDIR" -name "*.log" -type f -mtime +7 -delete
- 
- echo "Cleaned up old log files"
+echo "WARNING: Disk usage at ${usage}%"
+
+# Find and delete log files older than 7 days
+find "$LOGDIR" -name "*.log" -type f -mtime +7 -delete
+
+echo "Cleaned up old log files"
 else
- echo "Disk usage OK: ${usage}%"
+echo "Disk usage OK: ${usage}%"
 fi
 ```
 
@@ -1311,9 +1311,9 @@ ps aux --sort=-%mem | head -6 | awk '{printf "%-20s %8s %8s\n", $11, $4, $6}'
 
 # Alert if any process uses > 50% memory
 while read -r pid mem cmd; do
- if (( $(echo "$mem > 50" | bc -l) )); then
- echo "ALERT: Process $cmd (PID $pid) using ${mem}% memory"
- fi
+if (( $(echo "$mem > 50" | bc -l) )); then
+echo "ALERT: Process $cmd (PID $pid) using ${mem}% memory"
+fi
 done < <(ps aux | awk 'NR>1 {print $2, $4, $11}')
 ```
 
@@ -1348,25 +1348,25 @@ journalctl -u nginx -n 50 # Last 50 lines
 #!/bin/bash
 
 check_service() {
- local service="$1"
- 
- if systemctl is-active "$service" &>/dev/null; then
- echo "$service: Running"
- return 0
- else
- echo "$service: NOT running"
- 
- # Check last 10 log lines for errors
- echo "Recent errors:"
- journalctl -u "$service" -n 10 --no-pager | grep -i error
- 
- return 1
- fi
+local service="$1"
+
+if systemctl is-active "$service" &>/dev/null; then
+echo "$service: Running"
+return 0
+else
+echo "$service: NOT running"
+
+# Check last 10 log lines for errors
+echo "Recent errors:"
+journalctl -u "$service" -n 10 --no-pager | grep -i error
+
+return 1
+fi
 }
 
 # Check critical services
 for service in nginx postgresql redis; do
- check_service "$service"
+check_service "$service"
 done
 ```
 
@@ -1399,17 +1399,17 @@ host google.com
 #!/bin/bash
 
 check_connectivity() {
- local host="$1"
- local port="${2:-80}"
- local timeout=5
- 
- if nc -z -w "$timeout" "$host" "$port" 2>/dev/null; then
- echo "$host:$port is reachable"
- return 0
- else
- echo "$host:$port is NOT reachable"
- return 1
- fi
+local host="$1"
+local port="${2:-80}"
+local timeout=5
+
+if nc -z -w "$timeout" "$host" "$port" 2>/dev/null; then
+echo "$host:$port is reachable"
+return 0
+else
+echo "$host:$port is NOT reachable"
+return 1
+fi
 }
 
 # Check critical endpoints
@@ -1441,9 +1441,9 @@ check_connectivity "api.example.com" 443
 cpu_usage=$(top -bn1 | grep "Cpu(s)" | awk '{print $2 + $4}' | cut -d'.' -f1)
 
 if [ "$cpu_usage" -gt 80 ]; then
- echo "HIGH CPU USAGE: ${cpu_usage}%"
+echo "HIGH CPU USAGE: ${cpu_usage}%"
 else
- echo "CPU OK: ${cpu_usage}%"
+echo "CPU OK: ${cpu_usage}%"
 fi
 ```
 </details>
@@ -1471,24 +1471,24 @@ fi
 set -u
 
 if [ $# -ne 1 ]; then
- echo "Usage: $0 <service_name>"
- exit 1
+echo "Usage: $0 <service_name>"
+exit 1
 fi
 
 service="$1"
 
 if systemctl is-active "$service" &>/dev/null; then
- echo "Service $service is already running"
+echo "Service $service is already running"
 else
- echo "Starting $service..."
- sudo systemctl start "$service"
- 
- if systemctl is-active "$service" &>/dev/null; then
- echo "Service $service started successfully"
- else
- echo "Failed to start $service"
- exit 1
- fi
+echo "Starting $service..."
+sudo systemctl start "$service"
+
+if systemctl is-active "$service" &>/dev/null; then
+echo "Service $service started successfully"
+else
+echo "Failed to start $service"
+exit 1
+fi
 fi
 
 systemctl status "$service" --no-pager
@@ -1551,9 +1551,9 @@ kubectl get pods -o jsonpath='{.items[*].status.podIP}'
 echo "Checking for unhealthy pods..."
 
 kubectl get pods --all-namespaces --field-selector status.phase!=Running \
- -o custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name,STATUS:.status.phase \
- --no-headers | while read -r ns name status; do
- echo "UNHEALTHY: Namespace=$ns, Pod=$name, Status=$status"
+-o custom-columns=NAMESPACE:.metadata.namespace,NAME:.metadata.name,STATUS:.status.phase \
+--no-headers | while read -r ns name status; do
+echo "UNHEALTHY: Namespace=$ns, Pod=$name, Status=$status"
 done
 ```
 
@@ -1567,12 +1567,12 @@ THRESHOLD=3
 echo "Pods with high restart count (> $THRESHOLD):"
 
 kubectl get pods --all-namespaces -o json | \
- jq -r '.items[] | 
- select(.status.containerStatuses[]?.restartCount > '$THRESHOLD') |
- "\(.metadata.namespace) \(.metadata.name) \(.status.containerStatuses[0].restartCount)"' | \
- while read -r ns name restarts; do
- echo "Namespace: $ns, Pod: $name, Restarts: $restarts"
- done
+jq -r '.items[] | 
+select(.status.containerStatuses[]?.restartCount > '$THRESHOLD') |
+"\(.metadata.namespace) \(.metadata.name) \(.status.containerStatuses[0].restartCount)"' | \
+while read -r ns name restarts; do
+echo "Namespace: $ns, Pod: $name, Restarts: $restarts"
+done
 ```
 
 ### 7.3 Resource Management Scripts
@@ -1608,12 +1608,12 @@ echo -e "\nTotal pods: $pod_count"
 echo "Pods without resource limits:"
 
 kubectl get pods --all-namespaces -o json | \
- jq -r '.items[] | 
- select(.spec.containers[].resources.limits == null) |
- "\(.metadata.namespace) \(.metadata.name)"' | \
- while read -r ns name; do
- echo "Namespace: $ns, Pod: $name"
- done
+jq -r '.items[] | 
+select(.spec.containers[].resources.limits == null) |
+"\(.metadata.namespace) \(.metadata.name)"' | \
+while read -r ns name; do
+echo "Namespace: $ns, Pod: $name"
+done
 ```
 
 ### 7.4 Log Collection and Analysis
@@ -1626,10 +1626,10 @@ namespace="production"
 label="app=nginx"
 
 kubectl get pods -n "$namespace" -l "$label" -o name | while read -r pod; do
- pod_name=$(echo "$pod" | cut -d'/' -f2)
- echo "=== Logs from $pod_name ==="
- kubectl logs -n "$namespace" "$pod_name" --tail=50 | grep ERROR
- echo ""
+pod_name=$(echo "$pod" | cut -d'/' -f2)
+echo "=== Logs from $pod_name ==="
+kubectl logs -n "$namespace" "$pod_name" --tail=50 | grep ERROR
+echo ""
 done
 ```
 
@@ -1655,10 +1655,10 @@ done
 #!/bin/bash
 
 kubectl get pods --all-namespaces --no-headers | \
- awk '{print $1}' | sort | uniq -c | \
- while read -r count ns; do
- echo "$ns: $count"
- done
+awk '{print $1}' | sort | uniq -c | \
+while read -r count ns; do
+echo "$ns: $count"
+done
 ```
 </details>
 
@@ -1760,7 +1760,7 @@ namespaces+=("staging")
 
 # Loop through array
 for ns in "${namespaces[@]}"; do
- echo "Namespace: $ns"
+echo "Namespace: $ns"
 done
 
 # Create array from command output
@@ -1774,25 +1774,25 @@ pods=($(kubectl get pods -o name))
 
 # Array of URLs to check
 urls=(
- "https://api.example.com"
- "https://db.example.com"
- "https://cache.example.com"
+"https://api.example.com"
+"https://db.example.com"
+"https://cache.example.com"
 )
 
 failed_checks=()
 
 for url in "${urls[@]}"; do
- if ! curl -sf --max-time 5 "$url" >/dev/null; then
- failed_checks+=("$url")
- fi
+if ! curl -sf --max-time 5 "$url" >/dev/null; then
+failed_checks+=("$url")
+fi
 done
 
 if [ ${#failed_checks[@]} -gt 0 ]; then
- echo "Failed health checks:"
- printf '%s\n' "${failed_checks[@]}"
- exit 1
+echo "Failed health checks:"
+printf '%s\n' "${failed_checks[@]}"
+exit 1
 else
- echo "All health checks passed"
+echo "All health checks passed"
 fi
 ```
 
@@ -1812,13 +1812,13 @@ echo "${pod_counts[production]}"
 
 # Iterate over keys
 for namespace in "${!pod_counts[@]}"; do
- count="${pod_counts[$namespace]}"
- echo "$namespace: $count pods"
+count="${pod_counts[$namespace]}"
+echo "$namespace: $count pods"
 done
 
 # Iterate over values
 for count in "${pod_counts[@]}"; do
- echo "Count: $count"
+echo "Count: $count"
 done
 ```
 
@@ -1830,11 +1830,11 @@ cat <<EOF > config.yaml
 apiVersion: v1
 kind: Pod
 metadata:
- name: nginx
+name: nginx
 spec:
- containers:
- - name: nginx
- image: nginx:latest
+containers:
+- name: nginx
+image: nginx:latest
 EOF
 
 # Here string (single line input)
@@ -1925,8 +1925,8 @@ set -euo pipefail
 LOGFILE="${1:-/var/log/app.log}"
 
 if [[ ! -f "$LOGFILE" ]]; then
- echo "Error: Log file not found: $LOGFILE"
- exit 1
+echo "Error: Log file not found: $LOGFILE"
+exit 1
 fi
 
 echo "Log Analysis Report"
@@ -1948,21 +1948,21 @@ echo ""
 # Hour with most errors
 echo "Hour with most errors:"
 grep "ERROR" "$LOGFILE" | \
- awk '{print $2}' | \
- cut -d':' -f1 | \
- sort | uniq -c | \
- sort -rn | head -1 | \
- awk '{print " " $2 ":00 - " $1 " errors"}'
+awk '{print $2}' | \
+cut -d':' -f1 | \
+sort | uniq -c | \
+sort -rn | head -1 | \
+awk '{print " " $2 ":00 - " $1 " errors"}'
 echo ""
 
 # Top 5 error messages
 echo "Top 5 error messages:"
 grep "ERROR" "$LOGFILE" | \
- awk '{$1=$2=$3=""; print $0}' | \
- sed 's/^ *//' | \
- sort | uniq -c | \
- sort -rn | head -5 | \
- awk '{$1=""; print " -" $0}'
+awk '{$1=$2=$3=""; print $0}' | \
+sed 's/^ *//' | \
+sort | uniq -c | \
+sort -rn | head -5 | \
+awk '{$1=""; print " -" $0}'
 ```
 </details>
 
@@ -1991,7 +1991,7 @@ LOGFILE="/var/log/pod-health.log"
 RESTART_THRESHOLD=3
 
 log() {
- echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOGFILE"
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOGFILE"
 }
 
 log "Starting pod health check for namespace: $NAMESPACE"
@@ -2001,29 +2001,29 @@ issues_found=0
 # Check for non-running pods
 log "Checking for non-running pods..."
 while read -r name status; do
- log "WARNING: Pod $name is $status"
- issues_found=$((issues_found + 1))
+log "WARNING: Pod $name is $status"
+issues_found=$((issues_found + 1))
 done < <(kubectl get pods -n "$NAMESPACE" --field-selector status.phase!=Running \
- -o custom-columns=NAME:.metadata.name,STATUS:.status.phase --no-headers 2>/dev/null || true)
+-o custom-columns=NAME:.metadata.name,STATUS:.status.phase --no-headers 2>/dev/null || true)
 
 # Check for high restart counts
 log "Checking for pods with high restart counts..."
 kubectl get pods -n "$NAMESPACE" -o json 2>/dev/null | \
- jq -r --arg thresh "$RESTART_THRESHOLD" '.items[] | 
- select(.status.containerStatuses[]?.restartCount > ($thresh | tonumber)) |
- "\(.metadata.name) \(.status.containerStatuses[0].restartCount)"' | \
- while read -r name restarts; do
- log "WARNING: Pod $name has $restarts restarts (threshold: $RESTART_THRESHOLD)"
- issues_found=$((issues_found + 1))
- done
+jq -r --arg thresh "$RESTART_THRESHOLD" '.items[] | 
+select(.status.containerStatuses[]?.restartCount > ($thresh | tonumber)) |
+"\(.metadata.name) \(.status.containerStatuses[0].restartCount)"' | \
+while read -r name restarts; do
+log "WARNING: Pod $name has $restarts restarts (threshold: $RESTART_THRESHOLD)"
+issues_found=$((issues_found + 1))
+done
 
 # Summary
 if [ $issues_found -eq 0 ]; then
- log "SUCCESS: All pods healthy"
- exit 0
+log "SUCCESS: All pods healthy"
+exit 0
 else
- log "FAILED: Found $issues_found issue(s)"
- exit 1
+log "FAILED: Found $issues_found issue(s)"
+exit 1
 fi
 ```
 </details>
@@ -2053,11 +2053,11 @@ THRESHOLD=80
 LOGFILE="/var/log/disk-cleanup.log"
 
 log() {
- echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOGFILE"
+echo "[$(date +'%Y-%m-%d %H:%M:%S')] $*" | tee -a "$LOGFILE"
 }
 
 get_disk_usage() {
- df "$LOGDIR" | awk 'NR==2 {print $5}' | sed 's/%//'
+df "$LOGDIR" | awk 'NR==2 {print $5}' | sed 's/%//'
 }
 
 log "Starting disk cleanup check"
@@ -2066,8 +2066,8 @@ usage=$(get_disk_usage)
 log "Current disk usage: ${usage}%"
 
 if [ "$usage" -le "$THRESHOLD" ]; then
- log "Disk usage OK, no cleanup needed"
- exit 0
+log "Disk usage OK, no cleanup needed"
+exit 0
 fi
 
 # First cleanup: > 7 days
@@ -2079,8 +2079,8 @@ usage=$(get_disk_usage)
 log "Disk usage after first cleanup: ${usage}%"
 
 if [ "$usage" -le "$THRESHOLD" ]; then
- log "Disk usage now OK"
- exit 0
+log "Disk usage now OK"
+exit 0
 fi
 
 # Second cleanup: > 3 days
@@ -2092,11 +2092,11 @@ usage=$(get_disk_usage)
 log "Disk usage after second cleanup: ${usage}%"
 
 if [ "$usage" -le "$THRESHOLD" ]; then
- log "Disk usage now OK"
- exit 0
+log "Disk usage now OK"
+exit 0
 else
- log "ALERT: Disk usage still at ${usage}% after cleanup!"
- exit 1
+log "ALERT: Disk usage still at ${usage}% after cleanup!"
+exit 1
 fi
 ```
 </details>
@@ -2147,10 +2147,10 @@ echo "Deployed successfully"
 
 # RIGHT - check success
 if kubectl apply -f config.yaml; then
- echo "Deployed successfully"
+echo "Deployed successfully"
 else
- echo "Deployment failed"
- exit 1
+echo "Deployment failed"
+exit 1
 fi
 ```
 
@@ -2169,12 +2169,12 @@ set -euo pipefail
 ```bash
 # WRONG - breaks with special filenames
 for file in $(ls *.log); do
- echo "$file"
+echo "$file"
 done
 
 # RIGHT - use glob
 for file in *.log; do
- echo "$file"
+echo "$file"
 done
 ```
 
@@ -2224,17 +2224,17 @@ ${#var} # Length
 ```bash
 # For loop
 for item in list; do
- echo "$item"
+echo "$item"
 done
 
 # While read (file processing)
 while IFS= read -r line; do
- echo "$line"
+echo "$line"
 done < file.txt
 
 # While with command
 while [ condition ]; do
- # commands
+# commands
 done
 ```
 

@@ -35,11 +35,11 @@ python3 -m pip install slack-bolt
 2. Select your app (or create new)
 3. OAuth & Permissions → Scopes
 4. Add Bot Token Scopes:
- - chat:write (send messages)
- - chat:write.public (post to any channel)
- - channels:read (list channels)
- - users:read (get user info)
- - commands (slash commands)
+- chat:write (send messages)
+- chat:write.public (post to any channel)
+- channels:read (list channels)
+- users:read (get user info)
+- commands (slash commands)
 
 5. Install App to Workspace
 6. Copy "Bot User OAuth Token" (xoxb-...)
@@ -58,14 +58,14 @@ app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 # Respond to "hello" message
 @app.message("hello")
 def say_hello(message, say):
- user = message['user']
- say(f"Hi <@{user}>! ")
+user = message['user']
+say(f"Hi <@{user}>! ")
 
 # Start app in Socket Mode (for development)
 if __name__ == "__main__":
- # Requires Socket Mode token (xapp-...)
- handler = SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"])
- handler.start()
+# Requires Socket Mode token (xapp-...)
+handler = SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"])
+handler.start()
 ```
 
 **Enable Socket Mode (for development):**
@@ -111,151 +111,151 @@ app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 # Command to trigger pipeline action
 @app.command("/pipeline")
 def handle_pipeline_command(ack, command, client):
- # Acknowledge command
- ack()
+# Acknowledge command
+ack()
 
- # Send message with buttons
- client.chat_postMessage(
- channel=command["channel_id"],
- text="Pipeline Management",
- blocks=[
- {
- "type": "section",
- "text": {
- "type": "mrkdwn",
- "text": "What would you like to do?"
- }
- },
- {
- "type": "actions",
- "elements": [
- {
- "type": "button",
- "text": {"type": "plain_text", "text": "Rerun Failed"},
- "value": "rerun_failed",
- "action_id": "rerun_failed_button"
- },
- {
- "type": "button",
- "text": {"type": "plain_text", "text": "View Logs"},
- "value": "view_logs",
- "action_id": "view_logs_button",
- "style": "primary"
- },
- {
- "type": "button",
- "text": {"type": "plain_text", "text": "Cancel"},
- "value": "cancel",
- "action_id": "cancel_button",
- "style": "danger"
- }
- ]
- }
- ]
- )
+# Send message with buttons
+client.chat_postMessage(
+channel=command["channel_id"],
+text="Pipeline Management",
+blocks=[
+{
+"type": "section",
+"text": {
+"type": "mrkdwn",
+"text": "What would you like to do?"
+}
+},
+{
+"type": "actions",
+"elements": [
+{
+"type": "button",
+"text": {"type": "plain_text", "text": "Rerun Failed"},
+"value": "rerun_failed",
+"action_id": "rerun_failed_button"
+},
+{
+"type": "button",
+"text": {"type": "plain_text", "text": "View Logs"},
+"value": "view_logs",
+"action_id": "view_logs_button",
+"style": "primary"
+},
+{
+"type": "button",
+"text": {"type": "plain_text", "text": "Cancel"},
+"value": "cancel",
+"action_id": "cancel_button",
+"style": "danger"
+}
+]
+}
+]
+)
 
 # Handle button clicks
 @app.action("rerun_failed_button")
 def handle_rerun(ack, body, client):
- ack()
- # Trigger pipeline rerun (call Tekton API)
- client.chat_postMessage(
- channel=body["channel"]["id"],
- text=" Rerunning failed pipelines..."
- )
+ack()
+# Trigger pipeline rerun (call Tekton API)
+client.chat_postMessage(
+channel=body["channel"]["id"],
+text=" Rerunning failed pipelines..."
+)
 
 @app.action("view_logs_button")
 def handle_view_logs(ack, body, client):
- ack()
- logs_url = "https://console.company.com/logs"
- client.chat_postMessage(
- channel=body["channel"]["id"],
- text=f" View logs: {logs_url}"
- )
+ack()
+logs_url = "https://console.company.com/logs"
+client.chat_postMessage(
+channel=body["channel"]["id"],
+text=f" View logs: {logs_url}"
+)
 
 @app.action("cancel_button")
 def handle_cancel(ack, body, client):
- ack()
- client.chat_postMessage(
- channel=body["channel"]["id"],
- text=" Cancelled."
- )
+ack()
+client.chat_postMessage(
+channel=body["channel"]["id"],
+text=" Cancelled."
+)
 ```
 
 **Modal dialog (form input):**
 ```python
 @app.command("/create-incident")
 def open_incident_modal(ack, body, client):
- ack()
+ack()
 
- # Open modal
- client.views_open(
- trigger_id=body["trigger_id"],
- view={
- "type": "modal",
- "callback_id": "incident_modal",
- "title": {"type": "plain_text", "text": "Create Incident"},
- "submit": {"type": "plain_text", "text": "Create"},
- "close": {"type": "plain_text", "text": "Cancel"},
- "blocks": [
- {
- "type": "input",
- "block_id": "title_block",
- "element": {
- "type": "plain_text_input",
- "action_id": "title_input",
- "placeholder": {
- "type": "plain_text",
- "text": "Incident title"
- }
- },
- "label": {"type": "plain_text", "text": "Title"}
- },
- {
- "type": "input",
- "block_id": "severity_block",
- "element": {
- "type": "static_select",
- "action_id": "severity_select",
- "placeholder": {
- "type": "plain_text",
- "text": "Select severity"
- },
- "options": [
- {
- "text": {"type": "plain_text", "text": " Critical"},
- "value": "critical"
- },
- {
- "text": {"type": "plain_text", "text": " High"},
- "value": "high"
- },
- {
- "text": {"type": "plain_text", "text": " Medium"},
- "value": "medium"
- }
- ]
- },
- "label": {"type": "plain_text", "text": "Severity"}
- }
- ]
- }
- )
+# Open modal
+client.views_open(
+trigger_id=body["trigger_id"],
+view={
+"type": "modal",
+"callback_id": "incident_modal",
+"title": {"type": "plain_text", "text": "Create Incident"},
+"submit": {"type": "plain_text", "text": "Create"},
+"close": {"type": "plain_text", "text": "Cancel"},
+"blocks": [
+{
+"type": "input",
+"block_id": "title_block",
+"element": {
+"type": "plain_text_input",
+"action_id": "title_input",
+"placeholder": {
+"type": "plain_text",
+"text": "Incident title"
+}
+},
+"label": {"type": "plain_text", "text": "Title"}
+},
+{
+"type": "input",
+"block_id": "severity_block",
+"element": {
+"type": "static_select",
+"action_id": "severity_select",
+"placeholder": {
+"type": "plain_text",
+"text": "Select severity"
+},
+"options": [
+{
+"text": {"type": "plain_text", "text": " Critical"},
+"value": "critical"
+},
+{
+"text": {"type": "plain_text", "text": " High"},
+"value": "high"
+},
+{
+"text": {"type": "plain_text", "text": " Medium"},
+"value": "medium"
+}
+]
+},
+"label": {"type": "plain_text", "text": "Severity"}
+}
+]
+}
+)
 
 # Handle modal submission
 @app.view("incident_modal")
 def handle_incident_submission(ack, body, client, view):
- ack()
+ack()
 
- # Extract form values
- title = view["state"]["values"]["title_block"]["title_input"]["value"]
- severity = view["state"]["values"]["severity_block"]["severity_select"]["selected_option"]["value"]
+# Extract form values
+title = view["state"]["values"]["title_block"]["title_input"]["value"]
+severity = view["state"]["values"]["severity_block"]["severity_select"]["selected_option"]["value"]
 
- # Create incident (call your incident management API)
- client.chat_postMessage(
- channel="#platform-incidents",
- text=f" New incident created: *{title}* (Severity: {severity})"
- )
+# Create incident (call your incident management API)
+client.chat_postMessage(
+channel="#platform-incidents",
+text=f" New incident created: *{title}* (Severity: {severity})"
+)
 ```
 
 ---
@@ -284,66 +284,66 @@ Subscribe to bot events:
 # React when bot is mentioned
 @app.event("app_mention")
 def handle_mention(event, say, client):
- user = event['user']
- text = event['text']
+user = event['user']
+text = event['text']
 
- # Respond in thread
- say(
- text=f"Hi <@{user}>! You said: {text}",
- thread_ts=event['ts'] # Reply in thread
- )
+# Respond in thread
+say(
+text=f"Hi <@{user}>! You said: {text}",
+thread_ts=event['ts'] # Reply in thread
+)
 
 # React to emoji reactions
 @app.event("reaction_added")
 def handle_reaction(event, client):
- # If someone reacts with to a pipeline failure, acknowledge it
- if event['reaction'] == 'white_check_mark':
- channel = event['item']['channel']
- ts = event['item']['ts']
+# If someone reacts with to a pipeline failure, acknowledge it
+if event['reaction'] == 'white_check_mark':
+channel = event['item']['channel']
+ts = event['item']['ts']
 
- # Update original message
- client.chat_update(
- channel=channel,
- ts=ts,
- text=" Acknowledged by team"
- )
+# Update original message
+client.chat_update(
+channel=channel,
+ts=ts,
+text=" Acknowledged by team"
+)
 ```
 
 **Message threading example (pipeline updates):**
 ```python
 def send_pipeline_start(channel, pipeline_name):
- """Send initial pipeline message, return thread_ts"""
- response = client.chat_postMessage(
- channel=channel,
- text=f"⏳ Pipeline started: {pipeline_name}"
- )
- return response['ts'] # Save this as thread_ts
+"""Send initial pipeline message, return thread_ts"""
+response = client.chat_postMessage(
+channel=channel,
+text=f"⏳ Pipeline started: {pipeline_name}"
+)
+return response['ts'] # Save this as thread_ts
 
 def send_pipeline_update(channel, thread_ts, update):
- """Send update in the same thread"""
- client.chat_postMessage(
- channel=channel,
- thread_ts=thread_ts, # Reply to original message
- text=update
- )
+"""Send update in the same thread"""
+client.chat_postMessage(
+channel=channel,
+thread_ts=thread_ts, # Reply to original message
+text=update
+)
 
 def send_pipeline_complete(channel, thread_ts, status):
- """Final update in thread + update parent message"""
- emoji = "" if status == "success" else ""
+"""Final update in thread + update parent message"""
+emoji = "" if status == "success" else ""
 
- # Update original message
- client.chat_update(
- channel=channel,
- ts=thread_ts,
- text=f"{emoji} Pipeline {status}"
- )
+# Update original message
+client.chat_update(
+channel=channel,
+ts=thread_ts,
+text=f"{emoji} Pipeline {status}"
+)
 
- # Add final comment in thread
- client.chat_postMessage(
- channel=channel,
- thread_ts=thread_ts,
- text=f"Pipeline completed with status: {status}"
- )
+# Add final comment in thread
+client.chat_postMessage(
+channel=channel,
+thread_ts=thread_ts,
+text=f"Pipeline completed with status: {status}"
+)
 
 # Usage
 thread_ts = send_pipeline_start("#platform-builds", "build-service-123")
@@ -375,42 +375,42 @@ Description: Manage Platform pipelines
 ```python
 @app.command("/pipeline")
 def handle_pipeline_cmd(ack, command, respond):
- ack()
+ack()
 
- # Parse command text
- # /pipeline list
- # /pipeline rerun build-123
- # /pipeline status
+# Parse command text
+# /pipeline list
+# /pipeline rerun build-123
+# /pipeline status
 
- cmd_text = command['text'].strip()
+cmd_text = command['text'].strip()
 
- if cmd_text == "list":
- # List recent pipelines
- respond(" Recent pipelines:\n• build-service-123 \n• image-build-456 ")
+if cmd_text == "list":
+# List recent pipelines
+respond(" Recent pipelines:\n• build-service-123 \n• image-build-456 ")
 
- elif cmd_text.startswith("rerun"):
- # Extract pipeline name
- pipeline = cmd_text.split()[1] if len(cmd_text.split()) > 1 else None
- if pipeline:
- # Trigger rerun (call Tekton API)
- respond(f" Rerunning pipeline: {pipeline}")
- else:
- respond(" Usage: /pipeline rerun <pipeline-name>")
+elif cmd_text.startswith("rerun"):
+# Extract pipeline name
+pipeline = cmd_text.split()[1] if len(cmd_text.split()) > 1 else None
+if pipeline:
+# Trigger rerun (call Tekton API)
+respond(f" Rerunning pipeline: {pipeline}")
+else:
+respond(" Usage: /pipeline rerun <pipeline-name>")
 
- elif cmd_text == "status":
- respond(" All systems operational")
+elif cmd_text == "status":
+respond(" All systems operational")
 
- else:
- respond("Available commands:\n• /pipeline list\n• /pipeline rerun <name>\n• /pipeline status")
+else:
+respond("Available commands:\n• /pipeline list\n• /pipeline rerun <name>\n• /pipeline status")
 ```
 
 **Global shortcut:**
 ```python
 @app.shortcut("create_incident")
 def handle_shortcut(ack, shortcut, client):
- ack()
- # Open incident creation modal
- # (same as modal example from Day 3-4)
+ack()
+# Open incident creation modal
+# (same as modal example from Day 3-4)
 ```
 
 ---
@@ -431,38 +431,38 @@ app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 
 @app.command("/pipeline")
 def handle_pipeline(ack, command, respond):
- ack()
+ack()
 
- # Mock pipeline data (replace with real Tekton API call)
- pipelines = [
- {"name": "build-service", "status": "success", "duration": "3m 21s"},
- {"name": "test-suite", "status": "success", "duration": "5m 12s"},
- {"name": "image-build", "status": "failed", "duration": "2m 45s"},
- ]
+# Mock pipeline data (replace with real Tekton API call)
+pipelines = [
+{"name": "build-service", "status": "success", "duration": "3m 21s"},
+{"name": "test-suite", "status": "success", "duration": "5m 12s"},
+{"name": "image-build", "status": "failed", "duration": "2m 45s"},
+]
 
- # Build response
- blocks = [
- {
- "type": "header",
- "text": {"type": "plain_text", "text": " Pipeline Status"}
- }
- ]
+# Build response
+blocks = [
+{
+"type": "header",
+"text": {"type": "plain_text", "text": " Pipeline Status"}
+}
+]
 
- for p in pipelines:
- emoji = "" if p["status"] == "success" else ""
- blocks.append({
- "type": "section",
- "text": {
- "type": "mrkdwn",
- "text": f"{emoji} *{p['name']}* - {p['duration']}"
- }
- })
+for p in pipelines:
+emoji = "" if p["status"] == "success" else ""
+blocks.append({
+"type": "section",
+"text": {
+"type": "mrkdwn",
+"text": f"{emoji} *{p['name']}* - {p['duration']}"
+}
+})
 
- respond(blocks=blocks)
+respond(blocks=blocks)
 
 if __name__ == "__main__":
- handler = SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"])
- handler.start()
+handler = SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"])
+handler.start()
 ```
 
 ---
@@ -474,41 +474,41 @@ Add buttons to rerun failed pipelines:
 ```python
 @app.command("/pipeline")
 def handle_pipeline(ack, command, client):
- ack()
+ack()
 
- # Send message with action buttons
- client.chat_postMessage(
- channel=command["channel_id"],
- blocks=[
- {
- "type": "section",
- "text": {"type": "mrkdwn", "text": " *image-build* failed"}
- },
- {
- "type": "actions",
- "elements": [
- {
- "type": "button",
- "text": {"type": "plain_text", "text": " Rerun"},
- "action_id": "rerun_pipeline",
- "value": "image-build"
- },
- {
- "type": "button",
- "text": {"type": "plain_text", "text": " View Logs"},
- "action_id": "view_logs",
- "url": "https://console.company.com/logs/image-build"
- }
- ]
- }
- ]
- )
+# Send message with action buttons
+client.chat_postMessage(
+channel=command["channel_id"],
+blocks=[
+{
+"type": "section",
+"text": {"type": "mrkdwn", "text": " *image-build* failed"}
+},
+{
+"type": "actions",
+"elements": [
+{
+"type": "button",
+"text": {"type": "plain_text", "text": " Rerun"},
+"action_id": "rerun_pipeline",
+"value": "image-build"
+},
+{
+"type": "button",
+"text": {"type": "plain_text", "text": " View Logs"},
+"action_id": "view_logs",
+"url": "https://console.company.com/logs/image-build"
+}
+]
+}
+]
+)
 
 @app.action("rerun_pipeline")
 def handle_rerun(ack, body, say):
- ack()
- pipeline = body["actions"][0]["value"]
- say(f" Rerunning pipeline: {pipeline}")
+ack()
+pipeline = body["actions"][0]["value"]
+say(f" Rerunning pipeline: {pipeline}")
 ```
 
 ---
@@ -523,51 +523,51 @@ pipeline_threads = {}
 
 @app.command("/start-pipeline")
 def start_pipeline(ack, command, client):
- ack()
+ack()
 
- pipeline_name = command['text'] or "test-pipeline"
+pipeline_name = command['text'] or "test-pipeline"
 
- # Send initial message
- response = client.chat_postMessage(
- channel=command["channel_id"],
- text=f"⏳ Starting pipeline: {pipeline_name}"
- )
+# Send initial message
+response = client.chat_postMessage(
+channel=command["channel_id"],
+text=f"⏳ Starting pipeline: {pipeline_name}"
+)
 
- # Save thread_ts
- thread_ts = response['ts']
- pipeline_threads[pipeline_name] = {
- "thread_ts": thread_ts,
- "channel": command["channel_id"]
- }
+# Save thread_ts
+thread_ts = response['ts']
+pipeline_threads[pipeline_name] = {
+"thread_ts": thread_ts,
+"channel": command["channel_id"]
+}
 
- # Simulate pipeline steps (in real app, listen to Tekton events)
- import time
- import threading
+# Simulate pipeline steps (in real app, listen to Tekton events)
+import time
+import threading
 
- def run_pipeline():
- time.sleep(2)
- client.chat_postMessage(
- channel=command["channel_id"],
- thread_ts=thread_ts,
- text=" Building image..."
- )
+def run_pipeline():
+time.sleep(2)
+client.chat_postMessage(
+channel=command["channel_id"],
+thread_ts=thread_ts,
+text=" Building image..."
+)
 
- time.sleep(3)
- client.chat_postMessage(
- channel=command["channel_id"],
- thread_ts=thread_ts,
- text=" Running tests..."
- )
+time.sleep(3)
+client.chat_postMessage(
+channel=command["channel_id"],
+thread_ts=thread_ts,
+text=" Running tests..."
+)
 
- time.sleep(2)
- # Update parent message
- client.chat_update(
- channel=command["channel_id"],
- ts=thread_ts,
- text=f" Pipeline succeeded: {pipeline_name}"
- )
+time.sleep(2)
+# Update parent message
+client.chat_update(
+channel=command["channel_id"],
+ts=thread_ts,
+text=f" Pipeline succeeded: {pipeline_name}"
+)
 
- threading.Thread(target=run_pipeline).start()
+threading.Thread(target=run_pipeline).start()
 ```
 
 ---
@@ -615,63 +615,63 @@ app = App(token=os.environ.get("SLACK_BOT_TOKEN"))
 pipeline_threads = {}
 
 def send_pipeline_notification(pipeline_run, status, channel="#platform-builds"):
- """Send or update pipeline notification"""
+"""Send or update pipeline notification"""
 
- pipeline_name = pipeline_run['metadata']['name']
- namespace = pipeline_run['metadata']['namespace']
+pipeline_name = pipeline_run['metadata']['name']
+namespace = pipeline_run['metadata']['namespace']
 
- # Check if we already have a thread for this pipeline
- if pipeline_name in pipeline_threads:
- # Update existing message
- thread_ts = pipeline_threads[pipeline_name]['thread_ts']
+# Check if we already have a thread for this pipeline
+if pipeline_name in pipeline_threads:
+# Update existing message
+thread_ts = pipeline_threads[pipeline_name]['thread_ts']
 
- emoji = "" if status == "Succeeded" else "" if status == "Failed" else "⏳"
+emoji = "" if status == "Succeeded" else "" if status == "Failed" else "⏳"
 
- app.client.chat_update(
- channel=channel,
- ts=thread_ts,
- text=f"{emoji} Pipeline {status}: {pipeline_name}"
- )
+app.client.chat_update(
+channel=channel,
+ts=thread_ts,
+text=f"{emoji} Pipeline {status}: {pipeline_name}"
+)
 
- # Add update to thread
- app.client.chat_postMessage(
- channel=channel,
- thread_ts=thread_ts,
- text=f"Status update: {status}"
- )
+# Add update to thread
+app.client.chat_postMessage(
+channel=channel,
+thread_ts=thread_ts,
+text=f"Status update: {status}"
+)
 
- else:
- # Create new message thread
- response = app.client.chat_postMessage(
- channel=channel,
- text=f"⏳ Pipeline started: {pipeline_name}",
- blocks=[
- {
- "type": "section",
- "text": {
- "type": "mrkdwn",
- "text": f"*Pipeline:* {pipeline_name}\n*Namespace:* {namespace}"
- }
- }
- ]
- )
+else:
+# Create new message thread
+response = app.client.chat_postMessage(
+channel=channel,
+text=f"⏳ Pipeline started: {pipeline_name}",
+blocks=[
+{
+"type": "section",
+"text": {
+"type": "mrkdwn",
+"text": f"*Pipeline:* {pipeline_name}\n*Namespace:* {namespace}"
+}
+}
+]
+)
 
- # Save thread
- pipeline_threads[pipeline_name] = {
- "thread_ts": response['ts'],
- "channel": channel
- }
+# Save thread
+pipeline_threads[pipeline_name] = {
+"thread_ts": response['ts'],
+"channel": channel
+}
 
 # Slash command to check pipeline status
 @app.command("/pipeline")
 def check_pipeline(ack, command, respond):
- ack()
- # Query Tekton API for pipeline status
- respond(" Fetching pipeline status...")
+ack()
+# Query Tekton API for pipeline status
+respond(" Fetching pipeline status...")
 
 if __name__ == "__main__":
- handler = SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"])
- handler.start()
+handler = SocketModeHandler(app, os.environ["SLACK_APP_TOKEN"])
+handler.start()
 ```
 
 ---

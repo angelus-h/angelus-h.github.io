@@ -37,19 +37,19 @@ This guide provides a **3-phase strategy** to set boundaries from day one, deliv
 #### Goals:
 
 1. **Understand team dynamics**
-   - Who makes decisions?
-   - Who delegates/offloads work?
-   - Who sets boundaries effectively?
+- Who makes decisions?
+- Who delegates/offloads work?
+- Who sets boundaries effectively?
 
 2. **Identify your core responsibilities**
-   - What's in the job description? (This is your contract!)
-   - What are the **actual** expectations?
-   - What's "nice to have" vs. required?
+- What's in the job description? (This is your contract!)
+- What are the **actual** expectations?
+- What's "nice to have" vs. required?
 
 3. **Observe scope creep patterns**
-   - Who receives random tasks?
-   - Who can push back successfully?
-   - What's the culture around saying "no"?
+- Who receives random tasks?
+- Who can push back successfully?
+- What's the culture around saying "no"?
 
 #### Practical Steps (First 30 Days):
 
@@ -162,19 +162,19 @@ Request:
 **Example Quick Wins (for SRE role):**
 
 1. **Quick Win 1: Observability Improvement**
-   - Build monitoring dashboard for critical services
-   - Measurable: "Reduced incident detection time by X%"
-   - **This is YOUR expertise**
+- Build monitoring dashboard for critical services
+- Measurable: "Reduced incident detection time by X%"
+- **This is YOUR expertise**
 
 2. **Quick Win 2: Automation Delivery**
-   - Create deployment automation for common tasks
-   - Measurable: "Reduced deployment time by X%"
-   - **This is YOUR core skill**
+- Create deployment automation for common tasks
+- Measurable: "Reduced deployment time by X%"
+- **This is YOUR core skill**
 
 3. **Quick Win 3: Documentation/Runbooks**
-   - Document critical processes and runbooks
-   - Measurable: "Reduced incident resolution time by X%"
-   - **This demonstrates YOUR value**
+- Document critical processes and runbooks
+- Measurable: "Reduced incident resolution time by X%"
+- **This demonstrates YOUR value**
 
 **Goals:**
 - 2-3 measurable wins in 90 days
@@ -514,9 +514,9 @@ If it exceeds 15 minutes:
 
 ## Next Week Plan (5 min):
 - Top 3 priorities:
-  1. [Priority 1]
-  2. [Priority 2]
-  3. [Priority 3]
+1. [Priority 1]
+2. [Priority 2]
+3. [Priority 3]
 - Expected deliverables: [list]
 
 ## Feedback Request:
@@ -587,28 +587,28 @@ Thanks,
 ## Key Principles
 
 1. **Boundaries are professional, not selfish**
-   - Clear scope = better performance
-   - Saying no to wrong work = saying yes to right work
+- Clear scope = better performance
+- Saying no to wrong work = saying yes to right work
 
 2. **Document everything**
-   - Written priorities protect you
-   - Written requests prevent misunderstandings
-   - Written wins demonstrate value
+- Written priorities protect you
+- Written requests prevent misunderstandings
+- Written wins demonstrate value
 
 3. **Your manager is your ally**
-   - Loop them in on scope questions
-   - Weekly alignment prevents problems
-   - They want you to succeed
+- Loop them in on scope questions
+- Weekly alignment prevents problems
+- They want you to succeed
 
 4. **Core value first, always**
-   - You were hired for specific expertise
-   - Random tasks dilute your impact
-   - Measurable wins in core area = career growth
+- You were hired for specific expertise
+- Random tasks dilute your impact
+- Measurable wins in core area = career growth
 
 5. **Probation is about demonstration, not perfection**
-   - 2-3 solid wins > 20 half-finished tasks
-   - Clear communication > agreeing to everything
-   - Professional boundaries > being liked by everyone
+- 2-3 solid wins > 20 half-finished tasks
+- Clear communication > agreeing to everything
+- Professional boundaries > being liked by everyone
 
 ---
 

@@ -6,38 +6,38 @@ This directory contains all Terraform practice projects - from local machine to 
 
 ```
 terraform-practice/
- README.md # This file
- TERRAFORM_CHEATSHEET.md # Complete reference
- QUICK_REFERENCE.md # Quick overview
+README.md # This file
+TERRAFORM_CHEATSHEET.md # Complete reference
+QUICK_REFERENCE.md # Quick overview
 
- 01-local-files/ # BEGINNER - Local files
- main.tf
- README.md
+01-local-files/ # BEGINNER - Local files
+main.tf
+README.md
 
- 02-podman/ # BEGINNER - Podman containers
- main.tf
- variables.tf
- terraform.tfvars.example
- README.md
+02-podman/ # BEGINNER - Podman containers
+main.tf
+variables.tf
+terraform.tfvars.example
+README.md
 
- 03-null-provider/ # INTERMEDIATE - Run scripts
- main.tf
- README.md
+03-null-provider/ # INTERMEDIATE - Run scripts
+main.tf
+README.md
 
- 10-kvm-local/ # LOCAL VM - KVM/QEMU
- main.tf
- variables.tf
- README.md
+10-kvm-local/ # LOCAL VM - KVM/QEMU
+main.tf
+variables.tf
+README.md
 
- 20-aws-ec2/ # CLOUD - AWS EC2
- main.tf
- variables.tf
- README.md
+20-aws-ec2/ # CLOUD - AWS EC2
+main.tf
+variables.tf
+README.md
 
- 30-gcp-vm/ # CLOUD - Google Cloud VM
- main.tf
- variables.tf
- README.md
+30-gcp-vm/ # CLOUD - Google Cloud VM
+main.tf
+variables.tf
+README.md
 ```
 
 ## Learning Path
@@ -244,20 +244,20 @@ terraform plan
 ```hcl
 # DON'T:
 resource "..." "..." {
- port = 8080
+port = 8080
 }
 
 # DO:
 variable "port" { default = 8080 }
 resource "..." "..." {
- port = var.port
+port = var.port
 }
 ```
 
 ### 4. Output important information
 ```hcl
 output "vm_ip" {
- value = resource.type.name.ip
+value = resource.type.name.ip
 }
 ```
 
@@ -342,9 +342,9 @@ If you get stuck:
 2. **CHEATSHEET.md** - Terraform reference
 3. **Official docs**: https://developer.hashicorp.com/terraform/docs
 4. **Provider docs**:
- - AWS: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
- - GCP: https://registry.terraform.io/providers/hashicorp/google/latest/docs
- - Libvirt: https://registry.terraform.io/providers/dmacvicar/libvirt/latest/docs
+- AWS: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+- GCP: https://registry.terraform.io/providers/hashicorp/google/latest/docs
+- Libvirt: https://registry.terraform.io/providers/dmacvicar/libvirt/latest/docs
 
 ---
 

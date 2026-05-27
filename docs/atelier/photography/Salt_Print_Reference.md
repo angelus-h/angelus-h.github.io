@@ -1,3 +1,7 @@
+---
+description: Complete guide to salted paper printing - Talbot's 1839 photographic process covering chemistry, coating, UV exposure, toning, and archival processing.
+---
+
 # Salt Print Reference
 
 ## What Salt Printing Is
@@ -356,10 +360,10 @@ This creates an ~10% solution. The citric acid:
 **Typical exposure times**:
 - [In a UV light box, exposure times typically range 20–50 minutes](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
 - Exact times depend on:
-  - UV intensity of specific unit
-  - Distance from light source to printing frame
-  - Paper and chemistry formulations
-  - Negative density range
+- UV intensity of specific unit
+- Distance from light source to printing frame
+- Paper and chemistry formulations
+- Negative density range
 
 **Commercial units**:
 - Desktop units: $200–$800 (suitable for 8×10" and smaller)
@@ -371,19 +375,19 @@ This creates an ~10% solution. The citric acid:
 **Essential equipment**:
 
 1. **Printing frame**: Holds negative and sensitized paper in tight contact
-   - Spring-back frames (traditional)
-   - Vacuum frames (best for large formats)
-   - DIY options: Heavy glass + foam backing + weights
-   
+- Spring-back frames (traditional)
+- Vacuum frames (best for large formats)
+- DIY options: Heavy glass + foam backing + weights
+
 2. **Negative carrier**: Ensures even pressure across entire image area
-   - Must be completely flat
-   - Glass can be used but introduces potential for Newton's rings
-   - Thin Mylar or acetate often preferred for flexibility
+- Must be completely flat
+- Glass can be used but introduces potential for Newton's rings
+- Thin Mylar or acetate often preferred for flexibility
 
 3. **Contact quality**: Critical for sharpness
-   - Any gaps between negative and paper cause blur
-   - Check contact by inspecting from side under raking light
-   - Adjust pressure until contact is complete and even
+- Any gaps between negative and paper cause blur
+- Check contact by inspecting from side under raking light
+- Adjust pressure until contact is complete and even
 
 ### Digital Negatives for Salt Printing
 
@@ -499,23 +503,23 @@ The embedded image structure creates unique visual characteristics:
 **"Muddy" appearance causes**:
 
 1. **Insufficient negative contrast**: [Most common problem](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
-   - Use negatives with density range 1.8–2.2
-   - Expand contrast during negative creation
-   - Increase highlight separation
+- Use negatives with density range 1.8–2.2
+- Expand contrast during negative creation
+- Increase highlight separation
 
 2. **Underexposure**: 
-   - [Insufficient exposure produces poor Dmax and anemic-looking prints](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
-   - Expose significantly beyond "correct" appearance
-   - Allow shadows to go very dark during exposure
+- [Insufficient exposure produces poor Dmax and anemic-looking prints](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
+- Expose significantly beyond "correct" appearance
+- Allow shadows to go very dark during exposure
 
 3. **Incomplete fixing**:
-   - Unfixed silver salts create overall fog
-   - Extend fixing time until highlights clear completely
-   - Use fresh fixer solution
+- Unfixed silver salts create overall fog
+- Extend fixing time until highlights clear completely
+- Use fresh fixer solution
 
 4. **Poor washing**:
-   - Residual fixer causes yellowish tones and reduces clarity
-   - Follow archival washing guidelines
+- Residual fixer causes yellowish tones and reduces clarity
+- Follow archival washing guidelines
 
 **Prevention**:
 - [Start with a suitable negative](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
@@ -938,24 +942,24 @@ Avoid subjects where the limitations of salt printing work against the content:
 **Causes and solutions**:
 
 1. **Underexposure** ([most common cause](https://www.alternativephotography.com/salt-printing-exposing-the-print/)):
-   - **Cause**: [Insufficient exposure produces poor Dmax and anemic-looking prints](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
-   - **Solution**: Increase exposure significantly; [prints must be exposed about two stops beyond correct appearance](https://tinker.koraks.nl/photography/shades-of-grey-a-look-at-the-tones-of-a-salted-paper-print/)
+- **Cause**: [Insufficient exposure produces poor Dmax and anemic-looking prints](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
+- **Solution**: Increase exposure significantly; [prints must be exposed about two stops beyond correct appearance](https://tinker.koraks.nl/photography/shades-of-grey-a-look-at-the-tones-of-a-salted-paper-print/)
 
 2. **Insufficient silver nitrate concentration**:
-   - **Cause**: Weak sensitizer solution (below 8–10%)
-   - **Solution**: Use fresh 10–12% silver nitrate solution
+- **Cause**: Weak sensitizer solution (below 8–10%)
+- **Solution**: Use fresh 10–12% silver nitrate solution
 
 3. **Inadequate salt/silver ratio**:
-   - **Cause**: Too much salt relative to silver nitrate
-   - **Solution**: [Ensure silver nitrate is approximately four times as strong as salting solution](https://cool.culturalheritage.org/albumen/library/monographs/reilly/chap6.html)
+- **Cause**: Too much salt relative to silver nitrate
+- **Solution**: [Ensure silver nitrate is approximately four times as strong as salting solution](https://cool.culturalheritage.org/albumen/library/monographs/reilly/chap6.html)
 
 4. **Old sensitized paper**:
-   - **Cause**: Paper sensitized more than 24 hours ago
-   - **Solution**: Use freshly sensitized paper only
+- **Cause**: Paper sensitized more than 24 hours ago
+- **Solution**: Use freshly sensitized paper only
 
 5. **Weak negative**:
-   - **Cause**: [Insufficient negative contrast results in flat prints](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
-   - **Solution**: Use negatives with density range 1.8–2.2
+- **Cause**: [Insufficient negative contrast results in flat prints](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
+- **Solution**: Use negatives with density range 1.8–2.2
 
 ### Fogging (Overall Darkening)
 
@@ -967,24 +971,24 @@ Avoid subjects where the limitations of salt printing work against the content:
 **Causes and solutions**:
 
 1. **Light leaks during drying**:
-   - **Cause**: Sensitized paper exposed to room light before printing
-   - **Solution**: Dry in complete darkness or very dim safelight
+- **Cause**: Sensitized paper exposed to room light before printing
+- **Solution**: Dry in complete darkness or very dim safelight
 
 2. **Contaminated chemistry**:
-   - **Cause**: Old silver nitrate solution or salt solution with impurities
-   - **Solution**: Prepare fresh solutions; use distilled water exclusively
+- **Cause**: Old silver nitrate solution or salt solution with impurities
+- **Solution**: Prepare fresh solutions; use distilled water exclusively
 
 3. **Excessive humidity**:
-   - **Cause**: High humidity during coating or storage
-   - **Solution**: Work in 40–50% RH environment; use dehumidifier if necessary
+- **Cause**: High humidity during coating or storage
+- **Solution**: Work in 40–50% RH environment; use dehumidifier if necessary
 
 4. **Incomplete fixing**:
-   - **Cause**: Insufficient time in fixer or exhausted fixer
-   - **Solution**: Extend fixing time; use fresh fixer; ensure highlights clear completely
+- **Cause**: Insufficient time in fixer or exhausted fixer
+- **Solution**: Extend fixing time; use fresh fixer; ensure highlights clear completely
 
 5. **Paper contamination**:
-   - **Cause**: Iron or organic matter in paper
-   - **Solution**: Use only archival-quality, acid-free, cotton rag papers
+- **Cause**: Iron or organic matter in paper
+- **Solution**: Use only archival-quality, acid-free, cotton rag papers
 
 ### Uneven Coating
 
@@ -996,20 +1000,20 @@ Avoid subjects where the limitations of salt printing work against the content:
 **Causes and solutions**:
 
 1. **Insufficient solution volume**:
-   - **Cause**: Paper partially absorbs before complete coverage
-   - **Solution**: [Measure about 5ml of silver nitrate for an 8×10" print](https://zebradryplates.com/salt-print-detailed-step-by-step-walkthrough/)
+- **Cause**: Paper partially absorbs before complete coverage
+- **Solution**: [Measure about 5ml of silver nitrate for an 8×10" print](https://zebradryplates.com/salt-print-detailed-step-by-step-walkthrough/)
 
 2. **Hesitant coating technique**:
-   - **Cause**: Pausing during brush coating creates dry lines
-   - **Solution**: Coat in continuous, confident strokes
+- **Cause**: Pausing during brush coating creates dry lines
+- **Solution**: Coat in continuous, confident strokes
 
 3. **Contaminated brush**:
-   - **Cause**: Dried chemistry on brush creates uneven application
-   - **Solution**: Keep separate, clean brushes for each solution; rinse thoroughly after use
+- **Cause**: Dried chemistry on brush creates uneven application
+- **Solution**: Keep separate, clean brushes for each solution; rinse thoroughly after use
 
 4. **Uneven paper sizing**:
-   - **Cause**: Paper has inconsistent absorbency
-   - **Solution**: Test paper batch; consider switching paper brand or lot
+- **Cause**: Paper has inconsistent absorbency
+- **Solution**: Test paper batch; consider switching paper brand or lot
 
 ### Staining
 
@@ -1021,20 +1025,20 @@ Avoid subjects where the limitations of salt printing work against the content:
 **Causes and solutions**:
 
 1. **Iron contamination**:
-   - **Cause**: Iron in water or paper causes purple-brown staining
-   - **Solution**: Use distilled or deionized water exclusively; test new paper batches
+- **Cause**: Iron in water or paper causes purple-brown staining
+- **Solution**: Use distilled or deionized water exclusively; test new paper batches
 
 2. **Organic matter contamination**:
-   - **Cause**: Lignin in paper or organic compounds in water
-   - **Solution**: Use only 100% cotton rag, acid-free papers; verify water quality
+- **Cause**: Lignin in paper or organic compounds in water
+- **Solution**: Use only 100% cotton rag, acid-free papers; verify water quality
 
 3. **Inadequate washing**:
-   - **Cause**: Residual fixer or processing chemistry causes yellowing over time
-   - **Solution**: Extend wash time to 30–60 minutes in running water or multiple water changes
+- **Cause**: Residual fixer or processing chemistry causes yellowing over time
+- **Solution**: Extend wash time to 30–60 minutes in running water or multiple water changes
 
 4. **Improper toning**:
-   - **Cause**: Contaminated toning solutions or over-toning
-   - **Solution**: Use fresh toners; monitor toning progress carefully
+- **Cause**: Contaminated toning solutions or over-toning
+- **Solution**: Use fresh toners; monitor toning progress carefully
 
 ### Poor Contrast (Flat Prints)
 
@@ -1046,20 +1050,20 @@ Avoid subjects where the limitations of salt printing work against the content:
 **Causes and solutions**:
 
 1. **Insufficient negative contrast** ([most common cause](https://www.alternativephotography.com/salt-printing-exposing-the-print/)):
-   - **Cause**: [Insufficient negative contrast results in flat prints, leading people to underexpose, producing poor Dmax and anemic-looking prints](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
-   - **Solution**: Use negatives with density range 1.8–2.2; expand contrast during negative creation
+- **Cause**: [Insufficient negative contrast results in flat prints, leading people to underexpose, producing poor Dmax and anemic-looking prints](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
+- **Solution**: Use negatives with density range 1.8–2.2; expand contrast during negative creation
 
 2. **Underexposure combined with weak negative**:
-   - **Cause**: Compounding of two limiting factors
-   - **Solution**: [Start with a suitable negative and give the print sufficient exposure](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
+- **Cause**: Compounding of two limiting factors
+- **Solution**: [Start with a suitable negative and give the print sufficient exposure](https://www.alternativephotography.com/salt-printing-exposing-the-print/)
 
 3. **Incorrect salting/sensitizing ratio**:
-   - **Cause**: Too much salt relative to silver nitrate reduces contrast
-   - **Solution**: Reduce salt concentration to 2% or lower; maintain proper ratio
+- **Cause**: Too much salt relative to silver nitrate reduces contrast
+- **Solution**: Reduce salt concentration to 2% or lower; maintain proper ratio
 
 4. **Over-toning**:
-   - **Cause**: Excessive toning compresses tonal range
-   - **Solution**: Monitor toning carefully; remove from toner when desired color achieved
+- **Cause**: Excessive toning compresses tonal range
+- **Solution**: Monitor toning carefully; remove from toner when desired color achieved
 
 ### Paper Contamination
 
@@ -1129,31 +1133,31 @@ Avoid subjects where the limitations of salt printing work against the content:
 **Essential equipment** (total cost: $150–$300):
 
 1. **Chemistry**:
-   - Sodium chloride (non-iodized table salt): $5
-   - Silver nitrate (100g): $80–$120
-   - Citric acid: $5
-   - Sodium thiosulfate (fixer): $15
-   - Distilled water (gallon jugs from grocery store): $1–$2/gallon
+- Sodium chloride (non-iodized table salt): $5
+- Silver nitrate (100g): $80–$120
+- Citric acid: $5
+- Sodium thiosulfate (fixer): $15
+- Distilled water (gallon jugs from grocery store): $1–$2/gallon
 
 2. **Coating supplies**:
-   - 2" hake brush for salting: $8–$12
-   - 2" hake brush for sensitizing: $8–$12
-   - Pyrex or photographic trays (2): $20–$30
-   - Glass measuring containers: $10
-   - Amber glass bottles for storage (2): $15
-   - Nitrile gloves (box): $10
+- 2" hake brush for salting: $8–$12
+- 2" hake brush for sensitizing: $8–$12
+- Pyrex or photographic trays (2): $20–$30
+- Glass measuring containers: $10
+- Amber glass bottles for storage (2): $15
+- Nitrile gloves (box): $10
 
 3. **Paper**:
-   - Cotton rag paper (starter pack, 10 sheets 8×10"): $30–$50
-   - Recommended: Arches Platine or Hahnemühle Platinum Rag
+- Cotton rag paper (starter pack, 10 sheets 8×10"): $30–$50
+- Recommended: Arches Platine or Hahnemühle Platinum Rag
 
 4. **Printing**:
-   - Heavy glass (8×10" or 11×14", picture frame glass): $10–$15
-   - Foam board or felt backing: $5
-   - Spring clamps or weights: $5–$10
+- Heavy glass (8×10" or 11×14", picture frame glass): $10–$15
+- Foam board or felt backing: $5
+- Spring clamps or weights: $5–$10
 
 5. **Processing**:
-   - Plastic or glass trays for fixing and washing (3): $15–$25
+- Plastic or glass trays for fixing and washing (3): $15–$25
 
 **Workflow adaptations**:
 
@@ -1205,23 +1209,23 @@ Avoid subjects where the limitations of salt printing work against the content:
 **Cost-cutting strategies**:
 
 1. **Chemistry** ($50):
-   - Table salt (non-iodized): $5
-   - Silver nitrate 50g (sufficient for 15–20 8×10" prints): $40–$50
-   - Sodium thiosulfate (fixer, buy in bulk from photo supplier): $10
-   - Use tap water if known to be iron-free (test first)
+- Table salt (non-iodized): $5
+- Silver nitrate 50g (sufficient for 15–20 8×10" prints): $40–$50
+- Sodium thiosulfate (fixer, buy in bulk from photo supplier): $10
+- Use tap water if known to be iron-free (test first)
 
 2. **Paper** ($25):
-   - Strathmore 500 Series Watercolor (more affordable than Arches): $25 for 10 sheets
-   - Hot press surface
+- Strathmore 500 Series Watercolor (more affordable than Arches): $25 for 10 sheets
+- Hot press surface
 
 3. **Equipment** ($15):
-   - Foam brushes instead of hake brushes: $3
-   - Plastic storage containers instead of amber glass: $5
-   - Picture frame glass from thrift store: $2–$5
-   - Yogurt containers for chemistry mixing: free
+- Foam brushes instead of hake brushes: $3
+- Plastic storage containers instead of amber glass: $5
+- Picture frame glass from thrift store: $2–$5
+- Yogurt containers for chemistry mixing: free
 
 4. **Processing** ($10):
-   - Dollar store plastic trays: $3–$5 each
+- Dollar store plastic trays: $3–$5 each
 
 **Trade-offs**:
 - Lower-cost paper may have less consistent results
@@ -1236,49 +1240,49 @@ Avoid subjects where the limitations of salt printing work against the content:
 **Premium materials**:
 
 1. **Paper**:
-   - Hahnemühle Platinum Rag, Arches Platine, or Bergger COT-320
-   - Purchase in larger quantities (25–50 sheets) for consistency
-   - Test each paper batch before committing to edition printing
+- Hahnemühle Platinum Rag, Arches Platine, or Bergger COT-320
+- Purchase in larger quantities (25–50 sheets) for consistency
+- Test each paper batch before committing to edition printing
 
 2. **Chemistry**:
-   - Pharmaceutical-grade silver nitrate
-   - Analytical-grade sodium chloride
-   - Gold chloride for archival toning
-   - Distilled or deionized water exclusively
+- Pharmaceutical-grade silver nitrate
+- Analytical-grade sodium chloride
+- Gold chloride for archival toning
+- Distilled or deionized water exclusively
 
 3. **Equipment**:
-   - Professional coating brushes (Japanese hake brushes)
-   - Amber glass bottles for chemistry storage
-   - Precision contact printing frame or vacuum frame
-   - Archival processing trays (stainless steel or glass)
+- Professional coating brushes (Japanese hake brushes)
+- Amber glass bottles for chemistry storage
+- Precision contact printing frame or vacuum frame
+- Archival processing trays (stainless steel or glass)
 
 4. **UV exposure**:
-   - Commercial UV exposure unit ($300–$800 for desktop units)
-   - Consistent, repeatable results
-   - Year-round availability regardless of weather
+- Commercial UV exposure unit ($300–$800 for desktop units)
+- Consistent, repeatable results
+- Year-round availability regardless of weather
 
 **Archival processing workflow**:
 
 1. **Gold toning** (essential):
-   - [Gold toning is essential for improved image stability](https://cool.culturalheritage.org/albumen/library/monographs/reilly/chap6.html)
-   - Standard gold chloride toner
-   - Tone until cool purplish-brown
+- [Gold toning is essential for improved image stability](https://cool.culturalheritage.org/albumen/library/monographs/reilly/chap6.html)
+- Standard gold chloride toner
+- Tone until cool purplish-brown
 
 2. **Extended washing**:
-   - 60 minutes running water (archival washing)
-   - Test for residual fixer with hypo check solution
-   - Final rinse in distilled water
+- 60 minutes running water (archival washing)
+- Test for residual fixer with hypo check solution
+- Final rinse in distilled water
 
 3. **Drying**:
-   - Air dry on fiberglass screens
-   - Avoid forced air (can cause uneven drying)
-   - Control humidity (40–50% RH)
+- Air dry on fiberglass screens
+- Avoid forced air (can cause uneven drying)
+- Control humidity (40–50% RH)
 
 4. **Finishing**:
-   - Archival hinges or mounting corners
-   - Museum-quality mat board (4-ply, acid-free, lignin-free)
-   - UV-filtering glazing (Museum Glass or equivalent)
-   - Sealed backing to prevent atmospheric contamination
+- Archival hinges or mounting corners
+- Museum-quality mat board (4-ply, acid-free, lignin-free)
+- UV-filtering glazing (Museum Glass or equivalent)
+- Sealed backing to prevent atmospheric contamination
 
 **Documentation**:
 - Record all variables: paper batch, chemistry preparation date, exposure time, toning duration
@@ -1329,20 +1333,20 @@ Distilled water: 1000ml
 **Archival washing protocol**:
 
 1. **Running water wash**:
-   - 30 minutes minimum for exhibition work
-   - 60 minutes for museum-quality archival prints
-   - Water temperature: room temperature (avoid hot water)
-   - Flow rate: gentle (avoid mechanical damage to wet paper)
+- 30 minutes minimum for exhibition work
+- 60 minutes for museum-quality archival prints
+- Water temperature: room temperature (avoid hot water)
+- Flow rate: gentle (avoid mechanical damage to wet paper)
 
 2. **Multiple water change method** (if running water unavailable):
-   - 10–12 complete water changes
-   - 5 minutes per change with gentle agitation
-   - Total time: 50–60 minutes
+- 10–12 complete water changes
+- 5 minutes per change with gentle agitation
+- Total time: 50–60 minutes
 
 3. **Final rinse**:
-   - Rinse in distilled water for 2–3 minutes
-   - Removes any remaining tap water minerals
-   - Ensures pure final wash
+- Rinse in distilled water for 2–3 minutes
+- Removes any remaining tap water minerals
+- Ensures pure final wash
 
 **Testing for residual fixer**:
 - Use commercial hypo check solution (available from photo suppliers)
@@ -1358,13 +1362,13 @@ Distilled water: 1000ml
 
 1. **Fix and wash** print normally (as above)
 2. **Gold tone**:
-   - Immerse in gold chloride toner (formula in Toning section)
-   - Tone until cool purplish-brown color achieved (typically 10–15 minutes)
-   - Agitate gently throughout toning
+- Immerse in gold chloride toner (formula in Toning section)
+- Tone until cool purplish-brown color achieved (typically 10–15 minutes)
+- Agitate gently throughout toning
 3. **Post-toning wash**:
-   - 30–60 minutes running water
-   - Removes residual toner chemistry
-   - Essential for long-term stability
+- 30–60 minutes running water
+- Removes residual toner chemistry
+- Essential for long-term stability
 
 **Why gold toning improves stability**:
 - Gold is chemically inert (does not react with atmospheric pollutants)
@@ -1377,19 +1381,19 @@ Distilled water: 1000ml
 **Best practices**:
 
 1. **Air drying on screens**:
-   - Use fiberglass or nylon screens (avoid metal, which can rust)
-   - Allow air circulation on both sides
-   - Dry in clean, dust-free environment
-   - 40–50% relative humidity ideal
+- Use fiberglass or nylon screens (avoid metal, which can rust)
+- Allow air circulation on both sides
+- Dry in clean, dust-free environment
+- 40–50% relative humidity ideal
 
 2. **Avoid forced air drying**:
-   - Fans or heat can cause uneven drying
-   - May create density variations or surface texture issues
+- Fans or heat can cause uneven drying
+- May create density variations or surface texture issues
 
 3. **Flatten after drying**:
-   - Place between clean blotters under light weight
-   - Leave for 24–48 hours
-   - Prevents curling and cockling
+- Place between clean blotters under light weight
+- Leave for 24–48 hours
+- Prevents curling and cockling
 
 ### Storage Conditions
 
@@ -1403,20 +1407,20 @@ Distilled water: 1000ml
 **Storage materials**:
 
 1. **Interleaving**:
-   - Use unbuffered, acid-free tissue or glassine
-   - Prevents abrasion between prints
-   - Allows slight air circulation
+- Use unbuffered, acid-free tissue or glassine
+- Prevents abrasion between prints
+- Allows slight air circulation
 
 2. **Storage boxes**:
-   - Museum-quality archival boxes
-   - Acid-free, lignin-free construction
-   - Metal-edge or drop-front boxes preferred
+- Museum-quality archival boxes
+- Acid-free, lignin-free construction
+- Metal-edge or drop-front boxes preferred
 
 3. **Avoid**:
-   - Cardboard (contains lignin and sulfur compounds)
-   - Plastic sleeves (can trap moisture)
-   - Rubber bands, paper clips, adhesives
-   - Direct contact with wood or acidic materials
+- Cardboard (contains lignin and sulfur compounds)
+- Plastic sleeves (can trap moisture)
+- Rubber bands, paper clips, adhesives
+- Direct contact with wood or acidic materials
 
 ### UV Sensitivity and Light Exposure
 

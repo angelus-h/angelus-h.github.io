@@ -253,10 +253,10 @@ awk '{ printf "%s: %d\n", $1, $2 }' file.txt
 ```bash
 # Create array
 awk 'BEGIN {
- arr[1] = "apple"
- arr[2] = "banana"
- arr[3] = "orange"
- for (i=1; i<=3; i++) print arr[i]
+arr[1] = "apple"
+arr[2] = "banana"
+arr[3] = "orange"
+for (i=1; i<=3; i++) print arr[i]
 }'
 
 # Store fields in array
@@ -276,19 +276,19 @@ awk '{ sum[$1] += $2 } END { for (cat in sum) print cat, sum[cat] }' data.txt
 
 # Group by key
 awk '{
- key = $1
- values[key] = values[key] " " $2
+key = $1
+values[key] = values[key] " " $2
 } END {
- for (k in values) print k, values[k]
+for (k in values) print k, values[k]
 }' file.txt
 
 # Check if key exists
 awk '{
- if ($1 in seen) {
- print "Duplicate:", $1
- } else {
- seen[$1] = 1
- }
+if ($1 in seen) {
+print "Duplicate:", $1
+} else {
+seen[$1] = 1
+}
 }' file.txt
 ```
 
@@ -305,11 +305,11 @@ awk '!seen[$1]++ { print $1 }' users.txt
 
 # Group errors by hour
 awk '{
- match($0, /[0-9]{2}:[0-9]{2}/)
- hour = substr($0, RSTART, 2)
- errors[hour]++
+match($0, /[0-9]{2}:[0-9]{2}/)
+hour = substr($0, RSTART, 2)
+errors[hour]++
 } END {
- for (h in errors) print h ":00 -", errors[h], "errors"
+for (h in errors) print h ":00 -", errors[h], "errors"
 }' error.log
 ```
 
@@ -317,12 +317,12 @@ awk '{
 ```bash
 # Use concatenation as key
 awk '{
- arr[$1, $2] = $3
+arr[$1, $2] = $3
 } END {
- for (key in arr) {
- split(key, indices, SUBSEP)
- print indices[1], indices[2], "=", arr[key]
- }
+for (key in arr) {
+split(key, indices, SUBSEP)
+print indices[1], indices[2], "=", arr[key]
+}
 }' file.txt
 ```
 
@@ -352,21 +352,21 @@ awk '{ if ($3 > 100) print $1, "HIGH" }' file.txt
 
 # If-else
 awk '{
- if ($3 > 100)
- print $1, "HIGH"
- else
- print $1, "LOW"
+if ($3 > 100)
+print $1, "HIGH"
+else
+print $1, "LOW"
 }' file.txt
 
 # If-else-if
 awk '{
- if ($3 > 100)
- status = "HIGH"
- else if ($3 > 50)
- status = "MEDIUM"
- else
- status = "LOW"
- print $1, status
+if ($3 > 100)
+status = "HIGH"
+else if ($3 > 50)
+status = "MEDIUM"
+else
+status = "LOW"
+print $1, status
 }' file.txt
 ```
 
@@ -380,18 +380,18 @@ awk '{ for (i=1; i<=NF; i++) print $i }' file.txt
 
 # Iterate array
 awk '{
- for (i=1; i<=NF; i++) words[i] = $i
+for (i=1; i<=NF; i++) words[i] = $i
 } END {
- for (i in words) print i, words[i]
+for (i in words) print i, words[i]
 }' file.txt
 
 # Nested loops
 awk 'BEGIN {
- for (i=1; i<=3; i++) {
- for (j=1; j<=3; j++) {
- print i, j
- }
- }
+for (i=1; i<=3; i++) {
+for (j=1; j<=3; j++) {
+print i, j
+}
+}
 }'
 ```
 
@@ -399,29 +399,29 @@ awk 'BEGIN {
 ```bash
 # While loop
 awk 'BEGIN {
- i = 1
- while (i <= 5) {
- print i
- i++
- }
+i = 1
+while (i <= 5) {
+print i
+i++
+}
 }'
 
 # Process until condition
 awk '{
- i = 1
- while (i <= NF) {
- print $i
- i++
- }
+i = 1
+while (i <= NF) {
+print $i
+i++
+}
 }' file.txt
 
 # Do-while
 awk 'BEGIN {
- i = 1
- do {
- print i
- i++
- } while (i <= 5)
+i = 1
+do {
+print i
+i++
+} while (i <= 5)
 }'
 ```
 
@@ -429,18 +429,18 @@ awk 'BEGIN {
 ```bash
 # Break
 awk '{
- for (i=1; i<=NF; i++) {
- if ($i == "STOP") break
- print $i
- }
+for (i=1; i<=NF; i++) {
+if ($i == "STOP") break
+print $i
+}
 }' file.txt
 
 # Continue
 awk '{
- for (i=1; i<=NF; i++) {
- if ($i ~ /^#/) continue
- print $i
- }
+for (i=1; i<=NF; i++) {
+if ($i ~ /^#/) continue
+print $i
+}
 }' file.txt
 
 # Next (skip to next record)
@@ -492,11 +492,11 @@ awk '{ str = sprintf("%s: %05d", $1, $2); print str }' file.txt
 
 # Additional functions
 awk 'BEGIN {
- # Get system time
- print systime()
+# Get system time
+print systime()
 
- # Format time
- print strftime("%Y-%m-%d", systime())
+# Format time
+print strftime("%Y-%m-%d", systime())
 }'
 ```
 
@@ -505,7 +505,7 @@ awk 'BEGIN {
 # Basic function
 awk '
 function double(x) {
- return x * 2
+return x * 2
 }
 { print double($1) }
 ' file.txt
@@ -513,7 +513,7 @@ function double(x) {
 # Multiple parameters
 awk '
 function add(a, b) {
- return a + b
+return a + b
 }
 { print add($1, $2) }
 ' file.txt
@@ -521,24 +521,24 @@ function add(a, b) {
 # Function with array
 awk '
 function sum_array(arr, size, i, total) {
- total = 0
- for (i=1; i<=size; i++)
- total += arr[i]
- return total
+total = 0
+for (i=1; i<=size; i++)
+total += arr[i]
+return total
 }
 {
- for (i=1; i<=NF; i++)
- nums[i] = $i
- print sum_array(nums, NF)
+for (i=1; i<=NF; i++)
+nums[i] = $i
+print sum_array(nums, NF)
 }
 ' file.txt
 
 # Void function (no return)
 awk '
 function print_header() {
- print "==== Report ===="
- print "Date:", strftime("%Y-%m-%d")
- print "================"
+print "==== Report ===="
+print "Date:", strftime("%Y-%m-%d")
+print "================"
 }
 BEGIN { print_header() }
 { print $0 }
@@ -573,11 +573,11 @@ awk '{ count[$7]++ } END { for (url in count) print count[url], url }' access.lo
 
 # Requests per hour
 awk '{
- split($4, time, ":")
- hour = time[2]
- requests[hour]++
+split($4, time, ":")
+hour = time[2]
+requests[hour]++
 } END {
- for (h in requests) print h ":00 -", requests[h]
+for (h in requests) print h ":00 -", requests[h]
 }' access.log | sort -n
 
 # Average response time
@@ -591,18 +591,18 @@ awk '/ERROR/ { print $1, $2, $NF }' app.log
 
 # Count errors by type
 awk '/ERROR/ {
- match($0, /ERROR: ([^,]+)/, err)
- errors[err[1]]++
+match($0, /ERROR: ([^,]+)/, err)
+errors[err[1]]++
 } END {
- for (e in errors) print e, errors[e]
+for (e in errors) print e, errors[e]
 }' app.log
 
 # Timeline of errors
 awk '/ERROR/ {
- time = substr($1, 1, 5) # HH:MM
- timeline[time]++
+time = substr($1, 1, 5) # HH:MM
+timeline[time]++
 } END {
- for (t in timeline) print t, timeline[t]
+for (t in timeline) print t, timeline[t]
 }' app.log | sort
 ```
 
@@ -630,12 +630,12 @@ awk -F',' 'BEGIN { OFS="," } { print $0, $2*$3 }' file.csv
 
 # Pivot data
 awk -F',' '{
- sum[$1, $2] += $3
+sum[$1, $2] += $3
 } END {
- for (key in sum) {
- split(key, k, SUBSEP)
- print k[1], k[2], sum[key]
- }
+for (key in sum) {
+split(key, k, SUBSEP)
+print k[1], k[2], sum[key]
+}
 }' data.csv
 ```
 
@@ -644,36 +644,36 @@ awk -F',' '{
 # Sales report
 awk -F',' '
 BEGIN {
- print "===== Sales Report ====="
- print "Product | Quantity | Revenue"
- print "--------|----------|--------"
+print "===== Sales Report ====="
+print "Product | Quantity | Revenue"
+print "--------|----------|--------"
 }
 {
- qty[$1] += $2
- revenue[$1] += $2 * $3
+qty[$1] += $2
+revenue[$1] += $2 * $3
 }
 END {
- for (prod in qty) {
- printf "%-8s| %8d | $%7.2f\n", prod, qty[prod], revenue[prod]
- }
- print "======================="
+for (prod in qty) {
+printf "%-8s| %8d | $%7.2f\n", prod, qty[prod], revenue[prod]
+}
+print "======================="
 }' sales.csv
 
 # Formatted table
 awk 'BEGIN { OFS="|" }
 {
- printf "%-20s|%10s|%15s\n", $1, $2, $3
+printf "%-20s|%10s|%15s\n", $1, $2, $3
 }' data.txt
 
 # Multi-column report
 awk '{
- col1[NR] = $1
- col2[NR] = $2
- col3[NR] = $3
+col1[NR] = $1
+col2[NR] = $2
+col3[NR] = $3
 } END {
- for (i=1; i<=NR; i++) {
- printf "%-15s %-15s %-15s\n", col1[i], col2[i], col3[i]
- }
+for (i=1; i<=NR; i++) {
+printf "%-15s %-15s %-15s\n", col1[i], col2[i], col3[i]
+}
 }' file.txt
 ```
 
@@ -684,23 +684,23 @@ awk -F',' 'NF != 5 { print "Line", NR, "has", NF, "fields" }' data.csv
 
 # Check for empty fields
 awk -F',' '{
- for (i=1; i<=NF; i++) {
- if ($i == "") print "Empty field at line", NR, "column", i
- }
+for (i=1; i<=NF; i++) {
+if ($i == "") print "Empty field at line", NR, "column", i
+}
 }' data.csv
 
 # Email validation
 awk '{
- if ($1 !~ /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/) {
- print "Invalid email:", $1
- }
+if ($1 !~ /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/) {
+print "Invalid email:", $1
+}
 }' emails.txt
 
 # Date format check
 awk '{
- if ($1 !~ /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/) {
- print "Invalid date format:", $1
- }
+if ($1 !~ /^[0-9]{4}-[0-9]{2}-[0-9]{2}$/) {
+print "Invalid date format:", $1
+}
 }' dates.txt
 ```
 
@@ -722,12 +722,12 @@ awk '{
 # report.awk - Sales report generator
 
 BEGIN {
- FS = ","
- OFS = "\t"
+FS = ","
+OFS = "\t"
 
- print "===== Sales Report ====="
- print "Generated:", strftime("%Y-%m-%d %H:%M:%S")
- print ""
+print "===== Sales Report ====="
+print "Generated:", strftime("%Y-%m-%d %H:%M:%S")
+print ""
 }
 
 # Skip header
@@ -735,24 +735,24 @@ NR == 1 { next }
 
 # Process data
 {
- product = $1
- quantity = $2
- price = $3
+product = $1
+quantity = $2
+price = $3
 
- total_qty[product] += quantity
- total_revenue[product] += quantity * price
+total_qty[product] += quantity
+total_revenue[product] += quantity * price
 }
 
 END {
- print "Product\t\tQty\tRevenue"
- print "-------\t\t---\t-------"
+print "Product\t\tQty\tRevenue"
+print "-------\t\t---\t-------"
 
- for (prod in total_qty) {
- printf "%-15s\t%d\t$%.2f\n",
- prod,
- total_qty[prod],
- total_revenue[prod]
- }
+for (prod in total_qty) {
+printf "%-15s\t%d\t$%.2f\n",
+prod,
+total_qty[prod],
+total_revenue[prod]
+}
 }
 ```
 
@@ -769,20 +769,20 @@ awk -f report.awk sales.csv
 # lib.awk - Reusable functions
 
 function trim(str) {
- gsub(/^[ \t]+|[ \t]+$/, "", str)
- return str
+gsub(/^[ \t]+|[ \t]+$/, "", str)
+return str
 }
 
 function is_numeric(str) {
- return (str ~ /^[0-9]+$/)
+return (str ~ /^[0-9]+$/)
 }
 
 function timestamp() {
- return strftime("%Y-%m-%d %H:%M:%S")
+return strftime("%Y-%m-%d %H:%M:%S")
 }
 
 function log_message(level, msg) {
- print timestamp(), "[" level "]", msg
+print timestamp(), "[" level "]", msg
 }
 
 # Usage in another script:
@@ -806,11 +806,11 @@ LOG_FILE="$1"
 
 # Calculate statistics with awk
 stats=$(awk '
- /ERROR/ { errors++ }
- /WARNING/ { warnings++ }
- END {
- print errors, warnings, NR
- }
+/ERROR/ { errors++ }
+/WARNING/ { warnings++ }
+END {
+print errors, warnings, NR
+}
 ' "$LOG_FILE")
 
 read errors warnings total <<< "$stats"
@@ -834,10 +834,10 @@ awk '{ print $1 }' file.txt | sort | uniq -c
 
 # Pipeline example
 cat access.log | \
- awk '{ print $1 }' | \
- sort | uniq -c | \
- sort -rn | \
- head -10
+awk '{ print $1 }' | \
+sort | uniq -c | \
+sort -rn | \
+head -10
 ```
 
 **Environment Variables:**

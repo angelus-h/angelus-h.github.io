@@ -1,3 +1,7 @@
+---
+description: GitLab learning plan - 3-week course covering merge requests, CI/CD pipelines, webhooks, API automation, and advanced collaboration workflows.
+---
+
 # GitLab Learning Plan - 3 Weeks
 
 ## Context
@@ -29,7 +33,7 @@
 - Code review best practices
 - Branch protection rules
 
- **[Go to Week 1 →](./week-01/README.md)**
+**[Go to Week 1 →](./week-01/README.md)**
 
 ---
 
@@ -44,7 +48,7 @@
 - Variables, secrets, artifacts
 - Pipeline strategies (DAG, parent-child)
 
- **[Go to Week 2 →](./week-02/README.md)**
+**[Go to Week 2 →](./week-02/README.md)**
 
 ---
 
@@ -59,7 +63,7 @@
 - Container registry
 - GitLab Pages
 
- **[Go to Week 3 →](./week-03/README.md)**
+**[Go to Week 3 →](./week-03/README.md)**
 
 ---
 
@@ -78,19 +82,19 @@
 ### Immediate Actions (Day 1):
 
 1. **Check your GitLab version:**
- ```bash
- # Company GitLab
- curl https://gitlab.company.com/api/v4/version
- ```
+```bash
+# Company GitLab
+curl https://gitlab.company.com/api/v4/version
+```
 
 2. **Create personal access token:**
- - Settings → Access Tokens
- - Scopes: api, read_user, write_repository
+- Settings → Access Tokens
+- Scopes: api, read_user, write_repository
 
 3. **Clone app-interface locally:**
- ```bash
- git clone https://gitlab.company.com/service/app-interface.git
- ```
+```bash
+git clone https://gitlab.company.com/service/app-interface.git
+```
 
 ---
 
@@ -132,21 +136,21 @@
 ## Tips for Company GitLab
 
 1. **Use MR templates:**
- - App-interface has `.gitlab/merge_request_templates/`
- - Always fill out: What, Why, Tickets, Validation
+- App-interface has `.gitlab/merge_request_templates/`
+- Always fill out: What, Why, Tickets, Validation
 
 2. **Watch CI/CD jobs:**
- - Jenkins integration (not GitLab CI in app-interface)
- - Understand webhook → Jenkins flow
+- Jenkins integration (not GitLab CI in app-interface)
+- Understand webhook → Jenkins flow
 
 3. **API automation:**
- - Automate repetitive MR tasks
- - Use GitLab API for bulk operations
+- Automate repetitive MR tasks
+- Use GitLab API for bulk operations
 
 4. **Security first:**
- - Never commit secrets
- - Use protected branches
- - Enable approval rules for critical paths
+- Never commit secrets
+- Use protected branches
+- Enable approval rules for critical paths
 
 ---
 

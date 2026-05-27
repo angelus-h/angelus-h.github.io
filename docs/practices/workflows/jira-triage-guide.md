@@ -1,3 +1,7 @@
+---
+description: Jira ticket triage guide - 5-question framework, severity vs priority, impact assessment, IC shifts, and backlog grooming workflows.
+---
+
 # Jira Ticket Triage - Practical Guide with Examples 
 
 **Version:** 1.0
@@ -353,9 +357,9 @@ Link: https://jira.company.com/browse/INFRA-6666
 - **Severity:** Low (not a bug)
 - **Priority:** P3 (documentation gap)
 - **Action:**
- 1. Link to documentation
- 2. If docs unclear, create sub-task to improve docs
- 3. Close original ticket
+1. Link to documentation
+2. If docs unclear, create sub-task to improve docs
+3. Close original ticket
 
 **Response Template:**
 ```
@@ -384,10 +388,10 @@ If the documentation is unclear, let us know so we can improve it!
 - **Severity:** Critical (if verified)
 - **Priority:** P1
 - **Action:**
- 1. Verify immediately (check Grafana)
- 2. If confirmed, declare incident
- 3. Notify IC/on-call
- 4. Link ticket to incident channel
+1. Verify immediately (check Grafana)
+2. If confirmed, declare incident
+3. Notify IC/on-call
+4. Link ticket to incident channel
 
 **Response Template:**
 ```
@@ -418,9 +422,9 @@ You can follow real-time updates in the incident channel.
 - **Severity:** Medium (degradation, not outage)
 - **Priority:** P2
 - **Action:**
- 1. Request specifics (which builds, clusters, timeframe)
- 2. Check metrics (Grafana, Prometheus)
- 3. Assign to observability team
+1. Request specifics (which builds, clusters, timeframe)
+2. Check metrics (Grafana, Prometheus)
+3. Assign to observability team
 
 **Response Template:**
 ```
@@ -450,9 +454,9 @@ Will update within 4 hours with findings.
 - **Severity:** N/A (enhancement)
 - **Priority:** P3 (backlog for planning)
 - **Action:**
- 1. Label as `enhancement`
- 2. Validate use case
- 3. Route to product team
+1. Label as `enhancement`
+2. Validate use case
+3. Route to product team
 
 **Response Template:**
 ```
@@ -486,10 +490,10 @@ This will be discussed in next quarterly planning (ETA: 6 weeks).
 - **Severity:** CRITICAL
 - **Priority:** P1
 - **Action:**
- 1. **DO NOT discuss details publicly in ticket**
- 2. Immediately escalate to security team
- 3. Create private security incident
- 4. Restrict ticket access
+1. **DO NOT discuss details publicly in ticket**
+2. Immediately escalate to security team
+3. Create private security incident
+4. Restrict ticket access
 
 **Response Template:**
 ```
@@ -766,36 +770,36 @@ This appears to be [Team]'s area. Assigning to them.
 
 ```
 New Ticket Arrives
- ↓
- Is production down? 
- YES → VERIFY → Declare Incident → P1 
- NO → Continue 
- 
- Is this a security issue? 
- YES → Escalate to Security → Restrict Visibility 
- NO → Continue 
- 
- Is information complete? 
- NO → Request specific info → Wait for response 
- YES → Continue 
- 
- Is this a duplicate? 
- YES → Link original → Provide status → Close 
- NO → Continue 
- 
- What type is it? 
- Bug → Assess severity/impact → Assign to team 
- Feature Request → Label → Route to product 
- Question → Answer or link docs → Close 
- Incident → See "production down" above 
- User Error → Provide guidance → Close 
- 
- Priority? (Severity + Impact) 
- P1 → Immediate action (< 1 hour) 
- P2 → Next sprint (1-2 weeks) 
- P3 → Backlog (months) 
- P4 → Nice-to-have (when available) 
- 
+↓
+Is production down? 
+YES → VERIFY → Declare Incident → P1 
+NO → Continue 
+
+Is this a security issue? 
+YES → Escalate to Security → Restrict Visibility 
+NO → Continue 
+
+Is information complete? 
+NO → Request specific info → Wait for response 
+YES → Continue 
+
+Is this a duplicate? 
+YES → Link original → Provide status → Close 
+NO → Continue 
+
+What type is it? 
+Bug → Assess severity/impact → Assign to team 
+Feature Request → Label → Route to product 
+Question → Answer or link docs → Close 
+Incident → See "production down" above 
+User Error → Provide guidance → Close 
+
+Priority? (Severity + Impact) 
+P1 → Immediate action (< 1 hour) 
+P2 → Next sprint (1-2 weeks) 
+P3 → Backlog (months) 
+P4 → Nice-to-have (when available) 
+
 Final: Document decision, set expectations, update ticket 
 ```
 
@@ -855,7 +859,7 @@ Final: Document decision, set expectations, update ticket
 
 Good triage = tickets don't fall through cracks + urgent issues escalated fast + teams have context to act.
 
- **Happy triaging!**
+**Happy triaging!**
 
 ---
 

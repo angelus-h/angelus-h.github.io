@@ -56,7 +56,7 @@ Before examining specific developers, understand the fundamental trade-offs:
 
 ### Ilfosol 3 / Ilfosol S
 
-**Type:** Liquid concentrate  
+**Type:** Liquid concentrate 
 **Chemistry basis:** Modified phenidone-hydroquinone (PQ)
 
 **Visual Rendering:**
@@ -164,7 +164,7 @@ Clean, neutral, reliable. Ilfosol 3 is the dependable workhorse. It does not imp
 
 ### ID-11 / Kodak D-76
 
-**Type:** Powder concentrate (requires mixing)  
+**Type:** Powder concentrate (requires mixing) 
 **Chemistry basis:** Metol-hydroquinone (MQ) with sodium sulfite buffering
 
 **Visual Rendering:**
@@ -275,7 +275,7 @@ Smooth, gentle, forgiving. ID-11/D-76 is the classic general-purpose developer. 
 
 ### HC-110
 
-**Type:** Liquid concentrate (extremely concentrated, diluted heavily before use)  
+**Type:** Liquid concentrate (extremely concentrated, diluted heavily before use) 
 **Chemistry basis:** Proprietary hydroquinone-based high-energy developer
 
 **Visual Rendering:**
@@ -384,7 +384,7 @@ Aggressive, sharp, unforgiving. HC-110 is the high-energy developer for photogra
 
 ### Rodinal / Adonal
 
-**Type:** Liquid concentrate (extremely concentrated, diluted heavily before use)  
+**Type:** Liquid concentrate (extremely concentrated, diluted heavily before use) 
 **Chemistry basis:** Aminophenol-based solvent developer (one of the oldest formulas still in use)
 
 **Visual Rendering:**
@@ -495,7 +495,7 @@ Sharp, uncompromising, timeless. Rodinal is the oldest developer formula still i
 
 ### Kodak XTOL
 
-**Type:** Powder concentrate (requires mixing)  
+**Type:** Powder concentrate (requires mixing) 
 **Chemistry basis:** Proprietary ascorbate-based developer (environmentally friendlier than traditional MQ developers)
 
 **Visual Rendering:**
@@ -604,7 +604,7 @@ Modern, balanced, refined. XTOL represents Kodak's attempt to create a better D-
 
 ### Ilford DD-X
 
-**Type:** Liquid concentrate  
+**Type:** Liquid concentrate 
 **Chemistry basis:** Proprietary developer optimized for modern tabular-grain films
 
 **Visual Rendering:**
@@ -711,7 +711,7 @@ Modern, precise, refined. DD-X is Ilford's premium developer for their Delta lin
 
 ### Ilford Microphen
 
-**Type:** Powder concentrate  
+**Type:** Powder concentrate 
 **Chemistry basis:** Metol-hydroquinone (MQ) developer optimized for speed and grain
 
 **Visual Rendering:**
@@ -805,7 +805,7 @@ Specialized, speed-focused, reliable. Microphen is the developer for photographe
 
 ### Cinestill DF96 Monobath
 
-**Type:** Liquid monobath (developer and fixer combined)  
+**Type:** Liquid monobath (developer and fixer combined) 
 **Chemistry basis:** Proprietary combined developer-fixer formula
 
 **Visual Rendering:**
@@ -896,7 +896,7 @@ Convenient, experimental, niche. DF96 is not a replacement for traditional devel
 
 ### Fomadon LQN / LQR / R09 (Foma Developers)
 
-**Type:** Liquid concentrate (varies by formulation)  
+**Type:** Liquid concentrate (varies by formulation) 
 **Chemistry basis:** Varies (LQN is compensating, LQR is standard, R09 is Rodinal clone)
 
 **Fomadon LQN:**
@@ -956,7 +956,7 @@ Economical, practical, regional. Foma developers are the choice for budget-consc
 
 ### Spur Developers (HRX, Acurol-N, Modular Development System)
 
-**Type:** Liquid concentrates (premium boutique developers)  
+**Type:** Liquid concentrates (premium boutique developers) 
 **Chemistry basis:** Proprietary formulations optimized for modern films
 
 **Spur HRX (High Resolution Xtreme):**
@@ -1065,8 +1065,8 @@ Film developers are alkaline (pH 9-11). Stop baths are acidic (pH 4-5). The acid
 
 #### Indicator Stop Bath
 
-**Chemistry:** Acetic acid with pH indicator dye  
-**Working concentration:** Typically 1-2% acetic acid  
+**Chemistry:** Acetic acid with pH indicator dye 
+**Working concentration:** Typically 1-2% acetic acid 
 **Color change:** Yellow → purple when exhausted
 
 **Advantages:**
@@ -1095,7 +1095,7 @@ Film developers are alkaline (pH 9-11). Stop baths are acidic (pH 4-5). The acid
 
 #### Plain Acetic Acid Stop Bath
 
-**Chemistry:** 1-2% acetic acid solution (distilled white vinegar diluted)  
+**Chemistry:** 1-2% acetic acid solution (distilled white vinegar diluted) 
 **Working concentration:** 
 - 1% solution: 10ml glacial acetic acid per liter (or 30ml white vinegar per liter)
 - 2% solution: 20ml glacial acetic acid per liter (or 60ml white vinegar per liter)
@@ -1124,7 +1124,7 @@ Film developers are alkaline (pH 9-11). Stop baths are acidic (pH 4-5). The acid
 
 #### Water Stop Bath
 
-**Chemistry:** Plain water (preferably distilled or filtered)  
+**Chemistry:** Plain water (preferably distilled or filtered) 
 **Working temperature:** Room temperature
 
 **Advantages:**
@@ -1157,19 +1157,19 @@ Film developers are alkaline (pH 9-11). Stop baths are acidic (pH 4-5). The acid
 **Proper stop bath use is critical for archival stability:**
 
 1. **Residual Developer Contamination:**
-   - Developer carried into fixer causes rapid fixer exhaustion
-   - Exhausted fixer leaves residual silver complexes in film
-   - Residual silver causes yellowing and staining over decades
+- Developer carried into fixer causes rapid fixer exhaustion
+- Exhausted fixer leaves residual silver complexes in film
+- Residual silver causes yellowing and staining over decades
 
 2. **Acidification:**
-   - Proper acid stop bath ensures complete development cessation
-   - Prevents fogging in the fixer
-   - Ensures consistent, repeatable results
+- Proper acid stop bath ensures complete development cessation
+- Prevents fogging in the fixer
+- Ensures consistent, repeatable results
 
 3. **Recommendation for Archival Work:**
-   - Use indicator stop bath for precise chemistry tracking
-   - Replace stop bath before exhaustion (at first color change)
-   - Do not reuse stop bath excessively (20 rolls maximum)
+- Use indicator stop bath for precise chemistry tracking
+- Replace stop bath before exhaustion (at first color change)
+- Do not reuse stop bath excessively (20 rolls maximum)
 
 ---
 
@@ -1209,7 +1209,7 @@ Fixer contains sodium thiosulfate or ammonium thiosulfate, which forms soluble s
 
 #### Rapid Fixer (Ammonium Thiosulfate-Based)
 
-**Chemistry:** Ammonium thiosulfate + acidifier + hardener (optional)  
+**Chemistry:** Ammonium thiosulfate + acidifier + hardener (optional) 
 **Common brands:** Ilford Rapid Fixer, Kodak Rapid Fixer, Fotospeed FX30
 
 **Fixing Time:**
@@ -1240,7 +1240,7 @@ Fixer contains sodium thiosulfate or ammonium thiosulfate, which forms soluble s
 
 #### Standard Fixer (Sodium Thiosulfate-Based)
 
-**Chemistry:** Sodium thiosulfate + acidifier  
+**Chemistry:** Sodium thiosulfate + acidifier 
 **Common brands:** Photographer's Formulary TF-4, homemade fixer formulas
 
 **Fixing Time:**
@@ -1349,8 +1349,8 @@ Two-bath fixing is the archival standard for fiber-based prints. It is optional 
 
 **Exhaustion Testing:**
 1. **Silver halide test:** Place unexposed, undeveloped film edge in fixer
-   - Fresh fixer: clears in 30-60 seconds
-   - Exhausted fixer: takes 2+ minutes or does not clear
+- Fresh fixer: clears in 30-60 seconds
+- Exhausted fixer: takes 2+ minutes or does not clear
 2. **Commercial test kits:** Available from Kodak, Ilford (litmus-style test strips)
 
 **Practical Recommendation:**
@@ -1411,7 +1411,7 @@ Wetting agents are surfactants (surface-active agents) that lower water's surfac
 
 #### Kodak Photo-Flo 200
 
-**Type:** Concentrated liquid wetting agent  
+**Type:** Concentrated liquid wetting agent 
 **Dilution:** 1+200 (5ml per liter of water)
 
 **Characteristics:**
@@ -1440,7 +1440,7 @@ Wetting agents are surfactants (surface-active agents) that lower water's surfac
 
 #### Ilford Ilfotol
 
-**Type:** Concentrated liquid wetting agent  
+**Type:** Concentrated liquid wetting agent 
 **Dilution:** 1+200 (5ml per liter of water)
 
 **Characteristics:**
@@ -1486,17 +1486,17 @@ Wetting agents are surfactants (surface-active agents) that lower water's surfac
 1. **After final wash:** Immerse in wetting agent solution (30 seconds, gentle agitation)
 2. **Remove film from reel:** Handle by edges only
 3. **Squeegee (optional but recommended):**
-   - Use film squeegee or clean fingers
-   - Gently wipe excess water from both sides of film
-   - Do not apply excessive pressure (risk of scratching)
+- Use film squeegee or clean fingers
+- Gently wipe excess water from both sides of film
+- Do not apply excessive pressure (risk of scratching)
 4. **Hang film in dust-free environment:**
-   - Use film clips or clothespins
-   - Attach weight to bottom of film to prevent curling
-   - Dry in clean, dust-free room (bathroom with door closed is ideal)
+- Use film clips or clothespins
+- Attach weight to bottom of film to prevent curling
+- Dry in clean, dust-free room (bathroom with door closed is ideal)
 5. **Drying time:**
-   - 35mm: 2-4 hours
-   - 120 medium format: 4-6 hours
-   - Drying cabinet or fan reduces time (but increases dust risk)
+- 35mm: 2-4 hours
+- 120 medium format: 4-6 hours
+- Drying cabinet or fan reduces time (but increases dust risk)
 
 **Common Mistakes:**
 - Drying in dusty environment (dust embeds in wet emulsion)
@@ -1568,14 +1568,14 @@ Film speed is fixed (determined by emulsion chemistry). Pushing increases develo
 
 **Intentional Underexposure + Push:**
 1. **Low-light photography:** Concert, theater, street photography at night
-   - Pushing allows handheld shooting in dim light
-   - Grain becomes aesthetic element
+- Pushing allows handheld shooting in dim light
+- Grain becomes aesthetic element
 2. **High-contrast subjects:** Graphic compositions, stark lighting
-   - Push enhances contrast intentionally
-   - Shadow detail is not critical
+- Push enhances contrast intentionally
+- Shadow detail is not critical
 3. **Gritty, grainy aesthetic:** Photojournalism, documentary, street
-   - Grain adds texture and mood
-   - Smooth tonality is not desired
+- Grain adds texture and mood
+- Smooth tonality is not desired
 
 **When Pushing Is a Mistake:**
 - Underexposure due to metering error (not intentional)
@@ -1602,16 +1602,16 @@ Pulling is often more useful than pushing but less commonly practiced. It is the
 
 ### Common Misconceptions
 
-**Misconception 1:** "Pushing film makes it faster."  
+**Misconception 1:** "Pushing film makes it faster." 
 **Reality:** Film speed is fixed. Pushing amplifies weak shadow exposure but cannot recover unexposed areas.
 
-**Misconception 2:** "Pushing is always bad for image quality."  
+**Misconception 2:** "Pushing is always bad for image quality." 
 **Reality:** +1 stop push is often acceptable. +2 stops introduces visible quality loss but may be artistically desirable. +3 stops is extreme and rarely successful.
 
-**Misconception 3:** "Pulling film wastes its speed."  
+**Misconception 3:** "Pulling film wastes its speed." 
 **Reality:** Pulling extends highlight detail and reduces contrast. It is the correct technique for high-contrast scenes.
 
-**Misconception 4:** "All films push equally well."  
+**Misconception 4:** "All films push equally well." 
 **Reality:** Modern tabular-grain films (T-Max, Delta) push better than traditional cubic-grain films (Tri-X, HP5+). High-speed films (ISO 400+) push better than slow films (ISO 100).
 
 ---
@@ -1994,17 +1994,17 @@ When in doubt, discard. Developer is inexpensive compared to ruined film. Do not
 
 **Chemistry:**
 - **Developer:** Ilfosol 3 (500ml bottle, 1+9 dilution)
-  - One-shot use, no tracking required
-  - Forgiving development latitude
-  - Processes ~10 rolls
+- One-shot use, no tracking required
+- Forgiving development latitude
+- Processes ~10 rolls
 - **Stop Bath:** Plain white vinegar (diluted to 2%)
-  - Extremely economical
-  - Mix 60ml vinegar per liter of water
+- Extremely economical
+- Mix 60ml vinegar per liter of water
 - **Fixer:** Ilford Rapid Fixer (1 liter, 1+4 dilution)
-  - 5 liters working solution
-  - Processes ~20 rolls
+- 5 liters working solution
+- Processes ~20 rolls
 - **Wetting Agent:** Kodak Photo-Flo 200 (small bottle)
-  - Lasts years
+- Lasts years
 
 **Equipment:**
 - Developing tank (Paterson or AP)
@@ -2042,13 +2042,13 @@ When in doubt, discard. Developer is inexpensive compared to ruined film. Do not
 
 **Chemistry:**
 - **Developer:** ID-11 powder (makes 1 liter stock, use 1+1)
-  - 2 liters working solution per batch
-  - Processes ~20 rolls economically
-  - Smooth grain, excellent for medium format
+- 2 liters working solution per batch
+- Processes ~20 rolls economically
+- Smooth grain, excellent for medium format
 - **Stop Bath:** Citric acid solution (2%)
-  - Mix from powder (extremely economical)
+- Mix from powder (extremely economical)
 - **Fixer:** Ilford Rapid Fixer (1+4 dilution)
-  - Standard archival fixer
+- Standard archival fixer
 - **Wetting Agent:** Ilfotol
 
 **Equipment:**
@@ -2080,16 +2080,16 @@ When in doubt, discard. Developer is inexpensive compared to ruined film. Do not
 
 **Chemistry:**
 - **Developer:** XTOL (powder, 1 liter stock, use 1+1)
-  - Fine grain, excellent sharpness
-  - Balanced for fine art work
+- Fine grain, excellent sharpness
+- Balanced for fine art work
 - **Stop Bath:** Indicator stop bath
-  - Visual exhaustion tracking
-  - Archival workflow standard
+- Visual exhaustion tracking
+- Archival workflow standard
 - **Fixer:** Ilford Rapid Fixer (non-hardening)
-  - Two-bath fixing protocol
-  - Archival standard
+- Two-bath fixing protocol
+- Archival standard
 - **Fixer Remover:** Ilford Washaid
-  - Reduces wash time, ensures complete fixer removal
+- Reduces wash time, ensures complete fixer removal
 - **Wetting Agent:** Ilfotol
 
 **Equipment:**
@@ -2127,10 +2127,10 @@ When in doubt, discard. Developer is inexpensive compared to ruined film. Do not
 
 **Chemistry:**
 - **C-41 Kit:** Cinestill CS41 or Tetenal Colortec C-41
-  - 1 liter kit processes 12-24 rolls (depending on reuse)
-  - Temperature-critical (38°C / 100°F)
+- 1 liter kit processes 12-24 rolls (depending on reuse)
+- Temperature-critical (38°C / 100°F)
 - **Stabilizer:** Included in kit
-  - Replaces traditional wash
+- Replaces traditional wash
 
 **Equipment:**
 - Paterson tank
@@ -2166,13 +2166,13 @@ When in doubt, discard. Developer is inexpensive compared to ruined film. Do not
 
 **Chemistry:**
 - **Developer:** HC-110 (1 liter concentrate)
-  - Lasts 10+ years unopened
-  - Dilution H (1+63): extremely economical
-  - One-shot use, no waste from expiration
+- Lasts 10+ years unopened
+- Dilution H (1+63): extremely economical
+- One-shot use, no waste from expiration
 - **Stop Bath:** White vinegar (2%)
-  - No shelf life concerns
+- No shelf life concerns
 - **Fixer:** Ilford Rapid Fixer (small bottle)
-  - Long shelf life
+- Long shelf life
 - **Wetting Agent:** Photo-Flo (small bottle, lasts years)
 
 **Equipment:**
@@ -2202,12 +2202,12 @@ When in doubt, discard. Developer is inexpensive compared to ruined film. Do not
 
 **Chemistry:**
 - **Developer:** Ilfosol 3 or Rodinal (one-shot use)
-  - No tracking required
-  - Long shelf life
+- No tracking required
+- Long shelf life
 - **Stop Bath:** Indicator stop bath (small bottle)
-  - Lasts months
+- Lasts months
 - **Fixer:** Ilford Rapid Fixer (1 liter)
-  - Lasts 6-12 months with low volume
+- Lasts 6-12 months with low volume
 - **Wetting Agent:** Ilfotol
 
 **Equipment:**
@@ -2237,16 +2237,16 @@ When in doubt, discard. Developer is inexpensive compared to ruined film. Do not
 
 **Chemistry:**
 - **Developer:** XTOL or ID-11 (1+1 one-shot)
-  - Archival-quality development
+- Archival-quality development
 - **Stop Bath:** Indicator stop bath
-  - Precise chemistry tracking
+- Precise chemistry tracking
 - **Fixer:** Non-hardening rapid fixer
-  - Two-bath fixing protocol
-  - No hardener (faster wash)
+- Two-bath fixing protocol
+- No hardener (faster wash)
 - **Fixer Remover:** Ilford Washaid or Kodak Hypo Clearing Agent
-  - Ensures complete fixer removal
+- Ensures complete fixer removal
 - **Wetting Agent:** Distilled water only (or Ilfotol at 1+400 dilution)
-  - Minimal chemical residue
+- Minimal chemical residue
 
 **Equipment:**
 - Stainless steel developing reels (no plastic)

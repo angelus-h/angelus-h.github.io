@@ -1,3 +1,7 @@
+---
+description: Effective and responsible AI use - Claude Code, Cursor, ChatGPT best practices while maintaining critical thinking and learning skills.
+---
+
 # AI Effective and Responsible Use Guide
 
 **Version:** 1.0
@@ -26,14 +30,14 @@
 
 ```
 AI's role:
- TEACHER - Explains, questions, inspires, challenges
- MENTOR - Shows alternatives, teaches best practices
- ACCELERATOR - Automates routine tasks, saves time
- RESEARCH ASSISTANT - Gathers information, summarizes
+TEACHER - Explains, questions, inspires, challenges
+MENTOR - Shows alternatives, teaches best practices
+ACCELERATOR - Automates routine tasks, saves time
+RESEARCH ASSISTANT - Gathers information, summarizes
 
- NOT Replacement - Doesn't think for you
- NOT Crutch - Doesn't make you dependent
- NOT Babysitter - Doesn't do everything for you
+NOT Replacement - Doesn't think for you
+NOT Crutch - Doesn't make you dependent
+NOT Babysitter - Doesn't do everything for you
 ```
 
 ### Golden Rule
@@ -307,19 +311,19 @@ Consequence: Zero ownership, zero understanding
 
 ```
 1. LEARN (Manual)
- - Read documentation (without AI!)
- - Watch tutorials
- - Understand basics
+- Read documentation (without AI!)
+- Watch tutorials
+- Understand basics
 
 2. APPLY (Manual + AI)
- - Try implementing
- - If stuck, ask AI (but you have foundation!)
- - AI explains, YOU implement
+- Try implementing
+- If stuck, ask AI (but you have foundation!)
+- AI explains, YOU implement
 
 3. REVIEW (AI + Manual)
- - AI reviews your code
- - YOU fix the issues
- - Learn best practices
+- AI reviews your code
+- YOU fix the issues
+- Learn best practices
 ```
 
 ### Strategy 2: "Socratic Method" - AI as Teacher
@@ -335,7 +339,7 @@ Result: Zero learning
 **Good: Ask for teaching**
 ```
 You: "I want to learn Kubernetes deployments.
- Ask me questions to guide my thinking."
+Ask me questions to guide my thinking."
 AI: "Great! First, what do you think a Deployment resource manages?"
 You: [Think and answer]
 AI: "Close! Let me clarify..."
@@ -353,7 +357,7 @@ Result: Deep understanding
 Example:
 AI: [Explains Kubernetes StatefulSet]
 You: "So if I understand correctly, StatefulSet is like Deployment
- but with stable network identity and persistent storage?"
+but with stable network identity and persistent storage?"
 AI: "Almost! The key difference is..."
 ```
 
@@ -385,8 +389,8 @@ Result: Deeply understand every step
 
 Example:
 You: "Let me explain Kubernetes Ingress in simple terms:
- It's like a receptionist in a building who directs
- visitors to the right office based on what they ask for."
+It's like a receptionist in a building who directs
+visitors to the right office based on what they ask for."
 AI: "Good analogy! But you missed the SSL/TLS termination aspect..."
 ```
 
@@ -501,11 +505,11 @@ Goal: Active learning, not passive consumption
 EVERY MONDAY (15 minutes):
 1. What's the 1 technology/skill you want to learn this week?
 2. Formulate SMART goal:
- - Specific: E.g., "Kubernetes StatefulSet how it works"
- - Measurable: "Can write a working StatefulSet YAML with explanation"
- - Achievable: Realistic for 1 week
- - Relevant: Related to work
- - Time-bound: By Friday
+- Specific: E.g., "Kubernetes StatefulSet how it works"
+- Measurable: "Can write a working StatefulSet YAML with explanation"
+- Achievable: Realistic for 1 week
+- Relevant: Related to work
+- Time-bound: By Friday
 
 Goal: Structured learning, not random AI questions
 ```
@@ -541,10 +545,10 @@ Goal: Meta-learning, continuous improvement
 ```
 BEGINNING OF EVERY MONTH (30 minutes):
 1. Rate 1-10:
- - Kubernetes knowledge
- - Python knowledge
- - Debugging skill
- - Architecture design
+- Kubernetes knowledge
+- Python knowledge
+- Debugging skill
+- Architecture design
 2. Where did AI help? Where not?
 3. In which area are you more dependent on AI?
 
@@ -583,44 +587,44 @@ Goal: Feynman technique, teaching = deepest learning
 Ask yourself before using AI:
 
 1. **Have I tried myself?**
- - [ ] Yes, at least 5 minutes
- - [ ] No → STOP! Try first!
+- [ ] Yes, at least 5 minutes
+- [ ] No → STOP! Try first!
 
 2. **What's my exact question/problem?**
- - [ ] Precisely formulated
- - [ ] No → Formulate first!
+- [ ] Precisely formulated
+- [ ] No → Formulate first!
 
 3. **What do I want: solution or learning?**
- - [ ] Learning (good!)
- - [ ] Just solution (bad!)
+- [ ] Learning (good!)
+- [ ] Just solution (bad!)
 
 4. **Does AI have enough context?**
- - [ ] Yes, provided full context
- - [ ] No → Provide it!
+- [ ] Yes, provided full context
+- [ ] No → Provide it!
 
 ### After Use
 
 Ask yourself after AI answer:
 
 1. **Do I understand 100% of the answer?**
- - [ ] Yes → Good, can use
- - [ ] No → Ask for explanation!
+- [ ] Yes → Good, can use
+- [ ] No → Ask for explanation!
 
 2. **Could I reimplement without AI?**
- - [ ] Yes → Actually learned
- - [ ] No → Still need to learn!
+- [ ] Yes → Actually learned
+- [ ] No → Still need to learn!
 
 3. **Have I tested the solution?**
- - [ ] Yes, unit tests + manual test
- - [ ] No → TEST!
+- [ ] Yes, unit tests + manual test
+- [ ] No → TEST!
 
 4. **Are there security issues / edge cases?**
- - [ ] Checked, none found
- - [ ] Not checked → CHECK!
+- [ ] Checked, none found
+- [ ] Not checked → CHECK!
 
 5. **What did I learn from this?**
- - [ ] Can write down 3 key learnings
- - [ ] No → Didn't learn enough!
+- [ ] Can write down 3 key learnings
+- [ ] No → Didn't learn enough!
 
 ---
 
@@ -629,34 +633,34 @@ Ask yourself after AI answer:
 ### Books
 
 1. **"Thinking, Fast and Slow" - Daniel Kahneman**
- - Why slow, deep thinking matters
- - Understanding cognitive biases
+- Why slow, deep thinking matters
+- Understanding cognitive biases
 
 2. **"Deep Work" - Cal Newport**
- - Focused work without AI distraction
- - Deep learning vs. shallow browsing
+- Focused work without AI distraction
+- Deep learning vs. shallow browsing
 
 3. **"The Pragmatic Programmer" - Hunt & Thomas**
- - Fundamentals matter
- - Coding as craft
+- Fundamentals matter
+- Coding as craft
 
 ### Articles and Blogs
 
 1. **"How to Use AI Without Losing Your Skills"**
- - (Add real links when available)
+- (Add real links when available)
 
 2. **"The Coding Without AI Challenge"**
- - Community challenges and discussions
+- Community challenges and discussions
 
 3. **"AI Pair Programming: Best Practices"**
- - https://github.com/features/copilot/best-practices
+- https://github.com/features/copilot/best-practices
 
 ### Online Courses
 
 1. **"Effective AI-Assisted Development" (Coursera/Udemy)**
 2. **"Critical Thinking in the Age of AI" (edX)**
 3. **"Software Engineering Fundamentals" (MIT OpenCourseWare)**
- - Fundamentals matter even in AI era!
+- Fundamentals matter even in AI era!
 
 ### Community Resources
 
@@ -727,9 +731,9 @@ Result: Bug fixed, 0 understanding
 3. You: Form hypothesis (e.g., "Maybe None value?")
 4. You: Try debugging (print statements, debugger)
 5. You → AI: "I have this error. Stack trace: [paste]
- My analysis: I think it's a None value in line 42
- What I tried: Added print statements, found variable X is None
- What should I check next?"
+My analysis: I think it's a None value in line 42
+What I tried: Added print statements, found variable X is None
+What should I check next?"
 6. AI: [Suggests checking where X is assigned]
 7. You: Find root cause
 8. You: Fix it
@@ -745,11 +749,11 @@ Result: Debugging skill development + pattern learning
 1. You: Write a feature (minimal or 0 AI help)
 2. You: Self-review (own checklist)
 3. You → AI: "Review this code for:
- - Security vulnerabilities
- - Edge cases I might have missed
- - Performance issues
- - Best practices violations
- Here's the code: [paste]"
+- Security vulnerabilities
+- Edge cases I might have missed
+- Performance issues
+- Best practices violations
+Here's the code: [paste]"
 4. AI: [Provides review]
 5. You: UNDERSTAND every review comment
 6. You: Ask if you don't understand: "Why is [issue] a problem?"

@@ -152,18 +152,18 @@ Save and exit. Restart the database with systemctl restart db.
 
 **Steps:**
 1. Edit configuration file:
- ```bash
- vim /etc/db.conf
- ```
+```bash
+vim /etc/db.conf
+```
 
 2. Update parameters:
- - max_connections = 100
- - timeout = 30
+- max_connections = 100
+- timeout = 30
 
 3. Restart service:
- ```bash
- systemctl restart db
- ```
+```bash
+systemctl restart db
+```
 ```
 
 ### Visual Separators
@@ -336,9 +336,9 @@ systemctl status myservice
 
 Expected output:
 ```
- myservice.service - My Service
- Loaded: loaded (/etc/systemd/system/myservice.service; enabled)
- Active: active (running) since...
+myservice.service - My Service
+Loaded: loaded (/etc/systemd/system/myservice.service; enabled)
+Active: active (running) since...
 ```
 ````
 
@@ -565,8 +565,8 @@ sudo systemctl status appserver
 
 **Expected Output:**
 ```
- appserver.service - Application Server
- Active: active (running) since...
+appserver.service - Application Server
+Active: active (running) since...
 ```
 
 ### 4. Check Logs
@@ -807,14 +807,14 @@ For documentation that evolves:
 **Example Request:**
 ```bash
 curl -H "Authorization: Bearer TOKEN" \
- https://api.example.com/v1/users?limit=10
+https://api.example.com/v1/users?limit=10
 ```
 
 **Example Response:**
 ```json
 {
- "users": [...],
- "total": 1234
+"users": [...],
+"total": 1234
 }
 ```
 

@@ -1,3 +1,7 @@
+---
+description: AWS quick reference guide - key services, free tier usage, EC2, S3, RDS, Lambda, VPC, IAM, and Terraform integration for cloud infrastructure.
+---
+
 # AWS Quick Reference
 
 ## Goals
@@ -28,13 +32,13 @@
 
 **Exercises:**
 ```
- Get familiar with AWS Console
- Create IAM User
- Create IAM Group (Developers, DevOps, ReadOnly)
- Understand IAM Policies (Managed vs Inline)
- Create IAM Role for EC2
- Set up MFA (Multi-Factor Authentication)
- Generate Access Key (for CLI)
+Get familiar with AWS Console
+Create IAM User
+Create IAM Group (Developers, DevOps, ReadOnly)
+Understand IAM Policies (Managed vs Inline)
+Create IAM Role for EC2
+Set up MFA (Multi-Factor Authentication)
+Generate Access Key (for CLI)
 ```
 
 **Hands-on:**
@@ -43,10 +47,10 @@
 3. Attach "AdministratorAccess" policy (for learning!)
 4. Generate Access Key
 5. Configure AWS CLI:
- ```bash
- aws configure
- aws sts get-caller-identity # Verification
- ```
+```bash
+aws configure
+aws sts get-caller-identity # Verification
+```
 
 **Key concepts:**
 - **User**: Person or application
@@ -67,51 +71,51 @@
 
 **Exercises:**
 ```
- Launch EC2 instance (t2.micro, Free Tier)
- Configure Security Group (firewall)
- Use SSH keys
- Attach EBS Volume (disk)
- Elastic IP (static IP)
- Create Snapshot (backup)
- Create AMI (Amazon Machine Image)
- User Data script (automatic setup on boot)
+Launch EC2 instance (t2.micro, Free Tier)
+Configure Security Group (firewall)
+Use SSH keys
+Attach EBS Volume (disk)
+Elastic IP (static IP)
+Create Snapshot (backup)
+Create AMI (Amazon Machine Image)
+User Data script (automatic setup on boot)
 ```
 
 **Hands-on Project: Web Server on EC2**
 
 1. **Launch instance:**
- ```bash
- # Using AWS CLI (later with Terraform too!)
- aws ec2 run-instances \
- --image-id ami-0c55b159cbfafe1f0 \
- --instance-type t2.micro \
- --key-name MyKeyPair \
- --security-group-ids sg-123456 \
- --user-data file://webserver-setup.sh
- ```
+```bash
+# Using AWS CLI (later with Terraform too!)
+aws ec2 run-instances \
+--image-id ami-0c55b159cbfafe1f0 \
+--instance-type t2.micro \
+--key-name MyKeyPair \
+--security-group-ids sg-123456 \
+--user-data file://webserver-setup.sh
+```
 
 2. **User Data script (webserver-setup.sh):**
- ```bash
- #!/bin/bash
- yum update -y
- yum install -y httpd
- systemctl start httpd
- systemctl enable httpd
- echo "<h1>Hello from AWS EC2!</h1>" > /var/www/html/index.html
- ```
+```bash
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1>Hello from AWS EC2!</h1>" > /var/www/html/index.html
+```
 
 3. **Security Group:**
- - SSH (22) - only from your IP
- - HTTP (80) - from anywhere
+- SSH (22) - only from your IP
+- HTTP (80) - from anywhere
 
 4. **Verification:**
- ```bash
- # Get Public IP
- aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicIpAddress]' --output text
+```bash
+# Get Public IP
+aws ec2 describe-instances --query 'Reservations[*].Instances[*].[PublicIpAddress]' --output text
 
- # Test web server
- curl http://<PUBLIC_IP>
- ```
+# Test web server
+curl http://<PUBLIC_IP>
+```
 
 **Key concepts:**
 - **AMI**: Template for VM (OS + software)
@@ -133,22 +137,22 @@
 
 **Exercises:**
 ```
- Create VPC
- Subnets (public, private)
- Internet Gateway
- Configure Route Table
- Network ACL vs Security Group difference
- VPC Peering (optional)
+Create VPC
+Subnets (public, private)
+Internet Gateway
+Configure Route Table
+Network ACL vs Security Group difference
+VPC Peering (optional)
 ```
 
 **Hands-on: Build Your Own VPC**
 
 ```
 VPC: 10.0.0.0/16
- Public Subnet: 10.0.1.0/24 (web tier)
- Internet Gateway → Route Table
- Private Subnet: 10.0.2.0/24 (database tier)
- NAT Gateway (outbound only, not inbound)
+Public Subnet: 10.0.1.0/24 (web tier)
+Internet Gateway → Route Table
+Private Subnet: 10.0.2.0/24 (database tier)
+NAT Gateway (outbound only, not inbound)
 ```
 
 **Key concepts:**
@@ -168,46 +172,46 @@ VPC: 10.0.0.0/16
 
 **Exercises:**
 ```
- Create S3 Bucket
- Upload file (CLI + Console)
- Enable Versioning
- Lifecycle policy (automatic archiving/deletion)
- S3 bucket policy (access management)
- Static website hosting
- Server-side encryption
+Create S3 Bucket
+Upload file (CLI + Console)
+Enable Versioning
+Lifecycle policy (automatic archiving/deletion)
+S3 bucket policy (access management)
+Static website hosting
+Server-side encryption
 ```
 
 **Hands-on: Static Website on S3**
 
 1. **Create bucket:**
- ```bash
- aws s3 mb s3://my-static-website-12345
- ```
+```bash
+aws s3 mb s3://my-static-website-12345
+```
 
 2. **Upload website files:**
- ```bash
- echo "<h1>Hello from S3!</h1>" > index.html
- aws s3 cp index.html s3://my-static-website-12345/ --acl public-read
- ```
+```bash
+echo "<h1>Hello from S3!</h1>" > index.html
+aws s3 cp index.html s3://my-static-website-12345/ --acl public-read
+```
 
 3. **Enable static website hosting:**
- ```bash
- aws s3 website s3://my-static-website-12345/ \
- --index-document index.html
- ```
+```bash
+aws s3 website s3://my-static-website-12345/ \
+--index-document index.html
+```
 
 4. **Bucket policy (public read):**
- ```json
- {
- "Version": "2012-10-17",
- "Statement": [{
- "Effect": "Allow",
- "Principal": "*",
- "Action": "s3:GetObject",
- "Resource": "arn:aws:s3:::my-static-website-12345/*"
- }]
- }
- ```
+```json
+{
+"Version": "2012-10-17",
+"Statement": [{
+"Effect": "Allow",
+"Principal": "*",
+"Action": "s3:GetObject",
+"Resource": "arn:aws:s3:::my-static-website-12345/*"
+}]
+}
+```
 
 **Key concepts:**
 - **Bucket**: Container for files
@@ -230,48 +234,48 @@ VPC: 10.0.0.0/16
 
 **Exercises:**
 ```
- Create RDS instance (PostgreSQL/MySQL, Free Tier)
- Security Group configuration (accessible only from VPC)
- Connect with psql/mysql CLI
- Create database
- Configure automated backups
- Create snapshot (manual backup)
- Understand Multi-AZ deployment (HA)
+Create RDS instance (PostgreSQL/MySQL, Free Tier)
+Security Group configuration (accessible only from VPC)
+Connect with psql/mysql CLI
+Create database
+Configure automated backups
+Create snapshot (manual backup)
+Understand Multi-AZ deployment (HA)
 ```
 
 **Hands-on: PostgreSQL RDS**
 
 1. **Create RDS instance:**
- ```bash
- aws rds create-db-instance \
- --db-instance-identifier mydb \
- --db-instance-class db.t3.micro \
- --engine postgres \
- --master-username admin \
- --master-user-password MyPassword123 \
- --allocated-storage 20 \
- --vpc-security-group-ids sg-123456
- ```
+```bash
+aws rds create-db-instance \
+--db-instance-identifier mydb \
+--db-instance-class db.t3.micro \
+--engine postgres \
+--master-username admin \
+--master-user-password MyPassword123 \
+--allocated-storage 20 \
+--vpc-security-group-ids sg-123456
+```
 
 2. **Connect:**
- ```bash
- # Get endpoint
- aws rds describe-db-instances \
- --db-instance-identifier mydb \
- --query 'DBInstances[0].Endpoint.Address' --output text
+```bash
+# Get endpoint
+aws rds describe-db-instances \
+--db-instance-identifier mydb \
+--query 'DBInstances[0].Endpoint.Address' --output text
 
- # Connect
- psql -h <ENDPOINT> -U admin -d postgres
- ```
+# Connect
+psql -h <ENDPOINT> -U admin -d postgres
+```
 
 3. **Database operations:**
- ```sql
- CREATE DATABASE testdb;
- \c testdb
- CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(100));
- INSERT INTO users (name) VALUES ('Alice'), ('Bob');
- SELECT * FROM users;
- ```
+```sql
+CREATE DATABASE testdb;
+\c testdb
+CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(100));
+INSERT INTO users (name) VALUES ('Alice'), ('Bob');
+SELECT * FROM users;
+```
 
 **Key concepts:**
 - **DB Instance**: Managed database VM
@@ -288,41 +292,41 @@ VPC: 10.0.0.0/16
 
 **Exercises:**
 ```
- Create Application Load Balancer (ALB)
- Configure Target Group
- Set up Health Check
- Create Launch Template
- Configure Auto Scaling Group
- Scaling Policy (CPU-based)
+Create Application Load Balancer (ALB)
+Configure Target Group
+Set up Health Check
+Create Launch Template
+Configure Auto Scaling Group
+Scaling Policy (CPU-based)
 ```
 
 **Hands-on: Scalable Web Server**
 
 ```
 Internet
- ↓
+↓
 Application Load Balancer (ALB)
- ↓
+↓
 Auto Scaling Group (2-5 instances)
- ↓
+↓
 EC2 Instances (t2.micro)
 ```
 
 1. **Launch Template:**
- - AMI: Amazon Linux 2
- - User Data: nginx installation
- - Security Group: HTTP (80)
+- AMI: Amazon Linux 2
+- User Data: nginx installation
+- Security Group: HTTP (80)
 
 2. **Auto Scaling Group:**
- - Min: 2
- - Desired: 2
- - Max: 5
- - Scaling Policy: CPU > 70% → add instance
+- Min: 2
+- Desired: 2
+- Max: 5
+- Scaling Policy: CPU > 70% → add instance
 
 3. **Load Balancer:**
- - Type: Application
- - Listener: HTTP:80
- - Target Group: ASG instances
+- Type: Application
+- Listener: HTTP:80
+- Target Group: ASG instances
 
 **Key concepts:**
 - **Load Balancer**: Distribute traffic
@@ -340,40 +344,40 @@ EC2 Instances (t2.micro)
 
 **Exercises:**
 ```
- View CloudWatch Metrics (EC2 CPU, Network)
- Create CloudWatch Alarm (CPU > 80%)
- CloudWatch Logs - send EC2 logs
- Log Group + Log Stream
- Create CloudWatch Dashboard
- SNS topic (email notification)
+View CloudWatch Metrics (EC2 CPU, Network)
+Create CloudWatch Alarm (CPU > 80%)
+CloudWatch Logs - send EC2 logs
+Log Group + Log Stream
+Create CloudWatch Dashboard
+SNS topic (email notification)
 ```
 
 **Hands-on: Monitoring Setup**
 
 1. **EC2 Metrics Dashboard:**
- - CPU Utilization
- - Network In/Out
- - Disk I/O
+- CPU Utilization
+- Network In/Out
+- Disk I/O
 
 2. **Create alarm:**
- ```bash
- aws cloudwatch put-metric-alarm \
- --alarm-name cpu-high \
- --alarm-description "CPU > 80%" \
- --metric-name CPUUtilization \
- --namespace AWS/EC2 \
- --statistic Average \
- --period 300 \
- --threshold 80 \
- --comparison-operator GreaterThanThreshold \
- --evaluation-periods 2
- ```
+```bash
+aws cloudwatch put-metric-alarm \
+--alarm-name cpu-high \
+--alarm-description "CPU > 80%" \
+--metric-name CPUUtilization \
+--namespace AWS/EC2 \
+--statistic Average \
+--period 300 \
+--threshold 80 \
+--comparison-operator GreaterThanThreshold \
+--evaluation-periods 2
+```
 
 3. **Install CloudWatch Logs Agent on EC2:**
- ```bash
- sudo yum install -y amazon-cloudwatch-agent
- # Configuration: /var/log/messages → CloudWatch
- ```
+```bash
+sudo yum install -y amazon-cloudwatch-agent
+# Configuration: /var/log/messages → CloudWatch
+```
 
 **Key concepts:**
 - **Metrics**: Numerical data (CPU%, Memory%)
@@ -389,10 +393,10 @@ EC2 Instances (t2.micro)
 
 **Exercises:**
 ```
- Enable CloudTrail (API call logging)
- View CloudTrail logs in S3
- Set up AWS Config (resource compliance)
- Config Rules (e.g., S3 encryption required)
+Enable CloudTrail (API call logging)
+View CloudTrail logs in S3
+Set up AWS Config (resource compliance)
+Config Rules (e.g., S3 encryption required)
 ```
 
 **Key concepts:**
@@ -408,32 +412,32 @@ EC2 Instances (t2.micro)
 
 **Exercises:**
 ```
- Secrets Manager - store database password
- Parameter Store - store configuration
- KMS - create encryption key
- S3 bucket encryption with KMS
- Retrieve secret from EC2 (with IAM role)
+Secrets Manager - store database password
+Parameter Store - store configuration
+KMS - create encryption key
+S3 bucket encryption with KMS
+Retrieve secret from EC2 (with IAM role)
 ```
 
 **Hands-on: Database Password Management**
 
 1. **Create secret:**
- ```bash
- aws secretsmanager create-secret \
- --name prod/db/password \
- --secret-string "MySecurePassword123"
- ```
+```bash
+aws secretsmanager create-secret \
+--name prod/db/password \
+--secret-string "MySecurePassword123"
+```
 
 2. **Retrieve secret (from EC2):**
- ```bash
- aws secretsmanager get-secret-value \
- --secret-id prod/db/password \
- --query SecretString --output text
- ```
+```bash
+aws secretsmanager get-secret-value \
+--secret-id prod/db/password \
+--query SecretString --output text
+```
 
 3. **IAM Role for EC2:**
- - Policy: SecretsManagerReadWrite
- - Attached to EC2
+- Policy: SecretsManagerReadWrite
+- Attached to EC2
 
 **Key concepts:**
 - **Secrets Manager**: Sensitive data (passwords)
@@ -451,39 +455,39 @@ EC2 Instances (t2.micro)
 
 **Exercises:**
 ```
- Create ECR repository (Docker registry)
- Push Docker image to ECR
- Create ECS Cluster
- Task Definition (container config)
- Start ECS Service
- Fargate vs EC2 launch type
+Create ECR repository (Docker registry)
+Push Docker image to ECR
+Create ECS Cluster
+Task Definition (container config)
+Start ECS Service
+Fargate vs EC2 launch type
 ```
 
 **Hands-on: Nginx Container on ECS**
 
 1. **ECR repository:**
- ```bash
- aws ecr create-repository --repository-name my-nginx
- ```
+```bash
+aws ecr create-repository --repository-name my-nginx
+```
 
 2. **Push Docker image:**
- ```bash
- # Login
- aws ecr get-login-password | docker login --username AWS --password-stdin <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com
+```bash
+# Login
+aws ecr get-login-password | docker login --username AWS --password-stdin <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com
 
- # Build & tag
- docker build -t my-nginx .
- docker tag my-nginx:latest <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/my-nginx:latest
+# Build & tag
+docker build -t my-nginx .
+docker tag my-nginx:latest <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/my-nginx:latest
 
- # Push
- docker push <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/my-nginx:latest
- ```
+# Push
+docker push <ACCOUNT_ID>.dkr.ecr.us-east-1.amazonaws.com/my-nginx:latest
+```
 
 3. **ECS Task Definition + Service:**
- - Cluster: my-cluster
- - Task: 1 container (nginx image from ECR)
- - Service: 2 tasks (desired count)
- - Load Balancer: ALB
+- Cluster: my-cluster
+- Task: 1 container (nginx image from ECR)
+- Service: 2 tasks (desired count)
+- Load Balancer: ALB
 
 **Key concepts:**
 - **ECR**: Docker registry (private)
@@ -500,60 +504,60 @@ EC2 Instances (t2.micro)
 
 **Exercises:**
 ```
- Create Lambda function (Python/Node.js)
- S3 trigger (runs on file upload)
- CloudWatch Events trigger (schedule)
- Lambda environment variables
- Lambda layers (dependencies)
- Lambda + DynamoDB (NoSQL database)
+Create Lambda function (Python/Node.js)
+S3 trigger (runs on file upload)
+CloudWatch Events trigger (schedule)
+Lambda environment variables
+Lambda layers (dependencies)
+Lambda + DynamoDB (NoSQL database)
 ```
 
 **Hands-on: Image Resize Lambda (S3 trigger)**
 
 1. **Lambda function (Python):**
- ```python
- import boto3
- from PIL import Image
- import io
+```python
+import boto3
+from PIL import Image
+import io
 
- s3 = boto3.client('s3')
+s3 = boto3.client('s3')
 
- def lambda_handler(event, context):
- # Parse S3 event
- bucket = event['Records'][0]['s3']['bucket']['name']
- key = event['Records'][0]['s3']['object']['key']
+def lambda_handler(event, context):
+# Parse S3 event
+bucket = event['Records'][0]['s3']['bucket']['name']
+key = event['Records'][0]['s3']['object']['key']
 
- # Download image
- response = s3.get_object(Bucket=bucket, Key=key)
- img = Image.open(response['Body'])
+# Download image
+response = s3.get_object(Bucket=bucket, Key=key)
+img = Image.open(response['Body'])
 
- # Resize
- img.thumbnail((200, 200))
+# Resize
+img.thumbnail((200, 200))
 
- # Upload resized
- buffer = io.BytesIO()
- img.save(buffer, 'JPEG')
- buffer.seek(0)
+# Upload resized
+buffer = io.BytesIO()
+img.save(buffer, 'JPEG')
+buffer.seek(0)
 
- s3.put_object(
- Bucket=bucket,
- Key=f'thumbnails/{key}',
- Body=buffer
- )
+s3.put_object(
+Bucket=bucket,
+Key=f'thumbnails/{key}',
+Body=buffer
+)
 
- return {'statusCode': 200}
- ```
+return {'statusCode': 200}
+```
 
 2. **S3 trigger configuration:**
- - Event: s3:ObjectCreated:*
- - Prefix: uploads/
+- Event: s3:ObjectCreated:*
+- Prefix: uploads/
 
 3. **Testing:**
- ```bash
- aws s3 cp test-image.jpg s3://my-bucket/uploads/
- # Lambda runs automatically
- aws s3 ls s3://my-bucket/thumbnails/
- ```
+```bash
+aws s3 cp test-image.jpg s3://my-bucket/uploads/
+# Lambda runs automatically
+aws s3 ls s3://my-bucket/thumbnails/
+```
 
 **Key concepts:**
 - **Lambda**: Serverless function (run code without servers)
@@ -567,20 +571,20 @@ EC2 Instances (t2.micro)
 
 **Exercises:**
 ```
- Create DynamoDB table
- API Gateway REST API
- Lambda integration
- API Key + Usage Plan
- CORS configuration
+Create DynamoDB table
+API Gateway REST API
+Lambda integration
+API Key + Usage Plan
+CORS configuration
 ```
 
 **Hands-on: TODO API (Serverless)**
 
 ```
 API Gateway (REST API)
- ↓
+↓
 Lambda Function (CRUD operations)
- ↓
+↓
 DynamoDB (NoSQL table)
 ```
 
@@ -644,37 +648,37 @@ DynamoDB (NoSQL table)
 ### Cost Protection:
 
 1. **Set up billing alert:**
- ```bash
- aws cloudwatch put-metric-alarm \
- --alarm-name billing-alert \
- --alarm-description "Alert if bill > $5" \
- --metric-name EstimatedCharges \
- --namespace AWS/Billing \
- --statistic Maximum \
- --period 21600 \
- --threshold 5 \
- --comparison-operator GreaterThanThreshold
- ```
+```bash
+aws cloudwatch put-metric-alarm \
+--alarm-name billing-alert \
+--alarm-description "Alert if bill > $5" \
+--metric-name EstimatedCharges \
+--namespace AWS/Billing \
+--statistic Maximum \
+--period 21600 \
+--threshold 5 \
+--comparison-operator GreaterThanThreshold
+```
 
 2. **Create budget:**
- - AWS Console → Billing → Budgets
- - Monthly budget: $10
- - Alert: 80% ($8)
+- AWS Console → Billing → Budgets
+- Monthly budget: $10
+- Alert: 80% ($8)
 
 3. **Use Cost Explorer:**
- - Daily check: how much it costs
+- Daily check: how much it costs
 
 4. **ALWAYS destroy what you don't use:**
- ```bash
- # EC2 instances
- aws ec2 terminate-instances --instance-ids i-xxxxx
+```bash
+# EC2 instances
+aws ec2 terminate-instances --instance-ids i-xxxxx
 
- # RDS
- aws rds delete-db-instance --db-instance-identifier mydb --skip-final-snapshot
+# RDS
+aws rds delete-db-instance --db-instance-identifier mydb --skip-final-snapshot
 
- # S3 bucket
- aws s3 rb s3://my-bucket --force
- ```
+# S3 bucket
+aws s3 rb s3://my-bucket --force
+```
 
 ---
 

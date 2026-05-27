@@ -6,7 +6,7 @@
 
 ---
 
- **Table of Contents:** Introduction | Prerequisites | Learning Path | 8 Modules | Projects | Tools | Resources | Assessment
+**Table of Contents:** Introduction | Prerequisites | Learning Path | 8 Modules | Projects | Tools | Resources | Assessment
 
 ---
 
@@ -14,8 +14,8 @@
 
 **PostgreSQL** (aka "Postgres") is an open-source object-relational database management system (ORDBMS) emphasizing standards compliance and extensibility.
 
- **Advantages:** Open source, ACID compliant, rich features (JSON, GIS, FTS), extensible, enterprise-ready
- **Use Cases:** Web apps, data warehousing, geospatial, finance, IoT, enterprise
+**Advantages:** Open source, ACID compliant, rich features (JSON, GIS, FTS), extensible, enterprise-ready
+**Use Cases:** Web apps, data warehousing, geospatial, finance, IoT, enterprise
 
 ---
 
@@ -78,12 +78,12 @@
 
 ```bash
 docker run -d \
- --name postgres-dev \
- -e POSTGRES_PASSWORD=secret \
- -e POSTGRES_USER=dev \
- -e POSTGRES_DB=testdb \
- -p 5432:5432 \
- postgres:16-alpine
+--name postgres-dev \
+-e POSTGRES_PASSWORD=secret \
+-e POSTGRES_USER=dev \
+-e POSTGRES_DB=testdb \
+-p 5432:5432 \
+postgres:16-alpine
 ```
 
 ### Basic CRUD
@@ -91,10 +91,10 @@ docker run -d \
 ```sql
 -- Create table
 CREATE TABLE users (
- id SERIAL PRIMARY KEY,
- username VARCHAR(50) UNIQUE NOT NULL,
- email VARCHAR(100) NOT NULL,
- created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+id SERIAL PRIMARY KEY,
+username VARCHAR(50) UNIQUE NOT NULL,
+email VARCHAR(100) NOT NULL,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Insert
@@ -117,18 +117,18 @@ DELETE FROM users WHERE id = 1;
 ```sql
 -- Window function + CTE
 WITH monthly_sales AS (
- SELECT
- DATE_TRUNC('month', order_date) as month,
- customer_id,
- SUM(total) as monthly_total
- FROM orders
- GROUP BY 1, 2
+SELECT
+DATE_TRUNC('month', order_date) as month,
+customer_id,
+SUM(total) as monthly_total
+FROM orders
+GROUP BY 1, 2
 )
 SELECT
- month,
- customer_id,
- monthly_total,
- RANK() OVER (PARTITION BY month ORDER BY monthly_total DESC) as customer_rank
+month,
+customer_id,
+monthly_total,
+RANK() OVER (PARTITION BY month ORDER BY monthly_total DESC) as customer_rank
 FROM monthly_sales;
 ```
 

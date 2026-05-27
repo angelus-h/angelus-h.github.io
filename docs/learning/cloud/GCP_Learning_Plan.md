@@ -1,3 +1,7 @@
+---
+description: GCP quick reference - Compute Engine, Cloud Storage, GKE, networking, free tier usage, and Terraform integration for Google Cloud infrastructure.
+---
+
 # Google Cloud Platform (GCP) Quick Reference
 
 ## Goals
@@ -30,52 +34,52 @@
 
 **Exercises:**
 ```
- Create GCP Project
- Understand IAM (Identity and Access Management)
- Create Service Account
- Assign IAM roles (Owner, Editor, Viewer)
- Install and configure gcloud CLI
- Enable Billing and set budget alerts
- Understand resource hierarchy (Organization → Folder → Project)
+Create GCP Project
+Understand IAM (Identity and Access Management)
+Create Service Account
+Assign IAM roles (Owner, Editor, Viewer)
+Install and configure gcloud CLI
+Enable Billing and set budget alerts
+Understand resource hierarchy (Organization → Folder → Project)
 ```
 
 **Hands-on:**
 
 1. **Create project:**
- ```bash
- # List projects
- gcloud projects list
+```bash
+# List projects
+gcloud projects list
 
- # Create new project
- gcloud projects create my-learning-project-12345 \
- --name="My Learning Project"
+# Create new project
+gcloud projects create my-learning-project-12345 \
+--name="My Learning Project"
 
- # Set default project
- gcloud config set project my-learning-project-12345
- ```
+# Set default project
+gcloud config set project my-learning-project-12345
+```
 
 2. **Service Account (for automation):**
- ```bash
- # Create service account
- gcloud iam service-accounts create my-service-account \
- --display-name="My Service Account"
+```bash
+# Create service account
+gcloud iam service-accounts create my-service-account \
+--display-name="My Service Account"
 
- # Grant roles
- gcloud projects add-iam-policy-binding my-learning-project-12345 \
- --member="serviceAccount:my-service-account@my-learning-project-12345.iam.gserviceaccount.com" \
- --role="roles/compute.admin"
+# Grant roles
+gcloud projects add-iam-policy-binding my-learning-project-12345 \
+--member="serviceAccount:my-service-account@my-learning-project-12345.iam.gserviceaccount.com" \
+--role="roles/compute.admin"
 
- # Create and download key
- gcloud iam service-accounts keys create ~/key.json \
- --iam-account=my-service-account@my-learning-project-12345.iam.gserviceaccount.com
- ```
+# Create and download key
+gcloud iam service-accounts keys create ~/key.json \
+--iam-account=my-service-account@my-learning-project-12345.iam.gserviceaccount.com
+```
 
 3. **Verify identity:**
- ```bash
- gcloud auth list
- gcloud config list
- gcloud compute project-info describe --project=my-learning-project-12345
- ```
+```bash
+gcloud auth list
+gcloud config list
+gcloud compute project-info describe --project=my-learning-project-12345
+```
 
 **Key concepts:**
 - **Project**: Isolated resource container (billing, quotas, permissions)
@@ -97,66 +101,66 @@
 
 **Exercises:**
 ```
- Create VM instance (e2-micro, Free Tier eligible)
- SSH into instance
- Configure firewall rules
- Attach persistent disk
- Create snapshot
- Create custom image
- Startup script (metadata)
- Instance templates
+Create VM instance (e2-micro, Free Tier eligible)
+SSH into instance
+Configure firewall rules
+Attach persistent disk
+Create snapshot
+Create custom image
+Startup script (metadata)
+Instance templates
 ```
 
 **Hands-on Project: Web Server on Compute Engine**
 
 1. **Create VM instance:**
- ```bash
- gcloud compute instances create web-server \
- --zone=us-central1-a \
- --machine-type=e2-micro \
- --image-family=ubuntu-2204-lts \
- --image-project=ubuntu-os-cloud \
- --boot-disk-size=10GB \
- --tags=http-server,https-server \
- --metadata=startup-script='#!/bin/bash
- apt-get update
- apt-get install -y nginx
- echo "<h1>Hello from GCP Compute Engine!</h1>" > /var/www/html/index.html
- systemctl start nginx
- systemctl enable nginx'
- ```
+```bash
+gcloud compute instances create web-server \
+--zone=us-central1-a \
+--machine-type=e2-micro \
+--image-family=ubuntu-2204-lts \
+--image-project=ubuntu-os-cloud \
+--boot-disk-size=10GB \
+--tags=http-server,https-server \
+--metadata=startup-script='#!/bin/bash
+apt-get update
+apt-get install -y nginx
+echo "<h1>Hello from GCP Compute Engine!</h1>" > /var/www/html/index.html
+systemctl start nginx
+systemctl enable nginx'
+```
 
 2. **Create firewall rule:**
- ```bash
- gcloud compute firewall-rules create allow-http \
- --allow=tcp:80 \
- --source-ranges=0.0.0.0/0 \
- --target-tags=http-server \
- --description="Allow HTTP traffic"
- ```
+```bash
+gcloud compute firewall-rules create allow-http \
+--allow=tcp:80 \
+--source-ranges=0.0.0.0/0 \
+--target-tags=http-server \
+--description="Allow HTTP traffic"
+```
 
 3. **SSH into instance:**
- ```bash
- gcloud compute ssh web-server --zone=us-central1-a
- ```
+```bash
+gcloud compute ssh web-server --zone=us-central1-a
+```
 
 4. **Get external IP and test:**
- ```bash
- # Get IP
- gcloud compute instances describe web-server \
- --zone=us-central1-a \
- --format='get(networkInterfaces[0].accessConfigs[0].natIP)'
+```bash
+# Get IP
+gcloud compute instances describe web-server \
+--zone=us-central1-a \
+--format='get(networkInterfaces[0].accessConfigs[0].natIP)'
 
- # Test
- curl http://<EXTERNAL_IP>
- ```
+# Test
+curl http://<EXTERNAL_IP>
+```
 
 5. **Create snapshot:**
- ```bash
- gcloud compute disks snapshot web-server \
- --zone=us-central1-a \
- --snapshot-names=web-server-snapshot-1
- ```
+```bash
+gcloud compute disks snapshot web-server \
+--zone=us-central1-a \
+--snapshot-names=web-server-snapshot-1
+```
 
 **Key concepts:**
 - **Machine Type**: CPU/RAM configuration (e2-micro = 2 vCPUs, 1 GB RAM)
@@ -179,59 +183,59 @@
 
 **Exercises:**
 ```
- Create custom VPC network
- Create subnets (regional)
- Configure firewall rules
- Cloud NAT (for private instances)
- VPC Peering
- Cloud Router (dynamic routing)
- Understand Shared VPC
+Create custom VPC network
+Create subnets (regional)
+Configure firewall rules
+Cloud NAT (for private instances)
+VPC Peering
+Cloud Router (dynamic routing)
+Understand Shared VPC
 ```
 
 **Hands-on: Build Custom Network**
 
 ```
 VPC: my-custom-vpc
- Subnet: web-subnet (us-central1, 10.0.1.0/24)
- Firewall: Allow HTTP/HTTPS
- Subnet: db-subnet (us-central1, 10.0.2.0/24)
- Firewall: Allow internal traffic only
+Subnet: web-subnet (us-central1, 10.0.1.0/24)
+Firewall: Allow HTTP/HTTPS
+Subnet: db-subnet (us-central1, 10.0.2.0/24)
+Firewall: Allow internal traffic only
 ```
 
 **Commands:**
 ```bash
 # Create VPC
 gcloud compute networks create my-custom-vpc \
- --subnet-mode=custom
+--subnet-mode=custom
 
 # Create subnets
 gcloud compute networks subnets create web-subnet \
- --network=my-custom-vpc \
- --region=us-central1 \
- --range=10.0.1.0/24
+--network=my-custom-vpc \
+--region=us-central1 \
+--range=10.0.1.0/24
 
 gcloud compute networks subnets create db-subnet \
- --network=my-custom-vpc \
- --region=us-central1 \
- --range=10.0.2.0/24
+--network=my-custom-vpc \
+--region=us-central1 \
+--range=10.0.2.0/24
 
 # Firewall rule (allow HTTP)
 gcloud compute firewall-rules create allow-http-custom \
- --network=my-custom-vpc \
- --allow=tcp:80,tcp:443 \
- --source-ranges=0.0.0.0/0 \
- --target-tags=web-server
+--network=my-custom-vpc \
+--allow=tcp:80,tcp:443 \
+--source-ranges=0.0.0.0/0 \
+--target-tags=web-server
 
 # Cloud NAT (for private instances to reach internet)
 gcloud compute routers create my-router \
- --network=my-custom-vpc \
- --region=us-central1
+--network=my-custom-vpc \
+--region=us-central1
 
 gcloud compute routers nats create my-nat \
- --router=my-router \
- --region=us-central1 \
- --auto-allocate-nat-external-ips \
- --nat-all-subnet-ip-ranges
+--router=my-router \
+--region=us-central1 \
+--auto-allocate-nat-external-ips \
+--nat-all-subnet-ip-ranges
 ```
 
 **Key concepts:**
@@ -252,64 +256,64 @@ gcloud compute routers nats create my-nat \
 
 **Exercises:**
 ```
- Create Cloud Storage bucket
- Upload/download files (gsutil)
- Configure bucket lifecycle policies
- Enable versioning
- Set IAM permissions on bucket
- Host static website
- Signed URLs (temporary access)
+Create Cloud Storage bucket
+Upload/download files (gsutil)
+Configure bucket lifecycle policies
+Enable versioning
+Set IAM permissions on bucket
+Host static website
+Signed URLs (temporary access)
 ```
 
 **Hands-on: Static Website on Cloud Storage**
 
 1. **Create bucket:**
- ```bash
- # Bucket names must be globally unique
- gsutil mb -c STANDARD -l us-central1 gs://my-static-website-12345/
- ```
+```bash
+# Bucket names must be globally unique
+gsutil mb -c STANDARD -l us-central1 gs://my-static-website-12345/
+```
 
 2. **Upload website:**
- ```bash
- echo "<h1>Hello from Cloud Storage!</h1>" > index.html
- echo "<h1>404 Not Found</h1>" > 404.html
+```bash
+echo "<h1>Hello from Cloud Storage!</h1>" > index.html
+echo "<h1>404 Not Found</h1>" > 404.html
 
- gsutil cp index.html gs://my-static-website-12345/
- gsutil cp 404.html gs://my-static-website-12345/
- ```
+gsutil cp index.html gs://my-static-website-12345/
+gsutil cp 404.html gs://my-static-website-12345/
+```
 
 3. **Configure as website:**
- ```bash
- gsutil web set -m index.html -e 404.html gs://my-static-website-12345/
- ```
+```bash
+gsutil web set -m index.html -e 404.html gs://my-static-website-12345/
+```
 
 4. **Make public:**
- ```bash
- gsutil iam ch allUsers:objectViewer gs://my-static-website-12345/
- ```
+```bash
+gsutil iam ch allUsers:objectViewer gs://my-static-website-12345/
+```
 
 5. **Access:**
- ```
- https://storage.googleapis.com/my-static-website-12345/index.html
- ```
+```
+https://storage.googleapis.com/my-static-website-12345/index.html
+```
 
 6. **Lifecycle policy (delete old objects):**
- ```bash
- cat > lifecycle.json << 'EOF'
- {
- "lifecycle": {
- "rule": [
- {
- "action": {"type": "Delete"},
- "condition": {"age": 30}
- }
- ]
- }
- }
- EOF
+```bash
+cat > lifecycle.json << 'EOF'
+{
+"lifecycle": {
+"rule": [
+{
+"action": {"type": "Delete"},
+"condition": {"age": 30}
+}
+]
+}
+}
+EOF
 
- gsutil lifecycle set lifecycle.json gs://my-static-website-12345/
- ```
+gsutil lifecycle set lifecycle.json gs://my-static-website-12345/
+```
 
 **Key concepts:**
 - **Bucket**: Container for objects
@@ -332,58 +336,58 @@ gcloud compute routers nats create my-nat \
 
 **Exercises:**
 ```
- Create Cloud SQL instance (PostgreSQL/MySQL)
- Configure authorized networks
- Connect with Cloud SQL Proxy
- Create database and tables
- Configure automated backups
- Create manual snapshot
- Understand High Availability (HA) configuration
+Create Cloud SQL instance (PostgreSQL/MySQL)
+Configure authorized networks
+Connect with Cloud SQL Proxy
+Create database and tables
+Configure automated backups
+Create manual snapshot
+Understand High Availability (HA) configuration
 ```
 
 **Hands-on: PostgreSQL on Cloud SQL**
 
 1. **Create Cloud SQL instance:**
- ```bash
- gcloud sql instances create my-postgres \
- --database-version=POSTGRES_15 \
- --tier=db-f1-micro \
- --region=us-central1 \
- --root-password=MySecurePassword123
- ```
+```bash
+gcloud sql instances create my-postgres \
+--database-version=POSTGRES_15 \
+--tier=db-f1-micro \
+--region=us-central1 \
+--root-password=MySecurePassword123
+```
 
 2. **Get connection info:**
- ```bash
- gcloud sql instances describe my-postgres
- ```
+```bash
+gcloud sql instances describe my-postgres
+```
 
 3. **Connect using Cloud SQL Proxy:**
- ```bash
- # Download proxy
- wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy
- chmod +x cloud_sql_proxy
+```bash
+# Download proxy
+wget https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 -O cloud_sql_proxy
+chmod +x cloud_sql_proxy
 
- # Run proxy
- ./cloud_sql_proxy -instances=PROJECT_ID:us-central1:my-postgres=tcp:5432 &
+# Run proxy
+./cloud_sql_proxy -instances=PROJECT_ID:us-central1:my-postgres=tcp:5432 &
 
- # Connect
- psql -h localhost -U postgres
- ```
+# Connect
+psql -h localhost -U postgres
+```
 
 4. **Database operations:**
- ```sql
- CREATE DATABASE testdb;
- \c testdb
- CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(100), email VARCHAR(100));
- INSERT INTO users (name, email) VALUES ('Alice', 'alice@example.com');
- SELECT * FROM users;
- ```
+```sql
+CREATE DATABASE testdb;
+\c testdb
+CREATE TABLE users (id SERIAL PRIMARY KEY, name VARCHAR(100), email VARCHAR(100));
+INSERT INTO users (name, email) VALUES ('Alice', 'alice@example.com');
+SELECT * FROM users;
+```
 
 5. **Automated backups:**
- ```bash
- gcloud sql instances patch my-postgres \
- --backup-start-time=03:00
- ```
+```bash
+gcloud sql instances patch my-postgres \
+--backup-start-time=03:00
+```
 
 **Key concepts:**
 - **Cloud SQL**: Managed MySQL, PostgreSQL, SQL Server
@@ -400,82 +404,82 @@ gcloud compute routers nats create my-nat \
 
 **Exercises:**
 ```
- Create GKE cluster
- Deploy containerized application
- Expose service with LoadBalancer
- Configure autoscaling (HPA, Cluster Autoscaler)
- Rolling updates
- Workload Identity (GKE → GCP service accounts)
+Create GKE cluster
+Deploy containerized application
+Expose service with LoadBalancer
+Configure autoscaling (HPA, Cluster Autoscaler)
+Rolling updates
+Workload Identity (GKE → GCP service accounts)
 ```
 
 **Hands-on: Deploy Nginx on GKE**
 
 1. **Create GKE cluster:**
- ```bash
- gcloud container clusters create my-cluster \
- --zone=us-central1-a \
- --num-nodes=2 \
- --machine-type=e2-medium \
- --enable-autoscaling \
- --min-nodes=1 \
- --max-nodes=5
- ```
+```bash
+gcloud container clusters create my-cluster \
+--zone=us-central1-a \
+--num-nodes=2 \
+--machine-type=e2-medium \
+--enable-autoscaling \
+--min-nodes=1 \
+--max-nodes=5
+```
 
 2. **Get credentials:**
- ```bash
- gcloud container clusters get-credentials my-cluster --zone=us-central1-a
- kubectl get nodes
- ```
+```bash
+gcloud container clusters get-credentials my-cluster --zone=us-central1-a
+kubectl get nodes
+```
 
 3. **Deploy application:**
- ```yaml
- # nginx-deployment.yaml
- apiVersion: apps/v1
- kind: Deployment
- metadata:
- name: nginx
- spec:
- replicas: 3
- selector:
- matchLabels:
- app: nginx
- template:
- metadata:
- labels:
- app: nginx
- spec:
- containers:
- - name: nginx
- image: nginx:latest
- ports:
- - containerPort: 80
- ---
- apiVersion: v1
- kind: Service
- metadata:
- name: nginx
- spec:
- type: LoadBalancer
- selector:
- app: nginx
- ports:
- - protocol: TCP
- port: 80
- targetPort: 80
- ```
+```yaml
+# nginx-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+name: nginx
+spec:
+replicas: 3
+selector:
+matchLabels:
+app: nginx
+template:
+metadata:
+labels:
+app: nginx
+spec:
+containers:
+- name: nginx
+image: nginx:latest
+ports:
+- containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+name: nginx
+spec:
+type: LoadBalancer
+selector:
+app: nginx
+ports:
+- protocol: TCP
+port: 80
+targetPort: 80
+```
 
 4. **Apply and access:**
- ```bash
- kubectl apply -f nginx-deployment.yaml
- kubectl get services
- # Get EXTERNAL-IP
- curl http://<EXTERNAL-IP>
- ```
+```bash
+kubectl apply -f nginx-deployment.yaml
+kubectl get services
+# Get EXTERNAL-IP
+curl http://<EXTERNAL-IP>
+```
 
 5. **Horizontal Pod Autoscaler:**
- ```bash
- kubectl autoscale deployment nginx --cpu-percent=50 --min=3 --max=10
- ```
+```bash
+kubectl autoscale deployment nginx --cpu-percent=50 --min=3 --max=10
+```
 
 **Key concepts:**
 - **GKE**: Managed Kubernetes
@@ -501,57 +505,57 @@ gcloud compute routers nats create my-nat \
 
 **Exercises:**
 ```
- View metrics (CPU, memory, disk)
- Create alerting policies
- View logs in Cloud Logging
- Create log-based metrics
- Build custom dashboards
- Set up uptime checks
+View metrics (CPU, memory, disk)
+Create alerting policies
+View logs in Cloud Logging
+Create log-based metrics
+Build custom dashboards
+Set up uptime checks
 ```
 
 **Hands-on: Monitoring Setup**
 
 1. **View Compute Engine metrics:**
- ```bash
- # List metrics
- gcloud monitoring metrics-descriptors list \
- --filter="metric.type:compute.googleapis.com"
+```bash
+# List metrics
+gcloud monitoring metrics-descriptors list \
+--filter="metric.type:compute.googleapis.com"
 
- # Query CPU utilization
- gcloud monitoring time-series list \
- --filter='metric.type="compute.googleapis.com/instance/cpu/utilization"' \
- --interval-start-time="2024-03-18T00:00:00Z" \
- --interval-end-time="2024-03-18T23:59:59Z"
- ```
+# Query CPU utilization
+gcloud monitoring time-series list \
+--filter='metric.type="compute.googleapis.com/instance/cpu/utilization"' \
+--interval-start-time="2024-03-18T00:00:00Z" \
+--interval-end-time="2024-03-18T23:59:59Z"
+```
 
 2. **Create alerting policy:**
- ```bash
- # Alert if CPU > 80% for 5 minutes
- gcloud alpha monitoring policies create \
- --notification-channels=CHANNEL_ID \
- --display-name="High CPU Alert" \
- --condition-display-name="CPU > 80%" \
- --condition-threshold-value=0.8 \
- --condition-threshold-duration=300s
- ```
+```bash
+# Alert if CPU > 80% for 5 minutes
+gcloud alpha monitoring policies create \
+--notification-channels=CHANNEL_ID \
+--display-name="High CPU Alert" \
+--condition-display-name="CPU > 80%" \
+--condition-threshold-value=0.8 \
+--condition-threshold-duration=300s
+```
 
 3. **View logs:**
- ```bash
- # View Compute Engine logs
- gcloud logging read "resource.type=gce_instance" \
- --limit=50 \
- --format=json
+```bash
+# View Compute Engine logs
+gcloud logging read "resource.type=gce_instance" \
+--limit=50 \
+--format=json
 
- # Filter errors
- gcloud logging read "severity>=ERROR" --limit=10
- ```
+# Filter errors
+gcloud logging read "severity>=ERROR" --limit=10
+```
 
 4. **Export logs to Cloud Storage:**
- ```bash
- gcloud logging sinks create my-sink \
- storage.googleapis.com/my-log-bucket \
- --log-filter='resource.type="gce_instance"'
- ```
+```bash
+gcloud logging sinks create my-sink \
+storage.googleapis.com/my-log-bucket \
+--log-filter='resource.type="gce_instance"'
+```
 
 **Key concepts:**
 - **Cloud Monitoring**: Metrics collection and alerting
@@ -568,60 +572,60 @@ gcloud compute routers nats create my-nat \
 
 **Exercises:**
 ```
- Create secret in Secret Manager
- Access secret from Compute Engine
- Create encryption key in Cloud KMS
- Encrypt/decrypt data with KMS
- Configure IAM permissions for secrets
+Create secret in Secret Manager
+Access secret from Compute Engine
+Create encryption key in Cloud KMS
+Encrypt/decrypt data with KMS
+Configure IAM permissions for secrets
 ```
 
 **Hands-on: Database Password Management**
 
 1. **Create secret:**
- ```bash
- echo -n "MyDatabasePassword123" | \
- gcloud secrets create db-password \
- --data-file=- \
- --replication-policy="automatic"
- ```
+```bash
+echo -n "MyDatabasePassword123" | \
+gcloud secrets create db-password \
+--data-file=- \
+--replication-policy="automatic"
+```
 
 2. **Grant access to service account:**
- ```bash
- gcloud secrets add-iam-policy-binding db-password \
- --member="serviceAccount:my-service-account@PROJECT_ID.iam.gserviceaccount.com" \
- --role="roles/secretmanager.secretAccessor"
- ```
+```bash
+gcloud secrets add-iam-policy-binding db-password \
+--member="serviceAccount:my-service-account@PROJECT_ID.iam.gserviceaccount.com" \
+--role="roles/secretmanager.secretAccessor"
+```
 
 3. **Access secret (from application):**
- ```python
- from google.cloud import secretmanager
+```python
+from google.cloud import secretmanager
 
- client = secretmanager.SecretManagerServiceClient()
- name = "projects/PROJECT_ID/secrets/db-password/versions/latest"
- response = client.access_secret_version(request={"name": name})
- password = response.payload.data.decode("UTF-8")
- print(f"Password: {password}")
- ```
+client = secretmanager.SecretManagerServiceClient()
+name = "projects/PROJECT_ID/secrets/db-password/versions/latest"
+response = client.access_secret_version(request={"name": name})
+password = response.payload.data.decode("UTF-8")
+print(f"Password: {password}")
+```
 
 4. **Cloud KMS (encryption keys):**
- ```bash
- # Create keyring
- gcloud kms keyrings create my-keyring --location=global
+```bash
+# Create keyring
+gcloud kms keyrings create my-keyring --location=global
 
- # Create key
- gcloud kms keys create my-key \
- --location=global \
- --keyring=my-keyring \
- --purpose=encryption
+# Create key
+gcloud kms keys create my-key \
+--location=global \
+--keyring=my-keyring \
+--purpose=encryption
 
- # Encrypt file
- gcloud kms encrypt \
- --location=global \
- --keyring=my-keyring \
- --key=my-key \
- --plaintext-file=secret.txt \
- --ciphertext-file=secret.txt.enc
- ```
+# Encrypt file
+gcloud kms encrypt \
+--location=global \
+--keyring=my-keyring \
+--key=my-key \
+--plaintext-file=secret.txt \
+--ciphertext-file=secret.txt.enc
+```
 
 **Key concepts:**
 - **Secret Manager**: Store API keys, passwords, certificates
@@ -637,112 +641,112 @@ gcloud compute routers nats create my-nat \
 
 **Exercises:**
 ```
- Create Cloud Function (HTTP trigger)
- Cloud Storage trigger function
- Pub/Sub trigger function
- Deploy containerized app to Cloud Run
- Cloud Run autoscaling
- Cloud Scheduler (cron jobs)
+Create Cloud Function (HTTP trigger)
+Cloud Storage trigger function
+Pub/Sub trigger function
+Deploy containerized app to Cloud Run
+Cloud Run autoscaling
+Cloud Scheduler (cron jobs)
 ```
 
 **Hands-on 1: Image Resize Function (Cloud Storage trigger)**
 
 1. **Function code (Python):**
- ```python
- # main.py
- from google.cloud import storage
- from PIL import Image
- import io
+```python
+# main.py
+from google.cloud import storage
+from PIL import Image
+import io
 
- def resize_image(event, context):
- """Triggered by Cloud Storage upload."""
- bucket_name = event['bucket']
- file_name = event['name']
+def resize_image(event, context):
+"""Triggered by Cloud Storage upload."""
+bucket_name = event['bucket']
+file_name = event['name']
 
- if not file_name.startswith('uploads/'):
- return
+if not file_name.startswith('uploads/'):
+return
 
- storage_client = storage.Client()
- bucket = storage_client.bucket(bucket_name)
- blob = bucket.blob(file_name)
+storage_client = storage.Client()
+bucket = storage_client.bucket(bucket_name)
+blob = bucket.blob(file_name)
 
- # Download image
- image_data = blob.download_as_bytes()
- image = Image.open(io.BytesIO(image_data))
+# Download image
+image_data = blob.download_as_bytes()
+image = Image.open(io.BytesIO(image_data))
 
- # Resize
- image.thumbnail((200, 200))
+# Resize
+image.thumbnail((200, 200))
 
- # Upload thumbnail
- output = io.BytesIO()
- image.save(output, format='JPEG')
- output.seek(0)
+# Upload thumbnail
+output = io.BytesIO()
+image.save(output, format='JPEG')
+output.seek(0)
 
- thumbnail_blob = bucket.blob(f'thumbnails/{file_name.split("/")[-1]}')
- thumbnail_blob.upload_from_file(output, content_type='image/jpeg')
+thumbnail_blob = bucket.blob(f'thumbnails/{file_name.split("/")[-1]}')
+thumbnail_blob.upload_from_file(output, content_type='image/jpeg')
 
- print(f'Resized {file_name}')
- ```
+print(f'Resized {file_name}')
+```
 
 2. **Deploy function:**
- ```bash
- gcloud functions deploy resize_image \
- --runtime=python39 \
- --trigger-bucket=my-image-bucket \
- --entry-point=resize_image
- ```
+```bash
+gcloud functions deploy resize_image \
+--runtime=python39 \
+--trigger-bucket=my-image-bucket \
+--entry-point=resize_image
+```
 
 3. **Test:**
- ```bash
- gsutil cp test-image.jpg gs://my-image-bucket/uploads/
- # Function runs automatically
- gsutil ls gs://my-image-bucket/thumbnails/
- ```
+```bash
+gsutil cp test-image.jpg gs://my-image-bucket/uploads/
+# Function runs automatically
+gsutil ls gs://my-image-bucket/thumbnails/
+```
 
 **Hands-on 2: API on Cloud Run**
 
 1. **Containerized app (Flask):**
- ```python
- # app.py
- from flask import Flask, jsonify
- import os
+```python
+# app.py
+from flask import Flask, jsonify
+import os
 
- app = Flask(__name__)
+app = Flask(__name__)
 
- @app.route('/')
- def hello():
- return jsonify({"message": "Hello from Cloud Run!"})
+@app.route('/')
+def hello():
+return jsonify({"message": "Hello from Cloud Run!"})
 
- @app.route('/health')
- def health():
- return jsonify({"status": "healthy"})
+@app.route('/health')
+def health():
+return jsonify({"status": "healthy"})
 
- if __name__ == '__main__':
- app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
- ```
+if __name__ == '__main__':
+app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 8080)))
+```
 
 2. **Dockerfile:**
- ```dockerfile
- FROM python:3.9-slim
- WORKDIR /app
- COPY requirements.txt .
- RUN pip install -r requirements.txt
- COPY app.py .
- CMD ["python", "app.py"]
- ```
+```dockerfile
+FROM python:3.9-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY app.py .
+CMD ["python", "app.py"]
+```
 
 3. **Build and deploy:**
- ```bash
- # Build with Cloud Build
- gcloud builds submit --tag gcr.io/PROJECT_ID/my-api
+```bash
+# Build with Cloud Build
+gcloud builds submit --tag gcr.io/PROJECT_ID/my-api
 
- # Deploy to Cloud Run
- gcloud run deploy my-api \
- --image gcr.io/PROJECT_ID/my-api \
- --platform managed \
- --region us-central1 \
- --allow-unauthenticated
- ```
+# Deploy to Cloud Run
+gcloud run deploy my-api \
+--image gcr.io/PROJECT_ID/my-api \
+--platform managed \
+--region us-central1 \
+--allow-unauthenticated
+```
 
 **Key concepts:**
 - **Cloud Functions**: Event-driven serverless functions
@@ -761,58 +765,58 @@ gcloud compute routers nats create my-nat \
 
 **Exercises:**
 ```
- Create dataset
- Load data from Cloud Storage
- Run SQL queries
- Partitioned tables
- Scheduled queries
- Data Studio visualization
+Create dataset
+Load data from Cloud Storage
+Run SQL queries
+Partitioned tables
+Scheduled queries
+Data Studio visualization
 ```
 
 **Hands-on: Analyze Web Logs with BigQuery**
 
 1. **Create dataset:**
- ```bash
- bq mk --dataset PROJECT_ID:analytics
- ```
+```bash
+bq mk --dataset PROJECT_ID:analytics
+```
 
 2. **Load CSV data:**
- ```bash
- bq load \
- --source_format=CSV \
- --skip_leading_rows=1 \
- analytics.web_logs \
- gs://my-bucket/access-logs.csv \
- timestamp:TIMESTAMP,ip:STRING,method:STRING,path:STRING,status:INTEGER
- ```
+```bash
+bq load \
+--source_format=CSV \
+--skip_leading_rows=1 \
+analytics.web_logs \
+gs://my-bucket/access-logs.csv \
+timestamp:TIMESTAMP,ip:STRING,method:STRING,path:STRING,status:INTEGER
+```
 
 3. **Query data:**
- ```sql
- -- Top 10 IPs by request count
- SELECT ip, COUNT(*) as requests
- FROM `PROJECT_ID.analytics.web_logs`
- GROUP BY ip
- ORDER BY requests DESC
- LIMIT 10;
+```sql
+-- Top 10 IPs by request count
+SELECT ip, COUNT(*) as requests
+FROM `PROJECT_ID.analytics.web_logs`
+GROUP BY ip
+ORDER BY requests DESC
+LIMIT 10;
 
- -- Error rate by hour
- SELECT
- EXTRACT(HOUR FROM timestamp) as hour,
- COUNTIF(status >= 400) / COUNT(*) * 100 as error_rate
- FROM `PROJECT_ID.analytics.web_logs`
- GROUP BY hour
- ORDER BY hour;
- ```
+-- Error rate by hour
+SELECT
+EXTRACT(HOUR FROM timestamp) as hour,
+COUNTIF(status >= 400) / COUNT(*) * 100 as error_rate
+FROM `PROJECT_ID.analytics.web_logs`
+GROUP BY hour
+ORDER BY hour;
+```
 
 4. **Scheduled query:**
- ```bash
- bq query --use_legacy_sql=false \
- --destination_table=analytics.daily_summary \
- --schedule='every 24 hours' \
- "SELECT DATE(timestamp) as date, COUNT(*) as requests
- FROM \`PROJECT_ID.analytics.web_logs\`
- GROUP BY date"
- ```
+```bash
+bq query --use_legacy_sql=false \
+--destination_table=analytics.daily_summary \
+--schedule='every 24 hours' \
+"SELECT DATE(timestamp) as date, COUNT(*) as requests
+FROM \`PROJECT_ID.analytics.web_logs\`
+GROUP BY date"
+```
 
 **Key concepts:**
 - **BigQuery**: Serverless data warehouse
@@ -829,62 +833,62 @@ gcloud compute routers nats create my-nat \
 
 **Exercises:**
 ```
- Create Artifact Registry repository
- Push Docker image to Artifact Registry
- Create Cloud Build trigger
- Build Docker image with Cloud Build
- Deploy to Cloud Run from Cloud Build
- Multi-stage build pipeline
+Create Artifact Registry repository
+Push Docker image to Artifact Registry
+Create Cloud Build trigger
+Build Docker image with Cloud Build
+Deploy to Cloud Run from Cloud Build
+Multi-stage build pipeline
 ```
 
 **Hands-on: CI/CD Pipeline**
 
 1. **Create Artifact Registry:**
- ```bash
- gcloud artifacts repositories create my-repo \
- --repository-format=docker \
- --location=us-central1
- ```
+```bash
+gcloud artifacts repositories create my-repo \
+--repository-format=docker \
+--location=us-central1
+```
 
 2. **Cloud Build configuration (cloudbuild.yaml):**
- ```yaml
- steps:
- # Build Docker image
- - name: 'gcr.io/cloud-builders/docker'
- args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA', '.']
+```yaml
+steps:
+# Build Docker image
+- name: 'gcr.io/cloud-builders/docker'
+args: ['build', '-t', 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA', '.']
 
- # Push to Artifact Registry
- - name: 'gcr.io/cloud-builders/docker'
- args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA']
+# Push to Artifact Registry
+- name: 'gcr.io/cloud-builders/docker'
+args: ['push', 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA']
 
- # Deploy to Cloud Run
- - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
- entrypoint: gcloud
- args:
- - 'run'
- - 'deploy'
- - 'my-app'
- - '--image=us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA'
- - '--region=us-central1'
- - '--platform=managed'
+# Deploy to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+entrypoint: gcloud
+args:
+- 'run'
+- 'deploy'
+- 'my-app'
+- '--image=us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA'
+- '--region=us-central1'
+- '--platform=managed'
 
- images:
- - 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA'
- ```
+images:
+- 'us-central1-docker.pkg.dev/$PROJECT_ID/my-repo/my-app:$COMMIT_SHA'
+```
 
 3. **Trigger build:**
- ```bash
- gcloud builds submit --config cloudbuild.yaml .
- ```
+```bash
+gcloud builds submit --config cloudbuild.yaml .
+```
 
 4. **Automated trigger (GitHub):**
- ```bash
- gcloud builds triggers create github \
- --repo-name=my-repo \
- --repo-owner=my-github-user \
- --branch-pattern="^main$" \
- --build-config=cloudbuild.yaml
- ```
+```bash
+gcloud builds triggers create github \
+--repo-name=my-repo \
+--repo-owner=my-github-user \
+--branch-pattern="^main$" \
+--build-config=cloudbuild.yaml
+```
 
 **Key concepts:**
 - **Cloud Build**: Serverless CI/CD
@@ -898,90 +902,90 @@ gcloud compute routers nats create my-nat \
 
 **Exercises:**
 ```
- Terraform GCP provider
- Create VPC with Terraform
- Deploy Compute Engine instances
- Create Cloud Storage buckets
- GKE cluster with Terraform
- State management (Cloud Storage backend)
+Terraform GCP provider
+Create VPC with Terraform
+Deploy Compute Engine instances
+Create Cloud Storage buckets
+GKE cluster with Terraform
+State management (Cloud Storage backend)
 ```
 
 **Hands-on: Terraform GCP**
 
 1. **Provider configuration:**
- ```hcl
- # main.tf
- terraform {
- required_providers {
- google = {
- source = "hashicorp/google"
- version = "~> 5.0"
- }
- }
- backend "gcs" {
- bucket = "my-terraform-state"
- prefix = "terraform/state"
- }
- }
+```hcl
+# main.tf
+terraform {
+required_providers {
+google = {
+source = "hashicorp/google"
+version = "~> 5.0"
+}
+}
+backend "gcs" {
+bucket = "my-terraform-state"
+prefix = "terraform/state"
+}
+}
 
- provider "google" {
- project = var.project_id
- region = var.region
- }
+provider "google" {
+project = var.project_id
+region = var.region
+}
 
- variable "project_id" {
- description = "GCP Project ID"
- }
+variable "project_id" {
+description = "GCP Project ID"
+}
 
- variable "region" {
- default = "us-central1"
- }
- ```
+variable "region" {
+default = "us-central1"
+}
+```
 
 2. **Create VPC and VM:**
- ```hcl
- # network.tf
- resource "google_compute_network" "vpc" {
- name = "my-vpc"
- auto_create_subnetworks = false
- }
+```hcl
+# network.tf
+resource "google_compute_network" "vpc" {
+name = "my-vpc"
+auto_create_subnetworks = false
+}
 
- resource "google_compute_subnetwork" "subnet" {
- name = "my-subnet"
- ip_cidr_range = "10.0.1.0/24"
- region = var.region
- network = google_compute_network.vpc.id
- }
+resource "google_compute_subnetwork" "subnet" {
+name = "my-subnet"
+ip_cidr_range = "10.0.1.0/24"
+region = var.region
+network = google_compute_network.vpc.id
+}
 
- # compute.tf
- resource "google_compute_instance" "web" {
- name = "web-server"
- machine_type = "e2-micro"
- zone = "${var.region}-a"
+# compute.tf
+resource "google_compute_instance" "web" {
+name = "web-server"
+machine_type = "e2-micro"
+zone = "${var.region}-a"
 
- boot_disk {
- initialize_params {
- image = "ubuntu-os-cloud/ubuntu-2204-lts"
- }
- }
+boot_disk {
+initialize_params {
+image = "ubuntu-os-cloud/ubuntu-2204-lts"
+}
+}
 
- network_interface {
- subnetwork = google_compute_subnetwork.subnet.id
- access_config {}
- }
+network_interface {
+subnetwork = google_compute_subnetwork.subnet.id
+access_config {}
+}
 
- metadata_startup_script = file("startup.sh")
+metadata_startup_script = file("startup.sh")
 
- tags = ["http-server"]
- }
- ```
+tags = ["http-server"]
+}
+```
 
 3. **Deploy:**
- ```bash
- terraform init
- terraform plan -var="project_id=my-project-12345"
- terraform apply -var="project_id=my-project-12345"
- ```
+```bash
+terraform init
+terraform plan -var="project_id=my-project-12345"
+terraform apply -var="project_id=my-project-12345"
+```
 
 ---
 
@@ -1040,33 +1044,33 @@ gcloud compute routers nats create my-nat \
 ### Cost Protection:
 
 1. **Set budget alerts:**
- ```bash
- gcloud billing budgets create \
- --billing-account=BILLING_ACCOUNT_ID \
- --display-name="Monthly Budget" \
- --budget-amount=50 \
- --threshold-rule=percent=50 \
- --threshold-rule=percent=90
- ```
+```bash
+gcloud billing budgets create \
+--billing-account=BILLING_ACCOUNT_ID \
+--display-name="Monthly Budget" \
+--budget-amount=50 \
+--threshold-rule=percent=50 \
+--threshold-rule=percent=90
+```
 
 2. **Monitor costs:**
- - Cloud Console → Billing → Cost Table
- - Enable cost breakdown by project/service
+- Cloud Console → Billing → Cost Table
+- Enable cost breakdown by project/service
 
 3. **Clean up resources:**
- ```bash
- # Delete GKE cluster
- gcloud container clusters delete my-cluster --zone=us-central1-a
+```bash
+# Delete GKE cluster
+gcloud container clusters delete my-cluster --zone=us-central1-a
 
- # Delete Compute instances
- gcloud compute instances delete web-server --zone=us-central1-a
+# Delete Compute instances
+gcloud compute instances delete web-server --zone=us-central1-a
 
- # Delete Cloud SQL
- gcloud sql instances delete my-postgres
+# Delete Cloud SQL
+gcloud sql instances delete my-postgres
 
- # Delete Cloud Storage bucket
- gsutil rm -r gs://my-bucket/
- ```
+# Delete Cloud Storage bucket
+gsutil rm -r gs://my-bucket/
+```
 
 ---
 

@@ -1,3 +1,7 @@
+---
+description: Complete color-managed workflow from capture to print - ICC profiles, monitor calibration, soft proofing, and systematic testing for predictable results.
+---
+
 # Color Management & Print Workflow Reference
 
 ## Overview
@@ -44,19 +48,19 @@ This reference covers building a reliable color-managed workflow from capture to
 **Three Critical Profiles:**
 
 1. **Monitor Profile:**
- - Created via hardware calibration (X-Rite i1Display, Datacolor SpyderX)
- - Tells system: "This is how my monitor renders colors"
- - Must recalibrate every 2-4 weeks (monitors drift)
+- Created via hardware calibration (X-Rite i1Display, Datacolor SpyderX)
+- Tells system: "This is how my monitor renders colors"
+- Must recalibrate every 2-4 weeks (monitors drift)
 
 2. **Printer Profile:**
- - Generic profile for printer (e.g., Epson P900)
- - Tells system: "This is how this printer lays down ink"
+- Generic profile for printer (e.g., Epson P900)
+- Tells system: "This is how this printer lays down ink"
 
 3. **Paper Profile (Most Important):**
- - Specific to printer + paper + ink combination
- - Tells system: "This is how this paper absorbs ink on this printer"
- - Example: "Epson P900 + Hahnemühle Photo Rag + UltraChrome Pro inks"
- - **Without correct paper profile, colors will be wrong**
+- Specific to printer + paper + ink combination
+- Tells system: "This is how this paper absorbs ink on this printer"
+- Example: "Epson P900 + Hahnemühle Photo Rag + UltraChrome Pro inks"
+- **Without correct paper profile, colors will be wrong**
 
 **Where to Get Paper Profiles:**
 - Epson: https://epson.com/icc-profiles (free)
@@ -106,8 +110,8 @@ This reference covers building a reliable color-managed workflow from capture to
 
 **Without Hardware Calibrator:**
 - Use OS built-in tools:
- - **macOS:** System Preferences > Displays > Color > Calibrate
- - **Windows:** Control Panel > Color Management > Advanced
+- **macOS:** System Preferences > Displays > Color > Calibrate
+- **Windows:** Control Panel > Color Management > Advanced
 - Less accurate, but better than nothing
 
 ---
@@ -252,31 +256,31 @@ Verify your soft-proofing workflow is accurate (screen prediction matches print 
 ### Process
 
 1. **Select 3 test images:**
- - Image 1: Low-key (shadow-rich)
- - Image 2: High-key (highlight-rich)
- - Image 3: Colorful (wide gamut, saturated)
+- Image 1: Low-key (shadow-rich)
+- Image 2: High-key (highlight-rich)
+- Image 3: Colorful (wide gamut, saturated)
 
 2. **Soft-proof each** using paper you plan to print on
 
 3. **Document what changes:**
- - Color shifts (reds → orange? blues → cyan?)
- - Brightness shift (darker? lighter?)
- - Contrast change (flatter? punchier?)
+- Color shifts (reds → orange? blues → cyan?)
+- Brightness shift (darker? lighter?)
+- Contrast change (flatter? punchier?)
 
 4. **Print all 3 images** (8x10")
 
 5. **Compare print to soft-proofed screen view:**
- - View print in target lighting (daylight or gallery spots)
- - View screen with soft-proof ON
- - Evaluate accuracy:
- - Color match close? (85-95% is good)
- - Brightness match close? (prints often 5-10% darker—expected)
+- View print in target lighting (daylight or gallery spots)
+- View screen with soft-proof ON
+- Evaluate accuracy:
+- Color match close? (85-95% is good)
+- Brightness match close? (prints often 5-10% darker—expected)
 
 6. **If major mismatches, troubleshoot:**
- - Monitor calibration expired? (recalibrate)
- - Wrong ICC profile selected?
- - Printer settings overriding color management? (disable driver CM)
- - Viewing light color-shifted? (use neutral daylight or 5000K spots)
+- Monitor calibration expired? (recalibrate)
+- Wrong ICC profile selected?
+- Printer settings overriding color management? (disable driver CM)
+- Viewing light color-shifted? (use neutral daylight or 5000K spots)
 
 **Expected Accuracy:**
 - **Color:** 90-95% match (excellent)
@@ -302,20 +306,20 @@ Verify your soft-proofing workflow is accurate (screen prediction matches print 
 2. **Enable gamut warning** (Photoshop: View > Gamut Warning)
 
 3. **Identify out-of-gamut areas:**
- - Gray overlay shows unprintable colors
+- Gray overlay shows unprintable colors
 
 4. **Selective desaturation:**
- - Use adjustment brush or HSL sliders
- - Reduce saturation of affected colors by 10-20%
- - Goal: Bring into gamut without losing too much vibrancy
+- Use adjustment brush or HSL sliders
+- Reduce saturation of affected colors by 10-20%
+- Goal: Bring into gamut without losing too much vibrancy
 
 5. **Toggle gamut warning off** → Check if colors still feel vibrant
 
 6. **Print test**
 
 7. **Compare before/after:**
- - Version A: No gamut mapping (clipped colors, dull)
- - Version B: Gamut mapped (slightly desaturated, but smooth)
+- Version A: No gamut mapping (clipped colors, dull)
+- Version B: Gamut mapped (slightly desaturated, but smooth)
 
 **Typical Finding:** Slightly desaturated version looks better on paper (avoids harsh clipping).
 
@@ -366,11 +370,11 @@ After each print, evaluate:
 - Print (8x10")
 - View in target lighting
 - **Notes:**
- - Brightness: 3/10 (too dark)
- - Highlights: OK
- - Shadows: Blocked
- - Contrast: Harsh
- - Colors: Slightly warm
+- Brightness: 3/10 (too dark)
+- Highlights: OK
+- Shadows: Blocked
+- Contrast: Harsh
+- Colors: Slightly warm
 
 **Adjustments for Print 2:**
 - Address biggest issue first (brightness)
@@ -382,11 +386,11 @@ After each print, evaluate:
 **Print 2 (Iteration 1):**
 - Print (8x10")
 - **Notes:**
- - Brightness: 6/10 (better, but still slightly dark)
- - Highlights: Still OK
- - Shadows: Visible now (good)
- - Contrast: Better, less harsh
- - Colors: More neutral (good)
+- Brightness: 6/10 (better, but still slightly dark)
+- Highlights: Still OK
+- Shadows: Visible now (good)
+- Contrast: Better, less harsh
+- Colors: More neutral (good)
 
 **Adjustments for Print 3:**
 - Fine-tune remaining issues
@@ -396,11 +400,11 @@ After each print, evaluate:
 **Print 3 (Final Test):**
 - Print (8x10")
 - **Notes:**
- - Brightness: 8/10 (good)
- - Highlights: Perfect
- - Shadows: Good separation
- - Contrast: Balanced
- - Colors: Accurate
+- Brightness: 8/10 (good)
+- Highlights: Perfect
+- Shadows: Good separation
+- Contrast: Balanced
+- Colors: Accurate
 - **Decision:** Satisfied → proceed to final size
 
 **If Print 3 Unsatisfactory:**
@@ -465,22 +469,22 @@ Some papers "scale up" better than others—texture visibility and impact change
 1. **Select your best image** from iterative testing
 
 2. **Print at final intended size** (11x14", 16x20", or larger) on 2-3 papers:
- - Paper 1: Your current favorite
- - Paper 2: Alternative surface (if favorite is matte, try baryta)
- - Paper 3: Wildcard (textured rag, experimental)
+- Paper 1: Your current favorite
+- Paper 2: Alternative surface (if favorite is matte, try baryta)
+- Paper 3: Wildcard (textured rag, experimental)
 
 3. **View all in final display context:**
- - Frame if possible (even cheap frame helps evaluation)
- - Hang on wall at eye level (57-60" to center)
- - View from proper distance:
- - Portraits: 3x diagonal (e.g., 16x20" = 6 feet)
- - Landscapes: 5x diagonal (e.g., 16x20" = 10 feet)
+- Frame if possible (even cheap frame helps evaluation)
+- Hang on wall at eye level (57-60" to center)
+- View from proper distance:
+- Portraits: 3x diagonal (e.g., 16x20" = 6 feet)
+- Landscapes: 5x diagonal (e.g., 16x20" = 10 feet)
 
 4. **Evaluate:**
- - Which paper best serves the image at display size?
- - Does texture enhance or distract?
- - Does base color complement wall/room?
- - Which has best "wall presence"?
+- Which paper best serves the image at display size?
+- Does texture enhance or distract?
+- Does base color complement wall/room?
+- Which has best "wall presence"?
 
 **Typical Finding:** Paper that looked great at 8x10" may feel different at 16x20" (texture more/less visible, impact changes).
 
@@ -506,17 +510,17 @@ Some papers "scale up" better than others—texture visibility and impact change
 
 **Process:**
 1. Print one image on:
- - RC photo paper (semi-gloss)
- - Cotton rag fine art paper
+- RC photo paper (semi-gloss)
+- Cotton rag fine art paper
 
 2. **Handling test** (with clean hands):
- - Flex paper gently → rag is more durable, RC can crack
- - Touch surface → rag shows fewer fingerprints
- - Simulate minor wear → rag resists scratching better
+- Flex paper gently → rag is more durable, RC can crack
+- Touch surface → rag shows fewer fingerprints
+- Simulate minor wear → rag resists scratching better
 
 3. **Display test:**
- - Place both prints in bright indirect window light for 1 week
- - Check for fading (unlikely with pigment inks, but RC may show first)
+- Place both prints in bright indirect window light for 1 week
+- Check for fading (unlikely with pigment inks, but RC may show first)
 
 **Archival Notes for Clients/Sales:**
 - **RC:** 50-75 year lifespan (pigment inks, glass frame, indirect light)
@@ -590,10 +594,10 @@ Some papers "scale up" better than others—texture visibility and impact change
 
 ## Related References
 
-- **[Print_Foundations_Reference.md](Print_Foundations_Reference.md)** - Tonal basics for print
-- **[Paper_and_Materials_Reference.md](Paper_and_Materials_Reference.md)** - Paper ICC profiles and characteristics
-- **[Print_Editing_Techniques_Reference.md](Print_Editing_Techniques_Reference.md)** - Print-specific adjustments
-- **[Fine_Art_Print_Philosophy_Reference.md](Fine_Art_Print_Philosophy_Reference.md)** - Iterative refinement mindset
+- **[Print_Foundations_Reference.md](fine-art-printing/Print_Foundations_Reference.md)** - Tonal basics for print
+- **[Paper_and_Materials_Reference.md](fine-art-printing/Paper_and_Materials_Reference.md)** - Paper ICC profiles and characteristics
+- **[Print_Editing_Techniques_Reference.md](fine-art-printing/Print_Editing_Techniques_Reference.md)** - Print-specific adjustments
+- **[Fine_Art_Print_Philosophy_Reference.md](fine-art-printing/Fine_Art_Print_Philosophy_Reference.md)** - Iterative refinement mindset
 
 ---
 

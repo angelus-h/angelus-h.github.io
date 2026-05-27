@@ -62,10 +62,10 @@ Crawl-delay: 1
 - `Sitemap:` - Location of your sitemap
 
 **Best practices:**
-- ✅ Allow search engines to crawl public content
-- ✅ Block admin panels, private sections
-- ✅ Include sitemap URL
-- ❌ Don't block CSS/JS files (Google needs them to render pages)
+- Allow search engines to crawl public content
+- Block admin panels, private sections
+- Include sitemap URL
+- Don't block CSS/JS files (Google needs them to render pages)
 
 ---
 
@@ -79,18 +79,18 @@ Crawl-delay: 1
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://yourdomain.com/</loc>
-    <lastmod>2026-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://yourdomain.com/guide/</loc>
-    <lastmod>2026-05-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+<url>
+<loc>https://yourdomain.com/</loc>
+<lastmod>2026-05-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://yourdomain.com/guide/</loc>
+<lastmod>2026-05-24</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
 </urlset>
 ```
 
@@ -100,10 +100,10 @@ Crawl-delay: 1
 3. URL: `https://yourdomain.com/sitemap.xml`
 
 **Best practices:**
-- ✅ Keep sitemap updated (MkDocs does this automatically)
-- ✅ Submit to Google Search Console
-- ✅ Include all public pages
-- ❌ Don't include 404 pages or redirects
+- Keep sitemap updated (MkDocs does this automatically)
+- Submit to Google Search Console
+- Include all public pages
+- Don't include 404 pages or redirects
 
 ---
 
@@ -179,21 +179,21 @@ description: "Complete guide to Kubernetes monitoring with Prometheus, Grafana, 
 ```html
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Your Site Name",
-  "url": "https://yourdomain.com",
-  "description": "Site description",
-  "author": {
-    "@type": "Person",
-    "name": "Your Name",
-    "url": "https://github.com/yourname"
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://yourdomain.com/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+"@context": "https://schema.org",
+"@type": "WebSite",
+"name": "Your Site Name",
+"url": "https://yourdomain.com",
+"description": "Site description",
+"author": {
+"@type": "Person",
+"name": "Your Name",
+"url": "https://github.com/yourname"
+},
+"potentialAction": {
+"@type": "SearchAction",
+"target": "https://yourdomain.com/?q={search_term_string}",
+"query-input": "required name=search_term_string"
+}
 }
 </script>
 ```
@@ -205,21 +205,21 @@ description: "Complete guide to Kubernetes monitoring with Prometheus, Grafana, 
 ```html
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "TechArticle",
-  "headline": "Article Title",
-  "url": "https://yourdomain.com/article/",
-  "datePublished": "2026-05-25",
-  "dateModified": "2026-05-25",
-  "author": {
-    "@type": "Person",
-    "name": "Your Name"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Your Name"
-  },
-  "description": "Article description"
+"@context": "https://schema.org",
+"@type": "TechArticle",
+"headline": "Article Title",
+"url": "https://yourdomain.com/article/",
+"datePublished": "2026-05-25",
+"dateModified": "2026-05-25",
+"author": {
+"@type": "Person",
+"name": "Your Name"
+},
+"publisher": {
+"@type": "Person",
+"name": "Your Name"
+},
+"description": "Article description"
 }
 </script>
 ```
@@ -309,12 +309,12 @@ description: "Complete guide to Kubernetes monitoring with Prometheus, Grafana, 
 
 **Examples:**
 
-**❌ Bad:**
+** Bad:**
 ```
 Home | My Site
 ```
 
-**✅ Good:**
+** Good:**
 ```
 Kubernetes Monitoring Guide - Complete Prometheus Setup | Site Name
 ```
@@ -374,8 +374,8 @@ Kubernetes Monitoring Guide - Complete Prometheus Setup | Site Name
 4. Target long-tail keywords (more specific = easier to rank)
 
 **Long-tail keywords:**
-- ❌ "Python" (too broad, impossible to rank)
-- ✅ "Python SRE interview questions" (specific, achievable)
+- "Python" (too broad, impossible to rank)
+- "Python SRE interview questions" (specific, achievable)
 
 #### Content Quality
 
@@ -431,13 +431,13 @@ Learn how to implement Kubernetes monitoring using Prometheus... (keyword in fir
 
 **Examples:**
 
-**❌ Bad:**
+** Bad:**
 ```
 https://site.com/page?id=12345
 https://site.com/2026/05/25/my-blog-post-about-kubernetes-monitoring-and-prometheus-setup
 ```
 
-**✅ Good:**
+** Good:**
 ```
 https://site.com/kubernetes-monitoring-prometheus/
 https://site.com/guides/prometheus-setup/
@@ -465,12 +465,12 @@ https://site.com/guides/prometheus-setup/
 
 **Example:**
 
-**❌ Bad:**
+** Bad:**
 ```markdown
 For more information, click [here](link).
 ```
 
-**✅ Good:**
+** Good:**
 ```markdown
 Learn more about [Prometheus configuration](../prometheus-config/) and [AlertManager setup](../alertmanager/).
 ```
@@ -496,13 +496,13 @@ Learn more about [Prometheus configuration](../prometheus-config/) and [AlertMan
 
 **Examples:**
 
-**❌ Bad:**
+** Bad:**
 ```markdown
 ![img123](diagram.png)
 ![Click here](screenshot.png)
 ```
 
-**✅ Good:**
+** Good:**
 ```markdown
 ![Prometheus architecture with Grafana dashboard](prometheus-architecture.png)
 ![Kubernetes pod deployment workflow diagram](k8s-deployment.svg)
@@ -523,13 +523,13 @@ Learn more about [Prometheus configuration](../prometheus-config/) and [AlertMan
 
 **Examples:**
 
-**❌ Bad:**
+** Bad:**
 ```
 IMG_1234.jpg
 Screenshot_2026_05_25.png
 ```
 
-**✅ Good:**
+** Good:**
 ```
 prometheus-grafana-dashboard.jpg
 kubernetes-architecture-diagram.svg
@@ -634,9 +634,9 @@ kubernetes-architecture-diagram.svg
 
 ```yaml
 extra:
-  analytics:
-    provider: google
-    property: G-XXXXXXXXXX
+analytics:
+provider: google
+property: G-XXXXXXXXXX
 ```
 
 **Privacy considerations:**
@@ -682,12 +682,12 @@ pip install mkdocs-meta-descriptions-plugin
 **Configuration:**
 ```yaml
 plugins:
-  - meta-descriptions:
-      export_csv: false
-      quiet: false
-      enable_checks: true
-      min_length: 50
-      max_length: 160
+- meta-descriptions:
+export_csv: false
+quiet: false
+enable_checks: true
+min_length: 50
+max_length: 160
 ```
 
 **What it does:**
@@ -716,8 +716,8 @@ mkdir -p docs/overrides
 **Enable in mkdocs.yml:**
 ```yaml
 theme:
-  name: material
-  custom_dir: docs/overrides
+name: material
+custom_dir: docs/overrides
 ```
 
 **Create `docs/overrides/main.html`:**
@@ -725,35 +725,35 @@ theme:
 {% extends "base.html" %}
 
 {% block extrahead %}
-  <!-- SEO Meta Tags -->
-  <meta name="keywords" content="Your, Keywords, Here">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Your Name">
+<!-- SEO Meta Tags -->
+<meta name="keywords" content="Your, Keywords, Here">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Your Name">
 
-  <!-- Open Graph Tags -->
-  {% if page %}
-  <meta property="og:url" content="{{ page.canonical_url }}">
-  <meta property="og:title" content="{{ page.title }} - {{ config.site_name }}">
-  <meta property="og:description" content="{{ config.site_description }}">
-  <meta property="og:image" content="{{ config.site_url }}assets/image.jpg">
-  {% endif %}
+<!-- Open Graph Tags -->
+{% if page %}
+<meta property="og:url" content="{{ page.canonical_url }}">
+<meta property="og:title" content="{{ page.title }} - {{ config.site_name }}">
+<meta property="og:description" content="{{ config.site_description }}">
+<meta property="og:image" content="{{ config.site_url }}assets/image.jpg">
+{% endif %}
 
-  <!-- Twitter Cards -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ page.title }} - {{ config.site_name }}">
-  <meta name="twitter:description" content="{{ config.site_description }}">
-  <meta name="twitter:image" content="{{ config.site_url }}assets/image.jpg">
+<!-- Twitter Cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title }} - {{ config.site_name }}">
+<meta name="twitter:description" content="{{ config.site_description }}">
+<meta name="twitter:image" content="{{ config.site_url }}assets/image.jpg">
 
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "{{ config.site_name }}",
-    "url": "{{ config.site_url }}",
-    "description": "{{ config.site_description }}"
-  }
-  </script>
+<!-- Structured Data (JSON-LD) -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@type": "WebSite",
+"name": "{{ config.site_name }}",
+"url": "{{ config.site_url }}",
+"description": "{{ config.site_description }}"
+}
+</script>
 {% endblock %}
 ```
 
@@ -780,9 +780,9 @@ Sitemap: https://yourdomain.com/sitemap.xml
 **Optional configuration in mkdocs.yml:**
 ```yaml
 plugins:
-  - search
-  - sitemap:
-      changefreq: weekly
+- search
+- sitemap:
+changefreq: weekly
 ```
 
 **Sitemap priorities:**
@@ -796,35 +796,35 @@ plugins:
 
 ### Do's
 
-✅ **Write for humans first, search engines second**
+**Write for humans first, search engines second**
 - Quality content attracts backlinks naturally
 - User engagement signals (time on page, bounce rate) affect rankings
 
-✅ **Update content regularly**
+**Update content regularly**
 - Google favors fresh content
 - Update dates in frontmatter when you revise pages
 
-✅ **Use descriptive, keyword-rich URLs**
+**Use descriptive, keyword-rich URLs**
 - `/kubernetes-monitoring/` not `/page123/`
 
-✅ **Optimize page speed**
+**Optimize page speed**
 - Compress images
 - Minimize CSS/JS
 - Use CDN for assets
 
-✅ **Make your site mobile-friendly**
+**Make your site mobile-friendly**
 - Responsive design (Material for MkDocs handles this)
 - Google uses mobile-first indexing
 
-✅ **Use HTTPS**
+**Use HTTPS**
 - GitHub Pages provides HTTPS automatically
 - Google prefers secure sites
 
-✅ **Create comprehensive content**
+**Create comprehensive content**
 - Long-form guides (2000+ words) rank better
 - Cover topics thoroughly
 
-✅ **Build internal links**
+**Build internal links**
 - Link related pages naturally
 - Create hub pages linking to related content
 
@@ -832,32 +832,32 @@ plugins:
 
 ### Don'ts
 
-❌ **Don't keyword stuff**
+**Don't keyword stuff**
 - Natural language always
 - Google penalizes over-optimization
 
-❌ **Don't duplicate content**
+**Don't duplicate content**
 - Same content at multiple URLs hurts rankings
 - Use canonical tags if unavoidable
 
-❌ **Don't buy links**
+**Don't buy links**
 - Violates Google's guidelines
 - Risk of manual penalty
 
-❌ **Don't hide text or links**
+**Don't hide text or links**
 - White text on white background = spam
 - Google penalizes cloaking
 
-❌ **Don't use spammy tactics**
+**Don't use spammy tactics**
 - Comment spam
 - Link farms
 - Automated content generation
 
-❌ **Don't ignore mobile users**
+**Don't ignore mobile users**
 - 60%+ of searches are mobile
 - Google prioritizes mobile experience
 
-❌ **Don't neglect page speed**
+**Don't neglect page speed**
 - Slow sites rank lower
 - Users abandon slow pages
 
@@ -900,7 +900,7 @@ description: Unique description for this specific page.
 **Fix:**
 - Use MkDocs link checking:
 ```bash
-mkdocs build --strict  # Fails build on broken internal links
+mkdocs build --strict # Fails build on broken internal links
 ```
 - Check external links periodically
 - Fix or remove broken links

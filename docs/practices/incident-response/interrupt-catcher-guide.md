@@ -1,3 +1,7 @@
+---
+description: SRE Interrupt Catcher role guide - on-call rotation, incident handling, alert triage, escalation procedures, and team protection workflows.
+---
+
 # SRE Team Interrupt Catcher (IC) Role Guide
 
 ## What is the Interrupt Catcher (IC)?
@@ -8,8 +12,8 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 - **Follow The Sun (FTS)**: Business hours coverage (NASA and EMEA shifts)
 - **Primary Oncall**: 24/7 weekly rotation (30-minute response time for critical alerts)
 - **PagerDuty Schedules**:
- - FTS: https://company.pagerduty.com/schedules#SCHEDULE-ID-1
- - Primary: https://company.pagerduty.com/schedules#SCHEDULE-ID-2
+- FTS: https://company.pagerduty.com/schedules#SCHEDULE-ID-1
+- Primary: https://company.pagerduty.com/schedules#SCHEDULE-ID-2
 
 **Slack Handles:**
 - `@team-ic` - Interrupt Catcher
@@ -29,14 +33,14 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 **What to do:**
 1. **Respond immediately** - This is the highest priority, everything else can wait!
 2. **Assess the impact:**
- - Service completely down? → Incident declaration
- - Significant degradation? → Incident declaration
- - If uncertain → Escalate!
+- Service completely down? → Incident declaration
+- Significant degradation? → Incident declaration
+- If uncertain → Escalate!
 3. **Follow the incident process:** `/docs/sre-team/incident-process.md`
 4. **Ask for help** if:
- - You're in a meeting and can't respond
- - You're overwhelmed with other tasks
- - You're not confident about the solution
+- You're in a meeting and can't respond
+- You're overwhelmed with other tasks
+- You're not confident about the solution
 
 **SOP Location:**
 - **Runbook** link in the alert → Click it!
@@ -52,20 +56,20 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 **Types of issues:**
 - User reports production problem but there's no alert
 - User requests urgent MR merge because they're investigating a production incident
- - **This is the ONLY time it's OK to ping IC for an MR!**
+- **This is the ONLY time it's OK to ping IC for an MR!**
 
 **What to do:**
 1. **Assess the impact:**
- - False positive (client-side issue)?
- - Real production problem?
+- False positive (client-side issue)?
+- Real production problem?
 2. **If no alert but real problem:**
- - Escalate to tenant team for impact assessment
- - Review incident criteria (`/docs/sre-team/incident-process.md`)
- - Decide: Is an incident needed?
+- Escalate to tenant team for impact assessment
+- Review incident criteria (`/docs/sre-team/incident-process.md`)
+- Decide: Is an incident needed?
 3. **If MR merge needed during production incident:**
- - Prioritize the MR
- - Merge if approved
- - Notify the tenant
+- Prioritize the MR
+- Merge if approved
+- Notify the tenant
 
 ---
 
@@ -83,7 +87,7 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 **What to do:**
 1. Check the review queue regularly
 2. Review MRs on a FIFO (First In First Out) basis
- - Exception: `bot/` labeled MRs get priority
+- Exception: `bot/` labeled MRs get priority
 3. Mark approved MRs with the `lgtm` label
 4. If new onboarding is needed → See: `/docs/sre-team/re-onboarding-checklist.md`
 
@@ -92,8 +96,8 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 **Important rules:**
 - Self-serviceable MRs do NOT require SRE Team review
 - If tenant pings IC for MR:
- - Only OK during production incident
- - Otherwise: "Please wait in the queue, we review in FIFO order"
+- Only OK during production incident
+- Otherwise: "Please wait in the queue, we review in FIFO order"
 
 ---
 
@@ -106,13 +110,13 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 **Rules:**
 1. **ASIC tickets are NOT owned by anyone**
- - If you feel ownership is needed → Move to APPSRE board, assign to yourself
- - If not → Add context and unassign when shift ends
+- If you feel ownership is needed → Move to APPSRE board, assign to yourself
+- If not → Add context and unassign when shift ends
 2. **Don't let tickets rot:**
- - If solution provided to tenant → Close it (tenant can reopen if needed)
+- If solution provided to tenant → Close it (tenant can reopen if needed)
 3. **Not IC responsibility:**
- - Project work (e.g., install Jenkins plugin, new operator request)
- - These → Move to APPSRE board and notify grooming masters
+- Project work (e.g., install Jenkins plugin, new operator request)
+- These → Move to APPSRE board and notify grooming masters
 
 **What to do:**
 1. Review open ASIC tickets
@@ -131,15 +135,15 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 **Important exceptions:**
 1. **If app status is `InProgress`:**
- - Redirect → `#team-channel-onboarding` channel
+- Redirect → `#team-channel-onboarding` channel
 2. **If OSD cluster question:**
- - If not app-interface managed → Redirect to `#forum-rosa-support`
+- If not app-interface managed → Redirect to `#forum-rosa-support`
 
 **What to do:**
 - Answer if you can
 - Use documentation:
- - [Developer Guidelines](https://gitlab.company.com/service/dev-guidelines)
- - [App-Interface FAQ](https://gitlab.company.com/service/app-interface/-/blob/master/FAQ.md)
+- [Developer Guidelines](https://gitlab.company.com/service/dev-guidelines)
+- [App-Interface FAQ](https://gitlab.company.com/service/app-interface/-/blob/master/FAQ.md)
 - If you can't answer → Escalate or create ASIC ticket
 
 **Community Support:**
@@ -160,16 +164,16 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 3. Try to resolve
 4. Can't resolve? → Escalate to tenant team
 5. **If resolved:**
- - Check: Is this a recurring alert?
- - SOP incomplete or incorrect?
- - If yes → Create ASIC ticket
+- Check: Is this a recurring alert?
+- SOP incomplete or incorrect?
+- If yes → Create ASIC ticket
 
 **IMPORTANT - Channel Maintenance:**
 - **The IC is responsible for maintaining the `#team-channel-alert` channel!**
 - If you detect a flappy alert:
- - Downgrade severity → `medium`
- - Notify tenant to fix it
- - If the channel is overloaded with flappy alerts → Nobody can use it!
+- Downgrade severity → `medium`
+- Notify tenant to fix it
+- If the channel is overloaded with flappy alerts → Nobody can use it!
 
 ---
 
@@ -244,21 +248,21 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 **Steps:**
 1. **Confirm pod health:**
- ```bash
- oc get pods -n incident-tracker-production
- ```
- Console: https://console.openshift.company.com/k8s/ns/incident-tracker-production/pods
+```bash
+oc get pods -n incident-tracker-production
+```
+Console: https://console.openshift.company.com/k8s/ns/incident-tracker-production/pods
 
 2. **Check service status:**
- ```bash
- oc get svc -n incident-tracker-production
- ```
+```bash
+oc get svc -n incident-tracker-production
+```
 
 3. **Optionally try to restart pods:**
- ```bash
- oc delete pod <pod-name> -n incident-tracker-production
- ```
- - Pod will be re-created from deployment
+```bash
+oc delete pod <pod-name> -n incident-tracker-production
+```
+- Pod will be re-created from deployment
 
 4. **Manually trigger deployment pipeline** (if necessary)
 
@@ -288,29 +292,29 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 **Steps:**
 
 1. **Login to console and verify pods:**
- - Stage: https://console.openshift.company.com/k8s/ns/incident-tracker-stage/pods
- - Production: https://console.openshift.company.com/k8s/ns/incident-tracker-production/pods
+- Stage: https://console.openshift.company.com/k8s/ns/incident-tracker-stage/pods
+- Production: https://console.openshift.company.com/k8s/ns/incident-tracker-production/pods
 
 2. **Check pod status:**
- ```bash
- oc get pods -n incident-tracker-production
- oc describe pod <pod-name> -n incident-tracker-production
- ```
+```bash
+oc get pods -n incident-tracker-production
+oc describe pod <pod-name> -n incident-tracker-production
+```
 
 3. **Check pod logs:**
- ```bash
- oc logs <pod-name> -n incident-tracker-production --tail=100
- ```
+```bash
+oc logs <pod-name> -n incident-tracker-production --tail=100
+```
 
 4. **Check for OOM (Out of Memory):**
- ```bash
- oc describe pod <pod-name> -n incident-tracker-production | grep -i oom
- ```
+```bash
+oc describe pod <pod-name> -n incident-tracker-production | grep -i oom
+```
 
 5. **Optionally:**
- - Delete pod → Re-creation
- - Increase memory limit → Redeploy
- - Trigger deployment pipeline manually
+- Delete pod → Re-creation
+- Increase memory limit → Redeploy
+- Trigger deployment pipeline manually
 
 **Escalation:**
 - Ping `@status-board` on Slack
@@ -329,9 +333,9 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 1. Check Grafana dashboard for latency trends
 2. Check database performance (RDS)
 3. Check pod resource usage:
- ```bash
- oc top pods -n incident-tracker-production
- ```
+```bash
+oc top pods -n incident-tracker-production
+```
 4. Scale horizontally if needed
 5. Escalate to SD OPS Dev if persistent
 
@@ -348,12 +352,12 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 **SOP Documentation:**
 - **Location:** `/home/user/repos/app-interface/docs/tenant-services/incident-tracker/sops/`
 - Files:
- - `incident-tracker-production-down.md`
- - `incident-tracker-stage-down.md`
- - `incident-tracker-availability.md`
- - `incident-tracker-latency.md`
- - `disaster-recovery.md`
- - `load-testing.md`
+- `incident-tracker-production-down.md`
+- `incident-tracker-stage-down.md`
+- `incident-tracker-availability.md`
+- `incident-tracker-latency.md`
+- `disaster-recovery.md`
+- `load-testing.md`
 
 ---
 
@@ -395,12 +399,12 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 **Should include:**
 1. **Active issues status:**
- - "Working on X incident, next IC should monitor Y"
+- "Working on X incident, next IC should monitor Y"
 2. **Helpful information:**
- - "Many MRs in queue, didn't have time to review"
- - "Open tenant request in #team-channel about Z"
+- "Many MRs in queue, didn't have time to review"
+- "Open tenant request in #team-channel about Z"
 3. **If nothing:**
- - "There are no issues to handover."
+- "There are no issues to handover."
 
 **Always write a handover!** Even if it's empty.
 
@@ -483,26 +487,26 @@ The **Interrupt Catcher** is a rotation role within the SRE Team/SRE team design
 
 ```
 1. Critical Alert
- ↓
- Check Runbook → Follow SOP
- ↓
- Can't resolve? → Escalate to tenant team
- ↓
- Major impact? → Declare incident
- ↓
- Need help? → Ask in #team-channel-teamchat
- ↓
- Still blocked? → Manager escalation (PagerDuty)
+↓
+Check Runbook → Follow SOP
+↓
+Can't resolve? → Escalate to tenant team
+↓
+Major impact? → Declare incident
+↓
+Need help? → Ask in #team-channel-teamchat
+↓
+Still blocked? → Manager escalation (PagerDuty)
 
 2. Incident Tracking Tool Down
- ↓
- Check pods → oc get pods -n incident-tracker-production
- ↓
- Restart pod if needed
- ↓
- Still down after 1 hour? → Ping @status-board
- ↓
- NO manager escalation for Incident Tracking Tool!
+↓
+Check pods → oc get pods -n incident-tracker-production
+↓
+Restart pod if needed
+↓
+Still down after 1 hour? → Ping @status-board
+↓
+NO manager escalation for Incident Tracking Tool!
 ```
 
 ---

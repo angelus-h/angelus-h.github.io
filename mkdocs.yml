@@ -143,6 +143,7 @@ nav:
       - Databases:
           - SQL Databases:
               - PostgreSQL Quick Reference: learning/databases/PostgreSQL_Learning_Plan.md
+              - PostgreSQL Replication Guide: learning/databases/PostgreSQL_Replication_Guide.md
           - NoSQL Databases:
               - MongoDB Quick Reference: learning/databases/MongoDB_Learning_Plan.md
               - Redis Quick Reference: learning/databases/Redis_Learning_Plan.md
@@ -208,9 +209,11 @@ nav:
       - Collaboration Tools:
           - GitHub:
               - GitHub Learning Plan: resources/collaboration/github/README.md
+              - GitHub CLI (gh) Quick Reference: resources/collaboration/github/gh_cli_quick_reference.md
               - Week 1 - Fundamentals: resources/collaboration/github/week-01/README.md
           - GitLab:
               - GitLab Learning Plan: resources/collaboration/gitlab/README.md
+              - GitLab CLI (glab) Quick Reference: resources/collaboration/gitlab/glab_cli_quick_reference.md
               - Week 1 - Fundamentals: resources/collaboration/gitlab/week-01/README.md
           - Slack Automation:
               - Slack Automation Guide: resources/collaboration/slack-automation/README.md

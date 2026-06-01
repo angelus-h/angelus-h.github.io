@@ -143,6 +143,7 @@ nav:
       - Databases:
           - SQL Databases:
               - PostgreSQL Quick Reference: learning/databases/PostgreSQL_Learning_Plan.md
+              - PostgreSQL Replication Guide: learning/databases/PostgreSQL_Replication_Guide.md
           - NoSQL Databases:
               - MongoDB Quick Reference: learning/databases/MongoDB_Learning_Plan.md
               - Redis Quick Reference: learning/databases/Redis_Learning_Plan.md
@@ -168,10 +169,19 @@ nav:
           - Agile & Scrum Guide: practices/methodologies/agile-scrum-guide.md
           - ITIL Guide: practices/methodologies/itil-guide.md
           - Kanban Guide: practices/methodologies/kanban-guide.md
+      - Security:
+          - Git Secret Leak Remediation: practices/security/Git_Secret_Leak_Remediation_Guide.md
+          - Pre-Commit Hooks for Secret Detection: practices/security/Pre_Commit_Hooks_Secret_Detection_Guide.md
       - Professional Development:
-          - Boundary Setting Guide: practices/professional-development/boundary-setting-guide.md
+          - Boundary Setting: practices/professional-development/boundary-setting-guide.md
           - Work Acceptance Checklist: practices/professional-development/work-acceptance-checklist.md
-          - Probation Success Strategy: practices/professional-development/probation-success-strategy.md
+          - Probation Success: practices/professional-development/probation-success-strategy.md
+          - HR Interaction Strategy: practices/professional-development/hr-interaction-strategy-guide/README.md
+          - Inadequate Onboarding: practices/professional-development/onboarding-without-support-guide/README.md
+          - The Competence Trap: practices/professional-development/competence-trap-guide/README.md
+          - Toxic Workplace:
+              - Overview: practices/professional-development/toxic-workplace-survival-guide/README.md
+              - Individual Responsibility Framework: practices/professional-development/toxic-workplace-survival-guide/Individual_Responsibility_Framework.md
       # Development Workflows: Git, Code Review
       # Team Leadership: Mentoring, 1-on-1s
 
@@ -206,11 +216,16 @@ nav:
               - GPG Quick Reference: learning/command-line/GPG_Quick_Reference.md
               - Kerberos Quick Reference: learning/command-line/Kerberos_Quick_Reference.md
       - Collaboration Tools:
+          - Git:
+              - Git Resources Overview: resources/collaboration/git/README.md
+              - Git-Crypt Transparent Encryption Guide: resources/collaboration/git/Git_Crypt_Transparent_Encryption_Guide.md
           - GitHub:
               - GitHub Learning Plan: resources/collaboration/github/README.md
+              - GitHub CLI (gh) Quick Reference: resources/collaboration/github/gh_cli_quick_reference.md
               - Week 1 - Fundamentals: resources/collaboration/github/week-01/README.md
           - GitLab:
               - GitLab Learning Plan: resources/collaboration/gitlab/README.md
+              - GitLab CLI (glab) Quick Reference: resources/collaboration/gitlab/glab_cli_quick_reference.md
               - Week 1 - Fundamentals: resources/collaboration/gitlab/week-01/README.md
           - Slack Automation:
               - Slack Automation Guide: resources/collaboration/slack-automation/README.md
@@ -238,10 +253,18 @@ nav:
               - Depth of Field Field Guide: atelier/photography/Depth_of_Field_Field_Guide.md
           - Film & Materials:
               - Film Stock Reference Guide: atelier/photography/Film_Stock_Reference_Guide.md
+              - Ilford SFX 200 Field Guide: atelier/photography/Ilford_SFX_200_Field_Guide.md
+              - Rollei Infrared 400 Field Guide: atelier/photography/Rollei_Infrared_400_Field_Guide.md
+              - Ilford Pan F Plus 50 Field Guide: atelier/photography/Ilford_Pan_F_Plus_50_Field_Guide.md
               - Reciprocity Failure Field Guide: atelier/photography/Reciprocity_Failure_Field_Guide.md
               - Film Developing Chemistry Reference: atelier/photography/Film_Developing_Chemistry_Reference.md
               - Historical Photography Processes: atelier/photography/Historical_Photography_Processes_Lexicon.md
               - Photography Filter Reference: atelier/photography/Photography_Filter_Reference.md
+          - Film Development:
+              - C-41 Color Negative Home Development: atelier/photography/C41_Home_Development_Guide.md
+              - Black & White Film Development Guide: atelier/photography/Black_and_White_Film_Development_Guide.md
+              - Push/Pull Processing - Black & White: atelier/photography/Push_Pull_Processing_Black_and_White_Guide.md
+              - Push/Pull Processing - Color Negative: atelier/photography/Push_Pull_Processing_Color_Film_Guide.md
           - Landscape & Atmospheric:
               - Weather & Atmospheric Field Guide: atelier/photography/Photographers_Weather_Atmospheric_Field_Guide.md
           - Digital Processing:
@@ -249,6 +272,7 @@ nav:
               - SilverFast Professional Guide: atelier/photography/SilverFast_Professional_Guide.md
               - Color Management Workflow: atelier/photography/Color_Management_Workflow_Reference.md
           - Fine Art Printing:
+              - Alternative Processes Home Studio Guide: atelier/photography/Alternative_Processes_Home_Studio_Guide.md
               - Silver Gelatin Darkroom Printing: atelier/photography/fine-art-printing/Silver_Gelatin_Darkroom_Printing_Reference.md
               - Cyanotype Printing Reference: atelier/photography/Cyanotype_Printing_Reference.md
               - Salt Print Reference: atelier/photography/Salt_Print_Reference.md

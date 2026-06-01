@@ -214,3 +214,6 @@ a:hover {
         line-height: 1.3;
     }
 }
+
+/* Mermaid diagrams - Let Material for MkDocs handle dark mode natively */
+/* Material automatically adjusts Mermaid colors based on color scheme */

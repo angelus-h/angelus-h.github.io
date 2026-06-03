@@ -1,8 +1,6 @@
 # Continuous Learning Strategy Guide
 ## Keeping Your Technical Skills Sharp and Market Value Fresh
 
-**Version:** 1.0  
-**Last Updated:** 2026-06-03  
 **Target Audience:** Tech professionals (engineers, SREs, infrastructure specialists)  
 **Reading Time:** 35-40 minutes
 
@@ -177,26 +175,26 @@ A framework for maintaining technical competence in a rapidly evolving field. "C
 **Types of reading:**
 
 **Books (deep, foundational):**
-- ✅ "Designing Data-Intensive Applications" (Martin Kleppmann) — distributed systems
-- ✅ "Site Reliability Engineering" (Google) — SRE practices
-- ✅ "The Phoenix Project" (Gene Kim) — DevOps narrative
+-  "Designing Data-Intensive Applications" (Martin Kleppmann) — distributed systems
+-  "Site Reliability Engineering" (Google) — SRE practices
+-  "The Phoenix Project" (Gene Kim) — DevOps narrative
 - Time: 10-20 hours per book (read slowly, take notes)
 
 **Documentation (authoritative, current):**
-- ✅ Kubernetes docs, AWS docs, Terraform docs (official source of truth)
-- ⚠️ Watch for version drift (docs update constantly, verify you're reading latest)
+-  Kubernetes docs, AWS docs, Terraform docs (official source of truth)
+-  Watch for version drift (docs update constantly, verify you're reading latest)
 - Time: 1-2 hours per deep dive topic
 
 **Blog posts / tutorials (quick, practical):**
-- ✅ Engineering blogs (Netflix, Uber, Airbnb tech blogs)
-- ✅ Personal blogs (Julia Evans, Jessie Frazelle, Charity Majors)
-- ⚠️ Quality varies (verify author credibility, cross-check facts)
+-  Engineering blogs (Netflix, Uber, Airbnb tech blogs)
+-  Personal blogs (Julia Evans, Jessie Frazelle, Charity Majors)
+-  Quality varies (verify author credibility, cross-check facts)
 - Time: 15-30 min per post
 
 **Research papers (cutting-edge, academic):**
-- ✅ arXiv (cs.DC distributed computing, cs.CR cryptography)
-- ✅ Conference papers (USENIX, SIGMOD, SOSP)
-- ⚠️ Dense, slow reading (PhD-level rigor)
+-  arXiv (cs.DC distributed computing, cs.CR cryptography)
+-  Conference papers (USENIX, SIGMOD, SOSP)
+-  Dense, slow reading (PhD-level rigor)
 - Time: 2-4 hours per paper (skim abstract/conclusion first)
 
 **How to read effectively:**
@@ -215,25 +213,25 @@ A framework for maintaining technical competence in a rapidly evolving field. "C
 **Types of hands-on learning:**
 
 **Home lab / personal projects:**
-- ✅ Build something real (not "yet another todo app" — solve actual problem)
-- ✅ Example: Personal Kubernetes cluster (K3s on Raspberry Pi), monitoring stack (Prometheus + Grafana)
-- ✅ Time: 5-10 hours/week (weekend projects)
+-  Build something real (not "yet another todo app" — solve actual problem)
+-  Example: Personal Kubernetes cluster (K3s on Raspberry Pi), monitoring stack (Prometheus + Grafana)
+-  Time: 5-10 hours/week (weekend projects)
 
 **Work projects (leverage day job):**
-- ✅ Volunteer for new tech (e.g., "I'll migrate this service to Kubernetes")
-- ✅ Propose improvements (e.g., "Let's add observability to this system")
-- ✅ Time: Built into work hours (no extra time required)
+-  Volunteer for new tech (e.g., "I'll migrate this service to Kubernetes")
+-  Propose improvements (e.g., "Let's add observability to this system")
+-  Time: Built into work hours (no extra time required)
 
 **Open-source contributions:**
-- ✅ Start small: Bug fixes, documentation improvements
-- ✅ Escalate: Features, refactors (after understanding codebase)
-- ✅ Example: Contribute to Kubernetes, Prometheus, Terraform
-- ✅ Time: 2-5 hours/week (consistent small PRs > one-time large PR)
+-  Start small: Bug fixes, documentation improvements
+-  Escalate: Features, refactors (after understanding codebase)
+-  Example: Contribute to Kubernetes, Prometheus, Terraform
+-  Time: 2-5 hours/week (consistent small PRs > one-time large PR)
 
 **Certifications (structured learning + credential):**
-- ✅ CKA/CKAD (Kubernetes), AWS Solutions Architect, RHCE (Red Hat)
-- ✅ Hands-on exams (not multiple choice) = real skill validation
-- ✅ Time: 40-80 hours study per cert
+-  CKA/CKAD (Kubernetes), AWS Solutions Architect, RHCE (Red Hat)
+-  Hands-on exams (not multiple choice) = real skill validation
+-  Time: 40-80 hours study per cert
 
 **Deliberate practice principles:**
 - **Focus on weakness:** If debugging is weak, deliberately break things and fix
@@ -251,21 +249,21 @@ A framework for maintaining technical competence in a rapidly evolving field. "C
 **Types of video learning:**
 
 **Conference talks (cutting-edge, practitioner insights):**
-- ✅ KubeCon, AWS re:Invent, DevOpsDays, USENIX (free on YouTube)
-- ✅ Look for: Architecture deep-dives, post-mortems, lessons learned
-- ✅ Time: 30-60 min per talk
+-  KubeCon, AWS re:Invent, DevOpsDays, USENIX (free on YouTube)
+-  Look for: Architecture deep-dives, post-mortems, lessons learned
+-  Time: 30-60 min per talk
 
 **Online courses (structured, beginner-friendly):**
-- ✅ Platforms: Udemy, Coursera, A Cloud Guru, Linux Academy
-- ✅ Best for: Structured intro to new tech (Kubernetes basics, AWS fundamentals)
-- ⚠️ Quality varies (check reviews, instructor credentials)
-- ✅ Time: 10-40 hours per course
+-  Platforms: Udemy, Coursera, A Cloud Guru, Linux Academy
+-  Best for: Structured intro to new tech (Kubernetes basics, AWS fundamentals)
+-  Quality varies (check reviews, instructor credentials)
+-  Time: 10-40 hours per course
 
 **YouTube tutorials (quick, specific):**
-- ✅ NetworkChuck, TechWorld with Nana, Fireship (popular tech educators)
-- ✅ Best for: Quick how-to (e.g., "Set up Prometheus in 15 minutes")
-- ⚠️ Passive learning (low retention unless you also DO)
-- ✅ Time: 10-30 min per video
+-  NetworkChuck, TechWorld with Nana, Fireship (popular tech educators)
+-  Best for: Quick how-to (e.g., "Set up Prometheus in 15 minutes")
+-  Passive learning (low retention unless you also DO)
+-  Time: 10-30 min per video
 
 **How to watch effectively:**
 - **Active watching:** Take notes, pause and try commands yourself
@@ -289,23 +287,23 @@ A framework for maintaining technical competence in a rapidly evolving field. "C
 **Types of teaching:**
 
 **Blog posts / technical writing:**
-- ✅ Write tutorials (e.g., "How I set up Kubernetes autoscaling")
-- ✅ Write post-mortems (e.g., "Incident retrospective: What I learned")
-- ✅ Time: 2-4 hours per post (writing + editing)
+-  Write tutorials (e.g., "How I set up Kubernetes autoscaling")
+-  Write post-mortems (e.g., "Incident retrospective: What I learned")
+-  Time: 2-4 hours per post (writing + editing)
 
 **Conference talks / meetups:**
-- ✅ Start local (company lunch-and-learn, local meetup)
-- ✅ Escalate: Regional conferences, then major (KubeCon, re:Invent)
-- ✅ Time: 10-20 hours prep per talk (slides + practice)
+-  Start local (company lunch-and-learn, local meetup)
+-  Escalate: Regional conferences, then major (KubeCon, re:Invent)
+-  Time: 10-20 hours prep per talk (slides + practice)
 
 **Mentoring / pair programming:**
-- ✅ Mentor junior engineers (1-on-1 guidance)
-- ✅ Pair program (teach while building together)
-- ✅ Time: 1-2 hours/week
+-  Mentor junior engineers (1-on-1 guidance)
+-  Pair program (teach while building together)
+-  Time: 1-2 hours/week
 
 **Open-source maintenance:**
-- ✅ Maintain library/tool (answer issues, review PRs, guide contributors)
-- ✅ Time: 5-10 hours/week (if serious maintainer)
+-  Maintain library/tool (answer issues, review PRs, guide contributors)
+-  Time: 5-10 hours/week (if serious maintainer)
 
 **Why teaching builds learning:**
 - **Gap identification:** When you can't explain something simply, you don't understand it deeply
@@ -399,7 +397,7 @@ A framework for maintaining technical competence in a rapidly evolving field. "C
 
 **Example:**
 - ❌ **Bad:** "I should learn Rust because it's trending" (no concrete use case → abandoned after 2 weeks)
-- ✅ **Good:** "My team needs low-latency service → Rust is good fit → I'll learn Rust for this project"
+-  **Good:** "My team needs low-latency service → Rust is good fit → I'll learn Rust for this project"
 
 **How to apply:**
 - Wait for work project that requires new skill (learn on the job)
@@ -453,7 +451,7 @@ A framework for maintaining technical competence in a rapidly evolving field. "C
 
 **Example:**
 - ❌ **Blocked practice:** Study Kubernetes 3 hours straight → next day Terraform 3 hours
-- ✅ **Interleaved practice:** 1 hour Kubernetes → 1 hour Terraform → 1 hour networking → repeat
+-  **Interleaved practice:** 1 hour Kubernetes → 1 hour Terraform → 1 hour networking → repeat
 
 **Source:** Learning research (Rohrer & Taylor 2007 "The shuffling of mathematics problems"), cognitive psychology.
 
@@ -749,6 +747,3 @@ A framework for maintaining technical competence in a rapidly evolving field. "C
 
 ---
 
-**Last Updated:** 2026-06-03  
-**Version:** 1.0  
-**Feedback/Questions:** This guide will evolve. Submit comments, case studies, or corrections.

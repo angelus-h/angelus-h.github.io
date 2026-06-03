@@ -1,15 +1,3 @@
----
-title: "HR Interaction Strategy"
-status: "Complete"
-date: 2026-05-28
-tags:
-  - professional-development
-  - hr-strategy
-  - escalation
-  - documentation
-  - workplace-dynamics
----
-
 # HR Interaction Strategy Guide
 
 **Purpose:** Understand how HR functions institutionally, when escalation works, and how to protect yourself when it doesn't.

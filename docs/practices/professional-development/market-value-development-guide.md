@@ -1,8 +1,6 @@
 # Market Value Development Guide
 ## Building and Maintaining Your Professional Worth
 
-**Version:** 1.0  
-**Last Updated:** 2026-06-03  
 **Target Audience:** Tech professionals (engineers, SREs, infrastructure specialists)  
 **Reading Time:** 25-30 minutes
 
@@ -166,8 +164,8 @@ A framework for understanding, developing, and maintaining your market value as 
 4. Ask directly: "What's market rate for my profile right now?"
 
 **Recruiter incentive alignment:**
-- ⚠️ **Conflict of interest:** Recruiters earn % of your salary, so they want you to take highest offer (not always best career move)
-- ✅ **But:** Good recruiters build long-term relationships (repeat placements > one-time fee)
+-  **Conflict of interest:** Recruiters earn % of your salary, so they want you to take highest offer (not always best career move)
+-  **But:** Good recruiters build long-term relationships (repeat placements > one-time fee)
 
 **Uncertainty:**
 - Recruiter knowledge is anecdotal, not statistical (sample size = their recent placements)
@@ -286,10 +284,10 @@ A framework for understanding, developing, and maintaining your market value as 
 **When switching makes sense:**
 
 **Green flags (good reasons to switch):**
-- ✅ Market value significantly exceeds current comp (20%+ gap)
-- ✅ Skill stagnation (no learning, deprecated tech stack)
-- ✅ Career growth blocked (no promotion path, political ceiling)
-- ✅ Cultural misalignment (toxic environment, values conflict)
+-  Market value significantly exceeds current comp (20%+ gap)
+-  Skill stagnation (no learning, deprecated tech stack)
+-  Career growth blocked (no promotion path, political ceiling)
+-  Cultural misalignment (toxic environment, values conflict)
 
 **Red flags (bad reasons to switch):**
 - ❌ Grass-is-greener syndrome (new job will have different problems, not no problems)
@@ -325,10 +323,10 @@ A framework for understanding, developing, and maintaining your market value as 
 **When certifications add value:**
 
 **High value scenarios:**
-- ✅ Early career (< 3 years experience) - certifications compensate for lack of work history
-- ✅ Career pivot (switching domains - e.g., developer → SRE, cert proves credibility)
-- ✅ Enterprise/government roles (HR filters require certifications for resume screening)
-- ✅ Cloud platforms (AWS, Azure, GCP - vendor certs correlate with demand)
+-  Early career (< 3 years experience) - certifications compensate for lack of work history
+-  Career pivot (switching domains - e.g., developer → SRE, cert proves credibility)
+-  Enterprise/government roles (HR filters require certifications for resume screening)
+-  Cloud platforms (AWS, Azure, GCP - vendor certs correlate with demand)
 
 **Low value scenarios:**
 - ❌ Senior+ roles (experience > certifications at this level)
@@ -471,18 +469,18 @@ A framework for understanding, developing, and maintaining your market value as 
 **Maintenance schedule (recommended):**
 
 **Monthly:**
-- ✅ Update LinkedIn headline if role/focus changes
-- ✅ Post 1 technical update (learning note, interesting bug fix)
+-  Update LinkedIn headline if role/focus changes
+-  Post 1 technical update (learning note, interesting bug fix)
 
 **Quarterly:**
-- ✅ Publish 1 blog post (tutorial, case study, reflection)
-- ✅ Review GitHub pinned repos (are they still representative?)
-- ✅ Update resume (even if not job hunting - keep it current)
+-  Publish 1 blog post (tutorial, case study, reflection)
+-  Review GitHub pinned repos (are they still representative?)
+-  Update resume (even if not job hunting - keep it current)
 
 **Yearly:**
-- ✅ Major portfolio audit (remove outdated projects, refresh README files)
-- ✅ Conference talk or major contribution (if feasible)
-- ✅ Certification renewal (if expired or expiring soon)
+-  Major portfolio audit (remove outdated projects, refresh README files)
+-  Conference talk or major contribution (if feasible)
+-  Certification renewal (if expired or expiring soon)
 
 **Why maintenance matters:**
 - First impression = most recent work (recruiters scroll to top of GitHub, latest blog post)
@@ -803,7 +801,4 @@ A framework for understanding, developing, and maintaining your market value as 
 
 ---
 
-**Last Updated:** 2026-06-03  
-**Version:** 1.0  
-**Feedback/Questions:** This guide will evolve. Submit pull requests, comments, or questions.
 

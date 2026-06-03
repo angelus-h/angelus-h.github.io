@@ -1,15 +1,3 @@
----
-title: "Inadequate Onboarding"
-status: "Complete"
-date: 2026-05-28
-tags:
-  - professional-development
-  - onboarding
-  - mentorship
-  - tech-learning
-  - survival-strategy
----
-
 # Onboarding Without Support: Strategy Guide
 
 **Purpose:** Navigate tech stack overload and inadequate mentorship when organizational onboarding fails you.

@@ -1,7 +1,5 @@
 # Cryptocurrency and Blockchain Fundamentals - Learning Plan
 
-**Version:** 1.0  
-**Last Updated:** 2026-06-03  
 **Target Audience:** Tech professionals entering crypto/blockchain domain (engineers, SREs, infrastructure)  
 **Prerequisites:** General tech background, no prior finance or crypto knowledge required  
 **Estimated Time:** 6-8 weeks for domain literacy, 12-16 weeks for deeper technical understanding
@@ -658,6 +656,3 @@ This learning plan teaches cryptocurrency and blockchain technology fundamentals
 
 ---
 
-**Last Updated:** 2026-06-03  
-**Version:** 1.0  
-**Feedback/Questions:** Comment or update this document!

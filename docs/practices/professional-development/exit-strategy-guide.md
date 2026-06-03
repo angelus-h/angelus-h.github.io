@@ -1,8 +1,6 @@
 # Exit Strategy Guide
 ## How to Leave Your Job Strategically (Before You Need To)
 
-**Version:** 1.0  
-**Last Updated:** 2026-06-03  
 **Target Audience:** Tech professionals (engineers, SREs, infrastructure specialists)  
 **Reading Time:** 30-35 minutes
 
@@ -78,10 +76,10 @@ A proactive framework for preparing to leave your job **before** you're forced t
 **Negotiating leverage = options.**
 
 **If you have:**
-- ✅ 6-month financial runway (savings)
-- ✅ Updated portfolio (resume, GitHub, LinkedIn)
-- ✅ Warm network (former colleagues, recruiters)
-- ✅ Interview skills (practiced recently)
+-  6-month financial runway (savings)
+-  Updated portfolio (resume, GitHub, LinkedIn)
+-  Warm network (former colleagues, recruiters)
+-  Interview skills (practiced recently)
 
 **Then you can:**
 - Negotiate aggressively (you can walk away)
@@ -146,10 +144,10 @@ A proactive framework for preparing to leave your job **before** you're forced t
 **What counts as "emergency":**
 
 **Valid reasons to tap emergency fund:**
-- ✅ Layoff / job loss
-- ✅ Medical emergency (can't work)
-- ✅ Quit toxic job (health > money)
-- ✅ Relocation (family, caregiving)
+-  Layoff / job loss
+-  Medical emergency (can't work)
+-  Quit toxic job (health > money)
+-  Relocation (family, caregiving)
 
 **Invalid reasons (don't drain fund for):**
 - ❌ Vacation, new car, gadget
@@ -363,10 +361,10 @@ If 3+ triggers activate → start active job search**
 - ❌ "I was laid off" + defensiveness (signals insecurity)
 
 **Good answers (professional framing):**
-- ✅ "Seeking growth opportunities in [specific skill/domain]" (positive, forward-looking)
-- ✅ "Company direction shifted, I'm looking for [mission alignment]" (neutral, values-driven)
-- ✅ "Excited about [new company's] approach to [technical problem]" (enthusiasm, not escape)
-- ✅ "Layoff gave me opportunity to be strategic about next role" (reframing, agency)
+-  "Seeking growth opportunities in [specific skill/domain]" (positive, forward-looking)
+-  "Company direction shifted, I'm looking for [mission alignment]" (neutral, values-driven)
+-  "Excited about [new company's] approach to [technical problem]" (enthusiasm, not escape)
+-  "Layoff gave me opportunity to be strategic about next role" (reframing, agency)
 
 **How to craft your narrative:**
 
@@ -544,9 +542,9 @@ If 3+ triggers activate → start active job search**
 - Hard to go back to job market soon (you're now "unreliable")
 
 **When counter-offer might be acceptable (rare):**
-- ✅ Leaving ONLY for money, no other issues (and counter matches new offer)
-- ✅ Company immediately addresses root cause (promotes you, removes toxic manager)
-- ✅ You have written commitment (not verbal promise — get it in writing)
+-  Leaving ONLY for money, no other issues (and counter matches new offer)
+-  Company immediately addresses root cause (promotes you, removes toxic manager)
+-  You have written commitment (not verbal promise — get it in writing)
 
 **Best practice:** Politely decline counter-offer, proceed with resignation.
 
@@ -561,10 +559,10 @@ If 3+ triggers activate → start active job search**
 **Principle:** You need 2-3 strong references for future job searches. Secure them BEFORE you leave.
 
 **Who makes a good reference:**
-- ✅ Direct manager (if relationship is good)
-- ✅ Skip-level manager or director (if they know your work)
-- ✅ Peer who can speak to technical skills (senior colleague, tech lead)
-- ✅ Cross-functional partner (PM, engineering manager from adjacent team)
+-  Direct manager (if relationship is good)
+-  Skip-level manager or director (if they know your work)
+-  Peer who can speak to technical skills (senior colleague, tech lead)
+-  Cross-functional partner (PM, engineering manager from adjacent team)
 
 **Who makes a bad reference:**
 - ❌ Toxic manager (will sabotage you)
@@ -605,9 +603,9 @@ If 3+ triggers activate → start active job search**
 **Should you be honest?**
 
 **Safe topics (constructive feedback):**
-- ✅ Process improvements (hiring, onboarding, tooling)
-- ✅ Compensation benchmarking (if you're leaving for market rate gap)
-- ✅ Growth opportunities (if lack of promotion path was factor)
+-  Process improvements (hiring, onboarding, tooling)
+-  Compensation benchmarking (if you're leaving for market rate gap)
+-  Growth opportunities (if lack of promotion path was factor)
 
 **Risky topics (don't burn bridges):**
 - ❌ Toxic manager by name (HR may share feedback, retaliation risk)
@@ -648,7 +646,7 @@ If 3+ triggers activate → start active job search**
 - [ ] **Activate exit strategy** (resume, portfolio, network, interview prep — this is why you prepared)
 
 **Narrative for interviews:**
-- ✅ "Company had layoffs affecting [department/X% of workforce]. I'm now looking for [growth opportunity]."
+-  "Company had layoffs affecting [department/X% of workforce]. I'm now looking for [growth opportunity]."
 - Don't apologize, don't overshare, don't badmouth company
 
 **Source:** Layoff survival guides (career coaching literature), unemployment navigation resources.
@@ -660,9 +658,9 @@ If 3+ triggers activate → start active job search**
 ### Scenario 2: Quitting Without Another Job (Gap Year, Burnout Recovery)
 
 **When this is viable:**
-- ✅ 6-12 month financial runway (savings)
-- ✅ Severe burnout (health requires break)
-- ✅ Strategic sabbatical (upskill, pivot careers, personal project)
+-  6-12 month financial runway (savings)
+-  Severe burnout (health requires break)
+-  Strategic sabbatical (upskill, pivot careers, personal project)
 
 **When this is risky:**
 - ❌ No savings (immediate financial crisis)
@@ -673,7 +671,7 @@ If 3+ triggers activate → start active job search**
 
 **Before you quit:**
 - [ ] **Build narrative** (what will you do during gap?)
-  - ✅ "I'm taking 3 months to learn [new skill], build [side project], recover from burnout"
+  -  "I'm taking 3 months to learn [new skill], build [side project], recover from burnout"
   - ❌ "I'll figure it out" (aimless = resume red flag)
 
 **During gap:**
@@ -715,7 +713,7 @@ If 3+ triggers activate → start active job search**
 - Find references outside toxic chain (peers, former managers, external collaborators)
 
 **Narrative for interviews:**
-- ✅ "Company culture wasn't aligned with my values. I'm seeking [positive attribute]."
+-  "Company culture wasn't aligned with my values. I'm seeking [positive attribute]."
 - Don't badmouth (even if justified — interviewers hear "difficult person")
 
 **Source:** Toxic workplace survival guides (Ask a Manager blog), employment law resources.
@@ -884,6 +882,3 @@ If 3+ triggers activate → start active job search**
 
 ---
 
-**Last Updated:** 2026-06-03  
-**Version:** 1.0  
-**Feedback/Questions:** This guide will evolve. Submit comments, case studies, or corrections.

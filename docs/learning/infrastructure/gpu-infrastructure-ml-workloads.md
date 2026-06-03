@@ -1,7 +1,5 @@
 # GPU Infrastructure for ML Workloads - Learning Plan
 
-**Version:** 1.0  
-**Last Updated:** 2026-06-03  
 **Target Audience:** Infrastructure engineers transitioning to AI/ML infrastructure  
 **Prerequisites:** Kubernetes basics, Linux system administration, Python fundamentals  
 **Estimated Time:** 8-12 weeks intensive study + hands-on practice
@@ -616,6 +614,3 @@ This learning plan teaches GPU-based infrastructure building and operations for 
 
 ---
 
-**Last Updated:** 2026-06-03  
-**Version:** 1.0  
-**Feedback/Questions:** Open an issue or comment on this document!

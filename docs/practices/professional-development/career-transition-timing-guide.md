@@ -1,8 +1,6 @@
 # Career Transition Timing Guide
 ## When to Switch Jobs (And When to Stay)
 
-**Version:** 1.0  
-**Last Updated:** 2026-06-03  
 **Target Audience:** Tech professionals (engineers, SREs, infrastructure specialists)  
 **Reading Time:** 30-35 minutes
 
@@ -247,10 +245,10 @@ A decision framework for recognizing when it's time to change jobs — based on 
 **Decision framework (stay vs. go):**
 
 **Green flags (worth fighting for promotion internally):**
-- ✅ Manager advocates for you (but blocked by skip-level or HR)
-- ✅ Recent precedent of promotions in your team/org
-- ✅ You have concrete feedback on gaps (actionable path to next level)
-- ✅ Company financially healthy (not cost-cutting mode)
+-  Manager advocates for you (but blocked by skip-level or HR)
+-  Recent precedent of promotions in your team/org
+-  You have concrete feedback on gaps (actionable path to next level)
+-  Company financially healthy (not cost-cutting mode)
 
 **Red flags (leave, promotion unlikely):**
 - ❌ Manager vague about promotion timeline ("maybe next year, we'll see")
@@ -286,15 +284,15 @@ A decision framework for recognizing when it's time to change jobs — based on 
 **If 3+ symptoms persist for 3+ months → clinical burnout risk.**
 
 **When burnout justifies immediate exit:**
-- ✅ Chronic overwork (60+ hour weeks for months, no end in sight)
-- ✅ Toxic culture (harassment, bullying, psychological abuse)
-- ✅ Health crisis (doctor recommends leave, therapy indicates work is root cause)
-- ✅ No organizational support (requests for workload reduction ignored)
+-  Chronic overwork (60+ hour weeks for months, no end in sight)
+-  Toxic culture (harassment, bullying, psychological abuse)
+-  Health crisis (doctor recommends leave, therapy indicates work is root cause)
+-  No organizational support (requests for workload reduction ignored)
 
 **When to try fixing internally first:**
-- ⚠️ Temporary crunch (product launch, incident response — will end in 2-4 weeks)
-- ⚠️ Solvable issues (scope creep, poor delegation — talk to manager)
-- ⚠️ Personal factors (life stress outside work contributing to burnout)
+-  Temporary crunch (product launch, incident response — will end in 2-4 weeks)
+-  Solvable issues (scope creep, poor delegation — talk to manager)
+-  Personal factors (life stress outside work contributing to burnout)
 
 **Critical caveat:** If you're in burnout, your judgment is impaired. **Get external perspective** (therapist, mentor, trusted colleague) before making major decisions.
 
@@ -394,9 +392,9 @@ A decision framework for recognizing when it's time to change jobs — based on 
 - **Lost opportunity:** Sometimes conflict resolution builds valuable skills (negotiation, assertiveness)
 
 **When conflict justifies staying and fighting:**
-- ✅ Issue is fixable (miscommunication, solvable technical disagreement)
-- ✅ Company culture supports conflict resolution (psychological safety, HR functional)
-- ✅ You have leverage (strong performance, manager values you)
+-  Issue is fixable (miscommunication, solvable technical disagreement)
+-  Company culture supports conflict resolution (psychological safety, HR functional)
+-  You have leverage (strong performance, manager values you)
 
 **When conflict justifies leaving:**
 - ❌ Toxic manager (abusive, retaliatory, unreasonable)
@@ -511,7 +509,7 @@ A decision framework for recognizing when it's time to change jobs — based on 
 **Ask yourself:** "Am I genuinely excited about this opportunity, or just running from current job?"
 
 **If answer is:**
-- ✅ **"Hell yes!"** → Strong signal to accept (excited about tech, team, mission, growth)
+-  **"Hell yes!"** → Strong signal to accept (excited about tech, team, mission, growth)
 - ❌ **"Maybe..."** → Decline (if you're ambivalent now, you'll regret it later)
 - ❌ **"It's better than current job"** → Weak signal (low bar, you might be settling)
 
@@ -787,6 +785,3 @@ A decision framework for recognizing when it's time to change jobs — based on 
 
 ---
 
-**Last Updated:** 2026-06-03  
-**Version:** 1.0  
-**Feedback/Questions:** This guide will evolve. Submit comments, case studies, or critiques.

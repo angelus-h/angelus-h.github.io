@@ -1,15 +1,3 @@
----
-title: "The Competence Trap"
-status: "Complete"
-date: 2026-05-28
-tags:
-  - professional-development
-  - career-advancement
-  - promotion-strategy
-  - visibility
-  - competence-trap
----
-
 # The Competence Trap: Strategy Guide
 
 **Purpose:** Understand why being excellent at your current job can block career growth, and develop strategies to advance despite (or alongside) competence.

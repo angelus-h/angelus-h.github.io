@@ -123,7 +123,6 @@ nav:
               - OpenTelemetry Collector Guide: learning/monitoring/OpenTelemetry_Collector_Guide_EN.md
           - APM & Infrastructure:
               - Datadog Learning Plan: learning/monitoring/Datadog_Learning_Plan_EN.md
-              - Datadog Agent Configuration: learning/monitoring/Datadog-Agent-Configuration.md
               - Datadog Infrastructure Monitoring: learning/monitoring/Datadog-Infrastructure-Monitoring.md
               - Datadog Network Monitoring: learning/monitoring/Datadog-Network-Monitoring-Setup.md
               - Datadog PostgreSQL Setup: learning/monitoring/Datadog-PostgreSQL-Setup.md
@@ -149,6 +148,12 @@ nav:
               - Redis Quick Reference: learning/databases/Redis_Learning_Plan.md
           - APIs:
               - GraphQL Quick Reference: learning/databases/GraphQL_Learning_Plan_EN.md
+      - Infrastructure & GPU Computing:
+          - GPU Infrastructure:
+              - GPU Infrastructure for ML Workloads: learning/infrastructure/gpu-infrastructure-ml-workloads.md
+              - Advanced Kubernetes GPU Scheduling: learning/infrastructure/kubernetes-gpu-scheduling.md
+          - Blockchain:
+              - Cryptocurrency & Blockchain Fundamentals: learning/blockchain/cryptocurrency-blockchain-fundamentals.md
       - Streaming & Messaging:
           - Message Brokers:
               - Apache Kafka Quick Reference: learning/streaming/Apache_Kafka_Quick_Reference.md

@@ -1,310 +1,285 @@
-# Az Öt Embertípus, Akiken Soha Ne Segíts
+# The Five Types of People You Should Never Help
 
-**Személyes reflexió: A jóság és az önvédelem határai**
+**Personal reflection: The boundaries between kindness and self-preservation**
 
-*Forrás: NoteGPT transcript feldolgozása - "Olyan embertípus, akin soha ne segíts"*
-
----
-
-## Bevezető: A Jóság Csapdája
-
-> "A jóságod néha éppen az az ajtó, amelyen át a pusztítás besétál az életedbe."
-
-Egész életünkben azt halljuk: **segíteni szép, nyújtani a kezed a helyes dolog**. És legtöbbször ez igaz is. De van egy csapat ember, akiknél minden egyes cseppnyi segítség, amit kínálsz, úgy tűnik el, mint víz a homokban.
-
-**Adsz, adsz, adsz, és a végén te maradsz üresen, kimerülten, talaj nélkül.**
+*Source: Processed from a NoteGPT video transcript — "The type of person you should never help"*
 
 ---
 
-## Miért Fontos Ez?
+## Introduction: The Trap of Kindness
 
-**Ez nem hidegség. Nem önzőség. Ez a túlélés.**
+> "Your kindness is sometimes the very door through which destruction walks into your life."
 
-Van olyan ember, aki nem nyújtott kezet keres a talpraálláshoz, hanem egy kényelmes helyet, ahol maradhat a földön — **lehetőleg rajtad fekve**.
+Our whole lives, we hear: **helping is noble, extending a hand is the right thing to do**. And most of the time, that is true. But there is a group of people for whom every single drop of help you offer vanishes like water poured into sand.
 
-Az igazi bölcsesség: **megtanulni a különbséget azok között, akiknek szükségük van rád, és azok között, akik csak nem akarják megtenni azt, ami az ő dolguk lenne.**
-
----
-
-## Az Öt Embertípus
-
-### 1. Típus: Aki Problémákkal Érkezik, De Sosem Akar Megoldást
-
-**Felismerés:**
-- Felhív, felkeres, három percen belül rádzódít egy lavina drámát
-- A főnök, az ex, a család, a pénz, az egészség — **mindig van egy új tűz**
-- Hallgatsz, tanácsot adsz, megnyugtatsz, ötleteket adagolsz
-- **Semmi sem változik**
-- A következő héten ugyanazzal a problémával tér vissza
-
-**A Valóság:**
-> "Amit senki nem árul el neked, az az, hogy ez az ember **nem megoldást keres — közönséget keres**."
-
-A problémája nem megoldandó probléma. **Ez az üzemanyag, ami fenntartja a figyelmed rajtad.**
-
-Ha megoldódna, elveszítené az okot, hogy felkeressen.
-
-**A Csapda:**
-- Minél jobban segítesz, annál inkább szüksége van rád
-- Egy ilyen embernek segíteni olyan, **mint lyukas vödröt próbálni megtölteni**
-- Beleöntöd az energiádat, a türelmedet, az álmatlan éjszakáidat
-- **Minden elszivárog**
-
-**Mit Érzel Utána:**
-- Összetörten kelsz fel a beszélgetésből
-- Nehéz a fejed, néha még a tested is fáj tőle
-- Van, akivel úgy jössz el kimerülten, hogy semmilyen erőfeszítést nem tettél
-
-**Mit Tehetsz:**
-> "Az, hogy azt mondod: 'Ebben most nem tudok segíteni' — nem tesz belőled rosszabb embert. **Egész embert csinál belőled**."
-
-**Nem vagy egy nonstop nyitva tartó érzelmi benzinkút.**
-
-Tartsd meg a tartályodat azok számára, akik valóban el akarnak jutni valahova.
+**You give, and give, and give, and in the end you are the one left empty, drained, with nothing beneath your feet.**
 
 ---
 
-### 2. Típus: Aki Törékenynek Mutatja Magát, De Közben Manipulál
+## Why Does This Matter?
 
-**Felismerés:**
-- Nem úgy érkezik, mint egy gonosz — **törékenyként, sérültként érkezik**
-- A bolygó legjobban félreértett és leginkább megcsalt embere
-- A kedvenc fizető eszköze: **a bűntudat**
+**This is not coldness. This is not selfishness. This is survival.**
 
-**Hogyan Érzed Magad Utána:**
-- Úgy érzed, **mindig tartozol valamivel**
-- Soha nem tettél eleget
-- Hogyha nem teszed meg, amit akar: önző, hálátlan, rossz ember vagy
-- Művészi tehetsége van ahhoz, hogy **felelősnek érezd magad a boldogságáért és a boldogtalanságáért is**
+There are people who are not looking for a hand up — they are looking for a comfortable place to stay on the ground, **preferably lying on top of you**.
 
-**A Manipuláció Módszere:**
-- Nemet mondtál? → "Nézd, mit tettél. Nézd, milyen lett. **A hibád.**"
-- Történeteket mesél, jól meséli
-- Kicsit csavar a tényeken, eltúloz egy körülményt
-- Elfelejti megemlíteni azt a részt, ahol neki volt hibája
-
-**A Legveszélyesebb Része:**
-> "Arra vesz rá, hogy **saját emlékezetedben kételkedj**, a saját érzékelésedben is."
-
-"Nem így történt!" — mondja olyan határozottan, hogy te kezded azt hinni, hogy megőrültél.
-
-**Komoly Figyelmeztetés:**
-> "Egy manipulátornak segíteni nem csak időpazarlás. **Veszélyes.**"
-
-A jóságodat nem fogják elpazarolni — **újrahasznosítják**. Fegyverré válik, amit nyílt szívvel kínáltál, visszakerül feléd irányozva.
-
-**Hogyan Védekezel:**
-- Bízz abban a kis hangban, amely szorít a mellkasodban
-- Tudod, amikor valami papíron helyesnek tűnik, de **valami belül mégis idegesít**
-- **Ez az érzés ritkán hazudik**
-
-**Az Igazság:**
-> "Az igazi segítség nem kéri a békedet díjjint. Ha ahhoz, hogy valakin segíts, le kell mondanod arról, aki vagy — **az nem nagylelkűség. Ez kizsákmányolás szép névvel.**"
+True wisdom is this: **learning the difference between those who genuinely need you and those who simply refuse to do what is theirs to do.**
 
 ---
 
-### 3. Típus: Aki Soha, Sehogy Sincs Megelégedve
+## The Five Types
 
-**Felismerés:**
-- Minden erődet belefektetted valamibe, átadtad a legjobbad
-- Az egyetlen visszajelzés: **"Lehetett volna jobb"**
-- Az örök kritikusnak sebészi szeme van a hibákra
-- Tedd eléje bármit, megtalálja a lazaszálat, a hiányosságot
+### Type 1: The One Who Brings Problems but Never Wants Solutions
 
-**Nem Építő Kritika:**
-- Az építő kritika rámutat a hibára **és megmutatja a kiutat**
-- Az övé csak rámutat a hibára
-- Ott hagy téged összegörnyedve, azzal az érzéssel, hogy **nem érzel semmit, amit csinálsz**
+**How to Spot Them:**
+- They call, they show up, and within three minutes they dump an avalanche of drama on you
+- The boss, the ex, the family, the money, the health — **there is always a new fire**
+- You listen, you advise, you reassure, you offer ideas
+- **Nothing changes**
+- Next week, they are back with the exact same problem
 
-**A Lassú Kopás:**
-1. **Először:** Védekezni próbálsz
-2. **Aztán:** Elkezdesz kételkedni
-3. **Végül:** Azon kapod magad, hogy a jóváhagyását kéred, mielőtt bármit tesz
+**The Reality:**
+> "What nobody tells you is that this person **is not looking for a solution — they are looking for an audience**."
 
-**Ez az a pont, ahol a legtöbb jó ember elvész:**
-> "Kiszervezed az önértékedet valakinek, aki soha nem adja meg a legjobbit."
+Their problem is not a problem to be solved. **It is the fuel that keeps your attention locked on them.**
 
-**A Kulcs:**
-> "Aki folyton kritizál, általában **elégedetlen a saját életével**, és másokat tükörként használ, hogy ne kelljen szembenéznie a saját képével."
+If the problem were solved, they would lose the reason to seek you out.
 
-Minden hiba, amelyre rád mutat, egy hiba, amelyet magában nem akar látni. **Te lettél mások frusztrációjának villámhárítója.**
+**The Trap:**
+- The more you help, the more they need you
+- Helping someone like this is **like trying to fill a bucket full of holes**
+- You pour in your energy, your patience, your sleepless nights
+- **It all drains away**
 
-**Az Igazság:**
-> "Senkinek sem kell tűrnie, hogy érzelmi boxzsákként használják. Az elismerés és a tisztelet nem luxus — **ez a minimum**."
+**How You Feel Afterward:**
+- You get up from the conversation feeling shattered
+- Your head is heavy, sometimes your body physically aches
+- There are people who leave you exhausted without you having made any effort at all
 
-Figyelj oda azokra, akik az eredményeidet ünneplik, ahelyett, hogy arra várnak, mikor omlanak össze. **Az ilyenek ritkák és aranyat érnek.**
+**What You Can Do:**
+> "Saying 'I can't help with this right now' does not make you a worse person. **It makes you a whole person.**"
 
----
+**You are not a 24/7 emotional gas station.**
 
-### 4. Típus: Aki Nem Bírja Elviselni, Hogy Ragyogsz
-
-**Felismerés:**
-- Mosolyog rád, **miközben belül azt kívánja, hogy megbotolj**
-- Az irigység csendes méreg
-- Szinte soha nem tűnik fel csúnya arccal
-- Félrecsúszott bókként jelenik meg
-- "Csak vicceltem" megjegyzésként, ami mégis fáj
-- Furcsa csendként éppen akkor, amikor ölelést vártál
-
-**Hogyan Látja a Sikeredet:**
-> "Az irigy nem tekint a te sikereidre inspirációként — **vádként tekint rájuk**."
-
-Minden jó dolog, ami veled történik, az ő fejében kegyetlen emlékeztető mindarról, ami szerinte nincs meg neki.
-
-**A Veszély:**
-- A jó akaratodat nem fogadják hálával — **gyanakodva fogadják**
-- "Miért segít nekem? Mit akar? Talán csak mutatni akar magával?"
-
-**A Kis Jelek:**
-- Az eredmény, amelyet megosztasz: **"Á, szerencse volt, ezt bárki megcsinálhatta volna"**
-- A győzelem, amelyet egy savanyú kis megjegyzéssel nyugtáz
-- A lelkesedés, amely kihűl, amikor te örömmel érkezel
-
-**A Szúrások:**
-> "Egyedül egy szúrás semmiség. De szúrás után szúrás — észrevétlenül meggyőz, hogy talán **nem is kellene annyira örülnöd**."
-
-**Pontosan Ez a Kár:**
-Az irigy ember el tudja rabolni az örömödet anélkül, hogy valaha hozzányúl az eredményedhez. **Csak rá kell vennie, hogy bűnösnek érezd magad azért, mert jól vagy.**
-
-**A Bilincs:**
-- Elkezded elrejteni a győzelmeidet
-- Halkan mesélni az örömeidet
-- Szinte bocsánatot kérni azért, hogy boldog vagy
-
-> "Ez nem alázat — **ez egy bilincs, amelyet rád tesznek**."
-
-**Az Igazság:**
-> "Senkinek sem tartozol bocsánatkéréssel az általad felépített jó dolgokért."
-
-Vedd magad körül olyan emberekkel, akik valóban ünnepelnek veled, akik úgy örülnek a sikereidnek, mintha a sajátjuk lenne. **Az ilyenek léteznek, és ha találsz egyet, ne engedd el.**
+Save your tank for those who actually want to get somewhere.
 
 ---
 
-### 5. Típus: Aki Úgy Döntött, Hogy Nem Próbálja — És Azt Akarja, Hogy Te Tedd Meg Helyette
+### Type 2: The One Who Plays Fragile but Manipulates
 
-**A Legveszélyesebb Típus — Miért?**
-> "Nem azért, mert a legrosszabb szándékú, hanem mert a legmeggyőzőbb álruhában jelenik meg — **az áldozatéban**."
+**How to Spot Them:**
+- They do not arrive as a villain — **they arrive as fragile, wounded**
+- The most misunderstood and most betrayed person on the planet
+- Their favorite currency: **guilt**
 
-**Egy Kényelmetlen Igazság:**
-> "A lustaság legtöbbször **választás, nem adottság**."
+**How You Feel Afterward:**
+- You feel like **you always owe them something**
+- You never did enough
+- If you do not do what they want: you are selfish, ungrateful, a bad person
+- They have a masterful talent for **making you feel responsible for both their happiness and their misery**
 
-Ez az embertípus elsajátított egy különleges művészetet: **a saját tétlenségét a te problémáddá változtatni.**
+**How the Manipulation Works:**
+- You said no? → "Look what you did. Look what happened. **Your fault.**"
+- They tell stories, and they tell them well
+- They twist the facts a little, exaggerate a circumstance
+- They conveniently forget to mention the part where they were at fault
 
-**Mindig Van Kész Kifogása:**
-- Az élet igazságtalan volt
-- A szerencse nem segített
-- A körülmények összejátszottak ellene
-- Mindig van ok, amiért nem tudja megcsinálni azt, amit **a valóságban bárki meg tudna csinálni egy kevés akarattal**
+**The Most Dangerous Part:**
+> "They get you to **doubt your own memory**, your own perception."
 
-**Te Bevonulsz:**
-- Megoldod helyette
-- Elvégzed a részét
-- Cipeled a terhet, amit neki kellene cipelnie
+"That is not what happened!" — they say it with such conviction that you start to think you are losing your mind.
 
-**A Legkegyetlenebb Csapda:**
-> "Azt hiszed, nagy lelkű vagy, de valójában **te vagy az a fal, amelynek támaszkodik, hogy soha ne kelljen a saját lábán járnia**."
+**A Serious Warning:**
+> "Helping a manipulator is not just a waste of time. **It is dangerous.**"
 
-**A Néma Üzenet:**
-Minden egyes alkalommal, amikor helyette oldasz meg valamit, ezt üzened:
-> "Nyugodj meg, nem kell nőnöd — **én tartlak**."
+Your kindness will not be wasted — **it will be recycled**. What you offered with an open heart becomes a weapon, aimed right back at you.
 
-**Csakhogy:**
-> "Senki sem érik meg úgy, hogy folyamatosan tartják."
+**How to Protect Yourself:**
+- Trust that small voice that tightens in your chest
+- You know the feeling — when something looks right on paper but **something inside still gnaws at you**
+- **That feeling rarely lies**
 
-**A Függőség Mindkét Irányba Erősödik:**
-- Ő berendezkedik
-- Te megszokod, hogy nélkülözhetetlen vagy
-- Egészen addig a napig, amikor **a fáradtság megjön, és a neheztelés felüti a fejét**
-
-**A Felismerés:**
-Előbb-utóbb arra ébredsz, hogy:
-- Két ember munkáját végzed
-- Két ember életét éled
-- És közben a másik pontosan ugyanott áll, ahol akkor állt, amikor elkezdted
+**The Truth:**
+> "Real help does not demand your peace of mind as the price of admission. If helping someone requires you to give up who you are — **that is not generosity. That is exploitation with a pretty name.**"
 
 ---
 
-## Az Igazi Segítség
+### Type 3: The One Who Is Never, Ever Satisfied
 
-> "Az igazi segítség nem az, hogy megteszed helyette. Az, hogy **megteremted a feltételeket, hogy ő meg tudja tenni egyedül**."
+**How to Spot Them:**
+- You poured everything you had into something, you gave your best
+- The only feedback: **"Could have been better"**
+- The eternal critic has a surgeon's eye for flaws
+- Put anything in front of them and they will find the loose thread, the gap
 
-**Hatalmas Különbség:**
-- **Halat adsz valakinek** vs. **egész életedben fogjává válsz annak, hogy te halászol helyette**
+**Not Constructive Criticism:**
+- Constructive criticism points out the flaw **and shows the way forward**
+- Theirs only points out the flaw
+- It leaves you hunched over, feeling like **nothing you do is ever enough**
 
-**Mit Tehetsz:**
-- Támogass
-- Mutass irányt
-- Légy ott, amikor tényleg nagy a baj
-- De **add vissza mindenkinek a felelősséget, ami az övé**
+**The Slow Erosion:**
+1. **First:** You try to defend yourself
+2. **Then:** You start to doubt
+3. **Finally:** You catch yourself seeking their approval before you do anything
 
-**A Lényeg:**
-> "Aki valóban szeret, az **nem azt akarja, hogy cipeld** — azt akarja, hogy **mellette járj**."
+**This is the point where most good people get lost:**
+> "You outsource your self-worth to someone who will never give you their best."
 
----
+**The Key:**
+> "The person who constantly criticizes is usually **dissatisfied with their own life** and uses others as a mirror so they never have to face their own reflection."
 
-## Összegzés: A Jóság és az Önfeláldozás Közötti Különbség
+Every flaw they point out in you is a flaw they refuse to see in themselves. **You have become the lightning rod for someone else's frustration.**
 
-> "Segíteni az egyik legszép dolog, amit ember tehet. De **abbahagynád összekeverni a jóságot az önfeláldozással**."
+**The Truth:**
+> "Nobody has to tolerate being used as an emotional punching bag. Recognition and respect are not luxuries — **they are the bare minimum.**"
 
-**Tudni, kinek nyújtod a kezed ugyanannyira fontos, mint a szándék, hogy nyújtod.**
-
-**Miért?**
-- Az energiád nem végtelen
-- Az időd nem jön vissza
-- A szíved, bármilyen nagy is legyen, **szintén rászorul arra, hogy valaki vigyázzon rá**
-
----
-
-## Az Egyetlen Kérdés, Amit Fel Kell Tenned
-
-Legközelebb, amikor az a késztetés jön, hogy megments valakit, tegyél fel magadnak egy egyszerű kérdést:
-
-> **"Ez az ember ki akar jutni onnan, ahol van, vagy csak társat keres, hogy ott maradhasson?"**
-
-**Erre a kérdésre adott válasz mindent megváltoztat.**
+Pay attention to those who celebrate your achievements instead of waiting for you to crumble. **People like that are rare, and they are worth their weight in gold.**
 
 ---
 
-## Személyes Reflexió (Kitöltendő)
+### Type 4: The One Who Cannot Stand to See You Shine
 
-### 1. Felismerés
+**How to Spot Them:**
+- They smile at you **while secretly wishing you would stumble**
+- Envy is a quiet poison
+- It almost never shows up with an ugly face
+- It appears as a backhanded compliment
+- As a "just joking" remark that still stings
+- As a strange silence right when you expected a hug
 
-**Volt már ilyen kapcsolatom ezek közül az öt típus közül?**
+**How They See Your Success:**
+> "The envious person does not look at your success as inspiration — **they see it as an accusation.**"
 
-- [ ] 1. típus: Aki problémákkal érkezik, de sosem akar megoldást
-- [ ] 2. típus: Manipulátor
-- [ ] 3. típus: Soha nem elégedett
-- [ ] 4. típus: Irigy
-- [ ] 5. típus: Aki nem próbál, és azt akarja, hogy te tedd meg helyette
+Every good thing that happens to you is, in their mind, a cruel reminder of everything they believe they lack.
 
-**Konkrét példa:**
+**The Danger:**
+- Your goodwill is not received with gratitude — **it is received with suspicion**
+- "Why are they helping me? What do they want? Maybe they are just showing off?"
+
+**The Small Signs:**
+- The achievement you share: **"Oh, you just got lucky — anyone could have done that"**
+- The victory they acknowledge with a sour little remark
+- The enthusiasm that goes cold the moment you arrive with joy
+
+**The Stings:**
+> "A single sting is nothing. But sting after sting — without you noticing, it convinces you that maybe **you should not be so happy after all**."
+
+**This Is the Exact Damage:**
+The envious person can rob you of your joy without ever touching your achievements. **All they have to do is make you feel guilty for being well.**
+
+**The Shackles:**
+- You start hiding your wins
+- Telling your joys in a whisper
+- Practically apologizing for being happy
+
+> "That is not humility — **those are shackles they put on you.**"
+
+**The Truth:**
+> "You owe no one an apology for the good things you have built."
+
+Surround yourself with people who genuinely celebrate with you, who rejoice in your success as if it were their own. **People like that exist, and if you find one, do not let them go.**
+
+---
+
+### Type 5: The One Who Has Decided Not to Try — and Wants You to Do It for Them
+
+**The Most Dangerous Type — Why?**
+> "Not because they have the worst intentions, but because they show up in the most convincing disguise — **the victim's.**"
+
+**An Uncomfortable Truth:**
+> "Laziness is almost always **a choice, not a condition**."
+
+This type of person has mastered a peculiar art: **turning their own inaction into your problem.**
+
+**They Always Have a Ready-Made Excuse:**
+- Life was unfair
+- Luck never helped
+- Circumstances conspired against them
+- There is always a reason they cannot do what **in reality, anyone could do with a little willpower**
+
+**You Step In:**
+- You solve it for them
+- You do their part
+- You carry the weight they should be carrying
+
+**The Cruelest Trap:**
+> "You think you are being generous, but in reality **you are the wall they lean against so they never have to stand on their own two feet**."
+
+**The Silent Message:**
+Every single time you solve something for them, this is what you are telling them:
+> "Relax, you do not need to grow — **I will hold you up.**"
+
+**But Here Is the Thing:**
+> "Nobody matures when they are constantly being held."
+
+**The Dependency Grows in Both Directions:**
+- They settle in
+- You get used to being indispensable
+- Until the day **the exhaustion hits and the resentment rears its head**
+
+**The Realization:**
+Sooner or later, you wake up to the fact that:
+- You are doing the work of two people
+- You are living the life of two people
+- And meanwhile, the other person is standing in the exact same spot they were standing when you started
+
+---
+
+## What Real Help Looks Like
+
+> "Real help is not doing it for them. It is **creating the conditions so they can do it themselves**."
+
+**A Crucial Difference:**
+- **Giving someone a fish** vs. **becoming a lifelong prisoner of fishing for them**
+
+**What You Can Do:**
+- Support
+- Point the way
+- Be there when the situation is truly dire
+- But **give everyone back the responsibility that is theirs**
+
+**The Point:**
+> "Someone who truly loves you does not want you to **carry them** — they want you to **walk beside them**."
+
+---
+
+## Summary: The Difference Between Kindness and Self-Sacrifice
+
+> "Helping is one of the most beautiful things a person can do. But **stop confusing kindness with self-sacrifice**."
+
+**Knowing who you extend your hand to is just as important as the intention to extend it.**
+
+**Why?**
+- Your energy is not infinite
+- Your time does not come back
+- Your heart, no matter how big, **also needs someone to look after it**
+
+---
+
+## The One Question You Need to Ask
+
+Next time you feel the urge to save someone, ask yourself one simple question:
+
+> **"Does this person want to get out of where they are, or are they just looking for company so they can stay there?"**
+
+**The answer to that question changes everything.**
+
+---
+
+## Personal Reflection (To Be Completed)
+
+### 1. Recognition
+
+**Have I had a relationship with any of these five types?**
+
+- [ ] Type 1: Brings problems, never wants solutions
+- [ ] Type 2: Manipulator
+- [ ] Type 3: Never satisfied
+- [ ] Type 4: Envious
+- [ ] Type 5: Will not try, wants you to do it for them
+
+**Specific example:**
 ```
-[Írj ide egy konkrét esetet, amikor segítettél és megbántad]
-
-
-
-
-```
-
----
-
-### 2. Hogyan Éreztem Magam
-
-**Milyen érzések merültek fel bennem?**
-
-- [ ] Kimerültség
-- [ ] Bűntudat
-- [ ] Neheztelés
-- [ ] Összezavarodás ("Megőrültem?")
-- [ ] Önbizalomhiány
-- [ ] Üresség
-- [ ] Frusztráció
-- [ ] Egyéb: _______________
-
-**Részletek:**
-```
-[Írd le, hogyan érezted magad a kapcsolat során és utána]
-
+[Write a specific instance where you helped and regretted it]
 
 
 
@@ -312,47 +287,22 @@ Legközelebb, amikor az a késztetés jön, hogy megments valakit, tegyél fel m
 
 ---
 
-### 3. Miért Nem Tudtam Nemet Mondani?
+### 2. How I Felt
 
-**Milyen meggyőződések tartottak vissza?**
+**What emotions came up for me?**
 
-- [ ] "Segíteni szép dolog"
-- [ ] "Rossz ember vagyok, ha nem segítek"
-- [ ] "Ő változni fog, ha elég türelmes vagyok"
-- [ ] "Nélkülem nem boldogul"
-- [ ] "Tartozom neki"
-- [ ] Féltem a konfrontációtól
-- [ ] Féltém, hogy elveszítem
-- [ ] Egyéb: _______________
+- [ ] Exhaustion
+- [ ] Guilt
+- [ ] Resentment
+- [ ] Confusion ("Am I losing my mind?")
+- [ ] Loss of confidence
+- [ ] Emptiness
+- [ ] Frustration
+- [ ] Other: _______________
 
-**Részletek:**
+**Details:**
 ```
-[Írd le, mi tartott vissza a határok felállításától]
-
-
-
-
-```
-
----
-
-### 4. Mit Tanultam?
-
-**Mi lenne másképp most?**
-
-```
-[Írd le, mit tennél másképp, ha újra találkoznál ezzel a helyzettel]
-
-
-
-
-```
-
-**Milyen határokat állítottam/állítanék fel?**
-
-```
-[Konkrét határok, amiket betartanál]
-
+[Describe how you felt during and after the relationship]
 
 
 
@@ -360,19 +310,22 @@ Legközelebb, amikor az a késztetés jön, hogy megments valakit, tegyél fel m
 
 ---
 
-### 5. Elköteleződés
+### 3. Why I Could Not Say No
 
-**Mit csinálek másképp a jövőben?**
+**What beliefs held me back?**
 
-1. **Felismerés:** _______________________________________________
-2. **Határok:** _______________________________________________
-3. **Kommunikáció:** _______________________________________________
-4. **Önvédelem:** _______________________________________________
+- [ ] "Helping is the right thing to do"
+- [ ] "I am a bad person if I do not help"
+- [ ] "They will change if I am patient enough"
+- [ ] "They cannot manage without me"
+- [ ] "I owe them"
+- [ ] I was afraid of confrontation
+- [ ] I was afraid of losing them
+- [ ] Other: _______________
 
-**Emlékeztető magamnak:**
+**Details:**
 ```
-[Írj egy rövid emlékeztetőt, amit elolvashatsz, ha újra hasonló helyzetbe kerülsz]
-
+[Describe what held you back from setting boundaries]
 
 
 
@@ -380,14 +333,55 @@ Legközelebb, amikor az a késztetés jön, hogy megments valakit, tegyél fel m
 
 ---
 
-## Az Élet Talán Legnagyobb Bölcsessége
+### 4. What I Learned
 
-> "Megtanulni a különbséget azok között, akiknek szükségük van rád, és azok között, akik csak **nem akarják megtenni azt, ami az ő dolguk lenne**."
+**What would I do differently now?**
 
-**Vigyázz magadra.**
+```
+[Describe what you would do differently if you encountered this situation again]
+
+
+
+```
+
+**What boundaries have I set / would I set?**
+
+```
+[Specific boundaries you would maintain]
+
+
+
+```
 
 ---
 
-*Dokumentum létrehozva: 2026-06-08*
-*Forrás: NoteGPT videó transcript - öt embertípus, akiken nem érdemes segíteni*
-*Kategória: Self-Discovery / Boundaries / Personal Growth*
+### 5. Commitment
+
+**What will I do differently going forward?**
+
+1. **Recognition:** _______________________________________________
+2. **Boundaries:** _______________________________________________
+3. **Communication:** _______________________________________________
+4. **Self-protection:** _______________________________________________
+
+**Reminder to myself:**
+```
+[Write a short reminder you can read if you find yourself in a similar situation again]
+
+
+
+```
+
+---
+
+## Perhaps the Greatest Wisdom in Life
+
+> "Learning the difference between those who genuinely need you and those who simply **refuse to do what is theirs to do**."
+
+**Take care of yourself.**
+
+---
+
+*Document created: 2026-06-08*
+*Source: NoteGPT video transcript — five types of people not worth helping*
+*Category: Self-Discovery / Boundaries / Personal Growth*

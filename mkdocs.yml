@@ -75,10 +75,15 @@ nav:
       - Operating Systems:
           - Linux:
               - Linux From Beginner to Advanced: learning/linux/Linux_From_Beginner_to_Advanced_User.md
+              - Linux Disk Diagnostics: learning/linux/Linux_Disk_Diagnostics.md
+              - Linux Disk Management & Troubleshooting: learning/linux/Linux_Disk_Management_Troubleshooting.md
           - Windows:
               - Windows Admin Learning Plan: learning/windows/Windows_Admin_Learning_Plan.md
               - Windows Quick Reference: learning/windows/Windows_Quick_Reference.md
               - PowerShell Quick Reference: learning/windows/PowerShell_Quick_Reference.md
+              - Windows Disk Diagnostics: learning/windows/Windows_Disk_Diagnostics.md
+              - Windows Disk Management & Troubleshooting: learning/windows/Windows_Disk_Management_Troubleshooting.md
+              - Windows System Integrity (SFC, DISM): learning/windows/Windows_System_Integrity.md
           - Security:
               - CEH Practical Training Guide: learning/security/CEH_Practical_Training_Guide.md
               - CEH Overview: learning/security/CEH_README.md
@@ -144,6 +149,7 @@ nav:
               - OpenShift Virtualization Guide: learning/cloud/OpenShift_Virtualization_Guide.md
       - Databases:
           - SQL Databases:
+              - SQLite Quick Reference: learning/databases/SQLite_Quick_Reference.md
               - PostgreSQL Quick Reference: learning/databases/PostgreSQL_Learning_Plan.md
               - PostgreSQL Replication Guide: learning/databases/PostgreSQL_Replication_Guide.md
           - NoSQL Databases:
@@ -258,6 +264,11 @@ nav:
               - Dell PowerEdge & iDRAC Field Guide: learning/infrastructure/Dell_PowerEdge_iDRAC_Field_Guide.md
               - IBM Power Systems Field Guide: learning/infrastructure/IBM_Power_Systems_Field_Guide.md
               - HPE ProLiant & iLO Field Guide: learning/hardware/HPE_ProLiant_iLO_Engineering_Field_Guide.md
+          - Diagnostics & Monitoring:
+              - PSU Diagnostics: learning/infrastructure/PSU_Diagnostics.md
+              - Smart Power Monitoring (Shelly, Tasmota): learning/infrastructure/Smart_Power_Monitoring.md
+              - HWiNFO64 Remote Monitoring: learning/infrastructure/HWiNFO_Remote_Monitoring.md
+              - PiKVM Setup Guide: learning/infrastructure/PiKVM_Setup.md
       # Quick References: Cheat Sheets
       # Templates & Snippets: Reusable code
       # Troubleshooting Guides: Common solutions

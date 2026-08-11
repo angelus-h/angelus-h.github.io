@@ -107,6 +107,9 @@ nav:
               - Cursor IDE Usage Guide: learning/ai/cursor-ide-guide.md
               - Self-Hosted LLM Guide: learning/ai/Self_Hosted_LLM_Guide.md
               - NotebookLM Quick Reference: learning/ai/NotebookLM_Quick_Reference.md
+      - Site Reliability Engineering:
+          - DevOps & SRE Platform Reference: engineering/sre/devops-sre-platform-reference.md
+          - DevOps & SRE Critical Review: engineering/sre/devops-sre-critical-review.md
       - DevOps Tools:
           - Infrastructure as Code:
               - Terraform Practice Guide: learning/devops/terraform-guide.md
@@ -178,16 +181,25 @@ nav:
           - Git Secret Leak Remediation: practices/security/Git_Secret_Leak_Remediation_Guide.md
           - Pre-Commit Hooks for Secret Detection: practices/security/Pre_Commit_Hooks_Secret_Detection_Guide.md
       - Professional Development:
-          - Boundary Setting: practices/professional-development/boundary-setting-guide.md
-          - Work Acceptance Checklist: practices/professional-development/work-acceptance-checklist.md
-          - Probation Success: practices/professional-development/probation-success-strategy.md
-          - Market Value Development: practices/professional-development/market-value-development-guide.md
-          - Career Transition Timing: practices/professional-development/career-transition-timing-guide.md
-          - Exit Strategy: practices/professional-development/exit-strategy-guide.md
-          - Continuous Learning Strategy: practices/professional-development/continuous-learning-strategy-guide.md
-          - HR Interaction Strategy: practices/professional-development/hr-interaction-strategy-guide/README.md
-          - Inadequate Onboarding: practices/professional-development/onboarding-without-support-guide/README.md
-          - The Competence Trap: practices/professional-development/competence-trap-guide/README.md
+          - Overview: practices/professional-development/index.md
+          - Long-Form Articles:
+              - The Characteristics of a Professional Technical Interview: practices/professional-development/The_Characteristics_of_a_Professional_Technical_Interview.md
+              - The Difference Between Defiance and Professionalism: practices/professional-development/The_Difference_Between_Defiance_and_Professionalism.md
+              - The Difference Between Defiance and Self-Respect: practices/professional-development/The_Difference_Between_Defiance_and_Self_Respect.md
+          - Quick Guides:
+              - Evidence-Based Self-Assessment: practices/professional-development/evidence-based-engineering-self-assessment.md
+              - Boundary Setting: practices/professional-development/boundary-setting-guide.md
+              - Work Acceptance Checklist: practices/professional-development/work-acceptance-checklist.md
+              - Interview Role Clarity: practices/professional-development/interview-role-clarity-guide.md
+              - Interview Red Flags Reference: practices/professional-development/interview-red-flags-reference.md
+              - Probation Success: practices/professional-development/probation-success-strategy.md
+              - Market Value Development: practices/professional-development/market-value-development-guide.md
+              - Career Transition Timing: practices/professional-development/career-transition-timing-guide.md
+              - Exit Strategy: practices/professional-development/exit-strategy-guide.md
+              - Continuous Learning Strategy: practices/professional-development/continuous-learning-strategy-guide.md
+              - HR Interaction Strategy: practices/professional-development/hr-interaction-strategy-guide/README.md
+              - Inadequate Onboarding: practices/professional-development/onboarding-without-support-guide/README.md
+              - The Competence Trap: practices/professional-development/competence-trap-guide/README.md
           - Toxic Workplace:
               - Overview: practices/professional-development/toxic-workplace-survival-guide/README.md
               - Individual Responsibility Framework: practices/professional-development/toxic-workplace-survival-guide/Individual_Responsibility_Framework.md
@@ -280,6 +292,7 @@ nav:
               - RawTherapee Migration Guide: atelier/photography/RawTherapee_Migration_Guide.md
               - SilverFast Professional Guide: atelier/photography/SilverFast_Professional_Guide.md
               - Color Management Workflow: atelier/photography/Color_Management_Workflow_Reference.md
+              - Image Upscaling & Print Production: atelier/photography/Image_Upscaling_Guide.md
           - Fine Art Printing:
               - Alternative Processes Home Studio Guide: atelier/photography/Alternative_Processes_Home_Studio_Guide.md
               - Silver Gelatin Darkroom Printing: atelier/photography/fine-art-printing/Silver_Gelatin_Darkroom_Printing_Reference.md
@@ -297,6 +310,9 @@ nav:
 
   - Self-Discovery:
       - Overview: self-discovery/index.md
+      - Patterns:
+          - Az Öt Embertípus, Akiken Soha Ne Segíts: self-discovery/Five_Types_Never_Help.md
+          - A Képmutató AI Moralizálás Paradoxona: self-discovery/AI_Moralization_Paradox.md
       # Reflections & Journal
       # Personal Growth
       # Values & Principles
@@ -304,6 +320,7 @@ nav:
       # Reading & Inspirations
       # Goals & Aspirations
       # Mindfulness & Practice
+
 
 # Markdown extensions (comprehensive support)
 markdown_extensions:
@@ -368,8 +385,7 @@ plugins:
   - search:
       lang: en
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-  - tags:
-      tags_file: tags.md
+  - tags
   - meta-descriptions:
       export_csv: false
       quiet: false

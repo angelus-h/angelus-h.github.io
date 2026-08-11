@@ -13,6 +13,10 @@ This section serves as a repository for:
 
 ## Areas of Exploration
 
+### Patterns & Recognition
+- [Az Öt Embertípus, Akiken Soha Ne Segíts](Five_Types_Never_Help.md) - Személyes reflexió a segítés határairól — manipulátorok, igénytelenek, irigyek felismerése
+- [A Képmutató AI Moralizálás Paradoxona](AI_Moralization_Paradox.md) - Amikor a tudatlanság erkölcsi magaslattá válik — a szelektív technológiai erkölcs, a Dunning-Kruger moralizálás és a cselekvéspótlék mintázata
+
 ### Reflections & Journal
 - Daily observations and thoughts
 - Meaningful experiences

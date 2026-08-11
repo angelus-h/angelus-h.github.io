@@ -5,6 +5,11 @@
 1. [SSH Fundamentals](#ssh-fundamentals)
 2. [Key-Based Authentication](#key-based-authentication)
 3. [SSH Configuration](#ssh-configuration)
+   - [Basic Configuration](#basic-config-structure)
+   - [Multi-Environment Management](#multi-environment-management)
+   - [Ansible Integration](#ansible-integration)
+   - [Git Provider Multi-Account Setup](#git-provider-multi-account-setup)
+   - [Corporate Infrastructure Patterns](#corporate-infrastructure-patterns)
 4. [Port Forwarding](#port-forwarding)
 5. [SSH Agent](#ssh-agent)
 6. [ProxyJump and Bastion Hosts](#proxyjump-and-bastion-hosts)
@@ -12,6 +17,7 @@
 8. [Security and Best Practices](#security-and-best-practices)
 9. [Troubleshooting](#troubleshooting)
 10. [Advanced Use Cases](#advanced-use-cases)
+11. [Production Examples](#production-examples)
 
 ---
 
@@ -209,6 +215,7 @@ ProxyJump bastion
 | `User` | SSH username | `admin` |
 | `Port` | SSH port (default: 22) | `2222` |
 | `IdentityFile` | Private key file path | `~/.ssh/id_ed25519` |
+| `IdentitiesOnly` | **CRITICAL:** Only use specified keys | `yes` |
 | `ForwardAgent` | Enable SSH agent forwarding | `yes` |
 | `ProxyJump` | Use bastion host | `bastion` |
 | `ServerAliveInterval` | Keepalive message frequency (seconds) | `60` |
@@ -219,6 +226,26 @@ ProxyJump bastion
 | `ControlPersist` | Connection persistence time | `10m` |
 | `StrictHostKeyChecking` | Host key verification | `yes`/`no`/`ask` |
 | `UserKnownHostsFile` | known_hosts file location | `~/.ssh/known_hosts` |
+| `GSSAPIAuthentication` | Enable Kerberos/SSO auth | `yes` |
+| `GSSAPIDelegateCredentials` | Delegate Kerberos ticket | `yes` |
+
+**Why `IdentitiesOnly yes` is Critical:**
+
+Without it, SSH tries **all keys** in ssh-agent before the specified key:
+
+```
+# WITHOUT IdentitiesOnly yes
+ssh tries:
+  1. ~/.ssh/id_rsa
+  2. ~/.ssh/id_ed25519
+  3. ~/.ssh/id_ecdsa
+  4. ~/.ssh/specified-key.pem  <-- Finally tries the right one
+  5. Server denies after too many failed attempts
+
+# WITH IdentitiesOnly yes
+ssh tries:
+  1. ~/.ssh/specified-key.pem  <-- Only tries this one
+```
 
 ### SSH Connection Multiplexing (Performance)
 
@@ -240,6 +267,396 @@ chmod 700 ~/.ssh/sockets
 ssh bastion # Master connection (slower)
 ssh bastion # Reused connection (instant)
 ```
+
+---
+
+### Multi-Environment Management
+
+#### Real-World Use Case: Legacy vs Modern Infrastructure
+
+**Scenario:**
+- **Legacy infrastructure:** `10.0.*.*` - requires `root` user with PEM key
+- **Modern cloud infrastructure:** `*.cloud.corp.example.com` - requires `cloud-user` with modern key
+- **Ansible:** Needs to manage BOTH environments simultaneously
+
+**Broken Configuration (Common Mistake):**
+
+```ssh-config
+Host 10.0.*.*
+    User root
+    IdentityFile ~/.ssh/legacy-key.pem
+
+Host 10.0.*.*
+    User normaluser
+    StrictHostKeyChecking no
+
+Host *.cloud.corp.example.com
+    User cloud-user
+    IdentityFile ~/.ssh/cloud-key.pem
+```
+
+**Problems:**
+
+1. **Duplicate `Host 10.0.*.*` entries** - SSH uses first match, second entry ignored
+2. **No `IdentitiesOnly yes`** - SSH tries all keys in ssh-agent, causing auth failures
+3. **Missing ProxyJump** - Manual jump host configuration needed
+
+**Fixed Configuration:**
+
+```ssh-config
+# ============================================================================
+# Legacy Infrastructure (On-Premises)
+# ============================================================================
+
+Host 10.0.*.*
+  User root
+  IdentityFile ~/.ssh/legacy-key.pem
+  IdentitiesOnly yes
+  StrictHostKeyChecking no
+  # Legacy on-premises servers - root access required
+
+# ============================================================================
+# Modern Cloud Infrastructure
+# ============================================================================
+
+Host *.cloud.corp.example.com
+  User cloud-user
+  IdentityFile ~/.ssh/cloud-key.pem
+  IdentitiesOnly yes
+  ProxyJump bastion-east
+  StrictHostKeyChecking no
+  # Cloud instances - cloud-user required
+
+# ============================================================================
+# Corporate Bastion
+# ============================================================================
+
+Host bastion-east
+  Hostname bastion-us-east.corp.example.com
+  User devops
+  ForwardAgent yes
+  GSSAPIDelegateCredentials yes
+```
+
+**Key Fixes:**
+
+1. ✓ **Removed duplicate `10.0.*.*` entry**
+2. ✓ **Added `IdentitiesOnly yes`** - Only uses specified key, not all ssh-agent keys
+3. ✓ **Generalized cloud pattern** - `*.cloud.corp.example.com` matches all servers
+4. ✓ **Added `ProxyJump bastion-east`** - Automatically routes through bastion
+5. ✓ **Organized by environment** - Clear sections prevent errors
+
+**Testing the Configuration:**
+
+```bash
+# Test legacy server
+ssh 10.0.212.9
+# Should connect as root
+
+# Test cloud server
+ssh web-server.cloud.corp.example.com
+# Should connect as cloud-user through bastion
+
+# Debug mode (-vvv) shows which config entries are used
+ssh -vvv 10.0.212.9 2>&1 | grep "config line"
+```
+
+---
+
+### Ansible Integration
+
+#### ansible.cfg Configuration
+
+**Location:** `ansible.cfg` in your project root or `~/.ansible.cfg`
+
+```ini
+[defaults]
+inventory = hosts
+host_key_checking = False
+
+[ssh_connection]
+ssh_args = -F ~/.ssh/config -o ControlMaster=auto -o ControlPersist=60s -o StrictHostKeyChecking=no
+pipelining = True
+control_path = /tmp/ansible-ssh-%%h-%%p-%%r
+retries = 3
+timeout = 60
+```
+
+**Key Settings Explained:**
+
+| Setting | Purpose |
+|---------|---------|
+| `ssh_args = -F ~/.ssh/config` | **CRITICAL:** Forces Ansible to respect your SSH config |
+| `ControlMaster=auto` | Multiplexes SSH connections (faster playbooks) |
+| `ControlPersist=60s` | Keeps SSH connection open for 60s after last use |
+| `pipelining = True` | Reduces SSH round-trips (significant speedup) |
+| `control_path = /tmp/ansible-ssh-%%h-%%p-%%r` | Socket file path for multiplexing |
+
+#### Common Ansible SSH Errors
+
+**Error: "Can't open user config file ~/.ssh/config: No such file or directory"**
+
+**Root Cause:** Ansible is trying to use SSH config, but the file doesn't exist **on the Ansible control node**.
+
+**Solution:**
+
+```bash
+# Verify config exists
+ls -la ~/.ssh/config
+
+# If missing, create it
+touch ~/.ssh/config
+chmod 600 ~/.ssh/config
+
+# Verify ansible.cfg is in the right place
+cat ansible.cfg | grep ssh_args
+```
+
+**Error: "Permission denied (publickey,gssapi-keyex,gssapi-with-mic)"**
+
+**Possible Causes:**
+
+1. **Wrong user in SSH config**
+   - Legacy servers use `root`, cloud servers use `cloud-user`
+   - Fix: Separate `Host` entries for each environment
+
+2. **Wrong key being tried**
+   - Missing `IdentitiesOnly yes` causes ssh-agent to try all keys
+   - Fix: Add `IdentitiesOnly yes` to all `Host` entries with `IdentityFile`
+
+3. **Kerberos ticket expired**
+   ```bash
+   klist  # Check expiration
+   kinit username@CORP.EXAMPLE.COM  # Renew
+   ```
+
+4. **Key not added to ssh-agent**
+   ```bash
+   ssh-add ~/.ssh/legacy-key.pem
+   ssh-add -l  # List loaded keys
+   ```
+
+**Testing Ansible SSH Connectivity:**
+
+```bash
+# Test raw SSH connectivity (bypasses Ansible)
+ansible all -i hosts -m ping
+
+# Test with verbose output
+ansible all -i hosts -m ping -vvv
+
+# Test single host
+ansible 10.0.212.9 -i hosts -m ping -vvv
+```
+
+---
+
+### Git Provider Multi-Account Setup
+
+#### Use Case: Personal and Work Accounts
+
+**Scenario:**
+- **Personal GitHub:** `personal-account` (side projects)
+- **Work GitHub:** `work-account` (company projects)
+
+**Problem:** Git uses the **first matching SSH key** in ssh-agent, leading to:
+- Commits attributed to wrong account
+- Permission denied errors when pushing to work repos with personal key
+
+**Solution: Host Aliases**
+
+```ssh-config
+# ============================================================================
+# GitHub Accounts
+# ============================================================================
+
+# Work GitHub account
+Host github.com-work
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_work
+  IdentitiesOnly yes
+
+# Personal GitHub account (default)
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_personal
+  IdentitiesOnly yes
+```
+
+#### Git Remote Configuration
+
+**Personal Repo (uses default `github.com`):**
+
+```bash
+git remote add origin git@github.com:personal-account/my-personal-repo.git
+```
+
+**Work Repo (uses alias `github.com-work`):**
+
+```bash
+git remote add origin git@github.com-work:work-account/work-repo.git
+#                              ^^^^^^^^^^^^^^^^ Uses the alias from SSH config
+```
+
+#### Cloning with Specific Account
+
+```bash
+# Clone with personal account (default)
+git clone git@github.com:personal-account/my-repo.git
+
+# Clone with work account (using alias)
+git clone git@github.com-work:work-account/work-repo.git
+```
+
+#### Verifying Which Key is Used
+
+```bash
+# Test personal account
+ssh -T git@github.com
+# Output: Hi personal-account! You've successfully authenticated...
+
+# Test work account
+ssh -T git@github.com-work
+# Output: Hi work-account! You've successfully authenticated...
+```
+
+#### Setting Per-Repo Git Identity
+
+**Prevent commits with wrong author:**
+
+```bash
+cd ~/work-repo
+git config user.name "Your Name"
+git config user.email "you@company.com"
+
+cd ~/personal-repo
+git config user.name "Your Name"
+git config user.email "you@personal.com"
+```
+
+**Global fallback:**
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@personal.com"
+```
+
+#### GitLab Enterprise Configuration
+
+**Multiple GitLab instances (corporate + external):**
+
+```ssh-config
+# Corporate GitLab
+Host gitlab.corp.example.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_corp
+  IdentitiesOnly yes
+
+# External GitLab (SaaS)
+Host gitlab.com
+  HostName gitlab.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_personal
+  IdentitiesOnly yes
+```
+
+---
+
+### Corporate Infrastructure Patterns
+
+#### Pattern Matching Order
+
+**Most specific patterns should come first:**
+
+```ssh-config
+# ============================================================================
+# Production Environment (Most Specific)
+# ============================================================================
+
+Host *.prod.us-east.corp.example.com
+  User sre-prod
+  ProxyJump bastion-east
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+
+# ============================================================================
+# Staging Environment
+# ============================================================================
+
+Host *.staging.us-east.corp.example.com
+  User devops
+  ProxyJump bastion-east
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+
+# ============================================================================
+# Generic Fallbacks (Least Specific)
+# ============================================================================
+
+# Fallback for other US-East hosts
+Host *.us-east.corp.example.com
+  User devops
+  ProxyJump bastion-east
+
+# Fallback for other US-West hosts
+Host *.us-west.corp.example.com
+  User devops
+  ProxyJump bastion-west
+```
+
+**Why this order?**
+1. Most specific patterns first (`.prod.us-east.corp.example.com`)
+2. General fallbacks last (`*.us-east.corp.example.com`)
+3. SSH uses **first match wins** per directive
+
+#### Enterprise SSO/Kerberos Authentication
+
+```ssh-config
+# ============================================================================
+# Corporate Domain Settings
+# ============================================================================
+
+Host *.corp.example.com
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+```
+
+**Prerequisites:**
+
+```bash
+# Valid Kerberos ticket
+kinit username@CORP.EXAMPLE.COM
+klist  # Verify ticket
+```
+
+#### Handling Legacy Algorithms
+
+**Problem:** Modern OpenSSH rejects old algorithms used by ancient servers
+
+```ssh-config
+Host *.legacy.corp.example.com
+  # Enable legacy RSA algorithms
+  HostkeyAlgorithms +ssh-rsa
+  PubkeyAcceptedAlgorithms +ssh-rsa
+  
+  # Enable older key exchange algorithms
+  KexAlgorithms diffie-hellman-group14-sha256,diffie-hellman-group14-sha1,diffie-hellman-group-exchange-sha256
+```
+
+**Symptoms:**
+
+```
+Unable to negotiate with 10.0.1.5 port 22: no matching host key type found.
+Their offer: ssh-rsa
+```
+
+**Why This Happens:**
+
+- OpenSSH 8.8+ disabled `ssh-rsa` by default (deprecated due to SHA-1 weakness)
+- Legacy servers only support `ssh-rsa`
+- Fix: Re-enable for specific hosts only (not globally!)
 
 ### SSH Server Configuration (`/etc/ssh/sshd_config`)
 
@@ -1008,6 +1425,218 @@ curl http://localhost:8080
 
 ---
 
+## Production Examples
+
+### Complete Corporate SSH Config
+
+**Full production-ready configuration for multi-environment setup:**
+
+```ssh-config
+# ============================================================================
+# Corporate Bastions
+# ============================================================================
+
+Host bastion-east
+  Hostname bastion-us-east.corp.example.com
+  User devops
+  ForwardAgent yes
+  GSSAPIDelegateCredentials yes
+
+Host bastion-west
+  Hostname bastion-us-west.corp.example.com
+  User devops
+  ForwardAgent yes
+  GSSAPIDelegateCredentials yes
+
+# ============================================================================
+# Production Servers (US-East)
+# ============================================================================
+
+Host *.prod.us-east.corp.example.com
+  User sre-prod
+  ProxyJump bastion-east
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+
+# ============================================================================
+# Staging Servers (US-East)
+# ============================================================================
+
+Host *.staging.us-east.corp.example.com
+  User devops
+  ProxyJump bastion-east
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+
+# ============================================================================
+# Cloud Infrastructure
+# ============================================================================
+
+Host *.cloud.corp.example.com
+  User cloud-user
+  ProxyJump bastion-east
+  IdentityFile ~/.ssh/cloud-key.pem
+  IdentitiesOnly yes
+
+# ============================================================================
+# Legacy Infrastructure
+# ============================================================================
+
+Host 10.0.*.*
+  User root
+  IdentityFile ~/.ssh/legacy-key.pem
+  IdentitiesOnly yes
+  StrictHostKeyChecking no
+
+# ============================================================================
+# Corporate Fallbacks
+# ============================================================================
+
+# Fallback for other US-East hosts
+Host *.us-east.corp.example.com
+  User devops
+  ProxyJump bastion-east
+
+# Fallback for other US-West hosts
+Host *.us-west.corp.example.com
+  User devops
+  ProxyJump bastion-west
+
+# ============================================================================
+# Global Corporate Settings
+# ============================================================================
+
+Host *.corp.example.com
+  GSSAPIAuthentication yes
+  GSSAPIDelegateCredentials yes
+
+# ============================================================================
+# Git Providers
+# ============================================================================
+
+# Work GitHub account
+Host github.com-work
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_work
+  IdentitiesOnly yes
+
+# Personal GitHub account (default)
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/id_ed25519_personal
+  IdentitiesOnly yes
+
+# ============================================================================
+# Connection Multiplexing (Performance)
+# ============================================================================
+
+Host *
+  ControlMaster auto
+  ControlPath ~/.ssh/sockets/%r@%h:%p
+  ControlPersist 10m
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+```
+
+**Usage Examples:**
+
+```bash
+# Connect to bastion
+ssh bastion-east
+
+# Connect to internal server (automatic jump through bastion)
+ssh web-server.staging.us-east.corp.example.com
+
+# Clone work repo with work GitHub account
+git clone git@github.com-work:company/work-repo.git
+
+# Clone personal repo with personal GitHub account
+git clone git@github.com:personal-account/personal-repo.git
+```
+
+### Multi-Jump Hosts Example
+
+**Development environment with multiple jump hosts:**
+
+```ssh-config
+# ============================================================================
+# Corporate Bastion
+# ============================================================================
+
+Host corp-bastion
+  Hostname bastion.corp.example.com
+  User devops
+  Port 2222
+  IdentityFile ~/.ssh/id_ed25519_corp
+  IdentitiesOnly yes
+
+# ============================================================================
+# Project-Specific Bastions (jump through corp-bastion first)
+# ============================================================================
+
+Host project-a-bastion
+  Hostname bastion-project-a.internal
+  User devops
+  ProxyJump corp-bastion
+  IdentityFile ~/.ssh/id_ed25519_project_a
+  IdentitiesOnly yes
+
+Host project-b-bastion
+  Hostname bastion-project-b.internal
+  User devops
+  ProxyJump corp-bastion
+  IdentityFile ~/.ssh/id_ed25519_project_b
+  IdentitiesOnly yes
+
+# ============================================================================
+# Project A Servers (double jump)
+# ============================================================================
+
+Host *.project-a.internal
+  User app
+  ProxyJump project-a-bastion
+  IdentityFile ~/.ssh/id_ed25519_project_a
+  IdentitiesOnly yes
+
+# ============================================================================
+# Project B Servers (double jump)
+# ============================================================================
+
+Host *.project-b.internal
+  User app
+  ProxyJump project-b-bastion
+  IdentityFile ~/.ssh/id_ed25519_project_b
+  IdentitiesOnly yes
+```
+
+**Usage:**
+
+```bash
+# Connect to server (automatically double-jumps)
+ssh web-server.project-a.internal
+
+# SSH connection path:
+# laptop -> corp-bastion -> project-a-bastion -> web-server.project-a.internal
+```
+
+### Testing SSH Config
+
+```bash
+# Show resolved configuration for a specific host
+ssh -G hostname
+
+# Example output shows merged config:
+user devops
+hostname bastion-east.corp.example.com
+port 22
+forwardagent yes
+identityfile ~/.ssh/id_ed25519
+```
+
+---
+
 ## Command Summary
 
 | Command | Description |
@@ -1039,6 +1668,6 @@ curl http://localhost:8080
 
 ---
 
-**Last Updated:** 2026-05-06 
-**Author:** Generated for GitHub Portfolio 
-**Version:** 1.0
+**Last Updated:** 2026-06-23  
+**Author:** Angelus-H's Athenaeum  
+**Version:** 2.0 (Enhanced with Production Best Practices)

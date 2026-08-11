@@ -27,6 +27,7 @@ A creative studio for visual arts, analog photography, and handcrafted technique
 - [RawTherapee Migration Guide](photography/RawTherapee_Migration_Guide.md) - Migrating from proprietary RAW processors
 - [SilverFast Professional Guide](photography/SilverFast_Professional_Guide.md) - Professional film scanning workflow
 - [Color Management Workflow Reference](photography/Color_Management_Workflow_Reference.md) - Color-managed workflow from capture to print
+- [Image Upscaling & Print Production Guide](photography/Image_Upscaling_Guide.md) - Comprehensive upscaling reference for AI-generated art, scanned artwork, and digital photography — model selection, scanning challenges, POD optimization
 - **Camera Systems & Optics**: Equipment references and manuals
 - [Fuji GL690/G690/GM670 Complete Field Manual](photography/Fuji_GL690_Complete_Field_Manual.md) - Comprehensive expert-level field manual for the Fuji medium format rangefinder family
 - [Fujica GL690/GM670 Complete Manual](photography/Fujica_GL690_GM670_Complete_Manual.md) - Medium format rangefinder system

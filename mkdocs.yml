@@ -304,6 +304,42 @@ nav:
               - SilverFast Professional Guide: atelier/photography/SilverFast_Professional_Guide.md
               - Color Management Workflow: atelier/photography/Color_Management_Workflow_Reference.md
               - Image Upscaling & Print Production: atelier/photography/Image_Upscaling_Guide.md
+          - Photoshop Blackbelt:
+              - Overview: atelier/photography/Photoshop_Blackbelt/index.md
+              - "Part I — Foundations":
+                  - "01: Digital Image Fundamentals": atelier/photography/Photoshop_Blackbelt/01_Digital_Image_Fundamentals.md
+                  - "02: Color Science for Photographers": atelier/photography/Photoshop_Blackbelt/02_Color_Science.md
+                  - "03: Adobe Camera Raw": atelier/photography/Photoshop_Blackbelt/03_Camera_Raw.md
+              - "Part II — Photoshop Architecture":
+                  - "04: The Layer System": atelier/photography/Photoshop_Blackbelt/04_Layer_System.md
+                  - "05: Channels, Masks, and Alpha Channels": atelier/photography/Photoshop_Blackbelt/05_Channels_and_Masks.md
+                  - "06: Non-Destructive Workflow": atelier/photography/Photoshop_Blackbelt/06_Non_Destructive_Workflow.md
+              - "Part III — Tonal Control":
+                  - "07: Tonal Adjustments — Levels and Curves": atelier/photography/Photoshop_Blackbelt/07_Tonal_Adjustments.md
+                  - "08: Local Tonal Control": atelier/photography/Photoshop_Blackbelt/08_Local_Tonal_Control.md
+              - "Part IV — Color":
+                  - "09: Color Correction": atelier/photography/Photoshop_Blackbelt/09_Color_Correction.md
+                  - "10: Color Grading": atelier/photography/Photoshop_Blackbelt/10_Color_Grading.md
+                  - "11: HSL and Selective Color": atelier/photography/Photoshop_Blackbelt/11_HSL_Selective_Color.md
+              - "Part V — Selections and Masking":
+                  - "12: Selection Tools and Techniques": atelier/photography/Photoshop_Blackbelt/12_Selections.md
+                  - "13: Advanced Masking": atelier/photography/Photoshop_Blackbelt/13_Advanced_Masking.md
+                  - "14: Blending Modes": atelier/photography/Photoshop_Blackbelt/14_Blending_Modes.md
+              - "Part VI — Detail and Texture":
+                  - "15: Sharpening Theory and Practice": atelier/photography/Photoshop_Blackbelt/15_Sharpening.md
+                  - "16: Noise Reduction": atelier/photography/Photoshop_Blackbelt/16_Noise_Reduction.md
+                  - "17: Retouching Techniques": atelier/photography/Photoshop_Blackbelt/17_Retouching.md
+              - "Part VII — Advanced Techniques":
+                  - "18: Black and White Conversion": atelier/photography/Photoshop_Blackbelt/18_Black_and_White.md
+                  - "19: Compositing Fundamentals": atelier/photography/Photoshop_Blackbelt/19_Compositing.md
+                  - "20: AI-Assisted Editing": atelier/photography/Photoshop_Blackbelt/20_AI_Tools.md
+              - "Part VIII — Output":
+                  - "21: Color Management for Output": atelier/photography/Photoshop_Blackbelt/21_Color_Management_Output.md
+                  - "22: Resizing, Output Sharpening, and Delivery": atelier/photography/Photoshop_Blackbelt/22_Output_Delivery.md
+              - Appendices:
+                  - "A: Glossary": atelier/photography/Photoshop_Blackbelt/Appendix_A_Glossary.md
+                  - "B: Camera Raw Quick Reference": atelier/photography/Photoshop_Blackbelt/Appendix_B_Camera_Raw_Reference.md
+                  - "C: Destructive vs Non-Destructive Decision Guide": atelier/photography/Photoshop_Blackbelt/Appendix_C_Destructive_Decision_Guide.md
           - Fine Art Printing:
               - Alternative Processes Home Studio Guide: atelier/photography/Alternative_Processes_Home_Studio_Guide.md
               - Silver Gelatin Darkroom Printing: atelier/photography/fine-art-printing/Silver_Gelatin_Darkroom_Printing_Reference.md

@@ -28,6 +28,7 @@ A creative studio for visual arts, analog photography, and handcrafted technique
 - [SilverFast Professional Guide](photography/SilverFast_Professional_Guide.md) - Professional film scanning workflow
 - [Color Management Workflow Reference](photography/Color_Management_Workflow_Reference.md) - Color-managed workflow from capture to print
 - [Image Upscaling & Print Production Guide](photography/Image_Upscaling_Guide.md) - Comprehensive upscaling reference for AI-generated art, scanned artwork, and digital photography — model selection, scanning challenges, POD optimization
+- [B&W Film Scanning with Epson V600](photography/BW_Film_Scanning_V600_Guide.md) - Evidence-based scanning workflow for black-and-white negatives: V600 settings, SilverFast, 48-bit RGB vs 16-bit Grayscale investigation, Photoshop processing, Fine Art print preparation
 - **Camera Systems & Optics**: Equipment references and manuals
 - [Fuji GL690/G690/GM670 Complete Field Manual](photography/Fuji_GL690_Complete_Field_Manual.md) - Comprehensive expert-level field manual for the Fuji medium format rangefinder family
 - [Fujica GL690/GM670 Complete Manual](photography/Fujica_GL690_GM670_Complete_Manual.md) - Medium format rangefinder system

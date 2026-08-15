@@ -224,10 +224,11 @@ nav:
               - Mermaid Diagrams Quick Reference: learning/technical-writing/Mermaid_Diagrams_Learning_Plan.md
               - Marp Presentations Guide: learning/technical-writing/Marp_Markdown_Presentations_Guide.md
           - Documentation Tools:
-              - MkDocs Static Site Guide: learning/technical-writing/MkDocs_GitLab_Pages_Guide.md
+              - MkDocs — Install, Local & Deploy (GitHub/GitLab): learning/technical-writing/MkDocs_GitLab_Pages_Guide.md
               - Tesseract OCR Quick Reference: learning/technical-writing/Tesseract_OCR_Quick_Reference.md
           - Web Publishing:
               - SEO Optimization Guide: learning/technical-writing/SEO_Optimization_Guide.md
+              - SEO Systems & Search Architecture: learning/technical-writing/SEO_Systems_and_Search_Architecture.md
       - Command-Line Tools:
           - Infrastructure Management:
               - IPMI Deep Reference: resources/command-line-tools/ipmi-deep-reference.md
@@ -353,6 +354,8 @@ nav:
               - Print Editing Techniques: atelier/photography/fine-art-printing/Print_Editing_Techniques_Reference.md
               - Philosophy and Mindset: atelier/photography/fine-art-printing/Fine_Art_Print_Philosophy_Reference.md
               - Resources and Tools: atelier/photography/fine-art-printing/Fine_Art_Print_Resources.md
+      - Selling & Discoverability:
+          - Art & Image SEO Guide: atelier/selling/Art_and_Image_SEO_Guide.md
       # Printmaking & Crafts: Alternative Processes
       # Fine Art: Composition, Color Theory
       # Tools & Materials: Cameras, Chemicals, Studio

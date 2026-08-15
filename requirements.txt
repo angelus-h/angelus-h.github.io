@@ -1,0 +1,16 @@
+# MkDocs build dependencies — pinned to the exact versions that produce
+# the current working site. This is the single source of truth for both
+# local development and the GitHub Actions deploy (.github/workflows/deploy.yml).
+#
+# Update deliberately: bump a version, run `mkdocs build --strict` locally,
+# verify the site, then commit. To regenerate a full lock of every
+# transitive package: `pip freeze > requirements.lock.txt`.
+
+mkdocs==1.6.1
+mkdocs-material==9.7.7
+mkdocs-meta-descriptions-plugin==4.1.0
+
+# Rendering stack (pulled in by mkdocs-material; pinned for reproducibility)
+Markdown==3.10.3
+pymdown-extensions==11.0.1
+mkdocs-material-extensions==1.3.1

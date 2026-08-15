@@ -1,8 +1,10 @@
-# MkDocs with Static Site - Complete Guide
+# MkDocs Complete Guide — Install, Run Locally & Deploy (GitHub & GitLab Pages)
 
-**Version:** 1.0
-**Last Updated:** 2026-03-20
+**Version:** 2.0
+**Last Updated:** 2026-08-15
 **Author:** Learning Plans Collection
+
+> **What's new in v2.0:** Cross-platform installation and local development (Linux **and** Windows), plus a full **GitHub Pages** deployment section (the setup this very site uses), alongside the original GitLab Pages workflow.
 
 ---
 
@@ -11,30 +13,32 @@
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
 3. [Quick Start](#quick-start)
-4. [Project Setup](#project-setup)
-5. [Static Site Configuration](#gitlab-pages-configuration)
-6. [CI/CD Pipeline](#cicd-pipeline)
-7. [Theme Customization](#theme-customization)
-8. [Advanced Features](#advanced-features)
-9. [Domain Configuration](#domain-configuration)
-10. [Best Practices](#best-practices)
-11. [Troubleshooting](#troubleshooting)
+4. [Installation & Local Development (Linux & Windows)](#installation-local-development-linux-windows)
+5. [Project Setup](#project-setup)
+6. [GitLab Pages Configuration](#static-site-configuration)
+7. [GitLab CI/CD Pipeline](#cicd-pipeline)
+8. [GitHub Pages Deployment](#github-pages-deployment)
+9. [Theme Customization](#theme-customization)
+10. [Advanced Features](#advanced-features)
+11. [Domain Configuration](#domain-configuration)
+12. [Best Practices](#best-practices)
+13. [Troubleshooting](#troubleshooting)
 
 ---
 
 ## Introduction
 
-**MkDocs** is a fast, simple static site generator designed for building project documentation. Combined with **Static Site**, you can automatically deploy beautiful documentation websites directly from your GitLab repository.
+**MkDocs** is a fast, simple static site generator designed for building project documentation. You write in Markdown, and MkDocs turns it into a polished, searchable website that you can host for free on **GitHub Pages** or **GitLab Pages**. This guide covers the full lifecycle: install it, run it locally on **Linux or Windows**, then deploy it to whichever platform you use.
 
-### Why MkDocs + Static Site?
+### Why MkDocs?
 
 - **Markdown-based** - Write docs in plain Markdown
-- **Automatic deployment** - Push to GitLab, site updates automatically
-- **Free hosting** - Static Site is free for public and private repos
-- **Version control** - All documentation in Git
+- **Automatic deployment** - Push to GitHub/GitLab, the site updates itself via CI/CD
+- **Free hosting** - GitHub Pages and GitLab Pages are free for public (and private) repos
+- **Version control** - All documentation lives in Git
 - **Material theme** - Professional, responsive design
 - **Search built-in** - Full-text search out of the box
-- **GitLab CI/CD** - Automated builds and deployments
+- **Portable** - The same `mkdocs.yml` and `docs/` work on any platform; only the CI file differs
 
 ### What You'll Build
 
@@ -125,6 +129,151 @@ mkdocs build
 # Build with strict mode (fail on warnings)
 mkdocs build --strict
 ```
+
+---
+
+## Installation & Local Development (Linux & Windows)
+
+The Quick Start above assumes Linux/macOS. This section gives **platform-specific, copy-paste** instructions for both Linux and Windows, using an isolated virtual environment so MkDocs never pollutes your system Python.
+
+> **Golden rule:** always work inside a virtual environment (`venv`). It keeps `mkdocs`, `mkdocs-material` and plugins pinned per project and avoids "works on my machine" surprises.
+
+### 1. Install Python
+
+=== "Linux (Debian/Ubuntu)"
+
+    ```bash
+    sudo apt update
+    sudo apt install -y python3 python3-venv python3-pip git
+    python3 --version   # expect 3.8+
+    ```
+
+    On Fedora/RHEL: `sudo dnf install -y python3 python3-pip git`
+
+=== "Windows"
+
+    Option A — winget (built into Windows 10/11):
+
+    ```powershell
+    winget install Python.Python.3.12
+    winget install Git.Git
+    ```
+
+    Option B — download the installer from <https://www.python.org/downloads/> and
+    **tick "Add python.exe to PATH"** during setup.
+
+    Verify (open a new terminal so PATH refreshes):
+
+    ```powershell
+    py --version        # the 'py' launcher, recommended on Windows
+    python --version    # alternative
+    git --version
+    ```
+
+### 2. Create & activate a virtual environment
+
+=== "Linux / macOS (bash/zsh)"
+
+    ```bash
+    cd my-docs
+    python3 -m venv venv
+    source venv/bin/activate
+    # prompt now shows (venv)
+    ```
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    cd my-docs
+    py -m venv venv
+    .\venv\Scripts\Activate.ps1
+    # prompt now shows (venv)
+    ```
+
+    If activation is blocked by execution policy, run once:
+
+    ```powershell
+    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+    ```
+
+=== "Windows (cmd.exe)"
+
+    ```bat
+    cd my-docs
+    py -m venv venv
+    venv\Scripts\activate.bat
+    ```
+
+### 3. Install MkDocs + Material (+ plugins)
+
+Works identically on every platform once the venv is active:
+
+```bash
+pip install --upgrade pip
+pip install mkdocs mkdocs-material
+mkdocs --version
+```
+
+For **reproducible** installs, pin dependencies in `requirements.txt` and install from it:
+
+```txt
+mkdocs>=1.6.0
+mkdocs-material>=9.5.0
+mkdocs-meta-descriptions-plugin>=3.0.0
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+> This is exactly what CI does later — same file, same result locally and in the cloud.
+
+### 4. Run the live preview server
+
+```bash
+mkdocs serve
+```
+
+Open <http://127.0.0.1:8000> — the site **auto-reloads** on every save.
+
+Useful flags:
+
+```bash
+mkdocs serve -a 0.0.0.0:8080   # expose on your LAN / change port
+mkdocs serve --strict          # treat warnings (bad links, etc.) as errors
+mkdocs serve --dirtyreload     # faster reloads on very large sites
+```
+
+### 5. Build the static output
+
+```bash
+mkdocs build --strict     # generates the site/ directory
+```
+
+`site/` is what gets published. It's already in `.gitignore` — never commit it; let CI build it.
+
+### Everyday workflow
+
+```bash
+# activate venv  →  edit docs  →  preview  →  build check  →  commit  →  push
+source venv/bin/activate        # (Windows: .\venv\Scripts\Activate.ps1)
+mkdocs serve                    # write & preview
+mkdocs build --strict           # catch broken links before pushing
+git add . && git commit -m "docs: update"
+git push
+# deactivate the venv when done:
+deactivate
+```
+
+### Common local gotchas
+
+| Symptom | Fix |
+|---|---|
+| `mkdocs: command not found` | The venv isn't active — re-run the activate command |
+| `Activate.ps1 cannot be loaded` (Windows) | `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` |
+| Port 8000 already in use | `mkdocs serve -a 127.0.0.1:8001` |
+| Plugin `X` not found | Add it to `requirements.txt` and `pip install -r requirements.txt` |
+| Edits not showing | Hard-refresh the browser (Ctrl/Cmd+Shift+R); check the terminal for build errors |
 
 ---
 
@@ -351,6 +500,146 @@ rules:
 1. Go to GitLab → Settings → Pages
 2. Check deployment status
 3. Click the site URL to view published site
+
+---
+
+## GitHub Pages Deployment
+
+GitHub Pages is the other free host for MkDocs sites — and it's what **this very site** (`angelus-h.github.io`) runs on. There are two ways to deploy: a one-command manual push, or automated GitHub Actions on every push.
+
+### Where your site will live
+
+| Repository type | Repo name | Published URL |
+|---|---|---|
+| **User/Org site** | `<username>.github.io` | `https://<username>.github.io/` |
+| **Project site** | any other name | `https://<username>.github.io/<repo>/` |
+
+Set `site_url` in `mkdocs.yml` accordingly:
+
+```yaml
+# User/org site (root):
+site_url: https://username.github.io/
+
+# Project site (subpath) — the trailing slash matters:
+site_url: https://username.github.io/my-project/
+```
+
+> For **project sites**, keep `use_directory_urls: true` (the default) so internal links resolve under the subpath.
+
+### Method 1 — `mkdocs gh-deploy` (simplest, manual)
+
+MkDocs has this built in. It builds the site and force-pushes it to a `gh-pages` branch in one command:
+
+```bash
+# from your project root, venv active
+mkdocs gh-deploy --clean
+```
+
+Then, one-time, enable Pages: **GitHub repo → Settings → Pages → Build and deployment → Source: "Deploy from a branch" → Branch: `gh-pages` / `(root)` → Save.**
+
+- ✅ Fastest way to get online.
+- ⚠️ Deploys **from your machine** — whatever you have locally goes live. No review, no CI checks. Good for solo/small sites.
+
+### Method 2 — GitHub Actions (automated, recommended)
+
+Let GitHub build and deploy on every push. Create **`.github/workflows/deploy.yml`**:
+
+```yaml
+name: Deploy MkDocs to GitHub Pages
+
+on:
+  push:
+    branches:
+      - master   # or 'main' — match your default branch
+  workflow_dispatch:   # allows manual runs from the Actions tab
+
+permissions:
+  contents: write   # needed to push to the gh-pages branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt   # or: pip install mkdocs-material
+
+      - name: Build site
+        run: mkdocs build --strict
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          publish_branch: gh-pages
+          force_orphan: true   # keep gh-pages as a single clean commit
+```
+
+Then enable Pages once: **Settings → Pages → Source: "Deploy from a branch" → Branch: `gh-pages` / `(root)`.**
+
+Workflow after that:
+
+1. Push to `master` (or `main`) → Actions builds the site → pushes to `gh-pages` → live in ~1 minute.
+2. Watch progress under the repo's **Actions** tab; a red run means the build failed (check the log).
+
+> **This site's real setup** uses exactly this pattern: trigger on `master`, `pip install mkdocs-material mkdocs-meta-descriptions-plugin`, `mkdocs build`, then `peaceiris/actions-gh-pages` publishing `./site` to the `gh-pages` branch with `force_orphan: true`. Keep the workflow's plugin list in sync with `requirements.txt`.
+
+### Alternative: the official Pages artifact action
+
+Instead of pushing a `gh-pages` branch, you can upload the build as a Pages artifact (set **Settings → Pages → Source: "GitHub Actions"**):
+
+```yaml
+permissions:
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.x' }
+      - run: pip install -r requirements.txt
+      - run: mkdocs build --strict
+      - uses: actions/upload-pages-artifact@v3
+        with: { path: ./site }
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: github-pages
+    steps:
+      - uses: actions/deploy-pages@v4
+```
+
+Both approaches work; the `peaceiris` + `gh-pages` branch method is battle-tested and is what this repo uses.
+
+### Custom domain on GitHub Pages
+
+1. **Settings → Pages → Custom domain** → enter `docs.example.com` → Save (this writes a `CNAME` file).
+2. To make it survive rebuilds, also keep the file at `docs/CNAME` containing just the domain.
+3. DNS: `CNAME docs → <username>.github.io` (subdomain), or apex `A` records to GitHub's IPs (`185.199.108-111.153`).
+4. Tick **Enforce HTTPS** once the certificate is issued.
+
+### GitHub vs GitLab Pages — quick comparison
+
+| | GitHub Pages | GitLab Pages |
+|---|---|---|
+| CI file | `.github/workflows/deploy.yml` | `.gitlab-ci.yml` |
+| Publish target | `gh-pages` branch **or** Pages artifact | `public/` artifact from a `pages` job |
+| One-command deploy | `mkdocs gh-deploy` | — (CI only) |
+| Root user site | `<user>.github.io` | `<user>.gitlab.io` |
+| Enable in UI | Settings → Pages → pick source | Automatic once `pages` job succeeds |
+
+The **content is identical** — same `docs/` and `mkdocs.yml`. Only the CI file and publish mechanism change, so you can host the same repo on both if you want.
 
 ---
 

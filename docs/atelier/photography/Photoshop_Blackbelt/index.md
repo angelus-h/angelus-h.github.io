@@ -73,6 +73,22 @@ You do not yet have deep understanding of Photoshop's internal concepts, and tha
 | 16 | [Noise Reduction](16_Noise_Reduction.md) | Noise vs grain, luminance vs chrominance noise, ACR noise reduction, Photoshop techniques |
 | 17 | [Retouching Techniques](17_Retouching.md) | Clone Stamp, Healing Brush, Patch Tool, Content-Aware Fill, frequency separation, portrait retouching |
 
+### Supplement: Noise Deep Dive
+
+An eight-part deep-dive extension of Chapter 16 — the physics of noise, visual diagnosis, RAW-vs-JPEG denoising, Camera Raw and AI Denoise, frequency/masking/sharpening interaction, AI upscaling and hallucinated detail, complete workflows (including a concrete Olympus E-520 project), and final quality control.
+
+| Part | Title | Focus |
+|------|-------|-------|
+| — | [Noise Deep Dive — Overview](16D0_Noise_Deep_Dive.md) | Series map, purpose, and the core principle |
+| 1 | [The Physics of Digital Noise](16D1_Physics_of_Digital_Noise.md) | SNR, shot/read/thermal/fixed-pattern noise, banding, hot/stuck pixels, quantization, demosaicing/JPEG artifacts, the ISO myth |
+| 2 | [Old Sensors and Visual Diagnosis](16D2_Old_Sensors_and_Visual_Diagnosis.md) | Four Thirds / E-520 era, what old RAWs can still yield, identifying every noise and artifact type on screen |
+| 3 | [The Denoising Mindset and RAW vs JPEG](16D3_Denoising_Mindset_RAW_vs_JPEG.md) | Content-dependent noise reduction, local-NR philosophy, why RAW-stage denoising wins |
+| 4 | [Camera Raw, AI Denoise, and Photoshop Tools](16D4_Camera_Raw_AI_Denoise_and_PS_Tools.md) | Every ACR parameter, AI Denoise, and the Photoshop toolset mapped to problem type |
+| 5 | [Frequency, Masking, and the Noise/Sharpening Balance](16D5_Frequency_Masking_and_Sharpening.md) | Frequency separation limits, selective masking, the two-way noise↔sharpening interaction |
+| 6 | [AI Upscaling and Hallucinated Detail](16D6_AI_Upscaling_and_Hallucinated_Detail.md) | Real-ESRGAN, Remacri, 4x-UltraSharp, Super Resolution, Topaz — restoration vs invention |
+| 7 | [Practical Workflows and the E-520 Project](16D7_Workflows_and_E520_Project.md) | Eight end-to-end workflows, a concrete E-520 → Fine Art America pipeline, comparison protocol |
+| 8 | [Quality Control and the Black Belt Cheat Sheet](16D8_Quality_Control_and_Cheat_Sheet.md) | Professional QC checklist, choosing between two results, the decision cheat sheet |
+
 ## Part VII: Advanced Techniques
 
 | Chapter | Title | Focus |

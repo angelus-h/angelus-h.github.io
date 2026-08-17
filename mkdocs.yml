@@ -331,6 +331,16 @@ nav:
               - "Part VI — Detail and Texture":
                   - "15: Sharpening Theory and Practice": atelier/photography/Photoshop_Blackbelt/15_Sharpening.md
                   - "16: Noise Reduction": atelier/photography/Photoshop_Blackbelt/16_Noise_Reduction.md
+                  - "Noise Deep Dive (Supplement to Ch. 16)":
+                      - "Overview": atelier/photography/Photoshop_Blackbelt/16D0_Noise_Deep_Dive.md
+                      - "1: The Physics of Digital Noise": atelier/photography/Photoshop_Blackbelt/16D1_Physics_of_Digital_Noise.md
+                      - "2: Old Sensors and Visual Diagnosis": atelier/photography/Photoshop_Blackbelt/16D2_Old_Sensors_and_Visual_Diagnosis.md
+                      - "3: The Denoising Mindset and RAW vs JPEG": atelier/photography/Photoshop_Blackbelt/16D3_Denoising_Mindset_RAW_vs_JPEG.md
+                      - "4: Camera Raw, AI Denoise, and Photoshop Tools": atelier/photography/Photoshop_Blackbelt/16D4_Camera_Raw_AI_Denoise_and_PS_Tools.md
+                      - "5: Frequency, Masking, and the Noise/Sharpening Balance": atelier/photography/Photoshop_Blackbelt/16D5_Frequency_Masking_and_Sharpening.md
+                      - "6: AI Upscaling and Hallucinated Detail": atelier/photography/Photoshop_Blackbelt/16D6_AI_Upscaling_and_Hallucinated_Detail.md
+                      - "7: Practical Workflows and the E-520 Project": atelier/photography/Photoshop_Blackbelt/16D7_Workflows_and_E520_Project.md
+                      - "8: Quality Control and the Black Belt Cheat Sheet": atelier/photography/Photoshop_Blackbelt/16D8_Quality_Control_and_Cheat_Sheet.md
                   - "17: Retouching Techniques": atelier/photography/Photoshop_Blackbelt/17_Retouching.md
               - "Part VII — Advanced Techniques":
                   - "18: Black and White Conversion": atelier/photography/Photoshop_Blackbelt/18_Black_and_White.md

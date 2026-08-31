@@ -1,0 +1,75 @@
+/* Red Hat logo size customization */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    height: 5rem;
+    width: auto;
+}
+
+/* Optional: Adjust logo position if needed */
+.md-header__button.md-logo {
+    padding: 0.2rem;
+}
+
+/* Navigation sidebar - bold and black main section titles */
+.md-nav__item--section > .md-nav__link,
+.md-nav__title {
+    font-weight: 900;
+    color: #000000 !important;
+}
+
+/* Dark mode support */
+[data-md-color-scheme="slate"] .md-nav__item--section > .md-nav__link,
+[data-md-color-scheme="slate"] .md-nav__title {
+    color: #ffffff !important;
+}
+
+/* Nested section headers also bold and dark */
+.md-nav--secondary .md-nav__title,
+.md-nav__item--nested > .md-nav__link {
+    font-weight: 900;
+    color: #000000 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav--secondary .md-nav__title,
+[data-md-color-scheme="slate"] .md-nav__item--nested > .md-nav__link {
+    color: #ffffff !important;
+}
+
+/* ASCII Art and Box Drawing Characters - Fixed Width Display */
+.md-typeset pre code,
+.md-typeset code {
+    font-family: 'Roboto Mono', 'Courier New', Consolas, Monaco, monospace !important;
+    font-variant-ligatures: none;
+    letter-spacing: 0;
+    white-space: pre;
+    word-break: keep-all;
+    overflow-x: auto;
+}
+
+/* Ensure proper character alignment for box-drawing characters */
+.md-typeset pre {
+    font-feature-settings: "kern" 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    tab-size: 4;
+    overflow-x: auto;
+}
+
+/* ASCII art specific - preserve formatting */
+.md-typeset pre code:has([class*="language-"]) {
+    white-space: pre !important;
+}
+
+/* Better horizontal scrolling for wide ASCII art */
+.md-typeset .highlight {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+/* Mobile optimization for ASCII art */
+@media screen and (max-width: 76.1875em) {
+    .md-typeset pre code {
+        font-size: 0.7rem;
+        line-height: 1.3;
+    }
+}

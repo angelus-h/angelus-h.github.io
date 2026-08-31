@@ -1,0 +1,219 @@
+/* SPRE-NOTES style - adapted for Angelus-H's Athenaeum */
+
+/* Remove ALL blue and green colors from links */
+a,
+a:link,
+a:visited {
+    color: #333333 !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: #000000 !important;
+    text-decoration: underline !important;
+}
+
+/* Content links (in article text) */
+.md-content a,
+.md-typeset a {
+    color: #333333 !important;
+}
+
+.md-content a:hover,
+.md-typeset a:hover {
+    color: #000000 !important;
+}
+
+/* Header links - WHITE on dark background */
+.md-header a {
+    color: #ffffff !important;
+}
+
+.md-header a:hover {
+    color: #e0e0e0 !important;
+    text-decoration: none !important;
+}
+
+/* Logo size and circular shape (GitHub avatar style) */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    /* Elegant silver decoration */
+    border: 4px solid rgba(192, 192, 192, 0.9);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4),
+                0 0 0 2px rgba(192, 192, 192, 0.4) inset,
+                0 0 16px rgba(192, 192, 192, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Hover effect - silver glow */
+.md-header__button.md-logo img:hover,
+.md-header__button.md-logo svg:hover {
+    border-color: rgba(220, 220, 220, 1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5),
+                0 0 30px rgba(192, 192, 192, 0.6),
+                0 0 0 2px rgba(220, 220, 220, 0.6) inset;
+    transform: scale(1.08);
+}
+
+/* Logo container padding */
+.md-header__button.md-logo {
+    padding: 0.2rem;
+}
+
+/* Site name (Angelus-H's Athenaeum) - larger font, NOT bold */
+.md-header__title {
+    font-size: 2.2rem !important;
+    font-weight: 300 !important;  /* Light weight - NOT bold */
+}
+
+.md-header__ellipsis {
+    font-size: 2.2rem !important;
+    font-weight: 300 !important;
+}
+
+.md-header__topic {
+    font-size: 2.2rem !important;
+    font-weight: 300 !important;
+}
+
+/* Horizontal navigation tabs - same size as sidebar navigation, WHITE on black background */
+.md-tabs__link {
+    font-size: 0.85rem !important;
+    color: #ffffff !important;
+}
+
+.md-tabs__link:hover {
+    color: #e0e0e0 !important;
+}
+
+.md-tabs__link--active {
+    color: #ffffff !important;
+    opacity: 1 !important;
+}
+
+/* Navigation sidebar styling */
+
+/* All clickable navigation links - GRAY and NORMAL weight, smaller, with indentation */
+.md-nav__link {
+    font-weight: normal !important;
+    color: #666666 !important;
+    font-size: 0.75rem !important;
+}
+
+/* Document links under categories - smaller and indented */
+.md-nav__item:not(.md-nav__item--section) .md-nav__link {
+    padding-left: 1.5rem !important;
+    font-size: 0.7rem !important;
+}
+
+/* Override default link color (remove blue) */
+.md-nav__link:link,
+.md-nav__link:visited {
+    color: #666666 !important;
+}
+
+/* Hover state - darker gray */
+.md-nav__link:hover {
+    color: #333333 !important;
+}
+
+/* Active/current page - black for visibility */
+.md-nav__link--active {
+    color: #000000 !important;
+    font-weight: 500 !important;
+}
+
+/* Main category titles (level 1-2: Technologies, Programming, AI & Automation, etc.) - Simple and clean */
+.md-nav__item--section > .md-nav__link {
+    font-weight: 900 !important;
+    color: #000000 !important;
+    font-size: 0.7rem !important;
+}
+
+/* Dark mode support for category titles */
+[data-md-color-scheme="slate"] .md-nav__item--section > .md-nav__link {
+    color: #ffffff !important;
+}
+
+/* Subcategory titles (level 3+) - hidden since we flattened the structure */
+[data-md-level="3"] > .md-nav__title,
+[data-md-level="4"] > .md-nav__title {
+    display: none !important;
+}
+
+/* Dark mode support - Navigation */
+[data-md-color-scheme="slate"] [data-md-level="1"] > .md-nav__title,
+[data-md-color-scheme="slate"] [data-md-level="2"] > .md-nav__title {
+    color: #ffffff !important;
+    border-bottom-color: #444444 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link {
+    color: #b0b0b0 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+    color: #e0e0e0 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+    color: #ffffff !important;
+}
+
+/* Dark mode support - Content area links (articles, practices, etc.) */
+[data-md-color-scheme="slate"] .md-content a,
+[data-md-color-scheme="slate"] .md-typeset a {
+    color: #BDBDBD !important;  /* Silver/light grey - professional, high contrast */
+}
+
+[data-md-color-scheme="slate"] .md-content a:hover,
+[data-md-color-scheme="slate"] .md-typeset a:hover {
+    color: #E0E0E0 !important;  /* Lighter silver on hover */
+    text-decoration: underline !important;
+}
+
+/* ASCII Art and Box Drawing Characters - Fixed Width Display */
+.md-typeset pre code,
+.md-typeset code {
+    font-family: 'Roboto Mono', 'Courier New', Consolas, Monaco, monospace !important;
+    font-variant-ligatures: none;
+    letter-spacing: 0;
+    white-space: pre;
+    word-break: keep-all;
+    overflow-x: auto;
+}
+
+/* Ensure proper character alignment for box-drawing characters */
+.md-typeset pre {
+    font-feature-settings: "kern" 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    tab-size: 4;
+    overflow-x: auto;
+}
+
+/* ASCII art specific - preserve formatting */
+.md-typeset pre code:has([class*="language-"]) {
+    white-space: pre !important;
+}
+
+/* Better horizontal scrolling for wide ASCII art */
+.md-typeset .highlight {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+/* Mobile optimization for ASCII art */
+@media screen and (max-width: 76.1875em) {
+    .md-typeset pre code {
+        font-size: 0.7rem;
+        line-height: 1.3;
+    }
+}
+
+/* Mermaid diagrams - Let Material for MkDocs handle dark mode natively */
+/* Material automatically adjusts Mermaid colors based on color scheme */

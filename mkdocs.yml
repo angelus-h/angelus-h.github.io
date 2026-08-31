@@ -229,6 +229,7 @@ nav:
           - Web Publishing:
               - SEO Optimization Guide: learning/technical-writing/SEO_Optimization_Guide.md
               - SEO Systems & Search Architecture: learning/technical-writing/SEO_Systems_and_Search_Architecture.md
+              - SEO Foundations & Specialist Path: learning/technical-writing/SEO_Foundations_and_Specialist_Path.md
       - Command-Line Tools:
           - Infrastructure Management:
               - IPMI Deep Reference: resources/command-line-tools/ipmi-deep-reference.md
